@@ -1,0 +1,49 @@
+{
+  "title": {
+    "main": "Monitor Like a",
+    "highlight": "Developer"
+  },
+  "subtitle": "The only website monitor with a built-in terminal, 5x faster monitoring than Pingdom, and webhook alerts that work out of the box.",
+  "cta": {
+    "primary": {
+      "text": "Start Monitoring",
+      "variant": "primary",
+      "size": "lg",
+      "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+    },
+    "secondary": {
+      "text": "See How It Works",
+      "variant": "outline",
+      "size": "lg",
+      "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
+    }
+  },
+  "terminal": {
+    "title": "exit1.dev terminal",
+    "commands": [
+      {
+        "command": "websites add \"My Blog\" https://myblog.com",
+        "response": "Website \"My Blog\" added successfully."
+      },
+      {
+        "command": "websites list",
+        "response": [
+          "Monitored Websites:",
+          "",
+          "abc123: My Blog (https://myblog.com) - UP",
+          "def456: Portfolio (https://portfolio.dev) - UP"
+        ]
+      },
+      {
+        "command": "websites check",
+        "response": [
+          "Checking all websites...",
+          "✓ My Blog (https://myblog.com) - 200ms",
+          "✓ Portfolio (https://portfolio.dev) - 150ms",
+          "All websites are healthy!"
+        ]
+      }
+    ]
+  },
+  "trustIndicator": "5x faster than Pingdom • Built-in terminal • Webhook integrations"
+} 

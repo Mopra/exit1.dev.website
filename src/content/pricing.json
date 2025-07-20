@@ -1,0 +1,39 @@
+{
+  "title": {
+    "main": "Simple",
+    "highlight": "Pricing"
+  },
+  "subtitle": "Free forever. Hopefully...",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "period": "/month",
+      "description": "This should cover the basics, forget expensive tools.",
+      "features": [
+        "Up to 10 websites",
+        "1-minute monitoring intervals",
+        "Interactive terminal console",
+        "Webhook integrations for notifications"
+      ],
+      "cta": "Start Free",
+      "popular": true
+    },
+    {
+      "name": "Pro",
+      "price": "$1",
+      "period": "/month",
+      "description": "For developers and small teams",
+      "features": [
+        "Up to 100+ websites",
+        "1-minute monitoring intervals",
+        "Interactive terminal console",
+        "Priority notifications",
+        "API access",
+        "Priority support"
+      ],
+      "cta": "Start Pro Trial",
+      "popular": false
+    }
+  ]
+} 

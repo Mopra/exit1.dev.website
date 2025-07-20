@@ -1,0 +1,208 @@
+{
+  "header": {
+    "title": "Privacy Policy",
+    "description": "Your privacy is important to us. This policy explains how we collect, use, and protect your information.",
+    "icon": "shield"
+  },
+  "sections": {
+    "introduction": {
+      "title": "Introduction",
+      "content": "exit1.dev (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our uptime monitoring service."
+    },
+    "informationCollection": {
+      "title": "Information We Collect",
+      "icon": "eye",
+      "subsections": {
+        "accountInfo": {
+          "title": "Account Information",
+          "description": "When you create an account, we collect:",
+          "items": [
+            "Email address (for email/password authentication)",
+            "Password (encrypted and securely stored)",
+            "Account creation date and time"
+          ]
+        },
+        "oauthInfo": {
+          "title": "Third-Party Authentication",
+          "description": "When you sign in using Google, GitHub, or Slack (OAuth), we do not store your passwords or personal data from these services. We only receive and store:",
+          "items": [
+            "Your email address (if provided by the service)",
+            "A unique identifier to link your account",
+            "Authentication tokens (temporarily, for session management)"
+          ]
+        },
+        "serviceData": {
+          "title": "Service Usage Data",
+          "description": "We collect minimal data necessary to provide our uptime monitoring service:",
+          "items": [
+            "URLs of websites you want to monitor",
+            "Uptime status and response times",
+            "Service configuration preferences",
+            "Logs of monitoring activities (for debugging and service improvement)"
+          ]
+        },
+        "technicalInfo": {
+          "title": "Technical Information",
+          "description": "We automatically collect certain technical information:",
+          "items": [
+            "IP address (for security and abuse prevention)",
+            "Browser type and version",
+            "Device information",
+            "Usage patterns and analytics (anonymized)"
+          ]
+        }
+      }
+    },
+    "dataUsage": {
+      "title": "How We Use Your Information",
+      "description": "We use the information we collect to:",
+      "items": [
+        "Provide and maintain our uptime monitoring service",
+        "Process your account registration and authentication",
+        "Send you important service notifications and updates",
+        "Respond to your support requests and inquiries",
+        "Improve our service and develop new features",
+        "Ensure security and prevent fraud",
+        "Comply with legal obligations"
+      ]
+    },
+    "dataSharing": {
+      "title": "Information Sharing and Disclosure",
+      "description": "We do not sell, trade, or otherwise transfer your personal information to third parties, except in the following circumstances:",
+      "items": [
+        {
+          "title": "Service Providers:",
+          "description": "We may share data with trusted third-party service providers who assist us in operating our service (e.g., Clerk for authentication, hosting providers)"
+        },
+        {
+          "title": "Legal Requirements:",
+          "description": "We may disclose information if required by law or to protect our rights and safety"
+        },
+        {
+          "title": "Business Transfers:",
+          "description": "In the event of a merger, acquisition, or sale of assets, your information may be transferred"
+        },
+        {
+          "title": "Consent:",
+          "description": "We may share information with your explicit consent"
+        }
+      ]
+    },
+    "dataSecurity": {
+      "title": "Data Security",
+      "icon": "lock",
+      "description": "We implement appropriate security measures to protect your information:",
+      "items": [
+        "All data is encrypted in transit using TLS/SSL",
+        "Passwords are hashed using industry-standard algorithms",
+        "We use Clerk for secure authentication and session management",
+        "Regular security audits and vulnerability assessments",
+        "Access controls and authentication requirements for all systems",
+        "Regular backups with encryption"
+      ]
+    },
+    "dataRetention": {
+      "title": "Data Retention",
+      "description": "We retain your information for as long as necessary to provide our services:",
+      "items": [
+        {
+          "title": "Account Data:",
+          "description": "Retained while your account is active and for a reasonable period after deletion"
+        },
+        {
+          "title": "Service Data:",
+          "description": "Retained for the duration of your service usage"
+        },
+        {
+          "title": "Logs:",
+          "description": "Retained for up to 12 months for security and debugging purposes"
+        },
+        {
+          "title": "Analytics:",
+          "description": "Anonymized data may be retained indefinitely for service improvement"
+        }
+      ]
+    },
+    "userRights": {
+      "title": "Your Rights and Choices",
+      "subsections": {
+        "accessControl": {
+          "title": "Access and Control",
+          "description": "You have the right to:",
+          "items": [
+            "Access your personal information",
+            "Update or correct your information",
+            "Delete your account and associated data",
+            "Export your data",
+            "Opt out of non-essential communications"
+          ]
+        },
+        "accountDeletion": {
+          "title": "Account Deletion",
+          "description": "You can delete your account at any time through your account settings. Upon deletion, we will:",
+          "items": [
+            "Remove your personal information from our active systems",
+            "Delete your monitoring configurations and data",
+            "Retain certain information as required by law or for legitimate business purposes"
+          ]
+        }
+      }
+    },
+    "cookies": {
+      "title": "Cookies and Tracking Technologies",
+      "description": "We use cookies and similar technologies to:",
+      "items": [
+        "Maintain your authentication session",
+        "Remember your preferences and settings",
+        "Analyze service usage and performance",
+        "Provide personalized content and features"
+      ],
+      "additionalInfo": "You can control cookie settings through your browser preferences. However, disabling certain cookies may affect service functionality."
+    },
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "description": "Our service integrates with the following third-party services:",
+      "items": [
+        {
+          "title": "Clerk:",
+          "description": "Handles authentication and user management"
+        },
+        {
+          "title": "Google, GitHub, Slack:",
+          "description": "OAuth providers for sign-in options"
+        },
+        {
+          "title": "Analytics Services:",
+          "description": "For service improvement and performance monitoring"
+        }
+      ],
+      "additionalInfo": "These services have their own privacy policies. We encourage you to review them."
+    },
+    "childrenPrivacy": {
+      "title": "Children's Privacy",
+      "content": "Our service is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately."
+    },
+    "internationalTransfers": {
+      "title": "International Data Transfers",
+      "content": "Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place to protect your information in accordance with this Privacy Policy."
+    },
+    "policyChanges": {
+      "title": "Changes to This Privacy Policy",
+      "content": "We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on this page and updating the \"Last updated\" date. Your continued use of our service after such changes constitutes acceptance of the updated policy."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "If you have any questions about this Privacy Policy or our data practices, please contact us:",
+      "contactInfo": {
+        "email": "privacy@exit1.dev",
+        "discord": {
+          "text": "Join our community",
+          "url": "https://discord.gg/uZvWbpwJZS"
+        }
+      }
+    }
+  },
+  "navigation": {
+    "backToHome": "← Back to Home"
+  }
+} 

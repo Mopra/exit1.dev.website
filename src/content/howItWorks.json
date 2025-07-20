@@ -1,0 +1,35 @@
+{
+  "title": {
+    "main": "How It",
+    "highlight": "Works"
+  },
+  "subtitle": "Get started in three simple steps. Built for developers who want speed and control.",
+  "steps": [
+    {
+      "number": "01",
+      "title": "Add Your Websites",
+      "description": "Use the terminal or web interface to add your website URLs. We'll start monitoring them with 1-minute intervals immediately."
+    },
+    {
+      "number": "02",
+      "title": "Monitor Like a Developer",
+      "description": "Our system checks your websites every minute with adaptive timeouts. Use terminal commands to manage and check status in real-time."
+    },
+    {
+      "number": "03",
+      "title": "Get Webhook Alerts",
+      "description": "Connect your Discord, Slack, Telegram, N8N, Notion, Monday, or other tools via webhooks. Receive instant notifications when your sites go down or come back up."
+    }
+  ],
+  "cta": {
+    "title": "Ready to Monitor Like a Developer?",
+    "subtitle": "Join developers who trust exit1.dev for faster monitoring with built-in terminal and webhook integrations.",
+    "buttons": [
+      {
+        "text": "Start Monitoring Free",
+        "variant": "primary",
+        "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+      }
+    ]
+  }
+} 

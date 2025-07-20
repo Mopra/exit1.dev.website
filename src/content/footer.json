@@ -1,0 +1,29 @@
+{
+  "brand": {
+    "logo": "exit1.dev",
+    "description": "Free uptime monitoring. Simple, reliable, and always free."
+  },
+  "navigation": {
+    "product": [
+      { "name": "Features", "href": "/#features" },
+      { "name": "How It Works", "href": "/#how-it-works" }
+    ],
+    "company": [
+      { "name": "Blog", "href": "/blog" }
+    ],
+    "support": [
+      { "name": "Help and community", "href": "https://discord.gg/uZvWbpwJZS" },
+      { "name": "Status", "href": "/status" }
+    ],
+    "legal": [
+      { "name": "Privacy", "href": "/privacy" }
+    ]
+  },
+  "social": [
+    {
+      "name": "GitHub",
+      "href": "https://github.com/Mopra/exit1.dev.git"
+    }
+  ],
+  "copyright": "&copy; 2024 exit1.dev. All rights reserved."
+} 
