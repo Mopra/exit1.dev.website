@@ -1,32 +1,6 @@
 {
   "title": "Our Blog",
   "subtitle": "Insights, tutorials, and updates from the exit1.dev team.",
-  "posts": [
-    {
-      "id": 1,
-      "title": "Getting Started with exit1.dev",
-      "excerpt": "Learn how to set up your first project with exit1.dev and start building faster than ever before.",
-      "date": "2024-01-15",
-      "readTime": "5 min read",
-      "category": "guides",
-      "slug": "getting-started-with-exit1-dev"
-    },
-    {
-      "id": 2,
-      "title": "Mastering TypeScript for Better Code Quality",
-      "excerpt": "Discover how TypeScript can improve your development workflow and help you write more maintainable code.",
-      "date": "2023-12-20",
-      "readTime": "9 min read",
-      "category": "guides",
-      "slug": "mastering-typescript-for-better-code-quality"
-    }
-  ],
-  "newsletter": {
-    "title": "Stay Updated",
-    "description": "Get the latest posts and updates delivered to your inbox.",
-    "placeholder": "Enter your email",
-    "buttonText": "Subscribe"
-  },
   "categories": [
     {
       "id": "guides",
