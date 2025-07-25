@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import React from 'react'; // Added missing import for React.memo
+import React from 'react';
 
 interface Command {
   command: string;
@@ -18,7 +18,8 @@ const AnimatedTerminal = ({ title }: AnimatedTerminalProps) => {
   const [cursorVisible, setCursorVisible] = useState(true);
   const [autoScroll, setAutoScroll] = useState(true);
   const terminalRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
+  const cursorIntervalRef = useRef<NodeJS.Timeout>();
+  const typingTimeoutRef = useRef<NodeJS.Timeout>();
 
   // Memoize the demo sequence to prevent recreating on every render
   const demoSequence: Command[] = useMemo(() => [
@@ -92,29 +93,20 @@ const AnimatedTerminal = ({ title }: AnimatedTerminalProps) => {
     }
   ], []);
 
-  // Optimized cursor effect using requestAnimationFrame
+  // Cursor blinking effect
   useEffect(() => {
-    let lastTime = 0;
-    const cursorInterval = 530;
+    cursorIntervalRef.current = setInterval(() => {
+      setCursorVisible(prev => !prev);
+    }, 530);
 
-    const animateCursor = (currentTime: number) => {
-      if (currentTime - lastTime >= cursorInterval) {
-        setCursorVisible(prev => !prev);
-        lastTime = currentTime;
-      }
-      animationFrameRef.current = requestAnimationFrame(animateCursor);
-    };
-
-    animationFrameRef.current = requestAnimationFrame(animateCursor);
-    
     return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
+      if (cursorIntervalRef.current) {
+        clearInterval(cursorIntervalRef.current);
       }
     };
   }, []);
 
-  // Optimized auto-scroll using useCallback
+  // Auto-scroll to bottom
   const scrollToBottom = useCallback(() => {
     if (terminalRef.current && autoScroll) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
@@ -125,7 +117,7 @@ const AnimatedTerminal = ({ title }: AnimatedTerminalProps) => {
     scrollToBottom();
   }, [displayedCommands, isTyping, typedCommand, scrollToBottom]);
 
-  // Optimized scroll handler
+  // Handle scroll events
   const handleScroll = useCallback(() => {
     const terminal = terminalRef.current;
     if (!terminal) return;
@@ -148,13 +140,16 @@ const AnimatedTerminal = ({ title }: AnimatedTerminalProps) => {
     return () => terminal.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // Optimized command cycling with reduced setTimeout usage
+  // Command typing animation
   useEffect(() => {
     if (currentStep >= demoSequence.length) {
-      setCurrentStep(0);
-      setDisplayedCommands([]);
-      setTypedCommand('');
-      setIsTyping(false);
+      // Reset animation after completion
+      setTimeout(() => {
+        setCurrentStep(0);
+        setDisplayedCommands([]);
+        setTypedCommand('');
+        setIsTyping(false);
+      }, 3000);
       return;
     }
 
@@ -163,41 +158,39 @@ const AnimatedTerminal = ({ title }: AnimatedTerminalProps) => {
     setTypedCommand('');
 
     let charIndex = 0;
-    let lastTime = 0;
-    let typingRaf: number;
-
-    const typeNextChar = (timestamp: number) => {
+    
+    const typeNextChar = () => {
       if (charIndex < currentCommand.command.length) {
-        const elapsed = timestamp - (lastTime || timestamp);
         const currentChar = currentCommand.command[charIndex];
+        setTypedCommand(prev => prev + currentChar);
+        charIndex++;
+        
+        // Vary typing speed based on character
         let delay = 80;
-
         if (currentChar === ' ') delay = 40;
         else if (currentChar === '"' || currentChar === "'") delay = 120;
         else if (currentChar === '/' || currentChar === '.') delay = 100;
         else if (currentChar === 'h' && currentCommand.command.includes('https://')) delay = 60;
 
-        if (elapsed >= delay) {
-          setTypedCommand(prev => prev + currentChar);
-          charIndex++;
-          lastTime = timestamp;
-        }
-
-        typingRaf = requestAnimationFrame(typeNextChar);
+        typingTimeoutRef.current = setTimeout(typeNextChar, delay);
       } else {
         setIsTyping(false);
         setDisplayedCommands(prev => [...prev, currentCommand]);
         
+        // Move to next command after a delay
         setTimeout(() => {
           setCurrentStep(prev => prev + 1);
         }, 2000);
       }
     };
 
-    typingRaf = requestAnimationFrame(typeNextChar);
+    // Start typing after a brief delay
+    typingTimeoutRef.current = setTimeout(typeNextChar, 500);
 
     return () => {
-      if (typingRaf) cancelAnimationFrame(typingRaf);
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+      }
     };
   }, [currentStep, demoSequence]);
 

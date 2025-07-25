@@ -13,42 +13,6 @@
     },
     {
       "id": 2,
-      "title": "Best Practices for Modern Web Development",
-      "excerpt": "Discover the latest best practices and tools that will help you build better web applications.",
-      "date": "2024-01-10",
-      "readTime": "8 min read",
-      "category": "best-practices",
-      "slug": "best-practices-for-modern-web-development"
-    },
-    {
-      "id": 3,
-      "title": "Performance Optimization Techniques",
-      "excerpt": "Explore advanced techniques for optimizing your web applications for speed and user experience.",
-      "date": "2024-01-05",
-      "readTime": "12 min read",
-      "category": "performance",
-      "slug": "performance-optimization-techniques"
-    },
-    {
-      "id": 4,
-      "title": "Building Scalable React Applications",
-      "excerpt": "Learn the architecture patterns and best practices for building React applications that scale with your business.",
-      "date": "2024-01-01",
-      "readTime": "10 min read",
-      "category": "architecture",
-      "slug": "building-scalable-react-applications"
-    },
-    {
-      "id": 5,
-      "title": "The Future of Web Development",
-      "excerpt": "Explore emerging trends and technologies that are shaping the future of web development and how to prepare for them.",
-      "date": "2023-12-28",
-      "readTime": "7 min read",
-      "category": "trends",
-      "slug": "the-future-of-web-development"
-    },
-    {
-      "id": 6,
       "title": "Mastering TypeScript for Better Code Quality",
       "excerpt": "Discover how TypeScript can improve your development workflow and help you write more maintainable code.",
       "date": "2023-12-20",
@@ -71,30 +35,6 @@
       "slug": "guides"
     },
     {
-      "id": "best-practices",
-      "name": "Best Practices",
-      "description": "Industry standards and proven development practices",
-      "slug": "best-practices"
-    },
-    {
-      "id": "performance",
-      "name": "Performance",
-      "description": "Optimization techniques and performance insights",
-      "slug": "performance"
-    },
-    {
-      "id": "architecture",
-      "name": "Architecture",
-      "description": "System design and architectural patterns",
-      "slug": "architecture"
-    },
-    {
-      "id": "trends",
-      "name": "Trends",
-      "description": "Emerging technologies and industry trends",
-      "slug": "trends"
-    },
-    {
       "id": "monitoring",
       "name": "Website Monitoring",
       "description": "Uptime monitoring, alerts, and site reliability",
@@ -105,12 +45,6 @@
       "name": "AI & Automation",
       "description": "AI integration, automation, and intelligent workflows",
       "slug": "ai"
-    },
-    {
-      "id": "tutorials",
-      "name": "Tutorials",
-      "description": "In-depth technical tutorials and walkthroughs",
-      "slug": "tutorials"
     }
   ]
 } 
