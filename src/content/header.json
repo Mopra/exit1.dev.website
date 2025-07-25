@@ -10,11 +10,13 @@
   "cta": {
     "signIn": {
       "text": "Sign In",
+      "href": "https://app.exit1.dev",
       "variant": "outline",
       "size": "sm"
     },
     "startFree": {
       "text": "Start Free",
+      "href": "https://app.exit1.dev",
       "variant": "primary",
       "size": "sm"
     }

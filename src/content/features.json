@@ -1,33 +1,33 @@
 {
   "title": {
-    "main": "Why Choose",
+    "main": "Why",
     "highlight": "exit1.dev"
   },
-  "subtitle": "Built for developers who demand speed, control, and seamless integrations.",
+  "subtitle": "Because your time is worth more than clicking through endless menus.",
   "features": [
     {
-      "title": "Interactive Terminal Console",
-      "description": "Monitor like a developer with our built-in command-line interface. Real-time website management with commands like websites add, websites list, websites check. Command history and auto-completion for power users."
+      "title": "Terminal Interface",
+      "description": "Add, check, and manage websites with simple commands. No more clicking through menus."
     },
     {
-      "title": "1-Minute Monitoring Intervals",
-      "description": "5x faster than Pingdom with 1-minute check intervals vs their 5-minute minimum. Adaptive timeout system that adjusts based on website performance. Smart change detection - only alerts when status actually changes."
+      "title": "1-Minute Checks",
+      "description": "Check your sites every minute, not every 5 or 10 minutes like the other guys."
     },
     {
-      "title": "Webhook Integrations",
-      "description": "Get alerts where your team already is. Integrate with Discord, Slack, Telegram, Notion, Monday, N8N, and more. Real-time alerts sent directly to your existing workflows. No need to set up separate notification systems."
+      "title": "Webhook Alerts",
+      "description": "Get notified in Discord, Slack, or wherever your team already hangs out."
     },
     {
-      "title": "Monitor Multiple Sites",
-      "description": "Track up to 10 websites for free. Perfect for personal projects, portfolios, and small businesses."
+      "title": "10 Sites Free",
+      "description": "Monitor up to 10 websites. Forever. No credit card required."
     },
     {
-      "title": "Simple Setup",
-      "description": "No complex configuration needed. Just add your website URLs and start monitoring immediately."
+      "title": "Zero Setup",
+      "description": "Add a URL and you're done. No complex configuration needed."
     },
     {
-      "title": "Developer-First Design",
-      "description": "I'm trying to build this for developers, so the Terminal interface, API access (coming soon), and webhook integrations make it perfect for automation and existing workflows."
+      "title": "Built for Speed",
+      "description": "Fast checks, fast alerts, fast terminal. Everything else is just noise."
     }
   ]
 } 

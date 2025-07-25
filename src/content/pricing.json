@@ -3,13 +3,13 @@
     "main": "Simple",
     "highlight": "Pricing"
   },
-  "subtitle": "Free forever. Hopefully...",
+  "subtitle": "Free forever. No catch.",
   "plans": [
     {
       "name": "Free",
       "price": "$0",
       "period": "/month",
-      "description": "This should cover the basics, forget expensive tools.",
+      "description": "Everything you need to monitor your sites.",
       "features": [
         "Up to 10 websites",
         "1-minute monitoring intervals",
@@ -17,10 +17,11 @@
         "Webhook integrations for notifications"
       ],
       "cta": "Start Free",
+      "href": "https://app.exit1.dev",
       "popular": true
     },
     {
-      "name": "Pro",
+      "name": "Sudo",
       "price": "$1",
       "period": "/month",
       "description": "For developers and small teams",
@@ -32,7 +33,8 @@
         "API access",
         "Priority support"
       ],
-      "cta": "Start Pro Trial",
+      "cta": "Start Sudo Trial",
+      "href": "https://app.exit1.dev",
       "popular": false
     }
   ]

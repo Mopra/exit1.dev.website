@@ -8,8 +8,33 @@ const Footer = () => {
     return href.startsWith('/') || href.startsWith('#');
   };
 
+  const handleNavigationClick = (href: string, e: React.MouseEvent) => {
+    // Handle smooth scrolling for anchor links
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
   const renderLink = (item: { name: string; href: string }) => {
-    if (isInternalLink(item.href)) {
+    if (item.href.startsWith('#')) {
+      // Anchor link for smooth scrolling
+      return (
+        <button
+          onClick={(e) => handleNavigationClick(item.href, e)}
+          className="text-base text-gray-600 hover:text-gray-900 transition-colors duration-200 font-light cursor-pointer text-left"
+        >
+          {item.name}
+        </button>
+      );
+    } else if (item.href.startsWith('/')) {
+      // Internal React Router link
       return (
         <Link
           to={item.href}
@@ -18,17 +43,19 @@ const Footer = () => {
           {item.name}
         </Link>
       );
+    } else {
+      // External link
+      return (
+        <a
+          href={item.href}
+          className="text-base text-gray-600 hover:text-gray-900 transition-colors duration-200 font-light cursor-pointer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {item.name}
+        </a>
+      );
     }
-    return (
-      <a
-        href={item.href}
-        className="text-base text-gray-600 hover:text-gray-900 transition-colors duration-200 font-light cursor-pointer"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {item.name}
-      </a>
-    );
   };
 
   return (

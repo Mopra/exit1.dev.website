@@ -81,12 +81,14 @@ const Header = () => {
             <Button 
               variant={content.cta.signIn.variant as any} 
               size={content.cta.signIn.size as any}
+              href={content.cta.signIn.href}
             >
               {content.cta.signIn.text}
             </Button>
             <Button 
               variant={content.cta.startFree.variant as any} 
               size={content.cta.startFree.size as any}
+              href={content.cta.startFree.href}
             >
               {content.cta.startFree.text}
             </Button>
@@ -97,6 +99,7 @@ const Header = () => {
             <Button 
               variant={content.cta.startFree.variant as any} 
               size={content.cta.startFree.size as any}
+              href={content.cta.startFree.href}
             >
               {content.cta.startFree.text}
             </Button>
@@ -140,6 +143,7 @@ const Header = () => {
                   variant={content.cta.signIn.variant as any} 
                   size={content.cta.signIn.size as any} 
                   className="w-full"
+                  href={content.cta.signIn.href}
                 >
                   {content.cta.signIn.text}
                 </Button>
@@ -147,6 +151,7 @@ const Header = () => {
                   variant={content.cta.startFree.variant as any} 
                   size={content.cta.startFree.size as any} 
                   className="w-full"
+                  href={content.cta.startFree.href}
                 >
                   {content.cta.startFree.text}
                 </Button>

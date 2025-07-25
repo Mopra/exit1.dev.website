@@ -1,18 +1,20 @@
 {
   "title": {
-    "main": "Monitor Like a",
-    "highlight": "Developer"
+    "main": "Website Monitoring",
+    "highlight": "That Actually Works"
   },
-  "subtitle": "The only website monitor with a built-in terminal, 5x faster monitoring than Pingdom, and webhook alerts that work out of the box.",
+  "subtitle": "Free website monitoring. Just because...",
   "cta": {
     "primary": {
-      "text": "Start Monitoring",
+      "text": "Start Free",
+      "href": "https://app.exit1.dev",
       "variant": "primary",
       "size": "lg",
       "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
     },
     "secondary": {
       "text": "See How It Works",
+      "href": "#features",
       "variant": "outline",
       "size": "lg",
       "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
@@ -45,5 +47,5 @@
       }
     ]
   },
-  "trustIndicator": "5x faster than Pingdom • Built-in terminal • Webhook integrations"
+  "trustIndicator": "Free forever • 1-minute checks • Terminal interface • Webhook alerts"
 } 

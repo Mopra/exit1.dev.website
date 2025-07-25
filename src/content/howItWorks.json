@@ -3,30 +3,31 @@
     "main": "How It",
     "highlight": "Works"
   },
-  "subtitle": "Get started in three simple steps. Built for developers who want speed and control.",
+  "subtitle": "Three steps. That's it.",
   "steps": [
     {
       "number": "01",
       "title": "Add Your Websites",
-      "description": "Use the terminal or web interface to add your website URLs. We'll start monitoring them with 1-minute intervals immediately."
+      "description": "Drop your URLs in the terminal. We'll start checking them every minute."
     },
     {
       "number": "02",
-      "title": "Monitor Like a Developer",
-      "description": "Our system checks your websites every minute with adaptive timeouts. Use terminal commands to manage and check status in real-time."
+      "title": "Watch the Magic",
+      "description": "Our system checks your sites every minute. Use terminal commands to see what's up."
     },
     {
       "number": "03",
-      "title": "Get Webhook Alerts",
-      "description": "Connect your Discord, Slack, Telegram, N8N, Notion, Monday, or other tools via webhooks. Receive instant notifications when your sites go down or come back up."
+      "title": "Get Notified",
+      "description": "Connect Discord, Slack, or whatever you use. Get alerts when things break or come back."
     }
   ],
   "cta": {
-    "title": "Ready to Monitor Like a Developer?",
-    "subtitle": "Join developers who trust exit1.dev for faster monitoring with built-in terminal and webhook integrations.",
+    "title": "Ready to stop guessing?",
+    "subtitle": "Join the developers who actually know when their sites are down.",
     "buttons": [
       {
-        "text": "Start Monitoring Free",
+        "text": "Start Free",
+        "href": "https://app.exit1.dev",
         "variant": "primary",
         "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
       }

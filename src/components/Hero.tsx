@@ -31,6 +31,7 @@ const Hero = () => {
               variant={content.cta.primary.variant as any} 
               size={content.cta.primary.size as any} 
               className={content.cta.primary.className}
+              href={content.cta.primary.href}
             >
               {content.cta.primary.text}
             </Button>
@@ -38,6 +39,7 @@ const Hero = () => {
               variant={content.cta.secondary.variant as any} 
               size={content.cta.secondary.size as any} 
               className={content.cta.secondary.className}
+              href={content.cta.secondary.href}
             >
               {content.cta.secondary.text}
             </Button>

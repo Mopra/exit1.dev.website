@@ -1,3 +1,4 @@
+import Button from './Button';
 import { getHowItWorksContent } from '../utils/contentLoader';
 
 const HowItWorks = () => {
@@ -52,9 +53,14 @@ const HowItWorks = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               {content.cta.buttons.map((button, index) => (
-                <button key={index} className={`${button.className} cursor-pointer`}>
+                <Button 
+                  key={index} 
+                  variant={button.variant as any}
+                  href={button.href}
+                  className={button.className}
+                >
                   {button.text}
-                </button>
+                </Button>
               ))}
             </div>
           </div>

@@ -26,7 +26,7 @@ const Pricing = () => {
               className={`relative bg-white border rounded-2xl p-8 transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-center min-h-[500px] ${
                 plan.popular
                   ? 'border-gray-900 shadow-2xl shadow-gray-900/10'
-                  : 'border-gray-200 shadow-lg hover:shadow-xl opacity-20'
+                  : 'border-gray-200 shadow-lg hover:shadow-xl opacity-30'
               }`}
             >
               {plan.popular && (
@@ -37,9 +37,9 @@ const Pricing = () => {
                 </div>
               )}
 
-              {/* Coming Soon Overlay for Pro Plan */}
+              {/* Coming Soon Overlay for Sudo Plan */}
               {!plan.popular && (
-                <div className="absolute p-10 inset-0 backdrop-blur-xs rounded-2xl flex items-center justify-center z-10">
+                <div className="absolute p-10 inset-0 backdrop-blur-sm rounded-2xl flex items-center justify-center z-10">
                   <div className="text-center">
                     <div className="text-2xl font-semibold text-black mb-2 py-2">Sudo version coming at some point...</div>
                     <div className="text-sm text-black">I'm working on it</div>
@@ -70,6 +70,7 @@ const Pricing = () => {
                 size="lg"
                 className="w-full"
                 disabled={!plan.popular}
+                href={plan.href}
               >
                 {plan.cta}
               </Button>
