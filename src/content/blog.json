@@ -8,7 +8,7 @@
       "excerpt": "Learn how to set up your first project with exit1.dev and start building faster than ever before.",
       "date": "2024-01-15",
       "readTime": "5 min read",
-      "category": "Tutorial",
+      "category": "guides",
       "slug": "getting-started-with-exit1-dev"
     },
     {
@@ -17,7 +17,7 @@
       "excerpt": "Discover the latest best practices and tools that will help you build better web applications.",
       "date": "2024-01-10",
       "readTime": "8 min read",
-      "category": "Best Practices",
+      "category": "best-practices",
       "slug": "best-practices-for-modern-web-development"
     },
     {
@@ -26,7 +26,7 @@
       "excerpt": "Explore advanced techniques for optimizing your web applications for speed and user experience.",
       "date": "2024-01-05",
       "readTime": "12 min read",
-      "category": "Performance",
+      "category": "performance",
       "slug": "performance-optimization-techniques"
     },
     {
@@ -35,7 +35,7 @@
       "excerpt": "Learn the architecture patterns and best practices for building React applications that scale with your business.",
       "date": "2024-01-01",
       "readTime": "10 min read",
-      "category": "Architecture",
+      "category": "architecture",
       "slug": "building-scalable-react-applications"
     },
     {
@@ -44,7 +44,7 @@
       "excerpt": "Explore emerging trends and technologies that are shaping the future of web development and how to prepare for them.",
       "date": "2023-12-28",
       "readTime": "7 min read",
-      "category": "Trends",
+      "category": "trends",
       "slug": "the-future-of-web-development"
     },
     {
@@ -53,7 +53,7 @@
       "excerpt": "Discover how TypeScript can improve your development workflow and help you write more maintainable code.",
       "date": "2023-12-20",
       "readTime": "9 min read",
-      "category": "Tutorial",
+      "category": "guides",
       "slug": "mastering-typescript-for-better-code-quality"
     }
   ],
@@ -64,10 +64,53 @@
     "buttonText": "Subscribe"
   },
   "categories": [
-    "Tutorial",
-    "Best Practices", 
-    "Performance",
-    "Architecture",
-    "Trends"
+    {
+      "id": "guides",
+      "name": "Guides",
+      "description": "Step-by-step tutorials and how-to guides",
+      "slug": "guides"
+    },
+    {
+      "id": "best-practices",
+      "name": "Best Practices",
+      "description": "Industry standards and proven development practices",
+      "slug": "best-practices"
+    },
+    {
+      "id": "performance",
+      "name": "Performance",
+      "description": "Optimization techniques and performance insights",
+      "slug": "performance"
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "description": "System design and architectural patterns",
+      "slug": "architecture"
+    },
+    {
+      "id": "trends",
+      "name": "Trends",
+      "description": "Emerging technologies and industry trends",
+      "slug": "trends"
+    },
+    {
+      "id": "monitoring",
+      "name": "Website Monitoring",
+      "description": "Uptime monitoring, alerts, and site reliability",
+      "slug": "monitoring"
+    },
+    {
+      "id": "ai",
+      "name": "AI & Automation",
+      "description": "AI integration, automation, and intelligent workflows",
+      "slug": "ai"
+    },
+    {
+      "id": "tutorials",
+      "name": "Tutorials",
+      "description": "In-depth technical tutorials and walkthroughs",
+      "slug": "tutorials"
+    }
   ]
 } 

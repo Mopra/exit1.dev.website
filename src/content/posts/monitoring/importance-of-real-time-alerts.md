@@ -1,10 +1,10 @@
 ---
 title: "The Importance of Real-Time Alerts in Website Monitoring"
-date: "2025-25-07"
-author: "Admin"
+author: "Morten Pradsgaard"
+category: "monitoring"
+excerpt: "Discover how real-time alerts can help you respond quickly to issues and minimize downtime for your website."
+readTime: "4 min read"
 ---
-
-category: "Real-Time Alerts"
 
 # The Importance of Real-Time Alerts in Website Monitoring
 

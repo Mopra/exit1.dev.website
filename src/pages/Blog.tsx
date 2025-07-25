@@ -1,18 +1,25 @@
 import { Link } from 'react-router-dom';
-import { getAllPosts, getCategories } from '../utils/markdownLoader';
-import { formatDate } from '../utils/formatDate';
+import { getAllPosts } from '../utils/markdownLoader';
 import { useState, useMemo } from 'react';
+import blogData from '../content/blog.json';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const posts = getAllPosts();
-  const categories = ['All', ...getCategories()];
+  const categories = ['All', ...blogData.categories.map(cat => cat.name)];
 
   const filteredPosts = useMemo(() => {
     if (selectedCategory === 'All') {
       return posts;
     }
-    return posts.filter(post => post.category === selectedCategory);
+    
+    // Find the category ID that matches the selected category name
+    const selectedCategoryData = blogData.categories.find(cat => cat.name === selectedCategory);
+    if (!selectedCategoryData) {
+      return posts;
+    }
+    
+    return posts.filter(post => post.category === selectedCategoryData.id);
   }, [posts, selectedCategory]);
 
   return (
@@ -71,7 +78,7 @@ const Blog = () => {
                 >
                   <div className="mb-4">
                     <span className="inline-block bg-gray-100 text-gray-700 text-sm font-medium px-3 py-1 rounded-full">
-                      {post.category}
+                      {blogData.categories.find(cat => cat.id === post.category)?.name || post.category}
                     </span>
                   </div>
                   
@@ -83,24 +90,11 @@ const Blog = () => {
                     {post.excerpt}
                   </p>
                   
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                    <span>{formatDate(post.date)}</span>
+                  <div className="flex items-center justify-end text-sm text-gray-500 mb-4">
                     <span>{post.readTime}</span>
                   </div>
 
-                  {/* Tags */}
-                  {post.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {post.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-block bg-blue-50 text-blue-700 text-xs font-medium px-2 py-1 rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+
                   
                   <div className="mt-6">
                     <Link

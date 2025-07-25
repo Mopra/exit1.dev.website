@@ -1,4 +1,14 @@
+import { useState } from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+
 const VideoDemo = () => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const { elementRef, isIntersecting } = useIntersectionObserver();
+
+  const handleVideoLoad = () => {
+    setIsVideoLoaded(true);
+  };
+
   return (
     <section className="bg-white py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +25,7 @@ const VideoDemo = () => {
         </div>
 
         {/* Video Demo Section */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto" ref={elementRef}>
           <div className="relative bg-black border border-gray-700 rounded-lg p-0 font-mono text-sm shadow-2xl overflow-hidden">
             {/* Video Header - matching terminal style */}
             <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-3 bg-black/20 backdrop-blur-xl border-b border-gray-700/30 shadow-lg">
@@ -23,20 +33,31 @@ const VideoDemo = () => {
               <div className="text-gray-500 text-xs">live preview</div>
             </div>
             
-            {/* Video Container */}
-            <div className="relative bg-black">
-              <video 
-                width="100%" 
-                autoPlay 
-                muted 
-                loop 
-                playsInline 
-                controls
-                className="w-full h-auto"
-              >
-                <source src="https://i.gyazo.com/edf62e3741cdb318aafce436abbf4f7f.mp4" type="video/mp4"/>
-                Your browser does not support the video tag.
-              </video>
+            {/* Video Container with loading state */}
+            <div className="relative bg-black aspect-video">
+              {!isVideoLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                  <div className="text-gray-400 text-sm">Loading demo...</div>
+                </div>
+              )}
+              
+              {isIntersecting && (
+                <video 
+                  width="100%" 
+                  height="100%"
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline 
+                  controls
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                  onLoadedData={handleVideoLoad}
+                >
+                  <source src="https://i.gyazo.com/edf62e3741cdb318aafce436abbf4f7f.mp4" type="video/mp4"/>
+                  Your browser does not support the video tag.
+                </video>
+              )}
             </div>
           </div>
         </div>

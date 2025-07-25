@@ -1,7 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getPostBySlug, type BlogPost } from '../utils/markdownLoader';
-import { formatDate } from '../utils/formatDate';
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -99,27 +98,20 @@ const BlogPostPage = () => {
 
           <div className="flex items-center justify-between text-sm text-gray-500 mb-8">
             <div className="flex items-center space-x-4">
-              <span>By {post.author}</span>
-              <span>•</span>
-              <span>{formatDate(post.date)}</span>
+              <span>By <a 
+                href="https://www.linkedin.com/in/mopradk/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 transition-colors duration-200 underline"
+              >
+                {post.author}
+              </a></span>
               <span>•</span>
               <span>{post.readTime}</span>
             </div>
           </div>
 
-          {/* Tags */}
-          {post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-8">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-block bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
+
         </div>
       </section>
 

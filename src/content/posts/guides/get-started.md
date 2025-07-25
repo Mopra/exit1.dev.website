@@ -1,10 +1,10 @@
 ---
 title: "Get Started with Website Monitoring"
-date: "2025-25-07"
-author: "Admin"
+author: "Morten Pradsgaard"
+category: "guides"
+excerpt: "A step-by-step guide to setting up website monitoring for your first project and ensuring optimal performance."
+readTime: "7 min read"
 ---
-
-category: "Getting Started"
 
 # Get Started with Website Monitoring
 

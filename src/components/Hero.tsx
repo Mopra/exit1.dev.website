@@ -6,14 +6,24 @@ const Hero = () => {
   const content = getHeroContent();
 
   return (
-    <section id="hero" className="relative bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden">
+    <section 
+      id="hero" 
+      className="relative bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden"
+      aria-labelledby="hero-heading"
+    >
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,0,0,0.02)_0%,transparent_50%)]"></div>
+      <div 
+        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,0,0,0.02)_0%,transparent_50%)]"
+        aria-hidden="true"
+      ></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="text-center">
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-light text-gray-900 mb-8 leading-tight">
+          <h1 
+            id="hero-heading"
+            className="text-5xl md:text-7xl font-light text-gray-900 mb-8 leading-tight"
+          >
             {content.title.main}
             {content.title.highlight && (
               <span className="font-semibold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
@@ -23,24 +33,29 @@ const Hero = () => {
           </h1>
           
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-6 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-700 mb-6 max-w-3xl mx-auto font-light leading-relaxed">
             {content.subtitle}
           </p>
           
           {/* Description */}
           {content.description && (
-            <p className="text-lg text-gray-500 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
+            <p className="text-lg text-gray-600 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
               {content.description}
             </p>
           )}
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+          <div 
+            className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+            role="group"
+            aria-label="Call to action buttons"
+          >
             <Button 
               variant={content.cta.primary.variant as any} 
               size={content.cta.primary.size as any} 
               className={content.cta.primary.className}
               href={content.cta.primary.href}
+              aria-describedby="hero-heading"
             >
               {content.cta.primary.text}
             </Button>
@@ -60,7 +75,7 @@ const Hero = () => {
           </div>
           
           {/* Trust Indicators */}
-          <div className="mt-16 text-gray-500">
+          <div className="mt-16 text-gray-600">
             <p className="text-sm font-medium">
               {content.trustIndicator}
             </p>

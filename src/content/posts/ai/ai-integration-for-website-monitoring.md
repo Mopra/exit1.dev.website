@@ -1,10 +1,10 @@
 ---
 title: "Integrating AI Agents for Enhanced Website Monitoring"
-date: "2025-25-07"
-author: "Admin"
+author: "Morten Pradsgaard"
+category: "ai"
+excerpt: "Learn how to integrate AI agents with your website monitoring service to automate processes and receive instant feedback."
+readTime: "6 min read"
 ---
-
-category: "AI Integration"
 
 # Integrating AI Agents for Enhanced Website Monitoring
 

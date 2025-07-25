@@ -42,8 +42,8 @@ date: "2024-01-15"
 readTime: "5 min read"
 category: "Tutorial"
 slug: "your-post-slug"
-author: "Your Name"
-tags: ["tag1", "tag2", "tag3"]
+author: "Morten Pradsgaard"
+
 ---
 ```
 
@@ -92,8 +92,7 @@ Wrap up your post here.
 | `readTime` | Yes | Estimated reading time (e.g., "5 min read") |
 | `category` | Yes | Post category (used for filtering) |
 | `slug` | Yes | URL slug for the post |
-| `author` | No | Author name (defaults to "exit1.dev Team") |
-| `tags` | No | Array of tags for categorization |
+| `author` | No | Author name (defaults to "Morten Pradsgaard") |
 
 ## Supported Markdown Features
 
@@ -160,8 +159,7 @@ def example():
 ### Category Filtering
 The blog page includes category filtering. Posts are automatically grouped by category, and users can filter by clicking category buttons.
 
-### Tags
-Posts can have multiple tags that are displayed as small badges on the blog listing page.
+
 
 ### SEO-Friendly URLs
 Each post gets a dedicated URL based on its slug: `/blog/your-post-slug`
@@ -223,8 +221,8 @@ date: "2024-01-01"
 readTime: "10 min read"
 category: "Architecture"
 slug: "building-scalable-react-applications"
-author: "John Doe"
-tags: ["react", "architecture", "scalability", "best-practices"]
+author: "Morten Pradsgaard"
+
 ---
 
 # Building Scalable React Applications

@@ -1,10 +1,10 @@
 ---
 title: "Introduction to Website Monitoring"
-date: "2025-25-07"
-author: "Admin"
+author: "Morten Pradsgaard"
+category: "monitoring"
+excerpt: "Learn the fundamentals of website monitoring and why it's essential for maintaining a successful online presence."
+readTime: "5 min read"
 ---
-
-category: "Website Monitoring"
 
 # Introduction to Website Monitoring
 
