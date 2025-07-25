@@ -4,13 +4,29 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Resource hints for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://i.gyazo.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- Critical CSS inline -->
+    <style>body{background:#fafafa;color:#1a1a1a;font-family:IBM Plex Mono,monospace;margin:0}#root{min-height:100vh}.loading{align-items:center;display:flex;height:100vh;justify-content:center}</style>
+    
+    <!-- Preload critical fonts with font-display: swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"></noscript>
+    
     <title>exit1.dev - Monitor Your Websites Like a Developer</title>
     <meta name="description" content="Real-time uptime tracking with a terminal-inspired interface. Get instant alerts when your websites go down.">
     
-    <!-- Google tag (gtag.js) -->
+    <!-- Preload critical assets -->
+    <link rel="preload" href="data:application/octet-stream;base64,aW1wb3J0IHsgU3RyaWN0TW9kZSB9IGZyb20gJ3JlYWN0JzsNCmltcG9ydCB7IGNyZWF0ZVJvb3QgfSBmcm9tICdyZWFjdC1kb20vY2xpZW50JzsNCmltcG9ydCB7IEJyb3dzZXJSb3V0ZXIgfSBmcm9tICdyZWFjdC1yb3V0ZXItZG9tJzsNCmltcG9ydCAnLi9pbmRleC5jc3MnOw0KaW1wb3J0IEFwcCBmcm9tICcuL0FwcC50c3gnOw0KDQovLyBTaW1wbGUgYXBwIGluaXRpYWxpemF0aW9uDQpjb25zdCByb290RWxlbWVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyb290Jyk7DQoNCmlmICghcm9vdEVsZW1lbnQpIHsNCiAgY29uc29sZS5lcnJvcignUm9vdCBlbGVtZW50IG5vdCBmb3VuZCcpOw0KfSBlbHNlIHsNCiAgY29uc3Qgcm9vdCA9IGNyZWF0ZVJvb3Qocm9vdEVsZW1lbnQpOw0KICANCiAgcm9vdC5yZW5kZXIoDQogICAgPFN0cmljdE1vZGU+DQogICAgICA8QnJvd3NlclJvdXRlcj4NCiAgICAgICAgPEFwcCAvPg0KICAgICAgPC9Ccm93c2VyUm91dGVyPg0KICAgIDwvU3RyaWN0TW9kZT4NCiAgKTsNCn0NCg==" as="script" type="module">
+    
+    <!-- Google tag (gtag.js) - defer loading -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW8WXE2TZP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -28,10 +44,40 @@
         anonymize_ip: true
       });
     </script>
-    <script type="module" crossorigin src="/assets/index-CFEz7lze.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BhTN6U7D.css">
+    <script type="module" crossorigin src="/index.CxQ7fwsO.js"></script>
+    <link rel="modulepreload" crossorigin href="/vendor.C9RBa7uG.js">
+    <link rel="modulepreload" crossorigin href="/router.DMsW0STS.js">
+    <link rel="modulepreload" crossorigin href="/cookie.BXEMiIsG.js">
+    <link rel="stylesheet" crossorigin href="/index.DKkI66xZ.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading fallback for better perceived performance -->
+      <div class="loading">
+        <div style="color: #6b7280;">Loading...</div>
+      </div>
+    </div>
+    
+    <!-- SPA Redirect Script for GitHub Pages / Static Hosting -->
+    <script>
+      // https://github.com/rafgraph/spa-github-pages
+      // This script checks to see if a redirect is present in the query string,
+      // converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single-page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single-page app to route accordingly.
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
   </body>
 </html>
