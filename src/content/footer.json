@@ -16,7 +16,9 @@
       { "name": "Status", "href": "https://app.exit1.dev/status" }
     ],
     "legal": [
-      { "name": "Privacy", "href": "/privacy" }
+      { "name": "Privacy", "href": "/privacy" },
+      { "name": "Sitemap", "href": "/sitemap" },
+      { "name": "Cookie Settings", "href": "#cookie-settings" }
     ]
   },
   "social": [

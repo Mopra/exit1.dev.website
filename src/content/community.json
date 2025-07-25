@@ -1,0 +1,50 @@
+{
+  "title": "Be Part of the Launch Crew",
+  "subtitle": "Help Shape Exit1.dev",
+  "description": "We're not just launching another monitoring tool. We're building a community-first platform that you can help shape:",
+  "features": [
+    {
+      "title": "Give feedback",
+      "description": "We're listening closely.",
+      "icon": "fa-regular fa-comments"
+    },
+    {
+      "title": "Request features",
+      "description": "Your needs, your voice.",
+      "icon": "fa-regular fa-lightbulb"
+    },
+    {
+      "title": "Become a contributor",
+      "description": "It's open-source on GitHub.",
+      "icon": "fa-brands fa-github"
+    },
+    {
+      "title": "Join the Discord",
+      "description": "Let's build in public, together.",
+      "icon": "fa-brands fa-discord"
+    }
+  ],
+  "cta": {
+    "primary": {
+      "text": "Give Feedback",
+      "href": "https://github.com/Mopra/exit1.dev/issues",
+      "variant": "outline",
+      "size": "lg",
+      "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
+    },
+    "secondary": {
+      "text": "Star on GitHub",
+      "href": "https://github.com/Mopra/exit1.dev",
+      "variant": "outline",
+      "size": "lg",
+      "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
+    },
+    "discord": {
+      "text": "Join Discord",
+      "href": "https://discord.com/invite/uZvWbpwJZS",
+      "variant": "primary",
+      "size": "lg",
+      "className": "border-purple-300 text-purple-700 hover:bg-purple-50 hover:border-purple-400 font-medium transition-all duration-300"
+    }
+  }
+} 

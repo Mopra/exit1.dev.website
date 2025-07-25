@@ -9,11 +9,15 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "sitemap": "node scripts/sitemap-generator.js",
+    "build:sitemap": "npm run sitemap"
   },
   "dependencies": {
+    "@types/js-cookie": "^3.0.6",
     "buffer": "^6.0.3",
     "gray-matter": "^4.0.3",
+    "js-cookie": "^3.0.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.0",

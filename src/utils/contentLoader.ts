@@ -5,6 +5,7 @@ import headerContent from '../content/header.json';
 import footerContent from '../content/footer.json';
 import privacyContent from '../content/privacy.json';
 import pricingContent from '../content/pricing.json';
+import communityContent from '../content/community.json';
 
 export const getHeroContent = () => heroContent;
 export const getFeaturesContent = () => featuresContent;
@@ -13,6 +14,7 @@ export const getHeaderContent = () => headerContent;
 export const getFooterContent = () => footerContent;
 export const getPrivacyContent = () => privacyContent;
 export const getPricingContent = () => pricingContent;
+export const getCommunityContent = () => communityContent;
 
 // Type definitions for better TypeScript support
 export interface HeroContent {
@@ -21,15 +23,18 @@ export interface HeroContent {
     highlight: string;
   };
   subtitle: string;
+  description?: string;
   cta: {
     primary: {
       text: string;
+      href: string;
       variant: string;
       size: string;
       className: string;
     };
     secondary: {
       text: string;
+      href: string;
       variant: string;
       size: string;
       className: string;
@@ -248,5 +253,41 @@ export interface PricingContent {
   enterprise: {
     text: string;
     cta: string;
+  };
+}
+
+export interface CommunityFeature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface CommunityContent {
+  title: string;
+  subtitle: string;
+  description: string;
+  features: CommunityFeature[];
+  cta: {
+    primary: {
+      text: string;
+      href: string;
+      variant: string;
+      size: string;
+      className: string;
+    };
+    secondary: {
+      text: string;
+      href: string;
+      variant: string;
+      size: string;
+      className: string;
+    };
+    discord: {
+      text: string;
+      href: string;
+      variant: string;
+      size: string;
+      className: string;
+    };
   };
 } 

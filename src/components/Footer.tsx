@@ -1,13 +1,42 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { getFooterContent } from '../utils/contentLoader';
+import CookieSettings from './CookieSettings';
 
 const Footer = () => {
   const content = getFooterContent();
+  const [showCookieSettings, setShowCookieSettings] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Handle scroll to anchor after navigation
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        // Small delay to ensure page is fully loaded
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 100);
+      }
+    }
+  }, [location.hash]);
 
   const handleNavigationClick = (href: string, e: React.MouseEvent) => {
     // Handle smooth scrolling for anchor links
     if (href.startsWith('#')) {
       e.preventDefault();
+      
+      // If we're not on the home page, navigate to home first
+      if (location.pathname !== '/') {
+        navigate(`/${href}`);
+        return;
+      }
+      
+      // If we're on the home page, scroll to the section
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ 
@@ -19,7 +48,17 @@ const Footer = () => {
   };
 
   const renderLink = (item: { name: string; href: string }) => {
-    if (item.href.startsWith('#')) {
+    if (item.href === '#cookie-settings') {
+      // Cookie settings modal trigger
+      return (
+        <button
+          onClick={() => setShowCookieSettings(true)}
+          className="text-base text-gray-600 hover:text-gray-900 transition-colors duration-200 font-light cursor-pointer text-left"
+        >
+          {item.name}
+        </button>
+      );
+    } else if (item.href.startsWith('#')) {
       // Anchor link for smooth scrolling
       return (
         <button
@@ -140,6 +179,12 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      
+      {/* Cookie Settings Modal */}
+      <CookieSettings 
+        isOpen={showCookieSettings} 
+        onClose={() => setShowCookieSettings(false)} 
+      />
     </footer>
   );
 };

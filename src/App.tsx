@@ -5,10 +5,14 @@ import VideoDemo from './components/VideoDemo';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
 import Pricing from './components/Pricing';
+import Community from './components/Community';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent';
 import Privacy from './pages/Privacy';
 import Blog from './pages/Blog';
 import BlogPostPage from './pages/BlogPost';
+import Roadmap from './pages/Roadmap';
+import Sitemap from './pages/Sitemap';
 
 const Home = () => {
   return (
@@ -18,6 +22,7 @@ const Home = () => {
       <Features />
       <HowItWorks />
       <Pricing />
+      <Community />
     </main>
   );
 };
@@ -31,8 +36,11 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/roadmap" element={<Roadmap />} />
+        <Route path="/sitemap" element={<Sitemap />} />
       </Routes>
       <Footer />
+      <CookieConsent />
     </div>
   );
 };

@@ -14,16 +14,25 @@ const Hero = () => {
         <div className="text-center">
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-light text-gray-900 mb-8 leading-tight">
-            {content.title.main}{' '}
-            <span className="font-semibold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-              {content.title.highlight}
-            </span>
+            {content.title.main}
+            {content.title.highlight && (
+              <span className="font-semibold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+                {' '}{content.title.highlight}
+              </span>
+            )}
           </h1>
           
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 mb-6 max-w-3xl mx-auto font-light leading-relaxed">
             {content.subtitle}
           </p>
+          
+          {/* Description */}
+          {content.description && (
+            <p className="text-lg text-gray-500 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
+              {content.description}
+            </p>
+          )}
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">

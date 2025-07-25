@@ -1,20 +1,21 @@
 {
   "title": {
-    "main": "Website Monitoring",
-    "highlight": "That Actually Works"
+    "main": "A New Era of Free Uptime Monitoring",
+    "highlight": ""
   },
-  "subtitle": "Free website monitoring. Just because...",
+  "subtitle": "Blazing fast. Open source. Built for the indie dev and startup in mind.",
+  "description": "We're building something new from the ground up — and we need early explorers. Try it for free, break it, tell us what sucks, and help shape the future.",
   "cta": {
     "primary": {
-      "text": "Start Free",
+      "text": "Start Monitoring Free",
       "href": "https://app.exit1.dev",
       "variant": "primary",
       "size": "lg",
       "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
     },
     "secondary": {
-      "text": "See How It Works",
-      "href": "#features",
+      "text": "Join Early Access + Feedback Loop",
+      "href": "#community",
       "variant": "outline",
       "size": "lg",
       "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
