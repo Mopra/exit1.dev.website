@@ -16,6 +16,7 @@
   "dependencies": {
     "@types/js-cookie": "^3.0.6",
     "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
     "gray-matter": "^4.0.3",
     "js-cookie": "^3.0.5",
     "react": "^18.3.1",

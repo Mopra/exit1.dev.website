@@ -38,17 +38,7 @@ export default defineConfig({
   },
   build: {
     target: 'es2022',
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
-      },
-      mangle: {
-        safari10: true,
-      },
-    },
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -58,9 +48,9 @@ export default defineConfig({
           matter: ['gray-matter'],
           markdown: ['remark', 'remark-html', 'remark-gfm'],
         },
-        entryFileNames: '[name].[hash].js',
-        chunkFileNames: '[name].[hash].js',
-        assetFileNames: '[name].[hash].[ext]',
+        entryFileNames: '[name].[hash:8].js',
+        chunkFileNames: '[name].[hash:8].js',
+        assetFileNames: '[name].[hash:8].[ext]',
       },
     },
     chunkSizeWarningLimit: 1000,
