@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import { generateSitemapFiles } from './src/utils/sitemapServer';
 
 // Custom plugin to handle markdown files
 const markdownPlugin = () => {
@@ -22,7 +21,8 @@ const sitemapPlugin = () => {
   return {
     name: 'sitemap-generator',
     async closeBundle() {
-      await generateSitemapFiles();
+      const { execSync } = await import('child_process');
+      execSync('node scripts/build-sitemap.cjs', { stdio: 'inherit' });
     }
   };
 };
