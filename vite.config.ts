@@ -18,7 +18,7 @@ const markdownPlugin = () => {
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/exit1.dev.website/',
+  base: '/', //This needs to be set to "/"" instead of "/exit1.dev.website/", because the website is hosted on github pages.
   plugins: [react(), markdownPlugin()],
   define: {
     global: 'globalThis',
