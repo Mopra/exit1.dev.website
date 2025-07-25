@@ -19,7 +19,7 @@ const markdownPlugin = () => {
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/exit1.dev.website/' : '/',
+  base: '/',
   plugins: [react(), tailwindcss(), markdownPlugin()],
   define: {
     global: 'globalThis',
