@@ -4,7 +4,7 @@ A modern React application built with Vite, TypeScript, and Tailwind CSS, follow
 
 ## 🚀 Tech Stack
 
-- **Framework:** React 19+ with Vite
+- **Framework:** React 18+ with Vite  // Updated for deployment
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v3.4
 - **Icons:** FontAwesome Pro (to be added)

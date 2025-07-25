@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import tailwindcss from '@tailwindcss/vite';
 
 // Custom plugin to handle markdown files
 const markdownPlugin = () => {
@@ -20,7 +19,7 @@ const markdownPlugin = () => {
 // https://vite.dev/config/
 export default defineConfig({
   base: '/',
-  plugins: [react(), tailwindcss(), markdownPlugin()],
+  plugins: [react(), markdownPlugin()],
   define: {
     global: 'globalThis',
   },
