@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import VideoDemo from './components/VideoDemo';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
 import Pricing from './components/Pricing';
@@ -13,6 +14,7 @@ const Home = () => {
   return (
     <main className="relative">
       <Hero />
+      <VideoDemo />
       <Features />
       <HowItWorks />
       <Pricing />
