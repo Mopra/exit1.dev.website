@@ -4,10 +4,6 @@ import { getFooterContent } from '../utils/contentLoader';
 const Footer = () => {
   const content = getFooterContent();
 
-  const isInternalLink = (href: string) => {
-    return href.startsWith('/') || href.startsWith('#');
-  };
-
   const handleNavigationClick = (href: string, e: React.MouseEvent) => {
     // Handle smooth scrolling for anchor links
     if (href.startsWith('#')) {
