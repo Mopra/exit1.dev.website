@@ -2,6 +2,7 @@ https://exit1.dev/
 https://exit1.dev/blog
 https://exit1.dev/privacy
 https://exit1.dev/roadmap
+https://exit1.dev/sitemap
 https://exit1.dev/blog/getting-started-with-exit1-dev
 https://exit1.dev/blog/best-practices-for-modern-web-development
 https://exit1.dev/blog/performance-optimization-techniques
