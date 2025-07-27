@@ -29,13 +29,10 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 leading-tight">
-              Our{' '}
-              <span className="font-semibold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                Blog
-              </span>
+              {blogData.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-              Insights, tutorials, and updates from the exit1.dev team.
+              {blogData.subtitle}
             </p>
           </div>
         </div>
