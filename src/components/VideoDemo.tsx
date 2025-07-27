@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import Button from './Button';
 
 const VideoDemo = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -60,6 +61,21 @@ const VideoDemo = () => {
               )}
             </div>
           </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Ready to monitor your websites with 1-minute intervals for free?
+          </p>
+          <Button
+            variant="primary"
+            size="lg"
+            href="https://app.exit1.dev"
+            className="bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          >
+            Start Monitoring Free
+          </Button>
         </div>
       </div>
     </section>
