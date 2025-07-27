@@ -40,49 +40,42 @@ const Community = () => {
   };
 
   return (
-    <section id="community" className="relative bg-gradient-to-br from-white via-blue-50 to-indigo-100 py-32 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.1)_0%,transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.8)_0%,transparent_50%)]"></div>
-      <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-200/30 rounded-full blur-3xl"></div>
+    <section id="community" className="relative bg-white py-32 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,0,0,0.02)_0%,transparent_50%)]"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-white/80 backdrop-blur-sm rounded-3xl mb-8 border border-blue-200/50 shadow-xl">
-            <svg className="w-10 h-10 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-white border border-gray-200 rounded-2xl mb-8 shadow-sm">
+            <svg className="w-8 h-8 text-gray-700" viewBox="0 0 24 24" fill="currentColor">
               <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
             </svg>
           </div>
-          <h2 className="text-5xl md:text-6xl font-light text-gray-900 mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-semibold">
-              Launch Crew
+          <h2 className="text-4xl md:text-6xl font-light text-gray-900 mb-6 leading-tight">
+            Help Us{' '}
+            <span className="font-semibold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+              Build
             </span>
-            <br />
-            <span className="font-light">Wanted</span>
           </h2>
-          <p className="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8 font-light">
-            We're building something special, and we need visionaries like you to help shape the future of website monitoring.
+          <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8 font-light">
+            We're building in public. Your feedback helps shape Exit1.dev into the monitoring tool developers actually want to use.
           </p>
-          <div className="inline-flex items-center bg-blue-100/50 backdrop-blur-sm border border-blue-200/50 rounded-full px-8 py-4">
-            <div className="w-3 h-3 bg-blue-500 rounded-full mr-4 animate-pulse"></div>
-            <span className="text-blue-700 font-medium">Early bird perks • Direct access to founders • Shape the product</span>
+          <div className="inline-flex items-center bg-gray-100 border border-gray-200 rounded-full px-6 py-3">
+            <div className="w-2 h-2 bg-gray-600 rounded-full mr-3"></div>
+            <span className="text-gray-600 text-sm font-medium">Open source • Community-driven • Built for developers</span>
           </div>
         </div>
 
-        {/* Mission Cards */}
+        {/* Contribution Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 max-w-5xl mx-auto">
           {content.features.map((feature, index) => (
             <div
               key={index}
               className="relative group"
             >
-              <div className="relative bg-white/70 backdrop-blur-sm border border-blue-200/50 rounded-3xl p-8 transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:border-blue-300/50">
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-indigo-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+              <div className="relative bg-white border border-gray-200 rounded-2xl p-8 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-xl">
                 <div className="relative">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500">
+                  <div className="w-16 h-16 mx-auto mb-6 bg-gray-900 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                     <span className="text-white">
                       {getIcon(feature.icon)}
                     </span>
@@ -101,17 +94,17 @@ const Community = () => {
 
         {/* Call to Action */}
         <div className="text-center">
-          <div className="bg-white/50 backdrop-blur-sm border border-blue-200/50 rounded-3xl p-12 max-w-4xl mx-auto shadow-xl">
-            <h3 className="text-3xl font-semibold text-gray-900 mb-6">Ready to Shape the Future?</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-12 max-w-4xl mx-auto shadow-lg">
+            <h3 className="text-3xl font-semibold text-gray-900 mb-6">Ready to contribute?</h3>
             <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Join our mission to create the most developer-friendly monitoring platform. Your feedback shapes the product, and you get early access to all features.
+              Join our community. Share feedback. Request features. Help us build the monitoring platform developers deserve.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button
                 variant="primary"
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                className="bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 href={content.cta.primary.href}
               >
                 {content.cta.primary.text}
@@ -119,7 +112,7 @@ const Community = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold transition-all duration-300"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
                 href={content.cta.secondary.href}
               >
                 {content.cta.secondary.text}
@@ -127,7 +120,7 @@ const Community = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white font-semibold transition-all duration-300"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
                 href={content.cta.discord.href}
               >
                 {content.cta.discord.text}
@@ -135,7 +128,7 @@ const Community = () => {
             </div>
             
             <div className="mt-8 text-sm text-gray-500">
-              🚀 Early adopters get lifetime perks • 💬 Direct line to the founders • 🎯 Influence product roadmap
+              Open source • Free feedback • Direct access to maintainers
             </div>
           </div>
         </div>
