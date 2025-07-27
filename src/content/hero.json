@@ -4,7 +4,7 @@
     "highlight": ""
   },
   "subtitle": "Blazing fast. Open source. Built for the indie dev and startup in mind.",
-  "description": "We're building something new from the ground up — and we need early explorers. Try it for free, break it, tell us what sucks, and help shape the future.",
+  "description": "Monitor up to 50 websites with 1-minute intervals — completely free, forever. We're building something new from the ground up — and we need early explorers. Try it for free, break it, tell us what sucks, and help shape the future.",
   "cta": {
     "primary": {
       "text": "Start Monitoring Free",
@@ -14,8 +14,8 @@
       "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
     },
     "secondary": {
-      "text": "Join Early Access + Feedback Loop",
-      "href": "#community",
+      "text": "🎮 Join the Feedback Loop",
+      "href": "https://discord.com/invite/uZvWbpwJZS",
       "variant": "outline",
       "size": "lg",
       "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
@@ -48,5 +48,5 @@
       }
     ]
   },
-  "trustIndicator": "Free forever • 1-minute checks • Terminal interface • Webhook alerts"
+  "trustIndicator": "Free forever • Monitor 50 sites • 1-minute intervals • Terminal interface • Webhook alerts"
 } 

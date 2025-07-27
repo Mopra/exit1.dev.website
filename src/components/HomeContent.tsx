@@ -3,6 +3,7 @@ import VideoDemo from './VideoDemo';
 import Features from './Features';
 import HowItWorks from './HowItWorks';
 import Pricing from './Pricing';
+import CliDownload from './CliDownload';
 import Community from './Community';
 
 const HomeContent = () => {
@@ -12,6 +13,7 @@ const HomeContent = () => {
       <Features />
       <HowItWorks />
       <Pricing />
+      <CliDownload />
       <Community />
     </>
   );

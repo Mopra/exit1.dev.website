@@ -3,20 +3,22 @@
     "main": "Simple",
     "highlight": "Pricing"
   },
-  "subtitle": "Free forever. No catch.",
+  "subtitle": "Monitor up to 50 websites with 1-minute intervals — completely free, forever.",
   "plans": [
     {
       "name": "Free",
       "price": "$0",
       "period": "/month",
-      "description": "Everything you need to monitor your sites.",
+      "description": "Professional monitoring that costs nothing. Perfect for indie developers and startups.",
       "features": [
-        "Up to 50 websites",
-        "1-minute monitoring intervals",
+        "Monitor up to 50 websites",
+        "Lightning-fast 1-minute check intervals",
         "Interactive terminal console",
-        "Webhook integrations for notifications"
+        "Instant webhook integrations",
+        "No credit card required",
+        "Free forever guarantee"
       ],
-      "cta": "Start Free",
+      "cta": "Start Monitoring Free",
       "href": "https://app.exit1.dev",
       "popular": true
     },
@@ -24,13 +26,13 @@
       "name": "Sudo",
       "price": "$1",
       "period": "/month",
-      "description": "For developers and small teams",
+      "description": "For developers and small teams who need more",
       "features": [
-        "Up to 100+ websites",
-        "1-minute monitoring intervals",
+        "Monitor 100+ websites",
+        "Same 1-minute monitoring intervals",
         "Interactive terminal console",
-        "Priority notifications",
-        "API access",
+        "Priority webhook notifications",
+        "Full API access",
         "Priority support"
       ],
       "cta": "Start Sudo Trial",
