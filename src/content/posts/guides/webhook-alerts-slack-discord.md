@@ -254,4 +254,4 @@ Remember to test your webhook setup regularly and keep your team informed about 
 
 ---
 
-*Ready to set up instant webhook alerts? [Start monitoring with exit1.dev](https://exit1.dev) and get your first webhook configured in under 5 minutes.*
+*Ready to set up instant webhook alerts? [Start monitoring with exit1.dev](https://app.exit1.dev/sign-up) and get your first webhook configured in under 5 minutes.*

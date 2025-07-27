@@ -71,7 +71,7 @@ const VideoDemo = () => {
           <Button
             variant="primary"
             size="lg"
-            href="https://app.exit1.dev"
+            href="https://app.exit1.dev/sign-up"
             className="bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             Start Monitoring Free

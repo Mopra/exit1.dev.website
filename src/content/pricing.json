@@ -19,7 +19,7 @@
         "Free forever guarantee"
       ],
       "cta": "Start Monitoring Free",
-      "href": "https://app.exit1.dev",
+      "href": "https://app.exit1.dev/sign-up",
       "popular": true
     },
     {
@@ -36,7 +36,7 @@
         "Priority support"
       ],
       "cta": "Start Sudo Trial",
-      "href": "https://app.exit1.dev",
+      "href": "https://app.exit1.dev/sign-up",
       "popular": false
     }
   ]
