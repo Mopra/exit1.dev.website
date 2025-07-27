@@ -40,18 +40,18 @@ export default defineConfig({
     target: 'es2022',
     minify: 'esbuild',
     rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          cookie: ['js-cookie'],
-          matter: ['gray-matter'],
-          markdown: ['remark', 'remark-html', 'remark-gfm'],
+              output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom'],
+            router: ['react-router-dom'],
+            cookie: ['js-cookie'],
+            matter: ['gray-matter'],
+            markdown: ['remark', 'remark-html', 'remark-gfm'],
+          },
+          entryFileNames: '[name].[hash].js',
+          chunkFileNames: '[name].[hash].js',
+          assetFileNames: '[name].[hash].[ext]',
         },
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].js',
-        assetFileNames: '[name].[ext]',
-      },
     },
     chunkSizeWarningLimit: 1000,
     sourcemap: false,
