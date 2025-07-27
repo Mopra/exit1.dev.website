@@ -11,7 +11,7 @@
       "period": "/month",
       "description": "Everything you need to monitor your sites.",
       "features": [
-        "Up to 10 websites",
+        "Up to 50 websites",
         "1-minute monitoring intervals",
         "Interactive terminal console",
         "Webhook integrations for notifications"
