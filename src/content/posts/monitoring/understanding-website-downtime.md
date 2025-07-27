@@ -382,4 +382,4 @@ Remember, the goal isn't to prevent all downtime—that's impossible. The goal i
 
 ---
 
-*Start protecting your website today. [Monitor with exit1.dev](https://exit1.dev) and catch issues before they become outages.*
+*Start protecting your website today. [Monitor with exit1.dev](https://app.exit1.dev/sign-up) and catch issues before they become outages.*

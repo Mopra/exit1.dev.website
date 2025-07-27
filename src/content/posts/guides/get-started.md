@@ -704,6 +704,18 @@ Remember, effective monitoring is about finding the right balance between compre
 
 Welcome to proactive website monitoring with exit1.dev! Happy monitoring!
 
+**Related Reading:**
+- [Website Monitoring 101](/blog/website-monitoring-101) - Learn the fundamentals
+- [Understanding Website Downtime](/blog/understanding-website-downtime) - Causes and prevention strategies
+- [Free Website Monitoring Tools in 2025](/blog/free-website-monitoring-tools-2025) - Compare your options
+- [Real-time vs 5-minute Monitoring](/blog/real-time-vs-5-minute-monitoring) - Why frequency matters
+
+**External Resources:**
+- [HTTP Status Codes](https://httpstatuses.com/) - Complete reference for status codes
+- [Webhook Testing Tools](https://webhook.site/) - Test your webhook integrations
+- [Slack API Documentation](https://api.slack.com/) - Set up Slack notifications
+- [Discord Webhooks Guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) - Configure Discord alerts
+
 ---
 
-*Questions about getting started? [Check our documentation](https://docs.exit1.dev) or [contact our support team](https://exit1.dev/support) for personalized assistance.* 
+*Questions about getting started? [Join our Discord community](https://discord.com/invite/uZvWbpwJZS) or [sign up for Exit1.dev](https://app.exit1.dev/sign-up) to get started today.* 

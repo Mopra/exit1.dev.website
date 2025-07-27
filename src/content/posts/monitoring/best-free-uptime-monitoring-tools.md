@@ -228,4 +228,4 @@ The best monitoring tool is the one you'll actually use consistently. Whether th
 
 ---
 
-*Ready to try 1-minute monitoring with unlimited sites? [Get started with exit1.dev](https://exit1.dev) and see the difference faster detection makes.*
+*Ready to try 1-minute monitoring with unlimited sites? [Get started with exit1.dev](https://app.exit1.dev/sign-up) and see the difference faster detection makes.*

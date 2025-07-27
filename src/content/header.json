@@ -17,7 +17,7 @@
     },
     "startFree": {
       "text": "Start Free",
-      "href": "https://app.exit1.dev",
+      "href": "https://app.exit1.dev/sign-up",
       "variant": "primary",
       "size": "sm"
     }

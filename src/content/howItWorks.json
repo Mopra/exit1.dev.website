@@ -27,7 +27,7 @@
     "buttons": [
       {
         "text": "Start Free",
-        "href": "https://app.exit1.dev",
+        "href": "https://app.exit1.dev/sign-up",
         "variant": "primary",
         "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
       }
