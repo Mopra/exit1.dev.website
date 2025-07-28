@@ -4,7 +4,7 @@
     "highlight": ""
   },
   "subtitle": "Blazing fast. Open source. Built for the indie dev and startup in mind.",
-  "description": "Monitor up to 50 websites with 1-minute intervals — completely free, forever. We're building something new from the ground up — and we need early explorers. Try it for free, break it, tell us what sucks, and help shape the future.",
+  "description": "Monitor UNLIMITED websites and REST API endpoints with 1-minute intervals — completely free, forever. We're building something new from the ground up — and we need early explorers. Try it for free, break it, tell us what sucks, and help shape the future.",
   "cta": {
     "primary": {
       "text": "Start Monitoring Free",
@@ -48,5 +48,5 @@
       }
     ]
   },
-  "trustIndicator": "Free forever • Monitor 50 sites • 1-minute intervals • Terminal interface • Webhook alerts"
+  "trustIndicator": "Free forever • UNLIMITED websites & APIs • 1-minute intervals • Terminal interface • Webhook alerts"
 } 
