@@ -3,7 +3,7 @@
     "main": "Simple",
     "highlight": "Pricing"
   },
-  "subtitle": "Monitor up to 50 websites with 1-minute intervals — completely free, forever.",
+  "subtitle": "Monitor UNLIMITED websites and REST API endpoints with 1-minute intervals — completely free, forever.",
   "plans": [
     {
       "name": "Free",
@@ -11,7 +11,7 @@
       "period": "/month",
       "description": "Professional monitoring that costs nothing. Perfect for indie developers and startups.",
       "features": [
-        "Monitor up to 50 websites",
+        "Monitor UNLIMITED websites & REST APIs",
         "Lightning-fast 1-minute check intervals",
         "Interactive terminal console",
         "Instant webhook integrations",
@@ -28,7 +28,7 @@
       "period": "/month",
       "description": "For developers and small teams who need more",
       "features": [
-        "Monitor 100+ websites",
+        "Everything in Free (unlimited websites & APIs)",
         "Same 1-minute monitoring intervals",
         "Interactive terminal console",
         "Priority webhook notifications",
