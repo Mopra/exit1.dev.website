@@ -14,6 +14,10 @@
       "description": "Check your sites every minute, not every 5 or 10 minutes like the other guys."
     },
     {
+      "title": "SSL Certificate Monitoring",
+      "description": "Track SSL certificate validity and get warned before expiration. Never let expired certificates break your site."
+    },
+    {
       "title": "Webhook Alerts",
       "description": "Get notified in Discord, Slack, or wherever your team already hangs out."
     },

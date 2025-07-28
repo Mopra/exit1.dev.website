@@ -3,7 +3,7 @@
     "main": "Simple",
     "highlight": "Pricing"
   },
-  "subtitle": "Monitor UNLIMITED websites and REST API endpoints with 1-minute intervals — completely free, forever.",
+  "subtitle": "Monitor UNLIMITED websites, REST API endpoints, and SSL certificates with 1-minute intervals — completely free, forever.",
   "plans": [
     {
       "name": "Free",
@@ -13,6 +13,7 @@
       "features": [
         "Monitor UNLIMITED websites & REST APIs",
         "Lightning-fast 1-minute check intervals",
+        "SSL certificate monitoring & expiration alerts",
         "Interactive terminal console",
         "Instant webhook integrations",
         "No credit card required",
@@ -28,7 +29,7 @@
       "period": "/month",
       "description": "For developers and small teams who need more",
       "features": [
-        "Everything in Free (unlimited websites & APIs)",
+        "Everything in Free (unlimited websites & APIs + SSL)",
         "Same 1-minute monitoring intervals",
         "Interactive terminal console",
         "Priority webhook notifications",
