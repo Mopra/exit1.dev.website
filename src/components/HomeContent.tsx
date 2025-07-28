@@ -1,5 +1,5 @@
 import React from 'react';
-import VideoDemo from './VideoDemo';
+import ScreenshotGallery from './ScreenshotGallery';
 import Features from './Features';
 import HowItWorks from './HowItWorks';
 import Pricing from './Pricing';
@@ -9,7 +9,7 @@ import Community from './Community';
 const HomeContent = () => {
   return (
     <>
-      <VideoDemo />
+      <ScreenshotGallery />
       <Features />
       <HowItWorks />
       <Pricing />

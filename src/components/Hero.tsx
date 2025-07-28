@@ -1,9 +1,16 @@
 import Button from './Button';
-import AnimatedTerminal from './AnimatedTerminal';
 import { getHeroContent } from '../utils/contentLoader';
+import { useState } from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Hero = () => {
   const content = getHeroContent();
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const { elementRef, isIntersecting } = useIntersectionObserver();
+
+  const handleVideoLoad = () => {
+    setIsVideoLoaded(true);
+  };
 
   return (
     <section 
@@ -69,9 +76,42 @@ const Hero = () => {
             </Button>
           </div>
           
-          {/* Animated Terminal Demo */}
-          <div className="max-w-4xl mx-auto">
-            <AnimatedTerminal title={content.terminal.title} />
+          {/* Video Demo */}
+          <div className="max-w-4xl mx-auto" ref={elementRef}>
+            <div className="relative bg-black border border-gray-700 rounded-lg p-0 font-mono text-sm shadow-2xl overflow-hidden">
+              {/* Video Header - matching terminal style */}
+              <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-3 bg-black/20 backdrop-blur-xl border-b border-gray-700/30 shadow-lg">
+                <span className="text-gray-300 text-xs font-medium">exit1.dev demo</span>
+                <div className="text-gray-500 text-xs">live preview</div>
+              </div>
+              
+              {/* Video Container with loading state */}
+              <div className="relative bg-black aspect-video">
+                {!isVideoLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                    <div className="text-gray-400 text-sm">Loading demo...</div>
+                  </div>
+                )}
+                
+                {isIntersecting && (
+                  <video 
+                    width="100%" 
+                    height="100%"
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    controls
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                    onLoadedData={handleVideoLoad}
+                  >
+                    <source src="https://i.gyazo.com/e6eebbf9d03d508a364c940a4d5eecc9.mp4" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                  </video>
+                )}
+              </div>
+            </div>
           </div>
           
           {/* Trust Indicators */}

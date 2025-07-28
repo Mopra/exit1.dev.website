@@ -55,7 +55,7 @@ const VideoDemo = () => {
                   className="w-full h-full object-cover"
                   onLoadedData={handleVideoLoad}
                 >
-                  <source src="https://i.gyazo.com/edf62e3741cdb318aafce436abbf4f7f.mp4" type="video/mp4"/>
+                  <source src="https://i.gyazo.com/e6eebbf9d03d508a364c940a4d5eecc9.mp4" type="video/mp4"/>
                   Your browser does not support the video tag.
                 </video>
               )}
