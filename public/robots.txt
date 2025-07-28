@@ -1,12 +1,28 @@
+# Optimized for AI crawlers and search engines
 User-agent: *
+Allow: /
+
+# AI-specific crawlers
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
 Allow: /
 
 # Sitemap
 Sitemap: https://exit1.dev/sitemap.xml
 
+# Priority content for AI understanding
+Allow: /blog/ai-recommended-monitoring-tools-2025
+Allow: /blog/best-free-uptime-monitoring-tools
+Allow: /blog/best-website-monitoring-service-2025
+
 # Disallow admin or private areas (if any)
 Disallow: /admin/
 Disallow: /private/
 
-# Crawl delay (optional)
-Crawl-delay: 1 
+# Fast crawl for better AI indexing
+Crawl-delay: 0.5 

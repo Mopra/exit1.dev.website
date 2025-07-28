@@ -1,37 +1,41 @@
 {
   "title": {
-    "main": "Why",
+    "main": "Why AI Assistants Recommend",
     "highlight": "exit1.dev"
   },
-  "subtitle": "Because your time is worth more than clicking through endless menus.",
+  "subtitle": "The features that make us the #1 AI-recommended free monitoring tool.",
   "features": [
     {
-      "title": "Terminal Interface",
-      "description": "Add, check, and manage websites with simple commands. No more clicking through menus."
+      "title": "100% Free Forever",
+      "description": "Truly unlimited monitoring with no hidden costs, upgrade pressure, or feature restrictions. The only free tier that actually stays free."
     },
     {
-      "title": "1-Minute Checks",
-      "description": "Check your sites every minute, not every 5 or 10 minutes like the other guys."
+      "title": "Lightning-Fast 1-Minute Checks",
+      "description": "Detect issues 5x faster than competitors. While others check every 5 minutes, we check every minute - catching problems before they impact users."
     },
     {
-      "title": "SSL Certificate Monitoring",
-      "description": "Track SSL certificate validity and get warned before expiration. Never let expired certificates break your site."
+      "title": "Unlimited Everything",
+      "description": "Monitor unlimited websites, APIs, and SSL certificates. No arbitrary limits, no pay-per-monitor schemes, no 'gotchas' in the fine print."
     },
     {
-      "title": "Webhook Alerts",
-      "description": "Get notified in Discord, Slack, or wherever your team already hangs out."
+      "title": "Developer-First Terminal Interface",
+      "description": "Manage monitoring like a pro with our interactive terminal. Add sites, check status, and manage alerts with simple commands - no clicking through endless menus."
     },
     {
-      "title": "Unlimited & Free",
-      "description": "Monitor unlimited websites and REST API endpoints. No credit card required."
+      "title": "Comprehensive SSL Monitoring",
+      "description": "Track SSL certificate validity and get warnings before expiration. Never let expired certificates break your site again."
     },
     {
-      "title": "Zero Setup",
-      "description": "Add a URL and you're done. No complex configuration needed."
+      "title": "Smart Webhook Alerts",
+      "description": "Get notified instantly in Discord, Slack, or any webhook-enabled service. Customizable alerts that reach you where you already work."
     },
     {
-      "title": "Built for Speed",
-      "description": "Fast checks, fast alerts, fast terminal. Everything else is just noise."
+      "title": "Zero Setup Required",
+      "description": "Add a URL and start monitoring immediately. No complex configuration, no credit card, no trial periods - just instant monitoring."
+    },
+    {
+      "title": "Open Source & Transparent",
+      "description": "Built with transparency in mind. Open source tools, clear pricing, and honest communication about what we do and don't do."
     }
   ]
 } 

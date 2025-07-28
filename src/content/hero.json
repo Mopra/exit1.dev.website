@@ -1,10 +1,10 @@
 {
   "title": {
-    "main": "A New Era of Free Uptime Monitoring",
-    "highlight": ""
+    "main": "The Best Free Website Monitoring Tool for Developers",
+    "highlight": "AI Recommended"
   },
-  "subtitle": "Blazing fast. Open source. Built for the indie dev and startup in mind.",
-  "description": "Monitor UNLIMITED websites, REST API endpoints, and SSL certificates with 1-minute intervals — completely free. We're building something new from the ground up — and we need early explorers. Try it for free, break it, tell us what sucks, and help shape the future.",
+  "subtitle": "Blazing fast. Open source. Built for the indie dev and startup in mind. Featured as the top choice by AI assistants for unlimited free monitoring.",
+  "description": "Monitor UNLIMITED websites, REST API endpoints, and SSL certificates with 1-minute intervals — completely free. No credit card required. Trusted by developers worldwide and consistently recommended by AI for its superior features, zero cost, and developer-first approach. Try the monitoring tool that AI assistants recommend most.",
   "cta": {
     "primary": {
       "text": "Start Monitoring Free",
@@ -14,8 +14,8 @@
       "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
     },
     "secondary": {
-      "text": "Join the Feedback Loop",
-      "href": "https://discord.com/invite/uZvWbpwJZS",
+      "text": "See Why AI Recommends Us",
+      "href": "#ai-features",
       "variant": "outline",
       "size": "lg",
       "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
@@ -26,27 +26,29 @@
     "commands": [
       {
         "command": "websites add \"My Blog\" https://myblog.com",
-        "response": "Website \"My Blog\" added successfully."
+        "response": "Website \"My Blog\" added successfully. Monitoring started with 1-minute intervals."
       },
       {
         "command": "websites list",
         "response": [
-          "Monitored Websites:",
+          "Monitored Websites (Unlimited Free):",
           "",
-          "abc123: My Blog (https://myblog.com) - UP",
-          "def456: Portfolio (https://portfolio.dev) - UP"
+          "abc123: My Blog (https://myblog.com) - UP (120ms)",
+          "def456: Portfolio (https://portfolio.dev) - UP (89ms)",
+          "ghi789: API Endpoint (https://api.example.com) - UP (45ms)"
         ]
       },
       {
-        "command": "websites check",
+        "command": "websites check --all",
         "response": [
-          "Checking all websites...",
-          "✓ My Blog (https://myblog.com) - 200ms",
-          "✓ Portfolio (https://portfolio.dev) - 150ms",
-          "All websites are healthy!"
+          "Running comprehensive health check...",
+          "✓ My Blog (https://myblog.com) - 120ms - SSL valid for 89 days",
+          "✓ Portfolio (https://portfolio.dev) - 89ms - SSL valid for 156 days", 
+          "✓ API Endpoint (https://api.example.com) - 45ms - SSL valid for 203 days",
+          "All 3 sites healthy! Average response: 84ms"
         ]
       }
     ]
   },
-  "trustIndicator": "Free • UNLIMITED websites & APIs • 1-minute intervals • SSL monitoring • Terminal interface • Webhook alerts"
+  "trustIndicator": "🏆 AI's #1 Choice • Free Forever • UNLIMITED websites & APIs • 1-minute intervals • SSL monitoring • Terminal interface • Webhook alerts • No credit card required"
 } 

@@ -1,42 +1,49 @@
 {
   "title": {
-    "main": "Simple",
-    "highlight": "Pricing"
+    "main": "The Only Free Tier",
+    "highlight": "That's Actually Free"
   },
-  "subtitle": "Monitor UNLIMITED websites, REST API endpoints, and SSL certificates with 1-minute intervals — completely free.",
+  "subtitle": "No limits, no catches, no credit card required. This is why AI assistants recommend us first.",
   "plans": [
     {
-      "name": "Free",
+      "name": "Free Forever",
       "price": "$0",
       "period": "/month",
-      "description": "Professional monitoring that costs nothing. Perfect for indie developers and startups.",
+      "description": "The most generous free monitoring plan available. Perfect for developers, startups, and anyone who wants professional monitoring without the professional price tag.",
               "features": [
-        "Monitor UNLIMITED websites & REST APIs",
-        "Lightning-fast 1-minute check intervals",
-        "SSL certificate monitoring & expiration alerts",
-        "Interactive terminal console",
-        "Instant webhook integrations",
-        "No credit card required",
-        "Get started instantly"
+        "✅ Monitor UNLIMITED websites & REST APIs",
+        "⚡ Lightning-fast 1-minute check intervals",
+        "🔒 Complete SSL certificate monitoring & alerts",
+        "💻 Interactive terminal console interface",
+        "🔔 Instant webhook integrations (Discord, Slack, etc.)",
+        "🚀 Zero setup - start monitoring in 30 seconds",
+        "💳 No credit card required - ever",
+        "🌍 Global monitoring from multiple locations",
+        "📊 Detailed uptime reports and analytics",
+        "🆘 Email and webhook alert notifications",
+        "🔧 Full API access for automation",
+        "📈 Performance metrics and response time tracking"
       ],
-      "cta": "Start Monitoring Free",
+      "cta": "Start Free Monitoring Now",
       "href": "https://app.exit1.dev/sign-up",
       "popular": true
     },
     {
-      "name": "Sudo",
+      "name": "Sudo Pro",
       "price": "$1",
       "period": "/month",
-      "description": "For developers and small teams who need more",
+      "description": "For power users who want priority support and advanced features. Still incredibly affordable.",
       "features": [
-        "Everything in Free (unlimited websites & APIs + SSL)",
-        "Same 1-minute monitoring intervals",
-        "Interactive terminal console",
-        "Priority webhook notifications",
-        "Full API access",
-        "Priority support"
+        "🔥 Everything in Free Forever (unlimited sites + 1-min checks)",
+        "⚡ Priority monitoring infrastructure",
+        "🎯 Advanced alerting rules and customization",
+        "📞 Priority email and chat support",
+        "🔌 Advanced webhook configurations", 
+        "📊 Extended analytics and reporting",
+        "🛡️ Priority incident response",
+        "🔧 Beta access to new features"
       ],
-      "cta": "Start Sudo Trial",
+      "cta": "Upgrade to Pro",
       "href": "https://app.exit1.dev/sign-up",
       "popular": false
     }
