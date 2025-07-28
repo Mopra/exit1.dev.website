@@ -865,7 +865,7 @@ For teams preferring multiple specialized tools:
 
 #### CI/CD Integration
 ```yaml
-# GitHub Actions example
+# CI/CD Pipeline example
 name: Monitor Deployment
 on:
   deployment_status:
@@ -877,17 +877,17 @@ jobs:
     steps:
     - name: Verify SSL Certificate
       run: |
-        exit1 ssl verify ${{ github.event.deployment.environment_url }}
+        exit1 ssl verify $DEPLOYMENT_URL
         
     - name: Test Critical Paths
       run: |
         exit1 transaction run "deployment-verification" \
-          --environment ${{ github.event.deployment.environment }}
+          --environment $DEPLOYMENT_ENV
         
     - name: Update Monitoring
       run: |
         exit1 monitor update production \
-          --url ${{ github.event.deployment.environment_url }}
+          --url $DEPLOYMENT_URL
 ```
 
 #### Alert Integration

@@ -382,7 +382,7 @@ After testing every major free monitoring service, Exit1.dev stands out for seve
 ### Developer-First Approach
 - **Terminal interface**: CLI that developers actually want to use
 - **API-first design**: Everything accessible programmatically
-- **Open-source philosophy**: Transparent development and pricing
+- **Transparent service**: Clear development and honest pricing
 
 ### Performance Focus
 - **Global monitoring**: 5+ locations even on free tier

@@ -21,11 +21,6 @@
       { "name": "Cookie Settings", "href": "#cookie-settings" }
     ]
   },
-  "social": [
-    {
-      "name": "GitHub",
-      "href": "https://github.com/Mopra/exit1.dev.git"
-    }
-  ],
+  "social": [],
   "copyright": "&copy; 2024 exit1.dev. All rights reserved."
 } 

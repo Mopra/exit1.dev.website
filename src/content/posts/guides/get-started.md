@@ -72,7 +72,7 @@ Before setting up monitors, consider these questions:
 
 ### Creating Your Account
 
-To begin, sign up for an account on our platform. You can use your email or sign in with Google, GitHub, or Discord for a quick start.
+To begin, sign up for an account on our platform. You can use your email or sign in with Google or Discord for a quick start.
 
 **Registration Options:**
 ```bash
@@ -494,7 +494,7 @@ exit1 status-page create \
 
 **CI/CD Integration:**
 ```yaml
-# .github/workflows/deploy.yml
+# ci/deploy.yml
 name: Deploy and Monitor
 on:
   push:
@@ -502,7 +502,6 @@ on:
     
 jobs:
   deploy:
-    runs-on: ubuntu-latest
     steps:
       - name: Deploy Application
         run: ./deploy.sh
@@ -510,7 +509,7 @@ jobs:
       - name: Update Monitor
         run: |
           exit1 monitor update "homepage" \
-            --expected-version "${{ github.sha }}" \
+            --expected-version "$COMMIT_SHA" \
             --deployment-marker "true"
             
       - name: Verify Deployment

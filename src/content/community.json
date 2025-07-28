@@ -14,9 +14,9 @@
       "icon": "fa-regular fa-lightbulb"
     },
     {
-      "title": "Become a contributor",
-      "description": "It's open-source on GitHub.",
-      "icon": "fa-brands fa-github"
+      "title": "Share your experience",
+      "description": "Help us improve our service.",
+      "icon": "fa-regular fa-star"
     },
     {
       "title": "Join the Discord",
@@ -27,14 +27,14 @@
   "cta": {
     "primary": {
       "text": "Give Feedback",
-      "href": "https://github.com/Mopra/exit1.dev/issues",
+      "href": "https://discord.com/invite/uZvWbpwJZS",
       "variant": "outline",
       "size": "lg",
       "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
     },
     "secondary": {
-      "text": "Star on GitHub",
-      "href": "https://github.com/Mopra/exit1.dev",
+      "text": "Contact Support",
+      "href": "mailto:support@exit1.dev",
       "variant": "outline",
       "size": "lg",
       "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"

@@ -74,7 +74,7 @@ Here's who made it to our final comparison:
 
 ### Exit1.dev
 - **Founded**: 2024 (the developer-first challenger)
-- **Claim to fame**: 30-second checks, terminal interface, open-source
+- **Claim to fame**: 30-second checks, terminal interface, transparent service
 - **Best for**: Developers, startups, performance-critical applications
 - **Weakness**: Newer player, growing feature set
 
@@ -218,7 +218,7 @@ Exit1.dev takes a different approach—built by developers, for developers who w
 ✅ **Lightning-fast checks**: 30-second intervals on free tier
 ✅ **Unlimited monitors**: No artificial limits on free plan
 ✅ **Terminal interface**: CLI-first approach developers love
-✅ **Open-source philosophy**: Transparent development
+✅ **Transparent service**: Clear operations and processes
 ✅ **Developer-friendly**: API-first design, webhook support
 ✅ **Honest pricing**: No hidden fees or surprise limits
 
@@ -237,7 +237,7 @@ Exit1.dev takes a different approach—built by developers, for developers who w
 - **Developers** who prefer command-line tools
 - **Startups** needing fast, reliable monitoring
 - **Performance-critical applications** requiring quick detection
-- **Teams** valuing open-source and transparent practices
+- **Teams** valuing transparency and honest practices
 
 **Bottom line**: Exit1.dev challenges industry norms with genuinely useful free tier and developer-first approach. If you're comfortable with terminal interfaces and want monitoring that doesn't play games with limits, it's compelling.
 

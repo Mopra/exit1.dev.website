@@ -24,7 +24,7 @@
         },
         "oauthInfo": {
           "title": "Third-Party Authentication",
-          "description": "When you sign in using Google, GitHub, or Slack (OAuth), we do not store your passwords or personal data from these services. We only receive and store:",
+          "description": "When you sign in using Google or Discord (OAuth), we do not store your passwords or personal data from these services. We only receive and store:",
           "items": [
             "Your email address (if provided by the service)",
             "A unique identifier to link your account",
@@ -168,7 +168,7 @@
           "description": "Handles authentication and user management"
         },
         {
-          "title": "Google, GitHub, Slack:",
+          "title": "Google, Discord:",
           "description": "OAuth providers for sign-in options"
         },
         {
