@@ -18,10 +18,10 @@ const Community = () => {
             <path d="M12 2C15.31 2 18 4.69 18 8C18 10.5 16.5 12.67 14.31 13.37V15H15V17H9V15H9.69V13.37C7.5 12.67 6 10.5 6 8C6 4.69 8.69 2 12 2M12 4C9.79 4 8 5.79 8 8C8 9.85 9.23 11.41 10.94 11.87L12 12.11L13.06 11.87C14.77 11.41 16 9.85 16 8C16 5.79 14.21 4 12 4M10 19H14V21H10V19Z"/>
           </svg>
         );
-      case 'fa-brands fa-github':
+      case 'fa-regular fa-star':
         return (
           <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12C22 6.48 17.52 2 12 2Z"/>
+            <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
           </svg>
         );
       case 'fa-brands fa-discord':
@@ -58,11 +58,11 @@ const Community = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8 font-light">
-            We're building in public. Your feedback helps shape Exit1.dev into the monitoring tool developers actually want to use.
+            We're building for developers. Your feedback helps shape Exit1.dev into the monitoring service developers actually want to use.
           </p>
           <div className="inline-flex items-center bg-gray-100 border border-gray-200 rounded-full px-6 py-3">
             <div className="w-2 h-2 bg-gray-600 rounded-full mr-3"></div>
-            <span className="text-gray-600 text-sm font-medium">Open source • Community-driven • Built for developers</span>
+            <span className="text-gray-600 text-sm font-medium">Free service • Community-driven • Built for developers</span>
           </div>
         </div>
 
@@ -95,9 +95,9 @@ const Community = () => {
         {/* Call to Action */}
         <div className="text-center">
           <div className="bg-gray-50 border border-gray-200 rounded-2xl p-12 max-w-4xl mx-auto shadow-lg">
-            <h3 className="text-3xl font-semibold text-gray-900 mb-6">Ready to contribute?</h3>
+            <h3 className="text-3xl font-semibold text-gray-900 mb-6">Ready to get involved?</h3>
             <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Join our community. Share feedback. Request features. Help us build the monitoring platform developers deserve.
+              Join our community. Share feedback. Request features. Help us build the monitoring service developers deserve.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -128,7 +128,7 @@ const Community = () => {
             </div>
             
             <div className="mt-8 text-sm text-gray-500">
-              Open source • Free feedback • Direct access to maintainers
+              Free service • Community feedback • Direct access to developers
             </div>
           </div>
         </div>

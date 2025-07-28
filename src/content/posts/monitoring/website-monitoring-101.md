@@ -239,7 +239,7 @@ Ready to implement rock-solid monitoring without the enterprise price tag? [Exit
 - **Developer-friendly terminal interface** because web dashboards are for managers
 - **Global monitoring locations** to catch regional issues
 - **Intelligent alerting** that won't spam you with false positives
-- **Open-source philosophy** with transparent pricing
+- **Transparent service** with honest pricing
 
 Whether you're monitoring a side project or scaling a startup, Exit1.dev gives you enterprise-grade monitoring without the enterprise headaches.
 
