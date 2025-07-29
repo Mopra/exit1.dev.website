@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { glob } from 'glob';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,27 +37,34 @@ const STATIC_ROUTES = [
   },
 ];
 
-// Load blog data
-const loadBlogData = () => {
+// Get all markdown files to generate blog routes
+const getBlogPosts = async () => {
   try {
-    const blogPath = path.join(__dirname, '../src/content/blog.json');
-    const blogContent = fs.readFileSync(blogPath, 'utf8');
-    return JSON.parse(blogContent);
+    const posts = await glob('src/content/posts/**/*.md');
+    return posts.map(post => {
+      // Normalize path separators and extract just the filename without extension
+      const normalizedPath = post.replace(/\\/g, '/');
+      const slug = normalizedPath
+        .replace('src/content/posts/', '')
+        .replace('.md', '')
+        .split('/')
+        .pop();
+      return { slug, path: post };
+    });
   } catch (error) {
-    console.error('Error loading blog data:', error);
-    return { posts: [] };
+    console.error('Error scanning blog posts:', error);
+    return [];
   }
 };
 
-const generateSitemap = () => {
+const generateSitemap = async () => {
   const urls = [...STATIC_ROUTES];
-  const blogData = loadBlogData();
+  const blogPosts = await getBlogPosts();
 
   // Add blog posts
-  blogData.posts.forEach((post) => {
+  blogPosts.forEach((post) => {
     urls.push({
       loc: `/blog/${post.slug}`,
-      lastmod: post.date,
       changefreq: 'monthly',
       priority: 0.6,
     });
@@ -68,8 +76,8 @@ const generateSitemap = () => {
   };
 };
 
-const generateSitemapXml = () => {
-  const sitemap = generateSitemap();
+const generateSitemapXml = async () => {
+  const sitemap = await generateSitemap();
   
   const xmlUrls = sitemap.urls
     .map((url) => {
@@ -89,15 +97,15 @@ ${xmlUrls}
 </urlset>`;
 };
 
-const generateSitemapTxt = () => {
-  const sitemap = generateSitemap();
+const generateSitemapTxt = async () => {
+  const sitemap = await generateSitemap();
   
   return sitemap.urls
     .map((url) => `${BASE_URL}${url.loc}`)
     .join('\n');
 };
 
-const generateSitemapFiles = () => {
+const generateSitemapFiles = async () => {
   const publicDir = path.join(process.cwd(), 'public');
   
   // Ensure public directory exists
@@ -107,12 +115,12 @@ const generateSitemapFiles = () => {
 
   try {
     // Generate XML sitemap
-    const xmlContent = generateSitemapXml();
+    const xmlContent = await generateSitemapXml();
     fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), xmlContent);
     console.log('✅ XML sitemap generated: public/sitemap.xml');
 
     // Generate text sitemap
-    const txtContent = generateSitemapTxt();
+    const txtContent = await generateSitemapTxt();
     fs.writeFileSync(path.join(publicDir, 'sitemap.txt'), txtContent);
     console.log('✅ Text sitemap generated: public/sitemap.txt');
 
