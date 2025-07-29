@@ -1,4 +1,4 @@
-import{g as u}from"./vendor.CgHzTxSQ.js";import{r as p}from"./matter.DcVxHNp2.js";import{r as g,a as h,b as f}from"./markdown.DfYwCtX5.js";const y=`---\r
+import{g as p}from"./react-core.CgHzTxSQ.js";import{r as g}from"./matter.B3fHuw5O.js";import{r as h,a as f,b as y}from"./markdown.COuIlaYJ.js";const v=`---\r
 title: "AI and Anomaly Detection in Website Monitoring: Beyond Basic Uptime"\r
 author: "Morten Pradsgaard"\r
 category: "ai"\r
@@ -157,7 +157,7 @@ The future of website monitoring isn't just about knowing when your site is down
 ---\r
 \r
 *Want to be among the first to try our AI-powered monitoring features? [Join our beta program](https://exit1.dev) and help shape the future of intelligent website monitoring.*\r
-`,v=Object.freeze(Object.defineProperty({__proto__:null,default:y},Symbol.toStringTag,{value:"Module"})),b=`---\r
+`,b=Object.freeze(Object.defineProperty({__proto__:null,default:v},Symbol.toStringTag,{value:"Module"})),_=`---\r
 title: "Integrating AI Agents for Enhanced Website Monitoring"\r
 author: "Morten Pradsgaard"\r
 category: "ai"\r
@@ -629,7 +629,7 @@ The future of website monitoring is intelligent, automated, and proactive. By em
 \r
 ---\r
 \r
-*Ready to supercharge your monitoring with AI? [Explore exit1.dev's AI-ready monitoring platform](https://exit1.dev) and start building intelligent automation workflows that keep your sites running smoothly.* `,_=Object.freeze(Object.defineProperty({__proto__:null,default:b},Symbol.toStringTag,{value:"Module"})),w=`---\r
+*Ready to supercharge your monitoring with AI? [Explore exit1.dev's AI-ready monitoring platform](https://exit1.dev) and start building intelligent automation workflows that keep your sites running smoothly.* `,w=Object.freeze(Object.defineProperty({__proto__:null,default:_},Symbol.toStringTag,{value:"Module"})),k=`---\r
 title: "Get Started with Website Monitoring"\r
 author: "Morten Pradsgaard"\r
 category: "guides"\r
@@ -1348,7 +1348,7 @@ Welcome to proactive website monitoring with exit1.dev! Happy monitoring!\r
 \r
 ---\r
 \r
-*Questions about getting started? [Join our Discord community](https://discord.com/invite/uZvWbpwJZS) or [sign up for Exit1.dev](https://app.exit1.dev/sign-up) to get started today.* `,k=Object.freeze(Object.defineProperty({__proto__:null,default:w},Symbol.toStringTag,{value:"Module"})),S=`---\r
+*Questions about getting started? [Join our Discord community](https://discord.com/invite/uZvWbpwJZS) or [sign up for Exit1.dev](https://app.exit1.dev/sign-up) to get started today.* `,S=Object.freeze(Object.defineProperty({__proto__:null,default:k},Symbol.toStringTag,{value:"Module"})),C=`---\r
 title: "Setting Up Webhook Alerts with Slack & Discord for Instant Downtime Notifications"\r
 author: "Morten Pradsgaard"\r
 category: "guides"\r
@@ -1605,7 +1605,7 @@ Remember to test your webhook setup regularly and keep your team informed about 
 ---\r
 \r
 *Ready to set up instant webhook alerts? [Start monitoring with exit1.dev](https://app.exit1.dev/sign-up) and get your first webhook configured in under 5 minutes.*\r
-`,C=Object.freeze(Object.defineProperty({__proto__:null,default:S},Symbol.toStringTag,{value:"Module"})),T=`---\r
+`,T=Object.freeze(Object.defineProperty({__proto__:null,default:C},Symbol.toStringTag,{value:"Module"})),M=`---\r
 title: "Best Free Uptime Monitoring Tools: How exit1.dev Compares"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -1836,7 +1836,7 @@ The best monitoring tool is the one you'll actually use consistently. Whether th
 ---\r
 \r
 *Ready to try 1-minute monitoring with unlimited sites? [Get started with exit1.dev](https://app.exit1.dev/sign-up) and see the difference faster detection makes.*\r
-`,M=Object.freeze(Object.defineProperty({__proto__:null,default:T},Symbol.toStringTag,{value:"Module"})),P=`---\r
+`,P=Object.freeze(Object.defineProperty({__proto__:null,default:M},Symbol.toStringTag,{value:"Module"})),A=`---\r
 title: "Choosing the Best Website Monitoring Service in 2025 (UptimeRobot vs Better Stack vs Robotalp)"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -2197,7 +2197,7 @@ Ready to get started? [Try Exit1.dev's free tier](https://app.exit1.dev/sign-up)
 **External Resources:**\r
 - [UptimeRobot Official Website](https://uptimerobot.com/) - Popular free monitoring service\r
 - [Better Stack](https://betterstack.com/) - Premium monitoring platform\r
-- [Google's Web Vitals](https://web.dev/vitals/) - Performance metrics that matter`,A=Object.freeze(Object.defineProperty({__proto__:null,default:P},Symbol.toStringTag,{value:"Module"})),x=`---\r
+- [Google's Web Vitals](https://web.dev/vitals/) - Performance metrics that matter`,x=Object.freeze(Object.defineProperty({__proto__:null,default:A},Symbol.toStringTag,{value:"Module"})),I=`---\r
 title: "Beyond Uptime: How to Monitor Website Speed, SSL, and Content Changes Like a Pro"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -3123,7 +3123,7 @@ The websites that thrive in 2025 will be those that catch performance issues bef
 \r
 Advanced monitoring isn't about having the most sophisticated setup—it's about having monitoring that actually prevents problems before they impact your business.\r
 \r
-Ready to implement monitoring that goes beyond basic uptime? [Try Exit1.dev's advanced monitoring features](https://exit1.dev) and experience response time tracking, SSL monitoring, and content verification that actually protects your site's performance and user experience. Set up comprehensive monitoring in minutes, not hours.`,I=Object.freeze(Object.defineProperty({__proto__:null,default:x},Symbol.toStringTag,{value:"Module"})),R=`---\r
+Ready to implement monitoring that goes beyond basic uptime? [Try Exit1.dev's advanced monitoring features](https://exit1.dev) and experience response time tracking, SSL monitoring, and content verification that actually protects your site's performance and user experience. Set up comprehensive monitoring in minutes, not hours.`,R=Object.freeze(Object.defineProperty({__proto__:null,default:I},Symbol.toStringTag,{value:"Module"})),E=`---\r
 title: "Downtime Alerts That Actually Work (SMS, Email, Phone, and Slack Monitoring Explained)"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -4232,7 +4232,7 @@ Reliable downtime alerts are the foundation of effective incident response. The 
 \r
 The best alert system is the one that reliably notifies the right people when it matters most—not the one with the most features or channels.\r
 \r
-Ready to build alerts that actually work? [Try Exit1.dev's intelligent alerting system](https://exit1.dev) with multi-channel redundancy, smart filtering, and reliable delivery that ensures your team gets notified when it matters most. Set up SMS, email, Slack, and webhook alerts in minutes, not hours.`,E=Object.freeze(Object.defineProperty({__proto__:null,default:R},Symbol.toStringTag,{value:"Module"})),D=`---\r
+Ready to build alerts that actually work? [Try Exit1.dev's intelligent alerting system](https://exit1.dev) with multi-channel redundancy, smart filtering, and reliable delivery that ensures your team gets notified when it matters most. Set up SMS, email, Slack, and webhook alerts in minutes, not hours.`,D=Object.freeze(Object.defineProperty({__proto__:null,default:E},Symbol.toStringTag,{value:"Module"})),W=`---\r
 title: "Free Website Monitoring Tools (20+ Features You Shouldn't Miss in 2025)"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -4700,7 +4700,7 @@ Ready to experience monitoring without artificial limits? [Try Exit1.dev's free 
 - [UptimeRobot](https://uptimerobot.com/) - Popular free monitoring service with 50 monitor limit\r
 - [Better Stack](https://betterstack.com/) - Premium monitoring with limited free tier\r
 - [Pingdom](https://pingdom.com/) - Comprehensive website performance monitoring\r
-- [StatusCake](https://statuscake.com/) - UK-based monitoring with free and paid options`,W=Object.freeze(Object.defineProperty({__proto__:null,default:D},Symbol.toStringTag,{value:"Module"})),B=`---\r
+- [StatusCake](https://statuscake.com/) - UK-based monitoring with free and paid options`,B=Object.freeze(Object.defineProperty({__proto__:null,default:W},Symbol.toStringTag,{value:"Module"})),L=`---\r
 title: "The Importance of Real-Time Alerts in Website Monitoring"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -5159,7 +5159,7 @@ The goal isn't to generate more alerts—it's to generate the right alerts at th
 \r
 ---\r
 \r
-*Ready to implement real-time alerting that actually works? [Start monitoring with exit1.dev](https://exit1.dev) and experience alerts that help rather than overwhelm your team.* `,L=Object.freeze(Object.defineProperty({__proto__:null,default:B},Symbol.toStringTag,{value:"Module"})),F=`---\r
+*Ready to implement real-time alerting that actually works? [Start monitoring with exit1.dev](https://exit1.dev) and experience alerts that help rather than overwhelm your team.* `,F=Object.freeze(Object.defineProperty({__proto__:null,default:L},Symbol.toStringTag,{value:"Module"})),U=`---\r
 title: "Introduction to Website Monitoring"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -5660,7 +5660,7 @@ Remember, the best monitoring system is one that helps you sleep better at night
 \r
 ---\r
 \r
-*Ready to start monitoring your website effectively? [Begin with exit1.dev](https://exit1.dev) and build a monitoring strategy that grows with your business.* `,U=Object.freeze(Object.defineProperty({__proto__:null,default:F},Symbol.toStringTag,{value:"Module"})),N=`---\r
+*Ready to start monitoring your website effectively? [Begin with exit1.dev](https://exit1.dev) and build a monitoring strategy that grows with your business.* `,N=Object.freeze(Object.defineProperty({__proto__:null,default:U},Symbol.toStringTag,{value:"Module"})),O=`---\r
 title: "Real-Time vs. 5-Minute Checks: Why Monitoring Interval Matters"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -5946,7 +5946,7 @@ Don't let a preventable 4-minute delay in detection turn a minor issue into a ma
 ---\r
 \r
 *Experience the difference 1-minute monitoring makes. [Try exit1.dev](https://app.exit1.dev/sign-up) and detect issues 5x faster than traditional monitoring services.*\r
-`,O=Object.freeze(Object.defineProperty({__proto__:null,default:N},Symbol.toStringTag,{value:"Module"})),z=`---\r
+`,z=Object.freeze(Object.defineProperty({__proto__:null,default:O},Symbol.toStringTag,{value:"Module"})),q=`---\r
 title: "Understanding Website Downtime: Common Causes and How to Prevent Them"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -6331,7 +6331,7 @@ Remember, the goal isn't to prevent all downtime—that's impossible. The goal i
 ---\r
 \r
 *Start protecting your website today. [Monitor with exit1.dev](https://app.exit1.dev/sign-up) and catch issues before they become outages.*\r
-`,q=Object.freeze(Object.defineProperty({__proto__:null,default:z},Symbol.toStringTag,{value:"Module"})),H=`---\r
+`,H=Object.freeze(Object.defineProperty({__proto__:null,default:q},Symbol.toStringTag,{value:"Module"})),j=`---\r
 title: "Website Monitoring 101: What It Is, Why It Matters and the Metrics You Must Track"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -6587,7 +6587,7 @@ Ready to monitor like a pro? [Sign up for Exit1.dev's free plan](https://app.exi
 **Related Reading:**\r
 - [Get Started with Website Monitoring](/blog/get-started) - Step-by-step setup guide\r
 - [Free Website Monitoring Tools in 2025](/blog/free-website-monitoring-tools-2025) - Compare free options\r
-- [Understanding Website Downtime](/blog/understanding-website-downtime) - Causes and prevention strategies`,j=Object.freeze(Object.defineProperty({__proto__:null,default:H},Symbol.toStringTag,{value:"Module"})),G=`---\r
+- [Understanding Website Downtime](/blog/understanding-website-downtime) - Causes and prevention strategies`,G=Object.freeze(Object.defineProperty({__proto__:null,default:j},Symbol.toStringTag,{value:"Module"})),V=`---\r
 title: "Website Monitoring Best Practices for 2025 (Tips from Pros)"\r
 author: "Morten Pradsgaard"\r
 category: "monitoring"\r
@@ -8496,4 +8496,4 @@ Website monitoring in 2025 demands a strategic, multi-layered approach that goes
 \r
 The monitoring landscape will continue evolving, but teams that master these fundamentals while staying adaptable to new technologies will consistently deliver exceptional user experiences and business outcomes.\r
 \r
-Ready to implement professional-grade monitoring? [Start with Exit1.dev's comprehensive monitoring platform](https://exit1.dev) that combines the best practices covered in this guide with developer-friendly tools, intelligent alerting, and transparent pricing. Transform your monitoring from a reactive necessity into a proactive business advantage.`,V=Object.freeze(Object.defineProperty({__proto__:null,default:G},Symbol.toStringTag,{value:"Module"}));var Y=p();const d=u(Y),s=new Map,c=new Map,o=Object.assign({"../content/posts/ai/ai-anomaly-detection-monitoring.md":v,"../content/posts/ai/ai-integration-for-website-monitoring.md":_,"../content/posts/guides/get-started.md":k,"../content/posts/guides/webhook-alerts-slack-discord.md":C,"../content/posts/monitoring/best-free-uptime-monitoring-tools.md":M,"../content/posts/monitoring/best-website-monitoring-service-2025.md":A,"../content/posts/monitoring/beyond-uptime-monitoring-guide.md":I,"../content/posts/monitoring/downtime-alerts-guide.md":E,"../content/posts/monitoring/free-website-monitoring-tools-2025.md":W,"../content/posts/monitoring/importance-of-real-time-alerts.md":L,"../content/posts/monitoring/intro-to-website-monitoring.md":U,"../content/posts/monitoring/real-time-vs-5-minute-monitoring.md":O,"../content/posts/monitoring/understanding-website-downtime.md":q,"../content/posts/monitoring/website-monitoring-101.md":j,"../content/posts/monitoring/website-monitoring-best-practices-2025.md":V}),$=g().use(h).use(f),Z=()=>{if(c.has("all"))return c.get("all");const r=[];for(const i in o){const e=o[i],{data:n}=d(e.default),a=i.split("/").pop()?.replace(".md","")||"";r.push({id:a,title:n.title,excerpt:n.excerpt,readTime:n.readTime,category:n.category,slug:n.slug||a,author:n.author||"Morten Pradsgaard"})}const t=r.sort((i,e)=>i.title.localeCompare(e.title));return c.set("all",t),t},ee=async r=>{if(s.has(r))return s.get(r);let t="";for(const m in o)if((m.split("/").pop()?.replace(".md","")||"")===r){t=m;break}if(!t||!(t in o))return null;const i=o[t],{data:e,content:n}=d(i.default),a=await $.process(n),l={id:r,title:e.title,excerpt:e.excerpt,readTime:e.readTime,category:e.category,slug:e.slug||r,author:e.author||"Morten Pradsgaard",content:n,htmlContent:a.toString()};return s.set(r,l),l};export{ee as a,Z as g};
+Ready to implement professional-grade monitoring? [Start with Exit1.dev's comprehensive monitoring platform](https://exit1.dev) that combines the best practices covered in this guide with developer-friendly tools, intelligent alerting, and transparent pricing. Transform your monitoring from a reactive necessity into a proactive business advantage.`,Y=Object.freeze(Object.defineProperty({__proto__:null,default:V},Symbol.toStringTag,{value:"Module"}));var $=g();const u=p($),l=new Map,m=new Map,s=Object.assign({"../content/posts/ai/ai-anomaly-detection-monitoring.md":b,"../content/posts/ai/ai-integration-for-website-monitoring.md":w,"../content/posts/guides/get-started.md":S,"../content/posts/guides/webhook-alerts-slack-discord.md":T,"../content/posts/monitoring/best-free-uptime-monitoring-tools.md":P,"../content/posts/monitoring/best-website-monitoring-service-2025.md":x,"../content/posts/monitoring/beyond-uptime-monitoring-guide.md":R,"../content/posts/monitoring/downtime-alerts-guide.md":D,"../content/posts/monitoring/free-website-monitoring-tools-2025.md":B,"../content/posts/monitoring/importance-of-real-time-alerts.md":F,"../content/posts/monitoring/intro-to-website-monitoring.md":N,"../content/posts/monitoring/real-time-vs-5-minute-monitoring.md":z,"../content/posts/monitoring/understanding-website-downtime.md":H,"../content/posts/monitoring/website-monitoring-101.md":G,"../content/posts/monitoring/website-monitoring-best-practices-2025.md":Y}),K=h().use(f).use(y),Z=()=>{if(m.has("all"))return m.get("all");const r=[];for(const i in s){const e=s[i],{data:n,content:o}=u(e.default),a=i.split("/").pop()?.replace(".md","")||"",c=o.split(/\s+/).length,d=Math.ceil(c/200);r.push({id:a,title:n.title||"Untitled",excerpt:n.excerpt||o.substring(0,150)+"...",readTime:`${d} min read`,category:n.category||"general",slug:n.slug||a,author:n.author||"Exit1 Team",content:o,htmlContent:""})}const t=r.sort((i,e)=>i.title&&e.title?i.title.localeCompare(e.title):0);return m.set("all",t),t},ee=async r=>{if(l.has(r))return l.get(r);let t="";for(const c in s)if((c.split("/").pop()?.replace(".md","")||"")===r){t=c;break}if(!t||!(t in s))return null;const i=s[t],{data:e,content:n}=u(i.default),o=await K.process(n),a={id:r,title:e.title||"Untitled",excerpt:e.excerpt||n.substring(0,150)+"...",readTime:e.readTime||"5 min read",category:e.category||"general",slug:e.slug||r,author:e.author||"Exit1 Team",content:n,htmlContent:o.toString()};return l.set(r,a),a};export{ee as a,Z as g};
