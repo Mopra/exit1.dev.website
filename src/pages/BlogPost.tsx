@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getPostBySlug, type BlogPost } from '../utils/markdownLoader';
+import SEO from '../components/SEO';
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -56,9 +57,17 @@ const BlogPostPage = () => {
   }
 
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-white via-gray-50 to-gray-100 py-32">
+    <>
+      <SEO 
+        title={post.title}
+        description={post.excerpt}
+        canonical={`https://exit1.dev/blog/${slug}`}
+        type="article"
+        author={post.author}
+      />
+      <main className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-white via-gray-50 to-gray-100 py-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <Link
@@ -152,6 +161,7 @@ const BlogPostPage = () => {
         </div>
       </section>
     </main>
+    </>
   );
 };
 

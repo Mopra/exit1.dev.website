@@ -1,9 +1,9 @@
 import matter from 'gray-matter';
 import { remark } from 'remark';
-import html from 'remark-html';
-import gfm from 'remark-gfm';
+import remarkHtml from 'remark-html';
+import remarkGfm from 'remark-gfm';
 
-export interface BlogPost {
+export interface BlogPostMeta {
   id: string;
   title: string;
   excerpt: string;
@@ -15,18 +15,8 @@ export interface BlogPost {
   htmlContent: string;
 }
 
-export interface BlogPostMeta {
-  id: string;
-  title: string;
-  excerpt: string;
-  readTime: string;
-  category: string;
-  slug: string;
-  author: string;
-}
-
 // Cache for processed posts
-const postCache = new Map<string, BlogPost>();
+const postCache = new Map<string, BlogPostMeta>();
 const metaCache = new Map<string, BlogPostMeta[]>();
 
 // Import all markdown files from the posts directory and subdirectories
@@ -35,7 +25,7 @@ const postModules = import.meta.glob('../content/posts/**/*.md', {
 });
 
 // Memoized remark processor
-const remarkProcessor = remark().use(gfm).use(html);
+const remarkProcessor = remark().use(remarkGfm).use(remarkHtml);
 
 export const getAllPosts = (): BlogPostMeta[] => {
   // Return cached result if available
@@ -47,24 +37,35 @@ export const getAllPosts = (): BlogPostMeta[] => {
 
   for (const path in postModules) {
     const content = postModules[path] as { default: string };
-    const { data } = matter(content.default);
+    const { data, content: markdownContent } = matter(content.default);
     
     // Extract slug from filename
     const slug = path.split('/').pop()?.replace('.md', '') || '';
     
+    // Calculate read time (rough estimate: 200 words per minute)
+    const wordCount = markdownContent.split(/\s+/).length;
+    const readTime = Math.ceil(wordCount / 200);
+    
     posts.push({
       id: slug,
-      title: data.title,
-      excerpt: data.excerpt,
-      readTime: data.readTime,
-      category: data.category,
+      title: data.title || 'Untitled',
+      excerpt: data.excerpt || markdownContent.substring(0, 150) + '...',
+      readTime: `${readTime} min read`,
+      category: data.category || 'general',
       slug: data.slug || slug,
-      author: data.author || 'Morten Pradsgaard'
+      author: data.author || 'Exit1 Team',
+      content: markdownContent,
+      htmlContent: '' // Will be processed on demand
     });
   }
 
-  // Sort by title (alphabetical)
-  const sortedPosts = posts.sort((a, b) => a.title.localeCompare(b.title));
+  // Sort by date (newest first) or title if no date
+  const sortedPosts = posts.sort((a, b) => {
+    if (a.title && b.title) {
+      return a.title.localeCompare(b.title);
+    }
+    return 0;
+  });
   
   // Cache the result
   metaCache.set('all', sortedPosts);
@@ -72,7 +73,7 @@ export const getAllPosts = (): BlogPostMeta[] => {
   return sortedPosts;
 };
 
-export const getPostBySlug = async (slug: string): Promise<BlogPost | null> => {
+export const getPostBySlug = async (slug: string): Promise<BlogPostMeta | null> => {
   // Return cached result if available
   if (postCache.has(slug)) {
     return postCache.get(slug)!;
@@ -94,18 +95,18 @@ export const getPostBySlug = async (slug: string): Promise<BlogPost | null> => {
 
   const content = postModules[postPath] as { default: string };
   const { data, content: markdownContent } = matter(content.default);
-
+  
   // Convert markdown to HTML using cached processor
   const processedContent = await remarkProcessor.process(markdownContent);
 
-  const post: BlogPost = {
+  const post: BlogPostMeta = {
     id: slug,
-    title: data.title,
-    excerpt: data.excerpt,
-    readTime: data.readTime,
-    category: data.category,
+    title: data.title || 'Untitled',
+    excerpt: data.excerpt || markdownContent.substring(0, 150) + '...',
+    readTime: data.readTime || '5 min read',
+    category: data.category || 'general',
     slug: data.slug || slug,
-    author: data.author || 'Morten Pradsgaard',
+    author: data.author || 'Exit1 Team',
     content: markdownContent,
     htmlContent: processedContent.toString()
   };

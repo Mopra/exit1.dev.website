@@ -1,12 +1,22 @@
 import Button from './Button';
 import { getHeroContent } from '../utils/contentLoader';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Hero = () => {
   const content = getHeroContent();
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const { elementRef, isIntersecting } = useIntersectionObserver();
+
+  // Delay video loading to prioritize critical content
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 1000); // 1 second delay
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleVideoLoad = () => {
     setIsVideoLoaded(true);
@@ -15,7 +25,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden"
+      className="hero-section relative bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden"
       aria-labelledby="hero-heading"
     >
       {/* Background Pattern */}
@@ -76,7 +86,7 @@ const Hero = () => {
             </Button>
           </div>
           
-          {/* Video Demo */}
+          {/* Video Demo - Lazy loaded */}
           <div className="max-w-4xl mx-auto" ref={elementRef}>
             <div className="relative bg-black border border-gray-700 rounded-lg p-0 font-mono text-sm shadow-2xl overflow-hidden">
               {/* Video Header - matching terminal style */}
@@ -85,7 +95,7 @@ const Hero = () => {
                 <div className="text-gray-500 text-xs">live preview</div>
               </div>
               
-              {/* Video Container with loading state */}
+              {/* Video Container with optimized loading */}
               <div className="relative bg-black aspect-video">
                 {!isVideoLoaded && (
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
@@ -93,7 +103,7 @@ const Hero = () => {
                   </div>
                 )}
                 
-                {isIntersecting && (
+                {isIntersecting && shouldLoadVideo && (
                   <video 
                     width="100%" 
                     height="100%"
@@ -105,6 +115,7 @@ const Hero = () => {
                     preload="metadata"
                     className="w-full h-full object-cover"
                     onLoadedData={handleVideoLoad}
+
                   >
                     <source src="https://i.gyazo.com/e6eebbf9d03d508a364c940a4d5eecc9.mp4" type="video/mp4"/>
                     Your browser does not support the video tag.

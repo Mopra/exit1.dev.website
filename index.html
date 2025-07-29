@@ -13,12 +13,67 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     
-    <!-- Critical CSS inline -->
+    <!-- Critical CSS inline for above-the-fold content -->
     <style>
-      /* Critical CSS for above-the-fold content */
-      body { margin: 0; font-family: 'IBM Plex Mono', monospace; background: #fafafa; color: #1a1a1a; }
+      /* Critical CSS for immediate rendering */
+      body { 
+        margin: 0; 
+        font-family: 'IBM Plex Mono', monospace; 
+        background: #fafafa; 
+        color: #1a1a1a; 
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
       #root { min-height: 100vh; }
-      .loading { display: flex; align-items: center; justify-content: center; height: 100vh; }
+      .loading { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        height: 100vh; 
+        color: #6b7280;
+      }
+      /* Critical header styles */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+        transition: all 0.3s ease;
+      }
+      /* Critical hero styles */
+      .hero-section {
+        padding-top: 4rem;
+        background: linear-gradient(135deg, #ffffff 0%, #f9fafb 50%, #f3f4f6 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+      /* Critical typography */
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+      /* Critical button styles */
+      .btn-primary {
+        background: #111827;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: background-color 0.2s ease;
+      }
+      .btn-primary:hover {
+        background: #374151;
+      }
     </style>
     
     <!-- Preload critical fonts with font-display: swap -->
@@ -28,8 +83,8 @@
     <title>exit1.dev - Monitor Your Websites Like a Developer</title>
     <meta name="description" content="Real-time uptime tracking with a terminal-inspired interface. Get instant alerts when your websites go down.">
     
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/src/main.tsx" as="script" type="module">
+    <!-- Preload critical assets with high priority -->
+    <link rel="modulepreload" href="/src/main.tsx" as="script" type="module">
     
     <!-- Google tag (gtag.js) - defer loading -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW8WXE2TZP"></script>
@@ -54,7 +109,7 @@
     <div id="root">
       <!-- Loading fallback for better perceived performance -->
       <div class="loading">
-        <div style="color: #6b7280;">Loading...</div>
+        <div>Loading...</div>
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>

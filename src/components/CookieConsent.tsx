@@ -43,7 +43,7 @@ const CookieConsent = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Learn more
+                    View privacy policy
                   </a>
                 </p>
               </div>

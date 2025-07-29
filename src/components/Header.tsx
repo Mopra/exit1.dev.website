@@ -1,195 +1,217 @@
-import { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import Button from './Button';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { getHeaderContent } from '../utils/contentLoader';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
   const content = getHeaderContent();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const location = useLocation();
 
-  // Handle scroll to anchor after navigation
+  // Close menu when route changes
   useEffect(() => {
-    if (location.hash) {
-      const element = document.querySelector(location.hash);
-      if (element) {
-        // Small delay to ensure page is fully loaded
-        setTimeout(() => {
-          element.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }, 100);
-      }
-    }
-  }, [location.hash]);
+    setIsMenuOpen(false);
+  }, [location]);
 
-  const handleNavigationClick = (href: string, e: React.MouseEvent) => {
-    // Handle smooth scrolling for anchor links
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      
-      // If we're not on the home page, navigate to home first
-      if (location.pathname !== '/') {
-        navigate(`/${href}`);
-        return;
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Handle click outside menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node) &&
+          buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
       }
-      
-      // If we're on the home page, scroll to the section
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-      // Close mobile menu if open
-      setIsMenuOpen(false);
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
     }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+        buttonRef.current?.focus();
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  const renderNavItem = (item: { name: string; href: string }, isMobile = false) => {
-    if (item.href.startsWith('#')) {
-      // Anchor link for smooth scrolling
-      return (
-        <button
-          key={item.name}
-          onClick={(e) => handleNavigationClick(item.href, e)}
-          className={`text-gray-600 hover:text-gray-900 transition-all duration-200 cursor-pointer font-mono ${
-            isMobile 
-              ? 'block px-3 py-2 text-sm font-medium w-full text-left rounded-xl hover:bg-gray-100/50' 
-              : 'px-3 py-2 text-sm font-medium rounded-xl hover:bg-gray-100/50'
-          }`}
-        >
-          {item.name}
-        </button>
-      );
-    } else {
-      // Regular navigation link
-      return (
-        <Link
-          key={item.name}
-          to={item.href}
-          className={`text-gray-600 hover:text-gray-900 transition-all duration-200 cursor-pointer font-mono ${
-            isMobile 
-              ? 'block px-3 py-2 text-sm font-medium rounded-xl hover:bg-gray-100/50' 
-              : 'px-3 py-2 text-sm font-medium rounded-xl hover:bg-gray-100/50'
-          }`}
-          onClick={() => isMobile && setIsMenuOpen(false)}
-        >
-          {item.name}
-        </Link>
-      );
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
     }
+    return location.pathname.startsWith(path);
   };
 
   return (
-    <header className="sticky top-0 z-50">
-      <div className="w-[90%] mx-auto py-4">
-        <div className="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl shadow-2xl">
-          <div className="px-6 py-4">
-            <div className="flex justify-between items-center">
-              {/* Logo */}
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <Link to="/" className="text-gray-900 font-mono text-xl font-medium tracking-tight hover:text-gray-700 transition-all duration-200 cursor-pointer">
-                    {content.logo}
-                  </Link>
-                </div>
-              </div>
+    <header 
+      className="fixed top-4 left-4 right-4 z-50 transition-all duration-500 bg-white/90 backdrop-blur-xl rounded-2xl max-w-[1800px] mx-auto border border-gray-100 shadow-2xl"
+      role="banner"
+    >
+      <div className="flex items-center justify-between h-14 px-6">
+        {/* Logo */}
+        <Link 
+          to="/" 
+          className="flex items-center text-gray-900 hover:text-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-lg"
+          aria-label="Go to homepage"
+        >
+          <span className="font-mono font-semibold text-lg tracking-tight">exit1.dev</span>
+        </Link>
 
-              {/* Desktop Navigation */}
-              <nav className="hidden xl:flex space-x-8">
-                {content.navigation.map((item) => renderNavItem(item))}
-              </nav>
+        {/* Desktop Navigation - Centered */}
+        <nav 
+          className="hidden xl:flex items-center space-x-2 absolute left-1/2 transform -translate-x-1/2"
+          role="navigation"
+          aria-label="Main navigation"
+        >
+          {content.navigation.map((item) => (
+            <Link
+              key={item.href}
+              to={item.href}
+              className={`text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-full px-3 py-2 whitespace-nowrap ${
+                isActive(item.href)
+                  ? 'text-gray-900 bg-gray-100/80'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/60'
+              }`}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
 
-              {/* CTA Buttons */}
-              <div className="hidden xl:flex items-center space-x-3">
-                <Button 
-                  variant={content.cta.signIn.variant as any} 
-                  size={content.cta.signIn.size as any}
-                  href={content.cta.signIn.href}
-                >
-                  {content.cta.signIn.text}
-                </Button>
-                <Button 
-                  variant={content.cta.startFree.variant as any} 
-                  size={content.cta.startFree.size as any}
-                  href={content.cta.startFree.href}
-                >
-                  {content.cta.startFree.text}
-                </Button>
-              </div>
+        {/* CTA Buttons */}
+        <div className="hidden xl:flex items-center space-x-2">
+          <Link
+            to="/signin"
+            className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-full text-gray-600 hover:text-gray-900 hover:bg-gray-100/60 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all duration-300"
+          >
+            Sign In
+          </Link>
+          <Link
+            to={content.cta.startFree.href}
+            className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-full text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all duration-300 shadow-sm"
+          >
+            {content.cta.startFree.text}
+          </Link>
+        </div>
 
-              {/* Mobile CTA and menu button */}
-              <div className="xl:hidden flex items-center space-x-3">
-                <Button 
-                  variant={content.cta.startFree.variant as any} 
-                  size={content.cta.startFree.size as any}
-                  href={content.cta.startFree.href}
-                >
-                  {content.cta.startFree.text}
-                </Button>
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="text-gray-600 hover:text-gray-900 p-2 transition-all duration-200 cursor-pointer rounded-xl hover:bg-gray-100/50"
-                >
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    {isMenuOpen ? (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    ) : (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 6h16M4 12h16M4 18h16"
-                      />
-                    )}
-                  </svg>
-                </button>
-              </div>
+        {/* Mobile menu button */}
+        <button
+          ref={buttonRef}
+          onClick={toggleMenu}
+          className="xl:hidden inline-flex items-center justify-center p-2 rounded-full text-gray-600 hover:text-gray-900 hover:bg-gray-100/60 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all duration-300"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label="Toggle navigation menu"
+        >
+          <span className="sr-only">Open main menu</span>
+          {isMenuOpen ? (
+            <svg
+              className="block h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              className="block h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div
+          ref={menuRef}
+          id="mobile-menu"
+          className="xl:hidden"
+          role="navigation"
+          aria-label="Mobile navigation"
+        >
+          <div className="px-6 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-xl border-t border-gray-200/50">
+            {content.navigation.map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={`block px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 ${
+                  isActive(item.href)
+                    ? 'text-gray-900 bg-gray-100/80'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/60'
+                }`}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+              >
+                {item.name}
+              </Link>
+            ))}
+            
+            {/* Mobile CTA */}
+            <div className="pt-4 pb-3 border-t border-gray-200/50 space-y-2">
+              <Link
+                to="/signin"
+                className="block w-full text-center px-4 py-2 text-base font-medium rounded-full text-gray-600 hover:text-gray-900 hover:bg-gray-100/60 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all duration-300"
+              >
+                Sign In
+              </Link>
+              <Link
+                to={content.cta.startFree.href}
+                className="block w-full text-center px-4 py-2 text-base font-medium rounded-full text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all duration-300 shadow-sm"
+              >
+                {content.cta.startFree.text}
+              </Link>
             </div>
-
-            {/* Mobile Navigation */}
-            {isMenuOpen && (
-              <div className="xl:hidden mt-4 pt-4 border-t border-gray-200/50">
-                <div className="space-y-2">
-                  {content.navigation.map((item) => renderNavItem(item, true))}
-                  <div className="pt-4 space-y-2">
-                    <Button 
-                      variant={content.cta.signIn.variant as any} 
-                      size={content.cta.signIn.size as any} 
-                      className="w-full"
-                      href={content.cta.signIn.href}
-                    >
-                      {content.cta.signIn.text}
-                    </Button>
-                    <Button 
-                      variant={content.cta.startFree.variant as any} 
-                      size={content.cta.startFree.size as any} 
-                      className="w-full"
-                      href={content.cta.startFree.href}
-                    >
-                      {content.cta.startFree.text}
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };

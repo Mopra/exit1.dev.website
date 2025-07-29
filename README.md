@@ -1,98 +1,107 @@
 # Exit1.dev Website
 
-A modern React application built with Vite, TypeScript, and Tailwind CSS, following strict performance and code quality guidelines.
+A modern, static site generator for the Exit1.dev website monitoring service.
 
-## 🚀 Tech Stack
+## 🚀 Static Site Generation (SSG)
 
-- **Framework:** React 18+ with Vite  // Updated for deployment
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v3.4
-- **Icons:** FontAwesome Pro (to be added)
-- **Linting:** ESLint + Prettier
-- **Performance:** Optimized for Core Web Vitals
+This project has been converted from a Single Page Application (SPA) to a Static Site Generator (SSG) for optimal SEO and performance.
 
-## 📁 Project Structure
+### Key Features
+
+- **SEO Optimized**: Each route gets its own HTML file with proper meta tags
+- **Fast Loading**: Static files load faster than SPAs
+- **Better Crawling**: Google can easily index all pages
+- **GitHub Pages Compatible**: Works perfectly with GitHub Pages hosting
+- **Progressive Enhancement**: Still works as a React app for interactivity
+
+### Build Commands
+
+```bash
+# Development
+npm run dev
+
+# Build static site (for production)
+npm run build:static
+
+# Deploy to GitHub Pages
+npm run deploy
+
+# Generate sitemap
+npm run build:sitemap
+```
+
+### Generated Routes
+
+The static generator creates HTML files for:
+- `/` - Homepage
+- `/blog` - Blog listing
+- `/blog/[slug]` - Individual blog posts (15 posts)
+- `/privacy` - Privacy policy
+- `/roadmap` - Roadmap
+- `/sitemap` - Sitemap
+
+### SEO Features
+
+- **Meta Tags**: Each page has proper title, description, and Open Graph tags
+- **Canonical URLs**: Prevents duplicate content issues
+- **Structured Data**: Blog posts include article schema
+- **Sitemap**: Auto-generated XML sitemap
+- **Robots.txt**: Proper crawling instructions
+
+### Deployment
+
+The site is automatically deployed to GitHub Pages when you push to the `main` branch. The GitHub Actions workflow:
+
+1. Builds the static site
+2. Generates the sitemap
+3. Deploys to GitHub Pages
+
+### File Structure
 
 ```
-src/
-├── components/     # Reusable UI components
-├── hooks/         # Custom React hooks
-├── pages/         # Page components
-├── utils/         # Utility functions
-└── assets/        # Static assets
+dist/
+├── index.html                 # Homepage
+├── blog/
+│   ├── index.html            # Blog listing
+│   └── [slug]/
+│       └── index.html        # Individual blog posts
+├── privacy/
+│   └── index.html            # Privacy page
+├── roadmap/
+│   └── index.html            # Roadmap page
+├── sitemap/
+│   └── index.html            # Sitemap page
+└── assets/                   # CSS, JS, images
 ```
 
-## 🎯 Performance Standards
-
-This project is optimized for:
-- **LCP (Largest Contentful Paint):** < 2.5s
-- **INP (Interaction to Next Paint):** < 200ms
-- **CLS (Cumulative Layout Shift):** < 0.1
-- **Lighthouse Score:** 90+
-
-## 🛠️ Development
+## Development
 
 ### Prerequisites
+
 - Node.js 18+
-- npm or yarn
+- npm
 
 ### Setup
+
 ```bash
 npm install
-```
-
-### Development
-```bash
 npm run dev
 ```
 
-### Build
-```bash
-npm run build
-```
+### Adding New Blog Posts
 
-### Linting & Formatting
-```bash
-npm run lint    # ESLint
-npm run format  # Prettier
-```
+1. Create a new `.md` file in `src/content/posts/[category]/`
+2. Include frontmatter with title, excerpt, category, etc.
+3. Run `npm run build:static` to regenerate the site
+4. The new post will be automatically included in the static generation
 
-## 📋 Code Conventions
+### Performance Optimizations
 
-### Components
-- Use arrow function syntax
-- Destructure props
-- Single purpose, under 100 LOC
-- Export as default
+- **Code Splitting**: React components are lazy-loaded
+- **Asset Optimization**: Images and CSS are optimized
+- **Caching**: Static assets have proper cache headers
+- **CDN Ready**: Works with CDNs for global distribution
 
-### Styling
-- Tailwind CSS only (no custom CSS)
-- Use `@apply` for consistency
-- Mobile-first responsive design
+## License
 
-### Performance
-- Lazy-load non-critical components
-- Use `React.memo`, `useMemo`, `useCallback`
-- Optimize images and assets
-- Minimize bundle size
-
-### Accessibility
-- Semantic HTML
-- ARIA labels
-- Keyboard navigation
-- Color contrast compliance
-
-## 🔧 Configuration Files
-
-- `tailwind.config.js` - Tailwind CSS configuration
-- `eslint.config.js` - ESLint rules
-- `.prettierrc` - Code formatting
-- `vite.config.ts` - Build configuration
-
-## 📦 Available Scripts
-
-- `dev` - Start development server
-- `build` - Build for production
-- `preview` - Preview production build
-- `lint` - Run ESLint
-- `format` - Format code with Prettier
+MIT
