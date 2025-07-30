@@ -50,7 +50,7 @@ const RealTimeMonitoring = () => {
       description="Get real-time visibility into your infrastructure with configurable monitoring intervals, custom authentication, and comprehensive response validation. Never miss a downtime event again."
       features={features}
       ctaText="Start Monitoring Free"
-      ctaHref="https://app.exit1.dev/sign-up"
+              ctaHref="https://app.exit1.dev/"
       seoTitle="Real-Time Website & API Monitoring - exit1.dev"
       seoDescription="Monitor unlimited websites and APIs with real-time status updates, custom authentication, and instant notifications. Start monitoring for free today."
     />

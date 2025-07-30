@@ -13,7 +13,12 @@ readTime: "9 min read"
 Free website monitoring in 2025 is a minefield of marketing tricks. Services that claim "unlimited" often cap you at 3 sites. "Free forever" plans suddenly require upgrades. We tested 20+ monitoring tools to find which ones deliver real value without the gotchas.
 
 New to website monitoring? Start with our [Website Monitoring 101 guide](/blog/website-monitoring-101) to understand the fundamentals before diving into specific tools.
-2. [Essential Features Every Free Tool Should Have](#essential-features)4. [Feature Deep Dive: What Matters Most](#feature-deep-dive)6. [Advanced Free Features Worth Having](#advanced-features)8. [Migration from Paid to Free Tools](#migration-guide)## The State of Free Monitoring in 2025 {#state-of-free-monitoring}
+
+2. [Essential Features Every Free Tool Should Have](#essential-features)
+4. [Feature Deep Dive: What Matters Most](#feature-deep-dive)
+6. [Advanced Free Features Worth Having](#advanced-features)
+8. [Migration from Paid to Free Tools](#migration-guide)
+## The State of Free Monitoring in 2025 {#state-of-free-monitoring}
 
 Let's be honest: the free monitoring landscape has been through some changes. Some services have become more generous (hello, unlimited monitors), while others have added restrictions that make their "free" plans borderline useless.
 
@@ -444,7 +449,7 @@ The key is matching your needs to the right tool:
 
 Remember: the best free uptime checker is the one you'll actually use consistently. Start with what meets your current needs, and scale up as your requirements grow.
 
-Ready to experience monitoring without artificial limits? [Try Exit1.dev's free tier](https://app.exit1.dev/sign-up) and see why developers are switching to unlimited monitors with 30-second checks. Set up your first monitor in under 60 seconds and never worry about hitting arbitrary limits again.
+Ready to experience monitoring without artificial limits? [Try Exit1.dev's free tier](https://app.exit1.dev/) and see why developers are switching to unlimited monitors with 30-second checks. Set up your first monitor in under 60 seconds and never worry about hitting arbitrary limits again.
 
 **Related Reading:**
 - [Website Monitoring 101](/blog/website-monitoring-101) - Learn the fundamentals

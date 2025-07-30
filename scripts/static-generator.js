@@ -29,7 +29,8 @@ const routes = [
   '/blog',
   '/privacy',
   '/roadmap',
-  '/sitemap'
+  '/sitemap',
+  '/quick-start'
 ];
 
 const generateStaticSite = async () => {

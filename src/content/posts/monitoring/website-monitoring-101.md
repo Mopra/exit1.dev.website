@@ -224,7 +224,7 @@ Learn more about advanced monitoring techniques in our [beyond uptime monitoring
 
 ## Why Choose Exit1.dev for Your Monitoring Needs
 
-Ready to implement rock-solid monitoring without the enterprise price tag? [Exit1.dev](https://app.exit1.dev/sign-up) offers:
+Ready to implement rock-solid monitoring without the enterprise price tag? [Exit1.dev](https://app.exit1.dev/) offers:
 
 - **Lightning-fast 30-second checks** (not the industry-standard 5-minute delays)
 - **Developer-friendly terminal interface** because web dashboards are for managers
@@ -240,7 +240,7 @@ Website monitoring services aren't optional in 2025—they're as essential as ha
 
 Start simple with basic uptime monitoring, then evolve your strategy as your site grows. Remember: the best monitoring setup is the one that catches problems before your users do.
 
-Ready to monitor like a pro? [Sign up for Exit1.dev's free plan](https://app.exit1.dev/sign-up) and get started in under 60 seconds. Your future self (and your users) will thank you when you catch that midnight outage before it ruins your weekend.
+Ready to monitor like a pro? [Sign up for Exit1.dev's free plan](https://app.exit1.dev/) and get started in under 60 seconds. Your future self (and your users) will thank you when you catch that midnight outage before it ruins your weekend.
 
 **Related Reading:**
 - [Get Started with Website Monitoring](/blog/get-started) - Step-by-step setup guide

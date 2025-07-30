@@ -50,7 +50,7 @@ const SSLMonitoring = () => {
       description="Never let an SSL certificate expire again. Get automatic validation, expiration tracking, and proactive warnings to keep your HTTPS services secure and accessible."
       features={features}
       ctaText="Start SSL Monitoring"
-      ctaHref="https://app.exit1.dev/sign-up"
+              ctaHref="https://app.exit1.dev/"
       seoTitle="SSL Certificate Monitoring - exit1.dev"
       seoDescription="Advanced SSL certificate validation and expiration tracking with automatic monitoring and proactive warnings. Keep your HTTPS services secure."
     />

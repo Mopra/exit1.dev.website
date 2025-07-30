@@ -50,7 +50,7 @@ const Analytics = () => {
       description="Get deep insights into your infrastructure performance with real-time analytics, historical trends, and comprehensive reporting. Make data-driven decisions to optimize your services."
       features={features}
       ctaText="View Analytics"
-      ctaHref="https://app.exit1.dev/sign-up"
+              ctaHref="https://app.exit1.dev/"
       seoTitle="Analytics & Reporting - exit1.dev"
       seoDescription="Comprehensive statistics dashboard with real-time performance analytics, historical trends, and detailed reporting. Get insights into your infrastructure performance."
     />

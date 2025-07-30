@@ -131,6 +131,43 @@ const Hero = () => {
               {content.trustIndicator}
             </p>
           </div>
+          
+          {/* How to Section */}
+          {content.howToSection && (
+            <div className="mt-20 max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center">
+                {content.howToSection.title}
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
+                {content.howToSection.steps.map((step, index) => (
+                  <div 
+                    key={index}
+                    className="text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
+                  >
+                    <div className="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center text-lg font-semibold mx-auto mb-4">
+                      {step.step}
+                    </div>
+                    <h3 className="text-xl font-medium text-gray-900 mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div className="text-center">
+                <Button 
+                  variant="primary"
+                  size="lg"
+                  className="bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  href={content.howToSection.cta.href}
+                >
+                  {content.howToSection.cta.text}
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

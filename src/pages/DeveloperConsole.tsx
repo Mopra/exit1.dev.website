@@ -50,7 +50,7 @@ const DeveloperConsole = () => {
       description="Take full control of your monitoring setup with our powerful developer console. Manage checks, view real-time logs, and debug issues with advanced CLI tools designed for developers."
       features={features}
       ctaText="Access Console"
-      ctaHref="https://app.exit1.dev/sign-up"
+              ctaHref="https://app.exit1.dev/"
       seoTitle="Developer Console - exit1.dev"
       seoDescription="Interactive command-line interface for advanced monitoring management, real-time logs, and debugging tools. Built for developers who need full control."
     />

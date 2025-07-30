@@ -283,4 +283,4 @@ Don't let a preventable 4-minute delay in detection turn a minor issue into a ma
 
 ---
 
-*Experience the difference 1-minute monitoring makes. [Try exit1.dev](https://app.exit1.dev/sign-up) and detect issues 5x faster than traditional monitoring services.*
+*Experience the difference 1-minute monitoring makes. [Try exit1.dev](https://app.exit1.dev/) and detect issues 5x faster than traditional monitoring services.*

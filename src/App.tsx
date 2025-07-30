@@ -90,6 +90,7 @@ const Blog = React.lazy(() => import('./pages/Blog'));
 const BlogPostPage = React.lazy(() => import('./pages/BlogPost'));
 const Roadmap = React.lazy(() => import('./pages/Roadmap'));
 const Sitemap = React.lazy(() => import('./pages/Sitemap'));
+const QuickStart = React.lazy(() => import('./pages/QuickStart'));
 
 // Product pages
 const RealTimeMonitoring = React.lazy(() => import('./pages/RealTimeMonitoring'));
@@ -147,6 +148,11 @@ const App = () => {
               <Route path="/sitemap" element={
                 <React.Suspense fallback={<LoadingFallback />}>
                   <Sitemap />
+                </React.Suspense>
+              } />
+              <Route path="/quick-start" element={
+                <React.Suspense fallback={<LoadingFallback />}>
+                  <QuickStart />
                 </React.Suspense>
               } />
               

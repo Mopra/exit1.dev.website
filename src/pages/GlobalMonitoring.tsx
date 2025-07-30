@@ -50,7 +50,7 @@ const GlobalMonitoring = () => {
       description="Monitor your services from multiple locations worldwide to ensure optimal performance for users everywhere. Get geographic insights and regional performance data."
       features={features}
       ctaText="Start Global Monitoring"
-      ctaHref="https://app.exit1.dev/sign-up"
+              ctaHref="https://app.exit1.dev/"
       seoTitle="Global Monitoring - exit1.dev"
       seoDescription="Worldwide monitoring coverage with geographic performance analysis, CDN monitoring, and regional insights. Ensure optimal performance for global users."
     />

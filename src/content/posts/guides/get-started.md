@@ -717,4 +717,4 @@ Welcome to proactive website monitoring with exit1.dev! Happy monitoring!
 
 ---
 
-*Questions about getting started? [Join our Discord community](https://discord.com/invite/uZvWbpwJZS) or [sign up for Exit1.dev](https://app.exit1.dev/sign-up) to get started today.* 
+*Questions about getting started? [Join our Discord community](https://discord.com/invite/uZvWbpwJZS) or [sign up for Exit1.dev](https://app.exit1.dev/) to get started today.* 

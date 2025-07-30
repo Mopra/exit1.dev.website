@@ -8,7 +8,7 @@
   "cta": {
     "primary": {
       "text": "Start Free Monitoring",
-      "href": "https://app.exit1.dev/sign-up",
+      "href": "https://app.exit1.dev/",
       "variant": "primary",
       "size": "lg",
       "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
@@ -48,5 +48,29 @@
       }
     ]
   },
-  "trustIndicator": "100% Free • Unlimited websites & APIs • 1-minute checks • SSL monitoring • No credit card • Instant setup"
+  "trustIndicator": "100% Free • Unlimited websites & APIs • 1-minute checks • SSL monitoring • No credit card • Instant setup",
+  "howToSection": {
+    "title": "How to Set Up Free Website Monitoring in 30 Seconds",
+    "steps": [
+      {
+        "step": "1",
+        "title": "Sign Up Free",
+        "description": "Visit app.exit1.dev/sign-up. No credit card required, no verification emails."
+      },
+      {
+        "step": "2", 
+        "title": "Add Your Website",
+        "description": "Paste your website URL. We start monitoring immediately with 1-minute checks."
+      },
+      {
+        "step": "3",
+        "title": "Get Instant Alerts",
+        "description": "Connect webhooks to Discord/Slack or get email alerts when your site goes down."
+      }
+    ],
+    "cta": {
+      "text": "Start Monitoring Now",
+      "href": "https://app.exit1.dev/"
+    }
+  }
 } 

@@ -50,7 +50,7 @@ const Alerting = () => {
       description="Never miss a critical event with instant notifications via webhooks, custom integrations, and real-time alerts. Configure exactly how and when you want to be notified."
       features={features}
       ctaText="Set Up Alerts"
-      ctaHref="https://app.exit1.dev/sign-up"
+              ctaHref="https://app.exit1.dev/"
       seoTitle="Smart Alerting & Notifications - exit1.dev"
       seoDescription="Webhook integration and real-time notifications with instant alerts, SSL certificate warnings, and customizable notification preferences."
     />

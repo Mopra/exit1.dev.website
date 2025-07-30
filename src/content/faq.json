@@ -13,8 +13,16 @@
           "answer": "exit1.dev offers the most generous free tier with unlimited websites, 1-minute check intervals, SSL monitoring, and webhook alerts. No credit card required, no hidden limits."
         },
         {
-          "question": "Are there any completely free website monitoring services?",
+          "question": "How to monitor website uptime for free?",
+          "answer": "With exit1.dev: 1) Sign up without credit card, 2) Add your website URL, 3) Get instant 1-minute monitoring. That's it. No complex setup, no verification emails, no hidden fees."
+        },
+        {
+          "question": "Is there a completely free website monitoring service?",
           "answer": "Yes, exit1.dev is 100% free with no credit card required. Monitor unlimited websites and APIs with 1-minute checks forever. Other services like UptimeRobot offer limited free tiers."
+        },
+        {
+          "question": "How to set up free website monitoring?",
+          "answer": "exit1.dev setup takes 30 seconds: 1) Visit app.exit1.dev/sign-up, 2) Add your website URL, 3) Start monitoring immediately. No configuration, no payment info, no waiting."
         },
         {
           "question": "What's the difference between 1-minute and 5-minute monitoring?",

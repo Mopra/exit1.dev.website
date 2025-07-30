@@ -21,7 +21,7 @@
         "Global monitoring locations"
       ],
       "cta": "Start Free Monitoring",
-      "href": "https://app.exit1.dev/sign-up",
+      "href": "https://app.exit1.dev/",
       "popular": true
     },
     {
@@ -40,7 +40,7 @@
         "Team collaboration features"
       ],
       "cta": "Try Sudo Free",
-      "href": "https://app.exit1.dev/sign-up",
+      "href": "https://app.exit1.dev/",
       "popular": false
     }
   ]
