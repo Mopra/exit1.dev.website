@@ -120,11 +120,24 @@
 /* Table of Contents Styles */
 .toc-container {
   @apply lg:block;
+  height: fit-content;
+}
+
+.toc-container > div {
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
 }
 
 @media (max-width: 1023px) {
   .toc-container {
     @apply mb-8;
+  }
+  
+  .toc-container > div {
+    position: static;
+    max-height: none;
   }
 }
 

@@ -130,7 +130,7 @@ const BlogPostPage = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Table of Contents */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 lg:self-start">
               <TableOfContents headings={post.headings} />
             </div>
             

@@ -55,7 +55,7 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
 
   return (
     <nav className="toc-container">
-      <div className="bg-gray-50 rounded-lg p-6 sticky top-8">
+      <div className="bg-gray-50 rounded-lg p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">
           Table of Contents
         </h2>

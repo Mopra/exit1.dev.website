@@ -96,36 +96,46 @@ const roadmapData: RoadmapItem[] = [
   }
 ];
 
-
-
 const Roadmap = () => {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">
-        Product Roadmap
-      </h1>
-      <p className="text-gray-600 mb-12">
-        See what we're building next. Our roadmap shows the exciting features and improvements coming to exit1.dev.
-      </p>
-
-      <div className="space-y-8">
-        {roadmapData.map((item) => (
-          <div key={item.id} className="border-b border-gray-200 pb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">
-              {item.title}
-            </h2>
-            <p className="text-gray-600 mb-4">
-              {item.description}
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-white via-gray-50 to-gray-100 py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 leading-tight">
+              Product Roadmap
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+              See what we're building next. Our roadmap shows the exciting features and improvements coming to exit1.dev.
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-1">
-              {item.features.map((feature, featureIndex) => (
-                <li key={featureIndex}>{feature}</li>
-              ))}
-            </ul>
           </div>
-        ))}
-      </div>
-    </main>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-12">
+            {roadmapData.map((item) => (
+              <div key={item.id} className="border-b border-gray-200 pb-12 last:border-b-0">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                  {item.title}
+                </h2>
+                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                  {item.description}
+                </p>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  {item.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="text-base">{feature}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
