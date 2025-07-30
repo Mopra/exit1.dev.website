@@ -1,32 +1,32 @@
 {
-  "title": "Be Part of the Launch Crew",
-  "subtitle": "Help Shape Exit1.dev",
-  "description": "We're not just launching another monitoring tool. We're building a community-first platform that you can help shape:",
+  "title": "Free Monitoring Support Community",
+  "subtitle": "Get Help with Your Website Monitoring Setup", 
+  "description": "Join thousands of developers using exit1.dev for free uptime monitoring. Get help with setup, share experiences, and help improve the best free monitoring tool:",
   "features": [
     {
-      "title": "Give feedback",
-      "description": "We're listening closely.",
+      "title": "Get Setup Help",
+      "description": "Stuck with monitoring setup? Ask the community.",
       "icon": "fa-regular fa-comments"
     },
     {
-      "title": "Request features",
-      "description": "Your needs, your voice.",
+      "title": "Request Features",
+      "description": "Need a specific monitoring feature? Let us know.",
       "icon": "fa-regular fa-lightbulb"
     },
     {
-      "title": "Share your experience",
-      "description": "Help us improve our service.",
+      "title": "Share Monitoring Tips",
+      "description": "Help others with uptime monitoring best practices.",
       "icon": "fa-regular fa-star"
     },
     {
       "title": "Join the Discord",
-      "description": "Let's build in public, together.",
+      "description": "Real-time support for free monitoring questions.",
       "icon": "fa-brands fa-discord"
     }
   ],
   "cta": {
     "primary": {
-      "text": "Give Feedback",
+      "text": "Get Help Now",
       "href": "https://discord.com/invite/uZvWbpwJZS",
       "variant": "outline",
       "size": "lg",
@@ -35,15 +35,15 @@
     "secondary": {
       "text": "Contact Support",
       "href": "mailto:support@exit1.dev",
-      "variant": "outline",
+      "variant": "outline", 
       "size": "lg",
       "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
     },
     "discord": {
-      "text": "Join Discord",
+      "text": "Join Discord Community",
       "href": "https://discord.com/invite/uZvWbpwJZS",
       "variant": "primary",
-      "size": "lg",
+      "size": "lg", 
       "className": "border-purple-300 text-purple-700 hover:bg-purple-50 hover:border-purple-400 font-medium transition-all duration-300"
     }
   }
