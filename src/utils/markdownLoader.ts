@@ -2,6 +2,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 import remarkGfm from 'remark-gfm';
+import { extractHeadings, addIdsToHeadings, type TocItem } from './tocUtils';
 
 export interface BlogPostMeta {
   id: string;
@@ -13,6 +14,7 @@ export interface BlogPostMeta {
   author: string;
   content: string;
   htmlContent: string;
+  headings: TocItem[];
 }
 
 // Cache for processed posts
@@ -55,7 +57,8 @@ export const getAllPosts = (): BlogPostMeta[] => {
       slug: data.slug || slug,
       author: data.author || 'Exit1 Team',
       content: markdownContent,
-      htmlContent: '' // Will be processed on demand
+      htmlContent: '', // Will be processed on demand
+      headings: [] // Will be processed on demand
     });
   }
 
@@ -98,6 +101,11 @@ export const getPostBySlug = async (slug: string): Promise<BlogPostMeta | null> 
   
   // Convert markdown to HTML using cached processor
   const processedContent = await remarkProcessor.process(markdownContent);
+  const htmlContent = processedContent.toString();
+  
+  // Extract headings and add IDs to HTML
+  const headings = extractHeadings(markdownContent);
+  const htmlWithIds = addIdsToHeadings(htmlContent);
 
   const post: BlogPostMeta = {
     id: slug,
@@ -108,7 +116,8 @@ export const getPostBySlug = async (slug: string): Promise<BlogPostMeta | null> 
     slug: data.slug || slug,
     author: data.author || 'Exit1 Team',
     content: markdownContent,
-    htmlContent: processedContent.toString()
+    htmlContent: htmlWithIds,
+    headings
   };
 
   // Cache the result

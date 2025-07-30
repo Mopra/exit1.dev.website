@@ -11,18 +11,7 @@ readTime: "8 min read"
 Getting alerted about downtime shouldn't feel like playing Russian roulette with your business. Yet most teams rely on alerting systems that fail when they're needed most—notifications stuck in spam folders, SMS messages delayed by hours, or Slack alerts buried in noisy channels. Real-time website notifications and reliable incident monitoring tools can be the difference between a 2-minute outage and a 2-hour revenue disaster.
 
 If your downtime alerts have ever failed to reach you during an actual outage, this guide will help you build a notification system that actually works when everything else is falling apart.
-
-## Table of Contents
-1. [Why Most Downtime Alerts Fail](#why-alerts-fail)
-2. [Alert Channel Reliability Rankings](#channel-reliability)
-3. [SMS Alerts: The Most Reliable Option](#sms-alerts)
-4. [Email Alerts: Still Essential But Tricky](#email-alerts)
-5. [Phone Call Alerts: When Everything Else Fails](#phone-alerts)
-6. [Slack and Team Chat Integration](#slack-alerts)
-7. [Webhook Alerts for Automation](#webhook-alerts)
-8. [Building Redundant Alert Systems](#redundant-systems)
-9. [Alert Fatigue and Smart Filtering](#alert-fatigue)
-10. [Testing and Maintaining Your Alert System](#testing-maintenance)
+2. [Alert Channel Reliability Rankings](#channel-reliability)4. [Email Alerts: Still Essential But Tricky](#email-alerts)6. [Slack and Team Chat Integration](#slack-alerts)8. [Building Redundant Alert Systems](#redundant-systems)10. [Testing and Maintaining Your Alert System](#testing-maintenance)
 
 ## Why Most Downtime Alerts Fail {#why-alerts-fail}
 

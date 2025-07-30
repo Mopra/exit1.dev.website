@@ -116,3 +116,24 @@
 .markdown-content hr {
   @apply border-gray-300 my-8;
 }
+
+/* Table of Contents Styles */
+.toc-container {
+  @apply lg:block;
+}
+
+@media (max-width: 1023px) {
+  .toc-container {
+    @apply mb-8;
+  }
+}
+
+/* Ensure headings have proper scroll margin for anchor links */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  scroll-margin-top: 2rem;
+}

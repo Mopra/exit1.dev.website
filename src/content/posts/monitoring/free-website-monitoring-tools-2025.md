@@ -13,19 +13,7 @@ readTime: "9 min read"
 Free website monitoring in 2025 is a minefield of marketing tricks. Services that claim "unlimited" often cap you at 3 sites. "Free forever" plans suddenly require upgrades. We tested 20+ monitoring tools to find which ones deliver real value without the gotchas.
 
 New to website monitoring? Start with our [Website Monitoring 101 guide](/blog/website-monitoring-101) to understand the fundamentals before diving into specific tools.
-
-## Table of Contents
-1. [The State of Free Monitoring in 2025](#state-of-free-monitoring)
-2. [Essential Features Every Free Tool Should Have](#essential-features)
-3. [The Complete Free Tool Comparison](#complete-comparison)
-4. [Feature Deep Dive: What Matters Most](#feature-deep-dive)
-5. [Hidden Costs and Gotchas](#hidden-costs)
-6. [Advanced Free Features Worth Having](#advanced-features)
-7. [When Free Isn't Actually Free](#when-free-isnt-free)
-8. [Migration from Paid to Free Tools](#migration-guide)
-9. [The Exit1.dev Advantage](#exit1dev-advantage)
-
-## The State of Free Monitoring in 2025 {#state-of-free-monitoring}
+2. [Essential Features Every Free Tool Should Have](#essential-features)4. [Feature Deep Dive: What Matters Most](#feature-deep-dive)6. [Advanced Free Features Worth Having](#advanced-features)8. [Migration from Paid to Free Tools](#migration-guide)## The State of Free Monitoring in 2025 {#state-of-free-monitoring}
 
 Let's be honest: the free monitoring landscape has been through some changes. Some services have become more generous (hello, unlimited monitors), while others have added restrictions that make their "free" plans borderline useless.
 

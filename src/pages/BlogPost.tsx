@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getPostBySlug, type BlogPost } from '../utils/markdownLoader';
 import SEO from '../components/SEO';
+import TableOfContents from '../components/TableOfContents';
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -126,13 +127,23 @@ const BlogPostPage = () => {
 
       {/* Article Content */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <article className="prose prose-lg max-w-none">
-            <div 
-              className="markdown-content"
-              dangerouslySetInnerHTML={{ __html: post.htmlContent }}
-            />
-          </article>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Table of Contents */}
+            <div className="lg:col-span-1">
+              <TableOfContents headings={post.headings} />
+            </div>
+            
+            {/* Article Content */}
+            <div className="lg:col-span-3">
+              <article className="prose prose-lg max-w-none">
+                <div 
+                  className="markdown-content"
+                  dangerouslySetInnerHTML={{ __html: post.htmlContent }}
+                />
+              </article>
+            </div>
+          </div>
 
           {/* Article Footer */}
           <div className="mt-16 pt-8 border-t border-gray-200">
