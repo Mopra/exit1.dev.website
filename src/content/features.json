@@ -1,37 +1,37 @@
 {
   "title": {
-    "main": "Why",
+    "main": "Why Choose",
     "highlight": "exit1.dev"
   },
-  "subtitle": "Because your time is worth more than clicking through endless menus.",
+  "subtitle": "The only free uptime monitor that doesn't treat you like a free user.",
   "features": [
     {
-      "title": "Terminal Interface",
-      "description": "Add, check, and manage websites with simple commands. No more clicking through menus."
+      "title": "Actually Free Monitoring",
+      "description": "Monitor unlimited websites and APIs. Forever. No credit card, no hidden fees, no 'upgrade to continue' nonsense."
     },
     {
-      "title": "1-Minute Checks",
-      "description": "Check your sites every minute, not every 5 or 10 minutes like the other guys."
+      "title": "1-Minute Check Intervals",
+      "description": "Real monitoring checks every minute, not every 5 or 10 minutes like the competition. Catch issues fast."
     },
     {
       "title": "SSL Certificate Monitoring",
-      "description": "Track SSL certificate validity and get warned before expiration. Never let expired certificates break your site."
+      "description": "Track SSL expiration dates and get alerts before certificates break your site. Never miss an SSL renewal again."
     },
     {
-      "title": "Webhook Alerts",
-      "description": "Get notified in Discord, Slack, or wherever your team already hangs out."
+      "title": "Instant Webhook Alerts",
+      "description": "Connect to Discord, Slack, or any webhook endpoint. Get notified the second something breaks."
     },
     {
-      "title": "Unlimited & Free",
-      "description": "Monitor unlimited websites and REST API endpoints. No credit card required."
+      "title": "Terminal-First Interface",
+      "description": "Manage monitoring with simple commands. Add sites, check status, view logs — all from a clean terminal interface."
     },
     {
-      "title": "Zero Setup",
-      "description": "Add a URL and you're done. No complex configuration needed."
+      "title": "Zero Configuration Setup",
+      "description": "Add a URL and start monitoring instantly. No complex setup, no lengthy forms, no account verification delays."
     },
     {
-      "title": "Built for Speed",
-      "description": "Fast checks, fast alerts, fast terminal. Everything else is just noise."
+      "title": "Built for Performance",
+      "description": "Fast checks from global locations. Sub-second response times. Reliable monitoring that works when you need it."
     }
   ]
 } 

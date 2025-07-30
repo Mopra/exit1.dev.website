@@ -1,20 +1,20 @@
 {
   "title": {
-    "main": "A New Era of Free Uptime Monitoring",
-    "highlight": ""
+    "main": "The Best Free Uptime Monitor",
+    "highlight": "That Actually Works"
   },
-  "subtitle": "Blazing fast. Transparent. Built for the indie dev and startup in mind.",
-  "description": "Monitor UNLIMITED websites, REST API endpoints, and SSL certificates with 1-minute intervals — completely free. We're building something new from the ground up — and we need early explorers. Try it for free, break it, tell us what sucks, and help shape the future.",
+  "subtitle": "Free website monitoring with 1-minute checks. No limits, no credit card, no BS.",
+  "description": "Monitor unlimited websites, APIs, and SSL certificates every minute — completely free. Built for developers who need real monitoring, not marketing fluff. Zero setup, instant alerts, terminal interface. Works like monitoring should work.",
   "cta": {
     "primary": {
-      "text": "Start Monitoring Free",
+      "text": "Start Free Monitoring",
       "href": "https://app.exit1.dev/sign-up",
       "variant": "primary",
       "size": "lg",
       "className": "bg-gray-900 hover:bg-gray-800 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
     },
     "secondary": {
-      "text": "Join the Feedback Loop",
+      "text": "Join Discord Community",
       "href": "https://discord.com/invite/uZvWbpwJZS",
       "variant": "outline",
       "size": "lg",
@@ -48,5 +48,5 @@
       }
     ]
   },
-  "trustIndicator": "Free • UNLIMITED websites & APIs • 1-minute intervals • SSL monitoring • Terminal interface • Webhook alerts"
+  "trustIndicator": "100% Free • Unlimited websites & APIs • 1-minute checks • SSL monitoring • No credit card • Instant setup"
 } 

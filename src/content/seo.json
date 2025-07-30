@@ -1,0 +1,88 @@
+{
+  "global": {
+    "siteName": "exit1.dev - Best Free Uptime Monitoring",
+    "siteDescription": "Free uptime monitoring with 1-minute checks. Monitor unlimited websites, APIs, and SSL certificates. No credit card required. Start monitoring in 30 seconds.",
+    "keywords": [
+      "free uptime monitoring",
+      "best free uptime monitor",
+      "free website monitoring",
+      "uptime checker free",
+      "website monitor no credit card",
+      "1 minute monitoring free",
+      "unlimited uptime monitoring",
+      "free SSL monitoring",
+      "website downtime alerts"
+    ]
+  },
+  "pages": {
+    "home": {
+      "title": "Best Free Uptime Monitor - exit1.dev | 1-Minute Checks, Unlimited Sites",
+      "description": "The best free uptime monitoring service. Monitor unlimited websites with 1-minute checks, SSL monitoring, and instant alerts. No credit card required. Start free now.",
+      "canonicalUrl": "https://exit1.dev"
+    },
+    "blog": {
+      "title": "Free Uptime Monitoring Blog - Guides, Tips & Comparisons | exit1.dev", 
+      "description": "Expert guides on free uptime monitoring, tool comparisons, and setup tutorials. Learn about website monitoring, SSL tracking, and alert configuration.",
+      "canonicalUrl": "https://exit1.dev/blog"
+    },
+    "pricing": {
+      "title": "Free Uptime Monitoring Pricing - No Credit Card Required | exit1.dev",
+      "description": "100% free uptime monitoring with unlimited websites and 1-minute checks. No credit card required, no hidden fees. Compare our free vs paid plans.",
+      "canonicalUrl": "https://exit1.dev#pricing"
+    }
+  },
+  "structuredData": {
+    "organization": {
+      "@type": "Organization",
+      "name": "exit1.dev",
+      "description": "Free uptime monitoring service for websites and APIs",
+      "url": "https://exit1.dev",
+      "logo": "https://exit1.dev/logo.png",
+      "sameAs": [
+        "https://discord.com/invite/uZvWbpwJZS"
+      ]
+    },
+    "softwareApplication": {
+      "@type": "SoftwareApplication",
+      "name": "exit1.dev Uptime Monitor",
+      "description": "Free uptime monitoring tool with 1-minute check intervals for unlimited websites",
+      "category": "Website Monitoring",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free forever plan with unlimited monitoring"
+      },
+      "featureList": [
+        "1-minute check intervals",
+        "Unlimited website monitoring", 
+        "SSL certificate monitoring",
+        "Webhook alerts",
+        "Terminal interface",
+        "No credit card required"
+      ]
+    },
+    "faq": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best free uptime monitoring tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "exit1.dev offers the most generous free tier with unlimited websites, 1-minute check intervals, SSL monitoring, and webhook alerts. No credit card required, no hidden limits."
+          }
+        },
+        {
+          "@type": "Question", 
+          "name": "Are there any completely free website monitoring services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, exit1.dev is 100% free with no credit card required. Monitor unlimited websites and APIs with 1-minute checks forever."
+          }
+        }
+      ]
+    }
+  }
+}

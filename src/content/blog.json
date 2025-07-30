@@ -1,23 +1,23 @@
 {
-  "title": "Our Blog!",
-  "subtitle": "Insights, tutorials, and updates from the exit1.dev team.",
+  "title": "Free Uptime Monitoring Insights",
+  "subtitle": "Expert guides, comparisons, and tutorials on website monitoring, uptime checking, and site reliability.",
   "categories": [
     {
       "id": "guides",
-      "name": "Guides",
-      "description": "Step-by-step tutorials and how-to guides",
+      "name": "Setup Guides",
+      "description": "Step-by-step tutorials for monitoring setup and configuration",
       "slug": "guides"
     },
     {
       "id": "monitoring",
       "name": "Website Monitoring",
-      "description": "Uptime monitoring, alerts, and site reliability",
+      "description": "Uptime monitoring tips, best practices, and tool comparisons",
       "slug": "monitoring"
     },
     {
       "id": "ai",
       "name": "AI & Automation",
-      "description": "AI integration, automation, and intelligent workflows",
+      "description": "AI-powered monitoring, automated alerts, and intelligent workflows",
       "slug": "ai"
     }
   ]

@@ -1,25 +1,26 @@
 {
   "title": {
-    "main": "Simple",
-    "highlight": "Pricing"
+    "main": "Completely Free",
+    "highlight": "Website Monitoring"
   },
-  "subtitle": "Monitor UNLIMITED websites, REST API endpoints, and SSL certificates with 1-minute intervals — completely free.",
+  "subtitle": "No credit card required. No limits. No tricks. Monitor unlimited websites and APIs with 1-minute checks — free forever.",
   "plans": [
     {
-      "name": "Free",
+      "name": "Free Forever",
       "price": "$0",
-      "period": "/month",
-      "description": "Professional monitoring that costs nothing. Perfect for indie developers and startups.",
-              "features": [
+      "period": "/forever",
+      "description": "The best free uptime monitoring service. No credit card required, no hidden limits, no upgrade pressure.",
+      "features": [
         "Monitor UNLIMITED websites & REST APIs",
         "Lightning-fast 1-minute check intervals",
         "SSL certificate monitoring & expiration alerts",
-        "Interactive terminal console",
-        "Instant webhook integrations",
-        "No credit card required",
-        "Get started instantly"
+        "Interactive terminal console interface",
+        "Instant webhook integrations (Discord, Slack)",
+        "No credit card required, ever",
+        "Start monitoring in under 30 seconds",
+        "Global monitoring locations"
       ],
-      "cta": "Start Monitoring Free",
+      "cta": "Start Free Monitoring",
       "href": "https://app.exit1.dev/sign-up",
       "popular": true
     },
@@ -27,16 +28,18 @@
       "name": "Sudo",
       "price": "$1",
       "period": "/month",
-      "description": "For developers and small teams who need more",
+      "description": "For teams who want priority support and advanced features",
       "features": [
-        "Everything in Free (unlimited websites & APIs + SSL)",
+        "Everything in Free (unlimited websites & APIs)",
         "Same 1-minute monitoring intervals",
         "Interactive terminal console",
         "Priority webhook notifications",
-        "Full API access",
-        "Priority support"
+        "Full API access for automation",
+        "Priority support response",
+        "Advanced alerting customization",
+        "Team collaboration features"
       ],
-      "cta": "Start Sudo Trial",
+      "cta": "Try Sudo Free",
       "href": "https://app.exit1.dev/sign-up",
       "popular": false
     }
