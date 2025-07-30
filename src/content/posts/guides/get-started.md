@@ -8,7 +8,7 @@ readTime: "7 min read"
 
 # Get Started with Website Monitoring
 
-Welcome to our website monitoring platform! This guide will help you get started with monitoring your website's performance and ensuring it remains accessible to your users. Whether you're managing a personal blog, a business website, or a complex web application, this comprehensive guide will walk you through everything you need to know to implement effective monitoring from day one.
+Welcome to our website monitoring platform! This guide will help you get started with monitoring your website's performance and ensuring it remains accessible to your users. Whether you're managing a personal blog, a business website, or a complex web application, this comprehensive guide will walk you through everything you need to know to implement effective monitoring from day one. If you're new to monitoring concepts, we recommend reading our [website monitoring 101 guide](/blog/website-monitoring-101) first.
 
 ## Why Start with Monitoring Now?
 
@@ -708,6 +708,9 @@ Welcome to proactive website monitoring with exit1.dev! Happy monitoring!
 - [Understanding Website Downtime](/blog/understanding-website-downtime) - Causes and prevention strategies
 - [Free Website Monitoring Tools in 2025](/blog/free-website-monitoring-tools-2025) - Compare your options
 - [Real-time vs 5-minute Monitoring](/blog/real-time-vs-5-minute-monitoring) - Why frequency matters
+- [Free vs Paid Website Monitoring](/blog/free-vs-paid-website-monitoring) - When to upgrade
+- [Website Monitoring Best Practices](/blog/website-monitoring-best-practices-2025) - Advanced strategies
+- [Webhook Alerts Setup](/blog/webhook-alerts-slack-discord) - Configure notifications
 
 **External Resources:**
 - [HTTP Status Codes](https://httpstatuses.com/) - Complete reference for status codes

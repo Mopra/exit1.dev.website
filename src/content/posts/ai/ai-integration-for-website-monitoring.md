@@ -8,7 +8,7 @@ readTime: "6 min read"
 
 # Integrating AI Agents for Enhanced Website Monitoring
 
-Incorporating AI agents into your website monitoring strategy can significantly enhance your ability to automate processes and receive instant feedback and alerts. Platforms like N8N allow you to connect your monitoring service with AI agents, streamlining operations and improving response times. As exit1.dev continues to evolve, AI integration represents one of the most promising frontiers for making monitoring smarter, more responsive, and genuinely helpful for development teams.
+Incorporating AI agents into your website monitoring strategy can significantly enhance your ability to automate processes and receive instant feedback and alerts. Platforms like N8N allow you to connect your monitoring service with AI agents, streamlining operations and improving response times. As exit1.dev continues to evolve, AI integration represents one of the most promising frontiers for making monitoring smarter, more responsive, and genuinely helpful for development teams. For monitoring fundamentals, see our [website monitoring 101 guide](/blog/website-monitoring-101).
 
 ## Benefits of AI Integration
 
@@ -467,6 +467,12 @@ By integrating AI agents with your website monitoring service, you can enhance e
 exit1.dev is designed to work seamlessly with AI integration platforms, providing the reliable data foundation that AI systems need to make intelligent decisions. Whether you're using N8N for workflow automation or building custom AI solutions, our monitoring platform provides the real-time, accurate data that makes AI-powered operations possible.
 
 The future of website monitoring is intelligent, automated, and proactive. By embracing AI integration today, you're not just improving your current operations—you're building the foundation for the autonomous monitoring systems of tomorrow.
+
+**Related Reading:**
+- [Website Monitoring 101](/blog/website-monitoring-101) - Learn the fundamentals
+- [Get Started with Website Monitoring](/blog/get-started) - Step-by-step setup guide
+- [Webhook Alerts Setup](/blog/webhook-alerts-slack-discord) - Configure notifications
+- [Website Monitoring Best Practices](/blog/website-monitoring-best-practices-2025) - Advanced strategies
 
 ---
 

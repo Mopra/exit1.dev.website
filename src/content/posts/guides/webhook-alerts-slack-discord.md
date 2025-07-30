@@ -8,7 +8,7 @@ readTime: "5 min read"
 
 # Setting Up Webhook Alerts with Slack & Discord for Instant Downtime Notifications
 
-When your website goes down, every second counts. Email notifications are fine, but they're not always immediate, and you might not check your inbox right away. Webhook alerts to Slack and Discord provide instant notifications that reach you wherever you're working. In this guide, we'll walk through setting up both types of webhooks with exit1.dev for lightning-fast downtime alerts.
+When your website goes down, every second counts. Email notifications are fine, but they're not always immediate, and you might not check your inbox right away. Webhook alerts to Slack and Discord provide instant notifications that reach you wherever you're working. In this guide, we'll walk through setting up both types of webhooks with exit1.dev for lightning-fast downtime alerts. For monitoring fundamentals, see our [website monitoring 101 guide](/blog/website-monitoring-101).
 
 ## Why Webhook Alerts Matter
 
@@ -251,6 +251,12 @@ Setting up webhook alerts with Slack and Discord transforms your monitoring from
 The key to effective webhook alerting is finding the right balance between being informed and avoiding alert fatigue. Start with basic up/down notifications, then gradually add more sophisticated alerting rules as your monitoring needs evolve.
 
 Remember to test your webhook setup regularly and keep your team informed about your monitoring practices. When everyone knows what to expect from alerts and how to respond, your incident response becomes much more effective.
+
+**Related Reading:**
+- [Website Monitoring 101](/blog/website-monitoring-101) - Learn the fundamentals
+- [Get Started with Website Monitoring](/blog/get-started) - Step-by-step setup guide
+- [Importance of Real-time Alerts](/blog/importance-of-real-time-alerts) - Why speed matters
+- [Downtime Alerts Guide](/blog/downtime-alerts-guide) - Comprehensive alerting strategies
 
 ---
 
