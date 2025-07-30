@@ -26,6 +26,46 @@ const STATIC_ROUTES = [
     changefreq: 'weekly',
     priority: 0.7,
   },
+  {
+    loc: '/sitemap',
+    changefreq: 'weekly',
+    priority: 0.4,
+  },
+  {
+    loc: '/quick-start',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  {
+    loc: '/product/monitoring',
+    changefreq: 'weekly',
+    priority: 0.9,
+  },
+  {
+    loc: '/product/ssl-monitoring',
+    changefreq: 'weekly',
+    priority: 0.9,
+  },
+  {
+    loc: '/product/analytics',
+    changefreq: 'weekly',
+    priority: 0.9,
+  },
+  {
+    loc: '/product/alerting',
+    changefreq: 'weekly',
+    priority: 0.9,
+  },
+  {
+    loc: '/product/console',
+    changefreq: 'weekly',
+    priority: 0.9,
+  },
+  {
+    loc: '/product/global',
+    changefreq: 'weekly',
+    priority: 0.9,
+  },
 ];
 
 // Function to get all markdown files recursively
