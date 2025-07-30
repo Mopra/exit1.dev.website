@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getHeaderContent } from '../utils/contentLoader';
 
 const Header = () => {
@@ -9,6 +9,7 @@ const Header = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Close menu when route changes
   useEffect(() => {
@@ -72,6 +73,28 @@ const Header = () => {
     return location.pathname.startsWith(path);
   };
 
+  const handleNavigationClick = (href: string, e: React.MouseEvent) => {
+    // Handle smooth scrolling for anchor links
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      
+      // If we're not on the home page, navigate to home first
+      if (location.pathname !== '/') {
+        navigate(`/${href}`);
+        return;
+      }
+      
+      // If we're on the home page, scroll to the section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
   return (
     <header 
       className="fixed top-4 left-4 right-4 z-50 transition-all duration-500 bg-white/90 backdrop-blur-xl rounded-2xl max-w-[1800px] mx-auto border border-gray-100 shadow-2xl"
@@ -93,20 +116,53 @@ const Header = () => {
           role="navigation"
           aria-label="Main navigation"
         >
-          {content.navigation.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              className={`text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-full px-3 py-2 whitespace-nowrap ${
-                isActive(item.href)
-                  ? 'text-gray-900 bg-gray-100/80'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/60'
-              }`}
-              aria-current={isActive(item.href) ? 'page' : undefined}
-            >
-              {item.name}
-            </Link>
-          ))}
+          {content.navigation.map((item) => {
+            if (item.href.startsWith('#')) {
+              // Anchor link for smooth scrolling
+              return (
+                <button
+                  key={item.href}
+                  onClick={(e) => handleNavigationClick(item.href, e)}
+                  className={`text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-full px-3 py-2 whitespace-nowrap ${
+                    isActive(item.href)
+                      ? 'text-gray-900 bg-gray-100/80'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/60'
+                  }`}
+                >
+                  {item.name}
+                </button>
+              );
+            } else if (item.href.startsWith('/')) {
+              // Internal React Router link
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-full px-3 py-2 whitespace-nowrap ${
+                    isActive(item.href)
+                      ? 'text-gray-900 bg-gray-100/80'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/60'
+                  }`}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                >
+                  {item.name}
+                </Link>
+              );
+            } else {
+              // External link
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-full px-3 py-2 whitespace-nowrap text-gray-600 hover:text-gray-900 hover:bg-gray-100/60"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.name}
+                </a>
+              );
+            }
+          })}
         </nav>
 
         {/* CTA Buttons */}
@@ -179,20 +235,53 @@ const Header = () => {
           aria-label="Mobile navigation"
         >
           <div className="px-6 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-xl border-t border-gray-200/50">
-            {content.navigation.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`block px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 ${
-                  isActive(item.href)
-                    ? 'text-gray-900 bg-gray-100/80'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/60'
-                }`}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {content.navigation.map((item) => {
+              if (item.href.startsWith('#')) {
+                // Anchor link for smooth scrolling
+                return (
+                  <button
+                    key={item.href}
+                    onClick={(e) => handleNavigationClick(item.href, e)}
+                    className={`block w-full text-left px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 ${
+                      isActive(item.href)
+                        ? 'text-gray-900 bg-gray-100/80'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/60'
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                );
+              } else if (item.href.startsWith('/')) {
+                // Internal React Router link
+                return (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className={`block px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 ${
+                      isActive(item.href)
+                        ? 'text-gray-900 bg-gray-100/80'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/60'
+                    }`}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              } else {
+                // External link
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="block px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100/60"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.name}
+                  </a>
+                );
+              }
+            })}
             
             {/* Mobile CTA */}
             <div className="pt-4 pb-3 border-t border-gray-200/50 space-y-2">
