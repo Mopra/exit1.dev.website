@@ -104,19 +104,6 @@ const Footer = () => {
             <p className="text-gray-600 text-base font-light leading-relaxed">
               {content.brand.description}
             </p>
-            <div className="flex space-x-6">
-              {content.social.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-500 hover:text-gray-900 transition-all duration-200 hover:scale-110 font-medium cursor-pointer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
             <div className="md:grid md:grid-cols-2 md:gap-8">

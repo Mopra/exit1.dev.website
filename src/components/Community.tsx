@@ -113,14 +113,6 @@ const Community = () => {
                 variant="outline"
                 size="lg"
                 className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
-                href={content.cta.secondary.href}
-              >
-                {content.cta.secondary.text}
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
                 href={content.cta.discord.href}
               >
                 {content.cta.discord.text}

@@ -1,4 +1,6 @@
-const blogData = require('../src/content/blog.json');
+const fs = require('fs');
+const path = require('path');
+const matter = require('gray-matter');
 
 const BASE_URL = 'https://exit1.dev';
 
@@ -26,18 +28,53 @@ const STATIC_ROUTES = [
   },
 ];
 
+// Function to get all markdown files recursively
+const getAllMarkdownFiles = (dir) => {
+  const files = [];
+  const items = fs.readdirSync(dir);
+  
+  for (const item of items) {
+    const fullPath = path.join(dir, item);
+    const stat = fs.statSync(fullPath);
+    
+    if (stat.isDirectory()) {
+      files.push(...getAllMarkdownFiles(fullPath));
+    } else if (item.endsWith('.md')) {
+      files.push(fullPath);
+    }
+  }
+  
+  return files;
+};
+
 const generateSitemap = () => {
   const urls = [...STATIC_ROUTES];
 
-  // Add blog posts
-  blogData.posts.forEach((post) => {
-    urls.push({
-      loc: `/blog/${post.slug}`,
-      lastmod: post.date,
-      changefreq: 'monthly',
-      priority: 0.6,
+  // Add blog posts from markdown files
+  const postsDir = path.join(__dirname, '../src/content/posts');
+  if (fs.existsSync(postsDir)) {
+    const markdownFiles = getAllMarkdownFiles(postsDir);
+    
+    markdownFiles.forEach((filePath) => {
+      const content = fs.readFileSync(filePath, 'utf8');
+      const { data } = matter(content);
+      
+      // Extract slug from filename
+      const filename = path.basename(filePath, '.md');
+      const slug = data.slug || filename;
+      
+      // Get file stats for lastmod
+      const stats = fs.statSync(filePath);
+      const lastmod = stats.mtime.toISOString().split('T')[0];
+      
+      urls.push({
+        loc: `/blog/${slug}`,
+        lastmod,
+        changefreq: 'monthly',
+        priority: 0.6,
+      });
     });
-  });
+  }
 
   return {
     urls,

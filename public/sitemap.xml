@@ -21,43 +21,92 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://exit1.dev/sitemap</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://exit1.dev/blog/getting-started-with-exit1-dev</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://exit1.dev/blog/ai-anomaly-detection-monitoring</loc>
+    <lastmod>2025-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://exit1.dev/blog/best-practices-for-modern-web-development</loc>
-    <lastmod>2024-01-10</lastmod>
+    <loc>https://exit1.dev/blog/ai-integration-for-website-monitoring</loc>
+    <lastmod>2025-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://exit1.dev/blog/performance-optimization-techniques</loc>
-    <lastmod>2024-01-05</lastmod>
+    <loc>https://exit1.dev/blog/get-started</loc>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://exit1.dev/blog/building-scalable-react-applications</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://exit1.dev/blog/webhook-alerts-slack-discord</loc>
+    <lastmod>2025-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://exit1.dev/blog/the-future-of-web-development</loc>
-    <lastmod>2023-12-28</lastmod>
+    <loc>https://exit1.dev/blog/best-free-uptime-monitoring-tools</loc>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://exit1.dev/blog/mastering-typescript-for-better-code-quality</loc>
-    <lastmod>2023-12-20</lastmod>
+    <loc>https://exit1.dev/blog/best-website-monitoring-service-2025</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/beyond-uptime-monitoring-guide</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/downtime-alerts-guide</loc>
+    <lastmod>2025-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/free-website-monitoring-tools-2025</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/importance-of-real-time-alerts</loc>
+    <lastmod>2025-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/intro-to-website-monitoring</loc>
+    <lastmod>2025-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/real-time-vs-5-minute-monitoring</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/understanding-website-downtime</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/website-monitoring-101</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/website-monitoring-best-practices-2025</loc>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -17,7 +17,7 @@
     ],
     "legal": [
       { "name": "Privacy", "href": "/privacy" },
-      { "name": "Sitemap", "href": "/sitemap" },
+      { "name": "Sitemap", "href": "/sitemap.xml" },
       { "name": "Cookie Settings", "href": "#cookie-settings" }
     ]
   },

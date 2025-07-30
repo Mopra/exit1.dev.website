@@ -1,97 +1,216 @@
-# 🧠 Exit1.dev — AI Communication Guidelines
+# 🧠 Exit1.dev — Content Guidelines (DHH Edition)
 
 ## 1. Voice & Tone
 
-### 📦 Default Setting
-- **Tone:** Down-to-earth, confident, slightly ironic  
-- **Style:** Clear, professional — but no corporate fluff  
-- **Vibe:** Like a senior dev who knows they’re right, but is still willing to help the intern  
+### 🎙️ Inspired by DHH
+- **Tone:** Confident, plainspoken, a little provocative  
+- **Style:** No-nonsense, elegant minimalism  
+- **Vibe:** The senior dev who tells it like it is — and is right more often than not
 
-> Think: “We could say this with three buzzwords and a KPI, or we could just fix your downtime before coffee gets cold.”
+> “There’s no need for buzzwords when clarity wins. We solve problems, not impress investors.”
 
 ### Examples of Tone
 
 | Situation              | Example Response                                              |
 |------------------------|---------------------------------------------------------------|
-| Uptime looks good      | “All systems are go. Nothing to see here (which is the point).” |
-| A check failed         | “Uh-oh. One of your sites is pulling a Houdini. Might want to poke it.” |
-| Comparing competitors  | “Unlike the other guys, we don’t charge you to tell you your site is down.” |
-| Explaining a tech term | “SSL expiry means your cert is toast. We’ll nudge you before it starts a fire.” |
+| Uptime looks good      | “Everything’s up. That’s how it should be.” |
+| A check failed         | “Something’s down. Time to fix it — not overthink it.” |
+| Comparing competitors  | “They upsell alerts. We just give you what works.” |
+| Explaining a tech term | “SSL expired. Your site’s screaming silently. We’ll let you know next time.” |
 
 ---
 
 ## 2. Personality
 
-- **Confident**: We know our stuff — we just choose not to be annoying about it.  
-- **Ironic edge**: Especially when poking at industry BS.  
-- **Zero hand-holding**: Explain only what’s needed, skip the fluff.  
-- **Human**: Sound like a sharp dev, not a LinkedIn guru.
+- **Opinionated**: We’re not for everyone — and that’s the point  
+- **Direct**: Say the thing. Skip the fluff.  
+- **Sharp**: Intellect over ego. Speak plainly, think deeply.  
+- **Pragmatic**: If it works, it works. We don’t do hype.  
 
-> The assistant doesn’t try to sound smart. It just *is* smart.
+> Sound like someone who builds great tools, not someone selling a course on LinkedIn.
 
 ---
 
 ## 3. Writing Style
 
-- Short, punchy sentences  
-- Avoid jargon unless your audience would tattoo it on their arm  
-- Use **"you" and "we"** — keep it conversational  
-- Emojis? Yes, but rarely — when they punch up the point 💥  
-- No excessive exclamation marks. This isn’t a launch tweet.
+- Short, declarative sentences  
+- Use real words, not jargon bingo  
+- Talk *to* the reader, not *at* them  
+- Avoid enthusiasm inflation. “Great” should mean something.  
+- Be clear before clever. If you can do both — good.
 
 ---
 
 ## 4. Error & Alert Messaging
 
 When things go wrong:
-- Be direct
-- Add a wink or shrug, not panic
-- Provide next steps — fast
+- Stay calm  
+- State what happened  
+- Suggest what to do next  
 
-> ❌ “Your monitor failed at 02:41. Might be a good time for a coffee and a reboot.”  
-> ✅ “Looks like something’s off. Site down as of 02:41. We’ll keep an eye on it while you fix it.”
+> ❌ “Something went terribly wrong at 02:41. Panic!”  
+> ✅ “Site went down at 02:41. You’ll want to check that. We’re watching too.”
 
 ---
 
-## 5. Competitor Shade (Respectfully Cocky)
+## 5. Competitor Shade (With a Raised Eyebrow)
 
-Light sarcasm is welcome — especially when it highlights our value.
+Call out nonsense when it matters. But don’t be petty.
 
-> “Sure, you could pay $99/month to know your site is down. Or… not.”  
-> “Uptime shouldn't cost uptime. Welcome to the free tier that actually works.”
+> “You could pay more to get less. Or you could just use Exit1.”  
+> “Monitoring isn’t a luxury. It’s a baseline.”
 
-Don’t be aggressive. Just clever.
+Let the truth do the talking.
 
 ---
 
 ## 6. When to Be Serious
 
-Some things still deserve gravity:
+No jokes, no spin, just signal:
 - Security issues  
-- Data integrity  
-- Major outages across multiple monitors
+- Data loss risks  
+- Multi-site outages  
 
-In those cases, drop the sarcasm. Be clear, direct, and trustworthy.
+Speak like you’d want someone to speak to *you* in that moment.
 
 ---
 
 ## 7. Avoid
 
-- ❌ Corporate speak  
-- ❌ Startup cliché soup (“empowering”, “disrupting”, “synergy”)  
-- ❌ Over-apologizing  
-- ❌ Talking like a chatbot  
+- ❌ Tech-evangelist fluff  
+- ❌ MBA-speak (“ecosystem”, “stakeholder synergy”)  
+- ❌ Nervous apologizing  
+- ❌ Sounding like an over-eager intern  
 
 ---
 
 ## 8. Optional Easter Eggs
 
-Feel free to inject small surprises into rare messages:
+Use sparingly. Think small details with a smirk — not clowns in the footer.
 
-- “Your uptime streak is longer than most New Year’s resolutions.”  
-- “Monitoring like it’s 1999 (but actually it's 2025).”
+- “Your uptime streak outlived three startups.”  
+- “Monitoring like it’s 1999, but with less dial-up.”
 
-Use sparingly. Delight > distract.
+Never distract from the work.
 
 ---
 
+# 🤖 AI Content Guidelines
+
+## Core Rules
+- **Never** hardcode text in components  
+- **Always** use JSON files in `src/content/`  
+- **Always** use `contentLoader.ts` utilities
+
+## File Structure
+```
+src/content/
+├── *.json                  # Component content
+├── posts/{category}/       # Blog posts (monitoring/guides/ai)
+└── content-guidelines.md
+```
+
+## JSON Patterns
+
+Used in homepage sections, CTA blocks, feature lists, etc.
+
+**Title:**  
+```json
+{ "title": { "main": "text", "highlight": "text" } }
+```
+
+**CTA:**  
+```json
+{ "cta": { "primary": { "text": "text", "href": "url", "variant": "primary", "size": "lg" } } }
+```
+
+**List:**  
+```json
+{ "features": [{ "title": "text", "description": "text" }] }
+```
+
+## Blog Posts
+
+- Location: `src/content/posts/{category}/`
+- Frontmatter: `title`, `author`, `category`, `excerpt`, `readTime`
+- Format: Markdown with short paragraphs  
+- **Tone:** Same as the product: sharp, real, occasionally cheeky.
+
+---
+
+## Component Usage
+
+```typescript
+import { getHeroContent } from '../utils/contentLoader';
+const content = getHeroContent();
+return <h1>{content.title.main}</h1>;
+```
+
+---
+
+## Accessibility
+
+Basics matter. Check:
+- Headings follow order  
+- Alt text is descriptive  
+- ARIA when necessary  
+
+**Examples:**
+
+```tsx
+// ✅ Good
+<img src="downtime.png" alt="Graph showing server downtime" />
+
+// ❌ Bad
+<img src="graph1.png" alt="" />
+```
+
+---
+
+## Workflow
+
+1. **Edit existing:** Modify JSON  
+2. **New blog:** Create markdown with frontmatter  
+3. **New component:** Add JSON → interface → getter → use it
+
+---
+
+## Validation
+
+- JSON valid (no trailing commas)  
+- Frontmatter complete  
+- Markdown clean  
+- Accessible and readable
+
+---
+
+## Common Patterns
+
+```typescript
+// ✅ Good
+const content = getHeroContent();
+return <h1>{content.title.main}</h1>;
+
+// ❌ Bad
+return <h1>Hardcoded text</h1>;
+```
+
+---
+
+## Performance
+
+- Import at build time  
+- Tree-shakeable  
+- SEO in mind  
+- No runtime fetches
+
+---
+
+## Troubleshooting
+
+1. JSON not valid? Fix that first.  
+2. Getter missing? Add it.  
+3. Component not importing? Check the path.  
+4. Still broken? Read the console like a grown-up.
+
+---

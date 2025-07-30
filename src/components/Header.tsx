@@ -112,10 +112,10 @@ const Header = () => {
         {/* CTA Buttons */}
         <div className="hidden xl:flex items-center space-x-2">
           <Link
-            to="/signin"
+            to={content.cta.signIn.href}
             className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-full text-gray-600 hover:text-gray-900 hover:bg-gray-100/60 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all duration-300"
           >
-            Sign In
+            {content.cta.signIn.text}
           </Link>
           <Link
             to={content.cta.startFree.href}
@@ -197,10 +197,10 @@ const Header = () => {
             {/* Mobile CTA */}
             <div className="pt-4 pb-3 border-t border-gray-200/50 space-y-2">
               <Link
-                to="/signin"
+                to={content.cta.signIn.href}
                 className="block w-full text-center px-4 py-2 text-base font-medium rounded-full text-gray-600 hover:text-gray-900 hover:bg-gray-100/60 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all duration-300"
               >
-                Sign In
+                {content.cta.signIn.text}
               </Link>
               <Link
                 to={content.cta.startFree.href}
