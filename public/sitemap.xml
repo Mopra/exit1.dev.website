@@ -40,7 +40,7 @@
   </url>
   <url>
     <loc>https://exit1.dev/blog/webhook-alerts-slack-discord</loc>
-    <lastmod>2025-07-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -69,6 +69,30 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://exit1.dev/blog/free-ssl-certificate-monitoring</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/free-vs-paid-website-monitoring</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/free-website-monitoring-for-developers</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/free-website-monitoring-for-small-business</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://exit1.dev/blog/free-website-monitoring-tools-2025</loc>
     <lastmod>2025-07-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -87,14 +111,38 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://exit1.dev/blog/pingdom-free-alternative</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://exit1.dev/blog/real-time-vs-5-minute-monitoring</loc>
-    <lastmod>2025-07-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/statuscake-vs-free-monitoring</loc>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://exit1.dev/blog/understanding-website-downtime</loc>
-    <lastmod>2025-07-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/uptimerobot-alternatives</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://exit1.dev/blog/uptrends-free-alternative</loc>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
