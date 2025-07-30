@@ -8,6 +8,17 @@
     { "name": "Roadmap", "href": "/roadmap" },
     { "name": "Community", "href": "https://discord.com/invite/uZvWbpwJZS" }
   ],
+  "productMenu": {
+    "name": "Product",
+    "items": [
+      { "name": "Real-Time Monitoring", "href": "/product/monitoring", "description": "Monitor unlimited websites and APIs with real-time status updates" },
+      { "name": "SSL Certificate Monitoring", "href": "/product/ssl-monitoring", "description": "Advanced SSL certificate validation and expiration tracking" },
+      { "name": "Analytics & Reporting", "href": "/product/analytics", "description": "Comprehensive statistics dashboard and performance insights" },
+      { "name": "Smart Alerting", "href": "/product/alerting", "description": "Webhook integration and real-time notifications" },
+      { "name": "Developer Console", "href": "/product/console", "description": "Interactive CLI for advanced management and debugging" },
+      { "name": "Global Monitoring", "href": "/product/global", "description": "Worldwide coverage with geographic performance analysis" }
+    ]
+  },
   "cta": {
     "signIn": {
       "text": "Sign In",

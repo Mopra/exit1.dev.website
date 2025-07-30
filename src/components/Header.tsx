@@ -1,19 +1,24 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getHeaderContent } from '../utils/contentLoader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const content = getHeaderContent();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const productMenuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Close menu when route changes
+  // Close menus when route changes
   useEffect(() => {
     setIsMenuOpen(false);
+    setIsProductMenuOpen(false);
   }, [location]);
 
   // Handle scroll effect
@@ -26,44 +31,52 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle click outside menu
+  // Handle click outside menus
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node) &&
           buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
         setIsMenuOpen(false);
       }
+      if (productMenuRef.current && !productMenuRef.current.contains(event.target as Node)) {
+        setIsProductMenuOpen(false);
+      }
     };
 
-    if (isMenuOpen) {
+    if (isMenuOpen || isProductMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isProductMenuOpen]);
 
   // Handle escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsMenuOpen(false);
+        setIsProductMenuOpen(false);
         buttonRef.current?.focus();
       }
     };
 
-    if (isMenuOpen) {
+    if (isMenuOpen || isProductMenuOpen) {
       document.addEventListener('keydown', handleEscape);
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isProductMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleProductMenu = () => {
+    setIsProductMenuOpen(!isProductMenuOpen);
   };
 
   const isActive = (path: string) => {
@@ -163,6 +176,46 @@ const Header = () => {
               );
             }
           })}
+
+          {/* Product Dropdown */}
+          <div className="relative" ref={productMenuRef}>
+            <button
+              onClick={toggleProductMenu}
+              className={`text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-full px-3 py-2 whitespace-nowrap flex items-center space-x-1 ${
+                isProductMenuOpen || location.pathname.startsWith('/product')
+                  ? 'text-gray-900 bg-gray-100/80'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/60'
+              }`}
+              aria-expanded={isProductMenuOpen}
+              aria-haspopup="true"
+            >
+              <span>{content.productMenu.name}</span>
+              <FontAwesomeIcon 
+                icon={faChevronDown} 
+                className={`w-3 h-3 transition-transform duration-200 ${
+                  isProductMenuOpen ? 'rotate-180' : ''
+                }`}
+              />
+            </button>
+
+            {isProductMenuOpen && (
+              <div className="absolute top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-xl rounded-2xl border border-gray-200 shadow-2xl z-50">
+                <div className="p-4 space-y-2">
+                  {content.productMenu.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className="block p-3 rounded-xl text-left hover:bg-gray-50/80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                      onClick={() => setIsProductMenuOpen(false)}
+                    >
+                      <div className="font-medium text-gray-900 mb-1">{item.name}</div>
+                      <div className="text-sm text-gray-600">{item.description}</div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* CTA Buttons */}
@@ -282,6 +335,22 @@ const Header = () => {
                 );
               }
             })}
+
+            {/* Mobile Product Menu */}
+            <div className="border-t border-gray-200/50 pt-4">
+              <div className="font-medium text-gray-900 mb-2 px-3">{content.productMenu.name}</div>
+              {content.productMenu.items.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="block px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100/60"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <div className="font-medium">{item.name}</div>
+                  <div className="text-sm text-gray-500 mt-1">{item.description}</div>
+                </Link>
+              ))}
+            </div>
             
             {/* Mobile CTA */}
             <div className="pt-4 pb-3 border-t border-gray-200/50 space-y-2">

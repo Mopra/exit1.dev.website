@@ -11,7 +11,30 @@ import {
   faHome,
   faBlog,
   faShieldAlt,
-  faMap
+  faMap,
+  faChevronDown,
+  faGlobe,
+  faClock,
+  faCode,
+  faChartLine,
+  faBell,
+  faCertificate,
+  faCalendarAlt,
+  faEye,
+  faChartBar,
+  faHistory,
+  faRefresh,
+  faLink,
+  faCog,
+  faRocket,
+  faTerminal,
+  faList,
+  faPlay,
+  faBug,
+  faArrowsAlt,
+  faMapMarkerAlt,
+  faNetworkWired,
+  faGlobeAmericas
 } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import Header from './components/Header';
@@ -33,6 +56,29 @@ library.add(
   faBlog,
   faShieldAlt,
   faMap,
+  faChevronDown,
+  faGlobe,
+  faClock,
+  faCode,
+  faChartLine,
+  faBell,
+  faCertificate,
+  faCalendarAlt,
+  faEye,
+  faChartBar,
+  faHistory,
+  faRefresh,
+  faLink,
+  faCog,
+  faRocket,
+  faTerminal,
+  faList,
+  faPlay,
+  faBug,
+  faArrowsAlt,
+  faMapMarkerAlt,
+  faNetworkWired,
+  faGlobeAmericas,
   faGithub,
   faTwitter
 );
@@ -44,6 +90,14 @@ const Blog = React.lazy(() => import('./pages/Blog'));
 const BlogPostPage = React.lazy(() => import('./pages/BlogPost'));
 const Roadmap = React.lazy(() => import('./pages/Roadmap'));
 const Sitemap = React.lazy(() => import('./pages/Sitemap'));
+
+// Product pages
+const RealTimeMonitoring = React.lazy(() => import('./pages/RealTimeMonitoring'));
+const SSLMonitoring = React.lazy(() => import('./pages/SSLMonitoring'));
+const Analytics = React.lazy(() => import('./pages/Analytics'));
+const Alerting = React.lazy(() => import('./pages/Alerting'));
+const DeveloperConsole = React.lazy(() => import('./pages/DeveloperConsole'));
+const GlobalMonitoring = React.lazy(() => import('./pages/GlobalMonitoring'));
 
 // Optimized loading fallback component
 const LoadingFallback = () => (
@@ -93,6 +147,38 @@ const App = () => {
               <Route path="/sitemap" element={
                 <React.Suspense fallback={<LoadingFallback />}>
                   <Sitemap />
+                </React.Suspense>
+              } />
+              
+              {/* Product Routes */}
+              <Route path="/product/monitoring" element={
+                <React.Suspense fallback={<LoadingFallback />}>
+                  <RealTimeMonitoring />
+                </React.Suspense>
+              } />
+              <Route path="/product/ssl-monitoring" element={
+                <React.Suspense fallback={<LoadingFallback />}>
+                  <SSLMonitoring />
+                </React.Suspense>
+              } />
+              <Route path="/product/analytics" element={
+                <React.Suspense fallback={<LoadingFallback />}>
+                  <Analytics />
+                </React.Suspense>
+              } />
+              <Route path="/product/alerting" element={
+                <React.Suspense fallback={<LoadingFallback />}>
+                  <Alerting />
+                </React.Suspense>
+              } />
+              <Route path="/product/console" element={
+                <React.Suspense fallback={<LoadingFallback />}>
+                  <DeveloperConsole />
+                </React.Suspense>
+              } />
+              <Route path="/product/global" element={
+                <React.Suspense fallback={<LoadingFallback />}>
+                  <GlobalMonitoring />
                 </React.Suspense>
               } />
             </Routes>

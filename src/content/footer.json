@@ -5,14 +5,20 @@
   },
   "navigation": {
     "product": [
-      { "name": "Free Monitoring", "href": "/#features" },
-      { "name": "How It Works", "href": "/#how-it-works" },
-      { "name": "Pricing", "href": "/#pricing" }
+      { "name": "Real-Time Monitoring", "href": "/product/monitoring" },
+      { "name": "SSL Certificate Monitoring", "href": "/product/ssl-monitoring" },
+      { "name": "Analytics & Reporting", "href": "/product/analytics" },
+      { "name": "Smart Alerting", "href": "/product/alerting" },
+      { "name": "Developer Console", "href": "/product/console" },
+      { "name": "Global Monitoring", "href": "/product/global" }
     ],
     "company": [
       { "name": "Blog", "href": "/blog" },
       { "name": "Monitoring Guides", "href": "/blog/monitoring" },
-      { "name": "Setup Tutorials", "href": "/blog/guides" }
+      { "name": "Setup Tutorials", "href": "/blog/guides" },
+      { "name": "Features", "href": "/#features" },
+      { "name": "How It Works", "href": "/#how-it-works" },
+      { "name": "Pricing", "href": "/#pricing" }
     ],
     "support": [
       { "name": "Help & Community", "href": "https://discord.gg/uZvWbpwJZS" },
