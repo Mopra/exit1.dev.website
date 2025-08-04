@@ -4,7 +4,7 @@
     "highlight": "That Actually Works"
   },
   "subtitle": "Free website monitoring with 1-minute checks. No limits, no credit card, no BS.",
-  "description": "Monitor unlimited websites, APIs, and SSL certificates every minute — completely free. Built for developers who need real monitoring, not marketing fluff. Zero setup, instant alerts, terminal interface. Works like monitoring should work.",
+  "description": "Monitor unlimited websites, APIs, and SSL certificates every minute — completely free. Built for developers who need real monitoring, not marketing fluff. Zero setup, instant alerts. Works like monitoring should work.",
   "cta": {
     "primary": {
       "text": "Start Free Monitoring",
@@ -21,33 +21,7 @@
       "className": "border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium transition-all duration-300"
     }
   },
-  "terminal": {
-    "title": "exit1.dev terminal",
-    "commands": [
-      {
-        "command": "websites add \"My Blog\" https://myblog.com",
-        "response": "Website \"My Blog\" added successfully."
-      },
-      {
-        "command": "websites list",
-        "response": [
-          "Monitored Websites:",
-          "",
-          "abc123: My Blog (https://myblog.com) - UP",
-          "def456: Portfolio (https://portfolio.dev) - UP"
-        ]
-      },
-      {
-        "command": "websites check",
-        "response": [
-          "Checking all websites...",
-          "✓ My Blog (https://myblog.com) - 200ms",
-          "✓ Portfolio (https://portfolio.dev) - 150ms",
-          "All websites are healthy!"
-        ]
-      }
-    ]
-  },
+
   "trustIndicator": "100% Free • Unlimited websites & APIs • 1-minute checks • SSL monitoring • No credit card • Instant setup",
   "howToSection": {
     "title": "How to Set Up Free Website Monitoring in 30 Seconds",

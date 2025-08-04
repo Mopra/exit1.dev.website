@@ -69,9 +69,12 @@ const Community = () => {
         {/* Contribution Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 max-w-5xl mx-auto">
           {content.features.map((feature, index) => (
-            <div
+            <a
               key={index}
-              className="relative group"
+              href={content.cta.discord.href}
+              className="relative group cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="relative bg-white border border-gray-200 rounded-2xl p-8 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-xl">
                 <div className="relative">
@@ -88,7 +91,7 @@ const Community = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 

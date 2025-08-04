@@ -22,8 +22,8 @@
       "description": "Connect to Discord, Slack, or any webhook endpoint. Get notified the second something breaks."
     },
     {
-      "title": "Terminal-First Interface",
-      "description": "Manage monitoring with simple commands. Add sites, check status, view logs — all from a clean terminal interface."
+      "title": "Simple Web Interface",
+      "description": "Manage monitoring with an intuitive web dashboard. Add sites, check status, view logs — all from a clean, developer-friendly interface."
     },
     {
       "title": "Zero Configuration Setup",
