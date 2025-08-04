@@ -40,13 +40,7 @@ export interface HeroContent {
       className: string;
     };
   };
-  terminal: {
-    title: string;
-    commands: Array<{
-      command: string;
-      response: string | string[];
-    }>;
-  };
+
   trustIndicator: string;
 }
 
