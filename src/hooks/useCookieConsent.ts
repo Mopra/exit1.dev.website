@@ -18,17 +18,18 @@ export interface CookieConsentState {
   showBanner: boolean;
 }
 
+// Auto-accept analytics by default (no GDPR compliance)
 const defaultPreferences: CookiePreferences = {
   necessary: true, // Always true, can't be disabled
-  analytics: false,
-  marketing: false,
+  analytics: true, // Auto-accept analytics cookies
+  marketing: false, // Keep marketing opt-in
 };
 
 export const useCookieConsent = () => {
   const [consentState, setConsentState] = useState<CookieConsentState>({
-    hasConsented: false,
+    hasConsented: true, // Auto-consent for analytics
     preferences: defaultPreferences,
-    showBanner: false,
+    showBanner: false, // Hide banner by default
   });
 
   useEffect(() => {
@@ -43,12 +44,17 @@ export const useCookieConsent = () => {
       } catch (error) {
         console.error('Error parsing cookie preferences:', error);
       }
+    } else {
+      // Auto-set analytics consent on first visit
+      setCookieConsent(true);
+      setCookiePreferences(defaultPreferences);
+      enableGoogleAnalytics(); // Auto-enable analytics
     }
 
     setConsentState({
-      hasConsented,
+      hasConsented: true, // Always consider consented for analytics
       preferences,
-      showBanner: !hasConsented,
+      showBanner: false, // Never show banner automatically
     });
   }, []);
 
@@ -93,6 +99,8 @@ export const useCookieConsent = () => {
     // Enable Google Analytics if analytics is accepted
     if (newPreferences.analytics) {
       enableGoogleAnalytics();
+    } else {
+      disableGoogleAnalytics();
     }
   };
 
@@ -127,12 +135,21 @@ export const useCookieConsent = () => {
     acceptSelected(updatedPreferences);
   };
 
+  // Add function to show settings modal
+  const showSettings = () => {
+    setConsentState(prev => ({
+      ...prev,
+      showBanner: true,
+    }));
+  };
+
   return {
     ...consentState,
     acceptAll,
     acceptSelected,
     rejectAll,
     updatePreferences,
+    showSettings,
   };
 };
 
