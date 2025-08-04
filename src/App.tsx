@@ -40,7 +40,7 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
-import CookieConsent from './components/CookieConsent';
+import CookieIcon from './components/CookieIcon';
 import SEO from './components/SEO';
 import ErrorBoundary from './components/ErrorBoundary';
 import SkipLink from './components/SkipLink';
@@ -190,7 +190,7 @@ const App = () => {
             </Routes>
           </main>
           <Footer />
-          <CookieConsent />
+          <CookieIcon />
         </div>
       </HelmetProvider>
     </ErrorBoundary>
