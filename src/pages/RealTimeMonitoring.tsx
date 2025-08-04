@@ -12,13 +12,13 @@ import {
 const RealTimeMonitoring = () => {
   const features = [
     {
-      title: "Unlimited Monitoring",
-      description: "Monitor unlimited websites and REST API endpoints with configurable check intervals from 1-5 minutes.",
+      title: "Unlimited Free Uptime Monitoring",
+      description: "Free uptime monitor for unlimited websites and REST API endpoints with 1-minute uptime monitoring intervals.",
       icon: faGlobe
     },
     {
-      title: "Real-Time Updates",
-      description: "Get instant status updates with real-time notifications when your services go down or come back up.",
+      title: "Real-Time Uptime Updates",
+      description: "Get instant uptime status updates with real-time notifications when your services go down or come back up.",
       icon: faClock
     },
     {
@@ -45,14 +45,14 @@ const RealTimeMonitoring = () => {
 
   return (
     <ProductPage
-      title="Real-Time Website & API Monitoring"
-      subtitle="Monitor unlimited websites and APIs with instant notifications"
-      description="Get real-time visibility into your infrastructure with configurable monitoring intervals, custom authentication, and comprehensive response validation. Never miss a downtime event again."
+      title="Free Uptime Monitor - Real-Time Website Monitoring"
+      subtitle="Best free uptime monitor for unlimited websites and APIs with instant uptime alerts"
+      description="Professional free uptime monitor with real-time visibility into your infrastructure. Get 1-minute uptime monitoring intervals, custom authentication, and comprehensive response validation. The most reliable free uptime monitor available."
       features={features}
-      ctaText="Start Monitoring Free"
+      ctaText="Start Free Uptime Monitoring"
               ctaHref="https://app.exit1.dev/"
-      seoTitle="Real-Time Website & API Monitoring - exit1.dev"
-      seoDescription="Monitor unlimited websites and APIs with real-time status updates, custom authentication, and instant notifications. Start monitoring for free today."
+      seoTitle="Free Uptime Monitor - Real-Time Website Monitoring | exit1.dev"
+      seoDescription="Best free uptime monitor for unlimited websites and APIs. Real-time uptime monitoring with 1-minute checks, custom authentication, and instant downtime alerts. Start monitoring for free."
     />
   );
 };

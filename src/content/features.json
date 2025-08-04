@@ -1,25 +1,25 @@
 {
   "title": {
-    "main": "Why Choose",
-    "highlight": "exit1.dev"
+    "main": "Why Choose Our",
+    "highlight": "Free Uptime Monitor"
   },
-  "subtitle": "The only free uptime monitor that doesn't treat you like a free user.",
+  "subtitle": "The most comprehensive free uptime monitor that doesn't compromise on features. Get professional website monitoring at zero cost.",
   "features": [
     {
-      "title": "Actually Free Monitoring",
-      "description": "Monitor unlimited websites and APIs. Forever. No credit card, no hidden fees, no 'upgrade to continue' nonsense."
+      "title": "Completely Free Uptime Monitor",
+      "description": "Unlimited website uptime monitoring forever. Our free uptime monitor never requires a credit card, has no hidden fees, and no limits on monitored sites."
     },
     {
-      "title": "1-Minute Check Intervals",
-      "description": "Real monitoring checks every minute, not every 5 or 10 minutes like the competition. Catch issues fast."
+      "title": "1-Minute Uptime Checks",
+      "description": "Industry-leading 1-minute uptime monitoring intervals, not every 5 or 10 minutes like other free uptime monitors. Detect downtime faster."
     },
     {
-      "title": "SSL Certificate Monitoring",
-      "description": "Track SSL expiration dates and get alerts before certificates break your site. Never miss an SSL renewal again."
+      "title": "Free SSL Uptime Monitoring",
+      "description": "Monitor SSL certificate expiration alongside uptime monitoring. Get alerts before certificates expire and break your site. Complete uptime monitoring solution."
     },
     {
-      "title": "Instant Webhook Alerts",
-      "description": "Connect to Discord, Slack, or any webhook endpoint. Get notified the second something breaks."
+      "title": "Instant Downtime Alerts",
+      "description": "Receive instant uptime alerts via Discord, Slack, or webhook endpoints. Our free uptime monitor notifies you the second your site goes down."
     },
     {
       "title": "Simple Web Interface",

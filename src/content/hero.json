@@ -1,10 +1,10 @@
 {
   "title": {
-    "main": "The Best Free Uptime Monitor",
-    "highlight": "That Actually Works"
+    "main": "Free Uptime Monitor",
+    "highlight": "for Unlimited Websites"
   },
-  "subtitle": "Free website monitoring with 1-minute checks. No limits, no credit card, no BS.",
-  "description": "Monitor unlimited websites, APIs, and SSL certificates every minute — completely free. Built for developers who need real monitoring, not marketing fluff. Zero setup, instant alerts. Works like monitoring should work.",
+  "subtitle": "The best free uptime monitor with 1-minute checks, unlimited websites, and instant alerts. No credit card required.",
+  "description": "Professional free uptime monitor for websites, APIs, and SSL certificates. Monitor unlimited sites with 1-minute intervals, get instant alerts when sites go down. Perfect for developers who need reliable, no-nonsense website monitoring without the cost.",
   "cta": {
     "primary": {
       "text": "Start Free Monitoring",
@@ -22,9 +22,9 @@
     }
   },
 
-  "trustIndicator": "100% Free • Unlimited websites & APIs • 1-minute checks • SSL monitoring • No credit card • Instant setup",
+  "trustIndicator": "Best Free Uptime Monitor • Unlimited website monitoring • 1-minute uptime checks • SSL monitoring • No credit card • Free forever",
   "howToSection": {
-    "title": "How to Set Up Free Website Monitoring in 30 Seconds",
+    "title": "How to Set Up Your Free Uptime Monitor in 30 Seconds",
     "steps": [
       {
         "step": "1",

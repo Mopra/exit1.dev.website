@@ -1,15 +1,15 @@
 {
   "title": {
-    "main": "Completely Free",
-    "highlight": "Website Monitoring"
+    "main": "Free Uptime Monitor",
+    "highlight": "Forever Free"
   },
-  "subtitle": "No credit card required. No limits. No tricks. Monitor unlimited websites and APIs with 1-minute checks — free forever.",
+  "subtitle": "The best free uptime monitor with no credit card required. No limits. No tricks. Monitor unlimited websites and APIs with 1-minute uptime checks — free forever.",
   "plans": [
     {
       "name": "Free Forever",
       "price": "$0",
       "period": "/forever",
-      "description": "The best free uptime monitoring service. No credit card required, no hidden limits, no upgrade pressure.",
+      "description": "The best free uptime monitor service. No credit card required, no hidden limits, no upgrade pressure. Complete uptime monitoring solution.",
       "features": [
         "Monitor UNLIMITED websites & REST APIs",
         "Lightning-fast 1-minute check intervals",
