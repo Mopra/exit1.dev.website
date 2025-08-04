@@ -1,18 +1,18 @@
 {
   "logo": "exit1.dev",
   "navigation": [
-    { "name": "Free Monitoring", "href": "#features" },
+    { "name": "Free Uptime Monitor", "href": "#features" },
     { "name": "How It Works", "href": "#how-it-works" },
-    { "name": "Pricing", "href": "#pricing" },
-    { "name": "Monitoring Blog", "href": "/blog" },
+    { "name": "Free Forever", "href": "#pricing" },
+    { "name": "Uptime Monitoring Blog", "href": "/blog" },
     { "name": "Roadmap", "href": "/roadmap" },
     { "name": "Community", "href": "https://discord.com/invite/uZvWbpwJZS" }
   ],
   "productMenu": {
     "name": "Product",
     "items": [
-      { "name": "Real-Time Monitoring", "href": "/product/monitoring", "description": "Monitor unlimited websites and APIs with real-time status updates" },
-      { "name": "SSL Certificate Monitoring", "href": "/product/ssl-monitoring", "description": "Advanced SSL certificate validation and expiration tracking" },
+      { "name": "Free Uptime Monitoring", "href": "/product/monitoring", "description": "Free uptime monitor for unlimited websites and APIs with real-time status updates" },
+      { "name": "SSL Uptime Monitoring", "href": "/product/ssl-monitoring", "description": "Free SSL certificate uptime monitoring with expiration tracking" },
       { "name": "Analytics & Reporting", "href": "/product/analytics", "description": "Comprehensive statistics dashboard and performance insights" },
       { "name": "Smart Alerting", "href": "/product/alerting", "description": "Webhook integration and real-time notifications" },
       { "name": "Developer Console", "href": "/product/console", "description": "Interactive CLI for advanced management and debugging" },

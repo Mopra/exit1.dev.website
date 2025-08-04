@@ -45,14 +45,14 @@ const SSLMonitoring = () => {
 
   return (
     <ProductPage
-      title="SSL Certificate Monitoring"
-      subtitle="Advanced SSL certificate validation and expiration tracking"
-      description="Never let an SSL certificate expire again. Get automatic validation, expiration tracking, and proactive warnings to keep your HTTPS services secure and accessible."
+      title="Free SSL Uptime Monitor - Certificate Monitoring"
+      subtitle="Free SSL certificate monitoring included with our uptime monitor service"
+      description="Never let an SSL certificate expire again with our free uptime monitor. Get automatic SSL validation, expiration tracking, and proactive warnings included in your free uptime monitoring service. Complete website monitoring solution."
       features={features}
-      ctaText="Start SSL Monitoring"
+      ctaText="Start Free SSL Monitoring"
               ctaHref="https://app.exit1.dev/"
-      seoTitle="SSL Certificate Monitoring - exit1.dev"
-      seoDescription="Advanced SSL certificate validation and expiration tracking with automatic monitoring and proactive warnings. Keep your HTTPS services secure."
+      seoTitle="Free SSL Certificate Monitoring - Uptime Monitor | exit1.dev"
+      seoDescription="Free SSL certificate monitoring included with our uptime monitor service. Automatic SSL validation, expiration tracking, and proactive warnings. Part of the best free uptime monitor."
     />
   );
 };

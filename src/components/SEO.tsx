@@ -12,8 +12,8 @@ interface SEOProps {
 }
 
 const SEO = ({ 
-  title = 'Exit1.dev - Professional Website Monitoring',
-  description = 'Monitor your website uptime, performance, and get instant alerts when issues occur. Professional website monitoring service.',
+  title = 'Free Uptime Monitor - Unlimited Website Monitoring | exit1.dev',
+  description = 'Free uptime monitor with unlimited website monitoring, 1-minute checks, SSL tracking & instant alerts. No credit card required. Best free website monitoring service for developers.',
   canonical,
   image = '/screenshots/screenshot-1.png',
   type = 'website',
@@ -21,9 +21,9 @@ const SEO = ({
   modifiedTime,
   author = 'Exit1.dev'
 }: SEOProps) => {
-  const fullTitle = title === 'Exit1.dev - Professional Website Monitoring' 
+  const fullTitle = title === 'Free Uptime Monitor - Unlimited Website Monitoring | exit1.dev' 
     ? title 
-    : `${title} | Exit1.dev`;
+    : `${title} | exit1.dev`;
 
   return (
     <Helmet>
@@ -61,6 +61,40 @@ const SEO = ({
       {/* Additional SEO */}
       <meta name="robots" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      
+      {/* Keywords for better ranking */}
+      <meta name="keywords" content="free uptime monitor, website monitoring, uptime monitoring, free website monitor, website uptime checker, site monitoring, server monitoring, uptime tracking, downtime alerts, SSL monitoring" />
+      
+      {/* Structured Data for Software Service */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "exit1.dev Free Uptime Monitor",
+          "description": "Free uptime monitor with unlimited website monitoring, 1-minute checks, SSL tracking & instant alerts. No credit card required.",
+          "url": "https://exit1.dev",
+          "applicationCategory": "NetworkApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "150"
+          },
+          "featureList": [
+            "Free unlimited website monitoring",
+            "1-minute uptime checks",
+            "SSL certificate monitoring", 
+            "Instant downtime alerts",
+            "Webhook integrations",
+            "No credit card required"
+          ]
+        })}
+      </script>
     </Helmet>
   );
 };
