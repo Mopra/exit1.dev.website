@@ -7,7 +7,7 @@ export default function WhyFree() {
         {/* Header */}
         <div className="text-center mb-16">
                      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
-             Why it's free
+             Why it&apos;s free
              <br />
              <span className="bg-gradient-to-r from-slate-400 to-slate-100 bg-clip-text text-transparent">(and stays free)</span>
            </h2>
@@ -28,7 +28,7 @@ export default function WhyFree() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-semibold">Your data isn't the product</h3>
+                <h3 className="text-xl font-semibold">Your data isn&apos;t the product</h3>
                 <Badge variant="outline" className="mt-1">Our Promise</Badge>
               </div>
             </div>
@@ -66,10 +66,10 @@ export default function WhyFree() {
                          <div className="space-y-4 pl-11">
                <p className="text-muted-foreground leading-relaxed">
                  We built exit1.dev for ourselves first. If it helps you too, great. 
-                 We'll keep shipping the good, simple stuff. 
+                 We&apos;ll keep shipping the good, simple stuff. 
                </p>
                <p className="text-muted-foreground leading-relaxed">
-                If there's a tip jar someday, toss a coin if you like—monitoring stays free.
+                If there&apos;s a tip jar someday, toss a coin if you like—monitoring stays free.
                </p>
              </div>
           </div>

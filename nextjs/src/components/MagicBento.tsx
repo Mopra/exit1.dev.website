@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 export interface BentoCardProps {
   color?: string;
@@ -97,8 +98,7 @@ const cardData: BentoCardProps[] = [
 
 const createParticleElement = (
   x: number,
-  y: number,
-  color: string = DEFAULT_GLOW_COLOR
+  y: number
 ): HTMLDivElement => {
   const el = document.createElement("div");
   el.className = "particle";
@@ -175,12 +175,11 @@ const ParticleCard: React.FC<{
     memoizedParticles.current = Array.from({ length: particleCount }, () =>
       createParticleElement(
         Math.random() * width,
-        Math.random() * height,
-        glowColor
+        Math.random() * height
       )
     );
     particlesInitialized.current = true;
-  }, [particleCount, glowColor]);
+  }, [particleCount]);
 
   const clearAllParticles = useCallback(() => {
     timeoutsRef.current.forEach(clearTimeout);
@@ -846,9 +845,10 @@ const MagicBento: React.FC<BentoProps> = ({
                   )}
                   {card.image && (
                     <div className="card__image absolute inset-0 z-0">
-                      <img
+                      <Image
                         src={card.image.src}
                         alt={card.image.alt || ""}
+                        fill
                         className="w-full h-full object-cover rounded-[20px]"
                       />
                       <div className="card__image-overlay absolute inset-0 bg-black/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>
@@ -1008,9 +1008,10 @@ const MagicBento: React.FC<BentoProps> = ({
                 )}
                 {card.image && (
                   <div className="card__image absolute inset-0 z-0">
-                    <img
+                    <Image
                       src={card.image.src}
                       alt={card.image.alt || ""}
+                      fill
                       className="w-full h-full object-cover rounded-[20px]"
                     />
                     <div className="card__image-overlay absolute inset-0 bg-black/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>

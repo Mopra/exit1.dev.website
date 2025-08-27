@@ -1,9 +1,8 @@
 "use client"
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Monitor, Shield, Zap, CheckCircle, Search, AlertCircle } from 'lucide-react'
+import { Search, AlertCircle } from 'lucide-react'
 import Prism from './Prism'
 import { useState } from 'react'
 import { validateDomain } from '@/lib/domainUtils'
@@ -78,7 +77,7 @@ export default function Hero() {
           glow={0.5}
         />
         {/* Fade overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 0%)' }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -136,7 +135,7 @@ export default function Hero() {
             )}
             
             <p className="text-xs text-white/60 mt-2">
-              Enter your website URL and we'll set up monitoring in seconds
+              Enter your website URL and we&apos;ll set up monitoring in seconds
             </p>
           </form>
           

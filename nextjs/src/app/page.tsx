@@ -3,7 +3,6 @@ import MagicBento from "@/components/MagicBento";
 import WhyFree from "@/components/WhyFree";
 import AccuracySection from "@/components/AccuracySection";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
 
 export default function Home() {

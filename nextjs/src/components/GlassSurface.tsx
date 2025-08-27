@@ -185,11 +185,13 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     return () => {
       resizeObserver.disconnect();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHydrated]);
 
   useEffect(() => {
     if (!isHydrated) return;
     setTimeout(updateDisplacementMap, 0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHydrated, width, height]);
 
   const supportsSVGFilters = () => {
@@ -255,7 +257,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
              0px 4px 16px rgba(17, 17, 26, 0.05),
              0px 8px 24px rgba(17, 17, 26, 0.05),
              0px 16px 56px rgba(17, 17, 26, 0.05)`,
-      } as React.CSSProperties & { [key: string]: any };
+      } as React.CSSProperties & { [key: string]: string | number | undefined };
     } else {
       if (isDark) {
         if (!backdropFilterSupported) {
