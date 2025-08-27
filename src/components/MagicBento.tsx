@@ -100,6 +100,12 @@ const createParticleElement = (
   x: number,
   y: number
 ): HTMLDivElement => {
+  // Only create elements on the client side
+  if (typeof window === 'undefined') {
+    const el = document.createElement("div");
+    return el;
+  }
+  
   const el = document.createElement("div");
   el.className = "particle";
   el.style.cssText = `
@@ -212,7 +218,9 @@ const ParticleCard: React.FC<{
         if (!isHoveredRef.current || !cardRef.current) return;
 
         const clone = particle.cloneNode(true) as HTMLDivElement;
-        cardRef.current.appendChild(clone);
+        if (cardRef.current && typeof window !== 'undefined') {
+          cardRef.current.appendChild(clone);
+        }
         particlesRef.current.push(clone);
 
         gsap.fromTo(
@@ -349,7 +357,9 @@ const ParticleCard: React.FC<{
         z-index: 1000;
       `;
 
-      element.appendChild(ripple);
+      if (typeof window !== 'undefined') {
+        element.appendChild(ripple);
+      }
 
       gsap.fromTo(
         ripple,
@@ -414,12 +424,12 @@ const GlobalSpotlight: React.FC<{
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
   glowColor = DEFAULT_GLOW_COLOR,
 }) => {
-  const spotlightRef = useRef<HTMLDivElement | null>(null);
   const isInsideSection = useRef(false);
 
   useEffect(() => {
     if (disableAnimations || !gridRef?.current || !enabled) return;
 
+    // Create spotlight element using React ref instead of document.createElement
     const spotlight = document.createElement("div");
     spotlight.className = "global-spotlight";
     spotlight.style.cssText = `
@@ -441,11 +451,15 @@ const GlobalSpotlight: React.FC<{
       transform: translate(-50%, -50%);
       mix-blend-mode: screen;
     `;
-    document.body.appendChild(spotlight);
-    spotlightRef.current = spotlight;
+    
+    // Only append if we're in the browser and the element doesn't already exist
+    if (typeof window !== 'undefined' && !document.querySelector('.global-spotlight')) {
+      document.body.appendChild(spotlight);
+    }
 
            const handleMouseMove = (e: MouseEvent) => {
-         if (!spotlightRef.current || !gridRef.current) return;
+         const spotlight = document.querySelector('.global-spotlight') as HTMLElement;
+         if (!spotlight || !gridRef.current) return;
 
          const section = gridRef.current.closest(".bento-section");
          const rect = section?.getBoundingClientRect();
@@ -460,7 +474,7 @@ const GlobalSpotlight: React.FC<{
          const cards = gridRef.current.querySelectorAll(".card");
 
          if (!mouseInside) {
-           gsap.to(spotlightRef.current, {
+           gsap.to(spotlight, {
              opacity: 0,
              duration: 0.3,
              ease: "power2.out",
@@ -506,7 +520,7 @@ const GlobalSpotlight: React.FC<{
         );
       });
 
-      gsap.to(spotlightRef.current, {
+      gsap.to(spotlight, {
         left: e.clientX,
         top: e.clientY,
         duration: 0.1,
@@ -520,7 +534,7 @@ const GlobalSpotlight: React.FC<{
             ? ((fadeDistance - minDistance) / (fadeDistance - proximity)) * 0.8
             : 0;
 
-      gsap.to(spotlightRef.current, {
+      gsap.to(spotlight, {
         opacity: targetOpacity,
         duration: targetOpacity > 0 ? 0.2 : 0.5,
         ease: "power2.out",
@@ -534,8 +548,9 @@ const GlobalSpotlight: React.FC<{
          (card as HTMLElement).style.setProperty("--glow-x", "50%");
          (card as HTMLElement).style.setProperty("--glow-y", "50%");
        });
-       if (spotlightRef.current) {
-         gsap.to(spotlightRef.current, {
+       const spotlight = document.querySelector('.global-spotlight') as HTMLElement;
+       if (spotlight) {
+         gsap.to(spotlight, {
            opacity: 0,
            duration: 0.3,
            ease: "power2.out",
@@ -549,7 +564,8 @@ const GlobalSpotlight: React.FC<{
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
-      spotlightRef.current?.parentNode?.removeChild(spotlightRef.current);
+      const spotlight = document.querySelector('.global-spotlight');
+      spotlight?.parentNode?.removeChild(spotlight);
     };
   }, [gridRef, disableAnimations, enabled, spotlightRadius, glowColor]);
 
@@ -601,6 +617,11 @@ const MagicBento: React.FC<BentoProps> = ({
   const gridRef = useRef<HTMLDivElement>(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <>
@@ -782,7 +803,7 @@ const MagicBento: React.FC<BentoProps> = ({
         `}
       </style>
 
-      {enableSpotlight && (
+      {enableSpotlight && isClient && (
         <GlobalSpotlight
           gridRef={gridRef}
           disableAnimations={shouldDisableAnimations}
@@ -962,7 +983,9 @@ const MagicBento: React.FC<BentoProps> = ({
                       z-index: 1000;
                     `;
 
-                    el.appendChild(ripple);
+                    if (typeof window !== 'undefined') {
+                      el.appendChild(ripple);
+                    }
 
                     gsap.fromTo(
                       ripple,
