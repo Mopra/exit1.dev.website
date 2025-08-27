@@ -1,0 +1,31 @@
+{
+  "brand": {
+    "logo": "exit1.dev",
+    "description": "The best free uptime monitoring service. Monitor unlimited websites with 1-minute checks, SSL monitoring, and instant alerts. No credit card required."
+  },
+  "navigation": {
+    "product": [
+      { "name": "Real-Time Monitoring", "href": "/real-time-monitoring" },
+      { "name": "SSL Monitoring", "href": "/ssl-monitoring" },
+      { "name": "Analytics & Reports", "href": "/analytics" },
+      { "name": "Smart Alerting", "href": "/alerting" },
+      { "name": "Global Monitoring", "href": "/global-monitoring" },
+      { "name": "Data Privacy", "href": "/data-privacy" },
+      { "name": "Comprehensive Logs", "href": "/logs" },
+      { "name": "API & Webhooks", "href": "/api-webhooks" },
+      { "name": "Blog", "href": "/blog" }
+    ],
+    "support": [
+      { "name": "Help & Community", "href": "https://discord.gg/uZvWbpwJZS" },
+      { "name": "Service Status", "href": "https://app.exit1.dev/status" },
+      { "name": "Contact Support", "href": "https://discord.gg/uZvWbpwJZS" }
+    ],
+    "legal": [
+      { "name": "Privacy Policy", "href": "/privacy" },
+      { "name": "Sitemap", "href": "/sitemap" },
+      { "name": "Cookie Settings", "href": "#cookie-settings" }
+    ]
+  },
+  "social": [],
+  "copyright": "&copy; 2024 exit1.dev. Free uptime monitoring for everyone."
+}
