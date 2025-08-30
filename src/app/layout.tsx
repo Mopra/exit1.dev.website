@@ -26,6 +26,11 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: "Exit1.dev - Free Uptime Monitor for Unlimited Websites",
   description: "The best free uptime monitor with 1-minute checks, unlimited websites, and instant alerts. No credit card required. Professional monitoring for websites, APIs, and SSL certificates.",
+  icons: {
+    icon: '/e_.svg',
+    shortcut: '/e_.svg',
+    apple: '/e_.svg',
+  },
 };
 
 export default function RootLayout({
