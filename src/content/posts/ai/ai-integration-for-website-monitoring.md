@@ -1,10 +1,10 @@
 ---
-title: "AI Integration: Automate Monitoring Drudgery"
+title: "Integrate AI and Ditch Monitoring Drudgery"
 author: "Morten Pradsgaard"
 category: "ai"
 excerpt: "Manual monitoring wastes time. AI automates. Hook it up easy—code included."
 readTime: "6 min read"
-metaDescription: "Integrate AI into website monitoring for automated alerts and predictions—straightforward guide with code to fix your uptime headaches."
+metaDescription: "Plug AI into your monitoring stack to kill busywork. Get code and steps to catch issues before they blow up."
 ---
 
 # AI for Monitoring: End the Manual Hell
@@ -22,6 +22,8 @@ Monitoring by hand is inefficient. AI fixes it: automates, predicts, responds. B
 ## Setup
 
 N8N/Zapier for quick, custom for control.
+
+Start with a simple webhook that fires when your site hiccups. Pipe that into a low-code tool if you're lazy or wire up a small Node service if you're picky. The AI piece slots in after the trigger: feed the payload to a model that classifies the mess, then hand the result to whatever runbook or auto-remediation script you trust. Keep the loop tight—trigger, analyze, act—so you're not building another bloated platform that dies under its own weight.
 
 ## Sources
 
@@ -343,12 +345,23 @@ class AIPerfMonitor:
 - Video integration
 - Sensory monitoring
 
-## Conclusion
-
-Integrate AI to make monitoring smart. exit1.dev provides the data foundation. Future is automated, proactive.
-
-*Try exit1.dev's AI-ready platform [here](https://exit1.dev). Build workflows that work.*
-
 ## Pitfalls and Real Fixes
 
-API keys expire—check them in code. Over-reliance on AI? Keep human overrides. Data privacy: Anonymize before sending to models. Test in staging first. 
+API keys expire—check them in code. Over-reliance on AI? Keep human overrides. Data privacy: Anonymize before sending to models. Test in staging first.
+
+## FAQs
+
+### Do I need fancy hardware to run AI monitoring?
+No. Most of this runs fine on commodity servers or the cloud credits you forgot about.
+
+### How fast can AI classify an alert?
+Milliseconds if you keep the payload lean and model hosted close to your stack.
+
+### What if AI suggests the wrong fix?
+Keep humans in the loop for now. Let AI tee up actions but require a manual swing until you trust it.
+
+## Conclusion
+
+AI integration trims the fat from monitoring by automating the boring parts and surfacing only what matters. Set it up once and spend your time building features instead of babysitting dashboards.
+
+*Try exit1.dev's AI-ready platform [here](https://exit1.dev). Build workflows that work.*
