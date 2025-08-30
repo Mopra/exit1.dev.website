@@ -112,7 +112,10 @@ export default function Header() {
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-sm font-medium rounded-full bg-primary/20 cursor-pointer hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary">
+                    <NavigationMenuTrigger 
+                      className="text-sm font-medium rounded-full bg-primary/20 cursor-pointer hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary"
+                      aria-label={`Open ${productMenu.name} menu`}
+                    >
                       {productMenu.name}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -122,6 +125,7 @@ export default function Header() {
                             <Link
                               href={item.href}
                               className="block p-3 rounded-xl text-left hover:bg-primary/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
+                              aria-label={`Learn more about ${item.name}`}
                             >
                               <div className="font-medium text-foreground mb-1">{item.name}</div>
                               <div className="text-sm text-muted-foreground">{item.description}</div>
@@ -165,6 +169,8 @@ export default function Header() {
             size="sm"
             className="xl:hidden p-2 rounded-full hover:bg-primary/10 hover:text-primary transition-all duration-200 interactive ml-auto"
             aria-label="Toggle navigation menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -178,7 +184,7 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden">
+        <div id="mobile-menu" className="xl:hidden" role="dialog" aria-label="Mobile navigation menu">
           <div className="absolute top-full left-0 right-0 mt-2 bg-background/95 backdrop-blur-xl border border-primary/20 rounded-xl shadow-xl max-h-[calc(100vh-120px)] overflow-hidden">
             <div className="overflow-y-auto max-h-[calc(100vh-140px)] scrollbar-thin">
               <div className="p-4 space-y-4">

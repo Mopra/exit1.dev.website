@@ -1,9 +1,21 @@
+"use client";
+
+import dynamic from 'next/dynamic';
 import Hero from "@/components/Hero";
-import MagicBento from "@/components/MagicBento";
 import WhyFree from "@/components/WhyFree";
 import AccuracySection from "@/components/AccuracySection";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
+
+// Lazy load heavy components
+const MagicBento = dynamic(() => import('@/components/MagicBento'), {
+  loading: () => (
+    <div className="h-96 bg-card/20 animate-pulse rounded-lg flex items-center justify-center">
+      <div className="text-muted-foreground">Loading features...</div>
+    </div>
+  ),
+  ssr: false
+});
 
 export default function Home() {
   return (

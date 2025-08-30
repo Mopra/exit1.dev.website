@@ -122,6 +122,20 @@
     @apply bg-background text-foreground;
     font-feature-settings: "liga" 1;
   }
+  
+  /* Focus styles for better accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+  
+  /* Skip to main content link */
+  .skip-link {
+    @apply absolute -top-10 left-6 bg-primary text-primary-foreground px-4 py-2 rounded-md z-50 transition-transform duration-200;
+  }
+  
+  .skip-link:focus {
+    @apply top-6;
+  }
 }
 
 @layer utilities {

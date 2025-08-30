@@ -39,10 +39,33 @@ const Prism: React.FC<PrismProps> = ({
   timeScale = 0.5,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const animationRef = useRef<number | null>(null);
+  const isVisibleRef = useRef(true);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    // Intersection Observer for performance optimization
+    let observer: IntersectionObserver | null = null;
+    
+    if (suspendWhenOffscreen) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          isVisibleRef.current = entry.isIntersecting;
+          if (!entry.isIntersecting) {
+            // Pause animation when off-screen
+            if (animationRef.current) {
+              cancelAnimationFrame(animationRef.current);
+              animationRef.current = null;
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '50px' }
+      );
+      
+      observer.observe(container);
+    }
 
     const H = Math.max(0.001, height);
     const BW = Math.max(0.001, baseWidth);

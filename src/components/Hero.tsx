@@ -3,9 +3,17 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search, AlertCircle } from 'lucide-react'
-import Prism from './Prism'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { validateDomain } from '@/lib/domainUtils'
+
+// Lazy load the heavy Prism component
+const Prism = dynamic(() => import('./Prism'), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20" />
+  )
+})
 
 export default function Hero() {
   const [websiteUrl, setWebsiteUrl] = useState('')
@@ -75,6 +83,7 @@ export default function Hero() {
           colorFrequency={1}
           noise={0}
           glow={0.5}
+          suspendWhenOffscreen={true}
         />
         {/* Fade overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />

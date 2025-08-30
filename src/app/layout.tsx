@@ -4,11 +4,14 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'arial', 'sans-serif']
 });
 
 const spaceMono = Space_Mono({
@@ -16,6 +19,8 @@ const spaceMono = Space_Mono({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "700"],
+  preload: true,
+  fallback: ['monospace']
 });
 
 export const metadata: Metadata = {
@@ -33,10 +38,17 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${spaceMono.variable} antialiased`}
       >
+        {/* Skip to main content link for accessibility */}
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Header />
-        {children}
+        <main id="main-content">
+          {children}
+        </main>
         <Footer />
         <SpeedInsights />
+        <PerformanceMonitor />
       </body>
     </html>
   );

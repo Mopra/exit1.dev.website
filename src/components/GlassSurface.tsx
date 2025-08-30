@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useId } from "react";
+import React, { useEffect, useRef, useState, useId, useCallback } from "react";
 
 export interface GlassSurfaceProps {
   children?: React.ReactNode;
@@ -129,10 +129,10 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     return `data:image/svg+xml,${encodeURIComponent(svgContent)}`;
   };
 
-  const updateDisplacementMap = () => {
+  const updateDisplacementMap = useCallback(() => {
     if (!isHydrated) return;
     feImageRef.current?.setAttribute("href", generateDisplacementMap());
-  };
+  }, [isHydrated, generateDisplacementMap]);
 
   useEffect(() => {
     if (!isHydrated) return;
@@ -185,8 +185,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     return () => {
       resizeObserver.disconnect();
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isHydrated]);
+  }, [isHydrated, updateDisplacementMap]);
 
   useEffect(() => {
     if (!isHydrated) return;

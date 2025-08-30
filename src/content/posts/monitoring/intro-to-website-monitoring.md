@@ -165,7 +165,7 @@ Google's user experience metrics that impact SEO:
 
 **HTTP Status Code Monitoring**
 ```yaml
-# Status code categories and their implications
+### Status code categories and their implications
 status_codes:
   success: [200, 201, 202, 204]     # Successful responses
   redirect: [301, 302, 307, 308]    # Redirection responses
@@ -195,7 +195,7 @@ Track frontend errors that impact user experience:
 
 **Revenue Impact Tracking**
 ```python
-# Example: Correlating performance with business metrics
+#### Example: Correlating performance with business metrics
 class PerformanceBusinessImpact:
     def calculate_revenue_impact(self, performance_data, revenue_data):
         """Calculate revenue impact of performance changes"""
@@ -240,21 +240,21 @@ Automated checks that simulate user interactions:
 
 **Example synthetic monitoring with exit1.dev:**
 ```bash
-# Basic HTTP monitoring
+#### Basic HTTP monitoring
 exit1 add https://mysite.com \
   --name "Homepage" \
   --interval 60 \
   --timeout 30 \
   --expected-status 200
 
-# API endpoint monitoring
+#### API endpoint monitoring
 exit1 add https://api.mysite.com/health \
   --name "API Health" \
   --interval 60 \
   --headers "Authorization: Bearer token123" \
   --expected-json "status:ok"
 
-# SSL certificate monitoring
+#### SSL certificate monitoring
 exit1 add https://mysite.com \
   --name "SSL Certificate" \
   --check-ssl \
@@ -334,7 +334,7 @@ Implement time-based escalation to ensure issues get resolved:
 
 **Threshold-Based Alerts**
 ```yaml
-# Example alert configuration
+#### Example alert configuration
 alerts:
   response_time:
     warning: 2000ms
@@ -377,7 +377,7 @@ Start with these fundamental checks:
 4. **DNS resolution**: Ensure domain name accessibility
 
 ```bash
-# Quick start with exit1.dev
+#### Quick start with exit1.dev
 exit1 add https://mysite.com --name "Homepage"
 exit1 add https://api.mysite.com/health --name "API Health"
 exit1 add https://mysite.com --check-ssl --name "SSL Check"
@@ -387,12 +387,12 @@ exit1 add https://mysite.com --check-dns --name "DNS Check"
 **Basic Alert Setup**
 Configure notifications for immediate issues:
 ```bash
-# Configure Slack alerts
+#### Configure Slack alerts
 exit1 alert add-channel slack \
   --webhook-url "https://hooks.slack.com/..." \
   --severity critical,high
 
-# Configure email alerts
+#### Configure email alerts
 exit1 alert add-channel email \
   --addresses "team@company.com" \
   --severity medium,low
@@ -471,7 +471,7 @@ Implement monitoring that predicts issues:
 
 **Metrics-Driven Optimization**
 ```python
-# Example monitoring effectiveness analysis
+#### Example monitoring effectiveness analysis
 class MonitoringEffectiveness:
     def analyze_monitoring_coverage(self, incidents, monitors):
         """Analyze how well monitoring covers actual incidents"""
