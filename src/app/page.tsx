@@ -33,7 +33,7 @@ export default function Home() {
             Ready to get started?
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 px-2 sm:px-4">
-            Join thousands of developers who trust exit1.dev for their monitoring needs
+            Join our community of developers and enthusiasts who trust exit1.dev for their monitoring needs
           </p>
           <Button
             asChild
