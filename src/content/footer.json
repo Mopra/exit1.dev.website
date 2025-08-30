@@ -4,16 +4,17 @@
     "description": "The best free uptime monitoring service. Monitor unlimited websites with 1-minute checks, SSL monitoring, and instant alerts. No credit card required."
   },
   "navigation": {
-    "product": [
+    "monitoring": [
       { "name": "Real-Time Monitoring", "href": "/real-time-monitoring" },
       { "name": "SSL Monitoring", "href": "/ssl-monitoring" },
-      { "name": "Analytics & Reports", "href": "/analytics" },
-      { "name": "Smart Alerting", "href": "/alerting" },
       { "name": "Global Monitoring", "href": "/global-monitoring" },
-      { "name": "Data Privacy", "href": "/data-privacy" },
+      { "name": "Smart Alerting", "href": "/alerting" }
+    ],
+    "analytics": [
+      { "name": "Analytics & Reports", "href": "/analytics" },
       { "name": "Comprehensive Logs", "href": "/logs" },
       { "name": "API & Webhooks", "href": "/api-webhooks" },
-      { "name": "Blog", "href": "/blog" }
+      { "name": "Data Privacy", "href": "/data-privacy" }
     ],
     "support": [
       { "name": "Help & Community", "href": "https://discord.gg/uZvWbpwJZS" },

@@ -79,13 +79,25 @@ const Footer = () => {
           </div>
           
           {/* Navigation sections - stacked on mobile, grid on larger screens */}
-          <div className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
+          <div className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-4 lg:gap-8 lg:space-y-0">
             <div>
               <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                Product
+                Monitoring
               </h3>
               <ul className="mt-4 space-y-3">
-                {content.navigation.product.map((item) => (
+                {content.navigation.monitoring.map((item) => (
+                  <li key={item.name}>
+                    {renderLink(item)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
+                Analytics & Tools
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {content.navigation.analytics.map((item) => (
                   <li key={item.name}>
                     {renderLink(item)}
                   </li>
