@@ -10,6 +10,7 @@ import { Menu, X, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navigation = [
+  { name: "Getting Started", href: "/getting-started" },
   { name: "Blog", href: "/blog" },
   { name: "Community", href: "https://discord.com/invite/uZvWbpwJZS", external: true }
 ]

@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import Hero from "@/components/Hero";
 import WhyFree from "@/components/WhyFree";
 import AccuracySection from "@/components/AccuracySection";
@@ -47,16 +48,28 @@ export default function Home() {
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 px-2 sm:px-4">
             Join our community of developers and enthusiasts who trust exit1.dev for their monitoring needs
           </p>
-          <Button
-            asChild
-            size="lg"
-            className="px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold glass-primary border backdrop-blur-md hover:scale-105 transition-all duration-300 w-full sm:w-auto interactive"
-          >
-            <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
-              Sign Up Now
-              <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
-            </a>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold glass-primary border backdrop-blur-md hover:scale-105 transition-all duration-300 w-full sm:w-auto interactive"
+            >
+              <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
+                Sign Up Now
+                <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              asChild
+              size="lg"
+              className="px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold backdrop-blur-md hover:scale-105 transition-all duration-300 w-full sm:w-auto interactive"
+            >
+              <Link href="/getting-started">
+                Learn How
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>
