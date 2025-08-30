@@ -12,15 +12,13 @@ import {
   Bell, 
   Zap, 
   Users, 
-  Star,
   AlertCircle,
   Settings,
   Smartphone,
   Code,
   BarChart3,
   Mail,
-  Webhook,
-  ExternalLink
+  Webhook
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -92,7 +90,7 @@ export default function GettingStartedPage() {
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-12 sm:mb-16">
              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
-               Three Steps. That's It.
+               Three Steps. That&apos;s It.
              </h2>
              <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
                No complex setup. No confusing options. Just monitoring that works.
@@ -153,7 +151,7 @@ export default function GettingStartedPage() {
                  <div className="space-y-2">
                    <div className="flex items-center gap-2">
                      <CheckCircle className="w-4 h-4 text-green-500" />
-                     <span className="text-sm">Click "Add Check" button</span>
+                     <span className="text-sm">Click &quot;Add Check&quot; button</span>
                    </div>
                    <div className="flex items-center gap-2">
                      <CheckCircle className="w-4 h-4 text-green-500" />
@@ -307,7 +305,7 @@ export default function GettingStartedPage() {
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-12 sm:mb-16">
              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
-               Set Up Alerts (Don't Skip This)
+               Set Up Alerts (Don&apos;t Skip This)
              </h2>
              <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
                Monitoring without alerts is like having a smoke detector without batteries.
@@ -321,7 +319,7 @@ export default function GettingStartedPage() {
                  <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>Navigate to "Emails" in the sidebar</span>
+                    <span>Navigate to &quot;Emails&quot; in the sidebar</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -343,7 +341,7 @@ export default function GettingStartedPage() {
                  <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span>Go to "Webhooks" in the sidebar</span>
+                    <span>Go to &quot;Webhooks&quot; in the sidebar</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
@@ -503,7 +501,7 @@ export default function GettingStartedPage() {
                Common Issues (And How to Fix Them)
              </h2>
              <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-               Most problems are simple. Here's how to solve them.
+               Most problems are simple. Here&apos;s how to solve them.
              </p>
            </div>
 
@@ -512,12 +510,12 @@ export default function GettingStartedPage() {
               <CardHeader>
                                  <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                    <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
-                   Check Shows "Unknown" Status
+                   Check Shows &quot;Unknown&quot; Status
                  </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-muted-foreground">
-                  This is normal for the first few minutes. Here's what to check:
+                  This is normal for the first few minutes. Here&apos;s what to check:
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
@@ -545,7 +543,7 @@ export default function GettingStartedPage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-muted-foreground">
-                  If alerts aren't coming through, check these:
+                  If alerts aren&apos;t coming through, check these:
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
@@ -573,7 +571,7 @@ export default function GettingStartedPage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-muted-foreground">
-                  Slow response times? Don't worry:
+                  Slow response times? Don&apos;t worry:
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
@@ -586,7 +584,7 @@ export default function GettingStartedPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span>Check your website's actual performance</span>
+                    <span>Check your website&apos;s actual performance</span>
                   </div>
                 </div>
               </CardContent>
@@ -602,7 +600,7 @@ export default function GettingStartedPage() {
             Ready to Stop Guessing?
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 px-2 sm:px-4">
-            Your website is down right now and you don't even know it. Let's fix that.
+            Your website is down right now and you don&apos;t even know it. Let&apos;s fix that.
           </p>
                      <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
              <Button
