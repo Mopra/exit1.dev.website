@@ -85,16 +85,8 @@ export default function ContactPage() {
                     For direct questions, feature requests, or feedback. I read every email.
                   </p>
                   {email && (
-                    <Button
-                      asChild
-                      className="w-full"
-                      onClick={(e) => {
-                        // Additional protection: decode on click
-                        const decodedEmail = email.replace(/[at]/g, '@').replace(/[dot]/g, '.');
-                        e.currentTarget.href = `mailto:${decodedEmail}`;
-                      }}
-                    >
-                      <a href={`mailto:${email}`}>
+                    <Button asChild className="w-full">
+                      <a href={`mailto:${email.replace(/[at]/g, '@').replace(/[dot]/g, '.')}`}>
                         <Mail className="mr-2 w-4 h-4" />
                         {email}
                       </a>
