@@ -3,6 +3,7 @@ import { DM_Sans, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
