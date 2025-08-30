@@ -171,3 +171,8 @@ Enterprise: Uptrends.
 [Start exit1.dev](https://exit1.dev)
 
 Related: [Best Service](/blog/best-website-monitoring-service-2025), [Free vs Paid](/blog/free-vs-paid-website-monitoring), [101](/blog/website-monitoring-101), [Get Started](/blog/get-started) 
+
+## Sources
+
+- Wikipedia: Synthetic monitoring — https://en.wikipedia.org/wiki/Synthetic_monitoring
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/

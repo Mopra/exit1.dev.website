@@ -121,3 +121,9 @@ Week 3: Adjust thresholds, business hours, dashboards, escalation, growth plan.
 Monitor or regret. Free works.
 
 [Start free](/ssl-monitoring) or https://app.exit1.dev/. 
+
+## Sources
+
+- Let's Encrypt: Documentation — https://letsencrypt.org/docs/
+- Mozilla: SSL Configuration Generator — https://ssl-config.mozilla.org/
+- Cloudflare Learning: What is SSL/TLS? — https://www.cloudflare.com/learning/ssl/what-is-ssl/

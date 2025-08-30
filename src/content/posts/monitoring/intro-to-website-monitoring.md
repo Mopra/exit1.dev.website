@@ -31,22 +31,16 @@ The internet has evolved dramatically over the past decade. What once were simpl
 
 ### The Cost of Poor Monitoring
 
-Consider these real-world impacts of inadequate monitoring:
+Monitoring gaps have tangible business impact:
 
 **Financial Impact**
-- **Amazon**: Every 100ms of latency costs 1% in sales (approximately $1.6 billion annually)
-- **Google**: A 500ms delay in search results decreases traffic by 20%
-- **Shopzilla**: Improving site speed from 7 seconds to 2 seconds increased revenue by 12%
+- Small increases in page load time reduce engagement and conversions; bounce probability rises as load time grows (source: https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/; https://web.dev/articles/vitals)
 
 **Reputation Impact**
-- 88% of users won't return to a website after a bad experience
-- 47% expect pages to load in 2 seconds or less
-- 40% abandon sites that take more than 3 seconds to load
+- Slow or unstable experiences drive users away and increase bounce rates (source: https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/)
 
 **Operational Impact**
-- Unplanned downtime can cost large enterprises $1 million+ per hour
-- 23% of downtime is caused by human error that could be prevented with proper monitoring
-- Teams spend 75% more time on incident response without proactive monitoring
+- Downtime carries significant direct and indirect costs; reliability engineering practices emphasize proactive monitoring and fast incident response (source: https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html; https://sre.google/sre-book/monitoring-distributed-systems/)
 
 ## Why Bother
 
@@ -497,6 +491,12 @@ class MonitoringEffectiveness:
 ## Conclusion
 
 Monitor or lose users. Simple.
+
+## Sources
+
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/
+- MDN: HTTP response status codes — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
+- web.dev: Core Web Vitals — https://web.dev/articles/vitals
 
 exit1.dev provides the foundation for effective website monitoring with fast 1-minute checks, global monitoring locations, and intelligent alerting. Start with basic availability monitoring and gradually expand your coverage as your understanding and needs grow.
 

@@ -149,3 +149,8 @@ Capped free tiers are dying. Unlimited is the way.
 ---
 
 *Ready for truly free unlimited monitoring? [Start with Exit1.dev](https://app.exit1.dev/) and forget limits.*
+
+## Sources
+
+- Wikipedia: Synthetic monitoring — https://en.wikipedia.org/wiki/Synthetic_monitoring
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/

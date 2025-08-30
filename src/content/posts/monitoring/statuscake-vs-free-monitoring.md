@@ -165,3 +165,8 @@ Questions:
 Free often wins. Try exit1.dev.
 
 [Start exit1.dev](https://exit1.dev) 
+
+## Sources
+
+- Wikipedia: Synthetic monitoring — https://en.wikipedia.org/wiki/Synthetic_monitoring
+- AWS Well-Architected: Reliability Pillar — https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html

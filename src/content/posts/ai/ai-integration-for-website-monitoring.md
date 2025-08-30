@@ -23,6 +23,10 @@ Monitoring by hand is inefficient. AI fixes it: automates, predicts, responds. B
 
 N8N/Zapier for quick, custom for control.
 
+## Sources
+
+- Wikipedia: Anomaly detection — https://en.wikipedia.org/wiki/Anomaly_detection
+- scikit-learn: Outlier and novelty detection — https://scikit-learn.org/stable/modules/outlier_detection.html
 ### Triggers
 
 ```javascript

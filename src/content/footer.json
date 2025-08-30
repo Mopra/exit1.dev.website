@@ -19,11 +19,12 @@
     "support": [
       { "name": "Help & Community", "href": "https://discord.gg/uZvWbpwJZS" },
       { "name": "Service Status", "href": "https://app.exit1.dev/status" },
-      { "name": "Contact Support", "href": "https://discord.gg/uZvWbpwJZS" }
+      { "name": "Contact", "href": "/contact" }
     ],
     "legal": [
       { "name": "Privacy Policy", "href": "/privacy" },
       { "name": "Sitemap", "href": "/sitemap" },
+      { "name": "About", "href": "/about" },
       { "name": "Cookie Settings", "href": "#cookie-settings" }
     ]
   },

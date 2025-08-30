@@ -338,4 +338,4 @@ Ready to get started? [Try Exit1.dev's free tier](https://app.exit1.dev/) and se
 **External Resources:**
 - [UptimeRobot Official Website](https://uptimerobot.com/) - Popular free monitoring service
 - [Better Stack](https://betterstack.com/) - Premium monitoring platform
-- [Google's Web Vitals](https://web.dev/vitals/) - Performance metrics that matter
+- [Google's Web Vitals](https://web.dev/articles/vitals) - Performance metrics that matter

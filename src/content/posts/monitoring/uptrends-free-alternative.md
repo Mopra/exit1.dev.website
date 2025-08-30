@@ -198,6 +198,11 @@ Free matches for most.
 
 Most: exit1.dev best alt, unlimited 1-min pro free.
 
+## Sources
+
+- Wikipedia: Synthetic monitoring — https://en.wikipedia.org/wiki/Synthetic_monitoring
+- AWS Well-Architected: Reliability Pillar — https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html
+
 Global: UptimeRobot/StatusCake basic, Pingdom comprehensive.
 
 Enterprise: Uptrends.

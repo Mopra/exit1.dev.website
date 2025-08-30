@@ -1,6 +1,7 @@
 import { getPostBySlug, getAllPosts } from '@/lib/markdownLoader';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { TableOfContents } from '@/components/TableOfContents';
 import { Metadata } from 'next';
@@ -80,7 +81,16 @@ export default async function BlogPostPage({
             <div className="flex items-center text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base">
               <span>{post.readTime}</span>
               <span className="mx-2">•</span>
-              <span>By {post.author}</span>
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/Morten-Pradsgaard.jpg"
+                  alt="Morten Pradsgaard"
+                  width={24}
+                  height={24}
+                  className="rounded-full border border-primary/20"
+                />
+                <span>By <Link href="/about" className="text-primary hover:underline cursor-pointer interactive">{post.author}</Link></span>
+              </div>
             </div>
 
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -104,6 +114,15 @@ export default async function BlogPostPage({
                   dangerouslySetInnerHTML={{ __html: post.htmlContent }}
                   className="scroll-mt-20"
                 />
+                
+                {/* EEAT Author Bio */}
+                <div className="mt-12 pt-8 border-t border-primary/20">
+                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 backdrop-blur-md">
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      <strong>Morten Pradsgaard</strong> is the founder of <strong>exit1.dev</strong> — the free uptime monitor for people who actually ship. He writes no-bullshit guides on monitoring, reliability, and building software that doesn&apos;t crumble under pressure.
+                    </p>
+                  </div>
+                </div>
               </article>
             </div>
           </div>

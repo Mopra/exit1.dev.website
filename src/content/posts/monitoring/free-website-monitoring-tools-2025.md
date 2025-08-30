@@ -437,3 +437,8 @@ Choosing the best free website monitoring tool depends on your specific needs:
 ## Test Script
 
 Script to eval tools: Check speed, alerts.
+
+## Sources
+
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/
+- MDN: HTTP response status codes — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status

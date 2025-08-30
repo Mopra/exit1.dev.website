@@ -164,3 +164,8 @@ Paid: 10+ sites, collab, analytics, phone/SMS, custom, enterprise, stakes high.
 Tools that help code, not hinder. Start free.
 
 [Sign up free](https://exit1.dev) 
+
+## Sources
+
+- MDN: Fetch API — https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+- GitHub Actions: Cron schedule — https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#onschedule

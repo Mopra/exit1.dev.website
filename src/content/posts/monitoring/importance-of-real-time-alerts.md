@@ -293,3 +293,8 @@ exit1.dev foundation: 1-min checks, global, intelligent alerts. With config, esc
 Goal: Right alerts, right time, right info. Reduces stress, boosts efficiency, keeps sites running.
 
 *Try exit1.dev [here](https://exit1.dev). Alerts that help, not overwhelm.* 
+
+## Sources
+
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/
+- AWS Well-Architected: Reliability Pillar — https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html

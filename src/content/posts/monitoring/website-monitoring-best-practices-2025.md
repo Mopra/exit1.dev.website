@@ -1224,3 +1224,9 @@ config:
 ## Maturity Quiz
 
 Score your monitoring.
+
+## Sources
+
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/
+- web.dev: Core Web Vitals — https://web.dev/articles/vitals
+- AWS Well-Architected: Reliability Pillar — https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html

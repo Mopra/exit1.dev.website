@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -130,7 +131,16 @@ export function BlogClient({ posts, categories }: BlogClientProps) {
                       <div className="flex items-center text-xs sm:text-sm text-muted-foreground mb-2">
                         <span>{post.readTime}</span>
                         <span className="mx-2">•</span>
-                        <span>{post.author}</span>
+                        <div className="flex items-center gap-2">
+                          <Image
+                            src="/Morten-Pradsgaard.jpg"
+                            alt="Morten Pradsgaard"
+                            width={20}
+                            height={20}
+                            className="rounded-full border border-primary/20"
+                          />
+                          <Link href="/about" className="text-primary hover:underline cursor-pointer interactive">{post.author}</Link>
+                        </div>
                       </div>
                     </div>
                     

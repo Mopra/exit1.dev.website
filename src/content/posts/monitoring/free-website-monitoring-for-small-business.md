@@ -151,3 +151,8 @@ Free works. Start now.
 [Monitor free](https://exit1.dev)
 
 Remember: The best monitoring system is the one you actually use. Start with exit1.dev's simple setup and build your monitoring strategy as your business grows. 
+
+## Sources
+
+- AWS Well-Architected: Reliability Pillar — https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/

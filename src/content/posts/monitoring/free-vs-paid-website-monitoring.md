@@ -141,3 +141,8 @@ SolarWinds: $100-500/mo, enterprise.
 Free often wins. Try exit1.dev.
 
 Related: [101](/blog/website-monitoring-101), [Get Started](/blog/get-started), [Best Service](/blog/best-website-monitoring-service-2025), [Best Practices](/blog/website-monitoring-best-practices-2025) 
+
+## Sources
+
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/
+- Wikipedia: Synthetic monitoring — https://en.wikipedia.org/wiki/Synthetic_monitoring

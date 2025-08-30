@@ -24,6 +24,11 @@ Thresholds are blind. Slow creep? No alert until boom.
 
 Learns normal, flags weird. No more babysitting.
 
+## Sources
+
+- Wikipedia: Anomaly detection — https://en.wikipedia.org/wiki/Anomaly_detection
+- scikit-learn: Outlier and novelty detection — https://scikit-learn.org/stable/modules/outlier_detection.html
+
 ### Pattern Hunting
 
 - Builds baselines from your mess

@@ -109,3 +109,9 @@ Monitor smart. Start simple, evolve.
 [Sign up free](https://app.exit1.dev/). Catch issues before users.
 
 Related: [Get Started](/blog/get-started), [Free Tools](/blog/free-website-monitoring-tools-2025), [Downtime](/blog/understanding-website-downtime), [Free vs Paid](/blog/free-vs-paid-website-monitoring), [Best Practices](/blog/website-monitoring-best-practices-2025)
+
+## Sources
+
+- MDN: HTTP response status codes — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
+- web.dev: Core Web Vitals — https://web.dev/articles/vitals
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/

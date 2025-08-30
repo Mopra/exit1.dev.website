@@ -13,9 +13,9 @@ Downtime costs. Understand, prevent.
 
 ## Costs
 
-Financial: E-comm $100k/hr, SaaS $1m/hr, small biz thousands.
+Financial: Downtime drives direct revenue loss and operational expense; impact varies by business model (source: https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html).
 
-Reputation: 77% don't return, SEO penalties.
+Reputation: Users abandon slow or unavailable sites; slower load times increase bounce probability (source: https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/). SEO can also be affected by poor availability and performance.
 
 Operational: Productivity loss, support burden, stress.
 
@@ -160,3 +160,9 @@ Goal: Minimize frequency, duration, learn.
 Related: [101](/blog/website-monitoring-101), [Alerts](/blog/downtime-alerts-guide), [Real-time](/blog/importance-of-real-time-alerts), [Best Practices](/blog/website-monitoring-best-practices-2025)
 
 *Monitor with exit1.dev [here](https://app.exit1.dev/). Catch before outages.*
+
+## Sources
+
+- AWS Well-Architected: Reliability Pillar — https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html
+- Google SRE Book: Managing Incidents — https://sre.google/sre-book/managing-incidents/
+- Cloudflare Learning: What is a DDoS attack? — https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/

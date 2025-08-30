@@ -23,6 +23,8 @@ Interval sets detection speed.
 
 ## Cost of Delay
 
+Examples below are illustrative; actual impact varies by business.
+
 E-comm Black Friday: Fail 2:00, 5-min detect 2:05, fix 2:25 (25 min), $50k loss. 1-min: 2:01 detect, 2:21 fix (21 min), saves $40k.
 
 SaaS: DB 10:30, 5-min 10:35, restart 10:37 (7 min), 200 tickets. 1-min 10:31, 10:33 (3 min), 80 tickets.
@@ -105,3 +107,8 @@ Adaptive: Adjust by criticality, history, load, impact.
 Choose fast. No regrets.
 
 [Try exit1.dev](https://app.exit1.dev/) for 1-min difference.
+
+## Sources
+
+- Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/
+- AWS Well-Architected: Reliability Pillar — https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html

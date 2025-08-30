@@ -34,7 +34,9 @@ const Sitemap = () => {
         { name: "Features", url: "/#features" },
         { name: "Pricing", url: "/#pricing" },
         { name: "Blog", url: "/blog" },
-        { name: "Privacy Policy", url: "/privacy" }
+        { name: "Getting Started", url: "/getting-started" },
+        { name: "Privacy Policy", url: "/privacy" },
+        { name: "Data Privacy", url: "/data-privacy" }
       ]
     },
     {
@@ -44,7 +46,9 @@ const Sitemap = () => {
         { name: "SSL Certificate Monitoring", url: "/ssl-monitoring" },
         { name: "Global Monitoring", url: "/global-monitoring" },
         { name: "Alerting & Notifications", url: "/alerting" },
-        { name: "Analytics & Reports", url: "/analytics" }
+        { name: "Analytics & Reports", url: "/analytics" },
+        { name: "Logs", url: "/logs" },
+        { name: "API & Webhooks", url: "/api-webhooks" }
       ]
     },
     {
@@ -57,9 +61,34 @@ const Sitemap = () => {
       ]
     },
     {
-      category: "Blog",
+      category: "Blog - Website Monitoring",
       links: [
-        { name: "All Articles", url: "/blog" }
+        { name: "All Articles", url: "/blog" },
+        { name: "Intro to Website Monitoring", url: "/blog/intro-to-website-monitoring" },
+        { name: "Free Website Monitoring for Developers", url: "/blog/free-website-monitoring-for-developers" },
+        { name: "Free vs Paid Website Monitoring", url: "/blog/free-vs-paid-website-monitoring" },
+        { name: "Uptrends Free Alternative", url: "/blog/uptrends-free-alternative" },
+        { name: "Website Monitoring 101", url: "/blog/website-monitoring-101" },
+        { name: "Website Monitoring Best Practices 2025", url: "/blog/website-monitoring-best-practices-2025" },
+        { name: "Understanding Website Downtime", url: "/blog/understanding-website-downtime" },
+        { name: "UptimeRobot Alternatives", url: "/blog/uptimerobot-alternatives" },
+        { name: "StatusCake vs Free Monitoring", url: "/blog/statuscake-vs-free-monitoring" },
+        { name: "Importance of Real-Time Alerts", url: "/blog/importance-of-real-time-alerts" },
+        { name: "Pingdom Free Alternative", url: "/blog/pingdom-free-alternative" },
+        { name: "Real-Time vs 5-Minute Monitoring", url: "/blog/real-time-vs-5-minute-monitoring" },
+        { name: "SSL Certificate Monitoring Alerts", url: "/blog/ssl-certificate-monitoring-alerts-made-easy-and-why-it-matters" },
+        { name: "Free Website Monitoring for Small Business", url: "/blog/free-website-monitoring-for-small-business" },
+        { name: "Free SSL Certificate Monitoring", url: "/blog/free-ssl-certificate-monitoring" },
+        { name: "Best Website Monitoring Service 2025", url: "/blog/best-website-monitoring-service-2025" },
+        { name: "Free Website Monitoring Tools 2025", url: "/blog/free-website-monitoring-tools-2025" },
+        { name: "Best Free Uptime Monitoring Tools", url: "/blog/best-free-uptime-monitoring-tools" }
+      ]
+    },
+    {
+      category: "Blog - AI & Automation",
+      links: [
+        { name: "AI Integration for Website Monitoring", url: "/blog/ai-integration-for-website-monitoring" },
+        { name: "AI Anomaly Detection Monitoring", url: "/blog/ai-anomaly-detection-monitoring" }
       ]
     }
   ];
