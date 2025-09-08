@@ -76,6 +76,24 @@ const Footer = () => {
             <p className="text-muted-foreground text-base font-light leading-relaxed">
               {content.brand.description}
             </p>
+            
+            {/* Peerpush Achievement Badge */}
+            <div className="pt-2">
+              <a 
+                href="https://peerpush.net/p/exit1dev"
+                target="_blank"
+                rel="noopener"
+                className="inline-block transition-all duration-300 hover:scale-105 cursor-pointer interactive"
+                style={{ height: '40px' }}
+              >
+                <img
+                  src="https://peerpush.net/p/exit1dev/badge"
+                  alt="Exit1.dev badge"
+                  style={{ height: '40px' }}
+                  className="opacity-80 hover:opacity-100 transition-opacity duration-300"
+                />
+              </a>
+            </div>
           </div>
           
           {/* Navigation sections - stacked on mobile, grid on larger screens */}

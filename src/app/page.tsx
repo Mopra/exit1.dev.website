@@ -24,6 +24,24 @@ export default function Home() {
       <Hero />
       <section className="relative py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Social Proof Badge */}
+          <div className="flex justify-center mb-12">
+            <a 
+              href="https://peerpush.net/p/exit1dev"
+              target="_blank"
+              rel="noopener"
+              className="transition-all duration-300 hover:scale-105 cursor-pointer interactive"
+              style={{ height: '50px' }}
+            >
+              <img
+                src="https://peerpush.net/p/exit1dev/badge"
+                alt="Exit1.dev badge"
+                style={{ height: '50px' }}
+                className="opacity-90 hover:opacity-100 transition-opacity duration-300"
+              />
+            </a>
+          </div>
+          
           <MagicBento 
             textAutoHide={true}
             enableStars={true}
