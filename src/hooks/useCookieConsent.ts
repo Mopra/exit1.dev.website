@@ -175,6 +175,7 @@ const disableGoogleAnalytics = () => {
 // Extend Window interface for gtag
 declare global {
   interface Window {
-    gtag: (...args: unknown[]) => void;
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
   }
 }
