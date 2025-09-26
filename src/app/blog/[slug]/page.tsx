@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { TableOfContents } from '@/components/TableOfContents';
 import { Metadata } from 'next';
 import { ArrowLeft } from 'lucide-react';
+import StructuredData from '@/components/StructuredData';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -52,8 +53,75 @@ export default async function BlogPostPage({
     notFound();
   }
 
+  // Generate structured data for the blog post
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "author": {
+      "@type": "Person",
+      "name": post.author,
+      "url": "https://exit1.dev/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Exit1.dev",
+      "url": "https://exit1.dev",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://exit1.dev/e_.svg"
+      }
+    },
+    "datePublished": new Date().toISOString(),
+    "dateModified": new Date().toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://exit1.dev/blog/${post.slug}`
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://exit1.dev/Morten-Pradsgaard.jpg"
+    },
+    "articleSection": post.category,
+    "wordCount": post.content.split(/\s+/).length,
+    "timeRequired": post.readTime
+  };
+
+  // Check if post has FAQ section and generate FAQ schema
+  const hasFAQ = post.content.includes('## FAQs') || post.content.includes('### ');
+  let faqStructuredData = null;
+  
+  if (hasFAQ) {
+    // Extract FAQ questions and answers from content
+    const faqMatches = post.content.match(/### (.+?)\n(.+?)(?=### |$)/gs);
+    const faqItems = faqMatches ? faqMatches.map(match => {
+      const lines = match.split('\n');
+      const question = lines[0].replace('### ', '').trim();
+      const answer = lines.slice(1).join('\n').trim();
+      return { question, answer };
+    }) : [];
+
+    if (faqItems.length > 0) {
+      faqStructuredData = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      };
+    }
+  }
+
   return (
     <>
+      <StructuredData type="Article" data={articleStructuredData} />
+      {faqStructuredData && <StructuredData type="FAQPage" data={faqStructuredData} />}
       <main className="min-h-screen bg-background pt-24 sm:pt-28">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-background via-background/95 to-background/90 py-20 sm:py-24 lg:py-32">

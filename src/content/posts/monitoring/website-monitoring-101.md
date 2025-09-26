@@ -4,7 +4,7 @@ author: "Morten Pradsgaard"
 category: "monitoring"
 excerpt: "Basics: Keep site up, fast, functional."
 readTime: "7 min read"
-metaDescription: "Monitoring 101: Metrics and why."
+metaDescription: "Website Monitoring 101: Learn uptime monitoring basics, metrics, and best practices. Free guide to setting up reliable website monitoring with real examples and tools."
 ---
 
 # Monitoring 101: Essentials

@@ -1,17 +1,8 @@
----
-title: "Building Exit1.dev: How I Made Premium Website Monitoring Free"
-author: "Morten Pradsgaard"
-category: "monitoring"
-excerpt: "Tired of paying $50/month for basic HTTP requests? I built premium monitoring for free using modern cloud infrastructure."
-readTime: "12 min read"
-metaDescription: "Building Exit1.dev: How I Made Premium Website Monitoring Free - Learn the architecture behind unlimited free monitoring using Firebase Functions, smart batching, and cost optimization strategies."
----
-
 # Building Exit1.dev: How I Made Premium Website Monitoring Free
 
 *Tired of paying premium for basic tools.*
 
-That's the simple truth that started this whole journey. I was paying $20-50/month for website monitoring services that, frankly, weren't doing anything particularly complex. They were just pinging URLs and sending me emails when things broke.
+That's the simple truth that started this whole journey. I was paying $20-50/month for website monitoring services that, frankly, weren't doing anything particularly complex. They were just pinging URLs and sending me emails when things broke. 
 
 So I built my own. And I made it free.
 
@@ -29,8 +20,6 @@ That's it. That's the entire value proposition of services charging $20-100/mont
 The "premium" features? SSL certificate monitoring, domain expiry tracking, custom headers, response validation - these are all trivial to implement. The real cost isn't in the features, it's in the infrastructure to run checks at scale.
 
 But here's the thing: **modern cloud infrastructure makes this incredibly cheap to run at scale.**
-
-Compare tools: [Best 2025](/blog/best-website-monitoring-service-2025). Free alternatives: [Free Tools](/blog/free-website-monitoring-tools-2025).
 
 ## The Architecture That Makes It Possible
 
@@ -204,8 +193,6 @@ const checkAPIEndpoint = async (website: Website) => {
 };
 ```
 
-Learn more: [SSL Monitoring](/blog/free-ssl-certificate-monitoring), [Real-time Alerts](/blog/importance-of-real-time-alerts).
-
 ## The Frontend: Real-time React Application
 
 The frontend is a **React + TypeScript** application with real-time updates:
@@ -329,6 +316,54 @@ if (failureCount > 5) {
 }
 ```
 
+## The Features That Actually Matter
+
+### Professional Monitoring Features
+- **SSL certificate monitoring** - Automatic for all HTTPS URLs
+- **Domain expiry tracking** - Real registrar data via RDAP
+- **Advanced API monitoring** - Custom methods, headers, body validation
+- **Comprehensive alerting** - Email + webhooks with HMAC signatures
+- **Detailed analytics** - BigQuery-powered reports and insights
+- **Real-time updates** - Live status changes without page refreshes
+- **Cross-tab synchronization** - Changes in one tab appear in others
+
+## The Open Source Question
+
+I'm seriously considering making this open source. Here's why:
+
+1. **The code is clean** - Well-structured, documented, and maintainable
+2. **The architecture is sound** - Modern patterns that others can learn from
+3. **The problem is universal** - Every developer needs monitoring
+4. **The community could help** - More features, better testing, wider adoption
+
+The main question is: **what's the right license and governance model?**
+
+- **MIT License** - Maximum adoption, but no protection against commercial competitors
+- **AGPL License** - Prevents commercial competitors, but limits adoption
+- **Dual licensing** - Open source for individuals, commercial license for companies
+
+I'm leaning toward **MIT with a clear contribution agreement** that allows me to maintain control while encouraging community participation.
+
+## The Technical Stack
+
+### Backend
+- **Firebase Functions** - Serverless compute
+- **Firestore** - Real-time database
+- **BigQuery** - Analytics and historical data
+- **Resend** - Email delivery
+- **Node.js** - Runtime environment
+
+### Frontend  
+- **React 19** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **Clerk** - Authentication
+
+### Infrastructure
+- **Firebase Hosting** - Static site hosting
+- **Cloudflare** - CDN and DNS
+- **GitHub Actions** - CI/CD
+
 ## The Performance Numbers
 
 **Current scale:**
@@ -372,26 +407,6 @@ Most of the time, the answer is: "Not much."
 
 The tools are there. The infrastructure is there. The only thing missing is the willingness to question whether the current pricing makes sense.
 
-## The Technical Stack
-
-### Backend
-- **Firebase Functions** - Serverless compute
-- **Firestore** - Real-time database
-- **BigQuery** - Analytics and historical data
-- **Resend** - Email delivery
-- **Node.js** - Runtime environment
-
-### Frontend  
-- **React 19** - UI framework
-- **TypeScript** - Type safety
-- **Vite** - Build tool
-- **Clerk** - Authentication
-
-### Infrastructure
-- **Firebase Hosting** - Static site hosting
-- **Cloudflare** - CDN and DNS
-- **GitHub Actions** - CI/CD
-
 ## What's Next
 
 I'm still figuring out what to do with this project. The code is solid, the architecture scales, and it's been fun to build. 
@@ -401,19 +416,3 @@ Maybe I'll open source it. Maybe I'll keep it as a side project. Maybe I'll use 
 Either way, it's been a great learning experience. And if nothing else, it proves that **modern cloud infrastructure makes premium monitoring free.**
 
 The question is: what are you going to build with these tools?
-
-## Why Exit1.dev
-
-30s checks free, dev-friendly, global, intelligent, transparent.
-
-[Sign up free](https://app.exit1.dev/). See the architecture in action.
-
-Related: [Get Started](/blog/getting-started), [Free Tools](/blog/free-website-monitoring-tools-2025), [Best Practices](/blog/website-monitoring-best-practices-2025), [Real-time vs 5-min](/blog/real-time-vs-5-minute-monitoring), [Free vs Paid](/blog/free-vs-paid-website-monitoring)
-
-## Sources
-
-- Firebase Functions Documentation — https://firebase.google.com/docs/functions
-- Firestore Real-time Updates — https://firebase.google.com/docs/firestore/query-data/listen
-- BigQuery Analytics — https://cloud.google.com/bigquery/docs
-- RDAP Protocol — https://datatracker.ietf.org/doc/html/rfc7483
-

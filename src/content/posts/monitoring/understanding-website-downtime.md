@@ -4,7 +4,7 @@ author: "Morten Pradsgaard"
 category: "monitoring"
 excerpt: "Common causes, prevention with monitoring."
 readTime: "5 min read"
-metaDescription: "Website downtime causes and fixes 2025."
+metaDescription: "Understanding Website Downtime: Common Causes and How to Fix Them 2025 - Learn why websites go down, how to prevent downtime, and set up monitoring to catch issues before users do."
 ---
 
 # Downtime: Causes and Kills
