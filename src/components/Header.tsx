@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '@/components/ui/navigation-menu'
 import GlassSurface from '@/components/GlassSurface'
@@ -86,9 +87,11 @@ export default function Header() {
             className="flex items-center text-foreground hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg interactive"
             aria-label="Go to homepage"
           >
-            <img 
+            <Image 
               src="/e_.svg" 
               alt="Exit1.dev logo" 
+              width={24}
+              height={24}
               className="h-6 w-6 mr-2"
             />
             <span className="font-mono font-semibold text-base sm:text-lg tracking-tight">exit1.dev</span>

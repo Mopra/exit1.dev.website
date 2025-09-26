@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import footerContent from '../content/footer.json';
 import CookieSettings from './CookieSettings';
 
@@ -86,9 +87,11 @@ const Footer = () => {
                 className="inline-block transition-all duration-300 hover:scale-105 cursor-pointer interactive"
                 style={{ height: '40px' }}
               >
-                <img
+                <Image
                   src="https://peerpush.net/p/exit1dev/badge"
                   alt="Exit1.dev badge"
+                  width={160}
+                  height={40}
                   style={{ height: '40px' }}
                   className="opacity-80 hover:opacity-100 transition-opacity duration-300"
                 />

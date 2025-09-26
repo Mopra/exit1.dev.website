@@ -94,7 +94,7 @@ export default async function BlogPostPage({
   
   if (hasFAQ) {
     // Extract FAQ questions and answers from content
-    const faqMatches = post.content.match(/### (.+?)\n(.+?)(?=### |$)/gs);
+    const faqMatches = post.content.match(/### (.+?)\n([\s\S]+?)(?=### |$)/g);
     const faqItems = faqMatches ? faqMatches.map(match => {
       const lines = match.split('\n');
       const question = lines[0].replace('### ', '').trim();

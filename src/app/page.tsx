@@ -7,6 +7,7 @@ import WhyFree from "@/components/WhyFree";
 import AccuracySection from "@/components/AccuracySection";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
+import Image from "next/image";
 
 // Lazy load heavy components
 const MagicBento = dynamic(() => import('@/components/MagicBento'), {
@@ -33,9 +34,11 @@ export default function Home() {
               className="transition-all duration-300 hover:scale-105 cursor-pointer interactive"
               style={{ height: '50px' }}
             >
-              <img
+              <Image
                 src="https://peerpush.net/p/exit1dev/badge"
                 alt="Exit1.dev badge"
+                width={200}
+                height={50}
                 style={{ height: '50px' }}
                 className="opacity-90 hover:opacity-100 transition-opacity duration-300"
               />
