@@ -9,12 +9,12 @@ metaDescription: "Hook a free uptime monitor into Slack for blunt, instant alert
 
 # Free Uptime Monitor with Slack Integration: Ship Alerts Your Team Actually Sees
 
-Slack is where the real work chatter happens. If you still expect engineers to babysit inboxes, you deserve the downtime surprises you keep getting. Wire Exit1.dev’s free uptime monitor into Slack and you’ll stop guessing who saw the alert—because everyone will.
+Slack is where the real work chatter happens. If you still expect engineers to babysit inboxes, you deserve the downtime surprises you keep getting. Wire Exit1.dev’s free uptime monitor into Slack and you’ll stop guessing who saw the alert—because everyone will. Still need inbox records or community broadcasts? Pair this setup with the [email alert workflow](/blog/free-uptime-monitor-email-alerts) and the [Discord integration](/blog/free-website-monitor-discord-integration) so every stakeholder sees the hit.
 
 ## Slack Beats Pager Spam. Here’s Why.
 
 - **Visibility you can’t ignore**: Alerts drop into the same channels where code reviews and deployment debates already live. No more “missed the email” excuses.
-- **Context in one place**: Threads keep the timeline, runbooks, and status updates glued to the original alert.
+- **Context in one place**: Threads keep the timeline, runbooks, and status updates glued to the original alert. If you need long-form archives, mirror the final summary using the [email discipline playbook](/blog/free-uptime-monitor-email-alerts).
 - **Automation ready to fire**: Slack workflows, bot users, and custom reactions trigger the next move without touching a dashboard.
 
 Exit1.dev ships Slack webhooks on the free tier. No upsell. No nickel-and-diming. Plug it in and get on with building.

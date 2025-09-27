@@ -9,7 +9,7 @@ metaDescription: "Monitor domain expirations for free and wire alerts into Slack
 
 # Free Domain Monitoring with Slack Alerts: Stop Losing Domains Like Amateurs
 
-Letting a domain expire is the fastest way to light your brand on fire. Customers can’t reach you, email breaks, and some squatter buys the name before you wake up. Exit1.dev’s free domain monitoring with Slack alerts keeps the countdown in everyone’s face.
+Letting a domain expire is the fastest way to light your brand on fire. Customers can’t reach you, email breaks, and some squatter buys the name before you wake up. Exit1.dev’s free domain monitoring with Slack alerts keeps the countdown in everyone’s face. Need the same warning in other channels? Mirror it with our [Discord domain workflow](/blog/free-domain-monitoring-discord-alerts) and the [email-based SSL workflow](/blog/free-ssl-monitoring-email-alerts) so no one can claim ignorance.
 
 ## Why Slack Works for Domain Renewals
 
@@ -41,7 +41,7 @@ Make it obvious who needs to pay the invoice. Add billing links if your registra
 
 ## Lock In a Renewal Routine
 
-- **Assign an owner instantly**: First reply in the thread takes the task. No ghosting.
+- **Assign an owner instantly**: First reply in the thread takes the task. No ghosting. Document who’s on point alongside the [uptime incident checklist](/blog/free-uptime-monitor-checklist) so renewals share the same rigor as outages.
 - **Confirm payment**: Drop a screenshot or invoice number once the registrar renews the domain.
 - **Schedule sanity checks**: Use `/remind` to ping the channel seven days before expiry and again 24 hours before. Redundancy saves careers.
 - **Update documentation**: Post the new expiry date to your asset tracker or CMDB right in the thread.

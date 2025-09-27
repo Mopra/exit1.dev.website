@@ -9,7 +9,7 @@ metaDescription: "Plug AI into your monitoring stack to kill busywork. Get code 
 
 # AI for Monitoring: End the Manual Hell
 
-Monitoring by hand is inefficient. AI fixes it: automates, predicts, responds. Basics in our [101 guide](/blog/website-monitoring-101).
+Monitoring by hand is inefficient. AI fixes it: automates, predicts, responds. Basics in our [101 guide](/blog/website-monitoring-101). Want to see what AI does once the data flows? Pair this setup with the [anomaly detection blueprint](/blog/ai-anomaly-detection-monitoring) so you’re training models on real signal instead of noise.
 
 ## Why Bother
 
@@ -21,9 +21,9 @@ Monitoring by hand is inefficient. AI fixes it: automates, predicts, responds. B
 
 ## Setup
 
-N8N/Zapier for quick, custom for control.
+N8N/Zapier for quick, custom for control. Before wiring automations, audit your stack with the [free website monitoring tools rundown](/blog/free-website-monitoring-tools-2025) so you know which signals the AI will touch.
 
-Start with a simple webhook that fires when your site hiccups. Pipe that into a low-code tool if you're lazy or wire up a small Node service if you're picky. The AI piece slots in after the trigger: feed the payload to a model that classifies the mess, then hand the result to whatever runbook or auto-remediation script you trust. Keep the loop tight—trigger, analyze, act—so you're not building another bloated platform that dies under its own weight.
+Start with a simple webhook that fires when your site hiccups. Pipe that into a low-code tool if you're lazy or wire up a small Node service if you're picky. The AI piece slots in after the trigger: feed the payload to a model that classifies the mess, then hand the result to whatever runbook or auto-remediation script you trust. Keep the loop tight—trigger, analyze, act—so you're not building another bloated platform that dies under its own weight. Need humans looped in when the model screams? Route the verdict into our [Slack incident workflow](/blog/free-uptime-monitor-slack-integration) or the [email-first playbook](/blog/free-uptime-monitor-email-alerts) so the right team sees it instantly.
 
 ## Sources
 
