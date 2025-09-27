@@ -9,7 +9,7 @@ metaDescription: "AI anomaly detection spots trouble before users bail. Learn ho
 
 # AI Detection: Catch Issues Before They Explode
 
-Traditional monitoring waits for fires. Dumb. AI predicts them. At exit1.dev, we're baking this in because devs deserve tools that think ahead.
+Traditional monitoring waits for fires. Dumb. AI predicts them. If you're still wrestling with manual thresholds, revisit our [Monitoring 101 primer](/blog/website-monitoring-101) to see exactly where classic uptime checks fall short before layering in smarter detection. At exit1.dev, we're baking this in because devs deserve tools that think ahead.
 
 ## Traditional Sucks
 
@@ -52,17 +52,17 @@ Run this. Fix before users notice.
 
 ## Real Wins
 
-E-comm site: AI caught DB bloat pre-Black Friday. Saved outage. API errors creeping? Nailed early.
+E-comm site: AI caught DB bloat pre-Black Friday. Saved outage. API errors creeping? Nailed early. Pair the models with disciplined alerting like our [real-time vs five-minute strategy](/blog/real-time-vs-5-minute-monitoring) so teams act on the signal fast.
 
 ## Our Plan at exit1.dev
 
 Phase 1: Smart baselines. Phase 2: Predictions. Phase 3: Auto-fixes.
 
-We’re starting with raw data because fancy models without clean inputs are bullshit. First pass builds a baseline from every request and response to learn what “normal” actually means. Then we feed that into models that forecast spikes or slow burns before anyone files a ticket. The endgame? When the model is dead sure your DB will choke at 3 p.m., it reroutes traffic or rolls back a bad deploy without waiting for approval. Less heroics, more uptime.
+We’re starting with raw data because fancy models without clean inputs are bullshit. First pass builds a baseline from every request and response to learn what “normal” actually means. Then we feed that into models that forecast spikes or slow burns before anyone files a ticket. The endgame? When the model is dead sure your DB will choke at 3 p.m., it reroutes traffic or rolls back a bad deploy without waiting for approval. Less heroics, more uptime. Want the human workflows to keep pace? Wire the predictions into channels built for action—our [Slack incident playbook](/blog/free-uptime-monitor-slack-integration) shows how to keep engineers aligned when the AI raises its hand.
 
 ## Do It Now
 
-Collect clean data. Review weekly. Track beyond up/down.
+Collect clean data. Review weekly. Track beyond up/down. If you need a framework for the day-to-day grind, follow the automation loop in [AI integration for monitoring](/blog/ai-integration-for-website-monitoring) to connect signals to remediation without adding chaos.
 
 ## Traps to Dodge
 

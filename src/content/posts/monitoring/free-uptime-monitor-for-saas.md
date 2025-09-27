@@ -35,7 +35,7 @@ Downtime torches MRR and tanks trust. SaaS leaders who still fly blind are gambl
 - Role-based access with audit logs. Engineers, success, leadership—same facts, different permissions.
 - Shared incident timelines so everyone knows who did what and when.
 
-Exit1.dev ships all of this on the free tier, which is why it’s the best free uptime monitor for SaaS operators who care about reliability and runway.
+Exit1.dev ships all of this on the free tier, which is why it’s the best free uptime monitor for SaaS operators who care about reliability and runway. Need proof your comms stack can keep up? Tie those monitors to our [Slack incident recipe](/blog/free-uptime-monitor-slack-integration) and [email escalation playbook](/blog/free-uptime-monitor-email-alerts) so stakeholders hear about downtime instantly.
 
 ## Implementation Blueprint: 5-Day Rollout
 
@@ -49,9 +49,9 @@ Exit1.dev ships all of this on the free tier, which is why it’s the best free 
 - Enable SSL expiry alerts before your certificates make a fool of you.
 
 ### Day 3: Wire Up Incident Channels
-- Connect Slack, PagerDuty, email groups, maybe Opsgenie if you insist.
-- Define escalation policies for nights, weekends, and holidays.
-- Trigger a synthetic outage to prove the routing works before real users do the QA.
+- Connect Slack, PagerDuty, email groups, maybe Opsgenie if you insist. Follow the tactical steps in our [Slack integration guide](/blog/free-uptime-monitor-slack-integration) so the first alert doesn’t vanish into #random.
+- Define escalation policies for nights, weekends, and holidays. Backstop with the [email discipline workflow](/blog/free-uptime-monitor-email-alerts) if leadership still lives in their inbox.
+- Trigger a synthetic outage to prove the routing works before real users do the QA. If you serve communities, mirror the alert into [Discord status channels](/blog/free-website-monitor-discord-integration) to keep moderators in the loop.
 
 ### Day 4: Nail Customer Communication
 - Publish a branded status page that mirrors your trust center.
@@ -65,9 +65,9 @@ Exit1.dev ships all of this on the free tier, which is why it’s the best free 
 
 ## Scaling Beyond Launch
 
-- **Add synthetic user journeys** when you release new features—signups, billing, onboarding.
+- **Add synthetic user journeys** when you release new features—signups, billing, onboarding. Layer in [AI anomaly detection](/blog/ai-anomaly-detection-monitoring) once the baselines are steady so creeping failures surface early.
 - **Integrate with CI/CD** to pause deploys during active incidents.
-- **Automate postmortems** by exporting monitor history into Notion, Confluence, or Linear.
+- **Automate postmortems** by exporting monitor history into Notion, Confluence, or Linear. Then revisit the [AI automation loop](/blog/ai-integration-for-website-monitoring) to let models recommend fixes after every incident.
 
 ## Case Study: B2B SaaS Platform
 

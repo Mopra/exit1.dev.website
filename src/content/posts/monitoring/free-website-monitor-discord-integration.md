@@ -9,12 +9,12 @@ metaDescription: "Connect a free website monitor to Discord webhooks for blunt, 
 
 # Free Website Monitor with Discord Integration: Tell Your Community the Truth First
 
-Discord is the town square for your product. If you let rumor threads explain downtime before you do, you’re begging for churn. Exit1.dev’s free website monitor now speaks Discord natively, so you can hit your server with the facts before someone invents a conspiracy theory.
+Discord is the town square for your product. If you let rumor threads explain downtime before you do, you’re begging for churn. Exit1.dev’s free website monitor now speaks Discord natively, so you can hit your server with the facts before someone invents a conspiracy theory. Running parallel comms for ops and leadership? Pair this with our [Slack incident channel blueprint](/blog/free-uptime-monitor-slack-integration) and [email escalation workflow](/blog/free-uptime-monitor-email-alerts) so every audience hears the same story.
 
 ## Why Discord Wins for Outage Alerts
 
 - **Community expects transparency**: Your players, customers, and moderators live in Discord. Meet them there or watch trust evaporate.
-- **Channel control**: Post critical incidents in a locked `#status` channel, drip maintenance notes into `#announcements`, and stop the chaos.
+- **Channel control**: Post critical incidents in a locked `#status` channel, drip maintenance notes into `#announcements`, and stop the chaos. For domain-specific scares, mirror the warning from [Discord domain monitoring](/blog/free-domain-monitoring-discord-alerts) so DNS renewals get the same visibility.
 - **Automation playground**: Webhook embeds let you flag roles, trigger bot workflows, and format clean status cards without hacking together a bot.
 
 The free plan includes Discord webhooks. No “enterprise tier” bait-and-switch. Use it.

@@ -9,12 +9,12 @@ metaDescription: "Connect Exit1.dev’s free domain monitoring to Discord webhoo
 
 # Free Domain Monitoring with Discord Alerts: Don’t Let Your URL Slip Away
 
-Lose a domain and everything collapses—site, email, API endpoints, trust. Exit1.dev’s free domain monitoring plus Discord alerts keeps expiry warnings front and center for the people who actually care about your brand.
+Lose a domain and everything collapses—site, email, API endpoints, trust. Exit1.dev’s free domain monitoring plus Discord alerts keeps expiry warnings front and center for the people who actually care about your brand. If your ops crew camps in Slack instead, swap in the [Slack domain workflow](/blog/free-domain-monitoring-slack-alerts) so the message still lands where they work.
 
 ## Why Discord Is a Smart Domain Watchtower
 
 - **Server-wide visibility**: Pin warnings in `#status` or `#ops` so moderators and engineers know the clock is ticking.
-- **Role mentions**: Ping `@ops` and `@finance` simultaneously. The folks with the credit cards can’t pretend they didn’t see it.
+- **Role mentions**: Ping `@ops` and `@finance` simultaneously. The folks with the credit cards can’t pretend they didn’t see it. Tie those mentions to the same owners who track certificates in [our free SSL email playbook](/blog/free-ssl-monitoring-email-alerts) so renewal work stays aligned.
 - **Automation friendly**: Use bots to log alerts, open tickets, or DM the on-call engineer. Discord isn’t just memes—it’s process.
 
 ## Set Up the Integration
@@ -51,7 +51,7 @@ Mention roles, drop registrar URLs, and add staging vs. production tags. The emb
 ## Build the Renewal Muscle
 
 - **Thread the work**: First response claims the renewal. Track registrar logins, approvals, and confirmation numbers in-thread.
-- **Set reminders**: Use `/remind` or a bot to ping the thread at 7 days, 3 days, and 24 hours pre-expiry. Redundancy prevents failure.
+- **Set reminders**: Use `/remind` or a bot to ping the thread at 7 days, 3 days, and 24 hours pre-expiry. Redundancy prevents failure. Pair those reminders with your [uptime incident drills](/blog/free-uptime-monitor-checklist) so domain, SSL, and availability reviews happen together.
 - **Verify success**: After renewal, run a DNS check and post the new expiry date. Proof beats optimism.
 - **Update docs**: Link to your domain inventory or CMDB. Keep everything aligned.
 
