@@ -241,3 +241,5 @@ Free website uptime monitoring is possible and professional-grade with Exit1.dev
 4. Monitor 24/7 from global locations
 
 [Start monitoring your websites for free](https://app.exit1.dev/) - setup takes under 2 minutes.
+
+
