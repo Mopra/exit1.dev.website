@@ -37,6 +37,10 @@ export async function generateMetadata({
       description: post.excerpt,
       type: 'article',
       authors: [post.author],
+      url: `https://exit1.dev/blog/${post.slug}`,
+    },
+    alternates: {
+      canonical: `https://exit1.dev/blog/${post.slug}`,
     },
   };
 }
