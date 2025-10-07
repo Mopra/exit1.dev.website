@@ -13,7 +13,7 @@ export default function RoadmapPage() {
         
         <div className="prose prose-lg max-w-none">
           <p className="text-xl text-muted-foreground mb-8">
-            Here's what we're working on to make Exit1.dev even better.
+            Here&apos;s what we&apos;re working on to make Exit1.dev even better.
           </p>
           
           <div className="space-y-8">
@@ -51,10 +51,10 @@ export default function RoadmapPage() {
           <div className="mt-12 p-6 bg-muted rounded-lg">
             <h3 className="text-xl font-semibold mb-4">Have a suggestion?</h3>
             <p className="mb-4">
-              We'd love to hear your ideas for new features. 
+              We&apos;d love to hear your ideas for new features. 
               <a href="/contact" className="text-primary hover:underline ml-1">
                 Get in touch with us
-              </a> and let us know what you'd like to see.
+              </a> and let us know what you&apos;d like to see.
             </p>
           </div>
         </div>

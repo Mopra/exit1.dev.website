@@ -1,7 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -19,11 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-interface SitemapLink {
-  name: string;
-  url: string;
-  external?: boolean;
-}
 
 // Auto-discover pages from file system
 async function getStaticPages() {
