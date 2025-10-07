@@ -1,7 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
+import { promises as fs } from 'fs';
+import path from 'path';
 
 export const metadata: Metadata = {
   title: "Sitemap | exit1.dev",
@@ -22,117 +25,309 @@ interface SitemapLink {
   external?: boolean;
 }
 
-const Sitemap = () => {
-  const sitemapData: Array<{
-    category: string;
-    links: SitemapLink[];
-  }> = [
-    {
-      category: "Main Pages",
-      links: [
-        { name: "Home", url: "/" },
-        { name: "Features", url: "/#features" },
-        { name: "Pricing", url: "/#pricing" },
-        { name: "Blog", url: "/blog" },
-        { name: "Getting Started", url: "/getting-started" },
-        { name: "Privacy Policy", url: "/privacy" },
-        { name: "Data Privacy", url: "/data-privacy" }
-      ]
-    },
-    {
-      category: "Product Features",
-      links: [
-        { name: "Real-Time Monitoring", url: "/real-time-monitoring" },
-        { name: "SSL Certificate Monitoring", url: "/ssl-monitoring" },
-        { name: "Global Monitoring", url: "/global-monitoring" },
-        { name: "Alerting & Notifications", url: "/alerting" },
-        { name: "Analytics & Reports", url: "/analytics" },
-        { name: "Logs", url: "/logs" },
-        { name: "API & Webhooks", url: "/api-webhooks" }
-      ]
-    },
-    {
-      category: "External Links",
-      links: [
-        { name: "App Dashboard", url: "https://app.exit1.dev", external: true },
-        { name: "API Documentation", url: "https://docs.exit1.dev", external: true },
-        { name: "Status Page", url: "https://status.exit1.dev", external: true },
-        { name: "Support", url: "mailto:support@exit1.dev", external: true }
-      ]
-    },
-    {
-      category: "Blog - Website Monitoring",
-      links: [
-        { name: "All Articles", url: "/blog" },
-        { name: "Intro to Website Monitoring", url: "/blog/intro-to-website-monitoring" },
-        { name: "Free Website Monitoring for Developers", url: "/blog/free-website-monitoring-for-developers" },
-        { name: "Free vs Paid Website Monitoring", url: "/blog/free-vs-paid-website-monitoring" },
-        { name: "Uptrends Free Alternative", url: "/blog/uptrends-free-alternative" },
-        { name: "Website Monitoring 101", url: "/blog/website-monitoring-101" },
-        { name: "Website Monitoring Best Practices 2025", url: "/blog/website-monitoring-best-practices-2025" },
-        { name: "Understanding Website Downtime", url: "/blog/understanding-website-downtime" },
-        { name: "UptimeRobot Alternatives", url: "/blog/uptimerobot-alternatives" },
-        { name: "StatusCake vs Free Monitoring", url: "/blog/statuscake-vs-free-monitoring" },
-        { name: "Importance of Real-Time Alerts", url: "/blog/importance-of-real-time-alerts" },
-        { name: "Pingdom Free Alternative", url: "/blog/pingdom-free-alternative" },
-        { name: "Real-Time vs 5-Minute Monitoring", url: "/blog/real-time-vs-5-minute-monitoring" },
-        { name: "SSL Certificate Monitoring Alerts", url: "/blog/ssl-certificate-monitoring-alerts-made-easy-and-why-it-matters" },
-        { name: "Free Website Monitoring for Small Business", url: "/blog/free-website-monitoring-for-small-business" },
-        { name: "Free SSL Certificate Monitoring", url: "/blog/free-ssl-certificate-monitoring" },
-        { name: "Best Website Monitoring Service 2025", url: "/blog/best-website-monitoring-service-2025" },
-        { name: "Free Website Monitoring Tools 2025", url: "/blog/free-website-monitoring-tools-2025" },
-        { name: "Best Free Uptime Monitoring Tools", url: "/blog/best-free-uptime-monitoring-tools" }
-      ]
-    },
-    {
-      category: "Blog - AI & Automation",
-      links: [
-        { name: "AI Integration for Website Monitoring", url: "/blog/ai-integration-for-website-monitoring" },
-        { name: "AI Anomaly Detection Monitoring", url: "/blog/ai-anomaly-detection-monitoring" }
-      ]
+// Auto-discover pages from file system
+async function getStaticPages() {
+  try {
+    const appDir = path.join(process.cwd(), 'src', 'app');
+    const pages: Array<{ url: string; name: string }> = [];
+    
+    async function scanDirectory(dir: string, urlPath: string = '') {
+      try {
+        const entries = await fs.readdir(dir, { withFileTypes: true });
+        
+        for (const entry of entries) {
+          const fullPath = path.join(dir, entry.name);
+          const url = urlPath + '/' + entry.name;
+          
+          if (entry.isDirectory()) {
+            // Skip special Next.js directories
+            if (!['api', 'globals.css', 'layout.tsx', 'loading.tsx', 'error.tsx', 'not-found.tsx'].includes(entry.name)) {
+              await scanDirectory(fullPath, url);
+            }
+          } else if (entry.name === 'page.tsx') {
+            // Found a page
+            const finalUrl = urlPath === '' ? '/' : urlPath;
+            const name = getPageName(finalUrl);
+            pages.push({
+              url: finalUrl,
+              name: name
+            });
+          }
+        }
+      } catch (error) {
+        console.error(`Error scanning directory ${dir}:`, error);
+      }
     }
-  ];
+    
+    await scanDirectory(appDir);
+    return pages;
+  } catch (error) {
+    console.error('Error in getStaticPages:', error);
+    return [];
+  }
+}
+
+// Get blog posts dynamically
+async function getBlogPosts() {
+  try {
+    const postsDir = path.join(process.cwd(), 'src', 'content', 'posts');
+    console.log('Scanning posts directory:', postsDir);
+    
+    const categories = await fs.readdir(postsDir);
+    console.log('Found categories:', categories);
+    
+    const blogPosts: Array<{ url: string; name: string }> = [];
+
+    for (const category of categories) {
+      try {
+        const categoryDir = path.join(postsDir, category);
+        const files = await fs.readdir(categoryDir);
+        console.log(`Found ${files.length} files in ${category}`);
+        
+        for (const file of files) {
+          if (file.endsWith('.md')) {
+            const slug = file.replace('.md', '');
+            const url = `/blog/${slug}`;
+            const name = getBlogPostName(slug);
+            blogPosts.push({ url, name });
+          }
+        }
+      } catch (error) {
+        console.error(`Error scanning category ${category}:`, error);
+      }
+    }
+    
+    console.log('Total blog posts found:', blogPosts.length);
+    return blogPosts;
+  } catch (error) {
+    console.error('Error in getBlogPosts:', error);
+    return [];
+  }
+}
+
+function getPageName(url: string): string {
+  if (url === '/') return 'Home';
+  if (url === '/real-time-monitoring') return 'Real-Time Monitoring';
+  if (url === '/ssl-monitoring') return 'SSL Certificate Monitoring';
+  if (url === '/global-monitoring') return 'Global Monitoring';
+  if (url === '/alerting') return 'Alerting & Notifications';
+  if (url === '/analytics') return 'Analytics & Reports';
+  if (url === '/logs') return 'Logs';
+  if (url === '/api-webhooks') return 'API & Webhooks';
+  if (url === '/getting-started') return 'Getting Started';
+  if (url === '/privacy') return 'Privacy Policy';
+  if (url === '/data-privacy') return 'Data Privacy';
+  if (url === '/blog') return 'Blog';
+  if (url === '/signup') return 'Sign Up';
+  if (url === '/signin') return 'Sign In';
+  if (url === '/dashboard') return 'Dashboard';
+  if (url === '/install') return 'Install';
+  if (url === '/roadmap') return 'Roadmap';
+  if (url === '/sitemap') return 'Sitemap';
+  if (url.startsWith('/product/')) {
+    const product = url.replace('/product/', '');
+    return `${product.charAt(0).toUpperCase() + product.slice(1).replace('-', ' ')}`;
+  }
+  
+  // Default: capitalize and replace dashes
+  return url.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || url;
+}
+
+function getBlogPostName(slug: string): string {
+  return slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+const Sitemap = async () => {
+  console.log('Starting sitemap generation...');
+  
+  const staticPages = await getStaticPages();
+  console.log('Static pages found:', staticPages.length);
+  
+  const blogPosts = await getBlogPosts();
+  console.log('Blog posts found:', blogPosts.length);
+  console.log('First few blog posts:', blogPosts.slice(0, 5));
+  
+  // Create a proper tree structure
+  const siteTree = {
+    root: {
+      name: "exit1.dev",
+      url: "/",
+      children: {
+        home: {
+          name: "Home",
+          url: "/",
+          children: {
+            gettingStarted: { name: "Getting Started", url: "/getting-started" },
+            roadmap: { name: "Roadmap", url: "/roadmap" }
+          }
+        },
+        features: {
+          name: "Features",
+          children: {
+            realTime: { name: "Real-Time Monitoring", url: "/real-time-monitoring" },
+            ssl: { name: "SSL Certificate Monitoring", url: "/ssl-monitoring" },
+            global: { name: "Global Monitoring", url: "/global-monitoring" },
+            alerting: { name: "Alerting & Notifications", url: "/alerting" },
+            analytics: { name: "Analytics & Reports", url: "/analytics" },
+            logs: { name: "Logs", url: "/logs" },
+            api: { name: "API & Webhooks", url: "/api-webhooks" }
+          }
+        },
+        product: {
+          name: "Product Pages",
+          children: Object.fromEntries(
+            staticPages
+              .filter(page => page.url.startsWith('/product/'))
+              .map((page, index) => [
+                `product-${index}`,
+                { name: page.name, url: page.url }
+              ])
+          )
+        },
+        content: {
+          name: "Content",
+          children: {
+            blog: { 
+              name: "Blog", 
+              url: "/blog",
+              children: Object.fromEntries(
+                blogPosts.slice(0, 15).map((post, index) => [
+                  `post-${index}`,
+                  { name: post.name, url: post.url }
+                ])
+              )
+            }
+          }
+        },
+        legal: {
+          name: "Legal",
+          children: {
+            privacy: { name: "Privacy Policy", url: "/privacy" },
+            dataPrivacy: { name: "Data Privacy", url: "/data-privacy" }
+          }
+        },
+        other: {
+          name: "Other Pages",
+          children: Object.fromEntries(
+            staticPages
+              .filter(page => 
+                !['/', '/blog', '/getting-started', '/privacy', '/data-privacy', '/roadmap', '/sitemap',
+                  '/real-time-monitoring', '/ssl-monitoring', '/global-monitoring', '/alerting', '/analytics', '/logs', '/api-webhooks',
+                  '/signup', '/signin', '/dashboard', '/install'].includes(page.url) &&
+                !page.url.startsWith('/product/')
+              )
+              .map((page, index) => [
+                `other-${index}`,
+                { name: page.name, url: page.url }
+              ])
+          )
+        },
+        external: {
+          name: "External",
+          children: {
+            app: { name: "App Dashboard", url: "https://app.exit1.dev", external: true },
+            signup: { name: "Sign Up", url: "https://app.exit1.dev/sign-up", external: true },
+            discord: { name: "Discord Support", url: "https://discord.gg/exit1", external: true }
+          }
+        }
+      }
+    }
+  };
+
+  // Tree component for rendering the site structure
+  interface TreeNodeProps {
+    node: {
+      name: string;
+      url?: string;
+      external?: boolean;
+      children?: Record<string, TreeNodeProps['node']>;
+    };
+    level?: number;
+    isLast?: boolean;
+    parentPrefix?: string;
+  }
+
+  const TreeNode = ({ node, level = 0, isLast = false, parentPrefix = "" }: TreeNodeProps) => {
+    const hasChildren = node.children && Object.keys(node.children).length > 0;
+    const children = hasChildren ? Object.values(node.children!) as TreeNodeProps['node'][] : [];
+    
+    // Create the tree prefix
+    const getPrefix = () => {
+      if (level === 0) return "";
+      const connector = isLast ? "└── " : "├── ";
+      return parentPrefix + connector;
+    };
+    
+    const getChildPrefix = () => {
+      if (level === 0) return "";
+      const spacer = isLast ? "    " : "│   ";
+      return parentPrefix + spacer;
+    };
+    
+    return (
+      <div className="font-mono text-sm">
+        <div className={`flex items-center py-1 hover:bg-muted/30 transition-colors rounded ${
+          level === 0 ? 'font-bold text-foreground text-base' : 'text-muted-foreground hover:text-foreground'
+        }`}>
+          <span className="text-muted-foreground/60 mr-2">
+            {getPrefix()}
+          </span>
+          {node.url ? (
+            <a
+              href={node.url}
+              className="hover:underline transition-colors flex-1"
+              target={node.external ? "_blank" : undefined}
+              rel={node.external ? "noopener noreferrer" : undefined}
+            >
+              {node.name}
+            </a>
+          ) : (
+            <span className="flex-1">{node.name}</span>
+          )}
+          {node.external && (
+            <ExternalLink className="w-3 h-3 text-muted-foreground ml-2" />
+          )}
+        </div>
+        
+        {hasChildren && (
+          <div className="ml-0">
+            {children.map((child, index: number) => (
+              <TreeNode 
+                key={index} 
+                node={child} 
+                level={level + 1} 
+                isLast={index === children.length - 1}
+                parentPrefix={getChildPrefix()}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <main className="pt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Sitemap
+            Site Structure
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Complete overview of all pages and resources available on exit1.dev. Find everything you need about our website monitoring platform.
+            Complete hierarchical overview of all pages and resources available on exit1.dev
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {sitemapData.map((section, index) => (
-            <Card key={index} className="">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-foreground mb-6">
-                  {section.category}
-                </h2>
-                <div className="space-y-3">
-                  {section.links.map((link, linkIndex) => (
-                    <div key={linkIndex} className="flex items-center justify-between">
-                      <a
-                        href={link.url}
-                        className="text-muted-foreground hover:text-foreground hover:underline transition-colors duration-200"
-                        target={link.external ? "_blank" : undefined}
-                        rel={link.external ? "noopener noreferrer" : undefined}
-                      >
-                        {link.name}
-                      </a>
-                      {link.external && (
-                        <ExternalLink className="w-4 h-4 text-muted-foreground" />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Card className="backdrop-blur-md bg-card/50 border-primary/20">
+          <CardContent className="p-8">
+            <div className="space-y-1">
+              <TreeNode node={siteTree.root} />
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </main>
   );
