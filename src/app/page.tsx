@@ -45,7 +45,7 @@ export default function Home() {
             </a>
           </div>
           
-          <MagicBento 
+          <MagicBento
             textAutoHide={true}
             enableStars={true}
             enableSpotlight={true}
@@ -56,6 +56,32 @@ export default function Home() {
             spotlightRadius={300}
             particleCount={6}
           />
+        </div>
+      </section>
+      <section className="py-12 sm:py-16 lg:py-20 border-t border-primary/20 bg-background/60 backdrop-blur">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
+            <div className="p-6 sm:p-8 rounded-3xl border border-primary/20 bg-card/70 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 interactive">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-3">Free Uptime Monitor</h2>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4">
+                This is the flagship. Unlimited monitors, 1-minute intervals, real alerting. No &ldquo;freemium&rdquo; throttles. We walk through the whole stack, why it&apos;s free, and how to migrate off the legacy robots without breaking a sweat.
+              </p>
+              <Link href="/free-uptime-monitor" className="inline-flex items-center text-primary font-semibold text-sm sm:text-base hover:underline underline-offset-4">
+                Read the manifesto
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+            <div className="p-6 sm:p-8 rounded-3xl border border-primary/20 bg-card/70 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 interactive">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-3">Free Website Monitor</h2>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4">
+                Landing pages, Shopify, Jamstack builds—if it responds over HTTP we keep it honest. Full SSL, domain, and content checks without the vendor circus. See exactly how we harden store uptime for free.
+              </p>
+              <Link href="/free-website-monitor" className="inline-flex items-center text-primary font-semibold text-sm sm:text-base hover:underline underline-offset-4">
+                See the full breakdown
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
       <WhyFree />

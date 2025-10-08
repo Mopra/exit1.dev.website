@@ -20,6 +20,8 @@ const navigation = [
 const monitoringMenu = {
   name: "Monitoring",
   items: [
+    { name: "Free Uptime Monitor", href: "/free-uptime-monitor", description: "Unlimited uptime monitoring with blunt comparison against every so-called free tier" },
+    { name: "Free Website Monitor", href: "/free-website-monitor", description: "Hardening landing pages, ecommerce stores, and Jamstack sites for $0" },
     { name: "Real-Time Monitoring", href: "/real-time-monitoring", description: "Free uptime monitor for unlimited websites and APIs with real-time status updates" },
     { name: "SSL Monitoring", href: "/ssl-monitoring", description: "Free SSL certificate uptime monitoring with expiration tracking" },
     { name: "Global Monitoring", href: "/global-monitoring", description: "Worldwide coverage with geographic performance analysis" },

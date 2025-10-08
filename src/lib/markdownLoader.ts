@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import fs from 'fs';
 import path from 'path';
 import { extractHeadings, addIdsToHeadings, type TocItem } from './tocUtils';
+import blogData from '@/content/blog.json';
 
 export interface BlogPostMeta {
   id: string;
@@ -12,11 +13,14 @@ export interface BlogPostMeta {
   excerpt: string;
   readTime: string;
   category: string;
+  categoryName: string;
   slug: string;
   author: string;
   content: string;
   htmlContent: string;
   headings: TocItem[];
+  date: string;
+  formattedDate: string;
 }
 
 // Custom remark plugin to add target="_blank" and rel="noopener noreferrer" to external links
@@ -74,38 +78,52 @@ export const getAllPosts = (): BlogPostMeta[] => {
   const files = getPostFiles();
   const posts: BlogPostMeta[] = [];
 
+  const categoryNameMap = new Map(blogData.categories.map(cat => [cat.id, cat.name]));
+
   files.forEach(file => {
     const filePath = path.join(process.cwd(), 'src/content/posts', file);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content: markdownContent } = matter(fileContents);
-    
+
     // Extract slug from filename
     const slug = path.basename(file, '.md');
-    
+
+    const stats = fs.statSync(filePath);
+    const parsedDate = data.date ? new Date(data.date) : stats.mtime;
+    const isoDate = parsedDate.toISOString();
+    const formattedDate = new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }).format(parsedDate);
+
     // Calculate read time (rough estimate: 200 words per minute)
     const wordCount = markdownContent.split(/\s+/).length;
     const readTime = Math.ceil(wordCount / 200);
-    
+
+    const categoryId = data.category || path.dirname(file);
+    const categoryName = categoryNameMap.get(categoryId) || categoryId;
+
     posts.push({
       id: slug,
       title: data.title || 'Untitled',
       excerpt: data.excerpt || markdownContent.substring(0, 150) + '...',
       readTime: `${readTime} min read`,
-      category: data.category || path.dirname(file),
+      category: categoryId,
+      categoryName,
       slug: data.slug || slug,
       author: data.author || 'Exit1 Team',
       content: markdownContent,
       htmlContent: '', // Will be processed on demand
-      headings: [] // Will be processed on demand
+      headings: [], // Will be processed on demand
+      date: isoDate,
+      formattedDate,
     });
   });
 
-  // Sort by title
+  // Sort by date (newest first)
   const sortedPosts = posts.sort((a, b) => {
-    if (a.title && b.title) {
-      return a.title.localeCompare(b.title);
-    }
-    return 0;
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
   
   return sortedPosts;
@@ -127,7 +145,20 @@ export const getPostBySlug = async (slug: string): Promise<BlogPostMeta | null> 
   const filePath = path.join(process.cwd(), 'src/content/posts', targetFile);
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content: markdownContent } = matter(fileContents);
-  
+
+  const stats = fs.statSync(filePath);
+  const parsedDate = data.date ? new Date(data.date) : stats.mtime;
+  const isoDate = parsedDate.toISOString();
+  const formattedDate = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(parsedDate);
+
+  const categoryId = data.category || path.dirname(targetFile);
+  const categoryNameMap = new Map(blogData.categories.map(cat => [cat.id, cat.name]));
+  const categoryName = categoryNameMap.get(categoryId) || categoryId;
+
   // Calculate read time
   const wordCount = markdownContent.split(/\s+/).length;
   const readTime = Math.ceil(wordCount / 200);
@@ -145,11 +176,14 @@ export const getPostBySlug = async (slug: string): Promise<BlogPostMeta | null> 
     title: data.title || 'Untitled',
     excerpt: data.excerpt || markdownContent.substring(0, 150) + '...',
     readTime: `${readTime} min read`,
-    category: data.category || path.dirname(targetFile),
+    category: categoryId,
+    categoryName,
     slug: data.slug || slug,
     author: data.author || 'Exit1 Team',
     content: markdownContent,
     htmlContent: htmlWithIds,
-    headings
+    headings,
+    date: isoDate,
+    formattedDate,
   };
 };
