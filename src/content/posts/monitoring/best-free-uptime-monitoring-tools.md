@@ -1,7 +1,7 @@
 ---
 title: "Best Free Uptime Monitoring Tools 2025 (No Limits)"
 author: "Morten Pradsgaard"
-date: "2024-11-07"
+date: "2025-01-08"
 category: "monitoring"
 excerpt: "Discover the only truly free unlimited uptime monitoring tool vs services with limited free tiers. See why Exit1.dev beats restricted alternatives."
 readTime: "5 min read"

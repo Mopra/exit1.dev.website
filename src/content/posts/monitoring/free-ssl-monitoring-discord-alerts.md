@@ -1,7 +1,7 @@
 ---
 title: "Free SSL Monitoring with Discord Alerts: Protect Trust in Your Server"
 author: "Morten Pradsgaard"
-date: "2024-12-04"
+date: "2025-02-06"
 category: "monitoring"
 excerpt: "Stream SSL expiry alerts into Discord so your community never gets blindsided by browser errors."
 readTime: "6 min read"

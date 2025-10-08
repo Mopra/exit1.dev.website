@@ -1,7 +1,7 @@
 ---
 title: "Free vs Paid Monitoring: Don't Overpay"
 author: "Exit1 Team"
-date: "2024-12-31"
+date: "2025-03-10"
 category: "monitoring"
 excerpt: "Free often enough. Upgrade only when needed."
 readTime: "7 min read"

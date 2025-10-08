@@ -1,7 +1,7 @@
 ---
 title: "Free SLA Monitoring: How to Track Service Levels Without Paying a Dime"
 author: "Morten Pradsgaard"
-date: "2024-11-25"
+date: "2025-01-28"
 category: "monitoring"
 excerpt: "Blueprint for launching free SLA monitoring with uptime checks, SLO math, and executive-ready reports."
 readTime: "10 min read"

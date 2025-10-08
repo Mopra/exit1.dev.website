@@ -1,7 +1,7 @@
 ---
 title: "Free Uptime Monitoring with Email Alerts: Inbox Discipline for Real Incidents"
 author: "Morten Pradsgaard"
-date: "2024-12-16"
+date: "2025-02-20"
 category: "monitoring"
 excerpt: "Use Exit1.dev’s free uptime monitor with sharp email alerts that cut through the noise."
 readTime: "7 min read"

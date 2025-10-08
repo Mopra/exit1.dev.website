@@ -1,7 +1,7 @@
 ---
 title: "Free SLA Monitoring Tools: Compare The Stack That Keeps You Out Of Penalty Clauses"
 author: "Morten Pradsgaard"
-date: "2024-11-28"
+date: "2025-01-31"
 category: "monitoring"
 excerpt: "Side-by-side comparison of free SLA monitoring tools with uptime checks, incident workflows, and reporting templates."
 readTime: "11 min read"
