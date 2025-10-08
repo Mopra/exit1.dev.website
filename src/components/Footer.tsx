@@ -99,7 +99,7 @@ const Footer = () => {
               </a>
             </div>
             <Script
-              src="https://exit1.dev/badge.js"
+              src="https://app.exit1.dev/badge.js"
               data-check-id="hGzAdT7mrI7tYhQ6widf"
               strategy="lazyOnload"
             />
