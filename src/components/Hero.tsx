@@ -91,15 +91,18 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 
+          <h1
             id="hero-heading"
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight tracking-tight text-white drop-shadow-lg"
           >
             Free Uptime Monitoring. No Limits. No Catches.
           </h1>
-          
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 mb-4 sm:mb-6 max-w-3xl mx-auto font-medium leading-relaxed px-2 sm:px-4 drop-shadow-md">
-            Check every site, every minute. Get alerts the second something breaks. Unlimited websites. Still free.
+
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 mb-3 sm:mb-5 max-w-3xl mx-auto font-medium leading-relaxed px-2 sm:px-4 drop-shadow-md">
+            Check every site, storefront, and API every minute. Exit1.dev is the free uptime monitor and free website monitor that actually runs hot: unlimited checks, instant alerts, SSL and domain coverage, no bait-and-switch.
+          </p>
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/70 mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-4">
+            Need proof? Hit the <a href="/free-uptime-monitor" className="underline decoration-dotted underline-offset-4 hover:text-white/90 transition-colors">Free Uptime Monitor</a> or <a href="/free-website-monitor" className="underline decoration-dotted underline-offset-4 hover:text-white/90 transition-colors">Free Website Monitor</a> breakdowns and see why we run circles around the “free” teasers from the usual suspects.
           </p>
 
           {/* Quick Start Form */}

@@ -126,9 +126,11 @@ export function BlogClient({ posts, categories }: BlogClientProps) {
                   <CardContent className="p-3 sm:p-4 lg:p-6">
                     <div className="mb-2 sm:mb-3 lg:mb-4">
                       <Badge variant="secondary" className="mb-2 text-xs">
-                        {post.category}
+                        {post.categoryName}
                       </Badge>
                       <div className="flex items-center text-xs sm:text-sm text-muted-foreground mb-2">
+                        <span>{post.formattedDate}</span>
+                        <span className="mx-2">•</span>
                         <span>{post.readTime}</span>
                         <span className="mx-2">•</span>
                         <div className="flex items-center gap-2">

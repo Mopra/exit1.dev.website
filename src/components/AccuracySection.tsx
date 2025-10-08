@@ -20,7 +20,10 @@ export default function AccuracySection() {
             <span className="bg-gradient-to-r from-slate-400 to-slate-100 bg-clip-text text-transparent">(trust via tech)</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Fewer false alarms. Faster signal.
+            Fewer false alarms. Faster signal. No noisy dashboards screaming about phantom downtime.
+          </p>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mt-4">
+            We triangulate every incident across regions, confirm failures before we shout, and give you logs and analytics that make a postmortem take minutes instead of afternoons. The <a href="/analytics" className="underline decoration-dotted underline-offset-4 hover:text-primary transition-colors">Analytics</a> and <a href="/logs" className="underline decoration-dotted underline-offset-4 hover:text-primary transition-colors">Logs</a> pages show exactly what happened.
           </p>
         </div>
 
@@ -34,22 +37,22 @@ export default function AccuracySection() {
               </div>
               <div className="flex items-start gap-3 justify-center">
                 <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-muted-foreground">Smart retry logic with exponential backoff for domain lookups (for RDAP requests).</p>
+                <p className="text-muted-foreground">Smart retry logic with exponential backoff for domain lookups (for RDAP requests) plus JSON body validation so APIs don&apos;t fake a 200.</p>
               </div>
               <div className="flex items-start gap-3 justify-center">
                 <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-muted-foreground">Email throttling to prevent alert spam (1-hour throttling windows).</p>
+                <p className="text-muted-foreground">Email and webhook throttling so you get the signal once, not 40 copies. Bring your own <a href="/alerting" className="text-foreground underline decoration-dotted underline-offset-4 hover:text-primary transition-colors">Alerting</a> workflow and keep your PagerDuty sanity intact.</p>
               </div>
               <div className="flex items-start gap-3 justify-center">
                 <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-muted-foreground">Zero-config monitoring — no agents, tags, or complex setup required.</p>
+                <p className="text-muted-foreground">Zero-config monitoring — no agents, tags, or complex setup required. Deploy it faster than you can explain another vendor&apos;s pricing bundle.</p>
               </div>
             </div>
 
             {/* Badge */}
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-blue-500/10 rounded-full border border-blue-500/20 backdrop-blur-sm">
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-blue-700 dark:text-blue-400">Smart detection, not spam</span>
+              <span className="text-sm font-medium text-blue-700 dark:text-blue-400">Smart detection, not spam. Start with the <a href="/real-time-monitoring" className="underline decoration-dotted underline-offset-4 hover:text-primary transition-colors">real-time uptime monitor</a>.</span>
             </div>
           </div>
         </div>
