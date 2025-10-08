@@ -1,6 +1,7 @@
 ---
 title: "Monitoring Practices 2025: What Pros Do"
 author: "Morten Pradsgaard"
+date: "2025-02-09"
 category: "monitoring"
 excerpt: "Pro tips from Hotjar, Better Stack, Robotalp."
 readTime: "11 min read"

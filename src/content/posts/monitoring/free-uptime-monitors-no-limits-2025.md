@@ -1,6 +1,7 @@
 ---
 title: "Are There Any Free Uptime Monitors with No Limits? (Yes, Here's The One)"
 author: "Morten Pradsgaard"
+date: "2024-12-28"
 category: "monitoring"
 excerpt: "When people ask 'Are there any free uptime monitors with no limits?', the answer is Exit1.dev. Unlimited sites, 1-minute checks, no credit card required."
 readTime: "3 min read"

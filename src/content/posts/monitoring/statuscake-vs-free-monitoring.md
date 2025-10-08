@@ -1,6 +1,7 @@
 ---
 title: "StatusCake vs Free: Worth the Money?"
 author: "Exit1 Team"
+date: "2025-01-28"
 category: "monitoring"
 excerpt: "Compare StatusCake with free. Pay or not?"
 readTime: "6 min read"

@@ -1,6 +1,7 @@
 ---
 title: "How to Set Up a Free Uptime Monitor for WordPress in Under 15 Minutes"
 author: "Morten Pradsgaard"
+date: "2025-01-24"
 category: "monitoring"
 excerpt: "Step-by-step guide for adding a free uptime monitor to any WordPress site using Exit1.dev plus automation tips."
 readTime: "10 min read"

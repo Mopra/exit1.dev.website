@@ -1,6 +1,7 @@
 ---
 title: "Uptrends Alts: Enterprise Free"
 author: "Exit1 Team"
+date: "2025-02-05"
 category: "monitoring"
 excerpt: "Free tools with Uptrends features, no cost."
 readTime: "5 min read"

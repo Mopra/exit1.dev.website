@@ -1,6 +1,7 @@
 ---
 title: "Free SSL Monitoring with Email Alerts: Never Miss a Renewal"
 author: "Morten Pradsgaard"
+date: "2024-12-07"
 category: "monitoring"
 excerpt: "Use Exit1.dev’s free SSL monitor with disciplined email alerts to renew certificates before customers see warnings."
 readTime: "7 min read"

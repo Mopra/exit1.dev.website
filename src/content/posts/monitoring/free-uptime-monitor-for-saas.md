@@ -1,6 +1,7 @@
 ---
 title: "Best Free Uptime Monitor for SaaS Platforms: 2025 Playbook"
 author: "Morten Pradsgaard"
+date: "2024-12-19"
 category: "monitoring"
 excerpt: "SaaS uptime benchmarks, alert routing, and onboarding templates to deploy a free uptime monitor without slowing releases."
 readTime: "9 min read"

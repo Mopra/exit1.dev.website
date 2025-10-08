@@ -1,6 +1,7 @@
 ---
 title: "Free Uptime Monitor with Slack Integration: 2025 Incident Playbook"
 author: "Morten Pradsgaard"
+date: "2024-12-22"
 category: "monitoring"
 excerpt: "Wire Exit1.dev's free uptime monitor to Slack and make outages impossible to ignore."
 readTime: "8 min read"

@@ -1,6 +1,7 @@
 ---
 title: "Free Domain Monitoring with Discord Alerts: Keep Your Names Safe"
 author: "Morten Pradsgaard"
+date: "2024-11-19"
 category: "monitoring"
 excerpt: "Stream domain expiry warnings to Discord so your community team and engineers act before disaster."
 readTime: "6 min read"

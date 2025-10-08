@@ -1,6 +1,7 @@
 ---
 title: "UptimeRobot Alts: Free/Paid Better in 2025"
 author: "Exit1 Team"
+date: "2025-02-03"
 category: "monitoring"
 excerpt: "Alternatives to UptimeRobot with more features/less cost."
 readTime: "6 min read"

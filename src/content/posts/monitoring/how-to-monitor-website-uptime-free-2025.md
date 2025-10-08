@@ -1,6 +1,7 @@
 ---
 title: "How to Monitor Website Uptime for Free (Complete 2025 Guide)"
 author: "Morten Pradsgaard"
+date: "2025-01-12"
 category: "monitoring"
 excerpt: "Step-by-step guide to monitoring website uptime for free. Setup takes 2 minutes with Exit1.dev - unlimited sites, 1-minute checks, no credit card required."
 readTime: "6 min read"

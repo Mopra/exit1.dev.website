@@ -1,6 +1,7 @@
 ---
 title: "Free Monitoring for Devs: CLI, API, No Fluff"
 author: "Exit1 Team"
+date: "2025-01-04"
 category: "monitoring"
 excerpt: "Tools for devs: CLI, API, webhooks. Free."
 readTime: "8 min read"
