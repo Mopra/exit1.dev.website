@@ -1,6 +1,7 @@
 ---
 title: "GDPR Compliant Website Monitor for Free"
 author: "Morten Pradsgaard"
+date: "2025-01-10"
 category: "monitoring"
 excerpt: "Get a free website monitor that respects GDPR by default—no cookie popups, no data hoarding, just fast uptime alerts."
 readTime: "6 min read"

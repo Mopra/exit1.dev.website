@@ -1,6 +1,7 @@
 ---
 title: "Free SSL Monitoring: Avoid Expiration Nightmares"
 author: "Exit1 Team"
+date: "2025-02-03"
 category: "monitoring"
 excerpt: "Monitor certs free, get alerts, prevent warnings. Simple."
 readTime: "5 min read"

@@ -1,6 +1,7 @@
 ---
 title: "AI Anomaly Detection: Catch Failures Early"
 author: "Morten Pradsgaard"
+date: "2025-01-02"
 category: "ai"
 excerpt: "Traditional monitoring is reactive nonsense. AI spots issues before they hit the fan. Here's why it rules."
 readTime: "5 min read"

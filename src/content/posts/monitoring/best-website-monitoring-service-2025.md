@@ -1,6 +1,7 @@
 ---
 title: "Choosing the Best Website Monitoring Service in 2025 (UptimeRobot vs Better Stack vs Robotalp)"
 author: "Morten Pradsgaard"
+date: "2025-01-15"
 category: "monitoring"
 excerpt: "Compare the best website monitoring tools in 2025. Deep dive into UptimeRobot vs Better Stack vs Robotalp with side-by-side features, pricing analysis, and recommendations for free vs paid website monitoring solutions."
 readTime: "8 min read"

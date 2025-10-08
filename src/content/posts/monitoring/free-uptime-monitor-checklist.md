@@ -1,6 +1,7 @@
 ---
 title: "Free Uptime Monitor Checklist: 15 Features You Can't Skip"
 author: "Morten Pradsgaard"
+date: "2025-02-17"
 category: "monitoring"
 excerpt: "Use this free uptime monitor checklist to compare providers before you trust them with your site's reliability."
 readTime: "8 min read"

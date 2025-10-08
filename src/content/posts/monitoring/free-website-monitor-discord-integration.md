@@ -1,6 +1,7 @@
 ---
 title: "Free Website Monitor with Discord Alerts: Keep Communities Informed"
 author: "Morten Pradsgaard"
+date: "2025-01-02"
 category: "monitoring"
 excerpt: "Pipe Exit1.dev uptime alerts into Discord so your community hears the truth first."
 readTime: "7 min read"

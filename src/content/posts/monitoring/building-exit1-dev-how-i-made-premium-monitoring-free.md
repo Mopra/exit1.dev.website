@@ -1,6 +1,7 @@
 ---
 title: "Building Exit1.dev: How I Made Premium Website Monitoring Free"
 author: "Morten Pradsgaard"
+date: "2025-01-18"
 category: "monitoring"
 excerpt: "Tired of paying $50/month for basic HTTP requests? I built premium monitoring for free using modern cloud infrastructure."
 readTime: "12 min read"

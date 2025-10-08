@@ -1,6 +1,7 @@
 ---
 title: "SSL Alerts: Easy Setup, Big Wins"
 author: "Exit1 Team"
+date: "2025-01-26"
 category: "monitoring"
 excerpt: "Monitor certs, get alerts, avoid disasters."
 metaDescription: "SSL Certificate Monitoring Alerts Made Easy - Learn why SSL monitoring matters, how to set up automatic alerts, and avoid certificate expiration disasters with free tools."

@@ -1,6 +1,7 @@
 ---
 title: "1-Min vs 5-Min: Why Slow Monitoring Loses"
 author: "Morten Pradsgaard"
+date: "2025-01-22"
 category: "monitoring"
 excerpt: "5-min misses outages. 1-min saves."
 readTime: "5 min read"

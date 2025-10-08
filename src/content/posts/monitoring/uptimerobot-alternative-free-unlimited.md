@@ -1,6 +1,7 @@
 ---
 title: "Best UptimeRobot Alternative: Free Unlimited Monitoring (No 50-Site Limit)"
 author: "Morten Pradsgaard"
+date: "2025-02-01"
 category: "monitoring"
 excerpt: "Looking for a UptimeRobot alternative without the 50-site limit? Exit1.dev offers unlimited free monitoring with 1-minute checks and no upgrade pressure."
 readTime: "5 min read"

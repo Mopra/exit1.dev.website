@@ -1,6 +1,7 @@
 ---
 title: "Free Uptime Monitor vs Paid Suites: ROI Analysis for 2025"
 author: "Morten Pradsgaard"
+date: "2025-03-03"
 category: "monitoring"
 excerpt: "Compare free uptime monitors against paid observability platforms using real ROI math and stakeholder-ready charts."
 readTime: "11 min read"

@@ -1,6 +1,7 @@
 ---
 title: "Free Monitoring for Small Biz: Online Without Cost"
 author: "Exit1 Team"
+date: "2025-01-06"
 category: "monitoring"
 excerpt: "Protect presence free. Enterprise features, zero price."
 readTime: "6 min read"

@@ -1,6 +1,7 @@
 ---
 title: "Free Website Monitoring Tools 2025: Which Service Is Actually Free?"
 author: "Morten Pradsgaard"
+date: "2025-01-08"
 category: "monitoring"
 excerpt: "The complete guide to free website monitoring services. We tested 20+ tools to find which ones offer real value without hidden limits. See which free uptime checkers work and which are just marketing tricks."
 readTime: "9 min read"

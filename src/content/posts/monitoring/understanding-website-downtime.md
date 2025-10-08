@@ -1,6 +1,7 @@
 ---
 title: "Downtime: Why It Happens, How to Kill It"
 author: "Morten Pradsgaard"
+date: "2025-01-30"
 category: "monitoring"
 excerpt: "Common causes, prevention with monitoring."
 readTime: "5 min read"

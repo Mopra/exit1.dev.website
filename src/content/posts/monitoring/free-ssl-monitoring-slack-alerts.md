@@ -1,6 +1,7 @@
 ---
 title: "Free SSL Monitoring with Slack Alerts: Never Let Certificates Rot"
 author: "Morten Pradsgaard"
+date: "2025-02-13"
 category: "monitoring"
 excerpt: "Catch SSL expirations before they torch trust by piping Exit1.dev alerts into Slack."
 readTime: "6 min read"

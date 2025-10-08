@@ -1,6 +1,7 @@
 ---
 title: "What Is Website Monitoring? Complete Guide for Beginners 2025"
 author: "Morten Pradsgaard"
+date: "2025-01-16"
 category: "monitoring"
 excerpt: "Complete beginner's guide to website monitoring and uptime checking. Learn how to monitor websites for free, set up alerts, and choose the best monitoring service for your needs."
 readTime: "5 min read"

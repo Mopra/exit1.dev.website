@@ -1,6 +1,7 @@
 ---
 title: "Free Domain Monitoring with Slack Alerts: Guard Your DNS Like a Hawk"
 author: "Morten Pradsgaard"
+date: "2025-01-25"
 category: "monitoring"
 excerpt: "Pipe domain expiry warnings from Exit1.dev into Slack so you never lose a name to negligence."
 readTime: "6 min read"

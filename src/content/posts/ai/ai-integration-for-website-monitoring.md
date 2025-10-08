@@ -1,6 +1,7 @@
 ---
 title: "Integrate AI and Ditch Monitoring Drudgery"
 author: "Morten Pradsgaard"
+date: "2025-01-05"
 category: "ai"
 excerpt: "Manual monitoring wastes time. AI automates. Hook it up easy—code included."
 readTime: "6 min read"

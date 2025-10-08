@@ -1,6 +1,7 @@
 ---
 title: "Pingdom Alts: Free Tools That Match It"
 author: "Exit1 Team"
+date: "2025-01-20"
 category: "monitoring"
 excerpt: "Pingdom expensive. Free options with similar power."
 readTime: "5 min read"

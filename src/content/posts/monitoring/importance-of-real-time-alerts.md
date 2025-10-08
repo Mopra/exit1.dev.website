@@ -1,6 +1,7 @@
 ---
 title: "Real-Time Alerts: Speed or Bleed Money"
 author: "Morten Pradsgaard"
+date: "2025-01-14"
 category: "monitoring"
 excerpt: "Real-time catches issues fast, minimizes loss."
 readTime: "4 min read"

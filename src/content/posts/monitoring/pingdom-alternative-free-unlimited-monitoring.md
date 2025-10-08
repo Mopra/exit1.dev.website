@@ -1,6 +1,7 @@
 ---
 title: "Best Pingdom Alternative: Free Unlimited Monitoring (No 1-Site Limit)"
 author: "Morten Pradsgaard"
+date: "2025-01-18"
 category: "monitoring"
 excerpt: "Looking for a Pingdom alternative without the 1-site limit and credit card requirement? Exit1.dev offers unlimited free monitoring with better features."
 readTime: "4 min read"

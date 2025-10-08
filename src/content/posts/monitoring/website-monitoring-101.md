@@ -1,6 +1,7 @@
 ---
 title: "Monitoring 101: What, Why, Metrics"
 author: "Morten Pradsgaard"
+date: "2025-02-07"
 category: "monitoring"
 excerpt: "Basics: Keep site up, fast, functional."
 readTime: "7 min read"
