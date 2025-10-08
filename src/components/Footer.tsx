@@ -101,7 +101,7 @@ const Footer = () => {
             <div id="uptime-badge"></div>
             <Script
               src="https://app.exit1.dev/badge.js"
-              data-check-id="hGzAdT7mrI7tYhQ6widf"
+              data-check-id="HCWG5w4RgeYZ1rpYqm7S"
               data-container="uptime-badge"
               strategy="lazyOnload"
             />
