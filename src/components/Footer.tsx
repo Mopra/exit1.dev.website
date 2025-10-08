@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Script from 'next/script';
 import footerContent from '../content/footer.json';
 import CookieSettings from './CookieSettings';
 
@@ -80,7 +81,7 @@ const Footer = () => {
             
             {/* Peerpush Achievement Badge */}
             <div className="pt-2">
-              <a 
+              <a
                 href="https://peerpush.net/p/exit1dev"
                 target="_blank"
                 rel="noopener"
@@ -97,6 +98,11 @@ const Footer = () => {
                 />
               </a>
             </div>
+            <Script
+              src="https://exit1.dev/badge.js"
+              data-check-id="hGzAdT7mrI7tYhQ6widf"
+              strategy="lazyOnload"
+            />
           </div>
           
           {/* Navigation sections - stacked on mobile, grid on larger screens */}
