@@ -13,6 +13,12 @@
       "name": "AI & Automation",
       "description": "AI-powered monitoring, automated alerts, and intelligent workflows",
       "slug": "ai"
+    },
+    {
+      "id": "sla",
+      "name": "SLA Monitoring",
+      "description": "Service-level strategies, reporting, and compliance workflows for uptime commitments",
+      "slug": "sla-monitoring"
     }
   ]
-} 
+}
