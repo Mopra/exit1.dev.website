@@ -56,20 +56,26 @@ const remarkProcessor = remark()
 // Get all markdown files from the posts directory
 const getPostFiles = () => {
   const postsDirectory = path.join(process.cwd(), 'src/content/posts');
-  const categories = ['monitoring', 'ai'];
   const files: string[] = [];
 
-  categories.forEach(category => {
-    const categoryPath = path.join(postsDirectory, category);
-    if (fs.existsSync(categoryPath)) {
+  if (!fs.existsSync(postsDirectory)) {
+    return files;
+  }
+
+  const categoryEntries = fs.readdirSync(postsDirectory, { withFileTypes: true });
+
+  categoryEntries
+    .filter(entry => entry.isDirectory())
+    .forEach(directory => {
+      const categoryPath = path.join(postsDirectory, directory.name);
       const categoryFiles = fs.readdirSync(categoryPath);
+
       categoryFiles.forEach(file => {
         if (file.endsWith('.md')) {
-          files.push(path.join(category, file));
+          files.push(path.join(directory.name, file));
         }
       });
-    }
-  });
+    });
 
   return files;
 };
