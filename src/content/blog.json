@@ -19,6 +19,12 @@
       "name": "SLA Monitoring",
       "description": "Service-level strategies, reporting, and compliance workflows for uptime commitments",
       "slug": "sla-monitoring"
+    },
+    {
+      "id": "incident",
+      "name": "Incident Management",
+      "description": "Response playbooks, tooling, and cultural shifts for fast, honest incident resolution",
+      "slug": "incident-management"
     }
   ]
 }
