@@ -25,6 +25,12 @@
       "name": "Incident Management",
       "description": "Response playbooks, tooling, and cultural shifts for fast, honest incident resolution",
       "slug": "incident-management"
+    },
+    {
+      "id": "infrastructure-monitoring",
+      "name": "Server & Infrastructure Monitoring",
+      "description": "Hybrid cloud uptime, infrastructure visibility, and free server monitoring tactics",
+      "slug": "infrastructure-monitoring"
     }
   ]
 }
