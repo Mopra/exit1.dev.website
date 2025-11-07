@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import PerformanceMonitor from "@/components/PerformanceMonitor";
 import Script from "next/script";
 
 const dmSans = DM_Sans({
@@ -69,7 +68,6 @@ export default function RootLayout({
         </main>
         <Footer />
         <SpeedInsights />
-        <PerformanceMonitor />
       </body>
     </html>
   );
