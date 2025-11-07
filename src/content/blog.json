@@ -37,6 +37,12 @@
       "name": "API & Endpoint Monitoring",
       "description": "Monitor REST, GraphQL, and microservice endpoints with free uptime and deep validation tactics",
       "slug": "api-endpoint-monitoring"
+    },
+    {
+      "id": "cronjob-monitoring",
+      "name": "Cron & Scheduled Task Monitoring",
+      "description": "Heartbeat monitoring, scheduled task reliability, and background job observability tactics",
+      "slug": "cronjob-monitoring"
     }
   ]
 }
