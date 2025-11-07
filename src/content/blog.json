@@ -31,6 +31,12 @@
       "name": "Server & Infrastructure Monitoring",
       "description": "Hybrid cloud uptime, infrastructure visibility, and free server monitoring tactics",
       "slug": "infrastructure-monitoring"
+    },
+    {
+      "id": "api-monitoring",
+      "name": "API & Endpoint Monitoring",
+      "description": "Monitor REST, GraphQL, and microservice endpoints with free uptime and deep validation tactics",
+      "slug": "api-endpoint-monitoring"
     }
   ]
 }
