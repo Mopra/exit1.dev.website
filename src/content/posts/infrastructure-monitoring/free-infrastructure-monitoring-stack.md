@@ -1,7 +1,7 @@
 ---
 title: "Build a Free Infrastructure Monitoring Stack with Exit1.dev"
 author: "Morten Pradsgaard"
-date: "2025-02-16"
+date: "2025-09-16"
 category: "infrastructure-monitoring"
 excerpt: "Design a no-budget server monitoring stack that still gives full observability. Exit1.dev plus proven open-source tools."
 readTime: "7 min read"

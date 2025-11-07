@@ -3,7 +3,7 @@ title: "Free Incident Management Toolkit: Alerts, Automations, and Accountabilit
 author: "Morten Pradsgaard"
 category: "incident"
 excerpt: "Assemble a free incident management toolkit powered by exit1.dev. Ship faster recoveries without begging finance for budget."
-date: "2025-03-09"
+date: "2025-09-20"
 metaDescription: "Assemble a free incident management toolkit using exit1.dev. Combine alerts, automations, and accountability workflows to run serious incident response without paying enterprise fees."
 ---
 

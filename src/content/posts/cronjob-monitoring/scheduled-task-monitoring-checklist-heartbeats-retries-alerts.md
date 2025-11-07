@@ -3,7 +3,7 @@ title: "Scheduled Task Monitoring Checklist: Heartbeats, Retries, Alerts"
 author: "Morten Pradsgaard"
 category: "cronjob-monitoring"
 excerpt: "A punchy checklist to monitor cron jobs, serverless schedules, and background workers without buying bloated tooling."
-date: "2025-02-18"
+date: "2025-10-03"
 metaDescription: "Use this scheduled task monitoring checklist to cover heartbeats, retries, alert routing, and reporting with exit1.dev’s free cronjob monitoring."
 ---
 

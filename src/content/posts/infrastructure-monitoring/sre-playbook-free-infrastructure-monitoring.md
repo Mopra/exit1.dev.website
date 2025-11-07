@@ -1,7 +1,7 @@
 ---
 title: "SRE Playbook: Free Infrastructure Monitoring for Hybrid Clouds"
 author: "Morten Pradsgaard"
-date: "2025-02-18"
+date: "2025-10-04"
 category: "infrastructure-monitoring"
 excerpt: "Run hybrid infrastructure without blowing the budget. A blunt SRE playbook for free server monitoring."
 readTime: "7 min read"

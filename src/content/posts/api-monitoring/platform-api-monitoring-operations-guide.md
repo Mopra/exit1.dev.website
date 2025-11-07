@@ -3,7 +3,7 @@ title: "Platform API Monitoring Operations Guide"
 author: "Morten Pradsgaard"
 category: "api-monitoring"
 excerpt: "Run platform engineering like a business unit. Build API monitoring operations that keep partner integrations, mobile apps, and internal teams running."
-date: "2025-02-25"
+date: "2025-10-02"
 metaDescription: "Operate platform APIs with confidence. Learn how exit1.dev helps platform teams monitor endpoints, manage partners, and stay compliant."
 ---
 

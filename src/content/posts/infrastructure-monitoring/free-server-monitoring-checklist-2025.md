@@ -1,7 +1,7 @@
 ---
 title: "Free Server Monitoring Checklist 2025: No-Compromise Infrastructure Visibility"
 author: "Morten Pradsgaard"
-date: "2025-02-15"
+date: "2025-09-06"
 category: "infrastructure-monitoring"
 excerpt: "Build a no-cost infrastructure monitoring checklist that actually keeps servers online. Step-by-step with Exit1.dev."
 readTime: "6 min read"

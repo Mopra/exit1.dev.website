@@ -1,7 +1,7 @@
 ---
 title: "Free SLA Monitoring Reporting Playbook: Ship Audit-Ready Evidence On Demand"
 author: "Morten Pradsgaard"
-date: "2025-02-18"
+date: "2025-10-05"
 category: "sla"
 excerpt: "Reporting framework for free SLA monitoring teams that need executive dashboards, customer updates, and legal-ready evidence."
 readTime: "13 min read"

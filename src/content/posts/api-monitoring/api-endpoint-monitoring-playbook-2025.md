@@ -3,7 +3,7 @@ title: "API Endpoint Monitoring Playbook 2025"
 author: "Morten Pradsgaard"
 category: "api-monitoring"
 excerpt: "Instrument every endpoint like your revenue depends on it. JSON validation, auth watchdogs, and synthetic flows that keep APIs honest."
-date: "2025-02-25"
+date: "2025-09-02"
 metaDescription: "Build a no-compromise API endpoint monitoring playbook with exit1.dev. Validate payloads, auth, and performance without paying enterprise rates."
 ---
 

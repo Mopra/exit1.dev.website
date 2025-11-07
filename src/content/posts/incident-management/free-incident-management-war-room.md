@@ -3,7 +3,7 @@ title: "Run a Free Incident Management War Room that Actually Resolves Things"
 author: "Morten Pradsgaard"
 category: "incident"
 excerpt: "Turn exit1.dev alerts into a disciplined war room. Crisp roles, async updates, and a bias toward recovery over chatter."
-date: "2025-03-09"
+date: "2025-09-30"
 metaDescription: "Build a no-cost incident management war room using exit1.dev. Structure roles, communication, and recovery workflows without paying for enterprise incident software."
 ---
 

@@ -3,7 +3,7 @@ title: "Free Cronjob Monitor Setup for Serverless Schedules"
 author: "Morten Pradsgaard"
 category: "cronjob-monitoring"
 excerpt: "Wire up Lambda, Cloud Functions, and Workers with free cron monitoring. No extra infra, just precise heartbeats and payload checks."
-date: "2025-02-18"
+date: "2025-09-24"
 metaDescription: "Set up a free cronjob monitor for serverless schedules using exit1.dev. Learn how to add heartbeats, payload validation, and smart alert routing without extra infrastructure."
 ---
 

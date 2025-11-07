@@ -3,7 +3,7 @@ title: "API Error Budgets and SLA Math That Actually Works"
 author: "Morten Pradsgaard"
 category: "api-monitoring"
 excerpt: "Define uptime targets for APIs that don’t blow up engineering velocity. Convert error budgets into monitors, alerts, and honest dashboards."
-date: "2025-02-25"
+date: "2025-09-12"
 metaDescription: "Set API error budgets, SLAs, and SLOs using exit1.dev. Learn how to map budgets to monitors, alerts, and executive reporting that proves reliability."
 ---
 
