@@ -1,7 +1,7 @@
 ---
 title: "Free Infrastructure Monitoring Tools 2025: Exit1.dev vs. The Rest"
 author: "Morten Pradsgaard"
-date: "2025-02-17"
+date: "2025-09-26"
 category: "infrastructure-monitoring"
 excerpt: "Compare free server and infrastructure monitoring options. Learn why Exit1.dev outruns legacy free tiers in 2025."
 readTime: "8 min read"

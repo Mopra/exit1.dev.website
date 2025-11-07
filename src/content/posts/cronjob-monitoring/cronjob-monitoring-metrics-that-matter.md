@@ -3,7 +3,7 @@ title: "Cronjob Monitoring Metrics That Actually Matter"
 author: "Morten Pradsgaard"
 category: "cronjob-monitoring"
 excerpt: "Focus cron monitoring on the metrics that predict failure: cadence, delay, duration, and downstream impact. Ditch vanity charts."
-date: "2025-02-18"
+date: "2025-09-04"
 metaDescription: "Measure the right cronjob monitoring metrics—cadence, delay, duration, and downstream health—with exit1.dev’s free scheduled task monitoring dashboards."
 ---
 

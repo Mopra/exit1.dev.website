@@ -3,7 +3,7 @@ title: "API Observability Automation Toolkit"
 author: "Morten Pradsgaard"
 category: "api-monitoring"
 excerpt: "Wire exit1.dev, logs, and status automation together so every API contract is verified automatically and incidents resolve fast."
-date: "2025-02-25"
+date: "2025-09-22"
 metaDescription: "Automate API observability with exit1.dev. Learn how to combine monitors, logs, and status automation to keep endpoints healthy and transparent."
 ---
 

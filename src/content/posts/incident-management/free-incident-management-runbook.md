@@ -3,7 +3,7 @@ title: "The Free Incident Management Runbook Your Team Will Actually Use"
 author: "Morten Pradsgaard"
 category: "incident"
 excerpt: "Codify incident response without bureaucratic bloat. This exit1.dev-powered runbook keeps teams fast, honest, and unblocked."
-date: "2025-03-09"
+date: "2025-09-10"
 metaDescription: "Create a free incident management runbook backed by exit1.dev monitoring. Define triggers, roles, and recovery steps without paying for enterprise tooling."
 ---
 

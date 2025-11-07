@@ -3,7 +3,7 @@ title: "Cronjob Monitoring Playbook: Free Scheduled Task Observability"
 author: "Morten Pradsgaard"
 category: "cronjob-monitoring"
 excerpt: "Cron jobs deserve ruthless monitoring. Here’s the free, opinionated playbook to keep every scheduled task visible and honest."
-date: "2025-02-18"
+date: "2025-09-14"
 metaDescription: "Learn the exact cronjob monitoring playbook to instrument scheduled tasks with exit1.dev. Cover heartbeats, payload checks, routing, and dashboards without paying a cent."
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Free SLA Monitoring Strategy: Nail Commitments Without Paying Enterprise Tax"
 author: "Morten Pradsgaard"
-date: "2025-02-15"
+date: "2025-09-08"
 category: "sla"
 excerpt: "Blueprint for building a free SLA monitoring strategy that satisfies legal, ops, and customer success without bloated software."
 readTime: "12 min read"

@@ -1,7 +1,7 @@
 ---
 title: "Free SLA Monitoring Checklist: Weekly Rituals That Keep You Out Of Penalty Mode"
 author: "Morten Pradsgaard"
-date: "2025-02-16"
+date: "2025-09-18"
 category: "sla"
 excerpt: "Step-by-step free SLA monitoring checklist covering instrumentation, alerting, reporting, and customer communication."
 readTime: "10 min read"

@@ -3,7 +3,7 @@ title: "Free Incident Management with exit1.dev: The Pragmatic Stack"
 author: "Morten Pradsgaard"
 category: "incident"
 excerpt: "Run disciplined, free incident management without adding cruft. exit1.dev gives you alerts, evidence, and collaboration glue."
-date: "2025-03-09"
+date: "2025-10-07"
 metaDescription: "Build a free incident management practice with exit1.dev. Combine real-time alerts, evidence, and collaboration workflows without paying enterprise prices."
 ---
 
