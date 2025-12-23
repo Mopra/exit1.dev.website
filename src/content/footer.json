@@ -19,6 +19,7 @@
     "support": [
       { "name": "Help & Community", "href": "https://discord.gg/uZvWbpwJZS" },
       { "name": "Service Status", "href": "https://app.exit1.dev/status" },
+      { "name": "Release Notes", "href": "https://app.exit1.dev/release-notes" },
       { "name": "Contact", "href": "/contact" }
     ],
     "legal": [
