@@ -95,6 +95,7 @@ const Footer = () => {
                   height={40}
                   style={{ height: '40px' }}
                   className="opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  unoptimized
                 />
               </a>
             </div>
