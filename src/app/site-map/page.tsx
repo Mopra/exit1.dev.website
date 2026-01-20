@@ -32,12 +32,17 @@ async function getStaticPages() {
 
         for (const entry of entries) {
           const fullPath = path.join(dir, entry.name);
-          const url = urlPath + '/' + entry.name;
 
           if (entry.isDirectory()) {
-            if (!['api', 'globals.css', 'layout.tsx', 'loading.tsx', 'error.tsx', 'not-found.tsx'].includes(entry.name)) {
-              await scanDirectory(fullPath, url);
+            const isRouteGroup = entry.name.startsWith('(') && entry.name.endsWith(')');
+            const isDynamicSegment = entry.name.startsWith('[') && entry.name.endsWith(']');
+
+            if (isDynamicSegment || entry.name === 'api') {
+              continue;
             }
+
+            const nextUrlPath = isRouteGroup ? urlPath : `${urlPath}/${entry.name}`;
+            await scanDirectory(fullPath, nextUrlPath);
           } else if (entry.name === 'page.tsx') {
             const finalUrl = urlPath === '' ? '/' : urlPath;
             const name = getPageName(finalUrl);
@@ -115,7 +120,7 @@ function getPageName(url: string): string {
   if (url === '/dashboard') return 'Dashboard';
   if (url === '/install') return 'Install';
   if (url === '/roadmap') return 'Roadmap';
-  if (url === '/sitemap') return 'Sitemap';
+  if (url === '/site-map') return 'Sitemap';
   if (url.startsWith('/product/')) {
     const product = url.replace('/product/', '');
     return `${product.charAt(0).toUpperCase() + product.slice(1).replace('-', ' ')}`;
@@ -184,7 +189,7 @@ const Sitemap = async () => {
               name: "Blog",
               url: "/blog",
               children: Object.fromEntries(
-                blogPosts.slice(0, 15).map((post, index) => [
+                blogPosts.map((post, index) => [
                   `post-${index}`,
                   { name: post.name, url: post.url }
                 ])

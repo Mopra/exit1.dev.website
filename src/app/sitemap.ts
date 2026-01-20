@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { MetadataRoute } from 'next';
+import { POSTS_PER_PAGE } from '@/lib/blogPagination';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://exit1.dev';
@@ -15,13 +16,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       
       for (const entry of entries) {
         const fullPath = path.join(dir, entry.name);
-        const url = urlPath + '/' + entry.name;
         
         if (entry.isDirectory()) {
-          // Skip special Next.js directories
-          if (!['api', 'globals.css', 'layout.tsx', 'loading.tsx', 'error.tsx', 'not-found.tsx'].includes(entry.name)) {
-            await scanDirectory(fullPath, url);
+          const isRouteGroup = entry.name.startsWith('(') && entry.name.endsWith(')');
+          const isDynamicSegment = entry.name.startsWith('[') && entry.name.endsWith(']');
+
+          // Skip dynamic segments and API routes
+          if (isDynamicSegment || entry.name === 'api') {
+            continue;
           }
+
+          const nextUrlPath = isRouteGroup ? urlPath : `${urlPath}/${entry.name}`;
+          await scanDirectory(fullPath, nextUrlPath);
         } else if (entry.name === 'page.tsx') {
           // Found a page
           const finalUrl = urlPath === '' ? '/' : urlPath;
@@ -83,6 +89,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
+  const totalPages = Math.max(1, Math.ceil(blogPosts.length / POSTS_PER_PAGE));
+  const blogPaginationPages = [];
+  for (let page = 2; page <= totalPages; page++) {
+    const url = `/blog/page/${page}`;
+    blogPaginationPages.push({
+      url,
+      changefreq: getChangeFreq(url),
+      priority: getPriority(url),
+      lastmod: new Date().toISOString()
+    });
+  }
+
   // Combine all
   const allPages = [
     ...staticPages.map(page => ({
@@ -94,6 +112,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...blogPosts.map(post => ({
       ...post,
       url: `${baseUrl}${post.url}`
+    })),
+    ...blogPaginationPages.map(page => ({
+      ...page,
+      url: `${baseUrl}${page.url}`
     }))
   ];
 
