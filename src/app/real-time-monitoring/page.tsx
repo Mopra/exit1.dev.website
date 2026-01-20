@@ -67,7 +67,13 @@ const RealTimeMonitoring = () => {
     }
   ];
 
-  const comparisonTable = [
+  type ComparisonRow = {
+    feature: string;
+    exit1: string | boolean;
+    competitors: string | boolean;
+  };
+
+  const comparisonTable: ComparisonRow[] = [
     {
       feature: "Unlimited websites",
       exit1: true,
@@ -92,8 +98,6 @@ const RealTimeMonitoring = () => {
       feature: "SSL certificate monitoring",
       exit1: true,
       competitors: "Paid only"
-    },
-    {
     },
     {
       feature: "Webhook alerts",
