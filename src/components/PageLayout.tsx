@@ -9,6 +9,12 @@ export function PageBackground() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 80% 60% at 50% top, rgba(0,0,0,1), rgba(0,0,0,1) 35%, transparent 60%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 60% at 50% top, rgba(0,0,0,1), rgba(0,0,0,1) 35%, transparent 60%)",
+        }}
       />
       <div
         aria-hidden="true"
