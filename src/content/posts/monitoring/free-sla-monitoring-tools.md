@@ -42,7 +42,7 @@ Exit1.dev ships the uptime coverage and reporting rigor legal teams expect witho
 
 1. **Deploy Exit1.dev for real-time uptime checks**. Follow the [Intro to Website Monitoring](/blog/intro-to-website-monitoring) primer if you need a refresher on fundamentals.
 2. **Add status transparency**. Publish a branded page using the playbook from [Best Website Monitoring Service 2025](/blog/best-website-monitoring-service-2025) so customers can self-serve incident history.
-3. **Route alerts where they matter**. Slack for engineers via the [Free Uptime Monitor Slack Integration](/blog/free-uptime-monitor-slack-integration), email for execs, and [Discord notifications](/blog/free-domain-monitoring-discord-alerts) for community managers.
+3. **Route alerts where they matter**. Slack for engineers via the [Free Uptime Monitor Slack Integration](/blog/free-uptime-monitor-slack-integration), email for execs, and [Discord notifications](/blog/free-website-monitor-discord-integration) for community managers.
 4. **Automate weekly SLA summaries**. Export availability data, calculate uptime vs. SLA targets, and share with stakeholders. Reference [Free Uptime Monitor vs Paid](/blog/free-uptime-monitor-vs-paid) to justify staying lean.
 
 ## Checklist For Comparing Tools

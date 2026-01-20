@@ -36,9 +36,9 @@ Static sites can still serve broken builds. Use keyword checks for hero copy, me
 
 If you run scheduled builds or webhooks (Vercel ISR, Netlify functions, GitHub Actions), add those endpoints as monitors. We’ll hit them every minute, validate JSON, and tell you when a build pipeline stalls.
 
-### 4. Guard SSL and custom domains
+### 4. Guard SSL certificates
 
-Custom domains on GitHub Pages or Netlify have a nasty habit of breaking when DNS settings change. exit1.dev tracks SSL certificates and domain expiry so you know before browsers start screaming.
+Custom domains on GitHub Pages or Netlify have a nasty habit of breaking when DNS settings change. exit1.dev tracks SSL certificates so you know before browsers start screaming.
 
 ### 5. Alert globally
 
@@ -74,7 +74,7 @@ Yes. Add the revalidation URLs or internal APIs, assert the JSON payload, and we
 
 ### How do I monitor multiple regions?
 
-Create monitors per region or domain. exit1.dev runs global probes and shows performance per location.
+Create monitors per region or URL. exit1.dev runs global probes and shows performance per location.
 
 ### Can I export uptime data for stakeholders?
 

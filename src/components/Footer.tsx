@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import footerContent from '../content/footer.json';
 import CookieSettings from './CookieSettings';
+import { PageContainer } from "@/components/PageLayout";
 
 const Footer = () => {
   const [showCookieSettings, setShowCookieSettings] = useState(false);
@@ -17,7 +17,7 @@ const Footer = () => {
       return (
         <button
           onClick={() => setShowCookieSettings(true)}
-          className="text-base text-muted-foreground hover:text-primary transition-colors duration-200 font-light cursor-pointer text-left interactive"
+          className="text-base text-white/70 hover:text-white transition-colors duration-200 font-light cursor-pointer text-left interactive"
         >
           {item.name}
         </button>
@@ -35,7 +35,7 @@ const Footer = () => {
               });
             }
           }}
-          className="text-base text-muted-foreground hover:text-primary transition-colors duration-200 font-light cursor-pointer text-left interactive"
+          className="text-base text-white/70 hover:text-white transition-colors duration-200 font-light cursor-pointer text-left interactive"
         >
           {item.name}
         </button>
@@ -45,7 +45,7 @@ const Footer = () => {
       return (
         <Link
           href={item.href}
-          className="text-base text-muted-foreground hover:text-primary transition-colors duration-200 font-light cursor-pointer interactive"
+          className="text-base text-white/70 hover:text-white transition-colors duration-200 font-light cursor-pointer interactive"
         >
           {item.name}
         </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
       return (
         <a
           href={item.href}
-          className="text-base text-muted-foreground hover:text-primary transition-colors duration-200 font-light cursor-pointer interactive"
+          className="text-base text-white/70 hover:text-white transition-colors duration-200 font-light cursor-pointer interactive"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -66,16 +66,18 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-background/50 backdrop-blur-md border-t border-primary/20">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:py-20 lg:px-8">
+    <footer className="bg-black text-white">
+      <PageContainer>
+        <div className="border-inset-top px-6 lg:px-8">
+          <div className="py-12 sm:py-16 lg:py-20">
         {/* Mobile-first grid layout */}
         <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
           {/* Brand section - full width on mobile */}
           <div className="space-y-6 lg:col-span-1">
-            <Link href="/" className="text-foreground font-mono text-2xl font-semibold tracking-tight hover:text-primary transition-colors duration-200 cursor-pointer interactive">
+            <Link href="/" className="text-white font-mono text-2xl font-semibold tracking-tight hover:text-white/80 transition-colors duration-200 cursor-pointer interactive">
               {content.brand.logo}
             </Link>
-            <p className="text-muted-foreground text-base font-light leading-relaxed">
+            <p className="text-white/70 text-base font-light leading-relaxed">
               {content.brand.description}
             </p>
             
@@ -99,19 +101,12 @@ const Footer = () => {
                 />
               </a>
             </div>
-            <div id="uptime-badge"></div>
-            <Script
-              src="https://app.exit1.dev/badge.js"
-              data-check-id="HCWG5w4RgeYZ1rpYqm7S"
-              data-container="uptime-badge"
-              strategy="lazyOnload"
-            />
           </div>
           
           {/* Navigation sections - stacked on mobile, grid on larger screens */}
           <div className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-4 lg:gap-8 lg:space-y-0">
             <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
                 Monitoring
               </h3>
               <ul className="mt-4 space-y-3">
@@ -123,7 +118,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
                 Analytics & Tools
               </h3>
               <ul className="mt-4 space-y-3">
@@ -135,7 +130,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
                 Support
               </h3>
               <ul className="mt-4 space-y-3">
@@ -147,7 +142,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
                 Legal
               </h3>
               <ul className="mt-4 space-y-3">
@@ -162,12 +157,14 @@ const Footer = () => {
         </div>
         
         {/* Copyright - centered on mobile, right-aligned on larger screens */}
-        <div className="mt-12 border-t border-primary/20 pt-8">
-          <p className="text-base text-muted-foreground text-center lg:text-right font-light" 
+          <div className="mt-12 border-inset-top pt-8">
+            <p className="text-base text-white/60 text-center lg:text-right font-light"
              dangerouslySetInnerHTML={{ __html: content.copyright }}>
-          </p>
+            </p>
+          </div>
         </div>
       </div>
+    </PageContainer>
       
       {/* Cookie Settings Modal */}
       <CookieSettings 

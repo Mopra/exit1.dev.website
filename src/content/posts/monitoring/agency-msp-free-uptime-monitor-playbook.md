@@ -22,7 +22,7 @@ For every new client:
 - Homepage and key landing pages.
 - Checkout, booking, or lead forms.
 - API endpoints that power mobile apps.
-- SSL and domain expiry.
+- SSL expiry.
 - Cron or worker heartbeats if you manage backend jobs.
 
 Build a template checklist and clone it per client. Unlimited monitors mean you don’t have to ration coverage.
@@ -46,7 +46,7 @@ You’re providing 24/7 coverage. Bake it into your retainers. The tooling cost 
 ## Extra benefits
 
 - Privacy-first monitoring keeps you compliant with GDPR-heavy clients.
-- Unlimited history makes audits and postmortems painless.
+- 90 days retention max makes audits and postmortems painless.
 - Global probes let you reassure international clients their sites load everywhere.
 
 ## FAQs

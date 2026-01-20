@@ -15,7 +15,7 @@ Discord is the town square for your product. If you let rumor threads explain do
 ## Why Discord Wins for Outage Alerts
 
 - **Community expects transparency**: Your players, customers, and moderators live in Discord. Meet them there or watch trust evaporate.
-- **Channel control**: Post critical incidents in a locked `#status` channel, drip maintenance notes into `#announcements`, and stop the chaos. For domain-specific scares, mirror the warning from [Discord domain monitoring](/blog/free-domain-monitoring-discord-alerts) so DNS renewals get the same visibility.
+- **Channel control**: Post critical incidents in a locked `#status` channel, drip maintenance notes into `#announcements`, and stop the chaos.
 - **Automation playground**: Webhook embeds let you flag roles, trigger bot workflows, and format clean status cards without hacking together a bot.
 
 The free plan includes Discord webhooks. No “enterprise tier” bait-and-switch. Use it.

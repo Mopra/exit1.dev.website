@@ -1,7 +1,7 @@
 ---
 title: "Freshping Shutdown: Migration Checklist"
 author: "Exit1 Team"
-date: "2025-02-12"
+date: "2026-01-15"
 category: "monitoring"
 excerpt: "Freshping is shutting down. Move fast with this lean migration plan."
 readTime: "7 min read"

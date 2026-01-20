@@ -59,7 +59,7 @@ StatusCake provides a middle ground with 10 monitors and standard 5-minute check
 
 **Pros:**
 - 10 monitors included
-- Domain monitoring and SSL certificate checks
+- SSL certificate checks
 - Page speed monitoring
 - Virus scanning capabilities
 

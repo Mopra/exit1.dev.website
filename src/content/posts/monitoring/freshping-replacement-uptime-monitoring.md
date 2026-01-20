@@ -1,7 +1,7 @@
 ---
 title: "Freshping Replacement: Free Uptime Monitoring"
 author: "Exit1 Team"
-date: "2025-02-12"
+date: "2026-01-15"
 category: "monitoring"
 excerpt: "Freshping is shutting down. Here’s a free replacement that keeps your uptime story intact."
 readTime: "7 min read"

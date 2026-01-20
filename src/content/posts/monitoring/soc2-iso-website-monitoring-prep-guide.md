@@ -42,7 +42,7 @@ We don’t run trackers, analytics beacons, or ads. Share our data privacy state
 
 ## Step 6: Archive reports
 
-Export uptime analytics and logs quarterly. Store them in your audit evidence repo. Unlimited history means you’re never scrambling to pull logs before they disappear.
+Export uptime analytics and logs quarterly. Store them in your audit evidence repo. 90 days retention max means you’re never scrambling to pull logs before they disappear.
 
 ## Bonus: Automation
 
@@ -60,7 +60,7 @@ Yes. Use team accounts in the app. Only the people you invite can modify monitor
 
 ### How far back does the data go?
 
-As far as you need. Unlimited retention is included in the free tier.
+As far as you need. 90 days retention max is included in the free tier.
 
 ### Do you support custom reporting formats?
 

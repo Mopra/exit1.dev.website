@@ -58,7 +58,7 @@ Exit1.dev gives you unlimited SSL monitors, email alerts, and status pages for f
 - Hardware-backed key storage and compliance attestations.
 - 24/7 managed rotations.
 
-If that’s not you, stick with the free stack and handle renewals like an adult. While you’re at it, backstop your domains with the [Discord renewal workflow](/blog/free-domain-monitoring-discord-alerts) so DNS ownership doesn’t become the next fire drill.
+If that’s not you, stick with the free stack and handle renewals like an adult. While you’re at it, backstop your domains with the [Discord renewal workflow](/blog/free-ssl-monitoring-discord-alerts) so DNS ownership doesn’t become the next fire drill.
 
 ## Execute Now
 

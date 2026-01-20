@@ -230,6 +230,27 @@ export default function Header() {
           <div className="absolute top-full left-0 right-0 mt-2 bg-background/95 backdrop-blur-xl border border-primary/20 rounded-xl shadow-xl max-h-[calc(100vh-200px)] overflow-hidden">
             <div className="overflow-y-auto max-h-[calc(100vh-140px)] scrollbar-thin">
               <div className="p-4 space-y-4">
+                {/* CTA Buttons - Mobile Top */}
+                <div className="space-y-2 pb-4 border-b border-primary/20">
+                  <Button 
+                    variant="ghost" 
+                    className="w-full justify-start hover:bg-primary/10 hover:text-primary transition-all duration-200 interactive" 
+                    asChild
+                  >
+                    <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
+                      Sign In
+                    </a>
+                  </Button>
+                  <Button 
+                    className="w-full justify-start glass-primary border backdrop-blur-md hover:scale-105 transition-all duration-200 interactive" 
+                    asChild
+                  >
+                    <a href="https://app.exit1.dev/" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
+                      Start Free
+                    </a>
+                  </Button>
+                </div>
+
                 {/* Main Navigation */}
                 <div className="space-y-2">
                   {navigation.map((item) => (
@@ -308,27 +329,6 @@ export default function Header() {
                       </Link>
                     ))}
                   </div>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="border-t border-primary/20 pt-4 space-y-2">
-                  <Button 
-                    variant="ghost" 
-                    className="w-full justify-start hover:bg-primary/10 hover:text-primary transition-all duration-200 interactive" 
-                    asChild
-                  >
-                    <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
-                      Sign In
-                    </a>
-                  </Button>
-                  <Button 
-                    className="w-full justify-start glass-primary border backdrop-blur-md hover:scale-105 transition-all duration-200 interactive" 
-                    asChild
-                  >
-                    <a href="https://app.exit1.dev/" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
-                      Start Free
-                    </a>
-                  </Button>
                 </div>
               </div>
             </div>

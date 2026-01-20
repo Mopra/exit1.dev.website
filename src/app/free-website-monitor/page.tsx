@@ -17,20 +17,20 @@ import {
 export const metadata: Metadata = {
   title: 'Free Website Monitor - Keep Shopify, WooCommerce & Jamstack Online | exit1.dev',
   description:
-    'exit1.dev delivers a free website monitor for ecommerce, landing pages, Jamstack, and marketing sites. Unlimited URLs, 1-minute checks, SSL + domain coverage, content validation, instant alerts.',
+    'exit1.dev delivers a free website monitor for ecommerce, landing pages, Jamstack, and marketing sites. Unlimited URLs, 1-minute checks, SSL coverage, content validation, instant alerts.',
   keywords:
     'free website monitor, shopify uptime monitoring, woocommerce monitoring, jamstack uptime, landing page monitoring, free ecommerce monitoring',
   openGraph: {
     title: 'Free Website Monitor - Keep Shopify, WooCommerce & Jamstack Online | exit1.dev',
     description:
-      'Monitor storefronts, landing pages, and static sites for free. Unlimited URLs, 1-minute checks, content validation, SSL + domain tracking, instant alerts.',
+      'Monitor storefronts, landing pages, and static sites for free. Unlimited URLs, 1-minute checks, content validation, SSL tracking, instant alerts.',
     type: 'website',
     url: 'https://exit1.dev/free-website-monitor',
   },
   twitter: {
     title: 'Free Website Monitor - Keep Shopify, WooCommerce & Jamstack Online | exit1.dev',
     description:
-      'Monitor storefronts, landing pages, and static sites for free. Unlimited URLs, 1-minute checks, content validation, SSL + domain tracking, instant alerts.',
+      'Monitor storefronts, landing pages, and static sites for free. Unlimited URLs, 1-minute checks, content validation, SSL tracking, instant alerts.',
     card: 'summary_large_image',
   },
   alternates: {
@@ -56,8 +56,8 @@ const FreeWebsiteMonitorPage = () => {
       icon: <Sparkle className="w-6 h-6 text-white" />,
     },
     {
-      title: 'SSL, domain, and DNS checks',
-      description: 'Never lose sales to an expired certificate or domain. We track the boring stuff so you do not have to.',
+      title: 'SSL and DNS checks',
+      description: 'Never lose sales to an expired certificate. We track the boring stuff so you do not have to.',
       icon: <Shield className="w-6 h-6 text-white" />,
     },
     {
@@ -89,7 +89,7 @@ const FreeWebsiteMonitorPage = () => {
       competitors: 'Agent installs or manual scripts',
     },
     {
-      feature: 'SSL + domain expiry',
+      feature: 'SSL expiry',
       exit1: true,
       competitors: 'Locked behind paid plans',
     },
@@ -104,7 +104,7 @@ const FreeWebsiteMonitorPage = () => {
       competitors: 'Upgrade required',
     },
     {
-      feature: 'Unlimited history',
+      feature: '90 days retention max',
       exit1: 'Full export anytime',
       competitors: '30-60 day retention',
     },
@@ -129,7 +129,7 @@ const FreeWebsiteMonitorPage = () => {
     {
       question: 'Do you track SSL certificates and domains for my sites?',
       answer:
-        'Yes. Every monitor automatically watches SSL validity and domain expiration. You get notified before customers see the warning screens.',
+        'Yes. Every monitor automatically watches SSL validity. You get notified before customers see the warning screens.',
     },
     {
       question: 'Is there a limit to the number of pages I can watch?',
@@ -140,7 +140,7 @@ const FreeWebsiteMonitorPage = () => {
 
   const technicalDetails = {
     architecture:
-      'Serverless monitors across multiple regions backed by Firestore and Cloud Run. Each check hits the real HTTP endpoints and validates content signatures.',
+      'Serverless monitors across multiple regions with redundant storage. Each check hits the real HTTP endpoints and validates content signatures.',
     performance:
       '1-minute polling available globally with multi-step verification before alerts fire. Response data stored for analytics and export.',
     api:
@@ -175,7 +175,7 @@ const FreeWebsiteMonitorPage = () => {
         data={{
           name: 'Free Website Monitor',
           description:
-            'Free website monitoring for ecommerce, landing pages, and Jamstack sites with unlimited URLs, 1-minute checks, SSL, domain, and content validation.',
+            'Free website monitoring for ecommerce, landing pages, and Jamstack sites with unlimited URLs, 1-minute checks, SSL, and content validation.',
           url: 'https://exit1.dev/free-website-monitor',
           brand: {
             '@type': 'Brand',

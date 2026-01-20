@@ -2,7 +2,7 @@
 title: "Free Website Monitoring for Shopify and WooCommerce Stores"
 author: "Morten Pradsgaard"
 category: "monitoring"
-excerpt: "Keep Shopify and WooCommerce stores online with exit1.dev's free website monitor. Unlimited URLs, 1-minute checks, SSL and domain protection, and blunt advice on keeping carts alive."
+excerpt: "Keep Shopify and WooCommerce stores online with exit1.dev's free website monitor. Unlimited URLs, 1-minute checks, SSL protection, and blunt advice on keeping carts alive."
 date: "2025-02-10"
 metaDescription: "Learn how to set up free website monitoring for Shopify and WooCommerce with exit1.dev. Unlimited URLs, 1-minute checks, SSL alerts, and practical uptime tactics for ecommerce."
 ---
@@ -17,7 +17,7 @@ Your catalog, cart, and payment gateway live on different URLs. If all you monit
 
 - Watching every high-intent page: collection, product, cart, checkout, order status.
 - Validating copy and prices so the CDN doesn’t serve stale promotions.
-- Checking SSL certificates and domains before they expire.
+- Checking SSL certificates before they expire.
 - Alerting the right people instantly—marketing, ops, whoever gets paged.
 
 exit1.dev covers the entire surface out of the box. Unlimited URLs, 1-minute checks, and webhook + email alerts that don’t hide behind a paywall.
@@ -38,7 +38,7 @@ Shopify exposes endpoints for cart updates and payment steps. Point exit1.dev at
 
 ### 4. Lock down SSL and domains
 
-Enable SSL and domain monitoring so you never wake up to browser warnings. We’ll ping you weeks before expiry, not after the fires start.
+Enable SSL monitoring so you never wake up to browser warnings. We’ll ping you weeks before expiry, not after the fires start.
 
 ### 5. Route alerts like a pro
 
@@ -58,7 +58,7 @@ Our analytics show response-time trends for every monitor. Spot plugin regressio
 
 ## Bundle stores, headless front-ends, and multiple markets
 
-Running Hydrogen, custom Next.js front-ends, or multiple Shopify markets? Add every domain and subdomain. Use tags in exit1.dev to separate locales and campaigns. Unlimited monitors means unlimited segmentation.
+Running Hydrogen, custom Next.js front-ends, or multiple Shopify markets? Add every URL and subdomain. Use tags in exit1.dev to separate locales and campaigns. Unlimited monitors means unlimited segmentation.
 
 ## Free beats “free trial”
 

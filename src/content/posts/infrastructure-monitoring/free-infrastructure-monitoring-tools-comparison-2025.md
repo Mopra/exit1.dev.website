@@ -14,7 +14,7 @@ Everyone claims "free" server monitoring. Most bolt on strings. Here is the blun
 
 ## Exit1.dev: Unlimited by Default
 
-- **Scope:** HTTP, cron, SSL, domain monitoring, incident timelines.
+- **Scope:** HTTP, cron, SSL monitoring, incident timelines.
 - **Pricing:** Actually free. Unlimited monitors, one-minute intervals, no credit card.
 - **Why it matters:** Infrastructure teams ship faster when they do not babysit license limits. Pair it with the [free uptime monitor checklist](/blog/monitoring/free-uptime-monitor-checklist) and you cover both public and internal services.
 

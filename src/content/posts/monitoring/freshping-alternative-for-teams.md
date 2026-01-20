@@ -1,7 +1,7 @@
 ---
 title: "Freshping Alternative for Teams (Free)"
 author: "Exit1 Team"
-date: "2025-02-12"
+date: "2026-01-15"
 category: "monitoring"
 excerpt: "Freshping shut down. Teams still need shared alerts. Here’s the free path."
 readTime: "6 min read"

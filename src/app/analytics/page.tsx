@@ -150,7 +150,7 @@ const Analytics = () => {
     },
     {
       question: "What's the difference between your analytics and other monitoring tools?",
-      answer: "Unlike generic analytics tools, we focus specifically on infrastructure monitoring with real-time data, unlimited retention, and developer-friendly features. We don't track user behavior - we track whether your services are working and how fast they respond."
+      answer: "Unlike generic analytics tools, we focus specifically on infrastructure monitoring with real-time data, 90 days retention max, and developer-friendly features. We don't track user behavior - we track whether your services are working and how fast they respond."
     },
     {
       question: "Can I integrate analytics with other tools?",
@@ -159,7 +159,7 @@ const Analytics = () => {
   ];
 
   const technicalDetails = {
-    architecture: "Real-time analytics powered by BigQuery for unlimited data storage and fast queries. Firebase Firestore handles live updates while BigQuery processes historical analysis and complex aggregations.",
+    architecture: "Real-time analytics powered by BigQuery for unlimited data storage and fast queries. Live updates flow instantly while BigQuery processes historical analysis and complex aggregations.",
     performance: "Analytics queries return results in under 500ms even for years of data. Real-time dashboards update instantly with new monitoring data. Aggregated metrics are pre-calculated for optimal performance.",
     api: "Analytics API provides programmatic access to all metrics, trends, and reports. RESTful endpoints with HMAC authentication. Rate limits: 2000 requests/hour per API key. Full OpenAPI documentation available."
   };

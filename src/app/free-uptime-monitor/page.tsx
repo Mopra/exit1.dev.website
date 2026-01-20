@@ -16,20 +16,20 @@ import {
 export const metadata: Metadata = {
   title: 'Free Uptime Monitor - Unlimited Checks & 1-Minute Intervals | exit1.dev',
   description:
-    'exit1.dev is the blunt, free uptime monitor. Unlimited websites and APIs, 1-minute checks, instant webhook + email alerts, SSL and domain coverage. No fake free tier.',
+    'exit1.dev is the blunt, free uptime monitor. Unlimited websites and APIs, 1-minute checks, instant webhook + email alerts, SSL coverage. No fake free tier.',
   keywords:
     'free uptime monitor, unlimited uptime monitoring, 1-minute checks, uptime robot alternative, free website uptime monitoring, free api monitoring',
   openGraph: {
     title: 'Free Uptime Monitor - Unlimited Checks & 1-Minute Intervals | exit1.dev',
     description:
-      'Unlimited monitors, 1-minute intervals, webhook + email alerts, SSL, domain, and analytics. The free uptime monitor built for people who actually ship.',
+      'Unlimited monitors, 1-minute intervals, webhook + email alerts, SSL, and analytics. The free uptime monitor built for people who actually ship.',
     type: 'website',
     url: 'https://exit1.dev/free-uptime-monitor',
   },
   twitter: {
     title: 'Free Uptime Monitor - Unlimited Checks & 1-Minute Intervals | exit1.dev',
     description:
-      'Unlimited monitors, 1-minute intervals, webhook + email alerts, SSL, domain, and analytics. The free uptime monitor built for people who actually ship.',
+      'Unlimited monitors, 1-minute intervals, webhook + email alerts, SSL, and analytics. The free uptime monitor built for people who actually ship.',
     card: 'summary_large_image',
   },
   alternates: {
@@ -61,7 +61,7 @@ const FreeUptimeMonitorPage = () => {
     },
     {
       title: 'Instant data exports',
-      description: 'Unlimited history, CSV/Excel exports, and API access so you can run real audits and SLAs without premium lock-in.',
+      description: '90 days retention max, CSV/Excel exports, and API access so you can run real audits and SLAs without premium lock-in.',
       icon: <Database className="w-6 h-6 text-white" />,
     },
     {
@@ -89,7 +89,7 @@ const FreeUptimeMonitorPage = () => {
     },
     {
       feature: 'Full log retention',
-      exit1: 'Unlimited history',
+      exit1: '90 days retention max',
       competitors: '30-90 days max',
     },
     {
@@ -98,7 +98,7 @@ const FreeUptimeMonitorPage = () => {
       competitors: false,
     },
     {
-      feature: 'SSL & domain monitoring',
+      feature: 'SSL monitoring',
       exit1: true,
       competitors: 'Premium only',
     },
@@ -131,9 +131,9 @@ const FreeUptimeMonitorPage = () => {
         'No. Email and webhook alerts are included. Send payloads to Slack, Discord, PagerDuty, Opsgenie, or your own automation without hitting a paywall.',
     },
     {
-      question: 'What about SSL certificate and domain expiry checks?',
+      question: 'What about SSL certificate expiry checks?',
       answer:
-        'They are baked in. We watch SSL validity and domain expiration dates alongside uptime, so you do not lose traffic to an expired certificate or domain.',
+        'They are baked in. We watch SSL validity alongside uptime, so you do not lose traffic to an expired certificate.',
     },
     {
       question: 'Can I migrate from UptimeRobot or Pingdom easily?',
@@ -144,7 +144,7 @@ const FreeUptimeMonitorPage = () => {
 
   const technicalDetails = {
     architecture:
-      'Serverless checks running across multiple regions with redundant Firestore storage. Built on boring tech we control so uptime monitoring stays fast and predictable.',
+      'Serverless checks running across multiple regions with redundant storage. Built on boring tech we control so uptime monitoring stays fast and predictable.',
     performance:
       'Sub-200ms HTTP checks, instant webhook dispatch, and aggressive retry logic to confirm outages without spamming you.',
     api:
@@ -179,7 +179,7 @@ const FreeUptimeMonitorPage = () => {
         data={{
           name: 'Free Uptime Monitor',
           description:
-            'Unlimited free uptime monitoring for websites, APIs, SSL, and domains with 1-minute checks and instant alerts.',
+            'Unlimited free uptime monitoring for websites, APIs, and SSL with 1-minute checks and instant alerts.',
           url: 'https://exit1.dev/free-uptime-monitor',
           brand: {
             '@type': 'Brand',
@@ -218,7 +218,7 @@ const FreeUptimeMonitorPage = () => {
       <ProductPage
         title="Free Uptime Monitor"
         subtitle="Unlimited monitors. 1-minute checks. No strings."
-        description="The incumbents sell rationed uptime as a freebie. We give you the whole stack—alerts, SSL, domain monitoring, analytics—without a paywall."
+        description="The incumbents sell rationed uptime as a freebie. We give you the whole stack—alerts, SSL monitoring, analytics—without a paywall."
         features={features}
         ctaText="Start monitoring for free"
         ctaHref="https://app.exit1.dev/"

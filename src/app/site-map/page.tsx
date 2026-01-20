@@ -1,9 +1,12 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { Card, CardContent } from '@/components/ui/card';
+import { CardContent } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { InsetCard } from '@/components/InsetCard';
+import { PageHero } from '@/components/PageHero';
+import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
 
 export const metadata: Metadata = {
   title: "Sitemap | exit1.dev",
@@ -18,28 +21,24 @@ export const metadata: Metadata = {
   },
 };
 
-
-// Auto-discover pages from file system
 async function getStaticPages() {
   try {
     const appDir = path.join(process.cwd(), 'src', 'app');
     const pages: Array<{ url: string; name: string }> = [];
-    
+
     async function scanDirectory(dir: string, urlPath: string = '') {
       try {
         const entries = await fs.readdir(dir, { withFileTypes: true });
-        
+
         for (const entry of entries) {
           const fullPath = path.join(dir, entry.name);
           const url = urlPath + '/' + entry.name;
-          
+
           if (entry.isDirectory()) {
-            // Skip special Next.js directories
             if (!['api', 'globals.css', 'layout.tsx', 'loading.tsx', 'error.tsx', 'not-found.tsx'].includes(entry.name)) {
               await scanDirectory(fullPath, url);
             }
           } else if (entry.name === 'page.tsx') {
-            // Found a page
             const finalUrl = urlPath === '' ? '/' : urlPath;
             const name = getPageName(finalUrl);
             pages.push({
@@ -52,7 +51,7 @@ async function getStaticPages() {
         console.error(`Error scanning directory ${dir}:`, error);
       }
     }
-    
+
     await scanDirectory(appDir);
     return pages;
   } catch (error) {
@@ -61,15 +60,14 @@ async function getStaticPages() {
   }
 }
 
-// Get blog posts dynamically
 async function getBlogPosts() {
   try {
     const postsDir = path.join(process.cwd(), 'src', 'content', 'posts');
     console.log('Scanning posts directory:', postsDir);
-    
+
     const categories = await fs.readdir(postsDir);
     console.log('Found categories:', categories);
-    
+
     const blogPosts: Array<{ url: string; name: string }> = [];
 
     for (const category of categories) {
@@ -77,7 +75,7 @@ async function getBlogPosts() {
         const categoryDir = path.join(postsDir, category);
         const files = await fs.readdir(categoryDir);
         console.log(`Found ${files.length} files in ${category}`);
-        
+
         for (const file of files) {
           if (file.endsWith('.md')) {
             const slug = file.replace('.md', '');
@@ -90,7 +88,7 @@ async function getBlogPosts() {
         console.error(`Error scanning category ${category}:`, error);
       }
     }
-    
+
     console.log('Total blog posts found:', blogPosts.length);
     return blogPosts;
   } catch (error) {
@@ -122,8 +120,7 @@ function getPageName(url: string): string {
     const product = url.replace('/product/', '');
     return `${product.charAt(0).toUpperCase() + product.slice(1).replace('-', ' ')}`;
   }
-  
-  // Default: capitalize and replace dashes
+
   return url.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || url;
 }
 
@@ -136,15 +133,14 @@ function getBlogPostName(slug: string): string {
 
 const Sitemap = async () => {
   console.log('Starting sitemap generation...');
-  
+
   const staticPages = await getStaticPages();
   console.log('Static pages found:', staticPages.length);
-  
+
   const blogPosts = await getBlogPosts();
   console.log('Blog posts found:', blogPosts.length);
   console.log('First few blog posts:', blogPosts.slice(0, 5));
-  
-  // Create a proper tree structure
+
   const siteTree = {
     root: {
       name: "exit1.dev",
@@ -184,8 +180,8 @@ const Sitemap = async () => {
         content: {
           name: "Content",
           children: {
-            blog: { 
-              name: "Blog", 
+            blog: {
+              name: "Blog",
               url: "/blog",
               children: Object.fromEntries(
                 blogPosts.slice(0, 15).map((post, index) => [
@@ -207,7 +203,7 @@ const Sitemap = async () => {
           name: "Other Pages",
           children: Object.fromEntries(
             staticPages
-              .filter(page => 
+              .filter(page =>
                 !['/', '/blog', '/getting-started', '/privacy', '/data-privacy', '/roadmap', '/sitemap',
                   '/real-time-monitoring', '/ssl-monitoring', '/global-monitoring', '/alerting', '/analytics', '/logs', '/api-webhooks',
                   '/signup', '/signin', '/dashboard', '/install'].includes(page.url) &&
@@ -231,7 +227,6 @@ const Sitemap = async () => {
     }
   };
 
-  // Tree component for rendering the site structure
   interface TreeNodeProps {
     node: {
       name: string;
@@ -247,32 +242,31 @@ const Sitemap = async () => {
   const TreeNode = ({ node, level = 0, isLast = false, parentPrefix = "" }: TreeNodeProps) => {
     const hasChildren = node.children && Object.keys(node.children).length > 0;
     const children = hasChildren ? Object.values(node.children!) as TreeNodeProps['node'][] : [];
-    
-    // Create the tree prefix
+
     const getPrefix = () => {
       if (level === 0) return "";
       const connector = isLast ? "└── " : "├── ";
       return parentPrefix + connector;
     };
-    
+
     const getChildPrefix = () => {
       if (level === 0) return "";
       const spacer = isLast ? "    " : "│   ";
       return parentPrefix + spacer;
     };
-    
+
     return (
       <div className="font-mono text-sm">
-        <div className={`flex items-center py-1 hover:bg-muted/30 transition-colors rounded ${
-          level === 0 ? 'font-bold text-foreground text-base' : 'text-muted-foreground hover:text-foreground'
+        <div className={`flex items-center py-1 hover:bg-white/5 transition-colors rounded ${
+          level === 0 ? 'font-bold text-white text-base' : 'text-white/70 hover:text-white'
         }`}>
-          <span className="text-muted-foreground/60 mr-2">
+          <span className="text-white/40 mr-2">
             {getPrefix()}
           </span>
           {node.url ? (
             <a
               href={node.url}
-              className="hover:underline transition-colors flex-1"
+              className="hover:underline transition-colors flex-1 cursor-pointer"
               target={node.external ? "_blank" : undefined}
               rel={node.external ? "noopener noreferrer" : undefined}
             >
@@ -282,17 +276,17 @@ const Sitemap = async () => {
             <span className="flex-1">{node.name}</span>
           )}
           {node.external && (
-            <ExternalLink className="w-3 h-3 text-muted-foreground ml-2" />
+            <ExternalLink className="w-3 h-3 text-white/50 ml-2" />
           )}
         </div>
-        
+
         {hasChildren && (
           <div className="ml-0">
             {children.map((child, index: number) => (
-              <TreeNode 
-                key={index} 
-                node={child} 
-                level={level + 1} 
+              <TreeNode
+                key={index}
+                node={child}
+                level={level + 1}
                 isLast={index === children.length - 1}
                 parentPrefix={getChildPrefix()}
               />
@@ -304,26 +298,32 @@ const Sitemap = async () => {
   };
 
   return (
-    <main className="pt-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Site Structure
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Complete hierarchical overview of all pages and resources available on exit1.dev
-          </p>
-        </div>
+    <PageShell>
+      <main>
+        <PageContainer>
+          <PageHero size="lg" contentClassName="text-center">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+              Site Structure
+            </h1>
+            <p className="text-xl sm:text-2xl text-white/70 max-w-3xl mx-auto">
+              Complete hierarchical overview of all pages and resources available on exit1.dev
+            </p>
+          </PageHero>
 
-        <Card className="backdrop-blur-md bg-card/50 border-primary/20">
-          <CardContent className="p-8">
-            <div className="space-y-1">
-              <TreeNode node={siteTree.root} />
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </main>
+          <PageSection className="py-16">
+            <SectionContent size="lg">
+              <InsetCard>
+                <CardContent className="p-8">
+                  <div className="space-y-1">
+                    <TreeNode node={siteTree.root} />
+                  </div>
+                </CardContent>
+              </InsetCard>
+            </SectionContent>
+          </PageSection>
+        </PageContainer>
+      </main>
+    </PageShell>
   );
 };
 

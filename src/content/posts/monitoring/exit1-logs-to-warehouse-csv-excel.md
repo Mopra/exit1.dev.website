@@ -15,7 +15,7 @@ Monitoring data belongs in your warehouse, not in a vendor’s walled garden. ex
 
 - Complete request logs with timestamp, region, status, latency, and error details.
 - Uptime and response-time analytics for any tag or monitor group.
-- Unlimited history so you never lose data.
+- 90 days retention max so you never lose data.
 
 ## Export paths
 

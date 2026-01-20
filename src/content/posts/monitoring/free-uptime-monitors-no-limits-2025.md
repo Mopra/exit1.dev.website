@@ -31,7 +31,7 @@ These aren't really free—they're trial tiers designed to force upgrades.
 - **Unlimited websites** - Monitor 1 site or 1,000 sites
 - **Unlimited checks** - 1-minute monitoring for all sites
 - **Unlimited alerts** - Email and webhook notifications
-- **Unlimited retention** - Keep your monitoring data
+- **90 days retention max** - Keep your monitoring data
 
 ### No Payment Required
 - **No credit card** - Sign up without payment details

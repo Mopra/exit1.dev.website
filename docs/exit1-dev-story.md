@@ -17,7 +17,7 @@ Let's be honest about what most monitoring services actually do:
 
 That's it. That's the entire value proposition of services charging $20-100/month per user.
 
-The "premium" features? SSL certificate monitoring, domain expiry tracking, custom headers, response validation - these are all trivial to implement. The real cost isn't in the features, it's in the infrastructure to run checks at scale.
+The "premium" features? SSL certificate monitoring, custom headers, response validation - these are all trivial to implement. The real cost isn't in the features, it's in the infrastructure to run checks at scale.
 
 But here's the thing: **modern cloud infrastructure makes this incredibly cheap to run at scale.**
 
@@ -142,23 +142,6 @@ const checkSSLCertificate = async (hostname: string, port: number = 443) => {
 };
 ```
 
-### Domain Expiry Tracking
-```typescript
-// Uses RDAP (free, modern WHOIS replacement)
-const checkDomainExpiry = async (domain: string) => {
-  const rdapUrl = `https://rdap.verisign.com/domain/${domain}`;
-  const response = await fetch(rdapUrl);
-  const data = await response.json();
-  
-  const expiryDate = data.events?.find(e => e.eventAction === 'expiration')?.eventDate;
-  return {
-    valid: true,
-    registrar: data.entities?.[0]?.vcardArray?.[1]?.[1]?.[3],
-    expiryDate: new Date(expiryDate).getTime(),
-    daysUntilExpiry: Math.ceil((new Date(expiryDate) - Date.now()) / (1000 * 60 * 60 * 24))
-  };
-};
-```
 
 ### Advanced API Monitoring
 ```typescript
@@ -320,7 +303,6 @@ if (failureCount > 5) {
 
 ### Professional Monitoring Features
 - **SSL certificate monitoring** - Automatic for all HTTPS URLs
-- **Domain expiry tracking** - Real registrar data via RDAP
 - **Advanced API monitoring** - Custom methods, headers, body validation
 - **Comprehensive alerting** - Email + webhooks with HMAC signatures
 - **Detailed analytics** - BigQuery-powered reports and insights

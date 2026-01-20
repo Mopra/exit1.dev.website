@@ -1,27 +1,43 @@
 import { getAllPosts } from '@/lib/markdownLoader';
 import blogData from '@/content/blog.json';
 import { BlogClient } from '@/components/BlogClient';
+import { PageHero } from '@/components/PageHero';
+import { PageContainer, PageShell } from '@/components/PageLayout';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: `${blogData.title} | exit1.dev`,
+  description: blogData.subtitle,
+  openGraph: {
+    title: blogData.title,
+    description: blogData.subtitle,
+    url: 'https://exit1.dev/blog',
+  },
+  alternates: {
+    canonical: 'https://exit1.dev/blog',
+  },
+};
 
 export default function BlogPage() {
   const posts = getAllPosts();
   const categories = ['All', ...blogData.categories.map(cat => cat.name)];
 
   return (
-    <div className="relative pt-24 sm:pt-28" role="main" aria-label="Blog">
-      <section className="py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-4 sm:mb-6 leading-tight tracking-tight">
+    <PageShell>
+      <main role="main" aria-label="Blog">
+        <PageContainer>
+          <PageHero className="pb-12" contentClassName="text-center">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
               {blogData.title}
             </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed px-2 sm:px-4">
+            <p className="text-xl sm:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed">
               {blogData.subtitle}
             </p>
-          </div>
-        </div>
-      </section>
+          </PageHero>
 
-      <BlogClient posts={posts} categories={categories} />
-    </div>
+          <BlogClient posts={posts} categories={categories} currentPage={1} />
+        </PageContainer>
+      </main>
+    </PageShell>
   );
 }

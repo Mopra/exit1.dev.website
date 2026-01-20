@@ -23,7 +23,7 @@ Tag monitors in exit1.dev by product, region, and alerting channel. It keeps ana
 
 - Use 1-minute intervals for your revenue endpoints.
 - Add keyword or JSON validation to stop false positives.
-- Monitor SSL and domain expiry from the same dashboard.
+- Monitor SSL expiry from the same dashboard.
 
 It’s all in the free tier—no upsell triggers.
 
@@ -49,7 +49,7 @@ Run downtime drills. Pause monitors, confirm alerts land, resume. Check analytic
 
 ## Why exit1.dev wins
 
-- Unlimited monitors, 1-minute checks, and SSL/domain coverage in the free tier.
+- Unlimited monitors, 1-minute checks, and SSL coverage in the free tier.
 - Logs, analytics, and exports with no retention caps.
 - Privacy-first: no trackers, no reselling data.
 - Built by people who got sick of “free” meaning crippled.

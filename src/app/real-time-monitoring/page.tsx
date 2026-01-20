@@ -15,8 +15,8 @@ import {
 
 export const metadata: Metadata = {
   title: "Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev",
-  description: "Real-time website monitoring with 1-minute checks, unlimited sites, and instant alerts. Free uptime monitoring for developers. Monitor websites, APIs, SSL certificates, and domain expiry. Start monitoring for free.",
-  keywords: "real-time monitoring, uptime monitor, website monitoring, free monitoring, API monitoring, SSL monitoring, domain monitoring, instant alerts",
+  description: "Real-time website monitoring with 1-minute checks, unlimited sites, and instant alerts. Free uptime monitoring for developers. Monitor websites, APIs, and SSL certificates. Start monitoring for free.",
+  keywords: "real-time monitoring, uptime monitor, website monitoring, free monitoring, API monitoring, SSL monitoring, instant alerts",
   openGraph: {
     title: "Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev",
     description: "Real-time website monitoring with 1-minute checks, unlimited sites, and instant alerts. Free uptime monitoring for developers.",
@@ -94,9 +94,6 @@ const RealTimeMonitoring = () => {
       competitors: "Paid only"
     },
     {
-      feature: "Domain expiry monitoring",
-      exit1: true,
-      competitors: false
     },
     {
       feature: "Webhook alerts",
@@ -156,7 +153,7 @@ const RealTimeMonitoring = () => {
   ];
 
   const technicalDetails = {
-    architecture: "Built on Firebase with real-time Firestore updates. Global monitoring nodes ensure low-latency checks from multiple locations. Serverless architecture scales automatically with your monitoring needs.",
+    architecture: "Built on serverless infrastructure with real-time updates. Global monitoring nodes ensure low-latency checks from multiple locations. Serverless architecture scales automatically with your monitoring needs.",
     performance: "Average response time under 200ms for HTTP checks. SSL validation completes in under 100ms. Our system handles thousands of concurrent checks with intelligent rate limiting and circuit breakers.",
     api: "RESTful API with HMAC authentication. Get real-time status, historical data, and manage monitors programmatically. Full OpenAPI documentation available. Rate limits: 1000 requests/hour per API key."
   };

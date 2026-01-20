@@ -86,12 +86,12 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
         <Button
           variant="outline"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full justify-between items-center bg-background/90 backdrop-blur-md border-primary/20 shadow-sm hover:bg-background/95 transition-all duration-200 interactive"
+          className="w-full justify-between items-center bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-200 interactive"
         >
           <div className="flex items-center gap-2">
             <List className="h-4 w-4" />
             <span className="font-medium text-sm">Table of Contents</span>
-            <span className="text-xs text-muted-foreground bg-muted/50 px-2 py-0.5 rounded-full backdrop-blur-sm">
+            <span className="text-xs text-white/60 bg-white/10 border border-white/10 px-2 py-0.5 rounded-full">
               {headings.length}
             </span>
           </div>
@@ -103,15 +103,15 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
         </Button>
         
         {isExpanded && (
-          <div className="absolute top-full left-0 right-0 mt-2 bg-background/95 backdrop-blur-xl border border-primary/20 rounded-xl shadow-xl overflow-hidden z-50 max-h-[60vh] overflow-y-auto">
+          <div className="absolute top-full left-0 right-0 mt-2 bg-black border border-white/20 rounded-xl overflow-hidden z-50 max-h-[60vh] overflow-y-auto">
             <div className="p-4">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-foreground text-sm">Jump to section</h3>
+                <h3 className="font-semibold text-white text-sm">Jump to section</h3>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => setIsExpanded(false)}
-                  className="h-6 w-6 p-0 hover:bg-primary/10 interactive"
+                  className="h-6 w-6 p-0 hover:bg-white/10 interactive"
                 >
                   <X className="h-3 w-3" />
                 </Button>
@@ -126,10 +126,10 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
                             scrollToHeading(group.h2.id);
                             setIsExpanded(false);
                           }}
-                          className={`flex-1 text-left px-3 py-2.5 rounded-lg text-sm transition-all duration-200 hover:bg-primary/10 cursor-pointer interactive ${
+                          className={`flex-1 text-left px-3 py-2.5 rounded-lg text-sm transition-all duration-200 hover:bg-white/5 cursor-pointer interactive ${
                             activeId === group.h2.id
-                              ? 'text-primary bg-primary/15 font-medium'
-                              : 'text-muted-foreground hover:text-foreground'
+                              ? 'text-white bg-white/10 font-medium'
+                              : 'text-white/60 hover:text-white'
                           }`}
                         >
                           <span>{group.h2.text}</span>
@@ -137,7 +137,7 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
                         {group.h3s.length > 0 && (
                           <button
                             onClick={() => toggleSection(group.h2.id)}
-                            className="p-1 hover:bg-primary/10 rounded transition-all duration-200 ml-1"
+                            className="p-1 hover:bg-white/5 rounded transition-all duration-200 ml-1"
                           >
                             {expandedSections.has(group.h2.id) ? (
                               <ChevronDown className="h-3 w-3" />
@@ -156,10 +156,10 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
                                   scrollToHeading(h3.id);
                                   setIsExpanded(false);
                                 }}
-                                className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200 hover:bg-primary/10 cursor-pointer interactive ${
+                                className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200 hover:bg-white/5 cursor-pointer interactive ${
                                   activeId === h3.id
-                                    ? 'text-primary bg-primary/15 font-medium'
-                                    : 'text-muted-foreground hover:text-foreground'
+                                    ? 'text-white bg-white/10 font-medium'
+                                    : 'text-white/60 hover:text-white'
                                 }`}
                               >
                                 {h3.text}

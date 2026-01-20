@@ -99,7 +99,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 mb-3 sm:mb-5 max-w-3xl mx-auto font-medium leading-relaxed px-2 sm:px-4 drop-shadow-md">
-            Check every site, storefront, and API every minute. Exit1.dev is the free uptime monitor and free website monitor that actually runs hot: unlimited checks, instant alerts, SSL and domain coverage, no bait-and-switch.
+            Check every site, storefront, and API every minute. Exit1.dev is the free uptime monitor and free website monitor that actually runs hot: unlimited checks, instant alerts, SSL coverage, no bait-and-switch.
           </p>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/70 mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-4">
             Need proof? Hit the <a href="/free-uptime-monitor" className="underline decoration-dotted underline-offset-4 hover:text-white/90 transition-colors">Free Uptime Monitor</a> or <a href="/free-website-monitor" className="underline decoration-dotted underline-offset-4 hover:text-white/90 transition-colors">Free Website Monitor</a> breakdowns and see why we run circles around the “free” teasers from the usual suspects.

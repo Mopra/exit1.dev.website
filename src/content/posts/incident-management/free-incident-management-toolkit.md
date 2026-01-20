@@ -17,7 +17,7 @@ Start with the obvious: exit1.dev monitors everywhere that matters. Configure:
 
 - **HTTP checks** for every public-facing endpoint.
 - **Cron monitors** for data pipelines and background jobs (pair with the [cron job monitoring guide](/blog/cron-job-worker-monitoring-http-hooks)).
-- **SSL and domain monitors** to avoid self-inflicted downtime.
+- **SSL monitors** to avoid self-inflicted downtime.
 
 Route alerts into Slack and email. Use the webhook integration to trigger automation platforms like n8n or Zapier to open tickets the second an incident begins.
 

@@ -49,13 +49,13 @@ Use the exit1.dev API to fetch uptime summaries and logs. Combine it with your b
 
 ## Extra polish clients love
 
-- Include SSL and domain expiry dates so clients know you’re watching the boring stuff.
+- Include SSL expiry dates so clients know you’re watching the boring stuff.
 - Show regional breakdowns if they have global traffic.
 - Highlight response-time improvements after each release.
 
 ## Stop renting visibility
 
-Competitors sell “SLA dashboards” as add-ons. You don’t need them. exit1.dev gives you unlimited history and exports. Spend that money on engineering instead.
+Competitors sell “SLA dashboards” as add-ons. You don’t need them. exit1.dev gives you 90 days retention max and exports. Spend that money on engineering instead.
 
 ## FAQs
 

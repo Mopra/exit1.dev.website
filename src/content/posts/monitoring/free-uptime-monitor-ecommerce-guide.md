@@ -16,7 +16,7 @@ E-commerce downtime isn’t abstract—it’s money leaking by the minute. Yet p
 
 Your hero image can load while checkout is dead. Create separate probes for the product page, cart, and payment initiation flow. Use the **Free Website Monitor** with a cart URL and assert for a cart token or subtotal string so you know the session is alive. Add another probe that loads a low-friction product and steps through to the payment handoff; if the gateway is down, you’ll see the failure before customers bounce.
 
-Pair that with an **SSL monitor** so certificates never expire on Black Friday. Keep DNS monitored too—CNAME changes to CDNs and headless front ends break stores more often than a bad deploy. The [free SSL checklist](/blog/free-ssl-certificate-monitoring) and [free domain monitoring](/blog/free-domain-monitoring-slack-alerts) posts are your friends here.
+Pair that with an **SSL monitor** so certificates never expire on Black Friday. Keep DNS changes tracked—CNAME changes to CDNs and headless front ends break stores more often than a bad deploy. The [free SSL checklist](/blog/free-ssl-certificate-monitoring) is your friend here.
 
 ## Shopify guardrails
 

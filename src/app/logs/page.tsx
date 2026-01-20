@@ -159,7 +159,7 @@ const Logs = () => {
   ];
 
   const technicalDetails = {
-    architecture: "Logs are stored in BigQuery for unlimited retention and fast querying. Real-time updates flow through Firebase Firestore for instant UI updates. Search and filtering use optimized BigQuery queries for sub-second response times.",
+    architecture: "Logs are stored in BigQuery for 90 days retention max and fast querying. Real-time updates flow instantly for immediate UI updates. Search and filtering use optimized BigQuery queries for sub-second response times.",
     performance: "Log queries return results in under 1 second even for years of data. Real-time streaming updates have sub-100ms latency. Export operations handle millions of log entries efficiently with progress indicators.",
     api: "Logs API provides programmatic access to all historical data with powerful filtering. RESTful endpoints with HMAC authentication. Rate limits: 1000 requests/hour per API key. Supports pagination for large datasets."
   };

@@ -5,7 +5,6 @@
 - **Website monitoring**: HEAD by default; tracks availability, HTTP status, and latency.
 - **API monitoring**: Monitor REST endpoints with custom method, headers, JSON body, and expected status codes.
 - **SSL certificate checks**: Validity, issuer/subject, valid from/to, days until expiry; inline tooltip in the UI.
-- **Domain expiry monitoring**: Tracks domain registration expiry dates with warnings.
 - **Check frequency**: Presets 60s, 5m, 1h, 24h; configurable per check.
 - **Manual check (run now)**: Trigger an immediate check on demand.
 - **Reordering**: Drag‑and‑drop checks; persisted ordering.
@@ -27,7 +26,6 @@
 - **Incidents**: Count of offline transitions; incident intervals tracked.
 - **Total downtime**: Sum of offline durations in the window.
 - **MTBI**: Mean Time Between Incidents (single or multi‑site).
-- **ORS (reliability score)**: 0–10 score blending uptime, incidents, recovery, adjusted by check rate.
 - **Trends chart**: Incidents, downtime (min), and uptime% over time.
 - **Response time analytics**: Average, min, max response times with charts.
 

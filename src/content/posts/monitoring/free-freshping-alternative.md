@@ -1,7 +1,7 @@
 ---
 title: "Free Freshping Alternative: Keep 1-Min Checks"
 author: "Exit1 Team"
-date: "2025-02-12"
+date: "2026-01-15"
 category: "monitoring"
 excerpt: "Freshping shutting down? Here’s a free alternative with unlimited monitors."
 readTime: "6 min read"
