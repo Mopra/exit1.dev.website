@@ -5,26 +5,28 @@ import { Button } from "@/components/ui/button";
 
 export function PageBackground() {
   return (
-    <>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30"
-        style={{
-          maskImage:
-            "radial-gradient(ellipse 80% 60% at 50% top, rgba(0,0,0,1), rgba(0,0,0,1) 35%, transparent 60%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 80% 60% at 50% top, rgba(0,0,0,1), rgba(0,0,0,1) 35%, transparent 60%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_top,rgba(99,179,255,0.12),rgba(99,179,255,0.04)_35%,transparent_60%)]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_top,rgba(147,197,253,0.08),transparent_45%)] blur-3xl"
-      />
-    </>
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div className="relative mx-auto h-full w-full max-w-6xl px-4 sm:px-0">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30"
+          style={{
+            maskImage:
+              "radial-gradient(ellipse 80% 60% at 50% top, rgba(0,0,0,1), rgba(0,0,0,1) 35%, transparent 60%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 80% 60% at 50% top, rgba(0,0,0,1), rgba(0,0,0,1) 35%, transparent 60%)",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_top,rgba(99,179,255,0.12),rgba(99,179,255,0.04)_35%,transparent_60%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_top,rgba(147,197,253,0.08),transparent_45%)] blur-3xl"
+        />
+      </div>
+    </div>
   );
 }
 
