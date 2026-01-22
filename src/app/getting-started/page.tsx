@@ -1,26 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  ArrowRight,
-  Clock,
-  Globe,
-  Shield,
-  Bell,
-  Zap,
-  Users,
-  AlertCircle,
-  Settings,
-  Smartphone,
-  Code,
-  BarChart3,
-  Mail,
-  Webhook,
-} from "lucide-react";
-import Link from "next/link";
-import { FeatureGridItem } from "@/components/FeatureGridItem";
+import { Button } from "@/components/ui/button";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
+import { ArrowRight, Clock, Mail, Smartphone, Webhook } from "lucide-react";
+import Link from "next/link";
 
 export default function GettingStartedPage() {
   return (
@@ -29,20 +13,24 @@ export default function GettingStartedPage() {
         <PageContainer>
           <PageSection className="pt-24 sm:pt-28 pb-16">
             <SectionContent size="lg" className="text-center py-12 sm:py-16 lg:py-20">
-              <Badge variant="secondary" className="mb-4 sm:mb-6 text-sm font-medium bg-white/10 text-white border border-white/10">
+              <Badge
+                variant="secondary"
+                className="mb-4 sm:mb-6 text-sm font-medium bg-white/10 text-white border border-white/10"
+              >
                 <Clock className="w-3 h-3 mr-1" />
-                Setup Guide
+                Getting started
               </Badge>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
-                Get Your Website Monitored
+                Get your first checks live fast
               </h1>
 
               <p className="text-xl text-white/70 mb-8 max-w-3xl mx-auto px-4 leading-relaxed">
-                Stop wondering if your site is down. Set up monitoring in 5 minutes. No bullshit, just working monitoring.
+                This page is a simple guide to get your first monitoring checks live, configure alerts,
+                and understand the core settings.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
                   size="lg"
@@ -59,321 +47,269 @@ export default function GettingStartedPage() {
                   size="lg"
                   className="rounded-full px-8 py-6 text-lg font-semibold border-white/20 hover:bg-white/5 cursor-pointer"
                 >
-                  <Link href="#setup-steps">
-                    View Setup Steps
-                  </Link>
+                  <Link href="#quick-start">Quick start</Link>
                 </Button>
               </div>
-
-              <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-                <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-4 py-2">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium">Online</span>
-                </div>
-                <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-2">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium">Down</span>
-                </div>
-                <div className="flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-lg px-4 py-2">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium">Error</span>
-                </div>
-              </div>
             </SectionContent>
           </PageSection>
 
-          <PageSection id="setup-steps" className="py-8 scroll-mt-20">
-            <SectionContent size="xl">
-              <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-4xl sm:text-5xl font-semibold mb-3 tracking-tight">
-                  Three steps
-                </h2>
-                <p className="text-lg text-white/60">
-                  No complex setup. No confusing options. Just monitoring that works.
-                </p>
-              </div>
-            </SectionContent>
-          </PageSection>
-
-          <PageSection className="py-20 sm:py-24">
-            <SectionContent size="xl">
+          <PageSection id="quick-start" className="py-8 scroll-mt-20">
+            <SectionContent size="lg">
               <div className="max-w-4xl mx-auto">
-                <div className="space-y-12 sm:space-y-16">
-                  {/* Step 1 */}
-                  <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
-                    <div className="flex-shrink-0">
-                      <div className="text-6xl sm:text-7xl font-semibold text-white/10 leading-none">
-                        01
-                      </div>
-                    </div>
-                    <div className="flex-1 space-y-6">
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-semibold mb-2 tracking-tight">
-                          Create account
-                        </h3>
-                        <p className="text-white/60 text-lg">
-                          Sign up for your free account at app.exit1.dev
-                        </p>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="flex items-start gap-3">
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                          <span className="text-white/70">Use email or SSO (Google, GitHub, Discord)</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                          <span className="text-white/70">Verify your email address</span>
-                        </div>
-                      </div>
-                      <Button
-                        className="rounded-full bg-white text-black hover:bg-white/90 cursor-pointer w-full sm:w-auto"
-                        asChild
-                      >
-                        <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
-                          Go to app
-                          <ArrowRight className="ml-2 w-4 h-4" />
-                        </a>
-                      </Button>
-                    </div>
+                <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Quick start (5 minutes)</h2>
+                <ol className="mt-6 space-y-4 text-white/70 text-lg list-decimal pl-6">
+                  <li>
+                    <span className="text-white font-semibold">Create your first check:</span> Add a URL or host:port to
+                    monitor.
+                  </li>
+                  <li>
+                    <span className="text-white font-semibold">Pick the right interval:</span> Use longer intervals unless
+                    the service is truly critical.
+                  </li>
+                  <li>
+                    <span className="text-white font-semibold">Enable alerts:</span> Turn on Email, SMS, or Webhooks (or
+                    all three).
+                  </li>
+                  <li>
+                    <span className="text-white font-semibold">Verify delivery:</span> Send a test Email/SMS or test a
+                    webhook.
+                  </li>
+                  <li>
+                    <span className="text-white font-semibold">Watch Logs:</span> Confirm your first events and understand
+                    how logs are stored.
+                  </li>
+                </ol>
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          <PageSection id="create-check" className="py-12">
+            <SectionContent size="lg">
+              <div className="max-w-4xl mx-auto space-y-10">
+                <div className="space-y-3">
+                  <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Create your first check</h2>
+                  <p className="text-lg text-white/60">Go to Checks &gt; Add Check and fill in:</p>
+                </div>
+
+                <div className="space-y-6 text-white/70">
+                  <div className="space-y-2">
+                    <div className="text-white font-semibold">URL / Host:Port</div>
+                    <ul className="space-y-2 list-disc pl-6">
+                      <li>For HTTP/HTTPS: enter a domain or full URL.</li>
+                      <li>For TCP/UDP: enter host:port (example: db.example.com:5432).</li>
+                    </ul>
                   </div>
 
-                  {/* Divider */}
-                  <div className="h-px bg-white/10" />
-
-                  {/* Step 2 */}
-                  <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
-                    <div className="flex-shrink-0">
-                      <div className="text-6xl sm:text-7xl font-semibold text-white/10 leading-none">
-                        02
-                      </div>
-                    </div>
-                    <div className="flex-1 space-y-6">
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-semibold mb-2 tracking-tight">
-                          Add your website
-                        </h3>
-                        <p className="text-white/60 text-lg">
-                          Set up your first monitoring check
-                        </p>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="flex items-start gap-3">
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                          <span className="text-white/70">Click &quot;Add Check&quot; and enter your website URL</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                          <span className="text-white/70">Choose check frequency (1 min, 5 min, 1 hour, 24 hours)</span>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="space-y-2">
+                    <div className="text-white font-semibold">Display name</div>
+                    <p>Friendly label for dashboards and alerts.</p>
                   </div>
 
-                  {/* Divider */}
-                  <div className="h-px bg-white/10" />
+                  <div className="space-y-2">
+                    <div className="text-white font-semibold">Check type</div>
+                    <ul className="space-y-2 list-disc pl-6">
+                      <li>Website or REST endpoint for HTTP/HTTPS.</li>
+                      <li>TCP / UDP to verify a port is reachable.</li>
+                    </ul>
+                  </div>
 
-                  {/* Step 3 */}
-                  <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
-                    <div className="flex-shrink-0">
-                      <div className="text-6xl sm:text-7xl font-semibold text-white/10 leading-none">
-                        03
-                      </div>
-                    </div>
-                    <div className="flex-1 space-y-6">
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-semibold mb-2 tracking-tight">
-                          Monitor & alert
-                        </h3>
-                        <p className="text-white/60 text-lg">
-                          Configure notifications and watch your site
-                        </p>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="flex items-start gap-3">
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                          <span className="text-white/70">Set up email alerts for downtime</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                          <span className="text-white/70">Configure webhooks for Slack, Discord, or Teams (optional)</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                          <span className="text-white/70">SSL monitoring and uptime tracking included</span>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="space-y-2">
+                    <div className="text-white font-semibold">Check frequency</div>
+                    <p>Choose how often we probe the target.</p>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-white mb-3">Recommended defaults</h3>
+                  <ul className="space-y-2 text-white/70 list-disc pl-6">
+                    <li>Frequency: 5-15 minutes for most sites; 1-2 minutes only for critical paths.</li>
+                    <li>Immediate re-check: Keep enabled for fewer false alarms.</li>
+                    <li>Down confirmation attempts: Default is 4 consecutive failures.</li>
+                  </ul>
+                </div>
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          <PageSection id="important-settings" className="py-12">
+            <SectionContent size="lg">
+              <div className="max-w-5xl mx-auto space-y-10">
+                <div className="space-y-3">
+                  <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Important settings explained</h2>
+                  <p className="text-lg text-white/60">Use these settings to tune accuracy vs. noise.</p>
+                </div>
+
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">Check frequency</h3>
+                    <p className="text-white/70">Pick from 1, 2, 5, 10, 15, 30, 60 minutes, or 24 hours.</p>
+                    <ul className="space-y-2 text-white/70 list-disc pl-6">
+                      <li>Short intervals detect incidents faster but can increase noise.</li>
+                      <li>Longer intervals smooth out brief DNS or network hiccups.</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">Immediate re-check (recommended)</h3>
+                    <p className="text-white/70">
+                      When enabled, Exit1 re-checks a failed endpoint after 30 seconds to confirm it is a real outage
+                      before alerting.
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">Down confirmation attempts</h3>
+                    <p className="text-white/70">
+                      How many consecutive failed checks are required before marking a target as down.
+                    </p>
+                    <ul className="space-y-2 text-white/70 list-disc pl-6">
+                      <li>Default: 4</li>
+                      <li>Range: 1-99</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">HTTP method</h3>
+                    <p className="text-white/70">For HTTP/HTTPS checks you can choose GET, POST, PUT, PATCH, DELETE, or HEAD.</p>
+                    <p className="text-white/70">GET is recommended for uptime checks (some hosts block HEAD).</p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">Request headers</h3>
+                    <p className="text-white/70">Add custom headers (one per line). Example:</p>
+                    <pre className="text-xs sm:text-sm font-mono text-white/70 bg-black/40 border border-white/10 rounded-md p-3">
+{`Authorization: Bearer YOUR_TOKEN
+Accept: application/json`}
+                    </pre>
+                    <p className="text-white/70">Default User-Agent is Exit1-Website-Monitor/1.0.</p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">Request body</h3>
+                    <p className="text-white/70">For POST/PUT/PATCH, provide a JSON body (or any plain text) that your endpoint expects.</p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">Response validation</h3>
+                    <p className="text-white/70">Provide comma-separated keywords (for example: success,online,healthy).</p>
+                    <p className="text-white/70">If none are found in the response body, the check is treated as failed.</p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">Force no-cache</h3>
+                    <p className="text-white/70">Adds Cache-Control: no-cache to the request. Use this if your site is heavily cached.</p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">Status handling</h3>
+                    <p className="text-white/70">
+                      For HTTP checks, 2xx and 3xx are treated as Up, and 401/403 also count as Up for protected endpoints.
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">TCP/UDP checks</h3>
+                    <p className="text-white/70">
+                      TCP/UDP checks only verify that a port is reachable. No HTTP headers, bodies, or SSL rules apply.
+                    </p>
                   </div>
                 </div>
               </div>
             </SectionContent>
           </PageSection>
 
-          <PageSection className="py-8">
-            <SectionContent size="xl">
-              <div className="text-center">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                  What You Get (Besides Peace of Mind)
-                </h2>
-                <p className="text-lg text-white/70">
-                  Real monitoring. Real alerts. Real results.
-                </p>
-              </div>
-            </SectionContent>
-          </PageSection>
+          <PageSection id="alerts" className="py-12">
+            <SectionContent size="lg">
+              <div className="max-w-5xl mx-auto space-y-12">
+                <div className="text-center space-y-3">
+                  <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Alerts basics</h2>
+                  <p className="text-lg text-white/60">
+                    Exit1 supports Email, SMS, and Webhook notifications. All channels can be configured globally and per-check.
+                  </p>
+                </div>
 
-          <PageSection className="!px-0 pt-0">
-            <SectionContent size="xl">
-              <div className="md:grid md:grid-cols-3 md:grid-rows-2">
-                <FeatureGridItem
-                  href="/real-time-monitoring"
-                  title="Real-Time Monitoring"
-                  description="Check your website every minute with instant status updates and response time tracking."
-                  icon={<Zap className="w-6 h-6 text-white" />}
-                />
-                <FeatureGridItem
-                  href="/ssl-monitoring"
-                  title="SSL Certificate Monitoring"
-                  description="Automatic tracking of SSL certificate expiry dates with alerts before expiration."
-                  icon={<Shield className="w-6 h-6 text-white" />}
-                />
-                <FeatureGridItem
-                  href="/global-monitoring"
-                  title="Global Monitoring"
-                  description="Monitor from multiple locations worldwide to ensure global availability."
-                  icon={<Globe className="w-6 h-6 text-white" />}
-                />
-                <FeatureGridItem
-                  href="/alerting"
-                  title="Smart Notifications"
-                  description="Email alerts, webhooks, and Discord integration for instant issue notifications."
-                  icon={<Bell className="w-6 h-6 text-white" />}
-                />
-                <FeatureGridItem
-                  href="/analytics"
-                  title="Performance Analytics"
-                  description="Track uptime percentages, response times, and reliability scores over time."
-                  icon={<BarChart3 className="w-6 h-6 text-white" />}
-                />
-                <FeatureGridItem
-                  href="/api-webhooks"
-                  title="API Access"
-                  description="Full REST API with webhook support for integration with your existing tools."
-                  icon={<Code className="w-6 h-6 text-white" />}
-                />
-              </div>
-            </SectionContent>
-          </PageSection>
-
-          <PageSection className="py-8">
-            <SectionContent size="xl">
-              <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-4xl sm:text-5xl font-semibold mb-3 tracking-tight">
-                  Set up alerts
-                </h2>
-                <p className="text-lg text-white/60">
-                  Monitoring without alerts is like having a smoke detector without batteries.
-                </p>
-              </div>
-            </SectionContent>
-          </PageSection>
-
-          <PageSection className="py-20 sm:py-24">
-            <SectionContent size="xl">
-              <div className="max-w-4xl mx-auto">
-                <div className="space-y-16 sm:space-y-20">
-                  {/* Email Alerts */}
-                  <div className="space-y-8">
-                    <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <Mail className="w-5 h-5 text-white/60" />
-                        <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                          Email alerts
-                        </h3>
-                      </div>
-                      <p className="text-white/60 text-lg mb-6">
-                        Get instant notifications when your site goes down or SSL certificates expire.
-                      </p>
+                <div className="space-y-10">
+                  <div className="bg-black/40 border border-white/10 rounded-lg p-6 space-y-6">
+                    <div className="flex items-center gap-3">
+                      <Mail className="w-5 h-5 text-white/60" />
+                      <h3 className="text-2xl font-semibold">Email alerts</h3>
                     </div>
-
                     <div className="space-y-4">
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                        <span className="text-white/70">Navigate to &quot;Emails&quot; in the sidebar</span>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                        <span className="text-white/70">Add your email address</span>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                        <span className="text-white/70">Select alert types (Website Down, SSL Issues)</span>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                        <span className="text-white/70">Send a test email to verify setup</span>
-                      </div>
+                      <div className="text-white font-semibold">Setup</div>
+                      <ol className="space-y-2 text-white/70 list-decimal pl-6">
+                        <li>Go to Emails.</li>
+                        <li>Add your email address.</li>
+                        <li>Choose alert types: Down, Up, SSL Error, SSL Warning.</li>
+                        <li>Optionally customize per-check alerts.</li>
+                        <li>Send a Test Email to confirm delivery.</li>
+                      </ol>
                     </div>
-
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-5 mt-8">
-                      <div className="text-sm text-white/50 mb-3 font-medium">Email example</div>
-                      <div className="space-y-2 text-sm font-mono text-white/70">
-                        <div className="text-red-400 font-semibold">⚠ Website Down Alert</div>
-                        <div>Site: example.com</div>
-                        <div>Status: Offline</div>
-                        <div>Last Check: 2 minutes ago</div>
-                        <div>Response Time: Timeout</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="h-px bg-white/10" />
-
-                  {/* Webhooks */}
-                  <div className="space-y-8">
-                    <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <Webhook className="w-5 h-5 text-white/60" />
-                        <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                          Webhooks
-                        </h3>
-                      </div>
-                      <p className="text-white/60 text-lg mb-6">
-                        Integrate with Slack, Discord, Teams, or custom endpoints for real-time notifications.
-                      </p>
-                    </div>
-
                     <div className="space-y-4">
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                        <span className="text-white/70">Go to &quot;Webhooks&quot; in the sidebar</span>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                        <span className="text-white/70">Create webhook with your endpoint URL</span>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                        <span className="text-white/70">Choose which events to send</span>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                        <span className="text-white/70">Test with sample payload</span>
-                      </div>
+                      <div className="text-white font-semibold">How email alerts behave</div>
+                      <ul className="space-y-2 text-white/70 list-disc pl-6">
+                        <li>Alerts send only when a check flips states.</li>
+                        <li>Down/Up alerts can resend roughly a minute after the last one.</li>
+                        <li>You get a shared budget of up to 10 alert emails per hour.</li>
+                        <li>Flap suppression waits for the number of consecutive results you choose (1-5).</li>
+                        <li>SSL and domain reminders use longer windows and count toward the budget.</li>
+                      </ul>
                     </div>
+                  </div>
 
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-5 mt-8">
-                      <div className="text-sm text-white/50 mb-3 font-medium">Webhook payload</div>
-                      <pre className="text-xs font-mono text-white/70 overflow-x-auto">
-{`{
-  "event": "website.down",
-  "site": "example.com",
-  "status": "offline",
-  "timestamp": "2024-01-15T10:30:00Z",
-  "response_time": null
-}`}
-                      </pre>
+                  <div className="bg-black/40 border border-white/10 rounded-lg p-6 space-y-6">
+                    <div className="flex items-center gap-3">
+                      <Smartphone className="w-5 h-5 text-white/60" />
+                      <h3 className="text-2xl font-semibold">SMS alerts</h3>
+                    </div>
+                    <p className="text-white/70">Availability: SMS alerts are available on the Nano plan or for administrators.</p>
+                    <div className="space-y-4">
+                      <div className="text-white font-semibold">Setup</div>
+                      <ol className="space-y-2 text-white/70 list-decimal pl-6">
+                        <li>Go to SMS.</li>
+                        <li>Add a phone number.</li>
+                        <li>Choose alert types (Down, Up, SSL Error, SSL Warning).</li>
+                        <li>Optionally customize per-check alerts.</li>
+                        <li>Send a Test SMS.</li>
+                      </ol>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="text-white font-semibold">How SMS alerts behave</div>
+                      <ul className="space-y-2 text-white/70 list-disc pl-6">
+                        <li>Texts send only when a check flips states.</li>
+                        <li>Down/Up alerts can resend roughly a minute after the last one.</li>
+                        <li>SMS uses a separate hourly budget to avoid spam.</li>
+                        <li>Flap suppression waits for the number of consecutive results you choose (1-5).</li>
+                        <li>SSL and domain reminders use longer windows and count toward the budget.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-black/40 border border-white/10 rounded-lg p-6 space-y-6">
+                    <div className="flex items-center gap-3">
+                      <Webhook className="w-5 h-5 text-white/60" />
+                      <h3 className="text-2xl font-semibold">Webhook alerts</h3>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="text-white font-semibold">Setup</div>
+                      <ol className="space-y-2 text-white/70 list-decimal pl-6">
+                        <li>Go to Webhooks and click New Webhook.</li>
+                        <li>Provide an HTTPS URL for your endpoint.</li>
+                        <li>Select events (Down, Up, SSL Error, SSL Warning).</li>
+                        <li>Choose All checks or Include specific checks only.</li>
+                        <li>Optional: add a secret and custom headers (JSON).</li>
+                        <li>Choose a webhook type: Slack, Discord, or Generic.</li>
+                        <li>Save and Test Webhook.</li>
+                      </ol>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="text-white font-semibold">Notes</div>
+                      <ul className="space-y-2 text-white/70 list-disc pl-6">
+                        <li>Use a secret to help your receiver validate requests.</li>
+                        <li>
+                          Custom headers must be valid JSON (for example:{" "}
+                          <span className="font-mono text-white/80">{`{\"Authorization\": \"Bearer TOKEN\"}`}</span>).
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -381,179 +317,49 @@ export default function GettingStartedPage() {
             </SectionContent>
           </PageSection>
 
-          <PageSection className="py-8">
-            <SectionContent size="xl">
-              <div className="text-center">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                  Perfect For Every Use Case
-                </h2>
-                <p className="text-lg text-white/70">
-                  From personal blogs to enterprise applications.
-                </p>
-              </div>
-            </SectionContent>
-          </PageSection>
-
-          <PageSection className="!px-0 pt-0">
-            <SectionContent size="xl">
-              <div className="md:grid md:grid-cols-3">
-                <div className="bg-black px-20 py-20 border-inset space-y-4">
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight flex items-center gap-2">
-                    <Users className="w-5 h-5 text-white/60" />
-                    Personal Website
-                  </h3>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Check frequency: 5 minutes</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Notifications: Email alerts</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Monitor: Main site + SSL</span>
-                    </div>
-                  </div>
+          <PageSection id="logs" className="py-12">
+            <SectionContent size="lg">
+              <div className="max-w-4xl mx-auto space-y-10">
+                <div className="space-y-3 text-center">
+                  <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Logs basics</h2>
+                  <p className="text-lg text-white/60">Logs help you understand why an alert fired.</p>
                 </div>
 
-                <div className="bg-black px-20 py-20 border-inset space-y-4">
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight flex items-center gap-2">
-                    <Settings className="w-5 h-5 text-white/60" />
-                    Business Application
-                  </h3>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Check frequency: 1 minute (Premium)</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Notifications: Email + Webhooks</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Monitor: APIs + Critical pages</span>
-                    </div>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">How logs work</h3>
+                    <ul className="space-y-2 text-white/70 list-disc pl-6">
+                      <li>Logs are stored only when a check changes state or errors.</li>
+                      <li>If a service is stable, logs will be quiet.</li>
+                    </ul>
                   </div>
-                </div>
 
-                <div className="bg-black px-20 py-20 border-inset space-y-4">
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight flex items-center gap-2">
-                    <Smartphone className="w-5 h-5 text-white/60" />
-                    E-commerce Site
-                  </h3>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Check frequency: 1 minute (Premium)</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Notifications: Email + Webhook + SMS</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Monitor: Homepage + Checkout + APIs</span>
-                    </div>
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+                    <h3 className="text-xl font-semibold text-white">How to use logs</h3>
+                    <ol className="space-y-2 text-white/70 list-decimal pl-6">
+                      <li>Go to Logs.</li>
+                      <li>Select a check and time range.</li>
+                      <li>Review status, response time, and any error details.</li>
+                    </ol>
                   </div>
                 </div>
               </div>
             </SectionContent>
           </PageSection>
 
-          <PageSection className="py-8">
-            <SectionContent size="md">
-              <div className="text-center">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                  Common Issues (And How to Fix Them)
-                </h2>
-                <p className="text-lg text-white/70">
-                  Most problems are simple. Here&apos;s how to solve them.
-                </p>
+          <PageSection id="next" className="py-12">
+            <SectionContent size="lg">
+              <div className="max-w-4xl mx-auto space-y-6">
+                <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-center">What to do next</h2>
+                <ul className="space-y-3 text-white/70 text-lg list-disc pl-6">
+                  <li>Add checks for every critical endpoint.</li>
+                  <li>Enable at least one alert channel (Email is the fastest to set up).</li>
+                  <li>Use Webhooks to connect alerts to incident workflows (Slack, Discord, custom systems).</li>
+                  <li>Watch Logs after your first alert to confirm everything is configured correctly.</li>
+                </ul>
               </div>
             </SectionContent>
           </PageSection>
-
-          <PageSection className="!px-0 pt-0">
-            <SectionContent size="md" className="max-w-none">
-              <div className="space-y-0">
-                <div className="bg-black px-20 py-20 border-inset space-y-4">
-                  <h3 className="text-xl font-semibold mb-2 tracking-tight flex items-center gap-2">
-                    <AlertCircle className="w-5 h-5 text-white/60" />
-                    Check Shows &quot;Unknown&quot; Status
-                  </h3>
-                  <p className="text-white/70 mb-4">
-                    This is normal for the first few minutes. Here&apos;s what to check:
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Wait 2-3 minutes for the first check to complete</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Ensure your URL is accessible from the internet</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Include https:// if your site requires it</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-black px-20 py-20 border-inset space-y-4">
-                  <h3 className="text-xl font-semibold mb-2 tracking-tight flex items-center gap-2">
-                    <Bell className="w-5 h-5 text-white/60" />
-                    Notifications Not Working
-                  </h3>
-                  <p className="text-white/70 mb-4">
-                    If alerts aren&apos;t coming through, check these:
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Check your spam folder</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Verify webhook URL returns 200 status</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Test notification settings in the app</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-black px-20 py-20 border-inset space-y-4">
-                  <h3 className="text-xl font-semibold mb-2 tracking-tight flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-white/60" />
-                    High Response Times
-                  </h3>
-                  <p className="text-white/70 mb-4">
-                    Slow response times? Don&apos;t worry:
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">First few checks may be slower (normal)</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Response times stabilize over time</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                      <span className="text-white/70">Check your website&apos;s actual performance</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SectionContent>
-          </PageSection>
-
         </PageContainer>
       </main>
     </PageShell>

@@ -153,7 +153,7 @@ const Privacy = () => {
                       If you have any questions about this privacy policy or our data practices, please contact us:
                     </p>
                     <div className="space-y-2 text-white/70">
-                      <p>Email: privacy@exit1.dev</p>
+                      <p>Email: connect@exit1.dev</p>
                       <p>Website: https://exit1.dev</p>
                     </div>
                   </CardContent>
