@@ -156,11 +156,29 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Copyright - centered on mobile, right-aligned on larger screens */}
+{/* Copyright - centered on mobile, right-aligned on larger screens */}
           <div className="mt-12 border-inset-top pt-8">
-            <p className="text-base text-white/60 text-center lg:text-right font-light"
-             dangerouslySetInnerHTML={{ __html: content.copyright }}>
-            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-between gap-4">
+{/* Made in EU badge */}
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/eu.svg"
+                  alt="European Union flag"
+                  width={60}
+                  height={40}
+                  className="rounded"
+                />
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium text-[#003399]">Made and hosted in the</span>
+                  <span className="text-sm font-bold text-[#003399]">European Union</span>
+                </div>
+              </div>
+              
+              {/* Copyright */}
+              <p className="text-base text-white/60 font-light"
+               dangerouslySetInnerHTML={{ __html: content.copyright }}>
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,9 +1,10 @@
 import React from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, X, Zap } from "lucide-react";
 import { InsetCard } from "@/components/InsetCard";
 import { FeatureGridItem } from "@/components/FeatureGridItem";
 import { PageHero } from "@/components/PageHero";
@@ -27,6 +28,11 @@ interface FAQItem {
   answer: string;
 }
 
+interface NanoUpgrade {
+  title: string;
+  description: string;
+}
+
 interface ProductPageProps {
   title: string;
   subtitle: string;
@@ -45,6 +51,7 @@ interface ProductPageProps {
     api?: string;
   };
   relatedFeatures?: RelatedFeature[];
+  nanoUpgrade?: NanoUpgrade;
 }
 
 const ProductPage: React.FC<ProductPageProps> = ({
@@ -58,6 +65,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
   faq,
   technicalDetails,
   relatedFeatures,
+  nanoUpgrade,
 }) => {
   return (
     <PageShell>
@@ -253,6 +261,43 @@ const ProductPage: React.FC<ProductPageProps> = ({
                     ))}
                   </Accordion>
                 </InsetCard>
+              </SectionContent>
+            </PageSection>
+          )}
+
+          {nanoUpgrade && (
+            <PageSection className="py-16">
+              <SectionContent size="md">
+                <div className="p-6 sm:p-8 rounded-2xl border border-green-500/30 bg-green-500/10">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                      <Zap className="w-6 h-6 text-green-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold mb-2">{nanoUpgrade.title}</h3>
+                      <p className="text-white/70 mb-4">{nanoUpgrade.description}</p>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <Button
+                          asChild
+                          className="rounded-full px-6 py-2 font-semibold bg-white text-black hover:bg-white/90"
+                        >
+                          <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
+                            Get Nano — $3/mo
+                          </a>
+                        </Button>
+                        <Button
+                          asChild
+                          variant="outline"
+                          className="rounded-full px-6 py-2 font-semibold border-white/20 hover:bg-white/5"
+                        >
+                          <Link href="/why-nano">
+                            Learn More
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </SectionContent>
             </PageSection>
           )}

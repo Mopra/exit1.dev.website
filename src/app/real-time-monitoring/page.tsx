@@ -255,7 +255,11 @@ const RealTimeMonitoring = () => {
         comparisonTable={comparisonTable}
         faq={faq}
         technicalDetails={technicalDetails}
-        relatedFeatures={relatedFeatures}
+relatedFeatures={relatedFeatures}
+        nanoUpgrade={{
+          title: "Need SMS alerts and branded status pages?",
+          description: "Nano adds instant SMS notifications, custom domains for status pages, and your branding — all for less than a coffee per week."
+        }}
       />
     </>
   );

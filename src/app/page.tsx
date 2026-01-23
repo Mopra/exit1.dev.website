@@ -19,6 +19,7 @@ import {
 import { validateDomain } from "@/lib/domainUtils";
 import { FeatureGridItem } from "@/components/FeatureGridItem";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
+import Image from "next/image";
 
 export default function NewHomePage() {
   const [websiteUrl, setWebsiteUrl] = useState("");
@@ -163,6 +164,57 @@ export default function NewHomePage() {
                 Enter your website URL and we&apos;ll set up monitoring in seconds
               </p>
             </form>
+          </SectionContent>
+        </PageSection>
+
+        {/* Social Proof Section */}
+        <PageSection className="py-6 border-y border-white/10 bg-white/[0.02]">
+          <SectionContent>
+            <div className="flex flex-col sm:grid sm:grid-cols-3 items-center gap-6 sm:gap-0">
+              <div className="flex items-center justify-center gap-3 sm:border-r sm:border-white/20">
+                <Image
+                  src="/eu.svg"
+                  alt="European Union flag"
+                  width={48}
+                  height={32}
+                  className="rounded-sm"
+                />
+                <div className="flex flex-col">
+                  <span className="text-xs text-white/60 font-medium">Made and hosted in the</span>
+                  <span className="text-xs text-white/60 font-bold">European Union</span>
+                </div>
+              </div>
+              <a
+                href="https://peerpush.net/p/exit1dev"
+                target="_blank"
+                rel="noopener"
+                className="flex justify-center sm:border-r sm:border-white/20 opacity-70 hover:opacity-100 transition-opacity"
+              >
+                <Image
+                  src="https://peerpush.net/p/exit1dev/badge"
+                  alt="Exit1.dev badge"
+                  width={130}
+                  height={32}
+                  unoptimized
+                />
+              </a>
+              <div className="flex justify-center">
+                <a
+                  href="https://discord.com/invite/uZvWbpwJZS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-1.5 bg-[#5865F2] hover:bg-[#4752C4] rounded-md transition-colors duration-200"
+                >
+                  <Image
+                    src="/discord.svg"
+                    alt="Discord"
+                    width={16}
+                    height={16}
+                  />
+                  <span className="text-sm font-medium text-white">Join Discord</span>
+                </a>
+              </div>
+            </div>
           </SectionContent>
         </PageSection>
 
@@ -382,15 +434,15 @@ export default function NewHomePage() {
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    SMS alerts
+                    SMS alerts — know in seconds
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    Custom status page domain
+                    Your domain (status.yourbrand.com)
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    Status page branding
+                    Your logo, your colors
                   </li>
                 </ul>
                 <Button
@@ -398,7 +450,7 @@ export default function NewHomePage() {
                   className="w-full rounded-full py-5 font-semibold bg-white text-black hover:bg-white/90 mt-auto"
                 >
                   <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
-                    Subscribe
+                    Get SMS Alerts
                   </a>
                 </Button>
               </div>
@@ -447,7 +499,7 @@ export default function NewHomePage() {
             <FeatureGridItem
               href="/pricing"
               title="Pay only for extras"
-              description="The free tier covers real monitoring. Nano adds SMS, custom domains, and branding for those who need it."
+              description="Free covers everything hobbyists need. Nano is for professionals who monitor client sites, need SMS at 3am, or want branded status pages."
               icon={<CheckCircle2 className="w-6 h-6 text-white" />}
             />
           </div>

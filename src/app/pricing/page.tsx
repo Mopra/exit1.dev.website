@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Check, Zap } from 'lucide-react';
+import { ArrowLeft, Check, Zap, Users, Phone, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
@@ -20,10 +20,10 @@ const freeFeatures = [
 
 const nanoFeatures = [
   "Everything in Free, plus:",
-  "SMS alerts",
-  "Custom status page domain",
-  "Status page branding (logo, favicon, colors)",
-  "Higher email limits (100/hour, 1000/month)",
+  "SMS alerts — know in seconds, not hours",
+  "Your domain (status.yourbrand.com)",
+  "Your logo, your colors on status pages",
+  "100x more email alerts (1000/month)",
   "Priority support",
 ];
 
@@ -110,29 +110,29 @@ const PricingPage = () => {
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
-                        <div className="font-medium">SMS Alerts</div>
-                        <div className="text-sm text-white/60">Get critical downtime alerts sent directly to your phone</div>
+                        <div className="font-medium">Instant SMS Alerts</div>
+                        <div className="text-sm text-white/60">Your site goes down at 3am. Your phone buzzes. You fix it before customers notice.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
-                        <div className="font-medium">Status Page Branding</div>
-                        <div className="text-sm text-white/60">Custom logo, favicon, and brand colors</div>
+                        <div className="font-medium">Your Brand, Your Domain</div>
+                        <div className="text-sm text-white/60">Professional status pages at status.yourcompany.com with your logo and colors.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
-                        <div className="font-medium">Custom Status Page Domain</div>
-                        <div className="text-sm text-white/60">Use your own domain for public status pages</div>
+                        <div className="font-medium">100x More Email Alerts</div>
+                        <div className="text-sm text-white/60">1000 emails/month instead of 10. Because outages don&apos;t wait for billing cycles.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
-                        <div className="font-medium">Higher Email Limits</div>
-                        <div className="text-sm text-white/60">100 emails/hour + 1000/month vs 10/hour + 10/month</div>
+                        <div className="font-medium">Priority Support</div>
+                        <div className="text-sm text-white/60">Get help fast when you need it most.</div>
                       </div>
                     </div>
                   </div>
@@ -181,6 +181,7 @@ const PricingPage = () => {
                     <span className="text-white/60">/month</span>
                   </div>
                   <p className="text-white/60 mt-2">{billingText}</p>
+                  <p className="text-sm text-green-400 mt-2">Less than a coffee per week. SMS alerts alone cost $20+/mo elsewhere.</p>
 
                   {/* Billing toggle */}
                   <div className="flex items-center gap-3 mt-4">
@@ -231,9 +232,43 @@ const PricingPage = () => {
                   className="w-full rounded-full py-6 text-lg font-semibold bg-white text-black hover:bg-white/90 mt-auto"
                 >
                   <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
-                    Subscribe
+                    Get SMS Alerts
                   </a>
                 </Button>
+              </div>
+            </div>
+
+            {/* Who uses Nano section */}
+            <div className="mt-16">
+              <h2 className="text-2xl font-bold mb-8 text-center">Who uses Nano?</h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="p-6 rounded-xl border border-white/10 bg-white/5">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-4">
+                    <Users className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="font-semibold mb-2">Freelancers & Agencies</h3>
+                  <p className="text-sm text-white/60">
+                    Monitoring client sites? Custom domains and branding make your status pages look professional. No &quot;powered by&quot; footers.
+                  </p>
+                </div>
+                <div className="p-6 rounded-xl border border-white/10 bg-white/5">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-4">
+                    <Phone className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="font-semibold mb-2">On-Call Engineers</h3>
+                  <p className="text-sm text-white/60">
+                    You&apos;re not checking email at 3am. SMS alerts wake you up when it matters.
+                  </p>
+                </div>
+                <div className="p-6 rounded-xl border border-white/10 bg-white/5">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-4">
+                    <Rocket className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="font-semibold mb-2">SaaS Founders</h3>
+                  <p className="text-sm text-white/60">
+                    Your customers expect professional status pages. Your brand, your domain, your reputation.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -244,14 +279,23 @@ const PricingPage = () => {
                 The free tier is genuinely free. No credit card required. No trial period. 
                 Monitor unlimited sites with 1-minute checks forever.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <Button
                   asChild
                   variant="outline"
                   className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5"
                 >
-                  <Link href="/getting-started">
-                    See How It Works
+                  <Link href="/why-nano">
+                    Why Nano?
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5"
+                >
+                  <Link href="/compare">
+                    Compare Plans
                   </Link>
                 </Button>
                 <Button

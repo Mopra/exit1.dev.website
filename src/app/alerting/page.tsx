@@ -257,7 +257,11 @@ const Alerting = () => {
         comparisonTable={comparisonTable}
         faq={faq}
         technicalDetails={technicalDetails}
-        relatedFeatures={relatedFeatures}
+relatedFeatures={relatedFeatures}
+        nanoUpgrade={{
+          title: "Want SMS alerts?",
+          description: "Get texted when your site goes down — not hours later via email. Nano includes SMS alerts, custom status page domains, and branding for just $3/month."
+        }}
       />
     </>
   );
