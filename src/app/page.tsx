@@ -9,6 +9,7 @@ import {
   ArrowRight,
   BarChart3,
   Bell,
+  Check,
   CheckCircle2,
   Globe,
   Lock,
@@ -23,6 +24,7 @@ export default function NewHomePage() {
   const [websiteUrl, setWebsiteUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isAnnual, setIsAnnual] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
   const cursorPositionRef = useRef<number>(0);
 
@@ -90,7 +92,7 @@ export default function NewHomePage() {
         <PageSection id="hero" className="pt-36 pb-20">
           <SectionContent className="p-8 sm:p-12 text-center">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
-              Free uptime monitoring.
+              Uptime monitoring.
               <br />
               No limits. No catches.
             </h1>
@@ -284,14 +286,147 @@ export default function NewHomePage() {
           </SectionContent>
         </PageSection>
 
+        <PageSection id="pricing" className="py-20">
+          <SectionContent className="text-center p-8 sm:p-12">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
+              Simple pricing
+            </h2>
+            <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto mb-12">
+              Start free with everything you need. Upgrade when you want more.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {/* Free Plan */}
+              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-left flex flex-col">
+                <h3 className="text-2xl font-bold mb-2">Free</h3>
+                <div className="flex items-baseline gap-1 mb-4">
+                  <span className="text-4xl font-bold">$0</span>
+                </div>
+                <p className="text-white/60 mb-6">Always free</p>
+                <ul className="space-y-2 mb-6 flex-grow">
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Unlimited monitors
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    1-minute checks
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    SSL monitoring
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Email & webhook alerts
+                  </li>
+                </ul>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full rounded-full py-5 font-semibold border-white/20 hover:bg-white/5 mt-auto"
+                >
+                  <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
+                    Get Started
+                  </a>
+                </Button>
+              </div>
+
+              {/* Nano Plan */}
+              <div className="p-8 rounded-2xl border border-white/20 bg-white/10 text-left flex flex-col">
+                <h3 className="text-2xl font-bold mb-2">Nano</h3>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-4xl font-bold">${isAnnual ? 3 : 4}</span>
+                  <span className="text-white/60">/month</span>
+                </div>
+                <p className="text-white/60 mb-3">{isAnnual ? "Billed annually" : "Billed monthly"}</p>
+                
+                {/* Billing toggle */}
+                <div className="flex items-center gap-3 mb-6">
+                  <button
+                    onClick={() => setIsAnnual(false)}
+                    className={`text-sm font-medium transition-colors ${
+                      !isAnnual ? 'text-white' : 'text-white/50 hover:text-white/70'
+                    }`}
+                  >
+                    Monthly
+                  </button>
+                  <button
+                    onClick={() => setIsAnnual(!isAnnual)}
+                    className="relative w-12 h-6 rounded-full bg-white/20 transition-colors cursor-pointer"
+                    aria-label="Toggle billing period"
+                  >
+                    <span
+                      className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all ${
+                        isAnnual ? 'left-7' : 'left-1'
+                      }`}
+                    />
+                  </button>
+                  <button
+                    onClick={() => setIsAnnual(true)}
+                    className={`text-sm font-medium transition-colors ${
+                      isAnnual ? 'text-white' : 'text-white/50 hover:text-white/70'
+                    }`}
+                  >
+                    Annually
+                    {isAnnual && (
+                      <span className="ml-1 text-xs text-green-400">Save 25%</span>
+                    )}
+                  </button>
+                </div>
+
+                <ul className="space-y-2 mb-6 flex-grow">
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Everything in Free
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    SMS alerts
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Custom status page domain
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Status page branding
+                  </li>
+                </ul>
+                <Button
+                  asChild
+                  className="w-full rounded-full py-5 font-semibold bg-white text-black hover:bg-white/90 mt-auto"
+                >
+                  <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
+                    Subscribe
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <Button
+                asChild
+                variant="link"
+                className="text-white/70 hover:text-white"
+              >
+                <Link href="/pricing">
+                  View full pricing details
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
+          </SectionContent>
+        </PageSection>
+
         <PageSection className="px-0 lg:px-0">
           <div className="text-center py-20 px-6 lg:px-8">
             <SectionContent className="p-8 sm:p-12">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
-                Why it&apos;s free
+                A generous free tier
               </h2>
               <p className="text-xl text-white/70 leading-relaxed">
-                Uptime monitoring is table stakes. You shouldn&apos;t pay $20-50/month for basic HTTP checks and email alerts.
+                Core monitoring shouldn&apos;t cost $20-50/month. We keep the essentials free because they should be.
               </p>
             </SectionContent>
           </div>
@@ -310,9 +445,9 @@ export default function NewHomePage() {
               icon={<CheckCircle2 className="w-6 h-6 text-white" />}
             />
             <FeatureGridItem
-              href="/data-privacy"
-              title="No dark patterns"
-              description="No bait-and-switch. No &ldquo;upgrade for alerts&rdquo; fine print. The free tier is the real tier."
+              href="/pricing"
+              title="Pay only for extras"
+              description="The free tier covers real monitoring. Nano adds SMS, custom domains, and branding for those who need it."
               icon={<CheckCircle2 className="w-6 h-6 text-white" />}
             />
           </div>
