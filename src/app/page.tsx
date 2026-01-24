@@ -218,6 +218,23 @@ export default function NewHomePage() {
           </SectionContent>
         </PageSection>
 
+        <PageSection>
+          <SectionContent size="xl">
+            <div className="overflow-hidden rounded-lg border border-white/10 shadow-2xl">
+              <video
+                className="w-full h-auto scale-[1.6]"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src="/adding-checks.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </SectionContent>
+        </PageSection>
+
         <PageSection className="!px-0">
           <div className="md:grid md:grid-cols-3 md:grid-rows-2">
             <FeatureGridItem
