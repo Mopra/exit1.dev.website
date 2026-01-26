@@ -15,6 +15,7 @@ import {
   Shield,
   Zap,
   Search,
+  Webhook,
 } from "lucide-react";
 import { validateDomain } from "@/lib/domainUtils";
 import { FeatureGridItem } from "@/components/FeatureGridItem";
@@ -349,6 +350,115 @@ export default function NewHomePage() {
               >
                 <Link href="/api-webhooks">
                   API Documentation
+                </Link>
+              </Button>
+            </div>
+          </SectionContent>
+        </PageSection>
+
+        {/* Integrations Section */}
+        <PageSection id="integrations" className="py-20">
+          <SectionContent className="text-center p-8 sm:p-12">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
+              Integrate with your stack
+            </h2>
+            <p className="text-xl text-white/70 mb-12 leading-relaxed max-w-2xl mx-auto">
+              Get alerts where your team already works. Native integrations plus webhooks for everything else.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {/* Slack */}
+              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-center hover:bg-white/[0.07] transition-colors">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Image
+                    src="/slack.svg"
+                    alt="Slack"
+                    width={32}
+                    height={32}
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Slack</h3>
+                <p className="text-white/60 text-sm">
+                  Instant alerts in your channels. No context switching.
+                </p>
+              </div>
+
+              {/* Discord */}
+              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-center hover:bg-white/[0.07] transition-colors">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Image
+                    src="/discord.svg"
+                    alt="Discord"
+                    width={32}
+                    height={32}
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Discord</h3>
+                <p className="text-white/60 text-sm">
+                  Stay informed with your community or team server.
+                </p>
+              </div>
+
+              {/* Webhooks */}
+              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-center hover:bg-white/[0.07] transition-colors">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Webhook className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Webhooks</h3>
+                <p className="text-white/60 text-sm">
+                  Connect to any platform. PagerDuty, Opsgenie, custom systems.
+                </p>
+              </div>
+            </div>
+
+            {/* Logo Wall */}
+            <div className="mt-16 pt-12 border-t border-white/10">
+              <p className="text-sm text-white/50 mb-8 uppercase tracking-wider font-medium">
+                Works with any webhook-enabled platform
+              </p>
+              <div className="grid grid-cols-4 sm:grid-cols-7 gap-6 max-w-4xl mx-auto items-center justify-items-center">
+                {[
+                  { name: "PagerDuty", src: "/integrations/pagerduty.svg" },
+                  { name: "Opsgenie", src: "/integrations/opsgenie.svg" },
+                  { name: "Microsoft Teams", src: "/integrations/teams.svg" },
+                  { name: "Zapier", src: "/integrations/zapier.svg" },
+                  { name: "Make", src: "/integrations/make.svg" },
+                  { name: "n8n", src: "/integrations/n8n.svg" },
+                  { name: "Telegram", src: "/integrations/telegram.svg" },
+                  { name: "Jira", src: "/integrations/jira.svg" },
+                  { name: "Linear", src: "/integrations/linear.svg" },
+                  { name: "GitHub", src: "/integrations/github.svg" },
+                  { name: "GitLab", src: "/integrations/gitlab.svg" },
+                  { name: "Notion", src: "/integrations/notion.svg" },
+                  { name: "Datadog", src: "/integrations/datadog.svg" },
+                  { name: "Splunk", src: "/integrations/splunk.svg" },
+                ].map((integration) => (
+                  <div
+                    key={integration.name}
+                    className="group flex items-center justify-center w-12 h-12 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                    title={integration.name}
+                  >
+                    <Image
+                      src={integration.src}
+                      alt={integration.name}
+                      width={24}
+                      height={24}
+                      className="opacity-90 group-hover:opacity-100 transition-opacity invert"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5 cursor-pointer"
+              >
+                <Link href="/api-webhooks">
+                  View integration docs
+                  <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
             </div>
