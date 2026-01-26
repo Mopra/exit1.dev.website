@@ -461,6 +461,10 @@ export default function NewHomePage() {
                     <Check className="w-4 h-4 text-green-400" />
                     Your logo, your colors
                   </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Domain expiry monitoring
+                  </li>
                 </ul>
                 <Button
                   asChild

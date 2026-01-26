@@ -23,6 +23,7 @@ const nanoFeatures = [
   "SMS alerts — know in seconds, not hours",
   "Your domain (status.yourbrand.com)",
   "Your logo, your colors on status pages",
+  "Domain expiry monitoring",
   "100x more email alerts (1000/month)",
   "Priority support",
 ];
@@ -133,6 +134,13 @@ const PricingPage = () => {
                       <div>
                         <div className="font-medium">Priority Support</div>
                         <div className="text-sm text-white/60">Get help fast when you need it most.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium">Domain Intelligence</div>
+                        <div className="text-sm text-white/60">Expiry monitoring and alerts. Never let a domain lapse again.</div>
                       </div>
                     </div>
                   </div>
