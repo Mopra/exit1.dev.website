@@ -12,9 +12,9 @@ import {
   Check,
   CheckCircle2,
   Globe,
-  Lock,
   Shield,
   Zap,
+  Search,
 } from "lucide-react";
 import { validateDomain } from "@/lib/domainUtils";
 import { FeatureGridItem } from "@/components/FeatureGridItem";
@@ -268,10 +268,10 @@ export default function NewHomePage() {
               icon={<Bell className="w-6 h-6 text-white" />}
             />
             <FeatureGridItem
-              href="/data-privacy"
-              title="Data Privacy"
-              description="GDPR compliant. No trackers. No ads. No data lock-in."
-              icon={<Lock className="w-6 h-6 text-white" />}
+              href="/domain-intelligence"
+              title="Domain Intelligence"
+              description="Know when domains expire before they become someone else's problem. Automatic tracking, smart alerts."
+              icon={<Search className="w-6 h-6 text-white" />}
             />
           </div>
         </PageSection>
