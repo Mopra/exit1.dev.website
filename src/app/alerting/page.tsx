@@ -259,8 +259,8 @@ const Alerting = () => {
         technicalDetails={technicalDetails}
 relatedFeatures={relatedFeatures}
         nanoUpgrade={{
-          title: "Want SMS alerts?",
-          description: "Get texted when your site goes down — not hours later via email. Nano includes SMS alerts, custom status page domains, and branding for just $3/month."
+          title: "Want SMS alerts and team notifications?",
+          description: "Get texted when your site goes down — not hours later via email. Nano includes SMS alerts, team alerts (add others to SMS & email), custom status page domains, and branding for just $3/month."
         }}
       />
     </>

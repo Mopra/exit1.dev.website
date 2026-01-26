@@ -14,17 +14,19 @@ const freeFeatures = [
   "Email alerts (10/hour, 10/month)",
   "Webhook integrations",
   "Public status pages",
-  "Analytics & logs",
+  "Analytics & logs (90 days)",
   "API access",
 ];
 
 const nanoFeatures = [
   "Everything in Free, plus:",
   "SMS alerts — know in seconds, not hours",
+  "Team alerts — add your team to SMS & email",
   "Your domain (status.yourbrand.com)",
   "Your logo, your colors on status pages",
   "Domain expiry monitoring",
   "100x more email alerts (1000/month)",
+  "1 year data retention (vs 90 days)",
   "Priority support",
 ];
 
@@ -118,6 +120,13 @@ const PricingPage = () => {
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
+                        <div className="font-medium">Team Alerts</div>
+                        <div className="text-sm text-white/60">Add team members or others to SMS and email alerts. Everyone who needs to know, gets notified.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
                         <div className="font-medium">Your Brand, Your Domain</div>
                         <div className="text-sm text-white/60">Professional status pages at status.yourcompany.com with your logo and colors.</div>
                       </div>
@@ -132,8 +141,8 @@ const PricingPage = () => {
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
-                        <div className="font-medium">Priority Support</div>
-                        <div className="text-sm text-white/60">Get help fast when you need it most.</div>
+                        <div className="font-medium">1 Year Data Retention</div>
+                        <div className="text-sm text-white/60">365 days of logs and analytics vs 90 days on Free. See the full picture.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
@@ -141,6 +150,13 @@ const PricingPage = () => {
                       <div>
                         <div className="font-medium">Domain Intelligence</div>
                         <div className="text-sm text-white/60">Expiry monitoring and alerts. Never let a domain lapse again.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium">Priority Support</div>
+                        <div className="text-sm text-white/60">Get help fast when you need it most.</div>
                       </div>
                     </div>
                   </div>

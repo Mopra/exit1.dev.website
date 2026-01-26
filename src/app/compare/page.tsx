@@ -40,6 +40,14 @@ const comparisonData = [
     betterUptimeFree: false,
   },
   {
+    feature: 'Team alerts (add others)',
+    exit1Free: false,
+    exit1Nano: true,
+    uptimeRobotFree: false,
+    uptimeRobotPro: true,
+    betterUptimeFree: false,
+  },
+  {
     feature: 'Custom status page domain',
     exit1Free: false,
     exit1Nano: true,
@@ -78,6 +86,14 @@ const comparisonData = [
     uptimeRobotFree: true,
     uptimeRobotPro: true,
     betterUptimeFree: 'Limited',
+  },
+  {
+    feature: 'Data retention',
+    exit1Free: '90 days',
+    exit1Nano: '1 year',
+    uptimeRobotFree: '30 days',
+    uptimeRobotPro: '2 years',
+    betterUptimeFree: '30 days',
   },
   {
     feature: 'Price',

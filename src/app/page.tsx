@@ -565,15 +565,19 @@ export default function NewHomePage() {
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
+                    Team alerts — add others to SMS & email
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    1 year data retention
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
                     Your domain (status.yourbrand.com)
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
                     Your logo, your colors
-                  </li>
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    Domain expiry monitoring
                   </li>
                 </ul>
                 <Button
