@@ -174,10 +174,15 @@ const Footer = () => {
                 </div>
               </div>
               
-              {/* Copyright */}
-              <p className="text-base text-white/60 font-light"
-               dangerouslySetInnerHTML={{ __html: content.copyright }}>
-              </p>
+              {/* Business info and Copyright */}
+              <div className="flex flex-col items-center lg:items-end gap-1">
+                <p className="text-sm text-white/50 font-light">
+                  Pradsgaard Labs EMV | CVR: DK46156153
+                </p>
+                <p className="text-base text-white/60 font-light"
+                 dangerouslySetInnerHTML={{ __html: content.copyright }}>
+                </p>
+              </div>
             </div>
           </div>
         </div>
