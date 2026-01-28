@@ -240,8 +240,8 @@ export default function NewHomePage() {
           <div className="md:grid md:grid-cols-3 md:grid-rows-2">
             <FeatureGridItem
               href="/real-time-monitoring"
-              title="1-minute checks"
-              description="Default interval. No throttling. No paywall. Know when things break, not when your billing cycle resets."
+              title="Fast check intervals"
+              description="5-minute checks on Free, 1-minute on Nano. No throttling. Know when things break, not when your billing cycle resets."
               icon={<Zap className="w-6 h-6 text-white" />}
             />
             <FeatureGridItem
@@ -489,7 +489,7 @@ export default function NewHomePage() {
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    1-minute checks
+                    5-minute checks
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
@@ -558,6 +558,10 @@ export default function NewHomePage() {
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
                     Everything in Free
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    1-minute checks
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />

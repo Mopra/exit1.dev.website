@@ -9,7 +9,7 @@ import { PageContainer, PageSection, PageShell, SectionContent } from '@/compone
 
 const freeFeatures = [
   "Unlimited monitors",
-  "1-minute check intervals",
+  "5-minute check intervals",
   "SSL certificate monitoring",
   "Email alerts (10/hour, 10/month)",
   "Webhook integrations",
@@ -20,6 +20,7 @@ const freeFeatures = [
 
 const nanoFeatures = [
   "Everything in Free, plus:",
+  "1-minute check intervals",
   "SMS alerts — know in seconds, not hours",
   "Team alerts — add your team to SMS & email",
   "Your domain (status.yourbrand.com)",
@@ -52,7 +53,7 @@ const PricingPage = () => {
                 "name": "Free",
                 "price": "0",
                 "priceCurrency": "USD",
-                "description": "Unlimited monitors with 1-minute checks"
+                "description": "Unlimited monitors with 5-minute checks"
               },
               {
                 "@type": "Offer",
@@ -110,6 +111,13 @@ const PricingPage = () => {
                   <h2 className="text-xl font-semibold mb-2">Recommended: Nano Plan</h2>
                   <p className="text-white/70 mb-4">Unlock advanced features with the Nano plan:</p>
                   <div className="grid sm:grid-cols-2 gap-3">
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium">1-Minute Check Intervals</div>
+                        <div className="text-sm text-white/60">Detect issues 5x faster than the free tier. Know in 60 seconds, not 5 minutes.</div>
+                      </div>
+                    </div>
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
@@ -301,7 +309,7 @@ const PricingPage = () => {
               <h2 className="text-2xl font-bold mb-4">Questions?</h2>
               <p className="text-white/70 mb-6 max-w-xl mx-auto">
                 The free tier is genuinely free. No credit card required. No trial period. 
-                Monitor unlimited sites with 1-minute checks forever.
+                Monitor unlimited sites with 5-minute checks forever.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <Button

@@ -14,22 +14,22 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Uptime Monitor - Unlimited Checks & 1-Minute Intervals | exit1.dev',
+  title: 'Free Uptime Monitor - Unlimited Checks & Fast Intervals | exit1.dev',
   description:
-    'exit1.dev is the blunt, free uptime monitor. Unlimited websites and APIs, 1-minute checks, instant webhook + email alerts, SSL coverage. No fake free tier.',
+    'exit1.dev is the blunt, free uptime monitor. Unlimited websites and APIs, 5-minute checks (1-minute with Nano), instant webhook + email alerts, SSL coverage. No fake free tier.',
   keywords:
-    'free uptime monitor, unlimited uptime monitoring, 1-minute checks, uptime robot alternative, free website uptime monitoring, free api monitoring',
+    'free uptime monitor, unlimited uptime monitoring, uptime robot alternative, free website uptime monitoring, free api monitoring',
   openGraph: {
-    title: 'Free Uptime Monitor - Unlimited Checks & 1-Minute Intervals | exit1.dev',
+    title: 'Free Uptime Monitor - Unlimited Checks & Fast Intervals | exit1.dev',
     description:
-      'Unlimited monitors, 1-minute intervals, webhook + email alerts, SSL, and analytics. The free uptime monitor built for people who actually ship.',
+      'Unlimited monitors, fast intervals, webhook + email alerts, SSL, and analytics. The free uptime monitor built for people who actually ship.',
     type: 'website',
     url: 'https://exit1.dev/free-uptime-monitor',
   },
   twitter: {
-    title: 'Free Uptime Monitor - Unlimited Checks & 1-Minute Intervals | exit1.dev',
+    title: 'Free Uptime Monitor - Unlimited Checks & Fast Intervals | exit1.dev',
     description:
-      'Unlimited monitors, 1-minute intervals, webhook + email alerts, SSL, and analytics. The free uptime monitor built for people who actually ship.',
+      'Unlimited monitors, fast intervals, webhook + email alerts, SSL, and analytics. The free uptime monitor built for people who actually ship.',
     card: 'summary_large_image',
   },
   alternates: {
@@ -45,8 +45,8 @@ const FreeUptimeMonitorPage = () => {
       icon: <Globe className="w-6 h-6 text-white" />,
     },
     {
-      title: '1-minute intervals that actually ship',
-      description: 'Real 60-second polling across regions. Not the "maybe if you pay" carrot the incumbents dangle.',
+      title: 'Fast check intervals',
+      description: '5-minute checks free, 1-minute with Nano. Real polling across regions, not artificial limits.',
       icon: <Clock className="w-6 h-6 text-white" />,
     },
     {
@@ -79,7 +79,7 @@ const FreeUptimeMonitorPage = () => {
     },
     {
       feature: '1-minute intervals',
-      exit1: 'Standard',
+      exit1: 'Nano plan',
       competitors: 'Locked behind premium',
     },
     {
@@ -179,7 +179,7 @@ const FreeUptimeMonitorPage = () => {
         data={{
           name: 'Free Uptime Monitor',
           description:
-            'Unlimited free uptime monitoring for websites, APIs, and SSL with 1-minute checks and instant alerts.',
+            'Unlimited free uptime monitoring for websites, APIs, and SSL with fast checks and instant alerts.',
           url: 'https://exit1.dev/free-uptime-monitor',
           brand: {
             '@type': 'Brand',
@@ -217,7 +217,7 @@ const FreeUptimeMonitorPage = () => {
 
       <ProductPage
         title="Free Uptime Monitor"
-        subtitle="Unlimited monitors. 1-minute checks. No strings."
+        subtitle="Unlimited monitors. Fast checks. No strings."
         description="The incumbents sell rationed uptime as a freebie. We give you the whole stack—alerts, SSL monitoring, analytics—without a paywall."
         features={features}
         ctaText="Start monitoring for free"

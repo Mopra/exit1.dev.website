@@ -195,7 +195,7 @@ const StatusPages = () => {
   const relatedFeatures = [
     {
       title: "Real-Time Monitoring",
-      description: "Monitor websites and APIs with 1-minute checks and instant alerts when issues occur.",
+      description: "Monitor websites and APIs with fast checks and instant alerts when issues occur.",
       href: "/real-time-monitoring",
       icon: <Clock className="w-6 h-6 text-white" />
     },

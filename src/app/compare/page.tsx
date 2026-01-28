@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Compare Uptime Monitors | exit1.dev vs UptimeRobot vs Better Uptime',
-  description: 'See how exit1.dev compares to UptimeRobot, Better Uptime, and other monitoring tools. Unlimited monitors, 1-minute checks, and SMS alerts at a fraction of the cost.',
+  description: 'See how exit1.dev compares to UptimeRobot, Better Uptime, and other monitoring tools. Unlimited monitors, 1-minute checks with Nano, and SMS alerts at a fraction of the cost.',
   openGraph: {
     title: 'Compare Uptime Monitors | exit1.dev',
     description: 'See how exit1.dev compares to UptimeRobot, Better Uptime, and other monitoring tools.',
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 const comparisonData = [
   {
-    feature: 'Check interval (free)',
-    exit1Free: '1 min',
+    feature: 'Check interval',
+    exit1Free: '5 min',
     exit1Nano: '1 min',
     uptimeRobotFree: '5 min',
     uptimeRobotPro: '1 min',
@@ -220,7 +220,7 @@ export default function ComparePage() {
               <ul className="space-y-3 text-white/70">
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span><strong className="text-white">Exit1 Free</strong> beats UptimeRobot Free on check intervals (1 min vs 5 min) and monitor limits (unlimited vs 50).</span>
+                  <span><strong className="text-white">Exit1 Free</strong> beats UptimeRobot Free on monitor limits (unlimited vs 50). Upgrade to Nano for 1-minute checks.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
