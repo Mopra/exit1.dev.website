@@ -2,13 +2,12 @@ import React from 'react';
 import { Metadata } from 'next';
 import ProductPage from '@/components/ProductPage';
 import StructuredData from '@/components/StructuredData';
-import { 
+import {
   Globe,
   Calendar,
   LayoutGrid,
   Lock,
-  Palette,
-  Link as LinkIcon,
+  GripVertical,
   Maximize2,
   Volume2,
   Bell,
@@ -21,17 +20,17 @@ import {
 
 export const metadata: Metadata = {
   title: "Public Status Pages | exit1.dev",
-  description: "Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, custom branding, and custom domains.",
-  keywords: "public status page, uptime status page, service status page, custom status page, branded status page, status page hosting, uptime monitoring status page, customer status page, SaaS status page, website status page",
+  description: "Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, and drag & drop builder.",
+  keywords: "public status page, uptime status page, service status page, status page builder, status page hosting, uptime monitoring status page, customer status page, SaaS status page, website status page",
   openGraph: {
     title: "Public Status Pages | exit1.dev",
-    description: "Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, custom branding, and custom domains.",
+    description: "Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, and drag & drop builder.",
     type: "website",
     url: "https://exit1.dev/status-pages",
   },
   twitter: {
     title: "Public Status Pages | exit1.dev",
-    description: "Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, custom branding, and custom domains.",
+    description: "Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, and drag & drop builder.",
     card: "summary_large_image",
   },
   alternates: {
@@ -62,14 +61,9 @@ const StatusPages = () => {
       icon: <Lock className="w-6 h-6 text-white" />
     },
     {
-      title: "Custom Branding",
-      description: "Add your logo, favicon, and brand colors. Make your status page look like a natural part of your product (Nano plan).",
-      icon: <Palette className="w-6 h-6 text-white" />
-    },
-    {
-      title: "Custom Domain",
-      description: "Host your status page on your own domain like status.yourcompany.com. We handle SSL certificates automatically (Nano plan).",
-      icon: <LinkIcon className="w-6 h-6 text-white" />
+      title: "Drag & Drop Builder",
+      description: "Arrange your monitors exactly how you want them. Drag and drop to reorder, group by service, and create the perfect layout for your audience (Nano plan).",
+      icon: <GripVertical className="w-6 h-6 text-white" />
     },
     {
       title: "Fullscreen Mode",
@@ -125,14 +119,9 @@ const StatusPages = () => {
       competitors: false
     },
     {
-      feature: "Custom branding",
+      feature: "Drag & drop builder",
       exit1: "Nano plan",
-      competitors: "Enterprise only"
-    },
-    {
-      feature: "Custom domain",
-      exit1: "Nano plan",
-      competitors: "Enterprise only"
+      competitors: false
     },
     {
       feature: "SSL included",
@@ -165,14 +154,6 @@ const StatusPages = () => {
       answer: "The status page immediately reflects the current status with a clear visual indicator. Online services show green, degraded services show amber, and offline services show red. If you have alerts configured, you'll also receive notifications via your preferred channels."
     },
     {
-      question: "Do I need technical knowledge to set up a custom domain?",
-      answer: "You'll need access to your domain's DNS settings. We provide clear instructions: just add a CNAME record pointing to app.exit1.dev. We handle SSL certificates automatically."
-    },
-    {
-      question: "Is SSL included for custom domains?",
-      answer: "Yes, we automatically provision and manage SSL certificates for all custom domains at no extra cost. Your status page will always be served securely over HTTPS."
-    },
-    {
       question: "Can I embed the status page on my website?",
       answer: "The status page is designed as a standalone page, but you can link to it from your website, documentation, or app. Share the URL with customers or add it to your support resources."
     },
@@ -182,12 +163,12 @@ const StatusPages = () => {
     },
     {
       question: "How do I set up a status page?",
-      answer: "Create a status page in minutes: give it a name, select which monitors to display, choose your layout, and optionally add your branding. Then share the link with your customers or set up your custom domain."
+      answer: "Create a status page in minutes: give it a name, select which monitors to display, and use the drag & drop builder to customize your layout. Then share the link with your customers."
     }
   ];
 
   const technicalDetails = {
-    architecture: "Status pages are served from our global edge network for fast loading worldwide. Real-time data is pulled from our monitoring infrastructure with intelligent caching. Custom domains use automatic SSL provisioning via Let's Encrypt.",
+    architecture: "Status pages are served from our global edge network for fast loading worldwide. Real-time data is pulled from our monitoring infrastructure with intelligent caching.",
     performance: "Status pages load in under 1 second globally. Auto-refresh every 60 seconds with minimal bandwidth usage. Snapshot data cached for 1 minute, uptime history cached for 5 minutes for optimal performance.",
     api: "Full API access to manage status pages programmatically. Create, update, and delete status pages via REST endpoints. Configure visibility, branding, and monitor selection through the API."
   };
@@ -237,7 +218,7 @@ const StatusPages = () => {
         type="Product"
         data={{
           name: "Public Status Pages",
-          description: "Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, custom branding, and custom domains.",
+          description: "Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, and drag & drop builder.",
           url: "https://exit1.dev/status-pages",
           brand: {
             "@type": "Brand",
@@ -276,19 +257,19 @@ const StatusPages = () => {
       <ProductPage
         title="Keep Your Customers Informed"
         subtitle="Beautiful public status pages"
-        description="Create real-time status pages that show your customers exactly what's up and what's down. Build trust through transparency with 30-day history, custom branding, and your own domain."
+        description="Create real-time status pages that show your customers exactly what's up and what's down. Build trust through transparency with 30-day history and a drag & drop builder."
         features={features}
         ctaText="Create Your Status Page"
         ctaHref="https://app.exit1.dev/"
         seoTitle="Public Status Pages | exit1.dev"
-        seoDescription="Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, custom branding, and custom domains."
+        seoDescription="Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, and drag & drop builder."
         comparisonTable={comparisonTable}
         faq={faq}
         technicalDetails={technicalDetails}
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
-          title: "Want custom branding and your own domain?",
-          description: "Make your status page truly yours with custom logo, colors, favicon, and host it on status.yourcompany.com. Nano includes unlimited status pages for just $3/month."
+          title: "Want unlimited status pages?",
+          description: "Create as many status pages as you need with Nano. Use the drag & drop builder to customize layouts for different audiences. Just $3/month."
         }}
       />
     </>

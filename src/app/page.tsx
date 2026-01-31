@@ -499,6 +499,10 @@ export default function NewHomePage() {
                     <Check className="w-4 h-4 text-green-400" />
                     Email & webhook alerts
                   </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    One status page
+                  </li>
                 </ul>
                 <Button
                   asChild
@@ -577,11 +581,11 @@ export default function NewHomePage() {
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    Your domain (status.yourbrand.com)
+                    Unlimited status pages
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    Your logo, your colors
+                    Custom drag & drop status page builder
                   </li>
                 </ul>
                 <Button
