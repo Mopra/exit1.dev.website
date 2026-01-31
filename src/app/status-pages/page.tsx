@@ -271,6 +271,11 @@ const StatusPages = () => {
           title: "Want unlimited status pages?",
           description: "Create as many status pages as you need with Nano. Use the drag & drop builder to customize layouts for different audiences. Just $3/month."
         }}
+        video={{
+          videoId: "rBmL8lIschk",
+          title: "See It in Action",
+          description: "Watch how to create a status page in minutes"
+        }}
       />
     </>
   );
