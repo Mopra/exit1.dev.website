@@ -35,6 +35,7 @@ const featuresMenu = {
         { name: "Free Website Monitor", href: "/free-website-monitor", description: "Landing pages, ecommerce, and Jamstack sites" },
         { name: "Real-Time Monitoring", href: "/real-time-monitoring", description: "Live status updates for websites and APIs" },
         { name: "SSL Monitoring", href: "/ssl-monitoring", description: "Certificate expiration tracking" },
+        { name: "Domain Intelligence", href: "/domain-intelligence", description: "Automatic domain expiration alerts" },
         { name: "Global Monitoring", href: "/global-monitoring", description: "Worldwide coverage and geo performance" },
         { name: "Smart Alerting", href: "/alerting", description: "Webhooks and real-time notifications" }
       ]
