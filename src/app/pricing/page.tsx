@@ -8,26 +8,30 @@ import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
 
 const freeFeatures = [
-  "Unlimited monitors",
+  "50 monitors",
   "5-minute check intervals",
   "SSL certificate monitoring",
   "Email alerts (10/hour, 10/month)",
-  "Webhook integrations",
-  "Public status pages",
-  "Analytics & logs (90 days)",
+  "1 webhook integration",
+  "1 public status page",
+  "Analytics & logs (30 days)",
   "API access",
 ];
 
 const nanoFeatures = [
   "Everything in Free, plus:",
+  "Unlimited monitors",
   "1-minute check intervals",
+  "Multi-region checks",
   "SMS alerts — know in seconds, not hours",
   "Team alerts — add your team to SMS & email",
+  "Higher alert budgets (1000 emails & 100 SMS/month)",
+  "Unlimited webhook integrations",
   "Unlimited status pages",
   "Custom drag & drop status page builder",
-  "Domain expiry monitoring",
-  "100x more email alerts (1000/month)",
-  "1 year data retention (vs 90 days)",
+  "Domain intelligence",
+  "Domain expiry alerts",
+  "1 year data retention (vs 30 days)",
   "Priority support",
 ];
 
@@ -114,8 +118,22 @@ const PricingPage = () => {
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
+                        <div className="font-medium">Unlimited Monitors</div>
+                        <div className="text-sm text-white/60">No cap on monitors. Add every site, API, and service you manage.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
                         <div className="font-medium">1-Minute Check Intervals</div>
                         <div className="text-sm text-white/60">Detect issues 5x faster than the free tier. Know in 60 seconds, not 5 minutes.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium">Multi-Region Checks</div>
+                        <div className="text-sm text-white/60">Monitor from multiple locations worldwide. Avoid false positives from regional outages.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
@@ -135,6 +153,20 @@ const PricingPage = () => {
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
+                        <div className="font-medium">Higher Alert Budgets</div>
+                        <div className="text-sm text-white/60">1000 emails and 100 SMS per month. Because outages don&apos;t wait for billing cycles.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium">Unlimited Webhooks</div>
+                        <div className="text-sm text-white/60">Connect as many integrations as you need. Slack, Discord, PagerDuty, and more.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
                         <div className="font-medium">Your Brand, Your Domain</div>
                         <div className="text-sm text-white/60">Professional status pages at status.yourcompany.com with your logo and colors.</div>
                       </div>
@@ -142,22 +174,22 @@ const PricingPage = () => {
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
-                        <div className="font-medium">100x More Email Alerts</div>
-                        <div className="text-sm text-white/60">1000 emails/month instead of 10. Because outages don&apos;t wait for billing cycles.</div>
+                        <div className="font-medium">Domain Intelligence</div>
+                        <div className="text-sm text-white/60">WHOIS lookups, DNS records, and full domain analysis at your fingertips.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium">Domain Expiry Alerts</div>
+                        <div className="text-sm text-white/60">Get notified before your domains expire. Never let a domain lapse again.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
                         <div className="font-medium">1 Year Data Retention</div>
-                        <div className="text-sm text-white/60">365 days of logs and analytics vs 90 days on Free. See the full picture.</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
-                      <div>
-                        <div className="font-medium">Domain Intelligence</div>
-                        <div className="text-sm text-white/60">Expiry monitoring and alerts. Never let a domain lapse again.</div>
+                        <div className="text-sm text-white/60">365 days of logs and analytics vs 30 days on Free. See the full picture.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
@@ -263,8 +295,8 @@ const PricingPage = () => {
                   asChild
                   className="w-full rounded-full py-6 text-lg font-semibold bg-white text-black hover:bg-white/90 mt-auto"
                 >
-                  <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
-                    Get SMS Alerts
+                  <a href="https://app.exit1.dev/billing" target="_blank" rel="noopener noreferrer">
+                    Run Production Monitoring
                   </a>
                 </Button>
               </div>

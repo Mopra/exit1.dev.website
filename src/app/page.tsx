@@ -485,7 +485,7 @@ export default function NewHomePage() {
                 <ul className="space-y-2 mb-6 flex-grow">
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    Unlimited monitors
+                    50 monitors
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
@@ -497,11 +497,15 @@ export default function NewHomePage() {
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    Email & webhook alerts
+                    Email alerts & 1 webhook
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    One status page
+                    1 public status page
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Analytics & logs (30 days)
                   </li>
                 </ul>
                 <Button
@@ -522,8 +526,9 @@ export default function NewHomePage() {
                   <span className="text-4xl font-bold">${isAnnual ? 3 : 4}</span>
                   <span className="text-white/60">/month</span>
                 </div>
-                <p className="text-white/60 mb-3">{isAnnual ? "Billed annually" : "Billed monthly"}</p>
-                
+                <p className="text-white/60 mb-2">{isAnnual ? "Billed annually" : "Billed monthly"}</p>
+                <p className="text-sm text-green-400 mb-3">Less than a coffee per week. SMS alerts alone cost $20+/mo elsewhere.</p>
+
                 {/* Billing toggle */}
                 <div className="flex items-center gap-3 mb-6">
                   <button
@@ -561,11 +566,19 @@ export default function NewHomePage() {
                 <ul className="space-y-2 mb-6 flex-grow">
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    Everything in Free
+                    Everything in Free, plus:
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Unlimited monitors
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
                     1-minute checks
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Multi-region checks
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
@@ -577,7 +590,11 @@ export default function NewHomePage() {
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    1 year data retention
+                    Higher alert budgets
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Unlimited webhook integrations
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
@@ -587,13 +604,29 @@ export default function NewHomePage() {
                     <Check className="w-4 h-4 text-green-400" />
                     Custom drag & drop status page builder
                   </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Domain intelligence
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Domain expiry alerts
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    1 year data retention
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Priority support
+                  </li>
                 </ul>
                 <Button
                   asChild
                   className="w-full rounded-full py-5 font-semibold bg-white text-black hover:bg-white/90 mt-auto"
                 >
-                  <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
-                    Get SMS Alerts
+                  <a href="https://app.exit1.dev/billing" target="_blank" rel="noopener noreferrer">
+                    Run Production Monitoring
                   </a>
                 </Button>
               </div>

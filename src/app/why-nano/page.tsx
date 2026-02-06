@@ -207,7 +207,7 @@ export default function WhyNanoPage() {
                 size="lg"
                 className="rounded-full px-8 py-6 text-lg font-semibold bg-white text-black hover:bg-white/90"
               >
-                <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
+                <a href="https://app.exit1.dev/billing" target="_blank" rel="noopener noreferrer">
                   Get Nano
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
