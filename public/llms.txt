@@ -1,0 +1,48 @@
+# exit1.dev
+
+> Free uptime monitoring service. Monitor unlimited websites, APIs, and services with instant alerts, SSL monitoring, public status pages, and a full API — no credit card required.
+
+exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 50 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, and 30 days of analytics. The paid Nano plan ($3/month annual) adds unlimited monitors, 1-minute checks, multi-region monitoring, SMS alerts, unlimited status pages with a drag-and-drop builder, domain intelligence, and 1-year data retention.
+
+## Core Features
+
+- [Real-Time Monitoring](https://exit1.dev/real-time-monitoring): HTTP/HTTPS uptime checks with support for all HTTP methods, custom headers, authentication, and JSON path validation
+- [SSL Monitoring](https://exit1.dev/ssl-monitoring): SSL/TLS certificate expiration tracking with configurable alerts before expiry
+- [Global Monitoring](https://exit1.dev/global-monitoring): Multi-region checks from distributed global locations to detect regional outages
+- [Smart Alerting](https://exit1.dev/alerting): Email, SMS, and webhook alerts with flap detection to suppress noise and prevent alert fatigue
+- [Status Pages](https://exit1.dev/status-pages): Public or private status pages with real-time updates, 30-day history, and multiple layout options
+- [Domain Intelligence](https://exit1.dev/domain-intelligence): Automatic domain expiration monitoring via RDAP with smart alert timing (30, 14, 7, 1 day before expiry)
+- [Analytics & Reports](https://exit1.dev/analytics): Response time tracking, uptime percentage calculations, and historical performance dashboards
+- [Comprehensive Logs](https://exit1.dev/logs): Searchable monitoring logs with filtering and data export (CSV, JSON)
+- [API & Webhooks](https://exit1.dev/api-webhooks): RESTful API with HMAC authentication for full CRUD monitor management and webhook integrations with signature verification
+
+## Integrations
+
+exit1.dev integrates with Slack, Discord, PagerDuty, Opsgenie, Microsoft Teams, Zapier, Make, n8n, Telegram, Jira, Linear, GitHub, GitLab, Notion, Datadog, and Splunk via native webhooks.
+
+## Pricing
+
+- [Pricing](https://exit1.dev/pricing): Two tiers — Free ($0, 50 monitors, 5-min checks, email alerts, 1 status page) and Nano ($3/month annual, unlimited monitors, 1-min checks, SMS alerts, unlimited status pages, domain intelligence, 1-year retention)
+- [Plan Comparison](https://exit1.dev/compare): Side-by-side feature comparison between Free and Nano plans
+
+## Documentation & API
+
+- [Documentation](https://docs.exit1.dev): Full product documentation and guides
+- [API Reference](https://docs.exit1.dev/api-reference): OpenAPI documentation with interactive testing for all endpoints
+- [Getting Started](https://exit1.dev/getting-started): Step-by-step onboarding guide
+
+## Company
+
+- [About](https://exit1.dev/about): Built by Morten Pradsgaard (Founder & CTO) as a response to bait-and-switch pricing in the monitoring industry
+- [Contact](https://exit1.dev/contact): Contact form for support and inquiries
+- [Privacy Policy](https://exit1.dev/privacy): Privacy-first approach — data is not sold and users can export everything
+- [Data Privacy](https://exit1.dev/data-privacy): Details on data handling, EU hosting, and GDPR compliance
+
+## Optional
+
+- [Blog](https://exit1.dev/blog): Articles on monitoring best practices, SSL, SLA reporting, incident management, and domain security
+- [Service Status](https://app.exit1.dev/status): Live operational status of exit1.dev
+- [Release Notes](https://app.exit1.dev/release-notes): Product changelog and feature updates
+- [Discord Community](https://discord.gg/uZvWbpwJZS): Community support and discussions
+- [GitHub](https://github.com/Mopra/exit1.dev): Open-source repository
+- [Roadmap](https://exit1.dev/roadmap): Upcoming features and product direction
