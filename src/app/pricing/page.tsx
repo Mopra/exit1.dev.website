@@ -27,7 +27,7 @@ const nanoFeatures = [
   "Multi-region checks",
   "SMS alerts — know in seconds, not hours",
   "Team alerts — add your team to SMS & email",
-  "Higher alert budgets (1000 emails & 100 SMS/month)",
+  "Higher alert budgets (1000 emails & 20 SMS/month)",
   "Unlimited webhook integrations",
   "Unlimited status pages",
   "Custom drag & drop status page builder",
@@ -165,7 +165,7 @@ const PricingPage = () => {
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
                         <div className="font-medium">Higher Alert Budgets</div>
-                        <div className="text-sm text-white/60">1000 emails and 100 SMS per month. Because outages don&apos;t wait for billing cycles.</div>
+                        <div className="text-sm text-white/60">1000 emails and 20 SMS per month. Because outages don&apos;t wait for billing cycles.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
@@ -372,6 +372,15 @@ const PricingPage = () => {
                   <Link href="/compare">
                     Compare Plans
                   </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5"
+                >
+                  <a href="https://docs.exit1.dev/billing/faq" target="_blank" rel="noopener noreferrer">
+                    Read the Docs
+                  </a>
                 </Button>
                 <Button
                   asChild

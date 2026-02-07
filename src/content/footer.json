@@ -14,9 +14,11 @@
       { "name": "Analytics & Reports", "href": "/analytics" },
       { "name": "Comprehensive Logs", "href": "/logs" },
       { "name": "API & Webhooks", "href": "/api-webhooks" },
+      { "name": "API Reference", "href": "https://docs.exit1.dev/api-reference" },
       { "name": "Data Privacy", "href": "/data-privacy" }
     ],
     "support": [
+      { "name": "Documentation", "href": "https://docs.exit1.dev" },
       { "name": "Help & Community", "href": "https://discord.gg/uZvWbpwJZS" },
       { "name": "Service Status", "href": "https://app.exit1.dev/status" },
       { "name": "Release Notes", "href": "https://app.exit1.dev/release-notes" },

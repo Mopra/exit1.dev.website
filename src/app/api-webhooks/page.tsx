@@ -154,14 +154,14 @@ const APIWebhooks = () => {
     },
     {
       question: "Do you provide API documentation?",
-      answer: "Yes, we provide comprehensive OpenAPI documentation with examples, authentication details, and endpoint descriptions. The documentation is interactive and allows you to test API calls directly from the browser to understand how everything works."
+      answer: "Yes, we provide comprehensive OpenAPI documentation with examples, authentication details, and endpoint descriptions. The documentation is interactive and allows you to test API calls directly from the browser to understand how everything works. Visit docs.exit1.dev/api-reference for the full API reference."
     }
   ];
 
   const technicalDetails = {
     architecture: "RESTful API built on Firebase Functions with automatic scaling. Webhook delivery system with retry logic and timeout handling. HMAC authentication ensures secure API access and webhook verification. All endpoints follow REST conventions.",
     performance: "API responses typically complete in under 200ms. Webhook delivery happens within 2 seconds with automatic retries for failed deliveries. System handles thousands of concurrent API requests and webhook deliveries efficiently.",
-    api: "RESTful API with HMAC authentication, comprehensive endpoints for all monitoring features. Rate limits: 1000-2000 requests/hour depending on endpoint. Full OpenAPI documentation available. Webhook delivery includes detailed payloads with signature verification."
+    api: "RESTful API with HMAC authentication, comprehensive endpoints for all monitoring features. Rate limits: 1000-2000 requests/hour depending on endpoint. Full OpenAPI documentation available at docs.exit1.dev/api-reference. Webhook delivery includes detailed payloads with signature verification."
   };
 
   const relatedFeatures = [

@@ -13,7 +13,8 @@ import { cn } from '@/lib/utils'
 const navigation = [
   { name: "Pricing", href: "/pricing" },
   { name: "Why Nano?", href: "/why-nano" },
-  { name: "Getting Started", href: "/getting-started" }
+  { name: "Getting Started", href: "/getting-started" },
+  { name: "Docs", href: "https://docs.exit1.dev", external: true }
 ]
 
 const companyMenu = {
@@ -128,9 +129,15 @@ export default function Header() {
                   className="text-sm font-medium rounded-full hover:bg-black/90 hover:text-primary transition-all duration-200 interactive"
                   asChild
                 >
-                  <Link href={item.href}>
-                    {item.name}
-                  </Link>
+                  {'external' in item && item.external ? (
+                    <a href={item.href} target="_blank" rel="noopener noreferrer">
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link href={item.href}>
+                      {item.name}
+                    </Link>
+                  )}
                 </Button>
               ))}
 
@@ -290,14 +297,27 @@ export default function Header() {
                 {/* Main Navigation */}
                 <div className="space-y-2">
                   {navigation.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-lg interactive"
-                      onClick={closeMobileMenu}
-                    >
-                      {item.name}
-                    </Link>
+                    'external' in item && item.external ? (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-lg interactive"
+                        onClick={closeMobileMenu}
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-lg interactive"
+                        onClick={closeMobileMenu}
+                      >
+                        {item.name}
+                      </Link>
+                    )
                   ))}
                 </div>
 

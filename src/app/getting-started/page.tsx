@@ -388,6 +388,7 @@ Accept: application/json`}
                   <li>Enable at least one alert channel (Email is the fastest to set up).</li>
                   <li>Use Webhooks to connect alerts to incident workflows (Slack, Discord, custom systems).</li>
                   <li>Watch Logs after your first alert to confirm everything is configured correctly.</li>
+                  <li>Read the <a href="https://docs.exit1.dev/getting-started" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-4 hover:text-white/80 transition-colors">full documentation</a> for in-depth guides on every feature.</li>
                 </ul>
               </div>
             </SectionContent>

@@ -168,6 +168,17 @@ export default function ContactPage() {
                 <div className="mt-8 sm:mt-12 text-center">
                   <InsetCard>
                     <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold text-white mb-2">Looking for answers?</h3>
+                      <p className="text-base text-white/70 mb-4">
+                        Check the <a href="https://docs.exit1.dev" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-4 hover:text-white/80 transition-colors">documentation</a> for guides on monitoring, alerting, status pages, API reference, and more.
+                      </p>
+                    </CardContent>
+                  </InsetCard>
+                </div>
+
+                <div className="mt-4 text-center">
+                  <InsetCard>
+                    <CardContent className="p-6">
                       <h3 className="text-xl font-semibold text-white mb-2">Response Time</h3>
                       <p className="text-base text-white/70">
                         I typically respond within <strong>24 hours</strong>. For urgent issues,
