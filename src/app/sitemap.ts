@@ -103,6 +103,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Combine all
   const allPages = [
+    // llms.txt — machine-readable site summary for LLMs
+    {
+      url: `${baseUrl}/llms.txt`,
+      changefreq: 'monthly' as const,
+      priority: 0.3,
+      lastmod: new Date().toISOString()
+    },
     ...staticPages.map(page => ({
       url: `${baseUrl}${page.url}`,
       changefreq: page.changefreq,
