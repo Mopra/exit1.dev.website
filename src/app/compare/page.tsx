@@ -162,7 +162,7 @@ export default function ComparePage() {
           </h1>
 
           <p className="text-xl sm:text-2xl text-white/70 leading-relaxed max-w-2xl">
-            See how exit1.dev stacks up against the competition. Spoiler: we offer more for less.
+            The only monitoring SaaS with truly unlimited monitors. See how exit1.dev stacks up.
           </p>
         </PageHero>
 

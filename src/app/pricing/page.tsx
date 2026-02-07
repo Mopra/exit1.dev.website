@@ -16,6 +16,8 @@ const freeFeatures = [
   "1 public status page",
   "Analytics & logs (30 days)",
   "API access",
+  "Bulk import — migrate from any service in minutes",
+  "Bulk edit — configure hundreds of checks at once",
 ];
 
 const nanoFeatures = [
@@ -32,6 +34,8 @@ const nanoFeatures = [
   "Domain intelligence",
   "Domain expiry alerts",
   "1 year data retention (vs 30 days)",
+  "Bulk import — migrate from any service in minutes",
+  "Bulk edit — configure hundreds of checks at once",
   "Priority support",
 ];
 
@@ -105,6 +109,13 @@ const PricingPage = () => {
 
         <PageSection className="py-16">
           <SectionContent size="lg">
+            {/* USP banner */}
+            <div className="mb-12 py-4 px-6 rounded-full border border-white/10 bg-white/5 text-center">
+              <p className="text-white/90 text-lg font-medium">
+                The only monitoring SaaS with truly unlimited monitors.
+              </p>
+            </div>
+
             {/* Nano recommendation banner */}
             <div className="mb-12 p-6 sm:p-8 rounded-2xl border border-white/10 bg-white/5">
               <div className="flex items-start gap-4">

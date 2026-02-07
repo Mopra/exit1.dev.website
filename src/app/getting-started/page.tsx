@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
-import { ArrowRight, Clock, Mail, Smartphone, Webhook } from "lucide-react";
+import { ArrowRight, Clock, Mail, Smartphone, Upload, Webhook } from "lucide-react";
 import Link from "next/link";
 
 export default function GettingStartedPage() {
@@ -79,6 +79,38 @@ export default function GettingStartedPage() {
                     how logs are stored.
                   </li>
                 </ol>
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          <PageSection id="bulk-import" className="py-8">
+            <SectionContent size="lg">
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Upload className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-semibold text-white">Made for scale</h3>
+                      <p className="text-white/70 text-lg">
+                        Exit1 is built to handle hundreds of checks. Bulk import lets you bring all your monitors over from
+                        UptimeRobot, Freshping, Better Uptime, or any other service in minutes — no manual re-entry.
+                        Once they&apos;re in, bulk edit lets you update intervals, alerts, and settings across all your checks at once.
+                      </p>
+                      <Button
+                        asChild
+                        size="lg"
+                        className="rounded-full px-6 py-5 text-base font-semibold bg-white text-black hover:bg-white/90 cursor-pointer"
+                      >
+                        <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
+                          Open Bulk Import
+                          <ArrowRight className="ml-2 w-4 h-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </SectionContent>
           </PageSection>
