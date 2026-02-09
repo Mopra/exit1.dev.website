@@ -75,7 +75,7 @@ Monitoring that doesn't alert fast is busywork. Demand decisive incident tooling
 
 ### 11. Status Page Publishing
 - Built-in status pages save you from another vendor.
-- Custom domains and branding keep customers calm during chaos.
+- Custom branding keeps customers calm during chaos.
 
 ### 12. Incident Templates
 - Pre-written updates mean you're communicating in minutes, not hours.

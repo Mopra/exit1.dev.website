@@ -258,7 +258,7 @@ const RealTimeMonitoring = () => {
 relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Need SMS alerts and branded status pages?",
-          description: "Nano adds instant SMS notifications, custom domains for status pages, and your branding — all for less than a coffee per week."
+          description: "Nano adds instant SMS notifications, branded status pages, and a drag & drop builder — all for less than a coffee per week."
         }}
       />
     </>

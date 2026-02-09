@@ -12,7 +12,7 @@
 | **Email alerts** | 10/hour, 10/month | 100/hour, 1000/month |
 | **SMS alerts** | None | 30/hour, 20/month |
 | **Status page branding** | No | Yes |
-| **Custom domain** | No | Yes |
+| **Drag & drop builder** | No | Yes |
 | **Timeline view** | No | Yes |
 | **Check interval** | 2 min | 2 min (same!) |
 | **Price** | Free | ??? (Clerk-managed) |
@@ -41,7 +41,7 @@ Looking at the 4 featured benefits:
 |---------|---------------|
 | **SMS Alerts** | Most people are fine with email + Slack/Discord webhooks |
 | **Status Page Branding** | Only matters for client-facing businesses |
-| **Custom Domain** | Same - only for professional/agency use |
+| **Drag & Drop Builder** | Same - only for professional/agency use |
 | **Higher Email Limits** | 10 emails/month is enough unless sites are constantly down |
 
 **None of these solve an urgent pain for hobbyists or small projects** - which is likely the largest user base.
@@ -62,7 +62,7 @@ Users sign up, add their sites, get monitoring working - success! But they haven
 
 2. **Reframe the value prop around COST, not features**
    - "Skip the $20/month Twilio bill - SMS is included"
-   - "Custom domains usually cost extra - yours is included"
+   - "Custom branding usually costs extra - yours is included"
 
 3. **Add urgency/social proof**
    - "Join 500+ teams who upgraded to Nano"
@@ -108,7 +108,7 @@ Consider these adjustments:
 ### D. Target the Right Audience
 
 The Nano plan is perfect for:
-- **Freelancers/agencies** monitoring client sites (need branding, custom domains)
+- **Freelancers/agencies** monitoring client sites (need branding, custom status pages)
 - **On-call engineers** who need SMS (not checking email at 3am)
 - **SaaS founders** with paying customers (professional status pages matter)
 

@@ -22,7 +22,6 @@ This plan addresses the marketing website changes identified in `nanoplan-feedba
 **Current State:**
 ```
 - SMS alerts
-- Custom status page domain
 - Status page branding (logo, favicon, colors)
 - Higher email limits (100/hour, 1000/month)
 ```
@@ -30,8 +29,7 @@ This plan addresses the marketing website changes identified in `nanoplan-feedba
 **New Messaging:**
 ```
 - Get texted when your site goes down — not hours later via email
-- Your domain, your brand — status.yourcompany.com
-- Professional status pages with your logo and colors
+- Your brand, your look — professional status pages with your logo and colors
 - 100x more email alerts — because outages don't wait for billing cycles
 ```
 
@@ -43,7 +41,6 @@ On the pricing page recommendation banner, change:
 
 On homepage pricing section:
 - "SMS alerts" → "SMS alerts — know in seconds, not hours"
-- "Custom status page domain" → "Your domain (status.yourbrand.com)"
 - "Status page branding" → "Your logo, your colors"
 
 ---
@@ -56,7 +53,7 @@ On homepage pricing section:
 
 **Add to Nano card or recommendation banner:**
 - "SMS included — skip the $20/month Twilio bill"
-- "Custom domains included — no extra DNS service needed"
+- "Custom branding included — your logo, colors, and favicon"
 - "All for less than a coffee per week"
 
 **Implementation:**
@@ -101,13 +98,13 @@ Includes SMS alerts worth $20+/month elsewhere
 ## Who uses Nano?
 
 **Freelancers & Agencies**
-Monitoring client sites? Custom domains and branding make your status pages look professional. No "powered by" footers.
+Monitoring client sites? Custom branding makes your status pages look professional. No "powered by" footers.
 
 **On-Call Engineers**
 You're not checking email at 3am. SMS alerts wake you up when it matters.
 
 **SaaS Founders**
-Your customers expect professional status pages. Your brand, your domain, your reputation.
+Your customers expect professional status pages. Your brand, your colors, your reputation.
 ```
 
 **Visual treatment:** 3-column grid with icons, similar to existing feature grids.
@@ -121,7 +118,7 @@ Your customers expect professional status pages. Your brand, your domain, your r
 **Files:** `src/app/page.tsx`
 
 **Current copy at line 482-485:**
-> "The free tier covers real monitoring. Nano adds SMS, custom domains, and branding for those who need it."
+> "The free tier covers real monitoring. Nano adds SMS and branding for those who need it."
 
 **New copy:**
 > "Free covers everything hobbyists need. Nano is for professionals who monitor client sites, need SMS at 3am, or want branded status pages."
@@ -173,8 +170,8 @@ Your client asks: "Where can I see our uptime status?"
 - You look amateur
 
 **With Nano:**
-- You share status.theircompany.com
-- Their logo, their colors
+- Your logo, your colors, your favicon
+- Drag & drop builder to arrange it how you want
 - You look like you've got your act together
 
 ---
@@ -184,7 +181,6 @@ Your client asks: "Where can I see our uptime status?"
 Nano costs $3/month (annual) or $4/month (monthly).
 
 - SMS via Twilio: ~$0.0079/message × 20 alerts = $0.16/month minimum, plus $20+ platform fees
-- Custom domain setup elsewhere: $5-15/month
 - Professional status page tools: $20-50/month
 
 **Nano: $3/month. Everything included.**
@@ -215,7 +211,7 @@ Nano costs $3/month (annual) or $4/month (monthly).
 | Check interval | 1 min | 1 min | 5 min | 1 min |
 | Monitors | Unlimited | Unlimited | 50 | 50+ |
 | SMS alerts | No | Yes | No | $20+/mo |
-| Custom domain | No | Yes | No | $$$$ |
+| Custom branding | No | Yes | No | $$$$ |
 | Price | $0 | $3/mo | $0 | $14+/mo |
 
 **Key message:** Exit1 Nano at $3/mo gives you what costs $20-50/mo elsewhere.
@@ -247,7 +243,7 @@ Add a callout box:
 > [Get Nano →]
 
 **On Status Pages content (if exists):**
-> "Want your own domain and branding? Nano includes custom domains and white-label status pages."
+> "Want branded status pages? Nano includes custom logo, colors, and a drag & drop builder."
 
 ---
 

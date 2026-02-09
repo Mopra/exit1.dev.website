@@ -48,14 +48,6 @@ const comparisonData = [
     betterUptimeFree: false,
   },
   {
-    feature: 'Custom status page domain',
-    exit1Free: false,
-    exit1Nano: true,
-    uptimeRobotFree: false,
-    uptimeRobotPro: 'Pro+ only',
-    betterUptimeFree: false,
-  },
-  {
     feature: 'Status page branding',
     exit1Free: false,
     exit1Nano: true,
@@ -248,7 +240,7 @@ export default function ComparePage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span><strong className="text-white">Exit1 Nano at $3/mo</strong> includes SMS alerts, custom domains, and branding that cost $14-50/mo elsewhere.</span>
+                  <span><strong className="text-white">Exit1 Nano at $3/mo</strong> includes SMS alerts and branding that cost $14-50/mo elsewhere.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />

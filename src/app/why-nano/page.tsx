@@ -120,11 +120,11 @@ export default function WhyNanoPage() {
                 <ul className="space-y-3 text-white/70">
                   <li className="flex items-start gap-2">
                     <span className="text-red-400 mt-1">-</span>
-                    You share a link to status.exit1.dev/abc123
+                    You share a generic status page
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-400 mt-1">-</span>
-                    They ask why it doesn&apos;t match their brand
+                    No logo, no brand colors, no personality
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-400 mt-1">-</span>
@@ -138,11 +138,11 @@ export default function WhyNanoPage() {
                 <ul className="space-y-3 text-white/70">
                   <li className="flex items-start gap-2">
                     <span className="text-green-400 mt-1">+</span>
-                    You share status.theircompany.com
+                    Your logo, your colors, your favicon
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-green-400 mt-1">+</span>
-                    Their logo, their colors
+                    Drag & drop builder to arrange it how you want
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-green-400 mt-1">+</span>
@@ -174,10 +174,6 @@ export default function WhyNanoPage() {
                 <li className="flex items-start gap-2">
                   <span className="text-white/40">-</span>
                   <span><strong className="text-white">SMS via Twilio:</strong> ~$0.0079/message + $20+ platform fees/month</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-white/40">-</span>
-                  <span><strong className="text-white">Custom domain setup:</strong> $5-15/month with other tools</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-white/40">-</span>

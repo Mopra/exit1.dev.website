@@ -51,7 +51,7 @@ Exit1.dev ships the uptime coverage and reporting rigor legal teams expect witho
 - **Data retention**: Keep at least 12 months for renewals and audits.
 - **Export formats**: CSV and API access keep finance and BI happy.
 - **Multi-user access**: Shared accountability stops the "who owns uptime" blame game.
-- **Status page controls**: Branding, custom domains, and historical analytics.
+- **Status page controls**: Branding and historical analytics.
 - **Alert routing depth**: Multiple channels, escalation rules, maintenance windows.
 
 Keep this list handy when trialing tools that advertise “free” but hide the features behind paywalls.

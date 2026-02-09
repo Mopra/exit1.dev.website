@@ -7,7 +7,7 @@
 ## Page Title & Meta
 
 **Page Title:** Public Status Pages | exit1.dev  
-**Meta Description:** Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, custom branding, and custom domains.  
+**Meta Description:** Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, and custom branding.  
 **URL Slug:** `/features/status-pages`
 
 ---
@@ -75,14 +75,6 @@ Make your status page match your brand:
 - **Custom favicon** - Your icon in browser tabs (up to 96x96px)
 - **Brand colors** - Accent color that matches your brand
 
-### Custom Domain
-Host your status page on your own domain. Instead of `exit1.dev/status/abc123`, use `status.yourcompany.com`. 
-
-Simple DNS setup:
-- Add a CNAME record pointing to `app.exit1.dev`
-- We handle SSL certificates automatically
-- Verification status shown in dashboard
-
 ### Unlimited Status Pages
 Free users get 1 status page. Nano plan users can create unlimited status pages - perfect for agencies, multi-product companies, or separating production from staging environments.
 
@@ -138,7 +130,7 @@ Create separate status pages for each product line. Customers only see what's re
 | Custom logo | - | Yes |
 | Custom favicon | - | Yes |
 | Custom colors | - | Yes |
-| Custom domain | - | Yes |
+| Drag & drop builder | - | Yes |
 
 ---
 
@@ -154,7 +146,7 @@ Pick which monitors to display. You can choose from any of your existing checks.
 Choose your layout, enable folder grouping, and add your branding (Nano plan).
 
 ### Step 4: Share the Link
-Get a shareable URL or set up your custom domain. Share with customers, embed in your docs, or display on a dashboard.
+Get a shareable URL. Share with customers, embed in your docs, or display on a dashboard.
 
 ---
 
@@ -163,7 +155,7 @@ Get a shareable URL or set up your custom domain. Share with customers, embed in
 > "We reduced our 'is it down?' support tickets by 60% after setting up a public status page."
 > - [Customer Name], [Company]
 
-> "The custom domain feature makes our status page look like a natural part of our product."
+> "The custom branding makes our status page look like a natural part of our product."
 > - [Customer Name], [Company]
 
 ---
@@ -178,12 +170,6 @@ Yes, you can create multiple status pages (Nano plan) with different selections 
 
 ### What happens if a check goes down?
 The status page immediately reflects the current status. If you have alerts configured on your checks, you'll also receive notifications via your preferred channels.
-
-### Do I need technical knowledge to set up a custom domain?
-You'll need access to your domain's DNS settings. We provide clear instructions: just add a CNAME record pointing to our servers.
-
-### Is SSL included for custom domains?
-Yes, we automatically provision and manage SSL certificates for all custom domains at no extra cost.
 
 ### Can I embed the status page on my website?
 The status page is designed as a standalone page, but you can link to it from your website, documentation, or app.
@@ -208,8 +194,7 @@ Create a public status page in minutes. No code required.
 3. **Branding example** - Status page with custom logo and brand colors
 4. **Layout comparison** - Side-by-side of 2-col, 3-col, and single column layouts
 5. **Dashboard screenshot** - Status page management interface
-6. **Custom domain setup** - DNS configuration interface
-7. **Fullscreen mode** - Status page in fullscreen on a monitor/TV
+6. **Fullscreen mode** - Status page in fullscreen on a monitor/TV
 8. **Mobile view** - Status page responsive design on phone
 
 ---
@@ -232,7 +217,6 @@ Create a public status page in minutes. No code required.
 ## Internal Notes
 
 - Status page feature is live and stable
-- Custom domain verification can take a few minutes due to DNS propagation
 - Logo max size: 400x200px (JPG/PNG)
 - Favicon max size: 96x96px (PNG/GIF/ICO)
 - API caching: Snapshot=1min, Uptime/Heartbeat=5min

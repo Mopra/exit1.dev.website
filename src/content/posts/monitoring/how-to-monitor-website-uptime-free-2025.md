@@ -222,7 +222,7 @@ curl -X POST https://api.exit1.dev/monitors \
 ### Status Page Creation
 1. **Create public status page** for customers
 2. **Show real-time uptime** statistics
-3. **Custom domain** support (status.yoursite.com)
+3. **Custom branding** (logo, colors, favicon)
 4. **Incident updates** and maintenance notices
 
 ### Team Collaboration

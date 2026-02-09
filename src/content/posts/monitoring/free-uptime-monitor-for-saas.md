@@ -29,7 +29,7 @@ Downtime torches MRR and tanks trust. SaaS leaders who still fly blind are gambl
 - Webhooks let you trigger runbooks, on-call tools, or CI pipelines instantly.
 
 ### 3. Status Page Control
-- Custom domain and branding so your status page looks like part of the product, not an afterthought.
+- Custom branding so your status page looks like part of the product, not an afterthought.
 - Incident templates that separate partial degradation from full-blown outages.
 
 ### 4. Collaboration Built In

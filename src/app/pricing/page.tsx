@@ -178,8 +178,8 @@ const PricingPage = () => {
                     <div className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
                       <div>
-                        <div className="font-medium">Your Brand, Your Domain</div>
-                        <div className="text-sm text-white/60">Professional status pages at status.yourcompany.com with your logo and colors.</div>
+                        <div className="font-medium">Your Brand, Your Look</div>
+                        <div className="text-sm text-white/60">Professional status pages with your logo, favicon, and brand colors.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
@@ -323,7 +323,7 @@ const PricingPage = () => {
                   </div>
                   <h3 className="font-semibold mb-2">Freelancers & Agencies</h3>
                   <p className="text-sm text-white/60">
-                    Monitoring client sites? Custom domains and branding make your status pages look professional. No &quot;powered by&quot; footers.
+                    Monitoring client sites? Custom branding makes your status pages look professional. No &quot;powered by&quot; footers.
                   </p>
                 </div>
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
@@ -341,7 +341,7 @@ const PricingPage = () => {
                   </div>
                   <h3 className="font-semibold mb-2">SaaS Founders</h3>
                   <p className="text-sm text-white/60">
-                    Your customers expect professional status pages. Your brand, your domain, your reputation.
+                    Your customers expect professional status pages. Your brand, your colors, your reputation.
                   </p>
                 </div>
               </div>
