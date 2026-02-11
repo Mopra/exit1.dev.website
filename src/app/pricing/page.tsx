@@ -15,7 +15,6 @@ const freeFeatures = [
   "1 webhook integration",
   "1 public status page",
   "Analytics & logs (30 days)",
-  "API access",
   "Bulk import — migrate from any service in minutes",
   "Bulk edit — configure hundreds of checks at once",
 ];
@@ -34,6 +33,7 @@ const nanoFeatures = [
   "Domain intelligence",
   "Domain expiry alerts",
   "1 year data retention (vs 30 days)",
+  "API access",
   "Bulk import — migrate from any service in minutes",
   "Bulk edit — configure hundreds of checks at once",
   "Priority support",
