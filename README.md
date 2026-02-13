@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Exit1.dev Website
 
-## Getting Started
+Marketing site and blog for exit1 — uptime monitoring that doesn't get in your way.
 
-First, run the development server:
+**[exit1.dev](https://exit1.dev)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> **Source-available, not open source.** This code is published for transparency and reference. See [LICENSE](LICENSE) for terms.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What it does
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This is the public-facing website for exit1. It covers the platform's features, pricing, and hosts 100+ blog posts on monitoring, infrastructure, and domain intelligence.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Product and feature pages (monitoring, alerting, analytics, SSL, status pages)
+- Pricing with plan comparison (Free vs Nano)
+- Blog with categories: website monitoring, domain intelligence, API monitoring, incident management, SLA, cron jobs, infrastructure, and AI
+- SEO infrastructure — dynamic sitemap, structured data, `llms.txt` for AI crawlers
+- Interactive 3D globe visualization and GSAP/Framer Motion animations
+- Performance-optimized with critical CSS inlining, Web Vitals tracking, and Vercel Speed Insights
 
-## Learn More
+## Tech stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** Next.js 16, React 19, TypeScript
+- **Styling:** Tailwind CSS v4, shadcn/ui (New York), Radix UI primitives
+- **Animation:** GSAP, Framer Motion, cobe/react-globe.gl
+- **Content:** Markdown blog with gray-matter, remark, and GFM support
+- **Analytics:** Google Analytics, Vercel Speed Insights, Web Vitals
+- **Hosting:** Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Related repos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [exit1.dev](https://github.com/Mopra/exit1.dev) — Monitor application
+- [exit1.dev.docs](https://github.com/Mopra/exit1.dev.docs) — Official docs
+- [pradsgaardlabs.website](https://github.com/Mopra/pradsgaardlabs.website) — Company site
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is **source-available** under a custom [All Rights Reserved license](LICENSE). You may view the code for personal, educational, and reference purposes. Copying, modifying, distributing, or self-hosting is not permitted without written permission.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For licensing inquiries: connect@exit1.dev
