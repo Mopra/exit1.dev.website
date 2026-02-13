@@ -74,7 +74,7 @@ export default function ContactPage() {
                         <div className="p-2 bg-white/10 rounded-lg">
                           <Mail className="w-5 h-5 text-white" />
                         </div>
-                        <h3 className="text-xl font-semibold">Email</h3>
+                        <h2 className="text-xl font-semibold">Email</h2>
                       </div>
                       <p className="text-white/70 mb-6">
                         For direct questions, feature requests, or feedback. I read every email.
@@ -96,7 +96,7 @@ export default function ContactPage() {
                         <div className="p-2 bg-white/10 rounded-lg">
                           <MessageCircle className="w-5 h-5 text-white" />
                         </div>
-                        <h3 className="text-xl font-semibold">Community</h3>
+                        <h2 className="text-xl font-semibold">Community</h2>
                       </div>
                       <p className="text-white/70 mb-6">
                         Join our Discord community for help, ideas, and calling out nonsense.
@@ -112,7 +112,7 @@ export default function ContactPage() {
 
                   <InsetCard className="md:col-span-2">
                     <CardContent className="p-8">
-                      <h3 className="text-xl font-semibold mb-6">Connect & Follow</h3>
+                      <h2 className="text-xl font-semibold mb-6">Connect & Follow</h2>
                       <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
                         <Button variant="outline" asChild className="w-full rounded-full border-white/20 hover:bg-white/5 cursor-pointer">
                           <a href="https://www.linkedin.com/in/mopradk/" target="_blank" rel="noopener noreferrer">
@@ -152,7 +152,7 @@ export default function ContactPage() {
                           />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-xl font-semibold text-white mb-2">Morten Pradsgaard</h3>
+                          <h2 className="text-xl font-semibold text-white mb-2">Morten Pradsgaard</h2>
                           <p className="text-base text-white/70 font-medium mb-3">Founder & CTO</p>
                           <p className="text-base text-white/70 leading-relaxed">
                             I&apos;m the person behind exit1.dev. I build software that ships and stays up.
@@ -168,7 +168,7 @@ export default function ContactPage() {
                 <div className="mt-8 sm:mt-12 text-center">
                   <InsetCard>
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold text-white mb-2">Looking for answers?</h3>
+                      <h2 className="text-xl font-semibold text-white mb-2">Looking for answers?</h2>
                       <p className="text-base text-white/70 mb-4">
                         Check the <a href="https://docs.exit1.dev" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-4 hover:text-white/80 transition-colors">documentation</a> for guides on monitoring, alerting, status pages, API reference, and more.
                       </p>
@@ -179,7 +179,7 @@ export default function ContactPage() {
                 <div className="mt-4 text-center">
                   <InsetCard>
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold text-white mb-2">Response Time</h3>
+                      <h2 className="text-xl font-semibold text-white mb-2">Response Time</h2>
                       <p className="text-base text-white/70">
                         I typically respond within <strong>24 hours</strong>. For urgent issues,
                         the Discord community is your fastest path to help.

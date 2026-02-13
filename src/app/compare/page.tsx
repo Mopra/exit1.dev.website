@@ -164,22 +164,22 @@ export default function ComparePage() {
             <div className="md:hidden space-y-6">
               {comparisonData.map((row, idx) => (
                 <div key={idx} className="p-4 rounded-xl border border-white/10 bg-white/5">
-                  <h3 className="font-semibold mb-3">{row.feature}</h3>
+                  <h2 className="font-semibold mb-3 text-base">{row.feature}</h2>
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     <div className="flex flex-col">
-                      <span className="text-white/50 text-xs mb-1">Exit1 Free</span>
+                      <span className="text-white/70 text-xs mb-1">Exit1 Free</span>
                       <CellValue value={row.exit1Free} />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-white/50 text-xs mb-1">Exit1 Nano</span>
+                      <span className="text-white/70 text-xs mb-1">Exit1 Nano</span>
                       <CellValue value={row.exit1Nano} />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-white/50 text-xs mb-1">UptimeRobot Free</span>
+                      <span className="text-white/70 text-xs mb-1">UptimeRobot Free</span>
                       <CellValue value={row.uptimeRobotFree} />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-white/50 text-xs mb-1">UptimeRobot Pro</span>
+                      <span className="text-white/70 text-xs mb-1">UptimeRobot Pro</span>
                       <CellValue value={row.uptimeRobotPro} />
                     </div>
                   </div>

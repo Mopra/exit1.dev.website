@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://exit1.dev/sitemap.xml
-LLMs-Txt: https://exit1.dev/llms.txt
