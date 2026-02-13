@@ -1,3 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-  <path d="M12.014 10.636 0 17.283v2.873l12.014-6.647v3.89L24 10.752V7.879L12.014 14.41v-3.774zM24 5.844 12.014 12.49V8.6L0 15.247v2.873l12.014-6.647v3.89L24 8.717V5.844z"/>
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1255 1513" width="1255" height="1513">
+	<title>SPLK_BIG copy-svg</title>
+	<style>
+		.s0 { fill: #ffffff } 
+	</style>
+	<path id="Layer" fill-rule="evenodd" class="s0" d="m0.4 1512.9v-276l972.1-480.4-972.1-473.5v-282.9l1254.2 630.5v256.7z"/>
 </svg>

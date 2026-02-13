@@ -467,7 +467,7 @@ export default function NewHomePage() {
                       alt={integration.name}
                       width={24}
                       height={24}
-                      className="opacity-90 group-hover:opacity-100 transition-opacity invert"
+                      className="opacity-90 group-hover:opacity-100 transition-opacity brightness-0 invert"
                     />
                   </div>
                 ))}
