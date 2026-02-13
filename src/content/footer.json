@@ -8,7 +8,8 @@
       { "name": "Real-Time Monitoring", "href": "/real-time-monitoring" },
       { "name": "SSL Monitoring", "href": "/ssl-monitoring" },
       { "name": "Global Monitoring", "href": "/global-monitoring" },
-      { "name": "Smart Alerting", "href": "/alerting" }
+      { "name": "Smart Alerting", "href": "/alerting" },
+      { "name": "Maintenance Mode", "href": "/maintenance-mode" }
     ],
     "analytics": [
       { "name": "Analytics & Reports", "href": "/analytics" },

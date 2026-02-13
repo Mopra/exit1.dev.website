@@ -38,7 +38,8 @@ const featuresMenu = {
         { name: "SSL Monitoring", href: "/ssl-monitoring", description: "Certificate expiration tracking" },
         { name: "Domain Intelligence", href: "/domain-intelligence", description: "Automatic domain expiration alerts" },
         { name: "Global Monitoring", href: "/global-monitoring", description: "Worldwide coverage and geo performance" },
-        { name: "Smart Alerting", href: "/alerting", description: "Webhooks and real-time notifications" }
+        { name: "Smart Alerting", href: "/alerting", description: "Webhooks and real-time notifications" },
+        { name: "Maintenance Mode", href: "/maintenance-mode", description: "Suppress alerts during planned work" }
       ]
     },
     {

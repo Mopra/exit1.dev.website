@@ -16,6 +16,7 @@ import {
   Zap,
   Search,
   Webhook,
+  Wrench,
 } from "lucide-react";
 import { validateDomain } from "@/lib/domainUtils";
 import { FeatureGridItem } from "@/components/FeatureGridItem";
@@ -274,6 +275,13 @@ export default function NewHomePage() {
               description="Know when domains expire before they become someone else's problem. Automatic tracking, smart alerts."
               icon={<Search className="w-6 h-6 text-white" />}
             />
+            <FeatureGridItem
+              href="/maintenance-mode"
+              title="Maintenance Mode"
+              description="Suppress alerts during planned work. Checks keep running, data keeps flowing, your phone stays silent."
+              icon={<Wrench className="w-6 h-6 text-white" />}
+              className="md:col-span-3"
+            />
           </div>
         </PageSection>
 
@@ -366,7 +374,7 @@ export default function NewHomePage() {
               Get alerts where your team already works. Native integrations plus webhooks for everything else.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {/* Slack */}
               <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-center hover:bg-white/[0.07] transition-colors">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
@@ -396,6 +404,22 @@ export default function NewHomePage() {
                 <h3 className="text-xl font-semibold mb-2">Discord</h3>
                 <p className="text-white/60 text-sm">
                   Stay informed with your community or team server.
+                </p>
+              </div>
+
+              {/* Teams */}
+              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-center hover:bg-white/[0.07] transition-colors">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Image
+                    src="/integrations/teams.svg"
+                    alt="Microsoft Teams"
+                    width={32}
+                    height={32}
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Teams</h3>
+                <p className="text-white/60 text-sm">
+                  Alerts directly in your Microsoft Teams channels.
                 </p>
               </div>
 
@@ -623,6 +647,10 @@ export default function NewHomePage() {
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
                     Domain expiry alerts
+                  </li>
+                  <li className="flex items-center gap-2 text-white/80">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Maintenance mode — suppress alerts during planned work
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />

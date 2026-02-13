@@ -32,6 +32,7 @@ const nanoFeatures = [
   "Custom drag & drop status page builder",
   "Domain intelligence",
   "Domain expiry alerts",
+  "Maintenance mode — suppress alerts during planned work",
   "1 year data retention (vs 30 days)",
   "API access",
   "Bulk import — migrate from any service in minutes",
@@ -194,6 +195,13 @@ const PricingPage = () => {
                       <div>
                         <div className="font-medium">Domain Expiry Alerts</div>
                         <div className="text-sm text-white/60">Get notified before your domains expire. Never let a domain lapse again.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium">Maintenance Mode</div>
+                        <div className="text-sm text-white/60">Suppress alerts during planned deployments. Immediate, scheduled, or recurring windows.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
