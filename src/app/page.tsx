@@ -127,6 +127,44 @@ export default function NewHomePage() {
           </SectionContent>
         </PageSection>
 
+        {/* Testimonial Section */}
+        <PageSection className="py-20">
+          <SectionContent size="md">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-12">
+              <p className="text-lg sm:text-xl text-white/90 leading-relaxed mb-8">
+                &ldquo;The support at exit1.dev is absolutely absurd—I&apos;ve never felt so backed by a tool, and the product itself is fabulous, delivering 10x the performance of our old stack at a mere fraction of the cost.&rdquo;
+              </p>
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/testimonials/Kerners Nicholas Schibuola.jpeg"
+                  alt="Nicholas Schibuola"
+                  width={48}
+                  height={48}
+                  className="rounded-full object-cover"
+                />
+                <div>
+                  <div className="font-semibold text-white">Nicholas Schibuola</div>
+                  <a
+                    href="https://kerners.co/"
+                    target="_blank"
+                    rel="noopener"
+                    className="flex items-center gap-2 text-white/60 text-sm hover:text-white/80 transition-colors"
+                  >
+                    <Image
+                      src="/testimonials/Kerners Logo.jpeg"
+                      alt="Kerners"
+                      width={20}
+                      height={20}
+                      className="rounded-sm"
+                    />
+                    Kerners
+                  </a>
+                </div>
+              </div>
+            </div>
+          </SectionContent>
+        </PageSection>
+
         <PageSection className="!px-0">
           <div className="md:grid md:grid-cols-3 md:grid-rows-2">
             <FeatureGridItem
