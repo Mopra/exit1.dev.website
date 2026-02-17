@@ -130,35 +130,69 @@ export default function NewHomePage() {
         {/* Testimonial Section */}
         <PageSection className="py-20">
           <SectionContent size="md">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-12">
-              <p className="text-lg sm:text-xl text-white/90 leading-relaxed mb-8">
-                &ldquo;The support at exit1.dev is absolutely absurd—I&apos;ve never felt so backed by a tool, and the product itself is fabulous, delivering 10x the performance of our old stack at a mere fraction of the cost.&rdquo;
-              </p>
-              <div className="flex items-center gap-4">
-                <Image
-                  src="/testimonials/Kerners Nicholas Schibuola.jpeg"
-                  alt="Nicholas Schibuola"
-                  width={48}
-                  height={48}
-                  className="rounded-full object-cover"
-                />
-                <div>
-                  <div className="font-semibold text-white">Nicholas Schibuola</div>
-                  <a
-                    href="https://kerners.co/"
-                    target="_blank"
-                    rel="noopener"
-                    className="flex items-center gap-2 text-white/60 text-sm hover:text-white/80 transition-colors"
-                  >
-                    <Image
-                      src="/testimonials/Kerners Logo.jpeg"
-                      alt="Kerners"
-                      width={20}
-                      height={20}
-                      className="rounded-sm"
-                    />
-                    Kerners
-                  </a>
+            <div className="grid gap-6">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-12">
+                <p className="text-lg sm:text-xl text-white/90 leading-relaxed mb-8">
+                  &ldquo;The support at exit1.dev is absolutely absurd—I&apos;ve never felt so backed by a tool, and the product itself is fabulous, delivering 10x the performance of our old stack at a mere fraction of the cost.&rdquo;
+                </p>
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/testimonials/Kerners Nicholas Schibuola.jpeg"
+                    alt="Nicholas Schibuola"
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="font-semibold text-white">Nicholas Schibuola</div>
+                    <a
+                      href="https://kerners.co/"
+                      target="_blank"
+                      rel="noopener"
+                      className="flex items-center gap-2 text-white/60 text-sm hover:text-white/80 transition-colors"
+                    >
+                      <Image
+                        src="/testimonials/Kerners Logo.jpeg"
+                        alt="Kerners"
+                        width={20}
+                        height={20}
+                        className="rounded-sm"
+                      />
+                      Kerners
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-12">
+                <p className="text-lg sm:text-xl text-white/90 leading-relaxed mb-8">
+                  &ldquo;We&apos;ve loved using Exit1 to provide distributed &amp; worldwide monitoring to our clients websites and critical business applications, with lightning fast SMS, Webhook and email alerts, reasonable no-nonsense pricing, and friendly support who will always lend a helping hand. There&apos;s not really a better choice&rdquo;
+                </p>
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/testimonials/4u Entertainment Kai Randles.jpg"
+                    alt="Kai Randles"
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="font-semibold text-white">Kai Randles</div>
+                    <a
+                      href="https://4umediagroup.co.uk/"
+                      target="_blank"
+                      rel="noopener"
+                      className="flex items-center gap-2 text-white/60 text-sm hover:text-white/80 transition-colors"
+                    >
+                      <Image
+                        src="/testimonials/4u Entertainment Logo.png"
+                        alt="4u Entertainment"
+                        width={20}
+                        height={20}
+                        className="rounded-sm"
+                      />
+                      4u Entertainment
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
