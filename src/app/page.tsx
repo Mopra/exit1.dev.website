@@ -195,6 +195,38 @@ export default function NewHomePage() {
                   </div>
                 </div>
               </div>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-12">
+                <p className="text-lg sm:text-xl text-white/90 leading-relaxed mb-8">
+                  &ldquo;Exit1 is a fantastic tool that performs exactly as advertised, but the level of support behind it is what makes it world-class. When I reached out via Discord for a custom modification, the developer responded immediately. Not only was the work finished in a matter of hours, but they went above and beyond by adding extra touches I hadn&apos;t even asked for. It&apos;s rare to find this level of dedication and speed.&rdquo;
+                </p>
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/testimonials/SEOVERSE Nick Frame.jpeg"
+                    alt="Nick Frame"
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="font-semibold text-white">Nick Frame</div>
+                    <a
+                      href="https://seoverse.co.uk/"
+                      target="_blank"
+                      rel="noopener"
+                      className="flex items-center gap-2 text-white/60 text-sm hover:text-white/80 transition-colors"
+                    >
+                      <Image
+                        src="/testimonials/SEROVERSE Logo.png"
+                        alt="SEOVERSE"
+                        width={20}
+                        height={20}
+                        className="rounded-sm"
+                      />
+                      SEOVERSE
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </SectionContent>
         </PageSection>
