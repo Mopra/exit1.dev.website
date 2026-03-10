@@ -272,8 +272,8 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div id="mobile-menu" className="xl:hidden" role="dialog" aria-label="Mobile navigation menu">
-          <div className="absolute top-full left-0 right-0 mt-2 bg-background/95 backdrop-blur-xl border border-primary/20 rounded-xl shadow-xl max-h-[calc(100vh-200px)] overflow-hidden">
-            <div className="overflow-y-auto max-h-[calc(100vh-140px)] scrollbar-thin">
+          <div className="absolute top-full left-0 right-0 mt-2 bg-background/95 backdrop-blur-xl border border-primary/20 rounded-xl shadow-xl max-h-[calc(100vh-120px)] overflow-y-auto scrollbar-thin">
+            <div>
               <div className="p-4 space-y-4">
                 {/* CTA Buttons - Mobile Top */}
                 <div className="space-y-2 pb-4 border-b border-primary/20">
