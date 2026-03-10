@@ -17,6 +17,13 @@ const navigation = [
   { name: "Docs", href: "https://docs.exit1.dev", external: true }
 ]
 
+const toolsMenu = {
+  name: "Tools",
+  items: [
+    { name: "SSL Checker", href: "/tools/ssl-checker", description: "Check any site's SSL certificate" },
+  ]
+}
+
 const companyMenu = {
   name: "Company",
   items: [
@@ -183,11 +190,41 @@ export default function Header() {
                 </NavigationMenuList>
               </NavigationMenu>
 
+              {/* Tools Dropdown */}
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger
+                      className="text-sm font-medium rounded-full cursor-pointer bg-transparent hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary"
+                      aria-label={`Open ${toolsMenu.name} menu`}
+                    >
+                      {toolsMenu.name}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="left-1/2 -translate-x-1/2">
+                      <div className="w-64 p-3 backdrop-blur-xl rounded-xl">
+                        {toolsMenu.items.map((item) => (
+                          <NavigationMenuLink key={item.href} asChild>
+                            <Link
+                              href={item.href}
+                              className="block p-3 rounded-xl text-left hover:bg-primary/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
+                              aria-label={item.name}
+                            >
+                              <div className="font-medium text-foreground text-sm">{item.name}</div>
+                              <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+
               {/* Company Dropdown */}
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger 
+                    <NavigationMenuTrigger
                       className="text-sm font-medium rounded-full cursor-pointer bg-transparent hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary"
                       aria-label={`Open ${companyMenu.name} menu`}
                     >
@@ -352,6 +389,33 @@ export default function Header() {
                     </div>
                   </div>
                 ))}
+
+                {/* Tools Menu */}
+                <div className="border-t border-primary/20 pt-4">
+                  <div className="px-3 py-2 text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                    {toolsMenu.name}
+                  </div>
+                  <div className="space-y-1">
+                    {toolsMenu.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-lg group interactive"
+                        onClick={closeMobileMenu}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <div className="font-medium">{item.name}</div>
+                            <div className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                              {item.description}
+                            </div>
+                          </div>
+                          <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
 
                 {/* Company Menu */}
                 <div className="border-t border-primary/20 pt-4">
