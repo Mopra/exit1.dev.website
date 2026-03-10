@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
+  Activity,
   ArrowRight,
   BarChart3,
   Bell,
@@ -239,7 +240,7 @@ export default function NewHomePage() {
         </PageSection>
 
         <PageSection className="!px-0">
-          <div className="md:grid md:grid-cols-3 md:grid-rows-2">
+          <div className="md:grid md:grid-cols-3">
             <FeatureGridItem
               href="/real-time-monitoring"
               title="Fast check intervals"
@@ -277,11 +278,17 @@ export default function NewHomePage() {
               icon={<Search className="w-6 h-6 text-white" />}
             />
             <FeatureGridItem
+              href="/icmp-monitoring"
+              title="ICMP Ping Monitoring"
+              description="Ping any host on the internet. Track round-trip latency, TTL, and get instant alerts when infrastructure goes down."
+              icon={<Activity className="w-6 h-6 text-white" />}
+            />
+            <FeatureGridItem
               href="/maintenance-mode"
               title="Maintenance Mode"
               description="Suppress alerts during planned work. Checks keep running, data keeps flowing, your phone stays silent."
               icon={<Wrench className="w-6 h-6 text-white" />}
-              className="md:col-span-3"
+              className="md:col-span-2"
             />
           </div>
         </PageSection>

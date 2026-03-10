@@ -39,6 +39,7 @@ const featuresMenu = {
         { name: "Domain Intelligence", href: "/domain-intelligence", description: "Automatic domain expiration alerts" },
         { name: "Global Monitoring", href: "/global-monitoring", description: "Worldwide coverage and geo performance" },
         { name: "Smart Alerting", href: "/alerting", description: "Webhooks and real-time notifications" },
+        { name: "ICMP Monitoring", href: "/icmp-monitoring", description: "Ping-based host availability and latency" },
         { name: "Maintenance Mode", href: "/maintenance-mode", description: "Suppress alerts during planned work" }
       ]
     },
