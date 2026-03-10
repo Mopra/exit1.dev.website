@@ -44,7 +44,7 @@ Getting started takes less than a minute:
 1. Sign up at exit1.dev (no credit card required)
 2. Click "Add Check" and select **ICMP Ping** as the check type
 3. Enter the hostname or public IP address of your target
-4. Set your check frequency (5 minutes on Free, 2 minutes on Nano)
+4. Set your check frequency (5 minutes on Free, 1 minute on Nano)
 5. Configure your alert channels (email, webhooks, or SMS)
 
 That's it. Exit1.dev handles the rest — sending pings from multiple global regions, recording latency metrics, enriching results with geolocation data, and alerting you when something goes down.
@@ -96,7 +96,7 @@ Both tiers include full ICMP ping monitoring:
 | Feature | Free | Nano |
 |---------|------|------|
 | ICMP monitors | Up to 50 | Up to 200 |
-| Check frequency | 5 minutes | 2 minutes |
+| Check frequency | 5 minutes | 1 minute |
 | Email alerts | 10/hour | 100/hour |
 | SMS alerts | — | 30/hour |
 | Webhooks | 1 | 50 |

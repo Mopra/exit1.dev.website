@@ -49,7 +49,7 @@ List every network device that would cause impact if it went down. Start with yo
 For each device:
 1. Create a new check and select **ICMP Ping**
 2. Enter the device's IP address or hostname
-3. Set the check frequency (5 minutes on Free, 2 minutes on Nano)
+3. Set the check frequency (5 minutes on Free, 1 minute on Nano)
 4. Enable alerts via email or webhook
 
 ### Step 3: Set up alert routing

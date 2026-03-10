@@ -103,7 +103,7 @@ const ICMPMonitoring = () => {
       competitors: "Basic retry"
     },
     {
-      feature: "2-minute check intervals",
+      feature: "1-minute check intervals",
       exit1: true,
       competitors: "5+ minutes"
     },
@@ -131,7 +131,7 @@ const ICMPMonitoring = () => {
     },
     {
       question: "Is ICMP monitoring included in the free tier?",
-      answer: "Yes, ICMP ping monitoring is available on both the Free and Nano tiers. On the Free tier you get up to 50 monitors with 5-minute check intervals. On the Nano tier you get up to 200 monitors with 2-minute check intervals."
+      answer: "Yes, ICMP ping monitoring is available on both the Free and Nano tiers. On the Free tier you get up to 50 monitors with 5-minute check intervals. On the Nano tier you get up to 200 monitors with 1-minute check intervals."
     },
     {
       question: "When should I use ICMP checks instead of HTTP checks?",
@@ -261,7 +261,7 @@ const ICMPMonitoring = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Need faster ping checks?",
-          description: "Upgrade to Nano for 2-minute ICMP check intervals, SMS alerts, 200 monitors, and 1-year data retention."
+          description: "Upgrade to Nano for 1-minute ICMP check intervals, SMS alerts, 200 monitors, and 1-year data retention."
         }}
       />
     </>
