@@ -129,7 +129,7 @@ function checkSSL(hostname: string): Promise<SSLResult> {
         // The raw cert object doesn't always expose this cleanly,
         // but we can get it from the asn1 parsed data if available
         const signatureAlgorithm =
-          (cert as Record<string, unknown>).sigalg as string | undefined ||
+          (cert as unknown as Record<string, unknown>).sigalg as string | undefined ||
           undefined;
 
         // Extract Subject Alternative Names
