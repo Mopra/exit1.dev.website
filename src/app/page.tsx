@@ -32,9 +32,23 @@ export default function NewHomePage() {
               <br />
               No limits. No catches.
             </h1>
-            <p className="text-xl sm:text-2xl text-white/70 mb-16 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
               Check every site, storefront, and API every minute. Unlimited monitors, instant alerts, SSL coverage. No bait-and-switch.
             </p>
+
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-14">
+              {[
+                "Unlimited monitors",
+                "1-minute checks",
+                "Instant alerts",
+                "SSL & domain monitoring",
+              ].map((item) => (
+                <span key={item} className="flex items-center gap-2 text-sm sm:text-base text-white/80">
+                  <Check className="w-5 h-5 text-green-400 shrink-0" />
+                  {item}
+                </span>
+              ))}
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
               <Button
