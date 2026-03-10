@@ -8,6 +8,7 @@ import {
   Check,
   CheckCircle2,
   Globe,
+  Radio,
   Shield,
   Zap,
   Search,
@@ -298,11 +299,16 @@ export default function NewHomePage() {
               icon={<Activity className="w-6 h-6 text-white" />}
             />
             <FeatureGridItem
+              href="/websocket-monitoring"
+              title="WebSocket Monitoring"
+              description="Monitor WS and WSS endpoints. Verify handshake connections, track latency, and catch upgrade failures before users notice."
+              icon={<Radio className="w-6 h-6 text-white" />}
+            />
+            <FeatureGridItem
               href="/maintenance-mode"
               title="Maintenance Mode"
               description="Suppress alerts during planned work. Checks keep running, data keeps flowing, your phone stays silent."
               icon={<Wrench className="w-6 h-6 text-white" />}
-              className="md:col-span-2"
             />
           </div>
         </PageSection>

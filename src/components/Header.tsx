@@ -40,6 +40,7 @@ const featuresMenu = {
         { name: "Global Monitoring", href: "/global-monitoring", description: "Worldwide coverage and geo performance" },
         { name: "Smart Alerting", href: "/alerting", description: "Webhooks and real-time notifications" },
         { name: "ICMP Monitoring", href: "/icmp-monitoring", description: "Ping-based host availability and latency" },
+        { name: "WebSocket Monitoring", href: "/websocket-monitoring", description: "WS/WSS handshake and connection checks" },
         { name: "Maintenance Mode", href: "/maintenance-mode", description: "Suppress alerts during planned work" }
       ]
     },
