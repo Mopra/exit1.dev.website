@@ -21,6 +21,7 @@ const toolsMenu = {
   name: "Tools",
   items: [
     { name: "SSL Checker", href: "/tools/ssl-checker", description: "Check any site's SSL certificate" },
+    { name: "Domain Checker", href: "/tools/domain-expiration-checker", description: "Check any domain's expiry date" },
   ]
 }
 
