@@ -12,12 +12,12 @@ import { useCallback, useMemo } from "react";
 import {
   Globe,
   Lock,
+  Cable,
+  Handshake,
+  FileCheck,
   ShieldCheck,
   ShieldAlert,
-  KeyRound,
-  Clock,
-  Fingerprint,
-  Network,
+  CheckCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -37,303 +37,236 @@ interface SSLResult {
   fingerprint?: string;
 }
 
-function GradeNode({ data }: { data: { grade: string; valid: boolean } }) {
-  const color = data.grade.startsWith("A")
-    ? "#34d399"
-    : data.grade === "B"
-      ? "#60a5fa"
-      : data.grade === "C"
-        ? "#fbbf24"
-        : "#f87171";
-
-  return (
-    <div className="flex flex-col items-center gap-1 px-4 py-3 bg-black/80 border border-white/10 rounded-xl backdrop-blur-sm text-center">
-      <div
-        className="w-12 h-12 rounded-lg flex items-center justify-center text-xl font-bold border"
-        style={{
-          backgroundColor: `${color}20`,
-          borderColor: `${color}40`,
-          color,
-        }}
-      >
-        {data.grade}
-      </div>
-      <div className="text-[11px] text-muted-foreground mt-1">Overall Grade</div>
-    </div>
-  );
-}
-
-function InfoNode({
+function StepNode({
   data,
 }: {
-  data: { label: string; value: string; icon: string; color: string };
+  data: {
+    step: number;
+    title: string;
+    details: string[];
+    color: string;
+    icon: string;
+    grade?: string;
+    gradeColor?: string;
+  };
 }) {
   const icons: Record<string, React.ReactNode> = {
     globe: <Globe className="w-4 h-4" />,
-    lock: <Lock className="w-4 h-4" />,
+    cable: <Cable className="w-4 h-4" />,
+    handshake: <Handshake className="w-4 h-4" />,
+    fileCheck: <FileCheck className="w-4 h-4" />,
     shieldCheck: <ShieldCheck className="w-4 h-4" />,
     shieldAlert: <ShieldAlert className="w-4 h-4" />,
-    key: <KeyRound className="w-4 h-4" />,
-    clock: <Clock className="w-4 h-4" />,
-    fingerprint: <Fingerprint className="w-4 h-4" />,
-    network: <Network className="w-4 h-4" />,
+    lock: <Lock className="w-4 h-4" />,
+    checkCircle: <CheckCircle className="w-4 h-4" />,
   };
 
   return (
-    <div className="flex items-center gap-2.5 px-3 py-2.5 bg-black/80 border border-white/10 rounded-xl backdrop-blur-sm min-w-[150px]">
+    <div className="flex items-start gap-3 px-4 py-3 bg-black/80 border border-white/10 rounded-xl backdrop-blur-sm w-[420px]">
       <div
-        className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border"
+        className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border text-xs font-bold"
         style={{
           backgroundColor: `${data.color}15`,
           borderColor: `${data.color}30`,
           color: data.color,
         }}
       >
-        {icons[data.icon]}
+        {icons[data.icon] || data.step}
       </div>
-      <div className="min-w-0">
-        <div className="text-[10px] text-muted-foreground leading-tight">
-          {data.label}
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-mono text-muted-foreground">
+            STEP {data.step}
+          </span>
+          {data.grade && (
+            <span
+              className="text-[10px] font-bold px-1.5 py-0.5 rounded border"
+              style={{
+                backgroundColor: `${data.gradeColor}20`,
+                borderColor: `${data.gradeColor}40`,
+                color: data.gradeColor,
+              }}
+            >
+              {data.grade}
+            </span>
+          )}
         </div>
-        <div className="text-xs font-semibold text-white truncate max-w-[140px]">
-          {data.value}
+        <div className="text-xs font-semibold text-white mt-0.5">
+          {data.title}
         </div>
+        {data.details.length > 0 && (
+          <div className="mt-1 space-y-0.5">
+            {data.details.map((detail, i) => (
+              <div
+                key={i}
+                className="text-[11px] text-muted-foreground leading-tight"
+              >
+                {detail}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-const nodeTypes = { grade: GradeNode, info: InfoNode };
+const nodeTypes = { step: StepNode };
 
 export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
-  const nodes: Node[] = useMemo(() => {
-    const gradeColor = result.grade?.startsWith("A")
-      ? "#34d399"
-      : result.grade === "B"
-        ? "#60a5fa"
-        : result.grade === "C"
-          ? "#fbbf24"
-          : "#f87171";
+  const gradeColor = result.grade?.startsWith("A")
+    ? "#34d399"
+    : result.grade === "B"
+      ? "#60a5fa"
+      : result.grade === "C"
+        ? "#fbbf24"
+        : "#f87171";
 
-    const n: Node[] = [
-      // Grade - center top
+  const validColor = result.valid ? "#34d399" : "#f87171";
+
+  const nodes: Node[] = useMemo(() => {
+    const yGap = 90;
+
+    return [
       {
-        id: "grade",
-        type: "grade",
-        position: { x: 380, y: 0 },
-        data: { grade: result.grade || "?", valid: result.valid },
+        id: "dns",
+        type: "step",
+        position: { x: 0, y: 0 },
+        data: {
+          step: 1,
+          title: "DNS Lookup",
+          details: [`Resolve ${result.hostname}`],
+          color: "#63b3ff",
+          icon: "globe",
+        },
         sourcePosition: Position.Bottom,
         targetPosition: Position.Top,
       },
-      // Left column - Connection info
       {
-        id: "hostname",
-        type: "info",
-        position: { x: 0, y: 10 },
+        id: "tcp",
+        type: "step",
+        position: { x: 0, y: yGap },
         data: {
-          label: "Hostname",
-          value: result.hostname,
-          icon: "globe",
-          color: "#63b3ff",
-        },
-        sourcePosition: Position.Right,
-        targetPosition: Position.Left,
-      },
-      {
-        id: "protocol",
-        type: "info",
-        position: { x: 200, y: 10 },
-        data: {
-          label: "Protocol",
-          value: result.protocol || "Unknown",
-          icon: "lock",
+          step: 2,
+          title: "TCP Connection",
+          details: [`Connect to ${result.hostname}:443`],
           color: "#a78bfa",
+          icon: "cable",
         },
-        sourcePosition: Position.Right,
-        targetPosition: Position.Left,
+        sourcePosition: Position.Bottom,
+        targetPosition: Position.Top,
       },
-      // Right column - Certificate info
       {
-        id: "issuer",
-        type: "info",
-        position: { x: 570, y: 10 },
+        id: "tls",
+        type: "step",
+        position: { x: 0, y: yGap * 2 },
         data: {
-          label: "Issuer",
-          value: result.issuer || "Unknown",
+          step: 3,
+          title: "TLS Handshake",
+          details: [
+            `Negotiated ${result.protocol || "TLS"}`,
+            result.keySize ? `Key exchange: ${result.keySize}-bit` : "",
+          ].filter(Boolean),
+          color: "#e879f9",
+          icon: "handshake",
+        },
+        sourcePosition: Position.Bottom,
+        targetPosition: Position.Top,
+      },
+      {
+        id: "cert",
+        type: "step",
+        position: { x: 0, y: yGap * 3 },
+        data: {
+          step: 4,
+          title: "Server Certificate",
+          details: [
+            `Issuer: ${result.issuer || "Unknown"}`,
+            `Subject: ${result.subject || result.hostname}`,
+            result.altNames && result.altNames.length > 1
+              ? `SANs: ${result.altNames.slice(0, 3).join(", ")}${result.altNames.length > 3 ? ` +${result.altNames.length - 3} more` : ""}`
+              : "",
+            result.signatureAlgorithm
+              ? `Signature: ${result.signatureAlgorithm}`
+              : "",
+          ].filter(Boolean),
+          color: "#fbbf24",
+          icon: "fileCheck",
+        },
+        sourcePosition: Position.Bottom,
+        targetPosition: Position.Top,
+      },
+      {
+        id: "validate",
+        type: "step",
+        position: { x: 0, y: yGap * 4 },
+        data: {
+          step: 5,
+          title: "Certificate Validation",
+          details: [
+            result.valid ? "Trusted CA: Yes" : "Trusted CA: No",
+            result.valid
+              ? `Domain matches certificate`
+              : "Domain mismatch or invalid",
+            result.daysUntilExpiry != null
+              ? result.daysUntilExpiry > 0
+                ? `Expires in ${result.daysUntilExpiry} days`
+                : `Expired ${Math.abs(result.daysUntilExpiry)} days ago`
+              : "",
+          ].filter(Boolean),
+          color: validColor,
           icon: result.valid ? "shieldCheck" : "shieldAlert",
-          color: result.valid ? "#34d399" : "#f87171",
         },
-        sourcePosition: Position.Left,
-        targetPosition: Position.Right,
+        sourcePosition: Position.Bottom,
+        targetPosition: Position.Top,
       },
       {
-        id: "expiry",
-        type: "info",
-        position: { x: 770, y: 10 },
+        id: "secure",
+        type: "step",
+        position: { x: 0, y: yGap * 5 },
         data: {
-          label: "Expires In",
-          value: result.daysUntilExpiry != null ? `${result.daysUntilExpiry} days` : "Unknown",
-          icon: "clock",
-          color:
-            result.daysUntilExpiry != null && result.daysUntilExpiry <= 7
-              ? "#f87171"
-              : result.daysUntilExpiry != null && result.daysUntilExpiry <= 30
-                ? "#fbbf24"
-                : "#34d399",
+          step: 6,
+          title: "Secure Connection Established",
+          details: [
+            result.valid
+              ? "Encrypted session active"
+              : "Connection insecure",
+          ],
+          color: gradeColor,
+          icon: result.valid ? "lock" : "shieldAlert",
+          grade: result.grade,
+          gradeColor,
         },
-        sourcePosition: Position.Left,
-        targetPosition: Position.Right,
+        sourcePosition: Position.Bottom,
+        targetPosition: Position.Top,
       },
     ];
-
-    // Bottom row - Technical details
-    let bottomX = 50;
-
-    if (result.keySize) {
-      n.push({
-        id: "keysize",
-        type: "info",
-        position: { x: bottomX, y: 100 },
-        data: {
-          label: "Key Size",
-          value: `${result.keySize} bits`,
-          icon: "key",
-          color: result.keySize >= 2048 ? "#34d399" : "#fbbf24",
-        },
-        sourcePosition: Position.Top,
-        targetPosition: Position.Bottom,
-      });
-      bottomX += 200;
-    }
-
-    if (result.signatureAlgorithm) {
-      n.push({
-        id: "sigalg",
-        type: "info",
-        position: { x: bottomX, y: 100 },
-        data: {
-          label: "Signature",
-          value: result.signatureAlgorithm,
-          icon: "fingerprint",
-          color: "#a78bfa",
-        },
-        sourcePosition: Position.Top,
-        targetPosition: Position.Bottom,
-      });
-      bottomX += 200;
-    }
-
-    if (result.subject) {
-      n.push({
-        id: "subject",
-        type: "info",
-        position: { x: bottomX, y: 100 },
-        data: {
-          label: "Subject",
-          value: result.subject,
-          icon: "globe",
-          color: "#63b3ff",
-        },
-        sourcePosition: Position.Top,
-        targetPosition: Position.Bottom,
-      });
-      bottomX += 200;
-    }
-
-    if (result.altNames && result.altNames.length > 0) {
-      n.push({
-        id: "altnames",
-        type: "info",
-        position: { x: bottomX, y: 100 },
-        data: {
-          label: "Alt Names",
-          value: result.altNames.length === 1 ? result.altNames[0] : `${result.altNames.length} domains`,
-          icon: "network",
-          color: "#f472b6",
-        },
-        sourcePosition: Position.Top,
-        targetPosition: Position.Bottom,
-      });
-    }
-
-    return n;
-  }, [result]);
+  }, [result, validColor, gradeColor]);
 
   const edges: Edge[] = useMemo(() => {
-    const gradeColor = result.grade?.startsWith("A")
-      ? "#34d399"
-      : result.grade === "B"
-        ? "#60a5fa"
-        : result.grade === "C"
-          ? "#fbbf24"
-          : "#f87171";
-
-    const e: Edge[] = [
-      // Left side → Grade
-      {
-        id: "e-host-proto",
-        source: "hostname",
-        target: "protocol",
-        animated: true,
-        style: { stroke: "#63b3ff", strokeWidth: 1.5 },
-      },
-      {
-        id: "e-proto-grade",
-        source: "protocol",
-        target: "grade",
-        animated: true,
-        style: { stroke: "#a78bfa", strokeWidth: 1.5 },
-      },
-      // Grade → Right side
-      {
-        id: "e-grade-issuer",
-        source: "grade",
-        target: "issuer",
-        animated: true,
-        style: { stroke: gradeColor, strokeWidth: 1.5 },
-      },
-      {
-        id: "e-issuer-expiry",
-        source: "issuer",
-        target: "expiry",
-        animated: true,
-        style: { stroke: "#34d399", strokeWidth: 1.5 },
-      },
-    ];
-
-    // Connect grade to bottom row
-    const bottomIds = ["keysize", "sigalg", "subject", "altnames"].filter((id) =>
-      nodes.some((n) => n.id === id)
-    );
-    bottomIds.forEach((id) => {
-      e.push({
-        id: `e-grade-${id}`,
-        source: "grade",
-        target: id,
-        animated: true,
-        style: { stroke: "#ffffff15", strokeWidth: 1 },
-        type: "straight",
-      });
-    });
-
-    return e;
-  }, [result, nodes]);
+    const ids = ["dns", "tcp", "tls", "cert", "validate", "secure"];
+    return ids.slice(0, -1).map((id, i) => ({
+      id: `e-${id}-${ids[i + 1]}`,
+      source: id,
+      target: ids[i + 1],
+      animated: true,
+      style: { stroke: "#ffffff20", strokeWidth: 1.5 },
+    }));
+  }, []);
 
   const onInit = useCallback((instance: { fitView: () => void }) => {
     setTimeout(() => instance.fitView(), 50);
   }, []);
 
   return (
-    <div className={cn(
-      "w-full h-[240px] rounded-xl border border-white/10 overflow-hidden bg-black/30",
-    )}>
+    <div className="w-full h-[600px] rounded-xl border border-white/10 overflow-hidden bg-black/30">
       <ReactFlow
         nodes={nodes}
         edges={edges}
         nodeTypes={nodeTypes}
         onInit={onInit}
         fitView
-        fitViewOptions={{ padding: 0.2 }}
+        fitViewOptions={{ padding: 0.15 }}
         panOnDrag={false}
         zoomOnScroll={false}
         zoomOnPinch={false}
@@ -343,7 +276,7 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
         elementsSelectable={false}
         proOptions={{ hideAttribution: true }}
         minZoom={0.3}
-        maxZoom={1.2}
+        maxZoom={1.5}
       >
         <Background color="#ffffff08" gap={24} size={1} />
       </ReactFlow>
