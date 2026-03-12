@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
 import DomainCheckerTool from "./DomainCheckerTool";
@@ -133,7 +134,9 @@ export default function DomainExpirationCheckerPage() {
           {/* Tool Section */}
           <PageSection>
             <SectionContent size="md" className="py-12 sm:py-16">
-              <DomainCheckerTool />
+              <Suspense>
+                <DomainCheckerTool />
+              </Suspense>
             </SectionContent>
           </PageSection>
 
