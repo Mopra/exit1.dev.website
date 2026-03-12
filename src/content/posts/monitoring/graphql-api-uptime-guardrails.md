@@ -20,7 +20,7 @@ Status 200 means nothing if the payload is broken. exit1.dev lets you:
 - Assert body keywords for HTML or plaintext endpoints.
 - Check response times by region.
 
-All of that lives in the free tier.
+All of that lives in the free tier. Try our [free API status checker](/tools/api-status-checker) to test any endpoint right now.
 
 ## GraphQL specifics
 

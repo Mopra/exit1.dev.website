@@ -22,6 +22,8 @@ const toolsMenu = {
   items: [
     { name: "SSL Checker", href: "/tools/ssl-checker", description: "Check any site's SSL certificate" },
     { name: "Domain Checker", href: "/tools/domain-expiration-checker", description: "Check any domain's expiry date" },
+    { name: "API Status Checker", href: "/tools/api-status-checker", description: "Check any API endpoint's status & headers" },
+    { name: "Ping Test", href: "/tools/ping-test", description: "Test latency to any host" },
   ]
 }
 

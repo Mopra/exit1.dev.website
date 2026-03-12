@@ -238,7 +238,7 @@ For domain monitoring, this means:
 - Better status visibility
 - Reliable automation
 
-If your domain monitoring feels flaky or inconsistent, check whether it's using RDAP. The protocol alone makes a significant difference in reliability.
+If your domain monitoring feels flaky or inconsistent, check whether it's using RDAP. You can try our [free domain expiration checker](/tools/domain-expiration-checker) to see RDAP-powered lookups in action. The protocol alone makes a significant difference in reliability.
 
 ---
 
@@ -246,4 +246,5 @@ If your domain monitoring feels flaky or inconsistent, check whether it's using 
 
 - [Why Domain Expiration is the Silent Killer](/blog/domain-expiration-silent-killer-websites) - The real cost of missed renewals
 - [Domain Intelligence Feature](/domain-intelligence) - How Exit1 monitors your domains
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) - See RDAP-powered domain lookups in action
 - [SSL Certificate Monitoring](/blog/free-ssl-certificate-monitoring) - The other expiration you need to track

@@ -19,7 +19,7 @@ Need the foundational monitors? Start with the [API Endpoint Monitoring Playbook
 
 ## Automate payload validation
 
-Stop pushing manual QA to catch schema drift. Automate checks:
+Stop pushing manual QA to catch schema drift. Start with a [free API status checker](/tools/api-status-checker) for quick on-demand validation, then automate checks:
 
 - **JSONPath Assertions**: Validate `$.order.total` or `$.token.expires_at` to the exact value range.
 - **Header enforcement**: Require caching headers, `X-Request-ID`, or auth tokens.
@@ -62,3 +62,11 @@ Platform, product, and partner teams can all share the same exit1.dev workspace.
 - Ship faster because you trust the guardrails.
 
 Automation is how you keep API monitoring sharp without burning engineers out. Do it now before the next incident embarrasses you.
+
+---
+
+## Recommended Tools & Reading
+
+- [Free API Status Checker](/tools/api-status-checker) – Check any API endpoint's health on demand
+- [API Endpoint Monitoring Playbook 2025](/blog/api-endpoint-monitoring-playbook-2025) – Foundation monitors to automate
+- [API Error Budgets and SLA Math](/blog/api-error-budgets-sla) – Tie automation to reliability targets

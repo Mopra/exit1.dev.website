@@ -60,15 +60,17 @@ Otherwise, stay on the free train and stop letting certificates rot.
 
 ## Ship It Today
 
-1. List every domain and wildcard you own.
-2. Create SSL monitors in Exit1.dev with Slack alerts attached.
-3. Run a tabletop exercise so everyone knows what to do when the warning fires.
+1. Check your certificates right now with the [free SSL checker](/tools/ssl-checker) — see expiry dates, issuers, and security grade in seconds.
+2. List every domain and wildcard you own.
+3. Create SSL monitors in Exit1.dev with Slack alerts attached.
+4. Run a tabletop exercise so everyone knows what to do when the warning fires.
 
 That’s how you keep HTTPS solid and your reputation intact.
 
 
 ## Recommended Free Monitoring Resources
 
+- [Free SSL Checker Tool](/tools/ssl-checker) – Scan any site's SSL certificate for expiry, issuer, and TLS configuration.
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
 - [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) – Evaluate which free website monitor fits your stack and alerting needs.

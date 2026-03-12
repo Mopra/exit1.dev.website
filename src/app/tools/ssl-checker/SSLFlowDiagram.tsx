@@ -35,6 +35,14 @@ interface SSLResult {
   altNames?: string[];
   grade?: string;
   fingerprint?: string;
+  cipherSuite?: string;
+  cipherVersion?: string;
+  browserTrusted?: boolean;
+  browserTrustedReason?: string;
+  hostnameMatch?: boolean;
+  hsts?: boolean;
+  certType?: string;
+  chain?: { subject: string; issuer: string; validFrom: string; validTo: string; isSelfSigned: boolean }[];
 }
 
 function StepNode({
@@ -165,6 +173,7 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
           title: "TLS Handshake",
           details: [
             `Negotiated ${result.protocol || "TLS"}`,
+            result.cipherSuite ? `Cipher: ${result.cipherSuite}` : "",
             result.keySize ? `Key exchange: ${result.keySize}-bit` : "",
           ].filter(Boolean),
           color: "#e879f9",
@@ -204,10 +213,12 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
           step: 5,
           title: "Certificate Validation",
           details: [
-            result.valid ? "Trusted CA: Yes" : "Trusted CA: No",
-            result.valid
-              ? `Domain matches certificate`
-              : "Domain mismatch or invalid",
+            result.browserTrusted != null
+              ? (result.browserTrusted ? "Browser trusted: Yes" : "Browser trusted: No")
+              : (result.valid ? "Trusted CA: Yes" : "Trusted CA: No"),
+            result.hostnameMatch != null
+              ? (result.hostnameMatch ? "Hostname match: Yes" : "Hostname match: No")
+              : (result.valid ? "Domain matches certificate" : "Domain mismatch or invalid"),
             result.daysUntilExpiry != null
               ? result.daysUntilExpiry > 0
                 ? `Expires in ${result.daysUntilExpiry} days`

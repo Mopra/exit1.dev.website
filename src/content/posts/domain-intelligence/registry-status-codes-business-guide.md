@@ -146,7 +146,7 @@ Status codes are your domain's vital signs. Learning to read them, monitoring fo
 
 The key takeaways: clientTransferProhibited should always be enabled on any domain you care about. serverHold is serious and may require professional help. pendingDelete and redemptionPeriod are emergencies requiring immediate action. Unexpected removal of protection codes may indicate an attack in progress.
 
-Set up monitoring that tracks status changes and alerts you immediately when anything concerning happens. The few minutes it takes to respond can be the difference between keeping and losing your domain.
+Set up monitoring that tracks status changes and alerts you immediately when anything concerning happens. Start by using a [free domain expiration checker](/tools/domain-expiration-checker) to review your domain's current status and expiry date. The few minutes it takes to respond can be the difference between keeping and losing your domain.
 
 ---
 
@@ -154,4 +154,5 @@ Set up monitoring that tracks status changes and alerts you immediately when any
 
 - [Domain Hijacking Detection](/blog/domain-hijacking-detection-unauthorized-changes) - Catch attacks early
 - [Is Your Domain Really Secure?](/blog/domain-transfer-lock-security) - Complete security guide
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) - Look up any domain's status and expiry
 - [Domain Intelligence Feature](/domain-intelligence) - Automated status monitoring

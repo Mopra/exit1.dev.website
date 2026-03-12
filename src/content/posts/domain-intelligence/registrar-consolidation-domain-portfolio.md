@@ -72,7 +72,7 @@ Volume pricing rewards consolidation. Most registrars offer discounts based on t
 
 ### Step 1: Inventory Everything
 
-Finding every domain you own is harder than it sounds. Check all known registrar accounts, but also search email for domain registration confirmations, review finance records for renewal charges that might reveal forgotten registrars, ask team members about domains they may have registered, and check DNS records for domains pointing to your infrastructure that might be registered elsewhere.
+Finding every domain you own is harder than it sounds. Start with a [free domain expiration checker](/tools/domain-expiration-checker) to look up each domain's current registrar and expiry date. Then check all known registrar accounts, but also search email for domain registration confirmations, review finance records for renewal charges that might reveal forgotten registrars, ask team members about domains they may have registered, and check DNS records for domains pointing to your infrastructure that might be registered elsewhere.
 
 ### Step 2: Choose Your Primary Registrar
 
@@ -132,4 +132,5 @@ Your future self will thank you when you're not scrambling to recover a domain f
 
 - [Domain Hijacking Detection](/blog/domain-hijacking-detection-unauthorized-changes) - Security across registrars
 - [Is Your Domain Really Secure?](/blog/domain-transfer-lock-security) - Security best practices
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) - Look up registrar and expiry for any domain
 - [Domain Intelligence Feature](/domain-intelligence) - Monitor all your domains

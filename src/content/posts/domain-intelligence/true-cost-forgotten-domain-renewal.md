@@ -112,7 +112,7 @@ They practice payment hygiene. A dedicated card for domain renewals - ideally on
 
 A forgotten domain renewal is never just the renewal fee. It's the renewal fee, plus the late fee, plus the redemption fee, plus the auction price, plus the lost revenue, plus the SEO damage, plus the brand recovery costs, plus the legal fees, plus the opportunity cost of everything you didn't do while dealing with this crisis, plus the stress that affects your judgment and your team's morale.
 
-The cheapest domain recovery is the one you never need. Monitor your domains, automate your alerts, and never let a $15 problem become a $15,000 disaster.
+The cheapest domain recovery is the one you never need. Monitor your domains, automate your alerts, and use a [free domain expiration checker](/tools/domain-expiration-checker) to verify your renewal dates. Never let a $15 problem become a $15,000 disaster.
 
 ---
 
@@ -120,4 +120,5 @@ The cheapest domain recovery is the one you never need. Monitor your domains, au
 
 - [How to Never Lose a Domain Again](/blog/never-lose-domain-again-complete-guide) - Complete prevention guide
 - [Domain Intelligence Feature](/domain-intelligence) - Automated monitoring setup
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) - Check any domain's expiry date instantly
 - [Free Uptime Monitoring](/free-uptime-monitor) - Your first line of defense

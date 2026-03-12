@@ -270,6 +270,8 @@ Your domains are critical infrastructure. Treat them that way.
 
 ## Recommended Reading
 
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) – Instantly check any domain's expiry date, registrar, and nameservers
+- [Free SSL Checker Tool](/tools/ssl-checker) – Check SSL certificate status, expiry, and security configuration
 - [Why Domain Expiration is the Silent Killer](/blog/domain-expiration-silent-killer-websites) - The cost of failures
 - [SSL Certificate Expiration](/blog/ssl-certificate-expiration-other-deadline) - Certificate monitoring
 - [Domain Intelligence Feature](/domain-intelligence) - Automated monitoring

@@ -88,6 +88,14 @@ Event-driven architectures often use WebSocket to push events to frontends. If t
 
 ## Getting Started
 
-Exit1.dev supports WebSocket monitoring on both the Free and Nano tiers. Add a WebSocket check in under a minute alongside your existing HTTP and API monitors. Same dashboard, same alerts, full coverage.
+Exit1.dev supports WebSocket monitoring on both the Free and Nano tiers. Add a WebSocket check in under a minute alongside your existing HTTP and API monitors. Same dashboard, same alerts, full coverage. You can also use our [free API status checker](/tools/api-status-checker) to quickly test any HTTP or API endpoint's health.
 
 Start monitoring at [exit1.dev](https://app.exit1.dev).
+
+---
+
+## Recommended Tools & Reading
+
+- [Free API Status Checker](/tools/api-status-checker) – Check any API endpoint's health instantly
+- [ICMP vs HTTP Monitoring](/blog/icmp-vs-http-monitoring-when-to-use-each) – When to use each check type
+- [GraphQL and API Uptime Guardrails](/blog/graphql-api-uptime-guardrails) – Validate API payloads and auth

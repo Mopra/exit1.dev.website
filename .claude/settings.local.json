@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate free tier to 5-minute checks, add 1-minute to Nano\n\n- Free tier now has 5-minute check intervals \\(was 1-minute\\)\n- Nano plan now includes 1-minute check intervals as a feature\n- Updated pricing page, compare page, homepage, and all product pages\n- Updated metadata and SEO descriptions across the site\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate pricing tiers: replace custom branding with status page builder\n\n- Free tier: add one status page\n- Nano tier: replace custom domain/branding with unlimited status pages and drag & drop builder\n- Status pages: add drag & drop builder feature, remove custom domain/branding references\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(npx tsc:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd YouTube video component to status-pages and alerting pages\n\n- Create reusable YouTubeVideo component with privacy-enhanced embed\n- Add optional video prop to ProductPage for embedding tutorial videos\n- Add status page creation video to /status-pages\n- Add alerting setup video to /alerting\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "WebFetch(domain:docs.exit1.dev)",
+      "Bash(npx next build:*)",
+      "WebFetch(domain:llmstxt.org)",
+      "Bash(ls:*)",
+      "Bash(dir:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx vercel:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npx next dev --port 3001)",
+      "Bash(timeout /t 15 /nobreak)",
+      "Bash(curl:*)",
+      "Bash(powershell -Command:*)"
+    ]
+  }
+}

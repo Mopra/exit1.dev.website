@@ -114,7 +114,7 @@ Focus your energy on building quality content, earning legitimate backlinks, mai
 
 Don't waste energy on registering domains far in advance hoping Google rewards long registration periods. Don't buy old domains expecting some magical age benefit. Don't believe that your new domain can't compete with established players.
 
-Track your domain age data for operational reasons. Use it for monitoring and portfolio management. But don't expect it to directly boost your rankings.
+Track your domain age data for operational reasons. Use a [domain expiration checker tool](/tools/domain-expiration-checker) to look up registration and expiry dates for any domain in your portfolio. But don't expect age to directly boost your rankings.
 
 Age is just a number. Quality is what counts.
 
@@ -124,4 +124,6 @@ Age is just a number. Quality is what counts.
 
 - [Building a Domain Health Checklist](/blog/domain-health-checklist-comprehensive-guide) - Complete domain audit
 - [Domain Expiration: The Silent Killer](/blog/domain-expiration-silent-killer-websites) - Why expiration matters
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) - Look up any domain's age and expiry date
+- [Free SSL Checker Tool](/tools/ssl-checker) - Verify SSL certificate trust signals
 - [SSL Certificate Monitoring](/blog/free-ssl-certificate-monitoring) - Technical trust signals

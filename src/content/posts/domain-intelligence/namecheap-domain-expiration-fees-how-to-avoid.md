@@ -72,7 +72,7 @@ Log into Namecheap, go to your domain list, and confirm auto-renewal is turned o
 
 This is the piece most people miss. Registrar reminders come from the registrar - the same company that profits from your redemption fee. Independent monitoring gives you a separate, reliable alert system that doesn't depend on Namecheap's emails reaching you.
 
-Domain monitoring tools check your domain's actual WHOIS/RDAP records and alert you based on the real expiration date, not the registrar's email schedule. You get alerts at 30, 14, 7, and 1 day before expiry - through channels you actually check, like SMS, Slack, or webhook notifications.
+Domain monitoring tools check your domain's actual WHOIS/RDAP records and alert you based on the real expiration date, not the registrar's email schedule. You can also use a [free domain expiration checker](/tools/domain-expiration-checker) to instantly look up any domain's current expiry date. You get alerts at 30, 14, 7, and 1 day before expiry - through channels you actually check, like SMS, Slack, or webhook notifications.
 
 [Exit1's Domain Intelligence](/domain-intelligence) does exactly this. It monitors your domain expiration dates using modern RDAP protocol, sends multi-channel alerts on a smart schedule, and automatically detects when a domain has been renewed. It's included in the Nano plan alongside uptime monitoring, so if you're already monitoring your site's availability, domain expiry alerts are a natural addition.
 
@@ -128,4 +128,5 @@ Your domains are worth far more than the few minutes it takes to set this up.
 - [The True Cost of a Forgotten Domain Renewal](/blog/true-cost-forgotten-domain-renewal) - Full financial breakdown of domain expiration disasters
 - [How to Never Lose a Domain Again](/blog/never-lose-domain-again-complete-guide) - Complete prevention guide
 - [Domain Monitoring vs. Registrar Reminders](/blog/domain-monitoring-vs-registrar-reminders) - Why registrar emails aren't enough
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) - Instantly check any domain's expiry date
 - [Domain Intelligence Feature](/domain-intelligence) - Set up automated domain expiry alerts

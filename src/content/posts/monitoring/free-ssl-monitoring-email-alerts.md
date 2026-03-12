@@ -62,15 +62,17 @@ If that’s not you, stick with the free stack and handle renewals like an adult
 
 ## Execute Now
 
-1. Inventory every certificate in production.
-2. Add them to Exit1.dev with the email list attached.
-3. Run a renewal drill so the team can’t claim ignorance.
+1. Start with a quick [free SSL check](/tools/ssl-checker) to see where your certificates stand right now.
+2. Inventory every certificate in production.
+3. Add them to Exit1.dev with the email list attached.
+4. Run a renewal drill so the team can’t claim ignorance.
 
 Do this and you’ll never again ship a “Not Secure” warning to paying customers.
 
 
 ## Recommended Free Monitoring Resources
 
+- [Free SSL Checker Tool](/tools/ssl-checker) – Instantly verify any certificate's status, expiry date, and security configuration.
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
 - [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) – Evaluate which free website monitor fits your stack and alerting needs.

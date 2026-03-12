@@ -16,7 +16,7 @@ ICMP and HTTP monitoring operate at different layers of the network stack and an
 
 ## What ICMP Ping Monitoring Tells You
 
-An ICMP ping check sends an Echo Request to a host and measures whether it responds. It answers one question: **is this host reachable on the network?**
+An ICMP ping check sends an Echo Request to a host and measures whether it responds. It answers one question: **is this host reachable on the network?** You can test this right now with our [free online ping test](/tools/ping-test).
 
 What you get from a ping check:
 
@@ -100,3 +100,11 @@ Exit1.dev supports all these check types in a single platform. You can add ICMP,
 Both ICMP and HTTP monitoring are included in the free tier. No credit card. No artificial limits on check types. Just add a check, pick the type, and start monitoring.
 
 Get started at [exit1.dev](https://app.exit1.dev).
+
+---
+
+## Recommended Tools & Reading
+
+- [Free Ping Test Tool](/tools/ping-test) – Test any host's reachability and latency instantly
+- [Free API Status Checker](/tools/api-status-checker) – Check any API endpoint's health
+- [Free ICMP Ping Monitoring Guide](/blog/free-icmp-ping-monitoring-guide) – Complete ping monitoring setup

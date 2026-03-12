@@ -96,6 +96,7 @@ Use both. Trust neither exclusively. Your domains are worth it.
 
 ## Recommended Reading
 
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) – Check any domain's expiry date instantly, independent of your registrar
 - [Why Domain Expiration is the Silent Killer](/blog/domain-expiration-silent-killer-websites) - The real cost of missed renewals
 - [The True Cost of a Forgotten Domain](/blog/true-cost-forgotten-domain-renewal) - Full financial breakdown
 - [Domain Intelligence Feature](/domain-intelligence) - Set up monitoring in minutes

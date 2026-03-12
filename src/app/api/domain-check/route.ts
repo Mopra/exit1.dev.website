@@ -1,7 +1,16 @@
 import * as net from "net";
+import dns from "dns";
 import { NextRequest, NextResponse } from "next/server";
 
 // ── Types ────────────────────────────────────────────────────────────
+
+interface DnsRecords {
+  a?: string[];
+  aaaa?: string[];
+  mx?: { priority: number; exchange: string }[];
+  txt?: string[];
+  ns?: string[];
+}
 
 interface DomainResult {
   domain: string;
@@ -15,6 +24,8 @@ interface DomainResult {
   registryStatus?: string[];
   daysUntilExpiry?: number;
   dnssec?: boolean;
+  dnsRecords?: DnsRecords;
+  ipAddress?: string;
   error?: string;
 }
 
@@ -698,6 +709,47 @@ function extractDomain(input: string): string | null {
   }
 }
 
+// ── DNS Lookup ────────────────────────────────────────────────────────
+
+async function lookupDns(domain: string): Promise<{ dnsRecords: DnsRecords; ipAddress?: string }> {
+  const dnsRecords: DnsRecords = {};
+  let ipAddress: string | undefined;
+
+  const safeResolve = async <T>(fn: () => Promise<T>): Promise<T | undefined> => {
+    try { return await fn(); } catch { return undefined; }
+  };
+
+  const [aRecords, aaaaRecords, mxRecords, txtRecords, nsRecords] = await Promise.all([
+    safeResolve(() => dns.promises.resolve4(domain)),
+    safeResolve(() => dns.promises.resolve6(domain)),
+    safeResolve(() => dns.promises.resolveMx(domain)),
+    safeResolve(() => dns.promises.resolveTxt(domain)),
+    safeResolve(() => dns.promises.resolveNs(domain)),
+  ]);
+
+  if (aRecords && aRecords.length > 0) {
+    dnsRecords.a = aRecords;
+    ipAddress = aRecords[0];
+  }
+  if (aaaaRecords && aaaaRecords.length > 0) {
+    dnsRecords.aaaa = aaaaRecords;
+    if (!ipAddress) ipAddress = aaaaRecords[0];
+  }
+  if (mxRecords && mxRecords.length > 0) {
+    dnsRecords.mx = mxRecords
+      .sort((a, b) => a.priority - b.priority)
+      .map((r) => ({ priority: r.priority, exchange: r.exchange }));
+  }
+  if (txtRecords && txtRecords.length > 0) {
+    dnsRecords.txt = txtRecords.map((r) => r.join(""));
+  }
+  if (nsRecords && nsRecords.length > 0) {
+    dnsRecords.ns = nsRecords.map((n) => n.toLowerCase());
+  }
+
+  return { dnsRecords, ipAddress };
+}
+
 // ── Route Handler ────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
@@ -713,8 +765,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid domain" }, { status: 400 });
     }
 
-    // Try RDAP first (HTTP-based, preferred)
-    let result = await queryRdap(domain);
+    // Run RDAP and DNS lookups in parallel
+    const [rdapResult, dnsResult] = await Promise.all([
+      queryRdap(domain),
+      lookupDns(domain),
+    ]);
+
+    let result = rdapResult;
 
     // If RDAP returned partial data (missing key fields), supplement from WHOIS
     if (result && (!result.expiryDate || !result.registrar || !result.nameservers)) {
@@ -747,6 +804,10 @@ export async function POST(request: NextRequest) {
         { status: 404 }
       );
     }
+
+    // Merge DNS data
+    result.dnsRecords = dnsResult.dnsRecords;
+    result.ipAddress = dnsResult.ipAddress;
 
     return NextResponse.json(result);
   } catch (error) {

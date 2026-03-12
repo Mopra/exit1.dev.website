@@ -118,7 +118,7 @@ Keep all protection flags enabled at all times. The `clientTransferProhibited` f
 
 For truly critical domains, consider registry-level locks. These require out-of-band verification, often a phone call with identity verification, before any changes can be made. They're more cumbersome for routine administration but significantly more secure against sophisticated attacks.
 
-And always maintain monitoring. Automated checks for unauthorized changes, multiple alert channels, clear escalation procedures, and regular testing of detection systems ensure you'll know when something goes wrong.
+And always maintain monitoring. Automated checks for unauthorized changes, multiple alert channels, clear escalation procedures, and regular testing of detection systems ensure you'll know when something goes wrong. Run a quick [domain expiration checker](/tools/domain-expiration-checker) lookup to verify your domain's current registration data and spot anything unexpected.
 
 ## The Bottom Line
 
@@ -134,4 +134,5 @@ Don't give attackers those hours.
 
 - [Understanding Registry Status Codes](/blog/registry-status-codes-business-guide) - What those status flags mean
 - [Is Your Domain Really Secure?](/blog/domain-transfer-lock-security) - Transfer lock best practices
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) - Verify domain registration data instantly
 - [Domain Intelligence Feature](/domain-intelligence) - Automated hijacking detection

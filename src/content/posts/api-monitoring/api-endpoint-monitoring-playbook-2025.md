@@ -49,7 +49,7 @@ Latency spikes in Sydney won’t show up if you only probe from Virginia. exit1.
 - One failover region where your disaster recovery setup sits.
 - One wildcard region for cold-start detection.
 
-Map dependencies explicitly. If your API depends on external PSPs or SaaS, add monitors for their status endpoints too. When Stripe fumbles, you’ll know it’s not your code.
+Map dependencies explicitly. If your API depends on external PSPs or SaaS, add monitors for their status endpoints too. Run a quick [free API status check](/tools/api-status-checker) to verify any endpoint’s health on demand. When Stripe fumbles, you’ll know it’s not your code.
 
 ## Alerting without noise
 
@@ -78,3 +78,11 @@ Export raw data into your warehouse via exit1.dev webhooks. Correlate with custo
 - Queue up the deeper dive in [API Error Budgets and SLAs](/blog/api-error-budgets-sla) once you define your targets.
 
 Stay paranoid, automate everything, and own your APIs before outages own you.
+
+---
+
+## Recommended Tools & Reading
+
+- [Free API Status Checker](/tools/api-status-checker) – Check any API endpoint's health, headers, and CORS configuration instantly
+- [API Error Budgets and SLAs](/blog/api-error-budgets-sla) – Define uptime targets that actually work
+- [GraphQL and API Uptime Guardrails](/blog/graphql-api-uptime-guardrails) – Validate JSON payloads and auth headers

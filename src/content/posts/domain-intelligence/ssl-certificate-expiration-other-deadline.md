@@ -138,12 +138,14 @@ SSL expiration is the silent sibling of domain expiration. Both cause outages. B
 
 If you're monitoring domain expiration, add SSL monitoring. Same philosophy, same urgency, same automation. The few minutes to set up monitoring saves hours of emergency response.
 
-Your certificate expires in ninety days. Do you know when?
+Your certificate expires in ninety days. Do you know when? Find out in seconds with our [free SSL checker tool](/tools/ssl-checker).
 
 ---
 
 ## Recommended Reading
 
+- [Free SSL Checker Tool](/tools/ssl-checker) - Check any certificate's status, expiry, and security grade instantly
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) - Check any domain's expiry date, registrar, and nameservers
 - [Free SSL Certificate Monitoring](/blog/free-ssl-certificate-monitoring) - Set up SSL monitoring
 - [Domain Expiration: The Silent Killer](/blog/domain-expiration-silent-killer-websites) - Why expiration monitoring matters
 - [Building a Domain Health Checklist](/blog/domain-health-checklist-comprehensive-guide) - Complete monitoring setup

@@ -32,7 +32,7 @@ exit1.dev has all.
 
 ## Setup
 
-No scripts needed. Auto free.
+No scripts needed. Auto free. Start by scanning your site with the [free SSL checker](/tools/ssl-checker) to see your current certificate status.
 
 1. https://exit1.dev account
 2. Add URL
@@ -96,6 +96,7 @@ Monitor now. Free.
 
 ## Recommended Free Monitoring Resources
 
+- [Free SSL Checker Tool](/tools/ssl-checker) – Check any website's SSL certificate status, expiration, issuer, and TLS version instantly.
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
 - [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) – Evaluate which free website monitor fits your stack and alerting needs.

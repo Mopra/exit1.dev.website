@@ -19,7 +19,7 @@ List every endpoint, version, and owning squad. Track:
 - Auth model (API key, OAuth, service token).
 - Criticality tier (enterprise contract, internal tool, experimental).
 
-Feed that catalog directly into exit1.dev monitors. Use tags like `owner:payments` and `contract:platinum` so routing, reporting, and escalation stay automatic. The [API Endpoint Monitoring Playbook 2025](/blog/api-endpoint-monitoring-playbook-2025) gives you the coverage templates.
+Use the [free API status checker](/tools/api-status-checker) to quickly validate any endpoint before adding it to your catalog. Then feed that catalog directly into exit1.dev monitors. Use tags like `owner:payments` and `contract:platinum` so routing, reporting, and escalation stay automatic. The [API Endpoint Monitoring Playbook 2025](/blog/api-endpoint-monitoring-playbook-2025) gives you the coverage templates.
 
 ## Give partners the monitoring they deserve
 
@@ -62,3 +62,11 @@ APIs power regulated workflows. Auditors want receipts.
 - Schedule quarterly reviews of error budgets, partner SLAs, and version plans.
 
 Run platform APIs like the business-critical products they are. Monitoring is the backbone, and exit1.dev gives you the leverage without the enterprise bill.
+
+---
+
+## Recommended Tools & Reading
+
+- [Free API Status Checker](/tools/api-status-checker) – Instantly check any API endpoint's health
+- [API Endpoint Monitoring Playbook 2025](/blog/api-endpoint-monitoring-playbook-2025) – Coverage templates for every endpoint
+- [API Error Budgets and SLA Math](/blog/api-error-budgets-sla) – Enforce SLAs with real math

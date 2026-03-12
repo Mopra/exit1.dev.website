@@ -20,7 +20,7 @@ Here's what actually works: **automated monitoring with redundant alerts**. Let'
 
 ## Step 1: Inventory Your Domains
 
-Before you can protect your domains, you need to know what you have.
+Before you can protect your domains, you need to know what you have. Start by running each one through our [free domain expiration checker](/tools/domain-expiration-checker) to see current expiry dates and registrar details.
 
 ### Where to Look
 
@@ -300,6 +300,8 @@ Never lose a domain again. It's that simple.
 
 ## Recommended Resources
 
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) – Check any domain's expiry date, registrar, and nameservers right now
+- [Free SSL Checker Tool](/tools/ssl-checker) – Don't forget to check your SSL certificates too
 - [Domain Intelligence](/domain-intelligence) - Automatic domain expiration monitoring for exit1.dev
 - [SSL Certificate Monitoring](/blog/free-ssl-certificate-monitoring) - The other expiration that kills websites
 - [Smart Alerting](/alerting) - Multi-channel notification setup

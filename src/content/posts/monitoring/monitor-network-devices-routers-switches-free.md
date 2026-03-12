@@ -12,7 +12,7 @@ metaDescription: "Free network device monitoring guide: Monitor routers, switche
 
 Most uptime monitoring tools focus on websites and APIs. But what about the network devices that make everything else work? Routers, switches, firewalls, and load balancers are the backbone of your infrastructure — and they usually don't run HTTP.
 
-That's where ICMP ping monitoring comes in. It's the standard way to check if a network device is reachable, and exit1.dev now offers it for free on both tiers.
+That's where ICMP ping monitoring comes in. It's the standard way to check if a network device is reachable, and exit1.dev now offers it for free on both tiers. Try our [free ping test tool](/tools/ping-test) to check any device's reachability right now.
 
 ## Why Network Device Monitoring Matters
 
@@ -100,3 +100,11 @@ This gives you network-layer visibility (is it reachable?), transport-layer visi
 Exit1.dev's ICMP ping monitoring is live and free. Add your first router or switch check in under a minute. No credit card, no trial expiration, no limits on check types.
 
 Get started at [exit1.dev](https://app.exit1.dev).
+
+---
+
+## Recommended Tools & Reading
+
+- [Free Ping Test Tool](/tools/ping-test) – Test any host's reachability instantly
+- [ICMP vs HTTP Monitoring](/blog/icmp-vs-http-monitoring-when-to-use-each) – When to use each check type
+- [Free ICMP Ping Monitoring Guide](/blog/free-icmp-ping-monitoring-guide) – Complete ping monitoring setup

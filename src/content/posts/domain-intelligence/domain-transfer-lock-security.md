@@ -108,7 +108,7 @@ Document everything and test your systems. Keep records of security settings for
 
 Locks prevent unauthorized changes. Monitoring catches them if they happen anyway.
 
-Even with registry locks in place, monitor for status code changes, unexpected update timestamps, contact modifications, and approaching expiration dates. Defense in depth means assuming any single control can fail and having multiple ways to detect problems.
+Even with registry locks in place, monitor for status code changes, unexpected update timestamps, contact modifications, and approaching expiration dates. Use a [free domain expiration checker](/tools/domain-expiration-checker) to quickly verify your domain's current status and expiry date at any time. Defense in depth means assuming any single control can fail and having multiple ways to detect problems.
 
 ## The Bottom Line
 
@@ -124,4 +124,5 @@ The question isn't whether you have a lock. It's whether you have enough locks f
 
 - [Domain Hijacking Detection](/blog/domain-hijacking-detection-unauthorized-changes) - Catch attacks in progress
 - [Registry Status Codes Guide](/blog/registry-status-codes-business-guide) - Understand lock codes
+- [Free Domain Expiration Checker](/tools/domain-expiration-checker) - Verify your domain's status and expiry
 - [Domain Intelligence Feature](/domain-intelligence) - Automated security monitoring

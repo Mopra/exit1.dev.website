@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
+import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import DomainCheckerTool from "./DomainCheckerTool";
 import {
@@ -15,6 +16,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ToolsNav } from "@/components/ToolsNav";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Free Domain Expiration Checker Tool — Check Domain Expiry Instantly | exit1.dev",
@@ -116,6 +119,14 @@ export default function DomainExpirationCheckerPage() {
 
       <PageShell>
         <PageContainer>
+          <div className="px-4 sm:px-0 pt-8">
+            <Breadcrumbs
+              items={[
+                { name: "Tools", href: "/tools" },
+                { name: "Domain Checker", href: "/tools/domain-expiration-checker" },
+              ]}
+            />
+          </div>
           <PageHero size="lg">
             <div className="text-center">
               <p className="text-sm font-mono text-primary mb-4 tracking-wide uppercase">
@@ -131,12 +142,88 @@ export default function DomainExpirationCheckerPage() {
             </div>
           </PageHero>
 
+          {/* Tools Navigation */}
+          <PageSection>
+            <SectionContent size="md" className="py-6">
+              <ToolsNav current="/tools/domain-expiration-checker" />
+            </SectionContent>
+          </PageSection>
+
           {/* Tool Section */}
           <PageSection>
             <SectionContent size="md" className="py-12 sm:py-16">
               <Suspense>
                 <DomainCheckerTool />
               </Suspense>
+            </SectionContent>
+          </PageSection>
+
+          {/* Example Result — static, crawlable by Google */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                What You Get
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                Here&apos;s an example of the domain registration details this
+                tool reveals. Try it above with any domain.
+              </p>
+              <div className="bg-white/[0.02] border border-white/10 rounded-xl p-6 sm:p-8" aria-label="Example domain check result">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xs font-bold text-emerald-400">
+                    OK
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-emerald-400">Domain Active</p>
+                    <p className="text-xs text-muted-foreground">example.com — Expires in 243 days</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                  <div className="flex justify-between py-2 border-b border-white/5">
+                    <span className="text-xs text-muted-foreground">Domain</span>
+                    <span className="text-sm font-medium">example.com</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b border-white/5">
+                    <span className="text-xs text-muted-foreground">Registrar</span>
+                    <span className="text-sm font-medium">ICANN</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b border-white/5">
+                    <span className="text-xs text-muted-foreground">Created</span>
+                    <span className="text-sm font-medium">Aug 14, 1995</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b border-white/5">
+                    <span className="text-xs text-muted-foreground">Expires</span>
+                    <span className="text-sm font-medium">Aug 13, 2026</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b border-white/5">
+                    <span className="text-xs text-muted-foreground">Nameservers</span>
+                    <span className="text-sm font-medium">a.iana-servers.net</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b border-white/5">
+                    <span className="text-xs text-muted-foreground">Domain Age</span>
+                    <span className="text-sm font-medium">30 years</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 space-y-4 text-sm text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                <p>
+                  The checker queries RDAP and WHOIS databases to retrieve your
+                  domain&apos;s registration record. You&apos;ll see the exact{" "}
+                  <strong className="text-white">expiry date</strong> with a
+                  countdown in days, the registrar that manages the domain,
+                  authoritative nameservers, and the original creation date. This
+                  tells you how much time you have before renewal is required.
+                </p>
+                <p>
+                  <strong className="text-white">Registry status codes</strong> like
+                  clientTransferProhibited or serverDeleteProhibited indicate
+                  protections applied to the domain. If a domain shows
+                  pendingDelete or redemptionPeriod, it may be expiring or already
+                  dropped. Monitoring your domain&apos;s expiration prevents
+                  accidental lapses that could take your website offline or let
+                  someone else register it.
+                </p>
+              </div>
             </SectionContent>
           </PageSection>
 
@@ -208,6 +295,36 @@ export default function DomainExpirationCheckerPage() {
                     </AccordionItem>
                   ))}
                 </Accordion>
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Related Articles */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                Learn More About Domain Management
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                Guides on domain expiration, WHOIS lookups, and protecting your domain portfolio.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <Link href="/blog/how-to-check-domain-expiration-date" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">How to Check When a Domain Expires</h3>
+                  <p className="text-sm text-muted-foreground">Three free methods to find any domain&apos;s expiration date, registrar, and nameservers.</p>
+                </Link>
+                <Link href="/blog/domain-expiration-silent-killer-websites" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Domain Expiration: The Silent Killer</h3>
+                  <p className="text-sm text-muted-foreground">Why domain expiration is the most preventable disaster in web operations.</p>
+                </Link>
+                <Link href="/blog/whois-lookup-guide" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">WHOIS Lookup Guide</h3>
+                  <p className="text-sm text-muted-foreground">What domain registration data reveals about ownership, security, and expiration.</p>
+                </Link>
+                <Link href="/blog/never-lose-domain-again-complete-guide" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">How to Never Lose a Domain Again</h3>
+                  <p className="text-sm text-muted-foreground">The definitive guide to domain monitoring, alerts, and renewal automation.</p>
+                </Link>
               </div>
             </SectionContent>
           </PageSection>

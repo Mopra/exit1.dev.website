@@ -55,6 +55,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     if (url === '/') return 1.0;
     if (url.includes('/dashboard')) return 0.9;
     if (url.includes('/product') || url.includes('/signup') || url.includes('/signin')) return 0.8;
+    if (url === '/tools') return 0.8;
+    if (url.includes('/tools/')) return 0.7;
     if (url.includes('/blog')) return 0.7;
     if (url.includes('/privacy')) return 0.3;
     return 0.5;

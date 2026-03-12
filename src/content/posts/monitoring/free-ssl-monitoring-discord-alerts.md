@@ -68,15 +68,17 @@ Otherwise, the free stack plus discipline keeps certificates fresh.
 
 ## Do It Now
 
-1. Inventory every domain hitting production.
-2. Create SSL monitors in Exit1.dev with the Discord webhook attached.
-3. Run a renewal drill so the team knows the play.
+1. Run a quick scan with our [free SSL checker](/tools/ssl-checker) to see which certs need attention right now.
+2. Inventory every domain hitting production.
+3. Create SSL monitors in Exit1.dev with the Discord webhook attached.
+4. Run a renewal drill so the team knows the play.
 
 Your community deserves green padlocks, not panic screens. Handle it.
 
 
 ## Recommended Free Monitoring Resources
 
+- [Free SSL Checker Tool](/tools/ssl-checker) – Check any website's SSL certificate status, expiration, and security grade instantly.
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
 - [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) – Evaluate which free website monitor fits your stack and alerting needs.

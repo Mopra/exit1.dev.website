@@ -1,5 +1,14 @@
 import * as tls from "tls";
+import * as https from "https";
 import { NextRequest, NextResponse } from "next/server";
+
+interface ChainCert {
+  subject: string;
+  issuer: string;
+  validFrom: string;
+  validTo: string;
+  isSelfSigned: boolean;
+}
 
 interface SSLResult {
   valid: boolean;
@@ -17,6 +26,42 @@ interface SSLResult {
   grade?: string;
   gradeReasons?: string[];
   error?: string;
+  // New fields
+  cipherSuite?: string;
+  cipherVersion?: string;
+  browserTrusted?: boolean;
+  browserTrustedReason?: string;
+  chain?: ChainCert[];
+  hsts?: boolean;
+  hstsMaxAge?: number;
+  hstsIncludeSubdomains?: boolean;
+  hstsPreload?: boolean;
+  certType?: string; // DV, OV, EV
+  hostnameMatch?: boolean;
+}
+
+function detectCertType(issuerOrg: string, subject: Record<string, string> | undefined): string {
+  // EV certs typically have serialNumber and businessCategory in subject,
+  // and the issuer org often contains "Extended Validation"
+  const issuerLower = (issuerOrg || "").toLowerCase();
+  const subjectO = (subject as Record<string, string | undefined>)?.O || "";
+  const subjectSerialNumber = (subject as Record<string, string | undefined>)?.serialNumber || "";
+
+  if (
+    issuerLower.includes("extended validation") ||
+    issuerLower.includes(" ev ") ||
+    subjectSerialNumber
+  ) {
+    return "EV";
+  }
+
+  // OV certs have an Organization (O) field in the subject
+  if (subjectO && subjectO.length > 0) {
+    return "OV";
+  }
+
+  // DV certs have no organization info
+  return "DV";
 }
 
 function computeGrade(result: SSLResult): { grade: string; reasons: string[] } {
@@ -24,6 +69,14 @@ function computeGrade(result: SSLResult): { grade: string; reasons: string[] } {
 
   let score = 100;
   const reasons: string[] = [];
+
+  // Browser trust
+  if (result.browserTrusted === false) {
+    score -= 25;
+    reasons.push("Not trusted by browsers — " + (result.browserTrustedReason || "unknown reason"));
+  } else if (result.browserTrusted === true) {
+    reasons.push("Trusted by browsers");
+  }
 
   // Protocol scoring
   const proto = result.protocol || "";
@@ -41,6 +94,21 @@ function computeGrade(result: SSLResult): { grade: string; reasons: string[] } {
   } else if (proto.startsWith("SSL")) {
     score -= 60;
     reasons.push(`${proto} — critically insecure`);
+  }
+
+  // Cipher suite scoring
+  const cipher = (result.cipherSuite || "").toUpperCase();
+  if (cipher) {
+    if (cipher.includes("CHACHA20") || cipher.includes("AES_256_GCM") || cipher.includes("AES_128_GCM")) {
+      reasons.push(`Strong cipher: ${result.cipherSuite}`);
+    } else if (cipher.includes("AES")) {
+      reasons.push(`Acceptable cipher: ${result.cipherSuite}`);
+    } else if (cipher.includes("RC4") || cipher.includes("DES") || cipher.includes("3DES")) {
+      score -= 25;
+      reasons.push(`Weak cipher: ${result.cipherSuite} — upgrade immediately`);
+    } else {
+      reasons.push(`Cipher: ${result.cipherSuite}`);
+    }
   }
 
   // Key size scoring
@@ -70,6 +138,24 @@ function computeGrade(result: SSLResult): { grade: string; reasons: string[] } {
     reasons.push("MD5 signature — critically insecure");
   }
 
+  // HSTS scoring
+  if (result.hsts) {
+    if (result.hstsPreload && result.hstsIncludeSubdomains && (result.hstsMaxAge || 0) >= 31536000) {
+      reasons.push("HSTS enabled with preload — excellent");
+    } else {
+      reasons.push("HSTS enabled");
+    }
+  } else if (result.hsts === false) {
+    score -= 5;
+    reasons.push("HSTS not enabled — recommended for security");
+  }
+
+  // Hostname match
+  if (result.hostnameMatch === false) {
+    score -= 20;
+    reasons.push("Certificate does not match hostname");
+  }
+
   // Expiry scoring
   if (result.daysUntilExpiry != null) {
     if (result.daysUntilExpiry <= 7) {
@@ -95,7 +181,54 @@ function computeGrade(result: SSLResult): { grade: string; reasons: string[] } {
   return { grade, reasons };
 }
 
-function checkSSL(hostname: string): Promise<SSLResult> {
+function checkHSTS(hostname: string): Promise<{ hsts: boolean; maxAge?: number; includeSubdomains?: boolean; preload?: boolean }> {
+  return new Promise((resolve) => {
+    const timeout = setTimeout(() => {
+      resolve({ hsts: false });
+    }, 5000);
+
+    const req = https.request(
+      {
+        hostname,
+        port: 443,
+        path: "/",
+        method: "HEAD",
+        timeout: 5000,
+        headers: { "User-Agent": "exit1-ssl-checker/1.0" },
+      },
+      (res) => {
+        clearTimeout(timeout);
+        const hstsHeader = res.headers["strict-transport-security"];
+        if (!hstsHeader) {
+          resolve({ hsts: false });
+          return;
+        }
+        const maxAgeMatch = hstsHeader.match(/max-age=(\d+)/i);
+        resolve({
+          hsts: true,
+          maxAge: maxAgeMatch ? parseInt(maxAgeMatch[1], 10) : undefined,
+          includeSubdomains: /includesubdomains/i.test(hstsHeader),
+          preload: /preload/i.test(hstsHeader),
+        });
+      }
+    );
+
+    req.on("error", () => {
+      clearTimeout(timeout);
+      resolve({ hsts: false });
+    });
+
+    req.on("timeout", () => {
+      clearTimeout(timeout);
+      req.destroy();
+      resolve({ hsts: false });
+    });
+
+    req.end();
+  });
+}
+
+function checkSSL(hostname: string): Promise<SSLResult & { hostname: string }> {
   return new Promise((resolve) => {
     const socket = tls.connect(
       {
@@ -106,11 +239,13 @@ function checkSSL(hostname: string): Promise<SSLResult> {
         timeout: 10000,
       },
       () => {
-        const cert = socket.getPeerCertificate();
+        const cert = socket.getPeerCertificate(true); // true = include full chain
+        const authorized = socket.authorized;
+        const authError = socket.authorizationError ? String(socket.authorizationError) : undefined;
 
         if (!cert || Object.keys(cert).length === 0) {
           socket.destroy();
-          resolve({ valid: false, error: "No certificate received" });
+          resolve({ hostname, valid: false, error: "No certificate received" });
           return;
         }
 
@@ -122,14 +257,14 @@ function checkSSL(hostname: string): Promise<SSLResult> {
         );
         const isValid = now >= validFrom && now <= validTo;
 
-        // Extract key size from bits field
         const keySize = cert.bits || undefined;
 
-        // Extract signature algorithm
-        // The raw cert object doesn't always expose this cleanly,
-        // but we can get it from the asn1 parsed data if available
+        // Extract signature algorithm from the raw cert object
+        const certAny = cert as unknown as Record<string, unknown>;
         const signatureAlgorithm =
-          (cert as unknown as Record<string, unknown>).sigalg as string | undefined ||
+          (certAny.sigalg as string) ||
+          (certAny.signatureAlgorithm as string) ||
+          (certAny.asn1Curve as string) ||
           undefined;
 
         // Extract Subject Alternative Names
@@ -137,7 +272,58 @@ function checkSSL(hostname: string): Promise<SSLResult> {
           ? cert.subjectaltname.split(", ").map((s: string) => s.replace("DNS:", ""))
           : undefined;
 
+        // Check hostname match
+        let hostnameMatch = false;
+        if (altNames && altNames.length > 0) {
+          hostnameMatch = altNames.some((name: string) => {
+            if (name.startsWith("*.")) {
+              const wildcard = name.slice(2);
+              return hostname === wildcard || hostname.endsWith("." + wildcard);
+            }
+            return name === hostname;
+          });
+        } else if (cert.subject?.CN) {
+          hostnameMatch = cert.subject.CN === hostname;
+        }
+
         const protocol = socket.getProtocol() || undefined;
+
+        // Get cipher suite
+        const cipherInfo = socket.getCipher();
+        const cipherSuite = cipherInfo?.name || undefined;
+        const cipherVersion = cipherInfo?.version || undefined;
+
+        // Build certificate chain
+        const chain: ChainCert[] = [];
+        let current = cert;
+        const seen = new Set<string>();
+        while (current) {
+          const serialKey = current.serialNumber || "";
+          if (seen.has(serialKey)) break;
+          seen.add(serialKey);
+
+          const subjectCN = current.subject?.CN || current.subject?.O || "Unknown";
+          const issuerCN = current.issuer?.CN || current.issuer?.O || "Unknown";
+          const isSelfSigned = subjectCN === issuerCN;
+
+          chain.push({
+            subject: subjectCN,
+            issuer: issuerCN,
+            validFrom: new Date(current.valid_from).toISOString(),
+            validTo: new Date(current.valid_to).toISOString(),
+            isSelfSigned,
+          });
+
+          if (isSelfSigned) break; // Root cert, stop traversing
+          current = (current as unknown as { issuerCertificate?: typeof cert }).issuerCertificate as typeof cert;
+          if (!current || Object.keys(current).length === 0) break;
+        }
+
+        // Detect cert type
+        const certType = detectCertType(
+          cert.issuer?.O || "",
+          cert.subject as unknown as Record<string, string>
+        );
 
         socket.destroy();
 
@@ -154,6 +340,13 @@ function checkSSL(hostname: string): Promise<SSLResult> {
           keySize,
           signatureAlgorithm,
           altNames,
+          hostnameMatch,
+          cipherSuite,
+          cipherVersion,
+          browserTrusted: authorized,
+          browserTrustedReason: authError || undefined,
+          chain,
+          certType,
           error: !isValid
             ? `Certificate expired ${Math.abs(daysUntilExpiry)} days ago`
             : undefined,
@@ -163,13 +356,14 @@ function checkSSL(hostname: string): Promise<SSLResult> {
         result.grade = grade;
         result.gradeReasons = reasons;
 
-        resolve(result);
+        resolve({ hostname, ...result });
       }
     );
 
     socket.on("error", (error) => {
       socket.destroy();
       resolve({
+        hostname,
         valid: false,
         grade: "F",
         gradeReasons: ["Connection failed"],
@@ -180,6 +374,7 @@ function checkSSL(hostname: string): Promise<SSLResult> {
     socket.on("timeout", () => {
       socket.destroy();
       resolve({
+        hostname,
         valid: false,
         grade: "F",
         gradeReasons: ["Connection timed out"],
@@ -218,9 +413,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const result = await checkSSL(hostname);
+    // Run SSL check and HSTS check in parallel
+    const [sslResult, hstsResult] = await Promise.all([
+      checkSSL(hostname),
+      checkHSTS(hostname),
+    ]);
 
-    return NextResponse.json({ hostname, ...result });
+    // Merge HSTS data into result
+    sslResult.hsts = hstsResult.hsts;
+    sslResult.hstsMaxAge = hstsResult.maxAge;
+    sslResult.hstsIncludeSubdomains = hstsResult.includeSubdomains;
+    sslResult.hstsPreload = hstsResult.preload;
+
+    // Recompute grade with HSTS info included
+    const { grade, reasons } = computeGrade(sslResult);
+    sslResult.grade = grade;
+    sslResult.gradeReasons = reasons;
+
+    return NextResponse.json(sslResult);
   } catch (error) {
     return NextResponse.json(
       {

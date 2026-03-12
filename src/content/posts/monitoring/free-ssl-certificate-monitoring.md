@@ -53,6 +53,10 @@ For: Security config.
 
 ## Setup
 
+Want to check your current certificate status first? Run a quick scan with our [free SSL checker tool](/tools/ssl-checker) to see expiry dates, issuer details, and security grade instantly.
+
+Then set up ongoing monitoring:
+
 1. Sign up exit1.dev
 2. Add URL
 3. Auto SSL starts
@@ -131,6 +135,7 @@ Monitor or regret. Free works.
 
 ## Recommended Free Monitoring Resources
 
+- [Free SSL Checker Tool](/tools/ssl-checker) – Instantly check any website's SSL certificate status, expiration date, issuer, and security grade.
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
 - [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) – Evaluate which free website monitor fits your stack and alerting needs.
