@@ -61,7 +61,7 @@ export function MonitorForm() {
     }
 
     const monitoringAppUrl = `https://app.exit1.dev/sign-up?website=${encodeURIComponent(cleanUrl)}`;
-    window.open(monitoringAppUrl, "_blank", "noopener,noreferrer");
+    window.location.href = monitoringAppUrl;
 
     setIsLoading(false);
   };
