@@ -57,7 +57,7 @@ export default function NewHomePage() {
                 size="lg"
                 className="rounded-full px-8 py-6 text-lg font-semibold bg-white text-black hover:bg-white/90 cursor-pointer"
               >
-                <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
+                <a href="https://app.exit1.dev/sign-up" target="_blank" rel="noopener noreferrer">
                   Start Monitoring
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
@@ -565,7 +565,7 @@ export default function NewHomePage() {
                   variant="outline"
                   className="w-full rounded-full py-5 font-semibold border-white/20 hover:bg-white/5 mt-auto"
                 >
-                  <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
+                  <a href="https://app.exit1.dev/sign-up" target="_blank" rel="noopener noreferrer">
                     Get Started
                   </a>
                 </Button>

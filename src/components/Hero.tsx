@@ -57,7 +57,7 @@ export default function Hero() {
     }
 
     // Redirect to your Firebase app with the website URL as parameter
-    const monitoringAppUrl = `https://app.exit1.dev/?website=${encodeURIComponent(cleanUrl)}`
+    const monitoringAppUrl = `https://app.exit1.dev/sign-up?website=${encodeURIComponent(cleanUrl)}`
     window.open(monitoringAppUrl, '_blank')
     
     setIsLoading(false)
