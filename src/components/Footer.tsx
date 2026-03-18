@@ -103,7 +103,7 @@ const Footer = () => {
           </div>
           
           {/* Navigation sections - stacked on mobile, grid on larger screens */}
-          <div className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-4 lg:gap-8 lg:space-y-0">
+          <div className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-5 lg:gap-8 lg:space-y-0">
             <div>
               <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
                 Monitoring
@@ -122,6 +122,18 @@ const Footer = () => {
               </h3>
               <ul className="mt-4 space-y-3">
                 {content.navigation.analytics.map((item) => (
+                  <li key={item.name}>
+                    {renderLink(item)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+                Tools
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {content.navigation.tools.map((item) => (
                   <li key={item.name}>
                     {renderLink(item)}
                   </li>
@@ -176,7 +188,7 @@ const Footer = () => {
               {/* Business info and Copyright */}
               <div className="flex flex-col items-center lg:items-end gap-1">
                 <p className="text-sm text-white/50 font-light">
-                  Pradsgaard Labs EMV | CVR: DK46156153
+                  <a href="https://pradsgaardlabs.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors duration-200">Pradsgaard Labs EMV</a> | CVR: DK46156153
                 </p>
                 <p className="text-base text-white/60 font-light"
                  dangerouslySetInnerHTML={{ __html: content.copyright }}>
