@@ -40,7 +40,7 @@ export default function NewHomePage() {
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-14">
               {[
                 "Unlimited monitors",
-                "1-minute checks",
+                "15-second checks",
                 "Instant alerts",
                 "SSL & domain monitoring",
               ].map((item) => (
