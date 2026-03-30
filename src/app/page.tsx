@@ -34,13 +34,13 @@ export default function NewHomePage() {
               No limits. No catches.
             </h1>
             <p className="text-xl sm:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Monitor every site, storefront, and API. 10 free monitors with 5-minute checks. Unlimited monitors and 1-minute checks with Nano. Instant alerts, SSL coverage.
+              Check every site, storefront, and API every minute. Unlimited monitors, instant alerts, SSL coverage. No bait-and-switch.
             </p>
 
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-14">
               {[
-                "10 free monitors",
-                "5-minute checks",
+                "Unlimited monitors",
+                "1-minute checks",
                 "Instant alerts",
                 "SSL & domain monitoring",
               ].map((item) => (
