@@ -19,7 +19,7 @@ import { FeatureGridItem } from "@/components/FeatureGridItem";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
 import Image from "next/image";
 import { MonitorForm } from "@/components/MonitorForm";
-import { PricingToggle } from "@/components/PricingToggle";
+import { PricingCards } from "@/components/PricingCards";
 import { LazyVideo } from "@/components/LazyVideo";
 
 export default function NewHomePage() {
@@ -514,65 +514,8 @@ export default function NewHomePage() {
               Start free with everything you need. Upgrade when you want more.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              {/* Free Plan */}
-              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-left flex flex-col">
-                <h3 className="text-2xl font-bold mb-2">Free</h3>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-bold">$0</span>
-                </div>
-                <p className="text-white/60 mb-6">Always free</p>
-                <ul className="space-y-2 mb-6 flex-grow">
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    10 monitors
-                  </li>
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    5-minute check intervals
-                  </li>
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    SSL certificate monitoring
-                  </li>
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    Email alerts (10/hour, 10/month)
-                  </li>
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    1 webhook integration
-                  </li>
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    1 public status page
-                  </li>
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    Analytics & logs (30 days)
-                  </li>
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    Bulk import — migrate from any service in minutes
-                  </li>
-                  <li className="flex items-center gap-2 text-white/80">
-                    <Check className="w-4 h-4 text-green-400" />
-                    Bulk edit — configure hundreds of checks at once
-                  </li>
-                </ul>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full rounded-full py-5 font-semibold border-white/20 hover:bg-white/5 mt-auto"
-                >
-                  <a href="https://app.exit1.dev/sign-up" target="_blank" rel="noopener noreferrer">
-                    Get Started
-                  </a>
-                </Button>
-              </div>
-
-              {/* Nano Plan */}
-              <PricingToggle />
+            <div className="max-w-6xl mx-auto">
+              <PricingCards />
             </div>
 
             <div className="mt-8">

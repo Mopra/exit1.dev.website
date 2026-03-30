@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Compare Uptime Monitors | exit1.dev vs UptimeRobot vs Better Uptime',
-  description: 'See how exit1.dev compares to UptimeRobot, Better Uptime, and other monitoring tools. 10 free monitors, unlimited with Nano, 1-minute checks, and SMS alerts at a fraction of the cost.',
+  description: 'See how exit1.dev compares to UptimeRobot, Better Uptime, and other monitoring tools. 10 free monitors, unlimited with Nano, 15-second checks with Scale, and SMS alerts at a fraction of the cost.',
   openGraph: {
     title: 'Compare Uptime Monitors | exit1.dev',
     description: 'See how exit1.dev compares to UptimeRobot, Better Uptime, and other monitoring tools.',
@@ -19,6 +19,7 @@ const comparisonData = [
     feature: 'Check interval',
     exit1Free: '5 min',
     exit1Nano: '1 min',
+    exit1Scale: '15 sec',
     uptimeRobotFree: '5 min',
     uptimeRobotPro: '1 min',
     betterUptimeFree: '3 min',
@@ -27,6 +28,7 @@ const comparisonData = [
     feature: 'Monitors',
     exit1Free: '10',
     exit1Nano: 'Unlimited',
+    exit1Scale: 'Unlimited',
     uptimeRobotFree: '50',
     uptimeRobotPro: '50+',
     betterUptimeFree: '10',
@@ -35,6 +37,7 @@ const comparisonData = [
     feature: 'SMS alerts',
     exit1Free: false,
     exit1Nano: true,
+    exit1Scale: true,
     uptimeRobotFree: false,
     uptimeRobotPro: 'Extra cost',
     betterUptimeFree: false,
@@ -43,6 +46,7 @@ const comparisonData = [
     feature: 'Team alerts (add others)',
     exit1Free: false,
     exit1Nano: true,
+    exit1Scale: true,
     uptimeRobotFree: false,
     uptimeRobotPro: true,
     betterUptimeFree: false,
@@ -51,6 +55,7 @@ const comparisonData = [
     feature: 'Status page branding',
     exit1Free: false,
     exit1Nano: true,
+    exit1Scale: true,
     uptimeRobotFree: false,
     uptimeRobotPro: 'Pro+ only',
     betterUptimeFree: false,
@@ -59,6 +64,7 @@ const comparisonData = [
     feature: 'Domain intelligence',
     exit1Free: false,
     exit1Nano: true,
+    exit1Scale: true,
     uptimeRobotFree: false,
     uptimeRobotPro: false,
     betterUptimeFree: false,
@@ -67,6 +73,7 @@ const comparisonData = [
     feature: 'Domain expiry alerts',
     exit1Free: false,
     exit1Nano: true,
+    exit1Scale: true,
     uptimeRobotFree: false,
     uptimeRobotPro: false,
     betterUptimeFree: false,
@@ -75,6 +82,7 @@ const comparisonData = [
     feature: 'SSL monitoring',
     exit1Free: true,
     exit1Nano: true,
+    exit1Scale: true,
     uptimeRobotFree: true,
     uptimeRobotPro: true,
     betterUptimeFree: true,
@@ -83,6 +91,7 @@ const comparisonData = [
     feature: 'Webhook alerts',
     exit1Free: '1',
     exit1Nano: 'Unlimited',
+    exit1Scale: 'Unlimited',
     uptimeRobotFree: true,
     uptimeRobotPro: true,
     betterUptimeFree: true,
@@ -91,6 +100,7 @@ const comparisonData = [
     feature: 'API access',
     exit1Free: true,
     exit1Nano: true,
+    exit1Scale: true,
     uptimeRobotFree: true,
     uptimeRobotPro: true,
     betterUptimeFree: 'Limited',
@@ -99,6 +109,7 @@ const comparisonData = [
     feature: 'Data retention',
     exit1Free: '30 days',
     exit1Nano: '1 year',
+    exit1Scale: '1 year',
     uptimeRobotFree: '30 days',
     uptimeRobotPro: '2 years',
     betterUptimeFree: '30 days',
@@ -107,6 +118,7 @@ const comparisonData = [
     feature: 'Price',
     exit1Free: '$0',
     exit1Nano: '$3/mo',
+    exit1Scale: '$24/mo',
     uptimeRobotFree: '$0',
     uptimeRobotPro: '$14+/mo',
     betterUptimeFree: '$0',
@@ -167,6 +179,10 @@ export default function ComparePage() {
                       <CellValue value={row.exit1Nano} />
                     </div>
                     <div className="flex flex-col">
+                      <span className="text-blue-400/70 text-xs mb-1">Exit1 Scale</span>
+                      <CellValue value={row.exit1Scale} />
+                    </div>
+                    <div className="flex flex-col">
                       <span className="text-white/70 text-xs mb-1">UptimeRobot Free</span>
                       <CellValue value={row.uptimeRobotFree} />
                     </div>
@@ -190,7 +206,11 @@ export default function ComparePage() {
                     </th>
                     <th className="text-center py-4 px-4 font-semibold bg-green-500/10 rounded-t-lg border border-green-500/30 border-b-0">
                       <div className="text-green-400">Exit1 Nano</div>
-                      <div className="text-xs text-white/50 font-normal mt-1">Recommended</div>
+                      <div className="text-xs text-white/50 font-normal mt-1">Popular</div>
+                    </th>
+                    <th className="text-center py-4 px-4 font-semibold bg-blue-500/10 rounded-t-lg border border-blue-500/30 border-b-0">
+                      <div className="text-blue-400">Exit1 Scale</div>
+                      <div className="text-xs text-white/50 font-normal mt-1">Performance</div>
                     </th>
                     <th className="text-center py-4 px-4 font-semibold text-white/70">UptimeRobot Free</th>
                     <th className="text-center py-4 px-4 font-semibold text-white/70">UptimeRobot Pro</th>
@@ -206,6 +226,9 @@ export default function ComparePage() {
                       </td>
                       <td className="py-4 px-4 text-center bg-green-500/10 border-x border-green-500/30">
                         <CellValue value={row.exit1Nano} />
+                      </td>
+                      <td className="py-4 px-4 text-center bg-blue-500/10 border-x border-blue-500/30">
+                        <CellValue value={row.exit1Scale} />
                       </td>
                       <td className="py-4 px-4 text-center text-white/60">
                         <CellValue value={row.uptimeRobotFree} />
@@ -235,8 +258,12 @@ export default function ComparePage() {
                   <span><strong className="text-white">Exit1 Nano at $3/mo</strong> includes SMS alerts and branding that cost $14-50/mo elsewhere.</span>
                 </li>
                 <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                  <span><strong className="text-white">Exit1 Scale at $24/mo</strong> adds 15-second check intervals. Detect outages before your users do.</span>
+                </li>
+                <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span><strong className="text-white">No hidden costs.</strong> SMS is included in Nano. No per-message fees. No surprise bills.</span>
+                  <span><strong className="text-white">No hidden costs.</strong> SMS is included in Nano and Scale. No per-message fees. No surprise bills.</span>
                 </li>
               </ul>
             </div>
@@ -248,7 +275,7 @@ export default function ComparePage() {
           <SectionContent size="sm" className="text-center">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to switch?</h2>
             <p className="text-lg text-white/70 mb-8">
-              Start free. Upgrade to Nano when you need SMS and branding.
+              Start free. Upgrade to Nano for SMS and branding, or Scale for 15-second checks.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
