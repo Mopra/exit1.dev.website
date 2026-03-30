@@ -69,7 +69,7 @@ If you manage networks for multiple clients, ICMP monitoring is essential:
 - **Latency trending** — spot degrading links before clients complain
 - **Incident evidence** — historical data proves when issues started and ended
 
-Exit1.dev's free tier supports up to 50 monitors — enough to cover the critical infrastructure for several small networks. The Nano tier scales to 200 monitors for larger deployments.
+Exit1.dev's free tier supports up to 10 monitors — enough to cover the most critical infrastructure. The Nano tier offers unlimited monitors for larger deployments.
 
 ## Common Pitfalls
 

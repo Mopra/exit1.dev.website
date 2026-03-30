@@ -2,9 +2,9 @@
 title: "Free Website Monitoring for Shopify and WooCommerce Stores"
 author: "Morten Pradsgaard"
 category: "monitoring"
-excerpt: "Keep Shopify and WooCommerce stores online with exit1.dev's free website monitor. Unlimited URLs, 1-minute checks, SSL protection, and blunt advice on keeping carts alive."
+excerpt: "Keep Shopify and WooCommerce stores online with exit1.dev's website monitor. 10 free monitors with 5-minute checks, SSL protection, and blunt advice on keeping carts alive."
 date: "2025-02-10"
-metaDescription: "Learn how to set up free website monitoring for Shopify and WooCommerce with exit1.dev. Unlimited URLs, 1-minute checks, SSL alerts, and practical uptime tactics for ecommerce."
+metaDescription: "Learn how to set up free website monitoring for Shopify and WooCommerce with exit1.dev. 10 free monitors, 5-minute checks, SSL alerts, and practical uptime tactics for ecommerce."
 ---
 
 # Free Website Monitoring for Shopify and WooCommerce
@@ -20,13 +20,13 @@ Your catalog, cart, and payment gateway live on different URLs. If all you monit
 - Checking SSL certificates before they expire.
 - Alerting the right people instantly—marketing, ops, whoever gets paged.
 
-exit1.dev covers the entire surface out of the box. Unlimited URLs, 1-minute checks, and webhook + email alerts that don’t hide behind a paywall.
+exit1.dev covers the entire surface out of the box. The free tier gives you 10 monitors with 5-minute checks, and the Nano tier ($3/month) unlocks unlimited monitors with 1-minute checks. Webhook + email alerts are included on every plan.
 
 ## How to monitor Shopify with exit1.dev
 
 ### 1. Map the routes that make money
 
-List the URLs that fail most often: `/cart`, `/checkout`, `/account/login`, your best sellers, promo landers. Add them all. We don’t cap monitors, so stop rationing.
+List the URLs that fail most often: `/cart`, `/checkout`, `/account/login`, your best sellers, promo landers. The free tier covers 10 monitors. Need more? The Nano tier ($3/month) gives you unlimited monitors with 1-minute checks.
 
 ### 2. Add monitors with keyword checks
 
@@ -58,11 +58,11 @@ Our analytics show response-time trends for every monitor. Spot plugin regressio
 
 ## Bundle stores, headless front-ends, and multiple markets
 
-Running Hydrogen, custom Next.js front-ends, or multiple Shopify markets? Add every URL and subdomain. Use tags in exit1.dev to separate locales and campaigns. Unlimited monitors means unlimited segmentation.
+Running Hydrogen, custom Next.js front-ends, or multiple Shopify markets? Add every URL and subdomain. Use tags in exit1.dev to separate locales and campaigns. The Nano tier ($3/month) gives you unlimited monitors for unlimited segmentation.
 
 ## Free beats “free trial”
 
-You don’t need to upgrade to get SSL alerts, JSON checks, or 1-minute probes. exit1.dev’s free website monitor covers it. Spend your budget on ads, not uptime basics.
+You don’t need to pay a fortune for SSL alerts and JSON checks. exit1.dev’s free tier gives you 10 monitors with 5-minute checks. The Nano tier ($3/month) adds unlimited monitors and 1-minute probes. Spend your budget on ads, not uptime basics.
 
 ## FAQs
 

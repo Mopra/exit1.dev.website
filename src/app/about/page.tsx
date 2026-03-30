@@ -36,7 +36,7 @@ export default function AboutPage() {
                   "price": "0",
                   "priceCurrency": "USD"
                 },
-                "description": "Free uptime monitoring with unlimited websites, 5-minute checks (1-minute with Nano), SSL alerts, and instant notifications.",
+                "description": "Free uptime monitoring with up to 10 monitors, 5-minute checks (1-minute with Nano), SSL alerts, and instant notifications. Upgrade to Nano for unlimited monitors.",
                 "publisher": { "@id": "#org" }
               },
               {
@@ -102,7 +102,7 @@ export default function AboutPage() {
                   <div className="mb-12">
                     <h2 className="text-xl sm:text-2xl font-semibold mb-4">What exit1.dev is</h2>
                     <p className="text-base sm:text-lg text-white/70 mb-4">
-                      Free, no-nonsense uptime monitoring. <strong>Unlimited websites. 5-minute checks (1-minute with Nano). SSL monitoring. Instant alerts.</strong> The essentials — done right, and actually free.
+                      Free, no-nonsense uptime monitoring. <strong>10 monitors. 5-minute checks (1-minute with Nano). SSL monitoring. Instant alerts.</strong> The essentials — done right, and actually free.
                     </p>
                   </div>
 
@@ -157,7 +157,7 @@ export default function AboutPage() {
                   <div className="mb-12">
                     <h2 className="text-xl sm:text-2xl font-semibold mb-4">What You Get Here</h2>
                     <ul className="space-y-3 text-base sm:text-lg text-white/70">
-                      <li><strong>Real monitoring, not marketing.</strong> Unlimited sites, 1-min checks, instant alerts.</li>
+                      <li><strong>Real monitoring, not marketing.</strong> 10 free monitors with 5-min checks. Upgrade to Nano for unlimited sites and 1-min checks.</li>
                       <li><strong>Setup in minutes.</strong> Create account → add site → get alerts. No BS.</li>
                       <li><strong>Useful features.</strong> SSL/expiry, logs, analytics, API, webhooks.</li>
                       <li><strong>A community you can ping.</strong> Discord for help, ideas, and calling out nonsense.</li>

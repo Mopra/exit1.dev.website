@@ -15,7 +15,7 @@ export default function WhyFree() {
             Uptime is table stakes. You shouldn&apos;t have to swipe a card or babysit a &ldquo;starter&rdquo; tier to know when your shop faceplants. We run a lean, boring stack—no VC, no ads, no tracking—so the free uptime monitor and free website monitor stay wide open.
           </p>
           <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mt-4">
-            Unlimited sites, 1-minute checks, SSL and domain coverage, webhook and email alerts. That&apos;s the core. No trial clock, no throttled &ldquo;lite&rdquo; experience. We built this to protect our own launches, and we refuse to play the upsell circus.
+            10 monitors, 5-minute checks, SSL and domain coverage, webhook and email alerts. That&apos;s the free tier. Upgrade to Nano for unlimited monitors and 1-minute checks. No trial clock, no throttled &ldquo;lite&rdquo; experience. We built this to protect our own launches, and we refuse to play the upsell circus.
           </p>
         </div>
 
@@ -98,13 +98,13 @@ export default function WhyFree() {
                 </thead>
                 <tbody className="divide-y divide-primary/10">
                   <tr>
-                    <td className="py-3 font-medium">Unlimited monitors</td>
-                    <td className="py-3 text-green-400">Included, forever</td>
+                    <td className="py-3 font-medium">Free monitors</td>
+                    <td className="py-3 text-green-400">10 free, unlimited with Nano</td>
                     <td className="py-3">Capped or &ldquo;business&rdquo; plan only</td>
                   </tr>
                   <tr>
                     <td className="py-3 font-medium">1-minute checks</td>
-                    <td className="py-3 text-green-400">Default</td>
+                    <td className="py-3 text-green-400">Nano plan (5-min free)</td>
                     <td className="py-3">Paywall or throttled</td>
                   </tr>
                   <tr>

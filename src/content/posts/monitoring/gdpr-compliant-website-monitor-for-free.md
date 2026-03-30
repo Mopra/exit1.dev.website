@@ -58,7 +58,7 @@ That's it. No marketing drip campaigns, no "just one more field" forms. You get 
 
 | Tool | GDPR Stance | Data Residency | Personal Data Collected | Free Tier Limits |
 |------|-------------|----------------|-------------------------|------------------|
-| **Exit1.dev** | EU-first, transparent | EU regions only | None beyond uptime metadata | Unlimited monitors, 1-min checks |
+| **Exit1.dev** | EU-first, transparent | EU regions only | None beyond uptime metadata | 10 monitors, 5-min checks (unlimited 1-min on Nano $3/mo) |
 | UptimeRobot | Claims compliance, vague docs | Mixed EU/US | Emails, team data, IP logs | 50 monitors, 5-min checks |
 | Pingdom | Compliance add-on | Primarily US | Extensive user analytics | 1 monitor, 1-min checks |
 | StatusCake | Optional EU zones | EU & US mix | Team + visitor data | 10 monitors, 5-min checks |
@@ -81,8 +81,8 @@ Generate a simple monitoring DPIA (Data Protection Impact Assessment). List endp
 
 Regulations will tighten. Competitors will upsell compliance as a premium feature. Skip the ransom. Exit1.dev's free tier already includes:
 
-- Unlimited monitors with EU-based probes
-- 1-minute heartbeat checks by default
+- 10 free monitors with EU-based probes (unlimited on Nano $3/mo)
+- 5-minute checks on free tier, 1-minute on Nano
 - SSL expiry monitoring and performance baselines
 - Webhooks for your own automation, not theirs
 - Status pages without third-party trackers

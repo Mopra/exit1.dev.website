@@ -30,7 +30,7 @@ A slow dependency can look like downtime. Monitor latency percentiles and alert 
 
 ## Regional noise and ISP blocks
 
-Some networks block or rate-limit bots. Run monitors from multiple regions and compare. If one region is always noisy, disable paging there and keep it for visibility. Document the decision on your status page using the [free uptime monitor checklist](/blog/free-uptime-monitor-checklist); transparency keeps trust high.
+Some networks block or rate-limit monitoring bots. If you see persistent noise, check whether your provider or firewall is interfering with probe traffic. Whitelist your monitoring server's IP and use confirmation windows to filter out transient blips. Document the decision on your status page using the [free uptime monitor checklist](/blog/free-uptime-monitor-checklist); transparency keeps trust high.
 
 ## Keep alerts honest
 

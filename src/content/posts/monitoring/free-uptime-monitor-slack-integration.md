@@ -78,7 +78,7 @@ Tweak the copy so it screams severity. Add owner tags or runbook links. If someo
 
 ## When You Actually Need Paid Tools
 
-Exit1.dev’s free plan handles unlimited monitors, global probes, Slack webhooks, and status pages. Pay up only if you need:
+Exit1.dev’s free plan handles up to 10 monitors with 5-minute checks, global probes, Slack webhooks, and status pages. The Nano plan ($3/month) unlocks unlimited monitors with 1-minute checks. Pay more only if you need:
 
 - Complex on-call rotations with SMS/phone escalation.
 - Compliance evidence beyond Slack’s retention limits.

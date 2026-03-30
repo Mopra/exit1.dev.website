@@ -27,7 +27,7 @@ Error budgets are useless if you don’t instrument them. exit1.dev handles it w
 
 1. Create monitors per API capability (auth, checkout, billing, webhooks).
 2. Add JSONPath assertions so you catch logical failures, not just HTTP errors.
-3. Configure multi-region probes—see [Multi-Region Performance Tuning](/blog/multi-region-performance-tuning-global-probes) for the setup blueprint.
+3. Configure check intervals and alert thresholds to match your SLA targets.
 
 Group monitors into tags like `tier:gold` and `tier:silver`. Your gold tier drives the tight SLA math. Silver tier buys you more slack.
 

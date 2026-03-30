@@ -45,7 +45,7 @@ Store them in the incident ticket immediately. Future you will thank present you
 
 ## Runbook hygiene: iterate without ceremony
 
-Review the runbook monthly. Compare it with real incidents and adjust. Fold in lessons from resources like the [multi-region performance tuning guide](/blog/multi-region-performance-tuning-global-probes) to sharpen mitigation steps. Free incident management thrives on ruthless iteration, not bigger PDFs.
+Review the runbook monthly. Compare it with real incidents and adjust. Fold in lessons from past postmortems to sharpen mitigation steps. Free incident management thrives on ruthless iteration, not bigger PDFs.
 
 ## Send the signal: you take resilience seriously
 

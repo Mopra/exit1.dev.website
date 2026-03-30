@@ -34,13 +34,13 @@ export default function NewHomePage() {
               No limits. No catches.
             </h1>
             <p className="text-xl sm:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Check every site, storefront, and API every minute. Unlimited monitors, instant alerts, SSL coverage. No bait-and-switch.
+              Monitor every site, storefront, and API. 10 free monitors with 5-minute checks. Unlimited monitors and 1-minute checks with Nano. Instant alerts, SSL coverage.
             </p>
 
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-14">
               {[
-                "Unlimited monitors",
-                "1-minute checks",
+                "10 free monitors",
+                "5-minute checks",
                 "Instant alerts",
                 "SSL & domain monitoring",
               ].map((item) => (
@@ -264,8 +264,8 @@ export default function NewHomePage() {
             />
             <FeatureGridItem
               href="/free-uptime-monitor"
-              title="Unlimited monitors"
-              description="Add as many sites as you need. No artificial limits. No upgrade prompts. Just monitoring that works."
+              title="Unlimited monitors with Nano"
+              description="10 monitors free. Upgrade to Nano for unlimited sites. No artificial limits on paid. Just monitoring that works."
               icon={<Globe className="w-6 h-6 text-white" />}
             />
             <FeatureGridItem
@@ -316,7 +316,7 @@ export default function NewHomePage() {
         <PageSection className="py-12">
           <SectionContent className="text-center">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-              Multi-region Monitoring, Real-time Map View
+              Real-time Monitoring, Live Map View
             </h2>
           </SectionContent>
         </PageSection>
@@ -525,7 +525,7 @@ export default function NewHomePage() {
                 <ul className="space-y-2 mb-6 flex-grow">
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />
-                    50 monitors
+                    10 monitors
                   </li>
                   <li className="flex items-center gap-2 text-white/80">
                     <Check className="w-4 h-4 text-green-400" />

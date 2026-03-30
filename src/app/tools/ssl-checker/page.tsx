@@ -346,7 +346,7 @@ export default function SSLCheckerPage() {
                 <p className="text-muted-foreground max-w-xl mx-auto mb-8">
                   Stop checking manually. exit1.dev monitors your SSL
                   certificates automatically and alerts you before they expire.
-                  Free for unlimited websites.
+                  10 free monitors. Unlimited with Nano.
                 </p>
                 <a
                   href="https://app.exit1.dev/"

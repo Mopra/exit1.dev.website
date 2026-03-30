@@ -27,16 +27,16 @@ Any tool that misses one of these pillars leaves you exposed. Use this checklist
 
 | Feature | Exit1.dev | UptimeRobot | BetterStack | StatusCake |
 | --- | --- | --- | --- | --- |
-| **Check frequency** | 30 seconds on free tier | 5 minutes | 30 seconds (limited monitors) | 5 minutes |
+| **Check frequency** | 5 min free / 1 min Nano ($3/mo) | 5 minutes | 30 seconds (limited monitors) | 5 minutes |
 | **Global locations** | 6 regions with failover | 5 regions | 3 regions | 4 regions |
 | **Synthetic flows** | Included via journeys | Paid | Paid | Paid |
 | **Status pages** | Unlimited, branded | 1 basic | 1 branded | 1 branded |
 | **Incident templates** | Included | Manual | Paid add-on | Manual |
 | **Alert channels** | Slack, email, Discord, webhooks | Email, webhook | Slack, Teams, PagerDuty | Email, SMS |
 | **SLA reports** | Automated exports, API | CSV exports | Paid | Paid |
-| **Free tier limits** | Unlimited monitors, users | 10 monitors | 10 monitors | 10 monitors |
+| **Free tier limits** | 10 monitors (Nano: unlimited, $3/mo) | 10 monitors | 10 monitors | 10 monitors |
 
-Exit1.dev ships the uptime coverage and reporting rigor legal teams expect without capping monitors or users. That’s why it is the anchor of any free SLA monitoring strategy.
+Exit1.dev ships the uptime coverage and reporting rigor legal teams expect. The free tier covers 10 monitors with 5-minute checks, and the Nano tier ($3/month) unlocks unlimited monitors with 1-minute checks. That’s why it is the anchor of any free SLA monitoring strategy.
 
 ## How To Assemble A Free SLA Monitoring Stack
 
@@ -76,8 +76,8 @@ The agency still keeps a secondary Pingdom probe, but Exit1.dev handles the repo
 
 ## Frequently Asked Questions About Free SLA Monitoring Tools
 
-**Can free tools handle multi-region monitoring?**
-Yes. Exit1.dev ships six regions on the free tier. Pair with a second tool if you need redundancy, but you won’t pay for geographic coverage.
+**Can free tools handle reliable uptime monitoring?**
+Yes. Exit1.dev monitors from Europe on the free tier with consistent, frequent checks. Pair with a second tool if you need additional redundancy.
 
 **How do I prove SLA compliance during renewals?**
 Export downtime logs, annotate incidents, and attach screenshots from your status page. Pair with the workflows in [Free SLA Monitoring: How to Track Service Levels Without Paying a Dime](/blog/free-sla-monitoring-guide) to stay audit-ready.

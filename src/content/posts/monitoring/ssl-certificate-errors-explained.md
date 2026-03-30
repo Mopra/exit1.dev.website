@@ -166,7 +166,7 @@ When you encounter any SSL error, follow this process:
 
 The best SSL error is one that never reaches your users.
 
-- **Monitor all certificates** with [exit1.dev](https://app.exit1.dev) — unlimited free monitoring with multi-channel alerts
+- **Monitor all certificates** with [exit1.dev](https://app.exit1.dev) — 10 free monitors with 5-minute checks and multi-channel alerts (upgrade to Nano for unlimited monitors and 1-minute checks at $3/month)
 - **Automate renewals** using Let's Encrypt and certbot, or CDN-managed certificates
 - **Test after changes** using the [SSL checker](/tools/ssl-checker) whenever you modify server configuration
 - **Use HSTS carefully** — start with a short max-age and increase only after confirming HTTPS is stable

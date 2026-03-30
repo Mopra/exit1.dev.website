@@ -46,7 +46,7 @@ const cardData: BentoCardProps[] = [
   {
     color: "oklch(0.05 0 0)",
     title: "Real-Time Monitoring",
-    description: "Free uptime monitoring for unlimited websites and APIs",
+    description: "Free uptime monitoring for up to 10 websites and APIs",
     label: "Core",
     href: "/real-time-monitoring",
   },

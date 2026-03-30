@@ -17,14 +17,13 @@ Monitoring key, but paid not always worth it. When free wins, when upgrade.
 Free now has paid features.
 
 Free (exit1.dev):
-- Unlimited sites
-- 1-min checks
+- 10 monitors, 5-min checks
 - SSL
 - Webhooks
 - API
 - Terminal UI
 - No card
-- Free
+- Nano ($3/mo): unlimited monitors, 1-min checks
 
 Others: UptimeRobot 50/5-min, Pingdom 1/1-min, StatusCake 10/5-min.
 
@@ -40,10 +39,10 @@ Paid:
 ## Compare
 
 Monitoring:
-| Feature | Free (exit1.dev) | Paid |
-|---------|------------------|------|
-| Checks | 1 min | 30s-1 min |
-| Sites | Unlimited | 100-1000+ |
+| Feature | Free (exit1.dev) | Nano (exit1.dev, $3/mo) | Paid (others) |
+|---------|------------------|------------------------|------|
+| Checks | 5 min | 1 min | 30s-1 min |
+| Sites | 10 | Unlimited | 100-1000+ |
 | SSL | ✅ | ✅ |
 | Headers | ✅ | ✅ |
 | API | ✅ | ✅ |

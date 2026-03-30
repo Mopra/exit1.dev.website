@@ -24,7 +24,7 @@ A `200 OK` can still serve garbage. Add content assertions that check for copy, 
 
 ## Performance matters
 
-Measure latency from multiple regions and alert on degradation, not just downtime. Pair your probes with the [real-time vs 5-minute monitoring](/blog/real-time-vs-5-minute-monitoring) guidance to balance signal and noise. Log performance trends to your warehouse using the [Exit1.dev CSV export](/blog/exit1-logs-to-warehouse-csv-excel) so you can show stakeholders that speed is improving, not just surviving.
+Measure latency from an external server and alert on degradation, not just downtime. Pair your probes with the [real-time vs 5-minute monitoring](/blog/real-time-vs-5-minute-monitoring) guidance to balance signal and noise. Log performance trends to your warehouse using the [Exit1.dev CSV export](/blog/exit1-logs-to-warehouse-csv-excel) so you can show stakeholders that speed is improving, not just surviving.
 
 ## Status pages and communication
 

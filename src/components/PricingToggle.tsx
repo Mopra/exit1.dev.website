@@ -66,10 +66,6 @@ export function PricingToggle() {
         </li>
         <li className="flex items-center gap-2 text-white/80">
           <Check className="w-4 h-4 text-green-400" />
-          Multi-region checks
-        </li>
-        <li className="flex items-center gap-2 text-white/80">
-          <Check className="w-4 h-4 text-green-400" />
           SMS alerts — know in seconds, not hours
         </li>
         <li className="flex items-center gap-2 text-white/80">
@@ -119,10 +115,6 @@ export function PricingToggle() {
         <li className="flex items-center gap-2 text-white/80">
           <Check className="w-4 h-4 text-green-400" />
           Bulk edit — configure hundreds of checks at once
-        </li>
-        <li className="flex items-center gap-2 text-white/80">
-          <Check className="w-4 h-4 text-green-400" />
-          Priority support
         </li>
       </ul>
       <Button

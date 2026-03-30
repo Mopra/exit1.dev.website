@@ -80,7 +80,7 @@ These metrics help you identify where slowdowns occur. A spike in TLS handshake 
 ## Real-World Use Cases
 
 ### Chat and messaging platforms
-WebSocket outages in chat apps mean messages stop flowing. Users see a spinning indicator, messages fail to send, and presence status goes stale. Monitor your chat WebSocket endpoints from multiple regions to catch failures before the support tickets arrive.
+WebSocket outages in chat apps mean messages stop flowing. Users see a spinning indicator, messages fail to send, and presence status goes stale. Monitor your chat WebSocket endpoints externally to catch failures before the support tickets arrive.
 
 ### Live dashboards and analytics
 Financial dashboards, DevOps monitoring panels, and real-time analytics platforms all stream data over WebSocket. A broken WebSocket connection means stale data — and stale data leads to bad decisions.

@@ -2,18 +2,18 @@
 title: "exit1.dev vs UptimeRobot: Migration Checklist"
 author: "Morten Pradsgaard"
 category: "monitoring"
-excerpt: "A blunt migration checklist for moving from UptimeRobot to exit1.dev. Unlimited monitors, 1-minute checks, real alerts, and zero freemium bait."
+excerpt: "A blunt migration checklist for moving from UptimeRobot to exit1.dev. 10 free monitors with 5-minute checks, or unlimited on Nano ($3/mo). Real alerts, zero freemium bait."
 date: "2025-02-12"
-metaDescription: "Migrate from UptimeRobot to exit1.dev with this checklist. Import monitors, map alerts, enable SSL tracking, and upgrade to unlimited free uptime monitoring."
+metaDescription: "Migrate from UptimeRobot to exit1.dev with this checklist. Import monitors, map alerts, enable SSL tracking. Free tier: 10 monitors. Nano: unlimited, $3/mo."
 ---
 
 # exit1.dev vs UptimeRobot: Migration Checklist
 
-UptimeRobot’s “free” tier is a museum exhibit: 5-minute checks, limited monitors, and paywalled alerts. exit1.dev gives you the full uptime stack for free. Here’s the practical migration plan—no fluff.
+UptimeRobot’s “free” tier is a museum exhibit: 5-minute checks, limited monitors, and paywalled alerts. exit1.dev gives you 10 free monitors with 5-minute checks, and the Nano tier ($3/month) unlocks unlimited monitors with 1-minute checks. Here’s the practical migration plan—no fluff.
 
 ## 1. Inventory the monitors you actually need
 
-Export your UptimeRobot monitors. Cull the dead ones, keep the URLs that matter, and add the ones you skipped because of limits. exit1.dev has no cap, so bring everything.
+Export your UptimeRobot monitors. Cull the dead ones, keep the URLs that matter. The free tier covers 10 monitors. Need more? The Nano tier ($3/month) gives you unlimited monitors with 1-minute checks.
 
 ## 2. Group monitors by intent
 
@@ -49,7 +49,7 @@ Run downtime drills. Pause monitors, confirm alerts land, resume. Check analytic
 
 ## Why exit1.dev wins
 
-- Unlimited monitors, 1-minute checks, and SSL coverage in the free tier.
+- 10 monitors with 5-minute checks on the free tier. Nano ($3/month): unlimited monitors, 1-minute checks, and SSL coverage.
 - Logs, analytics, and exports with no retention caps.
 - Privacy-first: no trackers, no reselling data.
 - Built by people who got sick of “free” meaning crippled.
@@ -68,7 +68,7 @@ Yes. Every webhook payload includes an HMAC signature. Verify it before running 
 
 Keep the last month of UptimeRobot data, then rely on exit1.dev analytics. Export CSVs if you need both datasets side-by-side.
 
-### What if I need multi-region checks?
+### Where does Exit1.dev monitor from?
 
-They’re included. No add-on pricing. Turn on global monitoring, compare regions, and adjust your routing.
+Checks run from Europe. No add-on pricing — monitoring is included on every plan.
 

@@ -52,7 +52,7 @@ Short, factual, mercilessly clear. The subject shows severity and timeline; the 
 
 ## When to Add More Tooling
 
-Exit1.dev gives you unlimited SSL monitors, email alerts, and status pages for free. Upgrade only if you need:
+Exit1.dev's free tier gives you up to 10 SSL monitors with 5-minute checks, email alerts, and status pages. The Nano plan ($3/month) unlocks unlimited monitors with 1-minute checks. Upgrade beyond that only if you need:
 
 - Automated certificate deployment across dozens of load balancers.
 - Hardware-backed key storage and compliance attestations.

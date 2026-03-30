@@ -72,9 +72,9 @@ No. We’re 100% agentless. We hit your endpoints like a browser would.
 
 Yes. Add the revalidation URLs or internal APIs, assert the JSON payload, and we’ll alert when revalidation fails.
 
-### How do I monitor multiple regions?
+### Where does exit1.dev monitor from?
 
-Create monitors per region or URL. exit1.dev runs global probes and shows performance per location.
+Checks run from Europe. Create separate monitors for each URL or endpoint you need to track.
 
 ### Can I export uptime data for stakeholders?
 

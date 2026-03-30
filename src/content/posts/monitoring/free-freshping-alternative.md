@@ -3,14 +3,14 @@ title: 'Free Freshping Alternative: Exit1.dev With 1-Min Checks'
 author: 'Exit1 Team'
 date: '2026-01-15'
 category: 'monitoring'
-excerpt: 'Freshping is shutting down. Replace it with a free alternative that keeps 1-minute checks, unlimited monitors, SSL alerts, and webhooks.'
+excerpt: 'Freshping is shutting down. Replace it with a free alternative that includes 10 monitors with 5-minute checks, SSL alerts, and webhooks—or go Nano for unlimited monitors and 1-minute checks at $3/month.'
 readTime: '8 min read'
-metaDescription: 'Free Freshping alternative with 1-minute checks, unlimited monitors, SSL alerts, webhooks, and no credit card. Practical migration steps included.'
+metaDescription: 'Free Freshping alternative with 10 monitors, 5-minute checks, SSL alerts, webhooks, and no credit card. Upgrade to Nano ($3/month) for unlimited monitors and 1-minute checks.'
 ---
 
 # Free Freshping Alternative: Exit1.dev With 1-Min Checks
 
-Freshping is shutting down. If you want the same 1-minute cadence without the paywall games, use Exit1.dev. Unlimited monitors, SSL alerts, email + webhooks, and no credit card.
+Freshping is shutting down. If you want reliable monitoring without the paywall games, use Exit1.dev. The free tier gives you 10 monitors with 5-minute checks, SSL alerts, email + webhooks, and no credit card. Need more? The Nano plan ($3/month) unlocks unlimited monitors with 1-minute checks.
 
 ## Why Freshping worked
 
@@ -25,20 +25,20 @@ Freshping is shutting down. If you want the same 1-minute cadence without the pa
 If a tool misses any of these, it is not a replacement:
 
 - 1-minute checks
-- Unlimited (or high-cap) monitors
+- Generous monitor limits (or unlimited on paid tiers)
 - SSL expiration alerts
 - Email + webhook routing
 - Simple API for bulk setup
 - Clear alert ownership
 
-Exit1.dev checks those boxes without forcing a credit card.
+Exit1.dev checks those boxes—free tier for the basics, Nano ($3/month) for the full feature set—without forcing a credit card to get started.
 
 ## Freshping vs Exit1.dev (free tier comparison)
 
 | Feature | Freshping (free tier) | Exit1.dev (free) |
 |---------|------------------------|-----------------|
-| Monitors | 50 | Unlimited |
-| Check interval | 1 minute | 1 minute |
+| Monitors | 50 | 10 (free) / Unlimited (Nano $3/mo) |
+| Check interval | 1 minute | 5 min (free) / 1 min (Nano $3/mo) |
 | SSL monitoring | Yes | Yes |
 | Email alerts | Yes | Yes |
 | Webhooks | Yes | Yes |
@@ -110,7 +110,7 @@ Uptime and SSL are baseline. If you need synthetic transactions or real user mon
 
 ### Is there a truly free Freshping alternative?
 
-Yes. Exit1.dev is free with unlimited monitors, 1-minute checks, SSL alerts, and webhooks.
+Yes. Exit1.dev's free tier includes 10 monitors with 5-minute checks, SSL alerts, and webhooks. The Nano plan ($3/month) upgrades you to unlimited monitors with 1-minute checks.
 
 ### Do I need a credit card?
 

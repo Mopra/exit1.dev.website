@@ -83,7 +83,7 @@ If a deploy touches multiple services, use bulk actions to enter maintenance on 
 
 ### Pattern 3: Staggered windows for rolling deploys
 
-If you use rolling deployments across regions, stagger your maintenance windows to match. Region A deploys at 10:00 PM, Region B at 10:15 PM, Region C at 10:30 PM. Each check gets its own window matching the regional deploy time. This is more precise than one large blanket window and keeps [multi-region monitoring](/global-monitoring) useful during the rollout.
+If you use rolling deployments across services, stagger your maintenance windows to match. Service A deploys at 10:00 PM, Service B at 10:15 PM, Service C at 10:30 PM. Each check gets its own window matching the service deploy time. This is more precise than one large blanket window and keeps your monitoring useful during the rollout.
 
 ### Pattern 4: Third-party maintenance coverage
 

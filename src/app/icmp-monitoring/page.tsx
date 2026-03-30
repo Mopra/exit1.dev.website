@@ -65,8 +65,8 @@ const ICMPMonitoring = () => {
       icon: <Shield className="w-6 h-6 text-white" />
     },
     {
-      title: "Multi-Region Monitoring",
-      description: "Ping hosts from US Central, Europe West, and Asia Southeast to detect regional network issues.",
+      title: "European Monitoring",
+      description: "Ping hosts from our European server to detect network issues and measure latency.",
       icon: <Globe className="w-6 h-6 text-white" />
     }
   ];
@@ -93,9 +93,9 @@ const ICMPMonitoring = () => {
       competitors: false
     },
     {
-      feature: "Multi-region ping checks",
+      feature: "European ping checks",
       exit1: true,
-      competitors: "Limited regions"
+      competitors: "Limited availability"
     },
     {
       feature: "Smart false-positive prevention",
@@ -131,7 +131,7 @@ const ICMPMonitoring = () => {
     },
     {
       question: "Is ICMP monitoring included in the free tier?",
-      answer: "Yes, ICMP ping monitoring is available on both the Free and Nano tiers. On the Free tier you get up to 50 monitors with 5-minute check intervals. On the Nano tier you get up to 200 monitors with 1-minute check intervals."
+      answer: "Yes, ICMP ping monitoring is available on both the Free and Nano tiers. On the Free tier you get up to 10 monitors with 5-minute check intervals. On the Nano tier you get unlimited monitors with 1-minute check intervals."
     },
     {
       question: "When should I use ICMP checks instead of HTTP checks?",
@@ -160,7 +160,7 @@ const ICMPMonitoring = () => {
   ];
 
   const technicalDetails = {
-    architecture: "ICMP monitoring runs on the same multi-region infrastructure as all exit1.dev checks. Each ping sends a single ICMP Echo Request packet with an adaptive timeout based on historical response times. Results are enriched with IP geolocation, ASN, and ISP data. All check history is stored in BigQuery for long-term analytics.",
+    architecture: "ICMP monitoring runs on the same infrastructure as all exit1.dev checks. Each ping sends a single ICMP Echo Request packet with an adaptive timeout based on historical response times. Results are enriched with IP geolocation, ASN, and ISP data. All check history is stored in BigQuery for long-term analytics.",
     performance: "Ping checks execute in milliseconds with minimal overhead. Strict hostname validation prevents command injection. Process-level timeouts ensure hung checks are terminated cleanly. The system handles thousands of concurrent ICMP checks across all monitoring regions.",
     api: "ICMP checks are fully supported through the exit1.dev REST API. Create, update, delete, and query ping monitors programmatically. Access check history, response times, and TTL data via API endpoints. HMAC authentication with rate limits of 1000 requests/hour per key."
   };

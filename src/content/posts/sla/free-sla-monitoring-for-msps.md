@@ -16,7 +16,7 @@ Managed service providers live and die by SLAs. Miss them and you’re writing c
 
 MSPs can’t babysit bespoke tooling for each client. Build a baseline:
 
-- **Exit1.dev monitors** across HTTP, API, and synthetic journeys. Unlimited monitors mean you can duplicate coverage per client without a pricing migraine.
+- **Exit1.dev monitors** across HTTP, API, and synthetic journeys. The free tier covers 10 monitors with 5-minute checks. The Nano tier ($3/month) unlocks unlimited monitors with 1-minute checks — scale across clients without a pricing migraine.
 - **Shared alert routing** via centralized Slack, Teams, or email channels. Clone the [Slack integration workflow](/blog/free-uptime-monitor-slack-integration) per client workspace.
 - **Status pages** branded for each customer. Use the same automation to publish updates across the fleet.
 

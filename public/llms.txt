@@ -1,14 +1,14 @@
 # exit1.dev
 
-> Free uptime monitoring service. Monitor unlimited websites, APIs, and services with instant alerts, SSL monitoring, public status pages, and a full API — no credit card required.
+> Free uptime monitoring service. Monitor your websites, APIs, and services with instant alerts, SSL monitoring, public status pages, and a full API — no credit card required.
 
-exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 50 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, and 30 days of analytics. The paid Nano plan ($3/month annual) adds unlimited monitors, 1-minute checks, multi-region monitoring, SMS alerts, unlimited status pages with a drag-and-drop builder, domain intelligence, and 1-year data retention.
+exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 10 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, and 30 days of analytics. The paid Nano plan ($3/month annual) adds unlimited monitors, 1-minute checks, SMS alerts, unlimited status pages with a drag-and-drop builder, domain intelligence, and 1-year data retention.
 
 ## Core Features
 
 - [Real-Time Monitoring](https://exit1.dev/real-time-monitoring): HTTP/HTTPS uptime checks with support for all HTTP methods, custom headers, authentication, and JSON path validation
 - [SSL Monitoring](https://exit1.dev/ssl-monitoring): SSL/TLS certificate expiration tracking with configurable alerts before expiry
-- [Global Monitoring](https://exit1.dev/global-monitoring): Multi-region checks from distributed global locations to detect regional outages
+- [Monitoring](https://exit1.dev/real-time-monitoring): HTTP/HTTPS uptime checks from our European server with smart failure detection
 - [Smart Alerting](https://exit1.dev/alerting): Email, SMS, and webhook alerts with flap detection to suppress noise and prevent alert fatigue
 - [Status Pages](https://exit1.dev/status-pages): Public or private status pages with real-time updates, 30-day history, and multiple layout options
 - [Domain Intelligence](https://exit1.dev/domain-intelligence): Automatic domain expiration monitoring via RDAP with smart alert timing (30, 14, 7, 1 day before expiry)
@@ -22,7 +22,7 @@ exit1.dev integrates with Slack, Discord, PagerDuty, Opsgenie, Microsoft Teams, 
 
 ## Pricing
 
-- [Pricing](https://exit1.dev/pricing): Two tiers — Free ($0, 50 monitors, 5-min checks, email alerts, 1 status page) and Nano ($3/month annual, unlimited monitors, 1-min checks, SMS alerts, unlimited status pages, domain intelligence, 1-year retention)
+- [Pricing](https://exit1.dev/pricing): Two tiers — Free ($0, 10 monitors, 5-min checks, email alerts, 1 status page) and Nano ($3/month annual, unlimited monitors, 1-min checks, SMS alerts, unlimited status pages, domain intelligence, 1-year retention)
 - [Plan Comparison](https://exit1.dev/compare): Side-by-side feature comparison between Free and Nano plans
 
 ## Documentation & API

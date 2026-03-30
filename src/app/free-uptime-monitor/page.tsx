@@ -14,22 +14,22 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Uptime Monitor - Unlimited Checks & Fast Intervals | exit1.dev',
+  title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
   description:
-    'exit1.dev is the blunt, free uptime monitor. Unlimited websites and APIs, 5-minute checks (1-minute with Nano), instant webhook + email alerts, SSL coverage. No fake free tier.',
+    'exit1.dev is the blunt, free uptime monitor. 10 monitors with 5-minute checks (unlimited with Nano at 1-minute intervals), instant webhook + email alerts, SSL coverage. No fake free tier.',
   keywords:
     'free uptime monitor, unlimited uptime monitoring, uptime robot alternative, free website uptime monitoring, free api monitoring',
   openGraph: {
-    title: 'Free Uptime Monitor - Unlimited Checks & Fast Intervals | exit1.dev',
+    title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
     description:
-      'Unlimited monitors, fast intervals, webhook + email alerts, SSL, and analytics. The free uptime monitor built for people who actually ship.',
+      '10 free monitors, fast intervals, webhook + email alerts, SSL, and analytics. Upgrade to Nano for unlimited. The free uptime monitor built for people who actually ship.',
     type: 'website',
     url: 'https://exit1.dev/free-uptime-monitor',
   },
   twitter: {
-    title: 'Free Uptime Monitor - Unlimited Checks & Fast Intervals | exit1.dev',
+    title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
     description:
-      'Unlimited monitors, fast intervals, webhook + email alerts, SSL, and analytics. The free uptime monitor built for people who actually ship.',
+      '10 free monitors, fast intervals, webhook + email alerts, SSL, and analytics. Upgrade to Nano for unlimited. The free uptime monitor built for people who actually ship.',
     card: 'summary_large_image',
   },
   alternates: {
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
 const FreeUptimeMonitorPage = () => {
   const features = [
     {
-      title: 'Unlimited monitors, zero invoices',
-      description: 'Track every site, API, cron endpoint, and landing page. No caps, no nagging upgrade banners.',
+      title: '10 free monitors, zero invoices',
+      description: 'Track up to 10 sites, APIs, or endpoints on the free tier. Need more? Nano gives you unlimited monitors.',
       icon: <Globe className="w-6 h-6 text-white" />,
     },
     {
@@ -73,8 +73,8 @@ const FreeUptimeMonitorPage = () => {
 
   const comparisonTable = [
     {
-      feature: 'Unlimited monitors',
-      exit1: 'Yes, always',
+      feature: 'Free monitors',
+      exit1: '10 (unlimited with Nano)',
       competitors: 'Capped unless you pay',
     },
     {
@@ -116,9 +116,9 @@ const FreeUptimeMonitorPage = () => {
 
   const faq = [
     {
-      question: 'Is this really a free uptime monitor with unlimited checks?',
+      question: 'Is this really a free uptime monitor?',
       answer:
-        'Yes. Track as many URLs as you want. We built exit1.dev for our own projects and never wanted to meter monitors. Abuse gets throttled, legitimate usage stays free.',
+        'Yes. The free tier gives you 10 monitors with 5-minute checks. Need more? Nano ($3/mo) unlocks unlimited monitors with 1-minute checks. Abuse gets throttled, legitimate usage stays free.',
     },
     {
       question: 'How fast are the uptime checks?',
@@ -144,7 +144,7 @@ const FreeUptimeMonitorPage = () => {
 
   const technicalDetails = {
     architecture:
-      'Serverless checks running across multiple regions with redundant storage. Built on boring tech we control so uptime monitoring stays fast and predictable.',
+      'Serverless checks with redundant storage. Built on boring tech we control so uptime monitoring stays fast and predictable.',
     performance:
       'Sub-200ms HTTP checks, instant webhook dispatch, and aggressive retry logic to confirm outages without spamming you.',
     api:
@@ -179,7 +179,7 @@ const FreeUptimeMonitorPage = () => {
         data={{
           name: 'Free Uptime Monitor',
           description:
-            'Unlimited free uptime monitoring for websites, APIs, and SSL with fast checks and instant alerts.',
+            'Free uptime monitoring with up to 10 monitors, 5-minute checks, and instant alerts. Upgrade to Nano for unlimited monitors and 1-minute checks.',
           url: 'https://exit1.dev/free-uptime-monitor',
           brand: {
             '@type': 'Brand',
@@ -217,7 +217,7 @@ const FreeUptimeMonitorPage = () => {
 
       <ProductPage
         title="Free Uptime Monitor"
-        subtitle="Unlimited monitors. Fast checks. No strings."
+        subtitle="10 free monitors. Fast checks. No strings."
         description="The incumbents sell rationed uptime as a freebie. We give you the whole stack—alerts, SSL monitoring, analytics—without a paywall."
         features={features}
         ctaText="Start monitoring for free"

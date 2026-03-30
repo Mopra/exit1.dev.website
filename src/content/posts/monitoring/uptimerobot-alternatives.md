@@ -24,15 +24,15 @@ UptimeRobot solid, but limited. Better exists.
 ## Top Alts
 
 1. exit1.dev
-- Unlimited vs 50
-- 1-min vs 5
+- 10 free monitors (unlimited on Nano $3/mo) vs 50
+- 5-min free / 1-min Nano vs 5
 - No card
 - Terminal UI
 - API full
 - Webhooks
 - SSL
 
-For: Generous free modern.
+For: Generous free tier, affordable unlimited.
 
 2. Pingdom
 - Perf monitoring
@@ -73,8 +73,8 @@ For: Enterprise.
 Free:
 | Feature | UptimeRobot | exit1.dev | Pingdom | StatusCake |
 |---------|-------------|-----------|---------|------------|
-| Sites | 50 | Unlimited | 1 | 10 |
-| Interval | 5 min | 1 min | 1 min | 5 min |
+| Sites | 50 | 10 | 1 | 10 |
+| Interval | 5 min | 5 min | 1 min | 5 min |
 | SSL | ✅ | ✅ | ✅ | ✅ |
 | API | Limited | Full | Limited | Limited |
 | Webhooks | ✅ | ✅ | ✅ | ✅ |
@@ -82,9 +82,9 @@ Free:
 | Card | Yes | No | Yes | Yes |
 
 Paid:
-| Feature | UptimeRobot Pro ($7) | exit1.dev | Pingdom Pro ($15) | StatusCake Pro ($20) |
+| Feature | UptimeRobot Pro ($7) | exit1.dev Nano ($3) | Pingdom Pro ($15) | StatusCake Pro ($20) |
 |---------|----------------------|-----------|-------------------|----------------------|
-| Price | $7/mo | Free | $15/mo | $20/mo |
+| Price | $7/mo | $3/mo | $15/mo | $20/mo |
 | Sites | 100 | Unlimited | 10 | 50 |
 | Interval | 1 min | 1 min | 1 min | 1 min |
 | Team | 5 | 1 | 5 | 10 |
@@ -143,7 +143,7 @@ $84/year vs pro.
 
 ## When Switch
 
-To exit1.dev: >50 sites, faster checks, modern UI, unlimited free, full API.
+To exit1.dev: 10 free monitors, unlimited on Nano ($3/mo), faster checks, modern UI, full API.
 
 To Pingdom: Perf priority, transactions, real user, analytics, budget ok.
 
@@ -163,7 +163,7 @@ Post: Monitor both 24-48 hrs, compare alerts, update doc, cancel UptimeRobot, tr
 
 Switch if limited.
 
-Most: exit1.dev best alt, unlimited 1-min pro free.
+Most: exit1.dev best alt, 10 free monitors, unlimited 1-min on Nano ($3/mo).
 
 Global: UptimeRobot/StatusCake basic, Pingdom comprehensive.
 

@@ -3,9 +3,9 @@ title: 'Freshping Alternative for Teams: Free Shared Alerting'
 author: 'Exit1 Team'
 date: '2026-01-15'
 category: 'monitoring'
-excerpt: 'Freshping is shutting down. Teams still need shared alerts, 1-minute checks, and unlimited monitors. Use this playbook to replace it.'
+excerpt: 'Freshping is shutting down. Teams still need shared alerts and fast checks. Exit1.dev offers 10 free monitors (unlimited on Nano, $3/mo). Use this playbook to replace it.'
 readTime: '8 min read'
-metaDescription: 'Freshping alternative for teams with shared alerts, 1-minute checks, webhooks, and unlimited monitors. Free, no credit card. Team setup playbook included.'
+metaDescription: 'Freshping alternative for teams with shared alerts, webhooks, and 10 free monitors (unlimited on Nano, $3/mo). No credit card. Team setup playbook included.'
 ---
 
 # Freshping Alternative for Teams: Free Shared Alerting
@@ -42,8 +42,8 @@ Freshping was the simple team monitor. It is shutting down. Teams still need sha
 | Team need | Freshping (free tier) | Exit1.dev (free) |
 |-----------|------------------------|-----------------|
 | Shared alerts | Basic | Email + webhooks |
-| 1-minute checks | Yes | Yes |
-| Monitor limits | 50 | Unlimited |
+| 1-minute checks | Yes | 5-min free (1-min on Nano, $3/mo) |
+| Monitor limits | 50 | 10 free (Nano: unlimited, $3/mo) |
 | Credit card required | No | No |
 
 ## Keep ownership visible

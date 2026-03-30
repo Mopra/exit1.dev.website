@@ -62,7 +62,7 @@ Short, blunt, informative. No poetry. The subject line should tell you severity,
 
 ## When to Escalate Beyond Email
 
-Exit1.dev’s free plan gives you unlimited monitors, 30-second probes, email alerts, and status pages. Only add SMS, chat, or phone trees if:
+Exit1.dev’s free plan gives you up to 10 monitors with 5-minute checks, email alerts, and status pages. The Nano plan ($3/month) unlocks unlimited monitors with 1-minute checks. Only add SMS, chat, or phone trees if:
 
 - Regulators demand multi-channel paging.
 - You run 24/7 on-call rotations that can’t trust inboxes at 3 a.m.

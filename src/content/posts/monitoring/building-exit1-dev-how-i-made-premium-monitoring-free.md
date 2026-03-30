@@ -5,7 +5,7 @@ date: "2025-01-18"
 category: "monitoring"
 excerpt: "Tired of paying $50/month for basic HTTP requests? I built premium monitoring for free using modern cloud infrastructure."
 readTime: "12 min read"
-metaDescription: "Building Exit1.dev: How I Made Premium Website Monitoring Free - Learn the architecture behind unlimited free monitoring using Firebase Functions, smart batching, and cost optimization strategies."
+metaDescription: "Building Exit1.dev: How I Made Premium Website Monitoring Affordable - Learn the architecture behind Exit1.dev's free tier (10 monitors, 5-min checks) and Nano tier (unlimited, 1-min, $3/mo) using Firebase Functions, smart batching, and cost optimization."
 ---
 
 # Building Exit1.dev: How I Made Premium Website Monitoring Free

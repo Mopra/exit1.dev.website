@@ -146,7 +146,7 @@ Checking certificates manually is useful for diagnosis, but ongoing monitoring p
 - Automatic SSL certificate monitoring for every URL you track
 - Expiration alerts at 30, 14, 7, and 1 day before expiry
 - Multi-channel notifications via email, Slack, Discord, or webhooks
-- Unlimited monitors on the free tier
+- 10 monitors on the free tier with 5-minute checks (Nano tier: unlimited monitors, 1-minute checks, $3/month)
 
 Start with a quick check using the [SSL checker tool](/tools/ssl-checker), then set up continuous monitoring at [exit1.dev](https://app.exit1.dev) for ongoing protection.
 

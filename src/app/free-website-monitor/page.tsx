@@ -17,20 +17,20 @@ import {
 export const metadata: Metadata = {
   title: 'Free Website Monitor - Keep Shopify, WooCommerce & Jamstack Online | exit1.dev',
   description:
-    'exit1.dev delivers a free website monitor for ecommerce, landing pages, Jamstack, and marketing sites. Unlimited URLs, 5-minute checks (1-minute with Nano), SSL coverage, content validation, instant alerts.',
+    'exit1.dev delivers a free website monitor for ecommerce, landing pages, Jamstack, and marketing sites. 10 monitors with 5-minute checks (unlimited with Nano at 1-minute intervals), SSL coverage, content validation, instant alerts.',
   keywords:
     'free website monitor, shopify uptime monitoring, woocommerce monitoring, jamstack uptime, landing page monitoring, free ecommerce monitoring',
   openGraph: {
     title: 'Free Website Monitor - Keep Shopify, WooCommerce & Jamstack Online | exit1.dev',
     description:
-      'Monitor storefronts, landing pages, and static sites for free. Unlimited URLs, fast checks, content validation, SSL tracking, instant alerts.',
+      'Monitor storefronts, landing pages, and static sites for free. 10 monitors, fast checks, content validation, SSL tracking, instant alerts. Unlimited with Nano.',
     type: 'website',
     url: 'https://exit1.dev/free-website-monitor',
   },
   twitter: {
     title: 'Free Website Monitor - Keep Shopify, WooCommerce & Jamstack Online | exit1.dev',
     description:
-      'Monitor storefronts, landing pages, and static sites for free. Unlimited URLs, fast checks, content validation, SSL tracking, instant alerts.',
+      'Monitor storefronts, landing pages, and static sites for free. 10 monitors, fast checks, content validation, SSL tracking, instant alerts. Unlimited with Nano.',
     card: 'summary_large_image',
   },
   alternates: {
@@ -75,7 +75,7 @@ const FreeWebsiteMonitorPage = () => {
   const comparisonTable = [
     {
       feature: 'Ecommerce monitoring coverage',
-      exit1: 'Unlimited URLs + product pages',
+      exit1: '10 URLs free, unlimited with Nano',
       competitors: 'Single homepage unless you upgrade',
     },
     {
@@ -119,7 +119,7 @@ const FreeWebsiteMonitorPage = () => {
     {
       question: 'Does it work with static Jamstack deployments?',
       answer:
-        'Absolutely. We monitor Netlify, Vercel, GitHub Pages, Cloudflare Pages, or any CDN-backed site. No agents, no cron scripts, just HTTP checks from multiple regions.',
+        'Absolutely. We monitor Netlify, Vercel, GitHub Pages, Cloudflare Pages, or any CDN-backed site. No agents, no cron scripts, just HTTP checks from our European server.',
     },
     {
       question: 'How do alerts work for marketing teams?',
@@ -134,13 +134,13 @@ const FreeWebsiteMonitorPage = () => {
     {
       question: 'Is there a limit to the number of pages I can watch?',
       answer:
-        'No. Monitor every microsite, promo page, and shop. Unlimited URLs are part of the core free plan.',
+        'The free tier gives you 10 monitors. Upgrade to Nano for unlimited URLs across every microsite, promo page, and shop.',
     },
   ];
 
   const technicalDetails = {
     architecture:
-      'Serverless monitors across multiple regions with redundant storage. Each check hits the real HTTP endpoints and validates content signatures.',
+      'Serverless monitors with redundant storage. Each check hits the real HTTP endpoints and validates content signatures.',
     performance:
       '5-minute polling on free tier (1-minute with Nano) available globally with multi-step verification before alerts fire. Response data stored for analytics and export.',
     api:
@@ -175,7 +175,7 @@ const FreeWebsiteMonitorPage = () => {
         data={{
           name: 'Free Website Monitor',
           description:
-            'Free website monitoring for ecommerce, landing pages, and Jamstack sites with unlimited URLs, fast checks, SSL, and content validation.',
+            'Free website monitoring for ecommerce, landing pages, and Jamstack sites with 10 monitors, fast checks, SSL, and content validation. Unlimited with Nano.',
           url: 'https://exit1.dev/free-website-monitor',
           brand: {
             '@type': 'Brand',

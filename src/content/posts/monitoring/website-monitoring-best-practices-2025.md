@@ -840,8 +840,8 @@ Comparison:
 comparison:
   exit1_dev:
     strengths:
-      - "Unlimited free"
-      - "30s checks"
+      - "10 free monitors, 5-min checks"
+      - "Nano: unlimited, 1-min, $3/mo"
       - "CLI friendly"
       - "Transparent"
       - "Fast setup"

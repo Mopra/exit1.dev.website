@@ -42,7 +42,7 @@ const featuresMenu = {
     {
       title: "Monitoring",
       items: [
-        { name: "Free Uptime Monitor", href: "/free-uptime-monitor", description: "Unlimited uptime monitoring for all your sites" },
+        { name: "Free Uptime Monitor", href: "/free-uptime-monitor", description: "10 free monitors, unlimited with Nano" },
         { name: "Free Website Monitor", href: "/free-website-monitor", description: "Landing pages, ecommerce, and Jamstack sites" },
         { name: "Real-Time Monitoring", href: "/real-time-monitoring", description: "Live status updates for websites and APIs" },
         { name: "SSL Monitoring", href: "/ssl-monitoring", description: "Certificate expiration tracking" },

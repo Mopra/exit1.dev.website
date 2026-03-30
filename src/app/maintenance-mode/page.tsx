@@ -189,7 +189,7 @@ const MaintenanceModePage = () => {
     },
     {
       title: "Global Monitoring",
-      description: "Monitor from multiple regions worldwide. Maintenance mode applies consistently across all check regions.",
+      description: "Monitor your services from Europe. Maintenance mode applies consistently across all your checks.",
       href: "/global-monitoring",
       icon: <Globe className="w-6 h-6 text-white" />,
     },

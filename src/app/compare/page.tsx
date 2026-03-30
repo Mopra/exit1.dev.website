@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Compare Uptime Monitors | exit1.dev vs UptimeRobot vs Better Uptime',
-  description: 'See how exit1.dev compares to UptimeRobot, Better Uptime, and other monitoring tools. Unlimited monitors, 1-minute checks with Nano, and SMS alerts at a fraction of the cost.',
+  description: 'See how exit1.dev compares to UptimeRobot, Better Uptime, and other monitoring tools. 10 free monitors, unlimited with Nano, 1-minute checks, and SMS alerts at a fraction of the cost.',
   openGraph: {
     title: 'Compare Uptime Monitors | exit1.dev',
     description: 'See how exit1.dev compares to UptimeRobot, Better Uptime, and other monitoring tools.',
@@ -25,7 +25,7 @@ const comparisonData = [
   },
   {
     feature: 'Monitors',
-    exit1Free: '50',
+    exit1Free: '10',
     exit1Nano: 'Unlimited',
     uptimeRobotFree: '50',
     uptimeRobotPro: '50+',
@@ -53,14 +53,6 @@ const comparisonData = [
     exit1Nano: true,
     uptimeRobotFree: false,
     uptimeRobotPro: 'Pro+ only',
-    betterUptimeFree: false,
-  },
-  {
-    feature: 'Multi-region checks',
-    exit1Free: false,
-    exit1Nano: true,
-    uptimeRobotFree: false,
-    uptimeRobotPro: true,
     betterUptimeFree: false,
   },
   {
@@ -154,7 +146,7 @@ export default function ComparePage() {
           </h1>
 
           <p className="text-xl sm:text-2xl text-white/70 leading-relaxed max-w-2xl">
-            The only monitoring SaaS with truly unlimited monitors. See how exit1.dev stacks up.
+            See how exit1.dev stacks up against the competition.
           </p>
         </PageHero>
 
@@ -236,7 +228,7 @@ export default function ComparePage() {
               <ul className="space-y-3 text-white/70">
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span><strong className="text-white">Exit1 Free</strong> beats UptimeRobot Free on monitor limits (unlimited vs 50). Upgrade to Nano for 1-minute checks.</span>
+                  <span><strong className="text-white">Exit1 Free</strong> gives you 10 monitors to get started. Upgrade to Nano for unlimited monitors and 1-minute checks.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />

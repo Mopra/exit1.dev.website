@@ -47,9 +47,9 @@ For REST endpoints, validate:
 
 Need bearer tokens, HMAC headers, or basic auth? exit1.dev supports them all. Store secrets securely in the monitor configuration and rotate them whenever you like.
 
-## Multi-region validation
+## External validation
 
-Enable global monitoring to hit your APIs from multiple continents. Compare latency and error rates per region so you can tune routing rules or CDN edge caches.
+Monitor your APIs from outside your own infrastructure. Checking from an independent European server lets you catch issues that internal health checks miss, such as DNS failures, CDN misconfigurations, or network routing problems.
 
 ## Combine with logs and analytics
 

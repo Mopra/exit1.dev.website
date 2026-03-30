@@ -67,7 +67,7 @@ A healthy WebSocket endpoint has consistent connection times. If you see a gradu
 
 ### Regional differences
 
-Monitor from multiple regions. If your US checks pass but Europe fails, you might have a CDN or routing issue specific to that region. Exit1.dev checks from US Central, Europe West, and Asia Southeast.
+Monitor from an external location independent of your own infrastructure. Exit1.dev checks from Europe, giving you an outside perspective on connectivity and latency that internal health checks can miss.
 
 ### SSL certificate expiration
 

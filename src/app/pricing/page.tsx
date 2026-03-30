@@ -8,7 +8,7 @@ import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
 
 const freeFeatures = [
-  "50 monitors",
+  "10 monitors",
   "5-minute check intervals",
   "SSL certificate monitoring",
   "Email alerts (10/hour, 10/month)",
@@ -23,7 +23,6 @@ const nanoFeatures = [
   "Everything in Free, plus:",
   "Unlimited monitors",
   "1-minute check intervals",
-  "Multi-region checks",
   "SMS alerts — know in seconds, not hours",
   "Team alerts — add your team to SMS & email",
   "Higher alert budgets (1000 emails & 20 SMS/month)",
@@ -37,7 +36,6 @@ const nanoFeatures = [
   "API access",
   "Bulk import — migrate from any service in minutes",
   "Bulk edit — configure hundreds of checks at once",
-  "Priority support",
 ];
 
 const PricingPage = () => {
@@ -62,7 +60,7 @@ const PricingPage = () => {
                 "name": "Free",
                 "price": "0",
                 "priceCurrency": "USD",
-                "description": "Unlimited monitors with 5-minute checks"
+                "description": "10 monitors with 5-minute checks"
               },
               {
                 "@type": "Offer",
@@ -113,7 +111,7 @@ const PricingPage = () => {
             {/* USP banner */}
             <div className="mb-12 py-4 px-6 rounded-full border border-white/10 bg-white/5 text-center">
               <p className="text-white/90 text-lg font-medium">
-                The only monitoring SaaS with truly unlimited monitors.
+                The only monitoring SaaS with unlimited monitors for $3/mo.
               </p>
             </div>
 
@@ -139,13 +137,6 @@ const PricingPage = () => {
                       <div>
                         <div className="font-medium">1-Minute Check Intervals</div>
                         <div className="text-sm text-white/60">Detect issues 5x faster than the free tier. Know in 60 seconds, not 5 minutes.</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
-                      <div>
-                        <div className="font-medium">Multi-Region Checks</div>
-                        <div className="text-sm text-white/60">Monitor from multiple locations worldwide. Avoid false positives from regional outages.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
@@ -209,13 +200,6 @@ const PricingPage = () => {
                       <div>
                         <div className="font-medium">1 Year Data Retention</div>
                         <div className="text-sm text-white/60">365 days of logs and analytics vs 30 days on Free. See the full picture.</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
-                      <div>
-                        <div className="font-medium">Priority Support</div>
-                        <div className="text-sm text-white/60">Get help fast when you need it most.</div>
                       </div>
                     </div>
                   </div>
@@ -360,7 +344,7 @@ const PricingPage = () => {
               <h2 className="text-2xl font-bold mb-4">Questions?</h2>
               <p className="text-white/70 mb-6 max-w-xl mx-auto">
                 The free tier is genuinely free. No credit card required. No trial period. 
-                Monitor unlimited sites with 5-minute checks forever.
+                Monitor up to 10 sites with 5-minute checks forever. Upgrade to Nano for unlimited.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <Button

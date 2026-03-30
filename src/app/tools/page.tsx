@@ -199,8 +199,8 @@ export default function ToolsPage() {
                     Upgrade to Monitoring
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Need continuous checks? exit1.dev monitors your sites 24/7
-                    with 1-minute intervals. Free for unlimited websites.
+                    Need continuous checks? exit1.dev monitors your sites 24/7.
+                    10 free monitors with 5-minute checks. Unlimited with Nano.
                   </p>
                 </div>
               </div>

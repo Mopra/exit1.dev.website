@@ -91,7 +91,7 @@ Response: Who alerted, escalation, tracking.
 ## Avoid Mistakes
 
 1. Alert fatigue: Tune thresholds.
-2. One location: Multi-region.
+2. One internal check: Add external monitoring.
 3. Ignore SSL: Monitor expiry.
 4. No full journey: Multi-step.
 5. Forget mobile: Monitor specific.

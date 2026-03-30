@@ -15,17 +15,17 @@ import {
 
 export const metadata: Metadata = {
   title: "Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev",
-  description: "Real-time website monitoring with unlimited sites and instant alerts. Free 5-minute checks, 1-minute with Nano. Monitor websites, APIs, and SSL certificates. Start monitoring for free.",
+  description: "Real-time website monitoring with instant alerts. 10 free monitors with 5-minute checks, unlimited with Nano. Monitor websites, APIs, and SSL certificates. Start monitoring for free.",
   keywords: "real-time monitoring, uptime monitor, website monitoring, free monitoring, API monitoring, SSL monitoring, instant alerts",
   openGraph: {
     title: "Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev",
-    description: "Real-time website monitoring with unlimited sites and instant alerts. Free 5-minute checks, 1-minute with Nano.",
+    description: "Real-time website monitoring with instant alerts. 10 free monitors with 5-minute checks, unlimited with Nano.",
     type: "website",
     url: "https://exit1.dev/real-time-monitoring",
   },
   twitter: {
     title: "Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev",
-    description: "Real-time website monitoring with unlimited sites and instant alerts. Free 5-minute checks, 1-minute with Nano.",
+    description: "Real-time website monitoring with instant alerts. 10 free monitors with 5-minute checks, unlimited with Nano.",
     card: "summary_large_image",
   },
   alternates: {
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
 const RealTimeMonitoring = () => {
   const features = [
     {
-      title: "Unlimited Monitoring, Zero Cost",
-      description: "Watch endless sites and APIs. 5-min checks free, 1-min with Nano.",
+      title: "10 Free Monitors, Zero Cost",
+      description: "Monitor up to 10 sites and APIs free. 5-min checks free, 1-min with Nano. Unlimited with Nano.",
       icon: <Globe className="w-6 h-6 text-white" />
     },
     {
@@ -76,7 +76,7 @@ const RealTimeMonitoring = () => {
   const comparisonTable: ComparisonRow[] = [
     {
       feature: "Unlimited websites",
-      exit1: true,
+      exit1: "Nano plan (10 free)",
       competitors: false
     },
     {
@@ -207,7 +207,7 @@ const RealTimeMonitoring = () => {
         type="Product"
         data={{
           name: "Real-Time Website Monitoring",
-          description: "Real-time website monitoring with unlimited sites and instant alerts. Free 5-minute checks, 1-minute with Nano.",
+          description: "Real-time website monitoring with 10 free monitors and instant alerts. 5-minute checks free, unlimited monitors and 1-minute checks with Nano.",
           url: "https://exit1.dev/real-time-monitoring",
           brand: {
             "@type": "Brand",
@@ -245,13 +245,13 @@ const RealTimeMonitoring = () => {
       
       <ProductPage
         title="Monitoring That Works"
-        subtitle="Unlimited sites, instant alerts, free forever"
+        subtitle="10 free monitors, instant alerts, unlimited with Nano"
         description="Forget capped 'free' tiers. Real monitoring: fast checks, custom auth, smart validation. Built for devs who hate downtime."
         features={features}
         ctaText="Start Watching"
         ctaHref="https://app.exit1.dev/"
         seoTitle="Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev"
-        seoDescription="Real-time website monitoring with unlimited sites and instant alerts. Free 5-minute checks, 1-minute with Nano."
+        seoDescription="Real-time website monitoring with 10 free monitors and instant alerts. 5-minute checks free, unlimited monitors and 1-minute checks with Nano."
         comparisonTable={comparisonTable}
         faq={faq}
         technicalDetails={technicalDetails}

@@ -60,8 +60,8 @@ const WebSocketMonitoring = () => {
       icon: <Shield className="w-6 h-6 text-white" />
     },
     {
-      title: "Multi-Region Monitoring",
-      description: "Test WebSocket connections from US Central, Europe West, and Asia Southeast to catch region-specific connectivity issues.",
+      title: "European Monitoring",
+      description: "Test WebSocket connections from our European server to verify connectivity and catch issues fast.",
       icon: <Globe className="w-6 h-6 text-white" />
     },
     {
@@ -98,11 +98,6 @@ const WebSocketMonitoring = () => {
       competitors: "Separate service"
     },
     {
-      feature: "Multi-region checks",
-      exit1: true,
-      competitors: "Single region"
-    },
-    {
       feature: "1-minute check intervals",
       exit1: true,
       competitors: "5+ minutes"
@@ -131,7 +126,7 @@ const WebSocketMonitoring = () => {
     },
     {
       question: "Is WebSocket monitoring included in the free tier?",
-      answer: "Yes, WebSocket monitoring is available on both the Free and Nano tiers. On the Free tier you get up to 50 monitors with 5-minute check intervals. On the Nano tier you get up to 200 monitors with 1-minute check intervals."
+      answer: "Yes, WebSocket monitoring is available on both the Free and Nano tiers. On the Free tier you get up to 10 monitors with 5-minute check intervals. On the Nano tier you get unlimited monitors with 1-minute check intervals."
     },
     {
       question: "What is the difference between WS and WSS?",
@@ -160,7 +155,7 @@ const WebSocketMonitoring = () => {
   ];
 
   const technicalDetails = {
-    architecture: "WebSocket monitoring runs on the same multi-region infrastructure as all exit1.dev checks. Each check performs a complete WebSocket handshake including the HTTP upgrade request and 101 Switching Protocols response. For WSS endpoints, the TLS negotiation is timed separately. Results include full connection phase breakdown and SSL certificate analysis.",
+    architecture: "WebSocket monitoring runs on the same infrastructure as all exit1.dev checks. Each check performs a complete WebSocket handshake including the HTTP upgrade request and 101 Switching Protocols response. For WSS endpoints, the TLS negotiation is timed separately. Results include full connection phase breakdown and SSL certificate analysis.",
     performance: "WebSocket handshake checks execute quickly with minimal overhead. The connection is closed immediately after successful handshake verification. Strict URL validation ensures only valid WebSocket URLs are accepted. Process-level timeouts prevent hung connections from affecting other checks.",
     api: "WebSocket checks are fully supported through the exit1.dev REST API. Create, update, delete, and query WebSocket monitors programmatically. Access check history, connection times, and SSL data via API endpoints. HMAC authentication with rate limits of 1000 requests/hour per key."
   };
