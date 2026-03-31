@@ -153,6 +153,10 @@ export function PricingCards() {
             </li>
             <li className="flex items-center gap-2 text-white/80">
               <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+              MCP integration (AI assistants)
+            </li>
+            <li className="flex items-center gap-2 text-white/80">
+              <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
               1 year data retention
             </li>
           </ul>

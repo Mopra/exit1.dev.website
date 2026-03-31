@@ -5,6 +5,7 @@ import {
   ArrowRight,
   BarChart3,
   Bell,
+  Bot,
   Check,
   CheckCircle2,
   Globe,
@@ -309,6 +310,12 @@ export default function NewHomePage() {
               title="Maintenance Mode"
               description="Suppress alerts during planned work. Checks keep running, data keeps flowing, your phone stays silent."
               icon={<Wrench className="w-6 h-6 text-white" />}
+            />
+            <FeatureGridItem
+              href="/mcp"
+              title="MCP Integration"
+              description="Connect to Claude, Cursor, or Windsurf. Ask about uptime, failures, and response times in plain English."
+              icon={<Bot className="w-6 h-6 text-white" />}
             />
           </div>
         </PageSection>

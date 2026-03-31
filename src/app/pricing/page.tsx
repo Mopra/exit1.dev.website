@@ -32,6 +32,7 @@ const nanoFeatures = [
   "Domain intelligence",
   "Domain expiry alerts",
   "Maintenance mode — suppress alerts during planned work",
+  "MCP integration — query monitors from Claude, Cursor & Windsurf",
   "1 year data retention (vs 30 days)",
   "API access",
   "Bulk import — migrate from any service in minutes",
@@ -215,6 +216,13 @@ const PricingPage = () => {
                       <div>
                         <div className="font-medium">Maintenance Mode</div>
                         <div className="text-sm text-white/60">Suppress alerts during planned deployments. Immediate, scheduled, or recurring windows.</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium">MCP Integration</div>
+                        <div className="text-sm text-white/60">Connect to Claude, Cursor, or Windsurf. Ask about uptime, failures, and response times in plain English.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
