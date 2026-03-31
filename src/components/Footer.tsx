@@ -191,7 +191,7 @@ const Footer = () => {
                   <a href="https://pradsgaardlabs.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors duration-200">Pradsgaard Labs EMV</a> | CVR: DK46156153
                 </p>
                 <p className="text-base text-white/60 font-light"
-                 dangerouslySetInnerHTML={{ __html: content.copyright }}>
+                 dangerouslySetInnerHTML={{ __html: content.copyright.replace('2024', new Date().getFullYear().toString()) }}>
                 </p>
               </div>
             </div>
