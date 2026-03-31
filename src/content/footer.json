@@ -21,8 +21,7 @@
     "support": [
       { "name": "Documentation", "href": "https://docs.exit1.dev" },
       { "name": "Help & Community", "href": "https://discord.gg/uZvWbpwJZS" },
-      { "name": "Service Status", "href": "https://app.exit1.dev/status" },
-      { "name": "Release Notes", "href": "https://app.exit1.dev/release-notes" },
+{ "name": "Release Notes", "href": "https://app.exit1.dev/release-notes" },
       { "name": "Contact", "href": "/contact" },
       { "name": "GitHub", "href": "https://github.com/Mopra/exit1.dev" },
       { "name": "LLMs.txt", "href": "/llms.txt" }
