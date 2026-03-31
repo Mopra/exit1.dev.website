@@ -15,6 +15,7 @@
       { "name": "Analytics & Reports", "href": "/analytics" },
       { "name": "Comprehensive Logs", "href": "/logs" },
       { "name": "API & Webhooks", "href": "/api-webhooks" },
+      { "name": "MCP Integration", "href": "/mcp" },
       { "name": "API Reference", "href": "https://docs.exit1.dev/api-reference" },
       { "name": "Data Privacy", "href": "/data-privacy" }
     ],
