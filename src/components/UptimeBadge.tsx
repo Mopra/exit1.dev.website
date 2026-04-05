@@ -11,7 +11,7 @@ export function UptimeBadge({ type = 'uptime' }: { type?: 'status' | 'uptime' | 
     const container = ref.current;
     if (!container || container.querySelector('script')) return;
     const script = document.createElement('script');
-    script.src = `https://app.exit1.dev/v1/badge/${BADGE_CHECK_ID}/embed.js?type=${type}`;
+    script.src = `https://app.exit1.dev/v1/badge/${BADGE_CHECK_ID}/embed.js?type=${type}&branding=false`;
     script.async = true;
     container.appendChild(script);
   }, [type]);
