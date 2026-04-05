@@ -15,6 +15,7 @@ import {
   Search,
   Webhook,
   Wrench,
+  BadgeCheck,
 } from "lucide-react";
 import { FeatureGridItem } from "@/components/FeatureGridItem";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
@@ -22,6 +23,7 @@ import Image from "next/image";
 import { MonitorForm } from "@/components/MonitorForm";
 import { PricingCards } from "@/components/PricingCards";
 import { LazyVideo } from "@/components/LazyVideo";
+import { UptimeBadge } from "@/components/UptimeBadge";
 
 export default function NewHomePage() {
   return (
@@ -86,7 +88,7 @@ export default function NewHomePage() {
         {/* Social Proof Section */}
         <PageSection className="py-6 border-y border-white/10 bg-white/[0.02]">
           <SectionContent>
-            <div className="flex flex-col sm:grid sm:grid-cols-3 items-center gap-6 sm:gap-0">
+            <div className="flex flex-col sm:grid sm:grid-cols-4 items-center gap-6 sm:gap-0">
               <div className="flex items-center justify-center gap-3 sm:border-r sm:border-white/20">
                 <Image
                   src="/eu.svg"
@@ -99,6 +101,9 @@ export default function NewHomePage() {
                   <span className="text-xs text-white/70 font-medium">Made and hosted in the</span>
                   <span className="text-xs text-white/70 font-bold">European Union</span>
                 </div>
+              </div>
+              <div className="flex justify-center sm:border-r sm:border-white/20">
+                <UptimeBadge type="uptime" />
               </div>
               <a
                 href="https://peerpush.net/p/exit1dev"
@@ -317,6 +322,18 @@ export default function NewHomePage() {
               description="Connect to Claude, Cursor, VS Code, Windsurf, and more. Ask about uptime, failures, and response times in plain English."
               icon={<Bot className="w-6 h-6 text-white" />}
             />
+            <div className="md:col-span-2 group block bg-black px-20 py-20 border-inset">
+              <div className="flex items-start justify-between mb-6">
+                <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+                  <BadgeCheck className="w-6 h-6 text-white" />
+                </div>
+              </div>
+              <Link href="/status-pages" className="group">
+                <h3 className="text-2xl font-semibold mb-3">Status Badges</h3>
+              </Link>
+              <p className="text-white/60 leading-relaxed mb-6">Embeddable badges showing real-time status, uptime percentage, and response time. Drop them in your README, docs, or footer.</p>
+              <UptimeBadge type="response" />
+            </div>
           </div>
         </PageSection>
 

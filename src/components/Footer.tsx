@@ -6,6 +6,9 @@ import Image from 'next/image';
 import footerContent from '../content/footer.json';
 import CookieSettings from './CookieSettings';
 import { PageContainer } from "@/components/PageLayout";
+import { UptimeBadge } from './UptimeBadge';
+
+const BADGE_TYPES = ['status', 'uptime', 'response'] as const;
 
 const Footer = () => {
   const [showCookieSettings, setShowCookieSettings] = useState(false);
@@ -99,6 +102,13 @@ const Footer = () => {
                   className="opacity-80 hover:opacity-100 transition-opacity duration-300"
                 />
               </a>
+            </div>
+
+            {/* Exit1 Status Badges */}
+            <div className="flex flex-col items-start gap-2">
+              {BADGE_TYPES.map((type) => (
+                <UptimeBadge key={type} type={type} />
+              ))}
             </div>
           </div>
           
