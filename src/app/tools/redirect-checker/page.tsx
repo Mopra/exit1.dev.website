@@ -190,14 +190,14 @@ export default function RedirectCheckerPage() {
                 <div className="space-y-4">
                   {/* Hop 1 */}
                   <div className="flex items-start gap-4 p-3 rounded-lg bg-white/[0.02] border border-white/5">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center">
-                      <span className="text-xs font-bold text-yellow-400">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                      <span className="text-xs font-bold text-blue-400">
                         1
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-mono font-bold text-yellow-400">
+                        <span className="text-xs font-mono font-bold text-blue-400">
                           301
                         </span>
                         <span className="text-xs text-muted-foreground">
@@ -217,14 +217,14 @@ export default function RedirectCheckerPage() {
                   </div>
                   {/* Hop 2 */}
                   <div className="flex items-start gap-4 p-3 rounded-lg bg-white/[0.02] border border-white/5">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center">
-                      <span className="text-xs font-bold text-yellow-400">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                      <span className="text-xs font-bold text-blue-400">
                         2
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-mono font-bold text-yellow-400">
+                        <span className="text-xs font-mono font-bold text-blue-400">
                           301
                         </span>
                         <span className="text-xs text-muted-foreground">

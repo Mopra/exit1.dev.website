@@ -535,7 +535,7 @@ export default function RedirectCheckerTool() {
                   <div className="text-xs font-medium text-muted-foreground mb-2">
                     Step {i + 1} — {hop.statusCode} {hop.statusText}
                   </div>
-                  <div className="bg-black/20 rounded-lg border border-white/5 p-3 overflow-x-auto">
+                  <div className="bg-black/20 rounded-lg border border-white/5 p-3 overflow-x-auto max-h-48 overflow-y-auto">
                     <pre className="text-xs font-mono text-white/70 whitespace-pre-wrap break-all">
                       {Object.entries(hop.headers)
                         .map(([key, value]) => `${key}: ${value}`)
