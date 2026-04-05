@@ -314,7 +314,7 @@ export default function NewHomePage() {
             <FeatureGridItem
               href="/mcp"
               title="MCP Integration"
-              description="Connect to Claude, Cursor, or Windsurf. Ask about uptime, failures, and response times in plain English."
+              description="Connect to Claude, Cursor, VS Code, Windsurf, and more. Ask about uptime, failures, and response times in plain English."
               icon={<Bot className="w-6 h-6 text-white" />}
             />
           </div>

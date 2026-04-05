@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
 
     // Normalize URL
     let targetUrl = url.trim();
-    if (!/^https?:\/\//i.test(targetUrl)) {
+    if (!/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//i.test(targetUrl)) {
       targetUrl = `https://${targetUrl}`;
     }
 
@@ -99,6 +99,7 @@ export async function POST(request: NextRequest) {
     }
 
     const chain: RedirectHop[] = [];
+    const visitedUrls = new Set<string>();
     let currentUrl = targetUrl;
     const maxRedirects = 10;
     const overallStart = performance.now();
@@ -175,7 +176,26 @@ export async function POST(request: NextRequest) {
         // If it's a redirect with a location header, continue following
         if (res.status >= 300 && res.status < 400 && location) {
           chain.push(hop);
-          currentUrl = new URL(location, currentUrl).href;
+          const nextUrl = new URL(location, currentUrl).href;
+
+          // Detect redirect loops
+          if (visitedUrls.has(nextUrl)) {
+            const totalTimeMs = Math.round(performance.now() - overallStart);
+            return NextResponse.json({
+              inputUrl: targetUrl,
+              finalUrl: nextUrl,
+              totalHops: chain.length,
+              totalTimeMs,
+              isRedirect: true,
+              finalStatusCode: res.status,
+              finalStatusText: res.statusText,
+              chain,
+              error: `Redirect loop detected: ${nextUrl} was already visited`,
+            } satisfies RedirectCheckResult);
+          }
+
+          visitedUrls.add(currentUrl);
+          currentUrl = nextUrl;
           continue;
         }
 

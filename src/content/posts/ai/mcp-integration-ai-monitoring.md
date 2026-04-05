@@ -1,11 +1,11 @@
 ---
-title: "MCP Is Here: Query Your Monitors from Claude, Cursor & Windsurf"
+title: "MCP Is Here: Query Your Monitors from Claude, Cursor, VS Code & More"
 author: "Morten Pradsgaard"
 date: "2026-03-31"
 category: "ai"
 excerpt: "Connect exit1.dev to your AI assistant via the Model Context Protocol. Ask about uptime, failures, and response times in plain English."
 readTime: "4 min read"
-metaDescription: "exit1.dev now supports MCP. Connect to Claude, Cursor, or Windsurf and query your monitoring data in natural language. Setup takes 2 minutes."
+metaDescription: "exit1.dev now supports MCP. Connect to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more. Query your monitoring data in natural language."
 ---
 
 # MCP Is Here: Query Your Monitors from AI
@@ -16,7 +16,7 @@ That's why we built an [MCP integration](/mcp) for exit1.dev.
 
 ## What Is MCP?
 
-MCP — Model Context Protocol — is an open standard that lets AI assistants talk to external tools. Think of it as a bridge between your AI (Claude, Cursor, Windsurf) and your monitoring data. Once connected, your AI assistant can pull live data from exit1.dev and answer questions about your checks, uptime, and incidents.
+MCP — Model Context Protocol — is an open standard that lets AI assistants talk to external tools. Think of it as a bridge between your AI assistant and your monitoring data. Once connected, tools like Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, and ChatGPT can pull live data from exit1.dev and answer questions about your checks, uptime, and incidents.
 
 No dashboards. No API calls. Just ask.
 
@@ -58,7 +58,7 @@ Some real prompts you can try:
 
 3. **Restart your AI assistant** — that's it
 
-We have setup instructions for [Claude Desktop, Claude Code, Cursor, and Windsurf](https://docs.exit1.dev/integrations/mcp) in the docs.
+We have setup instructions for [Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, ChatGPT, and more](https://docs.exit1.dev/integrations/mcp) in the docs.
 
 ## Why Read-Only?
 

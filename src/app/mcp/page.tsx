@@ -19,17 +19,17 @@ import {
 
 export const metadata: Metadata = {
   title: "MCP Integration — Query Monitors from AI Assistants | exit1.dev",
-  description: "Connect exit1.dev to Claude, Cursor, and Windsurf via the Model Context Protocol. Ask about uptime, failures, and response times in natural language. No dashboards required.",
-  keywords: "MCP, Model Context Protocol, AI monitoring, Claude, Cursor, Windsurf, uptime monitoring AI, conversational monitoring, AI assistant integration",
+  description: "Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Ask about uptime, failures, and response times in natural language. No dashboards required.",
+  keywords: "MCP, Model Context Protocol, AI monitoring, Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, uptime monitoring AI, conversational monitoring, AI assistant integration",
   openGraph: {
     title: "MCP Integration — Query Monitors from AI Assistants | exit1.dev",
-    description: "Connect exit1.dev to Claude, Cursor, and Windsurf via the Model Context Protocol. Ask about uptime, failures, and response times in natural language.",
+    description: "Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Ask about uptime, failures, and response times in natural language.",
     type: "website",
     url: "https://exit1.dev/mcp",
   },
   twitter: {
     title: "MCP Integration — Query Monitors from AI Assistants | exit1.dev",
-    description: "Connect exit1.dev to Claude, Cursor, and Windsurf via MCP. Ask about uptime and failures in natural language.",
+    description: "Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via MCP. Ask about uptime and failures in natural language.",
     card: "summary_large_image",
   },
   alternates: {
@@ -45,8 +45,8 @@ const MCPPage = () => {
       icon: <MessageSquare className="w-6 h-6 text-white" />,
     },
     {
-      title: "Works with Claude, Cursor & Windsurf",
-      description: "Connect to Claude Desktop, Claude Code, Cursor, or Windsurf. Any AI tool that supports the Model Context Protocol can plug in.",
+      title: "Works with Every Major AI Tool",
+      description: "Connect to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, ChatGPT, and more. Any AI tool that supports the Model Context Protocol can plug in.",
       icon: <Bot className="w-6 h-6 text-white" />,
     },
     {
@@ -78,22 +78,22 @@ const MCPPage = () => {
       competitors: false,
     },
     {
-      feature: "Claude Desktop support",
+      feature: "Claude (Desktop, Code, Web) support",
       exit1: true,
       competitors: false,
     },
     {
-      feature: "Cursor IDE support",
+      feature: "Cursor & Windsurf support",
       exit1: true,
       competitors: false,
     },
     {
-      feature: "Windsurf support",
+      feature: "VS Code Copilot support",
       exit1: true,
       competitors: false,
     },
     {
-      feature: "Claude Code (CLI) support",
+      feature: "Codex, Gemini, Goose & ChatGPT support",
       exit1: true,
       competitors: false,
     },
@@ -131,7 +131,7 @@ const MCPPage = () => {
     },
     {
       question: "Which AI assistants are supported?",
-      answer: "Claude Desktop, Claude Code, Cursor, and Windsurf are officially supported with setup instructions. Any AI tool that implements the Model Context Protocol can connect using the same npx-based configuration.",
+      answer: "Claude (Desktop, Code, and Web), Cursor, VS Code with Copilot, Windsurf, Codex CLI, Gemini (Code Assist and CLI), Goose, and ChatGPT are all supported with setup instructions. Any AI tool that implements the Model Context Protocol can connect using the same npx-based configuration.",
     },
     {
       question: "Is my data safe?",
@@ -214,7 +214,7 @@ const MCPPage = () => {
         data={{
           name: "MCP Integration",
           description:
-            "Connect exit1.dev to AI assistants like Claude, Cursor, and Windsurf via the Model Context Protocol. Query your monitoring data in natural language.",
+            "Connect exit1.dev to AI assistants like Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Query your monitoring data in natural language.",
           url: "https://exit1.dev/mcp",
           brand: {
             "@type": "Brand",
@@ -248,12 +248,12 @@ const MCPPage = () => {
       <ProductPage
         title="MCP Integration"
         subtitle="Ask your AI assistant about your monitors"
-        description="Connect exit1.dev to Claude, Cursor, or Windsurf via the Model Context Protocol. Check uptime, investigate failures, and compare response times — all in natural language. No dashboards required."
+        description="Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Check uptime, investigate failures, and compare response times — all in natural language. No dashboards required."
         features={features}
         ctaText="Set Up MCP"
         ctaHref="https://docs.exit1.dev/integrations/mcp"
         seoTitle="MCP Integration — Query Monitors from AI Assistants | exit1.dev"
-        seoDescription="Connect exit1.dev to Claude, Cursor, and Windsurf via the Model Context Protocol. Ask about uptime, failures, and response times in natural language."
+        seoDescription="Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Ask about uptime, failures, and response times in natural language."
         comparisonTable={comparisonTable}
         faq={faq}
         technicalDetails={technicalDetails}

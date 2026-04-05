@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Shield, Globe, Activity, Wifi } from "lucide-react";
+import { Shield, Globe, Activity, Wifi, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tools = [
@@ -22,6 +22,11 @@ const tools = [
     name: "Ping Test",
     href: "/tools/ping-test",
     icon: Wifi,
+  },
+  {
+    name: "Redirect Checker",
+    href: "/tools/redirect-checker",
+    icon: ArrowRight,
   },
 ];
 

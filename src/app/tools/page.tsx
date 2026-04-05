@@ -11,22 +11,22 @@ import {
 import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Free Website & Server Tools — SSL, Domain, API & Ping Checkers | exit1.dev",
+  title: "Free Website & Server Tools — SSL, Domain, API, Ping & Redirect Checkers | exit1.dev",
   description:
-    "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, and server latency. No signup required.",
+    "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, server latency, and redirect chains. No signup required.",
   keywords:
     "free ssl checker, domain expiration checker, api status checker, ping test, free web tools, server monitoring tools, website checker, developer tools",
   openGraph: {
-    title: "Free Website & Server Tools — SSL, Domain, API & Ping Checkers | exit1.dev",
+    title: "Free Website & Server Tools — SSL, Domain, API, Ping & Redirect Checkers | exit1.dev",
     description:
-      "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, and server latency. No signup required.",
+      "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, server latency, and redirect chains. No signup required.",
     type: "website",
     url: "https://exit1.dev/tools",
   },
   twitter: {
-    title: "Free Website & Server Tools — SSL, Domain, API & Ping Checkers | exit1.dev",
+    title: "Free Website & Server Tools — SSL, Domain, API, Ping & Redirect Checkers | exit1.dev",
     description:
-      "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, and server latency. No signup required.",
+      "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, server latency, and redirect chains. No signup required.",
     card: "summary_large_image",
   },
   alternates: {
@@ -87,6 +87,19 @@ const tools = [
       "Multiple ping rounds",
     ],
   },
+  {
+    name: "Redirect Checker",
+    description:
+      "Trace the full HTTP redirect chain for any URL. See every hop, status code, Location header, and response time — find broken or unnecessary redirects.",
+    href: "/tools/redirect-checker",
+    icon: ArrowRight,
+    features: [
+      "Full redirect chain visualization",
+      "Status codes for every hop",
+      "Response time per redirect",
+      "Response headers inspection",
+    ],
+  },
 ];
 
 export default function ToolsPage() {
@@ -119,7 +132,7 @@ export default function ToolsPage() {
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
                 Free tools to check SSL certificates, domain expiration, API
-                health, and server latency. No signup required.
+                health, server latency, and redirect chains. No signup required.
               </p>
             </div>
           </PageHero>
