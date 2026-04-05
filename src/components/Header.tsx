@@ -24,6 +24,7 @@ const toolsMenu = {
     { name: "Domain Checker", href: "/tools/domain-expiration-checker", description: "Check any domain's expiry date" },
     { name: "API Status Checker", href: "/tools/api-status-checker", description: "Check any API endpoint's status & headers" },
     { name: "Ping Test", href: "/tools/ping-test", description: "Test latency to any host" },
+    { name: "Redirect Checker", href: "/tools/redirect-checker", description: "Trace HTTP redirect chains for any URL" },
   ]
 }
 
