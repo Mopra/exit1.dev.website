@@ -513,7 +513,7 @@ export default function NewHomePage() {
         </PageSection>
 
         <PageSection id="pricing" className="py-20">
-          <SectionContent className="text-center p-8 sm:p-12">
+          <SectionContent size="xl" className="text-center p-8 sm:p-12">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
               Simple pricing
             </h2>
@@ -521,7 +521,7 @@ export default function NewHomePage() {
               Start free with everything you need. Upgrade when you want more.
             </p>
 
-            <div className="max-w-6xl mx-auto">
+            <div className="mx-auto">
               <PricingCards />
             </div>
 
