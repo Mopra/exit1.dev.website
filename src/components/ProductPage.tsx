@@ -60,6 +60,7 @@ interface ProductPageProps {
   relatedFeatures?: RelatedFeature[];
   nanoUpgrade?: NanoUpgrade;
   video?: VideoSection;
+  heroExtra?: React.ReactNode;
 }
 
 const ProductPage: React.FC<ProductPageProps> = ({
@@ -75,6 +76,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
   relatedFeatures,
   nanoUpgrade,
   video,
+  heroExtra,
 }) => {
   return (
     <PageShell>
@@ -113,6 +115,8 @@ const ProductPage: React.FC<ProductPageProps> = ({
                 </Button>
               </div>
           </PageHero>
+
+          {heroExtra}
 
           {video && (
             <PageSection id="video" className="py-16 scroll-mt-20">

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Activity, Globe, Radio, Shield, Bell, BarChart3, FileText, Code, Bot, Webhook, Lock, Search } from "lucide-react";
+import { ArrowRight, Activity, Globe, Radio, Shield, Bell, BarChart3, FileText, Code, Bot, Webhook, Lock, Search, BadgeCheck } from "lucide-react";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
 
 export const metadata: Metadata = {
@@ -109,6 +109,12 @@ const sections = [
         href: "/mcp",
         description: "Query your monitors from AI assistants via the Model Context Protocol.",
         icon: <Bot className="w-6 h-6 text-white" />,
+      },
+      {
+        name: "Status Badges",
+        href: "/badges",
+        description: "Embeddable SVG badges showing real-time status, uptime, and response time.",
+        icon: <BadgeCheck className="w-6 h-6 text-white" />,
       },
     ],
   },

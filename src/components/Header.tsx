@@ -66,6 +66,7 @@ const featuresMenu = {
         { name: "Logs", href: "/logs", description: "Unlimited retention with search" },
         { name: "API & Webhooks", href: "/api-webhooks", description: "Integrations for automation" },
         { name: "MCP Integration", href: "/mcp", description: "Query monitors from AI assistants" },
+        { name: "Status Badges", href: "/badges", description: "Embeddable status, uptime & response badges" },
       ]
     }
   ],

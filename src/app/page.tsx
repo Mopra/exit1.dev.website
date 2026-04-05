@@ -328,7 +328,7 @@ export default function NewHomePage() {
                   <BadgeCheck className="w-6 h-6 text-white" />
                 </div>
               </div>
-              <Link href="/status-pages" className="group">
+              <Link href="/badges" className="group">
                 <h3 className="text-2xl font-semibold mb-3">Status Badges</h3>
               </Link>
               <p className="text-white/60 leading-relaxed mb-6">Embeddable badges showing real-time status, uptime percentage, and response time. Drop them in your README, docs, or footer.</p>
