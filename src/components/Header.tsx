@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '@/components/ui/navigation-menu'
 import GlassSurface from '@/components/GlassSurface'
 
-import { Menu, X, ChevronRight, Activity, Radio, Globe, Search, Bell, ShieldCheck, Radar, Cable, LayoutDashboard, BarChart3, ScrollText, Webhook, Bot, ArrowRight, type LucideIcon } from 'lucide-react'
+import { Menu, X, ChevronRight, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navigation = [
@@ -42,30 +42,30 @@ const featuresMenu = {
     {
       title: "Monitoring",
       items: [
-        { name: "Uptime Monitoring", href: "/free-uptime-monitor", icon: Activity },
-        { name: "Real-Time Monitoring", href: "/real-time-monitoring", icon: Radio },
-        { name: "Global Monitoring", href: "/global-monitoring", icon: Globe },
-        { name: "Domain Intelligence", href: "/domain-intelligence", icon: Search },
-        { name: "Smart Alerting", href: "/alerting", icon: Bell },
-      ] as { name: string; href: string; icon: LucideIcon }[]
+        { name: "Uptime Monitoring", href: "/free-uptime-monitor", description: "HTTP, HTTPS, and endpoint checks" },
+        { name: "Real-Time Monitoring", href: "/real-time-monitoring", description: "Live status updates for websites and APIs" },
+        { name: "Global Monitoring", href: "/global-monitoring", description: "Worldwide coverage and geo performance" },
+        { name: "Domain Intelligence", href: "/domain-intelligence", description: "Automatic domain expiration alerts" },
+        { name: "Smart Alerting", href: "/alerting", description: "Webhooks and real-time notifications" },
+      ]
     },
     {
       title: "Protocols",
       items: [
-        { name: "SSL Monitoring", href: "/ssl-monitoring", icon: ShieldCheck },
-        { name: "ICMP Monitoring", href: "/icmp-monitoring", icon: Radar },
-        { name: "WebSocket Monitoring", href: "/websocket-monitoring", icon: Cable },
-      ] as { name: string; href: string; icon: LucideIcon }[]
+        { name: "SSL Monitoring", href: "/ssl-monitoring", description: "Certificate expiration tracking" },
+        { name: "ICMP Monitoring", href: "/icmp-monitoring", description: "Ping-based host availability and latency" },
+        { name: "WebSocket Monitoring", href: "/websocket-monitoring", description: "WS/WSS handshake and connection checks" },
+      ]
     },
     {
       title: "Platform",
       items: [
-        { name: "Status Pages", href: "/status-pages", icon: LayoutDashboard },
-        { name: "Analytics & Reports", href: "/analytics", icon: BarChart3 },
-        { name: "Logs", href: "/logs", icon: ScrollText },
-        { name: "API & Webhooks", href: "/api-webhooks", icon: Webhook },
-        { name: "MCP Integration", href: "/mcp", icon: Bot },
-      ] as { name: string; href: string; icon: LucideIcon }[]
+        { name: "Status Pages", href: "/status-pages", description: "Public status pages for customers" },
+        { name: "Analytics & Reports", href: "/analytics", description: "Statistics dashboard and insights" },
+        { name: "Logs", href: "/logs", description: "Unlimited retention with search" },
+        { name: "API & Webhooks", href: "/api-webhooks", description: "Integrations for automation" },
+        { name: "MCP Integration", href: "/mcp", description: "Query monitors from AI assistants" },
+      ]
     }
   ],
   footerLink: { name: "View all features", href: "/features" }
@@ -158,39 +158,37 @@ export default function Header() {
                 </Button>
               ))}
 
-              {/* Features Mega Menu */}
-              <NavigationMenu>
-                <NavigationMenuList>
+              {/* Dropdown Menus — single NavigationMenu root for instant transitions */}
+              <NavigationMenu delayDuration={0}>
+                <NavigationMenuList className="gap-0">
+                  {/* Features Mega Menu */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger 
+                    <NavigationMenuTrigger
                       className="text-sm font-medium rounded-full cursor-pointer bg-transparent hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary"
                       aria-label={`Open ${featuresMenu.name} menu`}
                     >
                       {featuresMenu.name}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="left-1/2 -translate-x-1/2">
-                      <div className="grid grid-cols-3 gap-6 p-6 w-[calc(100vw-3rem)] max-w-[640px] backdrop-blur-xl rounded-xl">
+                      <div className="grid grid-cols-3 gap-6 p-6 w-[calc(100vw-3rem)] max-w-[680px] backdrop-blur-xl rounded-xl">
                         {featuresMenu.sections.map((section) => (
                           <div key={section.title}>
                             <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3 px-3">
                               {section.title}
                             </div>
-                            <div className="space-y-0.5">
-                              {section.items.map((item) => {
-                                const Icon = item.icon
-                                return (
-                                  <NavigationMenuLink key={item.href} asChild>
-                                    <Link
-                                      href={item.href}
-                                      className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-left hover:bg-primary/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
-                                      aria-label={`Learn more about ${item.name}`}
-                                    >
-                                      <Icon className="h-4 w-4 text-muted-foreground shrink-0" />
-                                      <span className="font-medium text-foreground text-sm">{item.name}</span>
-                                    </Link>
-                                  </NavigationMenuLink>
-                                )
-                              })}
+                            <div className="space-y-1">
+                              {section.items.map((item) => (
+                                <NavigationMenuLink key={item.href} asChild>
+                                  <Link
+                                    href={item.href}
+                                    className="block p-3 rounded-xl text-left hover:bg-primary/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
+                                    aria-label={`Learn more about ${item.name}`}
+                                  >
+                                    <div className="font-medium text-foreground text-sm">{item.name}</div>
+                                    <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                                  </Link>
+                                </NavigationMenuLink>
+                              ))}
                             </div>
                           </div>
                         ))}
@@ -206,12 +204,8 @@ export default function Header() {
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
 
-              {/* Tools Dropdown */}
-              <NavigationMenu>
-                <NavigationMenuList>
+                  {/* Tools Dropdown */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
                       className="text-sm font-medium rounded-full cursor-pointer bg-transparent hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary"
@@ -236,12 +230,8 @@ export default function Header() {
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
 
-              {/* Company Dropdown */}
-              <NavigationMenu>
-                <NavigationMenuList>
+                  {/* Company Dropdown */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
                       className="text-sm font-medium rounded-full cursor-pointer bg-transparent hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary"
@@ -387,21 +377,24 @@ export default function Header() {
                       {section.title}
                     </div>
                     <div className="space-y-1">
-                      {section.items.map((item) => {
-                        const Icon = item.icon
-                        return (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="flex items-center gap-3 px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-lg group interactive"
-                            onClick={closeMobileMenu}
-                          >
-                            <Icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
-                            <span className="font-medium flex-1">{item.name}</span>
+                      {section.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-lg group interactive"
+                          onClick={closeMobileMenu}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="font-medium">{item.name}</div>
+                              <div className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                                {item.description}
+                              </div>
+                            </div>
                             <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                          </Link>
-                        )
-                      })}
+                          </div>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 ))}
