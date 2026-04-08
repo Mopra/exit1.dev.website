@@ -1,5 +1,9 @@
 # Exit1.dev Website
 
+[![Status](https://app.exit1.dev/v1/badge/gBLfWCos41mGcJ62aIpX?type=status)](https://exit1.dev)
+[![Uptime](https://app.exit1.dev/v1/badge/gBLfWCos41mGcJ62aIpX?type=uptime)](https://exit1.dev)
+[![Response](https://app.exit1.dev/v1/badge/gBLfWCos41mGcJ62aIpX?type=response)](https://exit1.dev)
+
 Marketing site and blog for exit1 — uptime monitoring that doesn't get in your way.
 
 **[exit1.dev](https://exit1.dev)**
