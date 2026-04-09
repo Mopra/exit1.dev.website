@@ -6,7 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { CardContent } from '@/components/ui/card';
 import { TableOfContents } from '@/components/TableOfContents';
 import { Metadata } from 'next';
-import { ArrowLeft, ArrowRight, Clock, Bell, BarChart3 } from 'lucide-react';
+import { ArrowRight, Clock, Bell, BarChart3 } from 'lucide-react';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import StructuredData from '@/components/StructuredData';
 import { InsetCard } from '@/components/InsetCard';
 import { PageHero } from '@/components/PageHero';
@@ -130,17 +131,14 @@ export default async function BlogPostPage({
       <PageShell>
         <main>
           <PageContainer>
-            <PageHero size="md">
-                <div className="mb-6 sm:mb-8">
-                  <Link
-                    href="/blog"
-                    className="inline-flex items-center text-white/70 hover:text-white transition-colors duration-200 mb-4 sm:mb-6 text-sm sm:text-base cursor-pointer interactive"
-                  >
-                    <ArrowLeft className="mr-2 w-3 h-3 sm:w-4 sm:h-4" />
-                    Back to Blog
-                  </Link>
-                </div>
-
+            <PageHero size="md" breadcrumb={
+              <Breadcrumbs
+                items={[
+                  { name: "Blog", href: "/blog" },
+                  { name: post.title, href: `/blog/${post.slug}` },
+                ]}
+              />
+            }>
                 <div className="mb-4 sm:mb-6">
                   <Badge variant="secondary" className="mb-3 sm:mb-4 text-xs bg-white/10 text-white border border-white/10">
                     {post.category}

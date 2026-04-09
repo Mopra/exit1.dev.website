@@ -6,6 +6,7 @@ import { POSTS_PER_PAGE } from '@/lib/blogPagination';
 import { BlogClient } from '@/components/BlogClient';
 import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageShell } from '@/components/PageLayout';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -77,7 +78,14 @@ export default async function BlogPageByNumber({
     <PageShell>
       <main role="main" aria-label="Blog">
         <PageContainer>
-          <PageHero className="pb-12" contentClassName="text-center">
+          <PageHero className="pb-12" contentClassName="text-center" breadcrumb={
+            <Breadcrumbs
+              items={[
+                { name: "Blog", href: "/blog" },
+                { name: `Page ${pageNumber}`, href: `/blog/page/${pageNumber}` },
+              ]}
+            />
+          }>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
               {blogData.title}
             </h1>

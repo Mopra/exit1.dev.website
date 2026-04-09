@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Shield, Globe, Activity, Wifi, ArrowRight, Network } from "lucide-react";
+import { Shield, Globe, Activity, Wifi, ArrowRight, Network, HeartPulse } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tools = [
@@ -32,6 +32,11 @@ const tools = [
     name: "Redirect Checker",
     href: "/tools/redirect-checker",
     icon: ArrowRight,
+  },
+  {
+    name: "Uptime Checker",
+    href: "/tools/uptime-checker",
+    icon: HeartPulse,
   },
 ];
 

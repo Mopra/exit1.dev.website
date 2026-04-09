@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 import StructuredData from "@/components/StructuredData";
 
 interface BreadcrumbItem {
@@ -23,17 +22,17 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
           })),
         }}
       />
-      <nav aria-label="Breadcrumb" className="w-full max-w-4xl mx-auto">
-        <ol className="flex items-center gap-1.5 text-sm text-muted-foreground flex-wrap">
+      <nav aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1.5 text-xs text-muted-foreground">
           {allItems.map((item, i) => {
             const isLast = i === allItems.length - 1;
             return (
               <li key={item.href} className="flex items-center gap-1.5">
                 {i > 0 && (
-                  <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/50" />
+                  <span className="text-muted-foreground/30 select-none">/</span>
                 )}
                 {isLast ? (
-                  <span className="text-white font-medium" aria-current="page">
+                  <span className="text-muted-foreground/70" aria-current="page">
                     {item.name}
                   </span>
                 ) : (

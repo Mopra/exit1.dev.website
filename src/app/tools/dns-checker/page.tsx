@@ -122,15 +122,14 @@ export default function DnsCheckerPage() {
 
       <PageShell>
         <PageContainer>
-          <div className="px-4 sm:px-0 pt-24">
+          <PageHero size="lg" breadcrumb={
             <Breadcrumbs
               items={[
                 { name: "Tools", href: "/tools" },
                 { name: "DNS Checker", href: "/tools/dns-checker" },
               ]}
             />
-          </div>
-          <PageHero size="lg">
+          }>
             <div className="text-center">
               <p className="text-sm font-mono text-primary mb-4 tracking-wide uppercase">
                 Free Tool

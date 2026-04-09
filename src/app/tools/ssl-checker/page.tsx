@@ -119,15 +119,14 @@ export default function SSLCheckerPage() {
 
       <PageShell>
         <PageContainer>
-          <div className="px-4 sm:px-0 pt-24">
+          <PageHero size="lg" breadcrumb={
             <Breadcrumbs
               items={[
                 { name: "Tools", href: "/tools" },
                 { name: "SSL Checker", href: "/tools/ssl-checker" },
               ]}
             />
-          </div>
-          <PageHero size="lg">
+          }>
             <div className="text-center">
               <p className="text-sm font-mono text-primary mb-4 tracking-wide uppercase">
                 Free Tool
