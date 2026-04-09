@@ -9,7 +9,7 @@ import {
   PageSection,
   SectionContent,
 } from "@/components/PageLayout";
-import { PageHero } from "@/components/PageHero";
+import { ToolPageHero } from "@/components/ToolPageHero";
 import {
   Accordion,
   AccordionContent,
@@ -17,7 +17,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ToolsNav } from "@/components/ToolsNav";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -123,29 +122,12 @@ export default function UptimeCheckerPage() {
 
       <PageShell>
         <PageContainer>
-          <div className="px-4 sm:px-0 pt-24">
-            <Breadcrumbs
-              items={[
-                { name: "Tools", href: "/tools" },
-                { name: "Uptime Checker", href: "/tools/uptime-checker" },
-              ]}
-            />
-          </div>
-          <PageHero size="lg">
-            <div className="text-center">
-              <p className="text-sm font-mono text-primary mb-4 tracking-wide uppercase">
-                Free Tool
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Website Uptime Checker
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-                Check if any website is online and healthy. Get a full health
-                report covering DNS, SSL, security headers, performance, and
-                content — with grades for each category.
-              </p>
-            </div>
-          </PageHero>
+          <ToolPageHero
+            toolName="Uptime Checker"
+            href="/tools/uptime-checker"
+            title="Website Uptime Checker"
+            description="Check if any website is online and healthy. Get a full health report covering DNS, SSL, security headers, performance, and content - with grades for each category."
+          />
 
           {/* Tools Navigation */}
           <PageSection>

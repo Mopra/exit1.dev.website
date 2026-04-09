@@ -9,7 +9,7 @@ import {
   PageSection,
   SectionContent,
 } from "@/components/PageLayout";
-import { PageHero } from "@/components/PageHero";
+import { ToolPageHero } from "@/components/ToolPageHero";
 import {
   Accordion,
   AccordionContent,
@@ -17,7 +17,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ToolsNav } from "@/components/ToolsNav";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title:
@@ -117,27 +116,12 @@ export default function PingTestPage() {
 
       <PageShell>
         <PageContainer>
-          <PageHero size="lg" breadcrumb={
-            <Breadcrumbs
-              items={[
-                { name: "Tools", href: "/tools" },
-                { name: "Ping Test", href: "/tools/ping-test" },
-              ]}
-            />
-          }>
-            <div className="text-center">
-              <p className="text-sm font-mono text-primary mb-4 tracking-wide uppercase">
-                Free Tool
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Ping Test
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-                Instantly test latency, packet loss, and jitter to any server or
-                website. Free, no signup required.
-              </p>
-            </div>
-          </PageHero>
+          <ToolPageHero
+            toolName="Ping Test"
+            href="/tools/ping-test"
+            title="Ping Test"
+            description="Instantly test latency, packet loss, and jitter to any server or website. Free, no signup required."
+          />
 
           {/* Tools Navigation */}
           <PageSection>

@@ -8,7 +8,7 @@ import {
   PageSection,
   SectionContent,
 } from "@/components/PageLayout";
-import { PageHero } from "@/components/PageHero";
+import { ToolPageHero } from "@/components/ToolPageHero";
 import {
   Accordion,
   AccordionContent,
@@ -16,7 +16,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ToolsNav } from "@/components/ToolsNav";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Free Redirect Checker Tool — Trace HTTP Redirect Chains | exit1.dev",
@@ -120,28 +119,12 @@ export default function RedirectCheckerPage() {
 
       <PageShell>
         <PageContainer>
-          <PageHero size="lg" breadcrumb={
-            <Breadcrumbs
-              items={[
-                { name: "Tools", href: "/tools" },
-                { name: "Redirect Checker", href: "/tools/redirect-checker" },
-              ]}
-            />
-          }>
-            <div className="text-center">
-              <p className="text-sm font-mono text-primary mb-4 tracking-wide uppercase">
-                Free Tool
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Redirect Checker
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-                Trace the full HTTP redirect chain for any URL. See every hop,
-                status code, Location header, and response time. Free, no signup
-                required.
-              </p>
-            </div>
-          </PageHero>
+          <ToolPageHero
+            toolName="Redirect Checker"
+            href="/tools/redirect-checker"
+            title="Redirect Checker"
+            description="Trace the full HTTP redirect chain for any URL. See every hop, status code, Location header, and response time. Free, no signup required."
+          />
 
           {/* Tools Navigation */}
           <PageSection>

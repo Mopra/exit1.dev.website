@@ -9,7 +9,7 @@ import {
   PageSection,
   SectionContent,
 } from "@/components/PageLayout";
-import { PageHero } from "@/components/PageHero";
+import { ToolPageHero } from "@/components/ToolPageHero";
 import {
   Accordion,
   AccordionContent,
@@ -17,7 +17,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ToolsNav } from "@/components/ToolsNav";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Free SSL Checker Tool — Check SSL Certificate Instantly | exit1.dev",
@@ -119,27 +118,12 @@ export default function SSLCheckerPage() {
 
       <PageShell>
         <PageContainer>
-          <PageHero size="lg" breadcrumb={
-            <Breadcrumbs
-              items={[
-                { name: "Tools", href: "/tools" },
-                { name: "SSL Checker", href: "/tools/ssl-checker" },
-              ]}
-            />
-          }>
-            <div className="text-center">
-              <p className="text-sm font-mono text-primary mb-4 tracking-wide uppercase">
-                Free Tool
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                SSL Certificate Checker
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-                Instantly check any website&apos;s SSL certificate. See
-                expiration dates, issuer details, TLS version, and more. Free, no signup required.
-              </p>
-            </div>
-          </PageHero>
+          <ToolPageHero
+            toolName="SSL Checker"
+            href="/tools/ssl-checker"
+            title="SSL Certificate Checker"
+            description="Instantly check any website&apos;s SSL certificate. See expiration dates, issuer details, TLS version, and more. Free, no signup required."
+          />
 
           {/* Tools Navigation */}
           <PageSection>

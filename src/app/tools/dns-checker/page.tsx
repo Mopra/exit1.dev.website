@@ -9,7 +9,7 @@ import {
   PageSection,
   SectionContent,
 } from "@/components/PageLayout";
-import { PageHero } from "@/components/PageHero";
+import { ToolPageHero } from "@/components/ToolPageHero";
 import {
   Accordion,
   AccordionContent,
@@ -17,7 +17,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ToolsNav } from "@/components/ToolsNav";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title:
@@ -122,28 +121,12 @@ export default function DnsCheckerPage() {
 
       <PageShell>
         <PageContainer>
-          <PageHero size="lg" breadcrumb={
-            <Breadcrumbs
-              items={[
-                { name: "Tools", href: "/tools" },
-                { name: "DNS Checker", href: "/tools/dns-checker" },
-              ]}
-            />
-          }>
-            <div className="text-center">
-              <p className="text-sm font-mono text-primary mb-4 tracking-wide uppercase">
-                Free Tool
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                DNS Lookup Tool
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-                Look up all DNS records for any domain — A, AAAA, MX, NS, TXT,
-                SOA, CAA, and CNAME. Analyze email security and get a DNS health
-                grade. Free, no signup required.
-              </p>
-            </div>
-          </PageHero>
+          <ToolPageHero
+            toolName="DNS Checker"
+            href="/tools/dns-checker"
+            title="DNS Lookup Tool"
+            description="Look up all DNS records for any domain - A, AAAA, MX, NS, TXT, SOA, CAA, and CNAME. Analyze email security and get a DNS health grade. Free, no signup required."
+          />
 
           {/* Tools Navigation */}
           <PageSection>
