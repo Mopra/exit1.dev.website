@@ -1,7 +1,7 @@
 ---
 title: "DNS Propagation: Why Your Changes Take Time and How to Check"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-03-26"
 category: "domain-intelligence"
 excerpt: "Why DNS changes aren't instant, and how to check propagation."
 readTime: "7 min read"

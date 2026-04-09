@@ -1,7 +1,7 @@
 ---
 title: "Free MX Record Lookup — Find Mail Servers for Any Domain"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-03-31"
 category: "domain-intelligence"
 excerpt: "Look up MX records to find any domain's mail servers."
 readTime: "5 min read"

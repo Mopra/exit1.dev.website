@@ -1,7 +1,7 @@
 ---
 title: "Free TXT Record Lookup — Check TXT Records for Any Domain"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-04-04"
 category: "domain-intelligence"
 excerpt: "Look up TXT records to check SPF, verification, and more."
 readTime: "5 min read"

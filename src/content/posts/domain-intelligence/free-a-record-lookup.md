@@ -1,7 +1,7 @@
 ---
 title: "Free A Record Lookup — Find the IP Address of Any Domain"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-03-28"
 category: "domain-intelligence"
 excerpt: "Look up A records to find any domain's IPv4 address."
 readTime: "5 min read"

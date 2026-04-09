@@ -1,7 +1,7 @@
 ---
 title: "Free DMARC Checker — Check Your Domain's Email Policy"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-04-07"
 category: "domain-intelligence"
 excerpt: "Check if your domain has a DMARC policy to prevent impersonation."
 readTime: "5 min read"

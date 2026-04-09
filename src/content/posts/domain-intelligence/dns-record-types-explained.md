@@ -1,7 +1,7 @@
 ---
 title: "DNS Record Types Explained: A, AAAA, MX, CNAME, TXT, NS, SOA, CAA"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-03-12"
 category: "domain-intelligence"
 excerpt: "Every DNS record type, what it does, and when you need it."
 readTime: "11 min read"

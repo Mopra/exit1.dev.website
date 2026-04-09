@@ -1,7 +1,7 @@
 ---
 title: "Free Nameserver Lookup — Find NS Records for Any Domain"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-04-03"
 category: "domain-intelligence"
 excerpt: "Look up NS records to find a domain's authoritative nameservers."
 readTime: "5 min read"

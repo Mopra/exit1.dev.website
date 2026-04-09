@@ -1,7 +1,7 @@
 ---
 title: "Free CNAME Lookup Tool — Check CNAME Records for Any Domain"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-04-02"
 category: "domain-intelligence"
 excerpt: "Look up CNAME records to see where a domain is aliased."
 readTime: "5 min read"

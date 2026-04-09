@@ -1,7 +1,7 @@
 ---
 title: "Free SPF Record Checker — Verify Your Email Authentication"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-04-06"
 category: "domain-intelligence"
 excerpt: "Check if your domain has a valid SPF record to prevent email spoofing."
 readTime: "5 min read"

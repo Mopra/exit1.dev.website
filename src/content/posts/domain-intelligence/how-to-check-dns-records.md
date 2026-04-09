@@ -1,7 +1,7 @@
 ---
 title: "How to Check DNS Records for Any Domain (3 Free Methods)"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-03-17"
 category: "domain-intelligence"
 excerpt: "Three free ways to look up DNS records for any domain."
 readTime: "8 min read"

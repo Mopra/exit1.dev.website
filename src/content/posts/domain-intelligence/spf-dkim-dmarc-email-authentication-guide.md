@@ -1,7 +1,7 @@
 ---
 title: "SPF, DKIM, and DMARC: Protect Your Domain from Email Spoofing"
 author: "Morten Pradsgaard"
-date: "2026-04-09"
+date: "2026-03-21"
 category: "domain-intelligence"
 excerpt: "Set up email authentication to stop spoofing and impersonation."
 readTime: "9 min read"
