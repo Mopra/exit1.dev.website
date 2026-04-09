@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
+import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import DnsCheckerTool from "./DnsCheckerTool";
 import {
@@ -333,6 +334,69 @@ export default function DnsCheckerPage() {
                     </AccordionItem>
                   ))}
                 </Accordion>
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Related Articles */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                Learn More About DNS
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                Guides on DNS record types, email authentication, propagation,
+                and domain security.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <Link
+                  href="/blog/dns-record-types-explained"
+                  className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors"
+                >
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                    DNS Record Types Explained
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    A, AAAA, MX, CNAME, TXT, NS, SOA, CAA — what every record
+                    type does and when you need it.
+                  </p>
+                </Link>
+                <Link
+                  href="/blog/spf-dkim-dmarc-email-authentication-guide"
+                  className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors"
+                >
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                    SPF, DKIM, and DMARC Guide
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Protect your domain from email spoofing with three DNS
+                    records. Step-by-step setup guide.
+                  </p>
+                </Link>
+                <Link
+                  href="/blog/how-to-check-dns-records"
+                  className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors"
+                >
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                    How to Check DNS Records
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Three free methods to look up DNS records for any domain —
+                    web tools, command line, and more.
+                  </p>
+                </Link>
+                <Link
+                  href="/blog/dns-propagation-how-long-do-changes-take"
+                  className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors"
+                >
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                    DNS Propagation Explained
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Why DNS changes take time, how TTL and caching work, and how
+                    to speed up propagation.
+                  </p>
+                </Link>
               </div>
             </SectionContent>
           </PageSection>
