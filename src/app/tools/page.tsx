@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Shield, Globe, Activity, Wifi, ArrowRight } from "lucide-react";
+import { Shield, Globe, Activity, Wifi, ArrowRight, Network } from "lucide-react";
 import StructuredData from "@/components/StructuredData";
 import {
   PageShell,
@@ -11,22 +11,22 @@ import {
 import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Free Website & Server Tools — SSL, Domain, API, Ping & Redirect Checkers | exit1.dev",
+  title: "Free Website & Server Tools — SSL, Domain, DNS, API, Ping & Redirect Checkers | exit1.dev",
   description:
-    "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, server latency, and redirect chains. No signup required.",
+    "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, DNS records, API endpoint status, server latency, and redirect chains. No signup required.",
   keywords:
-    "free ssl checker, domain expiration checker, api status checker, ping test, free web tools, server monitoring tools, website checker, developer tools",
+    "free ssl checker, domain expiration checker, dns lookup tool, api status checker, ping test, free web tools, server monitoring tools, website checker, developer tools",
   openGraph: {
-    title: "Free Website & Server Tools — SSL, Domain, API, Ping & Redirect Checkers | exit1.dev",
+    title: "Free Website & Server Tools — SSL, Domain, DNS, API, Ping & Redirect Checkers | exit1.dev",
     description:
-      "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, server latency, and redirect chains. No signup required.",
+      "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, DNS records, API endpoint status, server latency, and redirect chains. No signup required.",
     type: "website",
     url: "https://exit1.dev/tools",
   },
   twitter: {
-    title: "Free Website & Server Tools — SSL, Domain, API, Ping & Redirect Checkers | exit1.dev",
+    title: "Free Website & Server Tools — SSL, Domain, DNS, API, Ping & Redirect Checkers | exit1.dev",
     description:
-      "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, server latency, and redirect chains. No signup required.",
+      "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, DNS records, API endpoint status, server latency, and redirect chains. No signup required.",
     card: "summary_large_image",
   },
   alternates: {
@@ -59,6 +59,19 @@ const tools = [
       "Registrar & nameservers",
       "WHOIS creation & update dates",
       "Registry status codes",
+    ],
+  },
+  {
+    name: "DNS Lookup Tool",
+    description:
+      "Look up all DNS records for any domain. Check A, AAAA, MX, NS, TXT, SOA, CAA, and CNAME records with email security analysis and a DNS health grade.",
+    href: "/tools/dns-checker",
+    icon: Network,
+    features: [
+      "All record types (A, AAAA, MX, NS, TXT, SOA, CAA)",
+      "Email security analysis (SPF & DMARC)",
+      "DNS health grade",
+      "TTL values & SOA details",
     ],
   },
   {
@@ -131,8 +144,8 @@ export default function ToolsPage() {
                 Website & Server Tools
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-                Free tools to check SSL certificates, domain expiration, API
-                health, server latency, and redirect chains. No signup required.
+                Free tools to check SSL certificates, domain expiration, DNS
+                records, API health, server latency, and redirect chains. No signup required.
               </p>
             </div>
           </PageHero>

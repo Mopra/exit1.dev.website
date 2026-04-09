@@ -30,6 +30,7 @@
     "tools": [
       { "name": "SSL Checker", "href": "/tools/ssl-checker" },
       { "name": "Domain Checker", "href": "/tools/domain-expiration-checker" },
+      { "name": "DNS Checker", "href": "/tools/dns-checker" },
       { "name": "API Status Checker", "href": "/tools/api-status-checker" },
       { "name": "Ping Test", "href": "/tools/ping-test" }
     ],

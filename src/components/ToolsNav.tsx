@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Shield, Globe, Activity, Wifi, ArrowRight } from "lucide-react";
+import { Shield, Globe, Activity, Wifi, ArrowRight, Network } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tools = [
@@ -12,6 +12,11 @@ const tools = [
     name: "Domain Checker",
     href: "/tools/domain-expiration-checker",
     icon: Globe,
+  },
+  {
+    name: "DNS Checker",
+    href: "/tools/dns-checker",
+    icon: Network,
   },
   {
     name: "API Status",
