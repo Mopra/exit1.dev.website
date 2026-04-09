@@ -1,68 +1,72 @@
 import Link from "next/link";
-import { Shield, Globe, Activity, Wifi, ArrowRight, Network, HeartPulse } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tools = [
   {
     name: "SSL Checker",
     href: "/tools/ssl-checker",
-    icon: Shield,
+    description: "Verify certificates & expiry dates",
   },
   {
     name: "Domain Checker",
     href: "/tools/domain-expiration-checker",
-    icon: Globe,
+    description: "Check domain expiration & WHOIS",
   },
   {
     name: "DNS Checker",
     href: "/tools/dns-checker",
-    icon: Network,
+    description: "Look up DNS records globally",
   },
   {
     name: "API Status",
     href: "/tools/api-status-checker",
-    icon: Activity,
+    description: "Test API endpoint health",
   },
   {
     name: "Ping Test",
     href: "/tools/ping-test",
-    icon: Wifi,
+    description: "Measure server response time",
   },
   {
     name: "Redirect Checker",
     href: "/tools/redirect-checker",
-    icon: ArrowRight,
+    description: "Trace full redirect chains",
   },
   {
     name: "Uptime Checker",
     href: "/tools/uptime-checker",
-    icon: HeartPulse,
+    description: "Quick availability check",
   },
 ];
 
 export function ToolsNav({ current }: { current: string }) {
   return (
-    <nav aria-label="Tools" className="w-full mx-auto relative">
-      <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
-      <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide px-2">
+    <nav aria-label="Tools" className="w-full mx-auto">
+      <div className="flex flex-wrap items-center justify-center border-b border-white/[0.08]">
         {tools.map((tool) => {
           const isActive = tool.href === current;
-          const Icon = tool.icon;
           return (
             <Link
               key={tool.href}
               href={tool.href}
               className={cn(
-                "inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors",
+                "group relative px-3 py-2.5 sm:px-4 text-sm transition-colors duration-150 -mb-px",
                 isActive
-                  ? "bg-white/10 text-white border border-white/20"
-                  : "text-muted-foreground hover:text-white hover:bg-white/5 border border-transparent"
+                  ? "text-white font-semibold border-b-2 border-primary"
+                  : "text-muted-foreground hover:text-white"
               )}
               aria-current={isActive ? "page" : undefined}
             >
-              <Icon className="w-4 h-4" />
               {tool.name}
+              {!isActive && (
+                <span
+                  role="tooltip"
+                  className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 rounded-md bg-popover px-3 py-1.5 text-xs text-popover-foreground shadow-md opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-150 delay-200 whitespace-nowrap"
+                >
+                  {tool.description}
+                  <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-popover" />
+                </span>
+              )}
             </Link>
           );
         })}
