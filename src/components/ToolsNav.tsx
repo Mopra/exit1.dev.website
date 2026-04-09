@@ -42,8 +42,10 @@ const tools = [
 
 export function ToolsNav({ current }: { current: string }) {
   return (
-    <nav aria-label="Tools" className="w-full max-w-4xl mx-auto">
-      <div className="flex items-center justify-center gap-2 flex-wrap">
+    <nav aria-label="Tools" className="w-full mx-auto relative">
+      <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
+      <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide px-2">
         {tools.map((tool) => {
           const isActive = tool.href === current;
           const Icon = tool.icon;
