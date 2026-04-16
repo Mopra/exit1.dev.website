@@ -25,6 +25,7 @@ const PLACES = [
 export function LiveChecksCounter() {
   const statsRef = useRef<ChecksStats>(FALLBACK_STATS);
   const [value, setValue] = useState(0);
+  const [rate, setRate] = useState(FALLBACK_STATS.ratePerSecond);
 
   useEffect(() => {
     let cancelled = false;
@@ -43,6 +44,7 @@ export function LiveChecksCounter() {
         if (cancelled) return;
         if (data && typeof data.total === "number") {
           statsRef.current = data;
+          setRate(data.ratePerSecond);
         }
         setValue(extrapolateTotal(statsRef.current));
         startTicking();
@@ -59,8 +61,10 @@ export function LiveChecksCounter() {
     };
   }, []);
 
+  const rateDisplay = rate >= 1 ? rate.toFixed(1) : rate.toFixed(2);
+
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="group relative flex flex-col items-center gap-2">
       <span className="text-xs sm:text-sm uppercase tracking-widest text-white/50">
         Checks performed
       </span>
@@ -75,6 +79,19 @@ export function LiveChecksCounter() {
         fontWeight={800}
         gradientHeight={0}
       />
+      <span
+        className="pointer-events-none group-hover:pointer-events-auto mt-1 text-xs text-white/60 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+      >
+        ~{rateDisplay} checks/sec ·{" "}
+        <a
+          href={STATS_ENDPOINT}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-dotted underline-offset-4 hover:text-white"
+        >
+          live from our public API
+        </a>
+      </span>
     </div>
   );
 }
