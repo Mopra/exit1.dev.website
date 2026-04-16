@@ -9,35 +9,42 @@ import {
   type ChecksStats,
 } from "@/lib/checksBaseline";
 
-const PLACES = [
-  100_000_000, 10_000_000, 1_000_000, 100_000, 10_000, 1_000, 100, 10, 1,
-];
+const PLACES = [10_000_000, 1_000_000, 100_000, 10_000, 1_000, 100, 10, 1];
 
 export function LiveChecksCounter() {
   const statsRef = useRef<ChecksStats>(FALLBACK_STATS);
-  const [value, setValue] = useState(() => extrapolateTotal(FALLBACK_STATS));
+  const [value, setValue] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+
+    const startTicking = () => {
+      if (intervalId) return;
+      intervalId = setInterval(() => {
+        setValue(extrapolateTotal(statsRef.current));
+      }, 150);
+    };
 
     fetch(STATS_ENDPOINT, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : null))
       .then((data: ChecksStats | null) => {
-        if (cancelled || !data || typeof data.total !== "number") return;
-        statsRef.current = data;
-        setValue(extrapolateTotal(data));
+        if (cancelled) return;
+        if (data && typeof data.total === "number") {
+          statsRef.current = data;
+        }
+        setValue(extrapolateTotal(statsRef.current));
+        startTicking();
       })
       .catch(() => {
-        // fall back to hardcoded baseline already in statsRef
+        if (cancelled) return;
+        setValue(extrapolateTotal(statsRef.current));
+        startTicking();
       });
-
-    const id = setInterval(() => {
-      setValue(extrapolateTotal(statsRef.current));
-    }, 150);
 
     return () => {
       cancelled = true;
-      clearInterval(id);
+      if (intervalId) clearInterval(intervalId);
     };
   }, []);
 
