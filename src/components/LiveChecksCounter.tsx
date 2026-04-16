@@ -9,7 +9,18 @@ import {
   type ChecksStats,
 } from "@/lib/checksBaseline";
 
-const PLACES = [10_000_000, 1_000_000, 100_000, 10_000, 1_000, 100, 10, 1];
+const PLACES = [
+  10_000_000,
+  1_000_000,
+  ",",
+  100_000,
+  10_000,
+  1_000,
+  ",",
+  100,
+  10,
+  1,
+];
 
 export function LiveChecksCounter() {
   const statsRef = useRef<ChecksStats>(FALLBACK_STATS);

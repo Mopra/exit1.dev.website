@@ -5,7 +5,7 @@ import { useEffect, type CSSProperties } from "react";
 
 import "./Counter.css";
 
-type Place = number | ".";
+type Place = number | string;
 
 interface NumberProps {
   mv: MotionValue<number>;
@@ -49,20 +49,20 @@ interface DigitProps {
 }
 
 function Digit({ place, value, height, digitStyle }: DigitProps) {
-  const isDecimal = place === ".";
-  const valueRoundedToPlace = isDecimal ? 0 : getValueRoundedToPlace(value, place as number);
+  const isLiteral = typeof place === "string";
+  const valueRoundedToPlace = isLiteral ? 0 : getValueRoundedToPlace(value, place as number);
   const animatedValue = useSpring(valueRoundedToPlace);
 
   useEffect(() => {
-    if (!isDecimal) {
+    if (!isLiteral) {
       animatedValue.set(valueRoundedToPlace);
     }
-  }, [animatedValue, valueRoundedToPlace, isDecimal]);
+  }, [animatedValue, valueRoundedToPlace, isLiteral]);
 
-  if (isDecimal) {
+  if (isLiteral) {
     return (
       <span className="counter-digit" style={{ height, ...digitStyle, width: "fit-content" }}>
-        .
+        {place}
       </span>
     );
   }
