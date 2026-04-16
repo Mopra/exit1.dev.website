@@ -62,9 +62,7 @@ export function LiveChecksCounter() {
         horizontalPadding={0}
         textColor="white"
         fontWeight={800}
-        gradientHeight={12}
-        gradientFrom="rgba(0,0,0,0.9)"
-        gradientTo="transparent"
+        gradientHeight={0}
       />
     </div>
   );
