@@ -14,8 +14,7 @@ export const FALLBACK_STATS: ChecksStats = {
   ratePerSecond: 50,
 };
 
-export const STATS_ENDPOINT =
-  "https://us-central1-exit1-dev.cloudfunctions.net/getPublicChecksStats";
+export const STATS_ENDPOINT = "https://app.exit1.dev/v1/stats/checks";
 
 export function extrapolateTotal(stats: ChecksStats, now: number = Date.now()): number {
   const elapsedSec = Math.max(0, (now - stats.at) / 1000);
