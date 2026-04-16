@@ -48,7 +48,7 @@ export default function NewHomePage() {
               {[
                 "Unlimited monitors",
                 "15-second checks",
-                "Instant alerts",
+                "MCP / AI access",
                 "SSL & domain monitoring",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-2 text-sm sm:text-base text-white/80">
