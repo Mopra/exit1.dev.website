@@ -101,7 +101,7 @@ If you focus on critical services, under an hour.
 
 ### What is the fastest replacement?
 
-Exit1.dev lets you add up to 10 monitors free with 5-minute checks and free alerting. The Nano plan ($3/month) unlocks unlimited monitors with 1-minute checks.
+Exit1.dev lets you add up to 10 monitors free with 5-minute checks and free alerting. The Nano plan ($5/month) unlocks unlimited monitors with 1-minute checks.
 
 ### Do I need to keep Freshping running?
 

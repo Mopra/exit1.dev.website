@@ -41,7 +41,7 @@ No scripts needed. Auto free. Start by scanning your site with the [free SSL che
 
 Done. 24/7 monitoring.
 
-Features: Auto track, alerts, details, status, notifications. Free tier: 10 monitors, 5-minute checks. Nano ($3/month): unlimited monitors, 1-minute checks.
+Features: Auto track, alerts, details, status, notifications. Free tier: 10 monitors, 5-minute checks. Nano ($5/month): unlimited monitors, 1-minute checks.
 
 Full: [/ssl-monitoring](/ssl-monitoring)
 
@@ -74,7 +74,7 @@ exit1.dev: Auto scans, tracked dates, repeated alerts, one dash.
 
 ## FAQ
 
-Free tier? Yes — 10 monitors with 5-minute checks. Need more? Nano ($3/month) gives unlimited monitors and 1-minute checks.
+Free tier? Yes — 10 monitors with 5-minute checks. Need more? Nano ($5/month) gives unlimited monitors and 1-minute checks.
 
 Slack/email both? Yes.
 

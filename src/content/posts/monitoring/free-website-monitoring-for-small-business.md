@@ -24,7 +24,7 @@ exit1.dev: Simple, affordable.
 
 1. exit1.dev
 - Free tier: 10 monitors, 5-min checks
-- Nano tier: unlimited monitors, 1-min checks, $3/mo
+- Nano tier: unlimited monitors, 1-min checks, $5/mo
 - Quick setup
 - SSL, webhooks, API
 

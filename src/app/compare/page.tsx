@@ -117,7 +117,7 @@ const comparisonData = [
   {
     feature: 'Price',
     exit1Free: '$0',
-    exit1Nano: '$3/mo',
+    exit1Nano: '$5/mo',
     exit1Scale: '$24/mo',
     uptimeRobotFree: '$0',
     uptimeRobotPro: '$14+/mo',
@@ -255,7 +255,7 @@ export default function ComparePage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span><strong className="text-white">Exit1 Nano at $3/mo</strong> includes SMS alerts and branding that cost $14-50/mo elsewhere.</span>
+                  <span><strong className="text-white">Exit1 Nano at $5/mo</strong> includes SMS alerts and branding that cost $14-50/mo elsewhere.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />

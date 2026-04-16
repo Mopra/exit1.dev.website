@@ -55,7 +55,7 @@ If you run scheduled tasks for clients, give them read-only access or export log
 
 ### How many cron monitors can I add?
 
-The free tier includes 10 monitors with 5-minute checks. The Nano tier ($3/month) gives you unlimited monitors with 1-minute checks.
+The free tier includes 10 monitors with 5-minute checks. The Nano tier ($5/month) gives you unlimited monitors with 1-minute checks.
 
 ### Can I monitor serverless schedules?
 

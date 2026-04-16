@@ -3,9 +3,9 @@ title: 'Freshping Replacement: Free Uptime Monitoring That Stays Simple'
 author: 'Exit1 Team'
 date: '2026-01-15'
 category: 'monitoring'
-excerpt: 'Freshping is shutting down. Replace it with a free uptime monitor that includes SSL alerts and webhooks. 10 free monitors with 5-min checks, or unlimited with 1-min checks on Nano ($3/mo).'
+excerpt: 'Freshping is shutting down. Replace it with a free uptime monitor that includes SSL alerts and webhooks. 10 free monitors with 5-min checks, or unlimited with 1-min checks on Nano ($5/mo).'
 readTime: '8 min read'
-metaDescription: 'Freshping replacement for free uptime monitoring with SSL alerts, webhooks, and no credit card. 10 free monitors, unlimited on Nano ($3/mo). Migration checklist included.'
+metaDescription: 'Freshping replacement for free uptime monitoring with SSL alerts, webhooks, and no credit card. 10 free monitors, unlimited on Nano ($5/mo). Migration checklist included.'
 ---
 
 # Freshping Replacement: Free Uptime Monitoring That Stays Simple
@@ -73,7 +73,7 @@ If you need synthetic transactions, RUM, or multi-step workflows, add those late
 
 ### What is the best Freshping replacement?
 
-Exit1.dev is a free replacement with 10 monitors and 5-minute checks, plus SSL alerts and webhooks. The Nano plan ($3/month) gives you unlimited monitors with 1-minute checks.
+Exit1.dev is a free replacement with 10 monitors and 5-minute checks, plus SSL alerts and webhooks. The Nano plan ($5/month) gives you unlimited monitors with 1-minute checks.
 
 ### Can I migrate without downtime?
 

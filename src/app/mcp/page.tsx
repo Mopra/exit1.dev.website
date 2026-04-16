@@ -118,7 +118,7 @@ const MCPPage = () => {
       competitors: false,
     },
     {
-      feature: "Available at $3/mo",
+      feature: "Available at $5/mo",
       exit1: true,
       competitors: "Enterprise only",
     },
@@ -151,7 +151,7 @@ const MCPPage = () => {
     },
     {
       question: "Is MCP available on the free plan?",
-      answer: "MCP is a Nano plan feature. Free plan users can upgrade to Nano starting at $3/month to access it, along with unlimited monitors, SMS alerts, and all other Nano features.",
+      answer: "MCP is a Nano plan feature. Free plan users can upgrade to Nano starting at $5/month to access it, along with unlimited monitors, SMS alerts, and all other Nano features.",
     },
     {
       question: "Do I need to install anything?",
@@ -261,7 +261,7 @@ const MCPPage = () => {
         nanoUpgrade={{
           title: "MCP Is a Nano Feature",
           description:
-            "Connect your AI assistant to exit1.dev and query monitoring data conversationally. Available on the Nano plan starting at $3/month.",
+            "Connect your AI assistant to exit1.dev and query monitoring data conversationally. Available on the Nano plan starting at $5/month.",
         }}
       />
     </>

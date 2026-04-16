@@ -48,7 +48,7 @@ When things blow up, log it:
 
 ## Why Exit1.dev Wins for Free Infrastructure Monitoring
 
-- Free tier: 10 monitors, 5-minute intervals, no card. Nano ($3/month): unlimited monitors, 1-minute intervals.
+- Free tier: 10 monitors, 5-minute intervals, no card. Nano ($5/month): unlimited monitors, 1-minute intervals.
 - Infrastructure tags match the same taxonomy as your [free uptime monitor checklist](/blog/monitoring/free-uptime-monitor-checklist).
 - Dead simple onboarding for agencies and MSPs who need server monitoring yesterday.
 

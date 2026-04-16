@@ -47,7 +47,7 @@ const scaleFeatures = [
 const PricingPage = () => {
   const [isAnnual, setIsAnnual] = useState(true);
 
-  const nanoPrice = isAnnual ? 3 : 4;
+  const nanoPrice = isAnnual ? 5 : 7;
   const scalePrice = isAnnual ? 24 : 32;
   const billingText = isAnnual ? "Billed annually" : "Billed monthly";
 
@@ -134,7 +134,7 @@ const PricingPage = () => {
             {/* USP banner */}
             <div className="mb-12 py-4 px-6 rounded-full border border-white/10 bg-white/5 text-center">
               <p className="text-white/90 text-lg font-medium">
-                Unlimited monitors from $3/mo. Sub-minute checks from $24/mo.
+                Unlimited monitors from $5/mo. Sub-minute checks from $24/mo.
               </p>
             </div>
 

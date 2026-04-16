@@ -50,7 +50,7 @@ Make the message impossible to misunderstand. If someone has to expand threads t
 
 ## When to Pay for More
 
-Exit1.dev’s free tier covers up to 10 SSL monitors with 5-minute checks and Slack alerts. The Nano plan ($3/month) unlocks unlimited monitors with 1-minute checks. Pay more only if you need:
+Exit1.dev’s free tier covers up to 10 SSL monitors with 5-minute checks and Slack alerts. The Nano plan ($5/month) unlocks unlimited monitors with 1-minute checks. Pay more only if you need:
 
 - Hardware security module (HSM) integrations.
 - Multi-cloud certificate automation tied to provisioning.

@@ -293,7 +293,7 @@ const Badges = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Want clean, unbranded badges?",
-          description: "Remove the exit1.dev footer from your badges with Nano. White-label status badges for your README and docs. Just $3/month."
+          description: "Remove the exit1.dev footer from your badges with Nano. White-label status badges for your README and docs. Just $5/month."
         }}
       />
     </>

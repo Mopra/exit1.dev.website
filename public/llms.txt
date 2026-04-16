@@ -2,7 +2,7 @@
 
 > Free uptime monitoring service. Monitor your websites, APIs, and services with instant alerts, SSL monitoring, public status pages, and a full API — no credit card required.
 
-exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 10 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, and 30 days of analytics. The paid Nano plan ($3/month annual) adds unlimited monitors, 1-minute checks, SMS alerts, unlimited status pages with a drag-and-drop builder, domain intelligence, and 1-year data retention.
+exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 10 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, and 30 days of analytics. The paid Nano plan ($5/month annual) adds unlimited monitors, 1-minute checks, SMS alerts, unlimited status pages with a drag-and-drop builder, domain intelligence, and 1-year data retention.
 
 ## Core Features
 
@@ -22,7 +22,7 @@ exit1.dev integrates with Slack, Discord, PagerDuty, Opsgenie, Microsoft Teams, 
 
 ## Pricing
 
-- [Pricing](https://exit1.dev/pricing): Two tiers — Free ($0, 10 monitors, 5-min checks, email alerts, 1 status page) and Nano ($3/month annual, unlimited monitors, 1-min checks, SMS alerts, unlimited status pages, domain intelligence, 1-year retention)
+- [Pricing](https://exit1.dev/pricing): Two tiers — Free ($0, 10 monitors, 5-min checks, email alerts, 1 status page) and Nano ($5/month annual, unlimited monitors, 1-min checks, SMS alerts, unlimited status pages, domain intelligence, 1-year retention)
 - [Plan Comparison](https://exit1.dev/compare): Side-by-side feature comparison between Free and Nano plans
 
 ## Documentation & API

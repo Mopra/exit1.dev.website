@@ -118,7 +118,7 @@ const FreeUptimeMonitorPage = () => {
     {
       question: 'Is this really a free uptime monitor?',
       answer:
-        'Yes. The free tier gives you 10 monitors with 5-minute checks. Need more? Nano ($3/mo) unlocks unlimited monitors with 1-minute checks. Abuse gets throttled, legitimate usage stays free.',
+        'Yes. The free tier gives you 10 monitors with 5-minute checks. Need more? Nano ($5/mo) unlocks unlimited monitors with 1-minute checks. Abuse gets throttled, legitimate usage stays free.',
     },
     {
       question: 'How fast are the uptime checks?',

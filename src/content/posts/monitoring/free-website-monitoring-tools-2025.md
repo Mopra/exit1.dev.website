@@ -100,11 +100,11 @@ Here's the unfiltered truth about what each major free monitoring service actual
 ✅ Email + webhook alerts
 ✅ 3 public status pages
 ✅ Full API access
-✅ Nano tier ($3/mo): unlimited monitors, 1-minute checks
+✅ Nano tier ($5/mo): unlimited monitors, 1-minute checks
 ❌ No mobile app (yet)
 ```
 
-**Bottom line**: A generous free tier for small projects, and the Nano tier ($3/month) removes all limits with unlimited monitors and 1-minute checks.
+**Bottom line**: A generous free tier for small projects, and the Nano tier ($5/month) removes all limits with unlimited monitors and 1-minute checks.
 
 #### UptimeRobot
 ```
@@ -200,7 +200,7 @@ Let's break down the features that actually impact your monitoring effectiveness
 
 **1-minute intervals** reduce maximum undetected downtime to 59 seconds—a 5x improvement.
 
-**1-minute intervals** (available on Exit1.dev's Nano tier at $3/month) catch issues fast, often preventing user impact entirely.
+**1-minute intervals** (available on Exit1.dev's Nano tier at $5/month) catch issues fast, often preventing user impact entirely.
 
 ### Geographic Monitoring Importance
 
@@ -371,7 +371,7 @@ After testing every major free monitoring service, Exit1.dev stands out for seve
 
 ### Generous Free Tier, Unlimited on Nano
 - **Free tier**: 10 monitors with 5-minute checks — enough for small projects
-- **Nano tier ($3/month)**: Unlimited monitors with 1-minute checks
+- **Nano tier ($5/month)**: Unlimited monitors with 1-minute checks
 - **Full feature access**: API, webhooks, status pages included on all plans
 
 ### Developer-First Approach
@@ -380,11 +380,11 @@ After testing every major free monitoring service, Exit1.dev stands out for seve
 
 ### Performance Focus
 - **Monitoring from Europe**: Reliable checks on every plan
-- **Fast detection**: 5-minute checks on free, 1-minute on Nano ($3/month)
+- **Fast detection**: 5-minute checks on free, 1-minute on Nano ($5/month)
 - **Reliable alerting**: Multiple notification channels without upgrade pressure
 
 ### No Hidden Gotchas
-- **Transparent pricing**: Free tier is 10 monitors, 5-min checks. Nano is $3/month for unlimited
+- **Transparent pricing**: Free tier is 10 monitors, 5-min checks. Nano is $5/month for unlimited
 - **Data portability**: Easy export and migration
 - **Honest marketing**: Clear limits, no tiny asterisks
 
@@ -393,28 +393,28 @@ After testing every major free monitoring service, Exit1.dev stands out for seve
 Here's what you get with Exit1.dev compared to spending $29/month on Better Stack's startup plan:
 
 ```
-Exit1.dev Nano ($3/mo) vs Better Stack Startup ($29/month):
+Exit1.dev Nano ($5/mo) vs Better Stack Startup ($29/month):
 
 ✅ Unlimited monitors vs 50 monitors
 ✅ 1-minute checks vs 30-second checks
 ✅ 5 locations vs 20+ locations
 ✅ Full API access vs Full API access
 ✅ 3 status pages vs 3 status pages
-✅ $3/month vs $29/month
+✅ $5/month vs $29/month
 
 Exit1.dev Free tier: 10 monitors, 5-minute checks, $0/month
 Trade-off: Fewer monitoring locations, growing integration ecosystem
-Savings: $312/year (Nano vs Better Stack Startup)
+Savings: $288/year (Nano vs Better Stack Startup)
 ```
 
-For most startups and small businesses, Exit1.dev's free tier gets you started, and the Nano tier ($3/month) provides better value than many paid alternatives.
+For most startups and small businesses, Exit1.dev's free tier gets you started, and the Nano tier ($5/month) provides better value than many paid alternatives.
 
 ## Switch to Free
 
 Choosing the best free website monitoring tool depends on your specific needs:
 
 ### Choose Exit1.dev if:
-- You want 10 free monitors to start, with unlimited on Nano ($3/month)
+- You want 10 free monitors to start, with unlimited on Nano ($5/month)
 - You prefer developer-friendly interfaces
 - You need reliable monitoring with clear, honest limits
 - You value transparent, no-gotcha pricing

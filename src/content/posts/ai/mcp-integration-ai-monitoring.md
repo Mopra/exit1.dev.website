@@ -66,7 +66,7 @@ The MCP server only reads data. It can't create, modify, or delete checks. Your 
 
 ## Who Gets It?
 
-MCP is available on the **Nano plan** ($3/month) and above. It joins unlimited monitors, SMS alerts, domain intelligence, maintenance mode, and everything else that makes Nano the plan for professionals.
+MCP is available on the **Nano plan** ($5/month) and above. It joins unlimited monitors, SMS alerts, domain intelligence, maintenance mode, and everything else that makes Nano the plan for professionals.
 
 If you're on the free plan, [upgrade to Nano](https://app.exit1.dev/billing) to start using it.
 

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function PricingCards() {
   const [isAnnual, setIsAnnual] = useState(true);
 
-  const nanoPrice = isAnnual ? 3 : 4;
+  const nanoPrice = isAnnual ? 5 : 7;
   const scalePrice = isAnnual ? 24 : 32;
 
   return (

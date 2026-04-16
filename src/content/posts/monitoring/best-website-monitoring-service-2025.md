@@ -70,7 +70,7 @@ Here's who made it to our final comparison:
 
 ### Exit1.dev
 - **Founded**: 2024 (the developer-first challenger)
-- **Claim to fame**: 10 free monitors, unlimited on Nano ($3/month), transparent service
+- **Claim to fame**: 10 free monitors, unlimited on Nano ($5/month), transparent service
 - **Best for**: Developers, startups, performance-critical applications
 - **Weakness**: Newer player, growing feature set
 
@@ -109,7 +109,7 @@ Let's cut through the marketing and see what each service actually delivers:
 | Robotalp | 10 | 5 min | Email + SMS | None |
 | Exit1.dev | 10 | 5 min | Email + webhooks | 3 public |
 
-**Winner**: UptimeRobot for free volume, Exit1.dev Nano ($3/month) for unlimited
+**Winner**: UptimeRobot for free volume, Exit1.dev Nano ($5/month) for unlimited
 
 ## UptimeRobot: The Old Reliable {#uptimerobot-review}
 
@@ -212,7 +212,7 @@ Exit1.dev takes a different approach—built by developers, for developers who w
 
 ### Strengths
 ✅ **10 free monitors**: Get started with 5-minute checks, no credit card required
-✅ **Unlimited on Nano**: $3/month for unlimited monitors with 1-minute checks
+✅ **Unlimited on Nano**: $5/month for unlimited monitors with 1-minute checks
 ✅ **Transparent service**: Clear operations and processes
 ✅ **Developer-friendly**: API-first design, webhook support
 ✅ **Honest pricing**: No hidden fees or surprise limits
@@ -225,8 +225,8 @@ Exit1.dev takes a different approach—built by developers, for developers who w
 
 ### Pricing Philosophy
 - **Free tier**: 10 monitors, 5-minute checks, core alerts
-- **Nano plan**: $3/month for unlimited monitors, 1-minute checks
-- **Paid plans**: Starting at $3/month for Nano, scaling up for advanced features
+- **Nano plan**: $5/month for unlimited monitors, 1-minute checks
+- **Paid plans**: Starting at $5/month for Nano, scaling up for advanced features
 - **Transparent pricing**: No hidden limits or surprise charges
 
 ### Best For
@@ -235,7 +235,7 @@ Exit1.dev takes a different approach—built by developers, for developers who w
 - **Performance-critical applications** requiring quick detection
 - **Teams** valuing transparency and honest practices
 
-**Bottom line**: Exit1.dev offers a solid free tier with 10 monitors and a developer-first approach. The Nano plan ($3/month) removes all limits with unlimited monitors and 1-minute checks.
+**Bottom line**: Exit1.dev offers a solid free tier with 10 monitors and a developer-first approach. The Nano plan ($5/month) removes all limits with unlimited monitors and 1-minute checks.
 
 ## Free vs Paid: The Truth
 
@@ -253,7 +253,7 @@ Here's our honest assessment for different scenarios:
 
 ### Personal Projects & Side Hustles
 **Best choice**: Exit1.dev or UptimeRobot
-- Exit1.dev for 10 free monitors (or unlimited on Nano at $3/month)
+- Exit1.dev for 10 free monitors (or unlimited on Nano at $5/month)
 - UptimeRobot for 50-monitor limit but proven reliability
 - Both offer genuinely useful free tiers
 
@@ -307,7 +307,7 @@ When switching monitoring services:
 - Best for teams with budget who value quality
 
 **Best Value**: Exit1.dev
-- 10 free monitors, unlimited on Nano ($3/month) with 1-minute checks
+- 10 free monitors, unlimited on Nano ($5/month) with 1-minute checks
 - Developer-friendly approach that actually works
 
 **Best for Beginners**: UptimeRobot
@@ -320,7 +320,7 @@ When switching monitoring services:
 
 ### Final Recommendations
 
-**Start here**: Try Exit1.dev's free tier with 10 monitors, or upgrade to Nano ($3/month) for unlimited. UptimeRobot is solid if you prefer established players.
+**Start here**: Try Exit1.dev's free tier with 10 monitors, or upgrade to Nano ($5/month) for unlimited. UptimeRobot is solid if you prefer established players.
 
 **Scale here**: Better Stack when you need advanced features and have the budget.
 
@@ -328,7 +328,7 @@ When switching monitoring services:
 
 The best website monitoring tools are the ones you'll actually use consistently. Start with what fits your current needs and budget, then upgrade as your requirements grow.
 
-Ready to get started? [Try Exit1.dev's free tier](https://app.exit1.dev/) with 10 monitors and no credit card required. Need unlimited monitors and 1-minute checks? The Nano plan is just $3/month. Set up your first monitor in under 60 seconds.
+Ready to get started? [Try Exit1.dev's free tier](https://app.exit1.dev/) with 10 monitors and no credit card required. Need unlimited monitors and 1-minute checks? The Nano plan is just $5/month. Set up your first monitor in under 60 seconds.
 
 **Related Reading:**
 - [Website Monitoring 101](/blog/website-monitoring-101) - Learn the fundamentals

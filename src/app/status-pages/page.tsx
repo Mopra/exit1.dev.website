@@ -269,7 +269,7 @@ const StatusPages = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Want unlimited status pages?",
-          description: "Create as many status pages as you need with Nano. Use the drag & drop builder to customize layouts for different audiences. Just $3/month."
+          description: "Create as many status pages as you need with Nano. Use the drag & drop builder to customize layouts for different audiences. Just $5/month."
         }}
         video={{
           videoId: "rBmL8lIschk",

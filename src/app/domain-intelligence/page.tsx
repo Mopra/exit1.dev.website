@@ -261,7 +261,7 @@ const DomainIntelligence = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Domain Intelligence is a Nano Feature",
-          description: "Get automatic domain expiration monitoring, smart alerts, and renewal detection with the Nano subscription. Just $3/month (annual) or $4/month (monthly)."
+          description: "Get automatic domain expiration monitoring, smart alerts, and renewal detection with the Nano subscription. Just $5/month (annual) or $7/month (monthly)."
         }}
       />
     </>

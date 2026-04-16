@@ -23,7 +23,7 @@ Free (exit1.dev):
 - API
 - Terminal UI
 - No card
-- Nano ($3/mo): unlimited monitors, 1-min checks
+- Nano ($5/mo): unlimited monitors, 1-min checks
 
 Others: UptimeRobot 50/5-min, Pingdom 1/1-min, StatusCake 10/5-min.
 
@@ -39,7 +39,7 @@ Paid:
 ## Compare
 
 Monitoring:
-| Feature | Free (exit1.dev) | Nano (exit1.dev, $3/mo) | Paid (others) |
+| Feature | Free (exit1.dev) | Nano (exit1.dev, $5/mo) | Paid (others) |
 |---------|------------------|------------------------|------|
 | Checks | 5 min | 1 min | 30s-1 min |
 | Sites | 10 | Unlimited | 100-1000+ |

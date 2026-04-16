@@ -165,7 +165,7 @@ export default function WhyNanoPage() {
             </div>
             
             <p className="text-lg text-white/70 mb-8">
-              Nano costs <strong className="text-white">$3/month</strong> (annual) or <strong className="text-white">$4/month</strong> (monthly).
+              Nano costs <strong className="text-white">$5/month</strong> (annual) or <strong className="text-white">$7/month</strong> (monthly).
             </p>
 
             <div className="p-6 rounded-xl border border-white/10 bg-white/5 mb-8">
@@ -184,7 +184,7 @@ export default function WhyNanoPage() {
 
             <div className="p-6 rounded-xl border border-green-500/30 bg-green-500/10">
               <p className="text-xl font-semibold text-center">
-                Nano: <span className="text-green-400">$3/month</span>. Everything included.
+                Nano: <span className="text-green-400">$5/month</span>. Everything included.
               </p>
             </div>
           </SectionContent>
