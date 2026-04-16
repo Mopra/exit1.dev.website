@@ -65,9 +65,6 @@ export function LiveChecksCounter() {
 
   return (
     <div className="group relative flex flex-col items-center gap-2">
-      <span className="text-xs sm:text-sm uppercase tracking-widest text-white/50">
-        Checks performed
-      </span>
       <Counter
         value={value}
         places={PLACES}
@@ -79,6 +76,9 @@ export function LiveChecksCounter() {
         fontWeight={800}
         gradientHeight={0}
       />
+      <span className="text-xs sm:text-sm uppercase tracking-widest text-white/50">
+        Checks and counting
+      </span>
       <span
         className="pointer-events-none group-hover:pointer-events-auto mt-1 text-xs text-white/60 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
       >
