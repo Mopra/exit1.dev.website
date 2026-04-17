@@ -26,6 +26,15 @@ export function LiveChecksCounter() {
   const statsRef = useRef<ChecksStats>(FALLBACK_STATS);
   const [value, setValue] = useState(0);
   const [rate, setRate] = useState(FALLBACK_STATS.ratePerSecond);
+  const [fontSize, setFontSize] = useState(56);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 640px)");
+    const update = () => setFontSize(mql.matches ? 56 : 36);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -68,7 +77,7 @@ export function LiveChecksCounter() {
       <Counter
         value={value}
         places={PLACES}
-        fontSize={56}
+        fontSize={fontSize}
         padding={6}
         gap={4}
         horizontalPadding={0}
