@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
+import ClarityAnalytics from "@/components/ClarityAnalytics";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -68,6 +69,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <SpeedInsights />
+        <ClarityAnalytics />
       </body>
     </html>
   );
