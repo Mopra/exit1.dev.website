@@ -24,9 +24,19 @@ const PLACES = [
 
 export function LiveChecksCounter() {
   const statsRef = useRef<ChecksStats>(FALLBACK_STATS);
+  const highWaterRef = useRef(0);
   const [value, setValue] = useState(0);
   const [rate, setRate] = useState(FALLBACK_STATS.ratePerSecond);
   const [fontSize, setFontSize] = useState(56);
+
+  // Guard against the displayed number ever decreasing within a session.
+  // The server can legitimately return a lower extrapolation after a refresh
+  // (e.g. `at` jumps forward while `ratePerSecond` drops), but users read a
+  // falling counter as broken.
+  const advance = (next: number) => {
+    if (next > highWaterRef.current) highWaterRef.current = next;
+    setValue(highWaterRef.current);
+  };
 
   useEffect(() => {
     const mql = window.matchMedia("(min-width: 640px)");
@@ -43,7 +53,7 @@ export function LiveChecksCounter() {
     const startTicking = () => {
       if (intervalId) return;
       intervalId = setInterval(() => {
-        setValue(extrapolateTotal(statsRef.current));
+        advance(extrapolateTotal(statsRef.current));
       }, 150);
     };
 
@@ -55,12 +65,12 @@ export function LiveChecksCounter() {
           statsRef.current = data;
           setRate(data.ratePerSecond);
         }
-        setValue(extrapolateTotal(statsRef.current));
+        advance(extrapolateTotal(statsRef.current));
         startTicking();
       })
       .catch(() => {
         if (cancelled) return;
-        setValue(extrapolateTotal(statsRef.current));
+        advance(extrapolateTotal(statsRef.current));
         startTicking();
       });
 
