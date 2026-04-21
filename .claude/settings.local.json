@@ -20,7 +20,19 @@
       "Bash(npx next dev --port 3001)",
       "Bash(timeout /t 15 /nobreak)",
       "Bash(curl:*)",
-      "Bash(powershell -Command:*)"
+      "Bash(powershell -Command:*)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev.website\" status)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev\" status)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev.website\" diff)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev\" diff)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev.website\" log --oneline -5)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev\" log --oneline -5)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev.website\" add src/components/LiveChecksCounter.tsx)",
+      "Bash(git -C c:/Users/morte/Documents/Github/exit1/exit1.dev.website commit -m ' *)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev\" add functions/src/public-stats.ts)",
+      "Bash(git -C c:/Users/morte/Documents/Github/exit1/exit1.dev commit -m ' *)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev.website\" push origin master)",
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev\" push origin master)"
     ]
   }
 }
