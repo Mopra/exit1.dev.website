@@ -16,20 +16,20 @@ import {
 export const metadata: Metadata = {
   title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
   description:
-    'exit1.dev is the blunt, free uptime monitor. 10 monitors with 5-minute checks (unlimited with Nano at 1-minute intervals), instant webhook + email alerts, SSL coverage. No fake free tier.',
+    'exit1.dev is the blunt, free uptime monitor. 10 monitors with 5-minute checks, instant webhook + email alerts, SSL coverage. Upgrade to Nano ($9/mo) for 50 monitors and 2-minute checks, Pro ($24/mo) for 500 monitors and 30-second checks, or Agency ($49/mo) for 1,000 monitors and 15-second checks. No fake free tier.',
   keywords:
-    'free uptime monitor, unlimited uptime monitoring, uptime robot alternative, free website uptime monitoring, free api monitoring',
+    'free uptime monitor, uptime monitoring, uptime robot alternative, free website uptime monitoring, free api monitoring',
   openGraph: {
     title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
     description:
-      '10 free monitors, fast intervals, webhook + email alerts, SSL, and analytics. Upgrade to Nano for unlimited. The free uptime monitor built for people who actually ship.',
+      '10 free monitors, fast intervals, webhook + email alerts, SSL, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
     type: 'website',
     url: 'https://exit1.dev/free-uptime-monitor',
   },
   twitter: {
     title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
     description:
-      '10 free monitors, fast intervals, webhook + email alerts, SSL, and analytics. Upgrade to Nano for unlimited. The free uptime monitor built for people who actually ship.',
+      '10 free monitors, fast intervals, webhook + email alerts, SSL, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
     card: 'summary_large_image',
   },
   alternates: {
@@ -41,12 +41,12 @@ const FreeUptimeMonitorPage = () => {
   const features = [
     {
       title: '10 free monitors, zero invoices',
-      description: 'Track up to 10 sites, APIs, or endpoints on the free tier. Need more? Nano gives you unlimited monitors.',
+      description: 'Track up to 10 sites, APIs, or endpoints on the free tier. Need more? Nano scales to 50, Pro to 500, Agency to 1,000.',
       icon: <Globe className="w-6 h-6 text-white" />,
     },
     {
       title: 'Fast check intervals',
-      description: '5-minute checks free, 1-minute with Nano. Real polling across regions, not artificial limits.',
+      description: '5-minute checks free, 2-minute on Nano, 30-second on Pro, 15-second on Agency. Real polling across regions, not artificial limits.',
       icon: <Clock className="w-6 h-6 text-white" />,
     },
     {
@@ -74,12 +74,12 @@ const FreeUptimeMonitorPage = () => {
   const comparisonTable = [
     {
       feature: 'Free monitors',
-      exit1: '10 (unlimited with Nano)',
+      exit1: '10 (up to 1,000 on paid)',
       competitors: 'Capped unless you pay',
     },
     {
-      feature: '1-minute intervals',
-      exit1: 'Nano plan',
+      feature: 'Sub-minute intervals',
+      exit1: '30-sec on Pro, 15-sec on Agency',
       competitors: 'Locked behind premium',
     },
     {
@@ -118,7 +118,7 @@ const FreeUptimeMonitorPage = () => {
     {
       question: 'Is this really a free uptime monitor?',
       answer:
-        'Yes. The free tier gives you 10 monitors with 5-minute checks. Need more? Nano ($5/mo) unlocks unlimited monitors with 1-minute checks. Abuse gets throttled, legitimate usage stays free.',
+        'Yes. The free tier gives you 10 monitors with 5-minute checks. Need more? Nano ($9/mo) unlocks 50 monitors and 2-minute checks, Pro ($24/mo) scales to 500 monitors and 30-second checks, and Agency ($49/mo) goes to 1,000 monitors and 15-second checks. Abuse gets throttled, legitimate usage stays free.',
     },
     {
       question: 'How fast are the uptime checks?',
@@ -179,7 +179,7 @@ const FreeUptimeMonitorPage = () => {
         data={{
           name: 'Free Uptime Monitor',
           description:
-            'Free uptime monitoring with up to 10 monitors, 5-minute checks, and instant alerts. Upgrade to Nano for unlimited monitors and 1-minute checks.',
+            'Free uptime monitoring with up to 10 monitors, 5-minute checks, and instant alerts. Paid plans scale up to 1,000 monitors with 15-second checks.',
           url: 'https://exit1.dev/free-uptime-monitor',
           brand: {
             '@type': 'Brand',

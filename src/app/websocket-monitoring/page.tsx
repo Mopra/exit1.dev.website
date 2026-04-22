@@ -98,8 +98,8 @@ const WebSocketMonitoring = () => {
       competitors: "Separate service"
     },
     {
-      feature: "1-minute check intervals",
-      exit1: true,
+      feature: "Sub-minute check intervals",
+      exit1: "30-sec on Pro, 15-sec on Agency",
       competitors: "5+ minutes"
     },
     {
@@ -126,7 +126,7 @@ const WebSocketMonitoring = () => {
     },
     {
       question: "Is WebSocket monitoring included in the free tier?",
-      answer: "Yes, WebSocket monitoring is available on both the Free and Nano tiers. On the Free tier you get up to 10 monitors with 5-minute check intervals. On the Nano tier you get unlimited monitors with 1-minute check intervals."
+      answer: "Yes, WebSocket monitoring is available on every plan. Free: 10 monitors, 5-minute checks. Nano ($9/mo): 50 monitors, 2-minute checks. Pro ($24/mo): 500 monitors, 30-second checks. Agency ($49/mo): 1,000 monitors, 15-second checks."
     },
     {
       question: "What is the difference between WS and WSS?",
@@ -150,7 +150,7 @@ const WebSocketMonitoring = () => {
     },
     {
       question: "What alert channels are supported for WebSocket checks?",
-      answer: "WebSocket checks support all the same alert channels as other check types: email, SMS (Nano tier), and webhooks. Webhooks integrate with Slack, Discord, Microsoft Teams, PagerDuty, Opsgenie, and any other webhook-enabled platform."
+      answer: "WebSocket checks support all the same alert channels as other check types: email (all plans), SMS (Pro and Agency), and webhooks (all plans). Slack, Discord, and Microsoft Teams channels are included on Pro and Agency. Webhooks integrate with PagerDuty, Opsgenie, and any other webhook-enabled platform."
     }
   ];
 

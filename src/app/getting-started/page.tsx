@@ -293,7 +293,7 @@ Accept: application/json`}
                       <Smartphone className="w-5 h-5 text-white/60" />
                       <h3 className="text-2xl font-semibold">SMS alerts</h3>
                     </div>
-                    <p className="text-white/70">Availability: SMS alerts are available on the Nano plan or for administrators.</p>
+                    <p className="text-white/70">Availability: SMS alerts are available on the Pro and Agency plans, or for administrators.</p>
                     <div className="space-y-4">
                       <div className="text-white font-semibold">Setup</div>
                       <ol className="space-y-2 text-white/70 list-decimal pl-6">

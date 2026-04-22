@@ -15,17 +15,17 @@ import {
 
 export const metadata: Metadata = {
   title: "Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev",
-  description: "Real-time website monitoring with instant alerts. 10 free monitors with 5-minute checks, unlimited with Nano. Monitor websites, APIs, and SSL certificates. Start monitoring for free.",
+  description: "Real-time website monitoring with instant alerts. 10 free monitors with 5-minute checks; paid plans scale to 1,000 monitors with 15-second checks. Monitor websites, APIs, and SSL certificates. Start monitoring for free.",
   keywords: "real-time monitoring, uptime monitor, website monitoring, free monitoring, API monitoring, SSL monitoring, instant alerts",
   openGraph: {
     title: "Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev",
-    description: "Real-time website monitoring with instant alerts. 10 free monitors with 5-minute checks, unlimited with Nano.",
+    description: "Real-time website monitoring with instant alerts. 10 free monitors with 5-minute checks; paid plans scale to 1,000 monitors with 15-second checks.",
     type: "website",
     url: "https://exit1.dev/real-time-monitoring",
   },
   twitter: {
     title: "Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev",
-    description: "Real-time website monitoring with instant alerts. 10 free monitors with 5-minute checks, unlimited with Nano.",
+    description: "Real-time website monitoring with instant alerts. 10 free monitors with 5-minute checks; paid plans scale to 1,000 monitors with 15-second checks.",
     card: "summary_large_image",
   },
   alternates: {
@@ -37,7 +37,7 @@ const RealTimeMonitoring = () => {
   const features = [
     {
       title: "10 Free Monitors, Zero Cost",
-      description: "Monitor up to 10 sites and APIs free. 5-min checks free, 1-min with Nano. Unlimited with Nano.",
+      description: "Monitor up to 10 sites and APIs free with 5-min checks. Paid plans scale to 50 (Nano), 500 (Pro), or 1,000 (Agency) — with intervals down to 15 seconds.",
       icon: <Globe className="w-6 h-6 text-white" />
     },
     {
@@ -75,13 +75,13 @@ const RealTimeMonitoring = () => {
 
   const comparisonTable: ComparisonRow[] = [
     {
-      feature: "Unlimited websites",
-      exit1: "Nano plan (10 free)",
+      feature: "More monitors",
+      exit1: "10 free, up to 1,000 on Agency",
       competitors: false
     },
     {
-      feature: "1-minute check intervals",
-      exit1: "Nano plan",
+      feature: "Sub-minute check intervals",
+      exit1: "30-sec on Pro, 15-sec on Agency",
       competitors: false
     },
     {
@@ -207,7 +207,7 @@ const RealTimeMonitoring = () => {
         type="Product"
         data={{
           name: "Real-Time Website Monitoring",
-          description: "Real-time website monitoring with 10 free monitors and instant alerts. 5-minute checks free, unlimited monitors and 1-minute checks with Nano.",
+          description: "Real-time website monitoring with 10 free monitors and instant alerts. 5-minute checks free; paid plans scale to 1,000 monitors with intervals down to 15 seconds.",
           url: "https://exit1.dev/real-time-monitoring",
           brand: {
             "@type": "Brand",
@@ -245,20 +245,20 @@ const RealTimeMonitoring = () => {
       
       <ProductPage
         title="Monitoring That Works"
-        subtitle="10 free monitors, instant alerts, unlimited with Nano"
+        subtitle="10 free monitors, instant alerts, scale to 1,000 on paid plans"
         description="Forget capped 'free' tiers. Real monitoring: fast checks, custom auth, smart validation. Built for devs who hate downtime."
         features={features}
         ctaText="Start Watching"
         ctaHref="https://app.exit1.dev/"
         seoTitle="Real-Time Website Monitoring - Free Uptime Monitor | exit1.dev"
-        seoDescription="Real-time website monitoring with 10 free monitors and instant alerts. 5-minute checks free, unlimited monitors and 1-minute checks with Nano."
+        seoDescription="Real-time website monitoring with 10 free monitors and instant alerts. 5-minute checks free; paid plans scale to 1,000 monitors with intervals down to 15 seconds."
         comparisonTable={comparisonTable}
         faq={faq}
         technicalDetails={technicalDetails}
 relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Need SMS alerts and branded status pages?",
-          description: "Nano adds instant SMS notifications, branded status pages, and a drag & drop builder — all for less than a coffee per week."
+          description: "Nano ($9/mo) adds branded status pages, a drag & drop builder, and Domain Intelligence. SMS alerts and API access are included on Pro ($24/mo)."
         }}
       />
     </>

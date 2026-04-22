@@ -41,12 +41,12 @@ export default function NewHomePage() {
               No limits. No catches.
             </h1>
             <p className="text-xl sm:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Check every site, storefront, and API every minute. Unlimited monitors, instant alerts, SSL coverage. No bait-and-switch.
+              Check every site, storefront, and API — down to every 15 seconds. Instant alerts, SSL coverage. No bait-and-switch.
             </p>
 
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-14">
               {[
-                "Unlimited monitors",
+                "Up to 1,000 monitors",
                 "15-second checks",
                 "MCP / AI access",
                 "SSL & domain monitoring",
@@ -269,13 +269,13 @@ export default function NewHomePage() {
             <FeatureGridItem
               href="/real-time-monitoring"
               title="Fast check intervals"
-              description="5-minute checks on Free, 1-minute on Nano. No throttling. Know when things break, not when your billing cycle resets."
+              description="5-min on Free, 2-min on Nano, 30-sec on Pro, 15-sec on Agency. No throttling. Know when things break, not when your billing cycle resets."
               icon={<Zap className="w-6 h-6 text-white" />}
             />
             <FeatureGridItem
               href="/free-uptime-monitor"
-              title="Unlimited monitors with Nano"
-              description="10 monitors free. Upgrade to Nano for unlimited sites. No artificial limits on paid. Just monitoring that works."
+              title="Monitors that scale with you"
+              description="10 monitors free. Nano gets you 50, Pro 500, Agency 1,000. No artificial limits — just monitoring that works."
               icon={<Globe className="w-6 h-6 text-white" />}
             />
             <FeatureGridItem

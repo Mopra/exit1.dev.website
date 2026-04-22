@@ -62,7 +62,7 @@ const StatusPages = () => {
     },
     {
       title: "Drag & Drop Builder",
-      description: "Arrange your monitors exactly how you want them. Drag and drop to reorder, group by service, and create the perfect layout for your audience (Nano plan).",
+      description: "Arrange your monitors exactly how you want them. Drag and drop to reorder, group by service, and create the perfect layout for your audience (Nano and above).",
       icon: <GripVertical className="w-6 h-6 text-white" />
     },
     {
@@ -120,7 +120,7 @@ const StatusPages = () => {
     },
     {
       feature: "Drag & drop builder",
-      exit1: "Nano plan",
+      exit1: "Nano and above",
       competitors: false
     },
     {
@@ -134,8 +134,8 @@ const StatusPages = () => {
       competitors: "No free tier"
     },
     {
-      feature: "Unlimited status pages",
-      exit1: "Nano plan",
+      feature: "Multiple status pages",
+      exit1: "5 on Nano, 25 on Pro, 50 on Agency",
       competitors: "Per-page pricing"
     }
   ];
@@ -147,7 +147,7 @@ const StatusPages = () => {
     },
     {
       question: "Can I show different checks to different audiences?",
-      answer: "Yes, you can create multiple status pages (Nano plan) with different selections of checks for different audiences. Show customer-facing services while keeping internal infrastructure private."
+      answer: "Yes, you can create multiple status pages on any paid plan (5 on Nano, 25 on Pro, 50 on Agency) with different selections of checks for different audiences. Show customer-facing services while keeping internal infrastructure private."
     },
     {
       question: "What happens if a check goes down?",
@@ -268,8 +268,8 @@ const StatusPages = () => {
         technicalDetails={technicalDetails}
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
-          title: "Want unlimited status pages?",
-          description: "Create as many status pages as you need with Nano. Use the drag & drop builder to customize layouts for different audiences. Just $5/month."
+          title: "Need more status pages?",
+          description: "Nano ($9/mo) unlocks the drag & drop builder and 5 pages. Pro gives you 25, Agency 50 — with custom branding across all paid plans."
         }}
         video={{
           videoId: "rBmL8lIschk",

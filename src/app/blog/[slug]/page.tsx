@@ -210,7 +210,7 @@ export default async function BlogPostPage({
                             <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-white transition-colors duration-200" />
                           </div>
                           <p className="text-sm text-white/60 leading-relaxed">
-                            10 free monitors with 5-minute checks. Unlimited monitors and 1-minute checks with Nano. See the feature deep dive and migration checklist.
+                            10 free monitors with 5-minute checks. Paid plans scale to 1,000 monitors with 15-second checks. See the feature deep dive and migration checklist.
                           </p>
                         </CardContent>
                       </InsetCard>

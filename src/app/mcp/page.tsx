@@ -118,7 +118,7 @@ const MCPPage = () => {
       competitors: false,
     },
     {
-      feature: "Available at $5/mo",
+      feature: "Available on Pro ($24/mo) and Agency ($49/mo)",
       exit1: true,
       competitors: "Enterprise only",
     },
@@ -151,7 +151,7 @@ const MCPPage = () => {
     },
     {
       question: "Is MCP available on the free plan?",
-      answer: "MCP is a Nano plan feature. Free plan users can upgrade to Nano starting at $5/month to access it, along with unlimited monitors, SMS alerts, and all other Nano features.",
+      answer: "MCP requires the Pro plan or Agency plan. MCP access follows API access — Pro ($24/mo) gives you 10 API keys and Agency ($49/mo) gives you 25 API keys, alongside 500–1,000 monitors, 30-second to 15-second checks, and SMS alerts.",
     },
     {
       question: "Do I need to install anything?",
@@ -259,9 +259,9 @@ const MCPPage = () => {
         technicalDetails={technicalDetails}
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
-          title: "MCP Is a Nano Feature",
+          title: "MCP is a Pro Feature",
           description:
-            "Connect your AI assistant to exit1.dev and query monitoring data conversationally. Available on the Nano plan starting at $5/month.",
+            "Connect your AI assistant to exit1.dev and query monitoring data conversationally. Available on Pro ($24/mo) with 10 API keys and Agency ($49/mo) with 25 API keys.",
         }}
       />
     </>

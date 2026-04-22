@@ -103,8 +103,8 @@ const ICMPMonitoring = () => {
       competitors: "Basic retry"
     },
     {
-      feature: "1-minute check intervals",
-      exit1: true,
+      feature: "Sub-minute check intervals",
+      exit1: "30-sec on Pro, 15-sec on Agency",
       competitors: "5+ minutes"
     },
     {
@@ -131,7 +131,7 @@ const ICMPMonitoring = () => {
     },
     {
       question: "Is ICMP monitoring included in the free tier?",
-      answer: "Yes, ICMP ping monitoring is available on both the Free and Nano tiers. On the Free tier you get up to 10 monitors with 5-minute check intervals. On the Nano tier you get unlimited monitors with 1-minute check intervals."
+      answer: "Yes, ICMP ping monitoring is available on every plan. Free: 10 monitors with 5-minute intervals. Nano ($9/mo): 50 monitors with 2-minute intervals. Pro ($24/mo): 500 monitors with 30-second intervals. Agency ($49/mo): 1,000 monitors with 15-second intervals."
     },
     {
       question: "When should I use ICMP checks instead of HTTP checks?",
@@ -155,7 +155,7 @@ const ICMPMonitoring = () => {
     },
     {
       question: "What alert channels are supported for ICMP checks?",
-      answer: "ICMP checks support the same alert channels as all other check types: email, SMS (Nano tier), and webhooks. Webhooks integrate with Slack, Discord, Microsoft Teams, PagerDuty, Opsgenie, and any other webhook-enabled platform."
+      answer: "ICMP checks support the same alert channels as all other check types: email (all plans), SMS (Pro and Agency), and webhooks (all plans). Slack, Discord, and Microsoft Teams channels are included on Pro and Agency. Webhooks integrate with PagerDuty, Opsgenie, and any other webhook-enabled platform."
     }
   ];
 

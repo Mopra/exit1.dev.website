@@ -118,7 +118,7 @@ const MaintenanceModePage = () => {
       competitors: false,
     },
     {
-      feature: "Available at $5/mo",
+      feature: "Available from $9/mo (Nano)",
       exit1: true,
       competitors: "$29+/mo plans",
     },
@@ -151,7 +151,7 @@ const MaintenanceModePage = () => {
     },
     {
       question: "Is maintenance mode available on the free tier?",
-      answer: "Maintenance mode is a Nano tier feature. Free-tier users can see the menu option but will be prompted to upgrade. It's available starting at $5/month.",
+      answer: "Maintenance mode is included on Nano, Pro, and Agency. Free-tier users can see the menu option but will be prompted to upgrade. It starts at $9/month on Nano.",
     },
     {
       question: "Can I use maintenance mode via the API?",
@@ -259,9 +259,9 @@ const MaintenanceModePage = () => {
         technicalDetails={technicalDetails}
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
-          title: "Maintenance Mode is a Nano Feature",
+          title: "Maintenance Mode is a Paid Feature",
           description:
-            "Suppress alerts during planned work, schedule recurring windows, and keep your uptime stats clean. Available on the Nano plan starting at $5/month.",
+            "Suppress alerts during planned work, schedule recurring windows, and keep your uptime stats clean. Included on Nano ($9/mo), Pro ($24/mo), and Agency ($49/mo).",
         }}
       />
     </>

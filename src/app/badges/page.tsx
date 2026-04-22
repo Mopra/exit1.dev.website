@@ -63,7 +63,7 @@ const Badges = () => {
     },
     {
       title: "Removable Branding",
-      description: "Free badges include a small exit1.dev footer. Nano and Scale users can remove branding for a clean, white-label look.",
+      description: "Free badges include a small exit1.dev footer. Users on any paid plan can remove branding for a clean, white-label look.",
       icon: <Palette className="w-6 h-6 text-white" />
     },
     {
@@ -111,7 +111,7 @@ const Badges = () => {
     },
     {
       feature: "Removable branding",
-      exit1: "Nano plan",
+      exit1: "Any paid plan",
       competitors: "Enterprise only"
     },
     {
@@ -155,7 +155,7 @@ const Badges = () => {
     },
     {
       question: "Can I remove the exit1.dev branding?",
-      answer: "Yes, Nano and Scale plan users can toggle branding off in the dashboard. Free plan badges include a small exit1.dev footer."
+      answer: "Yes — users on any paid plan (Nano, Pro, Agency) can toggle branding off in the dashboard. Free plan badges include a small exit1.dev footer."
     },
     {
       question: "What happens if my check is paused or deleted?",
@@ -293,7 +293,7 @@ const Badges = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Want clean, unbranded badges?",
-          description: "Remove the exit1.dev footer from your badges with Nano. White-label status badges for your README and docs. Just $5/month."
+          description: "Remove the exit1.dev footer from your badges on any paid plan. White-label status badges for your README and docs, starting at $9/month with Nano."
         }}
       />
     </>
