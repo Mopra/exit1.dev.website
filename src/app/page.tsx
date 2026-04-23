@@ -24,7 +24,6 @@ import { MonitorForm } from "@/components/MonitorForm";
 import { PricingCards } from "@/components/PricingCards";
 import { LazyVideo } from "@/components/LazyVideo";
 import { UptimeBadge } from "@/components/UptimeBadge";
-import { LiveChecksCounter } from "@/components/LiveChecksCounter";
 
 export default function NewHomePage() {
   return (
@@ -32,9 +31,6 @@ export default function NewHomePage() {
       <PageContainer>
         <PageSection id="hero" className="pt-36 pb-20">
           <SectionContent className="p-8 sm:p-12 text-center">
-            <div className="mb-8 flex justify-center">
-              <LiveChecksCounter />
-            </div>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
               Uptime monitoring.
               <br />
