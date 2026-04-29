@@ -32,7 +32,8 @@
       "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev\" add functions/src/public-stats.ts)",
       "Bash(git -C c:/Users/morte/Documents/Github/exit1/exit1.dev commit -m ' *)",
       "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev.website\" push origin master)",
-      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev\" push origin master)"
+      "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev\" push origin master)",
+      "Bash(npx --no-install tsc --noEmit)"
     ]
   }
 }

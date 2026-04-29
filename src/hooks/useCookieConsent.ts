@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { 
-  getCookiePreferences, 
-  setCookieConsent, 
-  setCookiePreferences 
+import {
+  getCookiePreferences,
+  hasConsent,
+  setCookieConsent,
+  setCookiePreferences,
 } from '../lib/cookieUtils';
 
 export interface CookiePreferences {
@@ -19,129 +20,79 @@ export interface CookieConsentState {
   showBanner: boolean;
 }
 
-// Auto-accept analytics by default (no GDPR compliance)
 const defaultPreferences: CookiePreferences = {
-  necessary: true, // Always true, can't be disabled
-  analytics: true, // Auto-accept analytics cookies
-  marketing: false, // Keep marketing opt-in
+  necessary: true,
+  analytics: false,
+  marketing: false,
 };
+
+const CONSENT_EVENT = 'exit1:cookie-consent-changed';
 
 export const useCookieConsent = () => {
   const [consentState, setConsentState] = useState<CookieConsentState>({
-    hasConsented: true, // Auto-consent for analytics
+    hasConsented: false,
     preferences: defaultPreferences,
-    showBanner: false, // Hide banner by default
+    showBanner: false,
   });
 
   useEffect(() => {
-    // Check if user has already given consent
-    const savedPreferences = getCookiePreferences();
-    
-    let preferences = defaultPreferences;
-    if (savedPreferences) {
-      try {
-        preferences = { ...defaultPreferences, ...savedPreferences };
-      } catch (error) {
-        console.error('Error parsing cookie preferences:', error);
-      }
-    } else {
-      // Auto-set analytics consent on first visit
-      setCookieConsent(true);
-      setCookiePreferences(defaultPreferences);
-      enableGoogleAnalytics(); // Auto-enable analytics
-    }
+    const sync = () => {
+      const saved = getCookiePreferences();
+      const responded = hasConsent();
 
-    setConsentState({
-      hasConsented: true, // Always consider consented for analytics
-      preferences,
-      showBanner: false, // Never show banner automatically
-    });
+      if (saved && responded) {
+        setConsentState({
+          hasConsented: true,
+          preferences: { ...defaultPreferences, ...saved },
+          showBanner: false,
+        });
+      } else {
+        setConsentState({
+          hasConsented: false,
+          preferences: defaultPreferences,
+          showBanner: true,
+        });
+      }
+    };
+
+    sync();
+    window.addEventListener(CONSENT_EVENT, sync);
+    return () => window.removeEventListener(CONSENT_EVENT, sync);
   }, []);
 
-  const acceptAll = () => {
-    const newPreferences: CookiePreferences = {
-      necessary: true,
-      analytics: true,
-      marketing: true,
-    };
+  const persist = (prefs: CookiePreferences) => {
+    const next: CookiePreferences = { ...prefs, necessary: true };
 
-    // Set cookies
     setCookieConsent(true);
-    setCookiePreferences(newPreferences);
+    setCookiePreferences(next);
 
-    setConsentState({
-      hasConsented: true,
-      preferences: newPreferences,
-      showBanner: false,
-    });
-
-    // Enable Google Analytics
-    enableGoogleAnalytics();
-  };
-
-  const acceptSelected = (preferences: CookiePreferences) => {
-    // Ensure necessary cookies are always enabled
-    const newPreferences: CookiePreferences = {
-      ...preferences,
-      necessary: true,
-    };
-
-    // Set cookies
-    setCookieConsent(true);
-    setCookiePreferences(newPreferences);
-
-    setConsentState({
-      hasConsented: true,
-      preferences: newPreferences,
-      showBanner: false,
-    });
-
-    // Enable Google Analytics if analytics is accepted
-    if (newPreferences.analytics) {
+    if (next.analytics) {
       enableGoogleAnalytics();
     } else {
       disableGoogleAnalytics();
     }
-  };
-
-  const rejectAll = () => {
-    const newPreferences: CookiePreferences = {
-      necessary: true,
-      analytics: false,
-      marketing: false,
-    };
-
-    // Set cookies
-    setCookieConsent(true);
-    setCookiePreferences(newPreferences);
 
     setConsentState({
       hasConsented: true,
-      preferences: newPreferences,
+      preferences: next,
       showBanner: false,
     });
 
-    // Disable Google Analytics
-    disableGoogleAnalytics();
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event(CONSENT_EVENT));
+    }
   };
 
-  const updatePreferences = (newPreferences: Partial<CookiePreferences>) => {
-    const updatedPreferences: CookiePreferences = {
-      ...consentState.preferences,
-      ...newPreferences,
-      necessary: true, // Always ensure necessary is true
-    };
+  const acceptAll = () =>
+    persist({ necessary: true, analytics: true, marketing: true });
 
-    acceptSelected(updatedPreferences);
-  };
+  const rejectAll = () =>
+    persist({ necessary: true, analytics: false, marketing: false });
 
-  // Add function to show settings modal
-  const showSettings = () => {
-    setConsentState(prev => ({
-      ...prev,
-      showBanner: true,
-    }));
-  };
+  const acceptSelected = (preferences: CookiePreferences) => persist(preferences);
+
+  const updatePreferences = (newPreferences: Partial<CookiePreferences>) =>
+    persist({ ...consentState.preferences, ...newPreferences });
 
   return {
     ...consentState,
@@ -149,11 +100,9 @@ export const useCookieConsent = () => {
     acceptSelected,
     rejectAll,
     updatePreferences,
-    showSettings,
   };
 };
 
-// Google Analytics management functions
 const enableGoogleAnalytics = () => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('consent', 'update', {
@@ -172,7 +121,6 @@ const disableGoogleAnalytics = () => {
   }
 };
 
-// Extend Window interface for gtag
 declare global {
   interface Window {
     gtag: (...args: unknown[]) => void;

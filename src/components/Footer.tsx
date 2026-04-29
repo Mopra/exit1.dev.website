@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import footerContent from '../content/footer.json';
 import CookieSettings from './CookieSettings';
+import CookieBanner from './CookieBanner';
 import { PageContainer } from "@/components/PageLayout";
 import { UptimeBadge } from './UptimeBadge';
 
@@ -210,10 +211,13 @@ const Footer = () => {
       </div>
     </PageContainer>
       
+      {/* Cookie consent banner (first visit) */}
+      <CookieBanner onCustomize={() => setShowCookieSettings(true)} />
+
       {/* Cookie Settings Modal */}
-      <CookieSettings 
-        isOpen={showCookieSettings} 
-        onClose={() => setShowCookieSettings(false)} 
+      <CookieSettings
+        isOpen={showCookieSettings}
+        onClose={() => setShowCookieSettings(false)}
       />
     </footer>
   );
