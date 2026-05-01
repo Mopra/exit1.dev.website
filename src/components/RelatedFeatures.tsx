@@ -36,7 +36,7 @@ export function RelatedFeatures({
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
             {title}
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             {description}
           </p>
         </div>
@@ -49,7 +49,7 @@ export function RelatedFeatures({
               href={feature.href}
               title={feature.title}
               description={feature.description}
-              icon={feature.icon || <Circle className="w-6 h-6 text-white" />}
+              icon={feature.icon || <Circle className="w-6 h-6 text-foreground" />}
             />
           ))}
         </div>

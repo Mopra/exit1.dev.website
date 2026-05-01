@@ -42,7 +42,7 @@ const tools = [
 export function ToolsNav({ current }: { current: string }) {
   return (
     <nav aria-label="Tools" className="w-full mx-auto">
-      <div className="flex flex-wrap items-center justify-center border-b border-white/[0.08]">
+      <div className="flex flex-wrap items-center justify-center border-b border-foreground/[0.08]">
         {tools.map((tool) => {
           const isActive = tool.href === current;
           return (
@@ -52,8 +52,8 @@ export function ToolsNav({ current }: { current: string }) {
               className={cn(
                 "group relative px-3 py-2.5 sm:px-4 text-sm transition-colors duration-150 -mb-px",
                 isActive
-                  ? "text-white font-semibold border-b-2 border-primary"
-                  : "text-muted-foreground hover:text-white"
+                  ? "text-foreground font-semibold border-b-2 border-primary"
+                  : "text-muted-foreground hover:text-foreground"
               )}
               aria-current={isActive ? "page" : undefined}
             >

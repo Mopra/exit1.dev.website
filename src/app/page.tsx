@@ -32,11 +32,11 @@ export default function NewHomePage() {
         <PageSection id="hero" className="pt-36 pb-20">
           <SectionContent className="p-8 sm:p-12 text-center">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
-              Uptime monitoring.
+              Monitor everything.
               <br />
-              No limits. No catches.
+              Miss Nothing.
             </h1>
-            <p className="text-xl sm:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-foreground/70 mb-10 max-w-2xl mx-auto leading-relaxed">
               Check every site, storefront, and API — down to every 15 seconds. Instant alerts, SSL coverage. No bait-and-switch.
             </p>
 
@@ -47,8 +47,8 @@ export default function NewHomePage() {
                 "MCP / AI access",
                 "SSL & domain monitoring",
               ].map((item) => (
-                <span key={item} className="flex items-center gap-2 text-sm sm:text-base text-white/80">
-                  <Check className="w-5 h-5 text-green-400 shrink-0" />
+                <span key={item} className="flex items-center gap-2 text-sm sm:text-base text-foreground/80">
+                  <Check className="w-5 h-5 text-success shrink-0" />
                   {item}
                 </span>
               ))}
@@ -58,7 +58,7 @@ export default function NewHomePage() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full px-8 py-6 text-lg font-semibold bg-white text-black hover:bg-white/90 cursor-pointer"
+                className="rounded-full px-8 py-6 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
               >
                 <a href="https://app.exit1.dev/sign-up" target="_blank" rel="noopener noreferrer">
                   Start Monitoring
@@ -69,7 +69,7 @@ export default function NewHomePage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-full px-8 py-6 text-lg font-semibold border-white/20 hover:bg-white/5 cursor-pointer"
+                className="rounded-full px-8 py-6 text-lg font-semibold text-primary border-primary/20 bg-primary/[0.04] shadow-sm backdrop-blur-md hover:bg-primary/[0.08] hover:border-primary/30 cursor-pointer"
               >
                 <Link href="/getting-started">
                   See How It Works
@@ -86,10 +86,10 @@ export default function NewHomePage() {
         </PageSection>
 
         {/* Social Proof Section */}
-        <PageSection className="py-6 border-y border-white/10 bg-white/[0.02]">
+        <PageSection className="py-6 border-y border-foreground/10 bg-foreground/[0.02]">
           <SectionContent>
             <div className="flex flex-col sm:grid sm:grid-cols-4 items-center gap-6 sm:gap-0">
-              <div className="flex items-center justify-center gap-3 sm:border-r sm:border-white/20">
+              <div className="flex items-center justify-center gap-3 sm:border-r sm:border-foreground/20">
                 <Image
                   src="/eu.svg"
                   alt="European Union flag"
@@ -98,18 +98,18 @@ export default function NewHomePage() {
                   className="rounded-sm"
                 />
                 <div className="flex flex-col">
-                  <span className="text-xs text-white/70 font-medium">Made and hosted in the</span>
-                  <span className="text-xs text-white/70 font-bold">European Union</span>
+                  <span className="text-xs text-foreground/70 font-medium">Made and hosted in the</span>
+                  <span className="text-xs text-foreground/70 font-bold">European Union</span>
                 </div>
               </div>
-              <div className="flex justify-center sm:border-r sm:border-white/20">
+              <div className="flex justify-center sm:border-r sm:border-foreground/20">
                 <UptimeBadge type="uptime" />
               </div>
               <a
                 href="https://peerpush.net/p/exit1dev"
                 target="_blank"
                 rel="noopener"
-                className="flex justify-center sm:border-r sm:border-white/20 opacity-70 hover:opacity-100 transition-opacity"
+                className="flex justify-center sm:border-r sm:border-foreground/20 opacity-70 hover:opacity-100 transition-opacity"
               >
                 <Image
                   src="https://peerpush.net/p/exit1dev/badge"
@@ -123,7 +123,7 @@ export default function NewHomePage() {
                   href="https://discord.com/invite/uZvWbpwJZS"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-1.5 bg-[#5865F2] hover:bg-[#4752C4] rounded-md transition-colors duration-200"
+                  className="flex items-center gap-2 px-3 py-1.5 bg-brand-discord hover:bg-brand-discord/80 rounded-md transition-colors duration-200"
                 >
                   <Image
                     src="/discord.svg"
@@ -140,7 +140,7 @@ export default function NewHomePage() {
 
         <PageSection>
           <SectionContent size="xl">
-            <div className="overflow-hidden rounded-lg border border-white/10 shadow-2xl">
+            <div className="overflow-hidden">
               <LazyVideo
                 src="/adding-checks.mp4"
                 className="w-full h-auto scale-[1.6]"
@@ -154,9 +154,9 @@ export default function NewHomePage() {
           <SectionContent size="lg">
             <div className="grid md:grid-cols-2 gap-6">
               {/* Featured testimonial — spans full height on left */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10 flex flex-col justify-between md:row-span-2">
+              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-8 sm:p-10 flex flex-col justify-between md:row-span-2">
                 <div>
-                  <p className="text-xl sm:text-2xl text-white/90 leading-relaxed mb-8">
+                  <p className="text-xl sm:text-2xl text-foreground/90 leading-relaxed mb-8">
                     &ldquo;Exit1 is a fantastic tool that performs exactly as advertised, but the level of support behind it is what makes it world-class. When I reached out via Discord for a custom modification, the developer responded immediately. Not only was the work finished in a matter of hours, but they went above and beyond by adding extra touches I hadn&apos;t even asked for. It&apos;s rare to find this level of dedication and speed.&rdquo;
                   </p>
                 </div>
@@ -169,12 +169,12 @@ export default function NewHomePage() {
                     className="rounded-full object-cover"
                   />
                   <div>
-                    <div className="font-semibold text-white">Nick Frame</div>
+                    <div className="font-semibold text-foreground">Nick Frame</div>
                     <a
                       href="https://seoverse.co.uk/"
                       target="_blank"
                       rel="noopener"
-                      className="flex items-center gap-2 text-white/60 text-sm hover:text-white/80 transition-colors"
+                      className="flex items-center gap-2 text-foreground/60 text-sm hover:text-foreground/80 transition-colors"
                     >
                       <Image
                         src="/testimonials/SEROVERSE Logo.png"
@@ -190,8 +190,8 @@ export default function NewHomePage() {
               </div>
 
               {/* Top-right card */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10 flex flex-col justify-between">
-                <p className="text-lg text-white/90 leading-relaxed mb-6">
+              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-8 sm:p-10 flex flex-col justify-between">
+                <p className="text-lg text-foreground/90 leading-relaxed mb-6">
                   &ldquo;The support at exit1.dev is absolutely absurd—I&apos;ve never felt so backed by a tool, and the product itself is fabulous, delivering 10x the performance of our old stack at a mere fraction of the cost.&rdquo;
                 </p>
                 <div className="flex items-center gap-4">
@@ -203,12 +203,12 @@ export default function NewHomePage() {
                     className="rounded-full object-cover"
                   />
                   <div>
-                    <div className="font-semibold text-white">Nicholas Schibuola</div>
+                    <div className="font-semibold text-foreground">Nicholas Schibuola</div>
                     <a
                       href="https://kerners.co/"
                       target="_blank"
                       rel="noopener"
-                      className="flex items-center gap-2 text-white/60 text-sm hover:text-white/80 transition-colors"
+                      className="flex items-center gap-2 text-foreground/60 text-sm hover:text-foreground/80 transition-colors"
                     >
                       <Image
                         src="/testimonials/Kerners Logo.jpeg"
@@ -224,8 +224,8 @@ export default function NewHomePage() {
               </div>
 
               {/* Bottom-right card */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10 flex flex-col justify-between">
-                <p className="text-lg text-white/90 leading-relaxed mb-6">
+              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-8 sm:p-10 flex flex-col justify-between">
+                <p className="text-lg text-foreground/90 leading-relaxed mb-6">
                   &ldquo;We&apos;ve loved using Exit1 to provide distributed &amp; worldwide monitoring to our clients websites and critical business applications, with lightning fast SMS, Webhook and email alerts, reasonable no-nonsense pricing, and friendly support who will always lend a helping hand. There&apos;s not really a better choice&rdquo;
                 </p>
                 <div className="flex items-center gap-4">
@@ -237,12 +237,12 @@ export default function NewHomePage() {
                     className="rounded-full object-cover"
                   />
                   <div>
-                    <div className="font-semibold text-white">Kai Randles</div>
+                    <div className="font-semibold text-foreground">Kai Randles</div>
                     <a
                       href="https://4umediagroup.co.uk/"
                       target="_blank"
                       rel="noopener"
-                      className="flex items-center gap-2 text-white/60 text-sm hover:text-white/80 transition-colors"
+                      className="flex items-center gap-2 text-foreground/60 text-sm hover:text-foreground/80 transition-colors"
                     >
                       <Image
                         src="/testimonials/4u Entertainment Logo.png"
@@ -266,72 +266,72 @@ export default function NewHomePage() {
               href="/real-time-monitoring"
               title="Fast check intervals"
               description="5-min on Free, 2-min on Nano, 30-sec on Pro, 15-sec on Agency. No throttling. Know when things break, not when your billing cycle resets."
-              icon={<Zap className="w-6 h-6 text-white" />}
+              icon={<Zap className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/free-uptime-monitor"
               title="Monitors that scale with you"
               description="10 monitors free. Nano gets you 50, Pro 500, Agency 1,000. No artificial limits — just monitoring that works."
-              icon={<Globe className="w-6 h-6 text-white" />}
+              icon={<Globe className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/ssl-monitoring"
               title="SSL monitoring"
               description="Certificate expiry alerts. Domain validation. Full coverage without the enterprise price tag."
-              icon={<Shield className="w-6 h-6 text-white" />}
+              icon={<Shield className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/analytics"
               title="Real-time analytics"
               description="Response times, uptime percentages, incident logs. All exportable. No data lock-in."
-              icon={<BarChart3 className="w-6 h-6 text-white" />}
+              icon={<BarChart3 className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/alerting"
               title="Smart Alerting"
               description="Webhook integration. Email alerts. SMS alerts. Custom rules."
-              icon={<Bell className="w-6 h-6 text-white" />}
+              icon={<Bell className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/domain-intelligence"
               title="Domain Intelligence"
               description="Know when domains expire before they become someone else's problem. Automatic tracking, smart alerts."
-              icon={<Search className="w-6 h-6 text-white" />}
+              icon={<Search className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/icmp-monitoring"
               title="ICMP Ping Monitoring"
               description="Ping any host on the internet. Track round-trip latency, TTL, and get instant alerts when infrastructure goes down."
-              icon={<Activity className="w-6 h-6 text-white" />}
+              icon={<Activity className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/websocket-monitoring"
               title="WebSocket Monitoring"
               description="Monitor WS and WSS endpoints. Verify handshake connections, track latency, and catch upgrade failures before users notice."
-              icon={<Radio className="w-6 h-6 text-white" />}
+              icon={<Radio className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/maintenance-mode"
               title="Maintenance Mode"
               description="Suppress alerts during planned work. Checks keep running, data keeps flowing, your phone stays silent."
-              icon={<Wrench className="w-6 h-6 text-white" />}
+              icon={<Wrench className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/mcp"
               title="MCP Integration"
               description="Connect to Claude, Cursor, VS Code, Windsurf, and more. Ask about uptime, failures, and response times in plain English."
-              icon={<Bot className="w-6 h-6 text-white" />}
+              icon={<Bot className="w-6 h-6 text-foreground" />}
             />
-            <div className="md:col-span-2 group block bg-black px-20 py-20 border-inset">
+            <div className="md:col-span-2 group block bg-background px-20 py-20 border-inset">
               <div className="flex items-start justify-between mb-6">
-                <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
-                  <BadgeCheck className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 rounded-lg bg-foreground/5 flex items-center justify-center">
+                  <BadgeCheck className="w-6 h-6 text-foreground" />
                 </div>
               </div>
               <Link href="/badges" className="group">
                 <h3 className="text-2xl font-semibold mb-3">Status Badges</h3>
               </Link>
-              <p className="text-white/60 leading-relaxed mb-6">Embeddable badges showing real-time status, uptime percentage, and response time. Drop them in your README, docs, or footer.</p>
+              <p className="text-foreground/60 leading-relaxed mb-6">Embeddable badges showing real-time status, uptime percentage, and response time. Drop them in your README, docs, or footer.</p>
               <UptimeBadge type="response" />
             </div>
           </div>
@@ -378,14 +378,14 @@ export default function NewHomePage() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
               Monitor everywhere.
             </h2>
-            <p className="text-xl text-white/70 mb-8 leading-relaxed">
+            <p className="text-xl text-foreground/70 mb-8 leading-relaxed">
               Global monitoring locations. Instant alerts via email, webhooks and SMS. API access for automation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5 cursor-pointer"
+                className="rounded-full px-6 py-3 border-foreground/20 hover:bg-foreground/5 cursor-pointer"
               >
                 <Link href="/global-monitoring">
                   More about infrastructure
@@ -394,7 +394,7 @@ export default function NewHomePage() {
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5 cursor-pointer"
+                className="rounded-full px-6 py-3 border-foreground/20 hover:bg-foreground/5 cursor-pointer"
               >
                 <Link href="/api-webhooks">
                   API Documentation
@@ -410,74 +410,77 @@ export default function NewHomePage() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
               Integrate with your stack
             </h2>
-            <p className="text-xl text-white/70 mb-12 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-foreground/70 mb-12 leading-relaxed max-w-2xl mx-auto">
               Get alerts where your team already works. Native integrations plus webhooks for everything else.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {/* Slack */}
-              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-center hover:bg-white/[0.07] transition-colors">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+              <div className="p-8 rounded-2xl border border-foreground/10 bg-foreground/5 text-center hover:bg-foreground/[0.07] transition-colors">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-foreground/10 flex items-center justify-center">
                   <Image
                     src="/slack.svg"
                     alt="Slack"
                     width={32}
                     height={32}
+                    className="brightness-0"
                   />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Slack</h3>
-                <p className="text-white/60 text-sm">
+                <p className="text-foreground/60 text-sm">
                   Instant alerts in your channels. No context switching.
                 </p>
               </div>
 
               {/* Discord */}
-              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-center hover:bg-white/[0.07] transition-colors">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+              <div className="p-8 rounded-2xl border border-foreground/10 bg-foreground/5 text-center hover:bg-foreground/[0.07] transition-colors">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-foreground/10 flex items-center justify-center">
                   <Image
                     src="/discord.svg"
                     alt="Discord"
                     width={32}
                     height={32}
+                    className="brightness-0"
                   />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Discord</h3>
-                <p className="text-white/60 text-sm">
+                <p className="text-foreground/60 text-sm">
                   Stay informed with your community or team server.
                 </p>
               </div>
 
               {/* Teams */}
-              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-center hover:bg-white/[0.07] transition-colors">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+              <div className="p-8 rounded-2xl border border-foreground/10 bg-foreground/5 text-center hover:bg-foreground/[0.07] transition-colors">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-foreground/10 flex items-center justify-center">
                   <Image
                     src="/integrations/teams.svg"
                     alt="Microsoft Teams"
                     width={32}
                     height={32}
+                    className="brightness-0"
                   />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Teams</h3>
-                <p className="text-white/60 text-sm">
+                <p className="text-foreground/60 text-sm">
                   Alerts directly in your Microsoft Teams channels.
                 </p>
               </div>
 
               {/* Webhooks */}
-              <div className="p-8 rounded-2xl border border-white/10 bg-white/5 text-center hover:bg-white/[0.07] transition-colors">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
-                  <Webhook className="w-8 h-8 text-white" />
+              <div className="p-8 rounded-2xl border border-foreground/10 bg-foreground/5 text-center hover:bg-foreground/[0.07] transition-colors">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-foreground/10 flex items-center justify-center">
+                  <Webhook className="w-8 h-8 text-foreground" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Webhooks</h3>
-                <p className="text-white/60 text-sm">
+                <p className="text-foreground/60 text-sm">
                   Connect to any platform. PagerDuty, Opsgenie, custom systems.
                 </p>
               </div>
             </div>
 
             {/* Logo Wall */}
-            <div className="mt-16 pt-12 border-t border-white/10">
-              <p className="text-sm text-white/50 mb-8 uppercase tracking-wider font-medium">
+            <div className="mt-16 pt-12 border-t border-foreground/10">
+              <p className="text-sm text-foreground/50 mb-8 uppercase tracking-wider font-medium">
                 Works with any webhook-enabled platform
               </p>
               <div className="grid grid-cols-4 sm:grid-cols-7 gap-6 max-w-4xl mx-auto items-center justify-items-center">
@@ -499,7 +502,7 @@ export default function NewHomePage() {
                 ].map((integration) => (
                   <div
                     key={integration.name}
-                    className="group flex items-center justify-center w-12 h-12 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                    className="group flex items-center justify-center w-12 h-12 rounded-lg bg-foreground/10 hover:bg-foreground/20 transition-colors"
                     title={integration.name}
                   >
                     <Image
@@ -507,7 +510,7 @@ export default function NewHomePage() {
                       alt={integration.name}
                       width={24}
                       height={24}
-                      className="opacity-90 group-hover:opacity-100 transition-opacity brightness-0 invert"
+                      className="opacity-80 group-hover:opacity-100 transition-opacity brightness-0"
                     />
                   </div>
                 ))}
@@ -518,7 +521,7 @@ export default function NewHomePage() {
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5 cursor-pointer"
+                className="rounded-full px-6 py-3 border-foreground/20 hover:bg-foreground/5 cursor-pointer"
               >
                 <Link href="/api-webhooks">
                   View integration docs
@@ -534,7 +537,7 @@ export default function NewHomePage() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
               Simple pricing
             </h2>
-            <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto mb-12">
+            <p className="text-xl text-foreground/70 leading-relaxed max-w-2xl mx-auto mb-12">
               Start free with everything you need. Upgrade when you want more.
             </p>
 
@@ -546,7 +549,7 @@ export default function NewHomePage() {
               <Button
                 asChild
                 variant="link"
-                className="text-white/70 hover:text-white"
+                className="text-foreground/70 hover:text-foreground"
               >
                 <Link href="/pricing">
                   View full pricing details
@@ -563,7 +566,7 @@ export default function NewHomePage() {
               <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
                 A generous free tier
               </h2>
-              <p className="text-xl text-white/70 leading-relaxed">
+              <p className="text-xl text-foreground/70 leading-relaxed">
                 Core monitoring shouldn&apos;t cost $20-50/month. We keep the essentials free because they should be.
               </p>
             </SectionContent>
@@ -574,19 +577,19 @@ export default function NewHomePage() {
               href="/about"
               title="Built for ourselves first"
               description="We built this because the competition couldn&apos;t keep our side projects online without nagging us to upgrade. So we rolled our own."
-              icon={<CheckCircle2 className="w-6 h-6 text-white" />}
+              icon={<CheckCircle2 className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/global-monitoring"
               title="Boring infrastructure"
               description="Serverless at scale. Modern cloud infrastructure makes this cheap to run. We pass the savings to you."
-              icon={<CheckCircle2 className="w-6 h-6 text-white" />}
+              icon={<CheckCircle2 className="w-6 h-6 text-foreground" />}
             />
             <FeatureGridItem
               href="/pricing"
               title="Pay only for extras"
               description="Free covers everything hobbyists need. Nano is for professionals who monitor client sites, need SMS at 3am, or want branded status pages."
-              icon={<CheckCircle2 className="w-6 h-6 text-white" />}
+              icon={<CheckCircle2 className="w-6 h-6 text-foreground" />}
             />
           </div>
         </PageSection>

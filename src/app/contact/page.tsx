@@ -47,7 +47,7 @@ export default function ContactPage() {
                 <div className="mb-6 sm:mb-8">
                   <Link
                     href="/"
-                    className="inline-flex items-center text-white/70 hover:text-white transition-colors duration-200 mb-4 sm:mb-6 text-sm sm:text-base cursor-pointer interactive"
+                    className="inline-flex items-center text-foreground/70 hover:text-foreground transition-colors duration-200 mb-4 sm:mb-6 text-sm sm:text-base cursor-pointer interactive"
                   >
                     <ArrowLeft className="mr-2 w-3 h-3 sm:w-4 sm:h-4" />
                     Back to Home
@@ -59,7 +59,7 @@ export default function ContactPage() {
                 </h1>
 
                 <div className="prose prose-sm sm:prose lg:prose-lg max-w-none">
-                  <p className="text-xl sm:text-2xl text-white/70 leading-relaxed mb-8">
+                  <p className="text-xl sm:text-2xl text-foreground/70 leading-relaxed mb-8">
                     Have a question, feature request, or just want to say hi? I&apos;m here to help. <strong>I want the tough feedback</strong> — it&apos;s how we build better software.
                   </p>
                 </div>
@@ -71,16 +71,16 @@ export default function ContactPage() {
                   <InsetCard className="h-full">
                     <CardContent className="p-8">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2 bg-white/10 rounded-lg">
-                          <Mail className="w-5 h-5 text-white" />
+                        <div className="p-2 bg-foreground/10 rounded-lg">
+                          <Mail className="w-5 h-5 text-foreground" />
                         </div>
                         <h2 className="text-xl font-semibold">Email</h2>
                       </div>
-                      <p className="text-white/70 mb-6">
+                      <p className="text-foreground/70 mb-6">
                         For direct questions, feature requests, or feedback. I read every email.
                       </p>
                       {email && (
-                        <Button asChild className="w-full rounded-full bg-white text-black hover:bg-white/90 cursor-pointer">
+                        <Button asChild className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer">
                           <a href={`mailto:${email.replace(/[at]/g, '@').replace(/[dot]/g, '.')}`}>
                             <Mail className="mr-2 w-4 h-4" />
                             {email}
@@ -93,15 +93,15 @@ export default function ContactPage() {
                   <InsetCard className="h-full">
                     <CardContent className="p-8">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2 bg-white/10 rounded-lg">
-                          <MessageCircle className="w-5 h-5 text-white" />
+                        <div className="p-2 bg-foreground/10 rounded-lg">
+                          <MessageCircle className="w-5 h-5 text-foreground" />
                         </div>
                         <h2 className="text-xl font-semibold">Community</h2>
                       </div>
-                      <p className="text-white/70 mb-6">
+                      <p className="text-foreground/70 mb-6">
                         Join our Discord community for help, ideas, and calling out nonsense.
                       </p>
-                      <Button asChild className="w-full rounded-full bg-white text-black hover:bg-white/90 cursor-pointer">
+                      <Button asChild className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer">
                         <a href="https://discord.gg/uZvWbpwJZS" target="_blank" rel="noopener noreferrer">
                           <MessageCircle className="mr-2 w-4 h-4" />
                           Join Discord
@@ -114,19 +114,19 @@ export default function ContactPage() {
                     <CardContent className="p-8">
                       <h2 className="text-xl font-semibold mb-6">Connect & Follow</h2>
                       <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
-                        <Button variant="outline" asChild className="w-full rounded-full border-white/20 hover:bg-white/5 cursor-pointer">
+                        <Button variant="outline" asChild className="w-full rounded-full border-foreground/20 hover:bg-foreground/5 cursor-pointer">
                           <a href="https://www.linkedin.com/in/mopradk/" target="_blank" rel="noopener noreferrer">
                             <Linkedin className="mr-2 w-4 h-4" />
                             LinkedIn
                           </a>
                         </Button>
-                        <Button variant="outline" asChild className="w-full rounded-full border-white/20 hover:bg-white/5 cursor-pointer">
+                        <Button variant="outline" asChild className="w-full rounded-full border-foreground/20 hover:bg-foreground/5 cursor-pointer">
                           <a href="https://github.com/Mopra" target="_blank" rel="noopener noreferrer">
                             <Github className="mr-2 w-4 h-4" />
                             GitHub
                           </a>
                         </Button>
-                        <Button variant="outline" asChild className="w-full rounded-full border-white/20 hover:bg-white/5 cursor-pointer">
+                        <Button variant="outline" asChild className="w-full rounded-full border-foreground/20 hover:bg-foreground/5 cursor-pointer">
                           <a href="https://x.com/m_prads" target="_blank" rel="noopener noreferrer">
                             <Twitter className="mr-2 w-4 h-4" />
                             X (Twitter)
@@ -147,14 +147,14 @@ export default function ContactPage() {
                             alt="Morten Pradsgaard - Founder & CTO of exit1.dev"
                             width={80}
                             height={80}
-                            className="rounded-full border border-white/20"
+                            className="rounded-full border border-foreground/20"
                             priority
                           />
                         </div>
                         <div className="flex-1">
-                          <h2 className="text-xl font-semibold text-white mb-2">Morten Pradsgaard</h2>
-                          <p className="text-base text-white/70 font-medium mb-3">Founder & CTO</p>
-                          <p className="text-base text-white/70 leading-relaxed">
+                          <h2 className="text-xl font-semibold text-foreground mb-2">Morten Pradsgaard</h2>
+                          <p className="text-base text-foreground/70 font-medium mb-3">Founder & CTO</p>
+                          <p className="text-base text-foreground/70 leading-relaxed">
                             I&apos;m the person behind exit1.dev. I build software that ships and stays up.
                             When you reach out, you&apos;re talking directly to me — no support bots, no ticket queues,
                             just straight talk about monitoring and building reliable software.
@@ -168,9 +168,9 @@ export default function ContactPage() {
                 <div className="mt-8 sm:mt-12 text-center">
                   <InsetCard>
                     <CardContent className="p-6">
-                      <h2 className="text-xl font-semibold text-white mb-2">Looking for answers?</h2>
-                      <p className="text-base text-white/70 mb-4">
-                        Check the <a href="https://docs.exit1.dev" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-4 hover:text-white/80 transition-colors">documentation</a> for guides on monitoring, alerting, status pages, API reference, and more.
+                      <h2 className="text-xl font-semibold text-foreground mb-2">Looking for answers?</h2>
+                      <p className="text-base text-foreground/70 mb-4">
+                        Check the <a href="https://docs.exit1.dev" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:text-foreground/80 transition-colors">documentation</a> for guides on monitoring, alerting, status pages, API reference, and more.
                       </p>
                     </CardContent>
                   </InsetCard>
@@ -179,8 +179,8 @@ export default function ContactPage() {
                 <div className="mt-4 text-center">
                   <InsetCard>
                     <CardContent className="p-6">
-                      <h2 className="text-xl font-semibold text-white mb-2">Response Time</h2>
-                      <p className="text-base text-white/70">
+                      <h2 className="text-xl font-semibold text-foreground mb-2">Response Time</h2>
+                      <p className="text-base text-foreground/70">
                         I typically respond within <strong>24 hours</strong>. For urgent issues,
                         the Discord community is your fastest path to help.
                       </p>

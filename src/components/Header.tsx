@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
@@ -84,6 +84,7 @@ export default function Header() {
       setIsScrolled(window.scrollY > 10)
     }
 
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -94,35 +95,39 @@ export default function Header() {
 
   return (
     <header 
-      className={cn(
-        "fixed top-4 left-4 right-4 z-50 transition-all duration-500",
-        isScrolled && "shadow-xl"
-      )}
+      className="fixed top-4 left-4 right-4 z-50 transition-all duration-500"
       role="banner"
     >
-      <GlassSurface
-        width="100%"
-        height={56}
-        borderRadius={16}
-        brightness={60}
-        opacity={0.8}
-        blur={8}
-        displace={2}
-        backgroundOpacity={0.2}
-        saturation={1.2}
-        distortionScale={-120}
-        redOffset={5}
-        greenOffset={15}
-        blueOffset={25}
-        mixBlendMode="screen"
-        className="cursor-pointer"
-        allowOverflow={true}
+      <div
+        className={cn(
+          "rounded-2xl transition-shadow duration-500",
+          isScrolled && "shadow-xl"
+        )}
+      >
+        <GlassSurface
+          width="100%"
+          height={56}
+          borderRadius={16}
+          brightness={60}
+          opacity={0.8}
+          blur={8}
+          displace={2}
+          backgroundOpacity={0.94}
+          saturation={1.2}
+          distortionScale={-120}
+          redOffset={5}
+          greenOffset={15}
+          blueOffset={25}
+          mixBlendMode="screen"
+          surfaceTint="#161616"
+          className="cursor-pointer"
+          allowOverflow={true}
       >
         <div className="flex items-center h-14 px-4 sm:px-6 w-full">
           {/* Logo - Left */}
           <Link 
             href="/" 
-            className="flex items-center text-foreground hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg interactive"
+            className="flex items-center text-white hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg interactive"
             aria-label="Go to homepage"
           >
             <Image 
@@ -147,7 +152,7 @@ export default function Header() {
                   key={item.href}
                   variant="ghost"
                   size="sm"
-                  className="text-sm font-medium rounded-full hover:bg-black/90 hover:text-primary transition-all duration-200 interactive"
+                  className="text-sm font-medium text-white rounded-full hover:bg-background/90 hover:text-primary transition-all duration-200 interactive"
                   asChild
                 >
                   {'external' in item && item.external ? (
@@ -163,21 +168,21 @@ export default function Header() {
               ))}
 
               {/* Dropdown Menus — single NavigationMenu root for instant transitions */}
-              <NavigationMenu delayDuration={0}>
+              <NavigationMenu delayDuration={0} viewport={false}>
                 <NavigationMenuList className="gap-0">
                   {/* Features Mega Menu */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
-                      className="text-sm font-medium rounded-full cursor-pointer bg-transparent hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary"
+                      className="text-sm font-medium text-white rounded-full cursor-pointer bg-transparent hover:bg-background/90 data-[state=open]:bg-background/90 hover:text-primary data-[state=open]:text-primary"
                       aria-label={`Open ${featuresMenu.name} menu`}
                     >
                       {featuresMenu.name}
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="left-1/2 -translate-x-1/2">
-                      <div className="grid grid-cols-3 gap-6 p-6 w-[calc(100vw-3rem)] max-w-[680px] backdrop-blur-xl rounded-xl">
+                    <NavigationMenuContent className="left-1/2 -translate-x-1/2 border border-white/10 bg-[#161616] text-white shadow-2xl rounded-xl">
+                      <div className="grid grid-cols-3 gap-6 p-6 w-[calc(100vw-3rem)] max-w-[680px]">
                         {featuresMenu.sections.map((section) => (
                           <div key={section.title}>
-                            <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3 px-3">
+                            <div className="text-xs font-semibold text-white/55 uppercase tracking-wide mb-3 px-3">
                               {section.title}
                             </div>
                             <div className="space-y-1">
@@ -185,11 +190,11 @@ export default function Header() {
                                 <NavigationMenuLink key={item.href} asChild>
                                   <Link
                                     href={item.href}
-                                    className="block p-3 rounded-xl text-left hover:bg-primary/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
+                                    className="block p-3 rounded-xl text-left hover:bg-white/8 hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
                                     aria-label={`Learn more about ${item.name}`}
                                   >
-                                    <div className="font-medium text-foreground text-sm">{item.name}</div>
-                                    <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                                    <div className="font-medium text-white text-sm">{item.name}</div>
+                                    <div className="text-xs text-white/65 mt-0.5">{item.description}</div>
                                   </Link>
                                 </NavigationMenuLink>
                               ))}
@@ -197,10 +202,10 @@ export default function Header() {
                           </div>
                         ))}
                       </div>
-                      <div className="border-t border-primary/10 px-6 py-3">
+                      <div className="border-t border-white/10 px-6 py-3">
                         <Link
                           href={featuresMenu.footerLink.href}
-                          className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors interactive"
+                          className="flex items-center gap-1.5 text-sm text-white/70 hover:text-primary transition-colors interactive"
                         >
                           {featuresMenu.footerLink.name}
                           <ArrowRight className="h-3.5 w-3.5" />
@@ -212,22 +217,22 @@ export default function Header() {
                   {/* Tools Dropdown */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
-                      className="text-sm font-medium rounded-full cursor-pointer bg-transparent hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary"
+                      className="text-sm font-medium text-white rounded-full cursor-pointer bg-transparent hover:bg-background/90 data-[state=open]:bg-background/90 hover:text-primary data-[state=open]:text-primary"
                       aria-label={`Open ${toolsMenu.name} menu`}
                     >
                       {toolsMenu.name}
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="left-1/2 -translate-x-1/2">
-                      <div className="w-64 p-3 backdrop-blur-xl rounded-xl">
+                    <NavigationMenuContent className="left-1/2 -translate-x-1/2 border border-white/10 bg-[#161616] text-white shadow-2xl rounded-xl">
+                      <div className="w-64 p-3">
                         {toolsMenu.items.map((item) => (
                           <NavigationMenuLink key={item.href} asChild>
                             <Link
                               href={item.href}
-                              className="block p-3 rounded-xl text-left hover:bg-primary/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
+                              className="block p-3 rounded-xl text-left hover:bg-white/8 hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
                               aria-label={item.name}
                             >
-                              <div className="font-medium text-foreground text-sm">{item.name}</div>
-                              <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                              <div className="font-medium text-white text-sm">{item.name}</div>
+                              <div className="text-xs text-white/65 mt-0.5">{item.description}</div>
                             </Link>
                           </NavigationMenuLink>
                         ))}
@@ -238,13 +243,13 @@ export default function Header() {
                   {/* Company Dropdown */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
-                      className="text-sm font-medium rounded-full cursor-pointer bg-transparent hover:bg-black/90 data-[state=open]:bg-black/90 hover:text-primary data-[state=open]:text-primary"
+                      className="text-sm font-medium text-white rounded-full cursor-pointer bg-transparent hover:bg-background/90 data-[state=open]:bg-background/90 hover:text-primary data-[state=open]:text-primary"
                       aria-label={`Open ${companyMenu.name} menu`}
                     >
                       {companyMenu.name}
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="left-1/2 -translate-x-1/2">
-                      <div className="w-64 p-3 backdrop-blur-xl rounded-xl">
+                    <NavigationMenuContent className="left-1/2 -translate-x-1/2 border border-white/10 bg-[#161616] text-white shadow-2xl rounded-xl">
+                      <div className="w-64 p-3">
                         {companyMenu.items.map((item) => (
                           <NavigationMenuLink key={item.href} asChild>
                             {item.external ? (
@@ -252,20 +257,20 @@ export default function Header() {
                                 href={item.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block p-3 rounded-xl text-left hover:bg-primary/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
+                                className="block p-3 rounded-xl text-left hover:bg-white/8 hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
                                 aria-label={item.name}
                               >
-                                <div className="font-medium text-foreground text-sm">{item.name}</div>
-                                <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                                <div className="font-medium text-white text-sm">{item.name}</div>
+                                <div className="text-xs text-white/65 mt-0.5">{item.description}</div>
                               </a>
                             ) : (
                               <Link
                                 href={item.href}
-                                className="block p-3 rounded-xl text-left hover:bg-primary/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
+                                className="block p-3 rounded-xl text-left hover:bg-white/8 hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 interactive"
                                 aria-label={item.name}
                               >
-                                <div className="font-medium text-foreground text-sm">{item.name}</div>
-                                <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                                <div className="font-medium text-white text-sm">{item.name}</div>
+                                <div className="text-xs text-white/65 mt-0.5">{item.description}</div>
                               </Link>
                             )}
                           </NavigationMenuLink>
@@ -283,7 +288,7 @@ export default function Header() {
             <Button 
               variant="ghost" 
               size="sm" 
-              className="hover:bg-primary/10 hover:text-primary transition-all duration-200 interactive"
+              className="text-white hover:bg-primary/10 hover:text-primary transition-all duration-200 interactive"
               asChild
             >
               <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
@@ -292,7 +297,7 @@ export default function Header() {
             </Button>
             <Button 
               size="sm" 
-              className="glass-primary border backdrop-blur-md hover:scale-105 transition-all duration-200 interactive"
+              className="bg-primary text-primary-foreground border border-primary/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 interactive"
               asChild
             >
               <a href="https://app.exit1.dev/" target="_blank" rel="noopener noreferrer">
@@ -302,11 +307,11 @@ export default function Header() {
           </div>
 
           {/* Mobile menu button - Right aligned */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="xl:hidden p-2 rounded-full hover:bg-primary/10 hover:text-primary transition-all duration-200 interactive ml-auto"
-            aria-label="Toggle navigation menu"
+            <Button
+              variant="ghost"
+              size="sm"
+              className="xl:hidden p-2 text-white rounded-full hover:bg-primary/10 hover:text-primary transition-all duration-200 interactive ml-auto"
+              aria-label="Toggle navigation menu"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -319,6 +324,7 @@ export default function Header() {
           </Button>
         </div>
       </GlassSurface>
+      </div>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
@@ -338,7 +344,7 @@ export default function Header() {
                     </a>
                   </Button>
                   <Button 
-                    className="w-full justify-start glass-primary border backdrop-blur-md hover:scale-105 transition-all duration-200 interactive" 
+                    className="w-full justify-start bg-primary text-primary-foreground border border-primary/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 interactive" 
                     asChild
                   >
                     <a href="https://app.exit1.dev/" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>

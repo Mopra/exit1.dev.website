@@ -6,10 +6,10 @@ export default function WhyFree() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-muted-foreground to-muted-foreground bg-clip-text text-transparent">
             Why it&apos;s free
             <br />
-            <span className="bg-gradient-to-r from-slate-400 to-slate-100 bg-clip-text text-transparent">(and stays free)</span>
+            <span className="bg-gradient-to-r from-muted-foreground to-muted-foreground bg-clip-text text-transparent">(and stays free)</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Uptime is table stakes. You shouldn&apos;t have to swipe a card or babysit a &ldquo;starter&rdquo; tier to know when your shop faceplants. We run a lean, boring stack—no VC, no ads, no tracking—so the free uptime monitor and free website monitor stay wide open.
@@ -24,8 +24,8 @@ export default function WhyFree() {
           {/* Our Promise */}
           <div className="space-y-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
-                <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-8 h-8 rounded-lg bg-success/10 flex items-center justify-center">
+                <svg className="w-4 h-4 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -37,19 +37,19 @@ export default function WhyFree() {
             
             <div className="space-y-4 pl-11">
               <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-1.5 h-1.5 bg-success rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-muted-foreground">No dark patterns, no bait-and-switch. We don&apos;t sandbag free uptime monitoring with &ldquo;upgrade for alerts&rdquo; fine print.</p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-1.5 h-1.5 bg-success rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-muted-foreground">Abuse gets blocked; everyone else keeps the free ride. Ship real projects, not scraping scripts, and you&apos;re welcome.</p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-1.5 h-1.5 bg-success rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-muted-foreground">Simple, transparent pricing with no hidden costs. Pay only if you want concierge support or custom retention.</p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-1.5 h-1.5 bg-success rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-muted-foreground">Need deeper proof? Read the <a href="/free-uptime-monitor" className="text-foreground underline decoration-dotted underline-offset-4 hover:text-primary transition-colors">Free Uptime Monitor</a> manifesto and see where the bodies are buried.</p>
               </div>
             </div>
@@ -58,8 +58,8 @@ export default function WhyFree() {
           {/* Our Story */}
           <div className="space-y-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -99,27 +99,27 @@ export default function WhyFree() {
                 <tbody className="divide-y divide-primary/10">
                   <tr>
                     <td className="py-3 font-medium">Free monitors</td>
-                    <td className="py-3 text-green-400">10 free, up to 1,000 on paid</td>
+                    <td className="py-3 text-success">10 free, up to 1,000 on paid</td>
                     <td className="py-3">Capped or &ldquo;business&rdquo; plan only</td>
                   </tr>
                   <tr>
                     <td className="py-3 font-medium">Sub-minute checks</td>
-                    <td className="py-3 text-green-400">30-sec on Pro, 15-sec on Agency</td>
+                    <td className="py-3 text-success">30-sec on Pro, 15-sec on Agency</td>
                     <td className="py-3">Paywall or throttled</td>
                   </tr>
                   <tr>
                     <td className="py-3 font-medium">Webhook + email alerts</td>
-                    <td className="py-3 text-green-400">Free tier</td>
+                    <td className="py-3 text-success">Free tier</td>
                     <td className="py-3">Upgrade required</td>
                   </tr>
                   <tr>
                     <td className="py-3 font-medium">Full log &amp; analytics export</td>
-                    <td className="py-3 text-green-400">Open access</td>
+                    <td className="py-3 text-success">Open access</td>
                     <td className="py-3">Pay or pray</td>
                   </tr>
                   <tr>
                     <td className="py-3 font-medium">Privacy-first</td>
-                    <td className="py-3 text-green-400">No trackers, no ads</td>
+                    <td className="py-3 text-success">No trackers, no ads</td>
                     <td className="py-3">Third-party scripts everywhere</td>
                   </tr>
                 </tbody>

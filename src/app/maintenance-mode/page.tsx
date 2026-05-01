@@ -42,32 +42,32 @@ const MaintenanceModePage = () => {
     {
       title: "Immediate Maintenance",
       description: "Enter maintenance right now with a single click. Pick a duration — 5 minutes, 15 minutes, 30 minutes, or 1 hour — and get to work without worrying about alerts.",
-      icon: <Wrench className="w-6 h-6 text-white" />,
+      icon: <Wrench className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Scheduled Windows",
       description: "Plan ahead. Set a future maintenance window with a specific date, time, and duration. The check enters and exits maintenance automatically.",
-      icon: <Calendar className="w-6 h-6 text-white" />,
+      icon: <Calendar className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Recurring Schedules",
       description: "Weekly deploys? Nightly backups? Set a recurring window on specific days and it repeats automatically. Handles DST changes correctly.",
-      icon: <Repeat className="w-6 h-6 text-white" />,
+      icon: <Repeat className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Clean Uptime Stats",
       description: "Planned maintenance counts as uptime, not downtime. Your uptime percentage reflects real incidents, not scheduled work you already know about.",
-      icon: <ShieldCheck className="w-6 h-6 text-white" />,
+      icon: <ShieldCheck className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Alert Suppression",
       description: "All alerts are suppressed during maintenance — email, webhook, SMS, SSL, and domain expiry. No false alarms. No 3 AM wake-up calls for planned work.",
-      icon: <BellOff className="w-6 h-6 text-white" />,
+      icon: <BellOff className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Checks Keep Running",
       description: "Unlike disabling a check, maintenance mode keeps collecting data. Response times and status codes are recorded so you can verify your deployment worked.",
-      icon: <Eye className="w-6 h-6 text-white" />,
+      icon: <Eye className="w-6 h-6 text-foreground" />,
     },
   ];
 
@@ -173,37 +173,37 @@ const MaintenanceModePage = () => {
       title: "Smart Alerting",
       description: "Configure webhooks, email, and SMS alerts. Maintenance mode suppresses all of them during planned work.",
       href: "/alerting",
-      icon: <Bell className="w-6 h-6 text-white" />,
+      icon: <Bell className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Analytics & Reports",
       description: "Track uptime trends and response times. Maintenance periods are clearly separated from real incidents.",
       href: "/analytics",
-      icon: <BarChart3 className="w-6 h-6 text-white" />,
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Comprehensive Logs",
       description: "Maintenance start, end, and cancellation events all appear in your logs with full context.",
       href: "/logs",
-      icon: <FileText className="w-6 h-6 text-white" />,
+      icon: <FileText className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Global Monitoring",
       description: "Monitor your services from Europe. Maintenance mode applies consistently across all your checks.",
       href: "/global-monitoring",
-      icon: <Globe className="w-6 h-6 text-white" />,
+      icon: <Globe className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Real-Time Monitoring",
       description: "Live status updates for websites and APIs. Maintenance mode keeps data flowing without the alert noise.",
       href: "/real-time-monitoring",
-      icon: <Clock className="w-6 h-6 text-white" />,
+      icon: <Clock className="w-6 h-6 text-foreground" />,
     },
     {
       title: "API & Webhooks",
       description: "Integrate maintenance status into your workflows. The API exposes maintenance state on every check.",
       href: "/api-webhooks",
-      icon: <Code className="w-6 h-6 text-white" />,
+      icon: <Code className="w-6 h-6 text-foreground" />,
     },
   ];
 

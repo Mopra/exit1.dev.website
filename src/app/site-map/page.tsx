@@ -262,10 +262,10 @@ const Sitemap = async () => {
 
     return (
       <div className="font-mono text-sm">
-        <div className={`flex items-center py-1 hover:bg-white/5 transition-colors rounded ${
-          level === 0 ? 'font-bold text-white text-base' : 'text-white/70 hover:text-white'
+        <div className={`flex items-center py-1 hover:bg-foreground/5 transition-colors rounded ${
+          level === 0 ? 'font-bold text-foreground text-base' : 'text-foreground/70 hover:text-foreground'
         }`}>
-          <span className="text-white/40 mr-2">
+          <span className="text-foreground/40 mr-2">
             {getPrefix()}
           </span>
           {node.url ? (
@@ -281,7 +281,7 @@ const Sitemap = async () => {
             <span className="flex-1">{node.name}</span>
           )}
           {node.external && (
-            <ExternalLink className="w-3 h-3 text-white/50 ml-2" />
+            <ExternalLink className="w-3 h-3 text-foreground/50 ml-2" />
           )}
         </div>
 
@@ -310,7 +310,7 @@ const Sitemap = async () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
               Site Structure
             </h1>
-            <p className="text-xl sm:text-2xl text-white/70 max-w-3xl mx-auto">
+            <p className="text-xl sm:text-2xl text-foreground/70 max-w-3xl mx-auto">
               Complete hierarchical overview of all pages and resources available on exit1.dev
             </p>
           </PageHero>

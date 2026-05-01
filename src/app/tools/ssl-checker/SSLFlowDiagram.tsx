@@ -69,13 +69,16 @@ function StepNode({
     checkCircle: <CheckCircle className="w-4 h-4" />,
   };
 
+  const tint = (c: string | undefined, percent: number) =>
+    c ? `color-mix(in oklch, ${c} ${percent}%, transparent)` : undefined;
+
   return (
-    <div className="flex items-start gap-3 px-4 py-3 bg-black/80 border border-white/10 rounded-xl backdrop-blur-sm w-[420px]">
+    <div className="flex items-start gap-3 px-4 py-3 bg-background/80 border border-foreground/10 rounded-xl backdrop-blur-sm w-[420px]">
       <div
         className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border text-xs font-bold"
         style={{
-          backgroundColor: `${data.color}15`,
-          borderColor: `${data.color}30`,
+          backgroundColor: tint(data.color, 8),
+          borderColor: tint(data.color, 18),
           color: data.color,
         }}
       >
@@ -90,8 +93,8 @@ function StepNode({
             <span
               className="text-[10px] font-bold px-1.5 py-0.5 rounded border"
               style={{
-                backgroundColor: `${data.gradeColor}20`,
-                borderColor: `${data.gradeColor}40`,
+                backgroundColor: tint(data.gradeColor, 12),
+                borderColor: tint(data.gradeColor, 25),
                 color: data.gradeColor,
               }}
             >
@@ -99,7 +102,7 @@ function StepNode({
             </span>
           )}
         </div>
-        <div className="text-xs font-semibold text-white mt-0.5">
+        <div className="text-xs font-semibold text-foreground mt-0.5">
           {data.title}
         </div>
         {data.details.length > 0 && (
@@ -123,14 +126,14 @@ const nodeTypes = { step: StepNode };
 
 export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
   const gradeColor = result.grade?.startsWith("A")
-    ? "#34d399"
+    ? "var(--success)"
     : result.grade === "B"
-      ? "#60a5fa"
+      ? "var(--info)"
       : result.grade === "C"
-        ? "#fbbf24"
-        : "#f87171";
+        ? "var(--warning)"
+        : "var(--destructive)";
 
-  const validColor = result.valid ? "#34d399" : "#f87171";
+  const validColor = result.valid ? "var(--success)" : "var(--destructive)";
 
   const nodes: Node[] = useMemo(() => {
     const yGap = 90;
@@ -144,7 +147,7 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
           step: 1,
           title: "DNS Lookup",
           details: [`Resolve ${result.hostname}`],
-          color: "#63b3ff",
+          color: "var(--info)",
           icon: "globe",
         },
         sourcePosition: Position.Bottom,
@@ -158,7 +161,7 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
           step: 2,
           title: "TCP Connection",
           details: [`Connect to ${result.hostname}:443`],
-          color: "#a78bfa",
+          color: "var(--secondary)",
           icon: "cable",
         },
         sourcePosition: Position.Bottom,
@@ -176,7 +179,7 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
             result.cipherSuite ? `Cipher: ${result.cipherSuite}` : "",
             result.keySize ? `Key exchange: ${result.keySize}-bit` : "",
           ].filter(Boolean),
-          color: "#e879f9",
+          color: "var(--tier-nano)",
           icon: "handshake",
         },
         sourcePosition: Position.Bottom,
@@ -199,7 +202,7 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
               ? `Signature: ${result.signatureAlgorithm}`
               : "",
           ].filter(Boolean),
-          color: "#fbbf24",
+          color: "var(--warning)",
           icon: "fileCheck",
         },
         sourcePosition: Position.Bottom,
@@ -261,7 +264,7 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
       source: id,
       target: ids[i + 1],
       animated: true,
-      style: { stroke: "#ffffff20", strokeWidth: 1.5 },
+      style: { stroke: "color-mix(in oklch, var(--foreground) 12%, transparent)", strokeWidth: 1.5 },
     }));
   }, []);
 
@@ -270,7 +273,7 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
   }, []);
 
   return (
-    <div className="w-full h-[600px] rounded-xl border border-white/10 overflow-hidden bg-black/30">
+    <div className="w-full h-[600px] rounded-xl border border-foreground/10 overflow-hidden bg-background/30">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -289,7 +292,7 @@ export default function SSLFlowDiagram({ result }: { result: SSLResult }) {
         minZoom={0.3}
         maxZoom={1.5}
       >
-        <Background color="#ffffff08" gap={24} size={1} />
+        <Background color="color-mix(in oklch, var(--foreground) 5%, transparent)" gap={24} size={1} />
       </ReactFlow>
     </div>
   );

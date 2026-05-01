@@ -140,7 +140,7 @@ export default async function BlogPostPage({
               />
             }>
                 <div className="mb-4 sm:mb-6">
-                  <Badge variant="secondary" className="mb-3 sm:mb-4 text-xs bg-white/10 text-white border border-white/10">
+                  <Badge variant="secondary" className="mb-3 sm:mb-4 text-xs bg-foreground/10 text-foreground border border-foreground/10">
                     {post.category}
                   </Badge>
                 </div>
@@ -149,14 +149,14 @@ export default async function BlogPostPage({
                   {post.title}
                 </h1>
 
-                <div className="flex items-center text-white/60 mb-6 sm:mb-8 text-sm sm:text-base flex-wrap gap-2">
+                <div className="flex items-center text-foreground/60 mb-6 sm:mb-8 text-sm sm:text-base flex-wrap gap-2">
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4" aria-hidden="true" />
                     <span>{post.readTime}</span>
                   </div>
                   <span className="mx-2 hidden sm:inline">•</span>
                   <div className="flex items-center gap-2">
-                    <svg className="w-2 h-2 fill-current text-white/60" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" /></svg>
+                    <svg className="w-2 h-2 fill-current text-foreground/60" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" /></svg>
                     <span>{post.formattedDate}</span>
                   </div>
                   <span className="mx-2 hidden sm:inline">•</span>
@@ -166,18 +166,18 @@ export default async function BlogPostPage({
                       alt="Morten Pradsgaard"
                       width={24}
                       height={24}
-                      className="rounded-full border border-white/20"
+                      className="rounded-full border border-foreground/20"
                     />
                     <span>
                       By{' '}
-                      <Link href="/about" className="text-white hover:underline cursor-pointer interactive">
+                      <Link href="/about" className="text-foreground hover:underline cursor-pointer interactive">
                         {post.author}
                       </Link>
                     </span>
                   </div>
                 </div>
 
-                <p className="text-xl sm:text-2xl text-white/70 leading-relaxed">
+                <p className="text-xl sm:text-2xl text-foreground/70 leading-relaxed">
                   {post.excerpt}
                 </p>
             </PageHero>
@@ -204,12 +204,12 @@ export default async function BlogPostPage({
                         <CardContent className="p-6">
                           <div className="flex items-center justify-between mb-3">
                             <div className="flex items-center gap-2 text-sm font-semibold">
-                              <Clock className="w-4 h-4 text-white" />
+                              <Clock className="w-4 h-4 text-foreground" />
                               Free Uptime Monitor
                             </div>
-                            <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-white transition-colors duration-200" />
+                            <ArrowRight className="w-4 h-4 text-foreground/60 group-hover:text-foreground transition-colors duration-200" />
                           </div>
-                          <p className="text-sm text-white/60 leading-relaxed">
+                          <p className="text-sm text-foreground/60 leading-relaxed">
                             10 free monitors with 5-minute checks. Paid plans scale to 1,000 monitors with 15-second checks. See the feature deep dive and migration checklist.
                           </p>
                         </CardContent>
@@ -223,12 +223,12 @@ export default async function BlogPostPage({
                         <CardContent className="p-6">
                           <div className="flex items-center justify-between mb-3">
                             <div className="flex items-center gap-2 text-sm font-semibold">
-                              <BarChart3 className="w-4 h-4 text-white" />
+                              <BarChart3 className="w-4 h-4 text-foreground" />
                               Analytics &amp; Reports
                             </div>
-                            <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-white transition-colors duration-200" />
+                            <ArrowRight className="w-4 h-4 text-foreground/60 group-hover:text-foreground transition-colors duration-200" />
                           </div>
-                          <p className="text-sm text-white/60 leading-relaxed">
+                          <p className="text-sm text-foreground/60 leading-relaxed">
                             Turn uptime data into SLAs, client reports, and long-term performance trends without bolting on another BI tool.
                           </p>
                         </CardContent>
@@ -242,12 +242,12 @@ export default async function BlogPostPage({
                         <CardContent className="p-6">
                           <div className="flex items-center justify-between mb-3">
                             <div className="flex items-center gap-2 text-sm font-semibold">
-                              <Bell className="w-4 h-4 text-white" />
+                              <Bell className="w-4 h-4 text-foreground" />
                               Smart Alerting
                             </div>
-                            <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-white transition-colors duration-200" />
+                            <ArrowRight className="w-4 h-4 text-foreground/60 group-hover:text-foreground transition-colors duration-200" />
                           </div>
-                          <p className="text-sm text-white/60 leading-relaxed">
+                          <p className="text-sm text-foreground/60 leading-relaxed">
                             Ship webhook and email alerts that your team actually respects. Integrate PagerDuty, Opsgenie, Slack, or Discord without paying a premium.
                           </p>
                         </CardContent>
@@ -262,17 +262,37 @@ export default async function BlogPostPage({
                       dangerouslySetInnerHTML={{ __html: post.htmlContent }}
                       className="scroll-mt-20"
                     />
-
-                    <div className="mt-12">
-                      <InsetCard>
-                        <CardContent className="p-6">
-                          <p className="text-base sm:text-lg text-white/60 leading-relaxed">
-                            <strong>Morten Pradsgaard</strong> is the founder of <strong>exit1.dev</strong> — the free uptime monitor for people who actually ship. He writes no-bullshit guides on monitoring, reliability, and building software that doesn&apos;t crumble under pressure.
-                          </p>
-                        </CardContent>
-                      </InsetCard>
-                    </div>
                   </article>
+
+                  <aside
+                    aria-label="About the author"
+                    className="mt-16 pt-10 border-t border-foreground/15"
+                  >
+                    <div className="flex items-start gap-5 sm:gap-6">
+                      <Image
+                        src="/Morten-Pradsgaard.jpg"
+                        alt="Morten Pradsgaard"
+                        width={80}
+                        height={80}
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-foreground/20 shrink-0"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xs font-semibold uppercase tracking-wider text-foreground/50 mb-2">
+                          About the author
+                        </div>
+                        <p className="text-base sm:text-lg text-foreground/70 leading-relaxed">
+                          <strong className="text-foreground">Morten Pradsgaard</strong> is the founder of <strong className="text-foreground">exit1.dev</strong> — the free uptime monitor for people who actually ship. He writes no-bullshit guides on monitoring, reliability, and building software that doesn&apos;t crumble under pressure.
+                        </p>
+                        <Link
+                          href="/about"
+                          className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-foreground hover:underline interactive"
+                        >
+                          More about Morten
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </aside>
                 </div>
               </SectionContent>
             </PageSection>

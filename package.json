@@ -33,9 +33,13 @@
     "ogl": "^1.0.11",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "rehype-pretty-code": "^0.14.3",
+    "rehype-stringify": "^10.0.1",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
+    "remark-rehype": "^11.1.2",
+    "shiki": "^4.0.2",
     "tailwind-merge": "^3.3.1",
     "web-vitals": "^5.1.0"
   },

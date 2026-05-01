@@ -16,6 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
@@ -149,52 +150,52 @@ export default function PingTestPage() {
                 Here&apos;s an example of the latency report this tool provides.
                 Try it above with any host.
               </p>
-              <div className="bg-white/[0.02] border border-white/10 rounded-xl p-6 sm:p-8" aria-label="Example ping test result">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-                    <span className="text-xs font-bold text-emerald-400">5/5</span>
+              <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl p-6 sm:p-8" aria-label="Example ping test result">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-foreground/10">
+                  <div className="w-8 h-8 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center">
+                    <span className="text-xs font-bold text-success">5/5</span>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-emerald-400">All Pings Successful</p>
+                    <p className="text-sm font-semibold text-success">All Pings Successful</p>
                     <p className="text-xs text-muted-foreground">example.com — 0% packet loss</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                  <div className="bg-white/[0.03] rounded-lg p-3 text-center">
+                  <div className="bg-foreground/[0.03] rounded-lg p-3 text-center">
                     <p className="text-xs text-muted-foreground mb-1">Min</p>
                     <p className="text-lg font-semibold">12 ms</p>
                   </div>
-                  <div className="bg-white/[0.03] rounded-lg p-3 text-center">
+                  <div className="bg-foreground/[0.03] rounded-lg p-3 text-center">
                     <p className="text-xs text-muted-foreground mb-1">Avg</p>
                     <p className="text-lg font-semibold">18 ms</p>
                   </div>
-                  <div className="bg-white/[0.03] rounded-lg p-3 text-center">
+                  <div className="bg-foreground/[0.03] rounded-lg p-3 text-center">
                     <p className="text-xs text-muted-foreground mb-1">Max</p>
                     <p className="text-lg font-semibold">24 ms</p>
                   </div>
-                  <div className="bg-white/[0.03] rounded-lg p-3 text-center">
+                  <div className="bg-foreground/[0.03] rounded-lg p-3 text-center">
                     <p className="text-xs text-muted-foreground mb-1">Jitter</p>
                     <p className="text-lg font-semibold">3.2 ms</p>
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-white/5">
+                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-foreground/5">
                     <span className="text-muted-foreground">Ping 1</span>
                     <span className="font-medium">14 ms</span>
                   </div>
-                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-white/5">
+                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-foreground/5">
                     <span className="text-muted-foreground">Ping 2</span>
                     <span className="font-medium">12 ms</span>
                   </div>
-                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-white/5">
+                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-foreground/5">
                     <span className="text-muted-foreground">Ping 3</span>
                     <span className="font-medium">18 ms</span>
                   </div>
-                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-white/5">
+                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-foreground/5">
                     <span className="text-muted-foreground">Ping 4</span>
                     <span className="font-medium">24 ms</span>
                   </div>
-                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-white/5">
+                  <div className="flex items-center justify-between text-sm py-1.5 border-b border-foreground/5">
                     <span className="text-muted-foreground">Ping 5</span>
                     <span className="font-medium">21 ms</span>
                   </div>
@@ -202,7 +203,7 @@ export default function PingTestPage() {
               </div>
               <div className="mt-8 space-y-4 text-sm text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 <p>
-                  <strong className="text-white">Latency</strong> (ping time) measures
+                  <strong className="text-foreground">Latency</strong> (ping time) measures
                   the round-trip time for a TCP connection to the server. Under 50
                   ms is excellent for most regions, 50-100 ms is good for
                   cross-region connections, and anything over 200 ms may cause
@@ -210,12 +211,12 @@ export default function PingTestPage() {
                   online gaming.
                 </p>
                 <p>
-                  <strong className="text-white">Jitter</strong> is the variation
+                  <strong className="text-foreground">Jitter</strong> is the variation
                   between consecutive ping times. Low jitter (under 5 ms) means a
                   stable connection, while high jitter (over 20 ms) indicates
                   network instability that can degrade VoIP, streaming, and
                   real-time communications even when average latency is acceptable.{" "}
-                  <strong className="text-white">Packet loss</strong> above 1-2%
+                  <strong className="text-foreground">Packet loss</strong> above 1-2%
                   usually signals a network problem and should be investigated.
                 </p>
               </div>
@@ -302,19 +303,19 @@ export default function PingTestPage() {
                 Guides on ping testing, latency measurement, and infrastructure monitoring.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                <Link href="/blog/online-ping-test-guide" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/online-ping-test-guide" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Online Ping Test Guide</h3>
                   <p className="text-sm text-muted-foreground">How to measure latency, jitter, and packet loss — and what the results actually mean.</p>
                 </Link>
-                <Link href="/blog/what-is-network-jitter" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/what-is-network-jitter" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">What Is Network Jitter?</h3>
                   <p className="text-sm text-muted-foreground">Understanding and fixing connection instability that affects VoIP, video, and real-time apps.</p>
                 </Link>
-                <Link href="/blog/free-icmp-ping-monitoring-guide" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/free-icmp-ping-monitoring-guide" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Free ICMP Ping Monitoring Guide</h3>
                   <p className="text-sm text-muted-foreground">Set up continuous ping monitoring for servers, routers, and network devices.</p>
                 </Link>
-                <Link href="/blog/icmp-vs-http-monitoring-when-to-use-each" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/icmp-vs-http-monitoring-when-to-use-each" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">ICMP vs HTTP Monitoring</h3>
                   <p className="text-sm text-muted-foreground">When to use ping checks vs HTTP checks, and why you need both for full-stack visibility.</p>
                 </Link>
@@ -334,14 +335,19 @@ export default function PingTestPage() {
                   and alerts you instantly when latency spikes, packet loss
                   occurs, or your services go down.
                 </p>
-                <a
-                  href="https://app.exit1.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-200"
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-8 text-base font-semibold"
                 >
-                  Start Free Monitoring
-                </a>
+                  <a
+                    href="https://app.exit1.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start Free Monitoring
+                  </a>
+                </Button>
               </div>
             </SectionContent>
           </PageSection>

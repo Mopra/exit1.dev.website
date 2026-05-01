@@ -42,32 +42,32 @@ const FreeUptimeMonitorPage = () => {
     {
       title: '10 free monitors, zero invoices',
       description: 'Track up to 10 sites, APIs, or endpoints on the free tier. Need more? Nano scales to 50, Pro to 500, Agency to 1,000.',
-      icon: <Globe className="w-6 h-6 text-white" />,
+      icon: <Globe className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Fast check intervals',
       description: '5-minute checks free, 2-minute on Nano, 30-second on Pro, 15-second on Agency. Real polling across regions, not artificial limits.',
-      icon: <Clock className="w-6 h-6 text-white" />,
+      icon: <Clock className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Webhook + email alerts free forever',
       description: 'Plug straight into Slack, PagerDuty, Opsgenie, or your own webhook automation without hitting a paywall.',
-      icon: <Bell className="w-6 h-6 text-white" />,
+      icon: <Bell className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Advanced checks without upsells',
       description: 'Custom headers, auth tokens, JSON body assertions, keyword checks. All in the free tier because it should be.',
-      icon: <Shield className="w-6 h-6 text-white" />,
+      icon: <Shield className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Instant data exports',
       description: '90 days retention max, CSV/Excel exports, and API access so you can run real audits and SLAs without premium lock-in.',
-      icon: <Database className="w-6 h-6 text-white" />,
+      icon: <Database className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Privacy-first by default',
       description: 'No trackers, no ad pixels, no reselling. We care about uptime, not your audience data.',
-      icon: <Shield className="w-6 h-6 text-white" />,
+      icon: <Shield className="w-6 h-6 text-foreground" />,
     },
   ];
 
@@ -156,19 +156,19 @@ const FreeUptimeMonitorPage = () => {
       title: 'Analytics & Reports',
       description: 'Turn uptime history into SLA-ready charts without buying another dashboard.',
       href: '/analytics',
-      icon: <BarChart3 className="w-6 h-6 text-white" />,
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Comprehensive Logs',
       description: 'Search every request, export CSVs, and build honest postmortems fast.',
       href: '/logs',
-      icon: <FileText className="w-6 h-6 text-white" />,
+      icon: <FileText className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Automation Webhooks',
       description: 'Trigger PagerDuty, Opsgenie, or custom workflows with signed webhook payloads.',
       href: '/alerting',
-      icon: <Cable className="w-6 h-6 text-white" />,
+      icon: <Cable className="w-6 h-6 text-foreground" />,
     },
   ];
 

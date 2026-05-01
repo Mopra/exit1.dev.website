@@ -33,7 +33,18 @@
       "Bash(git -C c:/Users/morte/Documents/Github/exit1/exit1.dev commit -m ' *)",
       "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev.website\" push origin master)",
       "Bash(git -C \"c:/Users/morte/Documents/Github/exit1/exit1.dev\" push origin master)",
-      "Bash(npx --no-install tsc --noEmit)"
+      "Bash(npx --no-install tsc --noEmit)",
+      "Bash(node scripts/refactor-colors.mjs)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(git mv *)",
+      "WebSearch",
+      "WebFetch(domain:github.blog)",
+      "WebFetch(domain:www.theregister.com)",
+      "WebFetch(domain:www.infoq.com)",
+      "WebFetch(domain:solomonneas.dev)",
+      "WebFetch(domain:mrshu.github.io)",
+      "Bash(git checkout *)"
     ]
   }
 }

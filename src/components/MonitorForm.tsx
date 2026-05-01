@@ -78,8 +78,8 @@ export function MonitorForm() {
             placeholder="example.com"
             value={websiteUrl}
             onChange={handleInputChange}
-            className={`h-12 bg-white/15 border-white/40 text-white placeholder:text-white/60 focus:bg-white/20 focus:border-white/60 transition-all duration-300 cursor-pointer rounded-lg ${
-              error ? "border-red-400 focus:border-red-400" : ""
+            className={`h-12 bg-foreground/15 border-foreground/40 text-foreground placeholder:text-foreground/60 focus:bg-foreground/20 focus:border-foreground/60 transition-all duration-300 cursor-pointer rounded-lg ${
+              error ? "border-destructive focus:border-destructive" : ""
             }`}
             required
           />
@@ -88,20 +88,20 @@ export function MonitorForm() {
           type="submit"
           size="lg"
           disabled={isLoading || !isFormValid}
-          className="h-12 px-8 font-semibold bg-white/20 hover:bg-white/30 border border-white/40 text-white rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+          className="h-12 px-8 font-semibold rounded-lg cursor-pointer border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300"
         >
           {isLoading ? "Starting..." : "Start Monitoring"}
         </Button>
       </div>
 
       {error && (
-        <div className="flex items-center gap-2 text-red-400 text-sm mt-3">
+        <div className="flex items-center gap-2 text-destructive text-sm mt-3">
           <AlertCircle className="w-4 h-4 flex-shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
-      <p className="text-base sm:text-lg text-white/70 mt-6 text-center font-medium">
+      <p className="text-base sm:text-lg text-foreground/70 mt-6 text-center font-medium">
         Enter your website URL and we&apos;ll set up monitoring in seconds
       </p>
     </form>

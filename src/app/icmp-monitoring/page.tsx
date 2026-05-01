@@ -42,32 +42,32 @@ const ICMPMonitoring = () => {
     {
       title: "ICMP Ping Checks",
       description: "Send ICMP Echo requests to any public host. Know instantly when servers, routers, or network devices become unreachable.",
-      icon: <Activity className="w-6 h-6 text-white" />
+      icon: <Activity className="w-6 h-6 text-foreground" />
     },
     {
       title: "Round-Trip Latency",
       description: "Track precise round-trip time in milliseconds for every check. Spot latency spikes and network degradation early.",
-      icon: <Gauge className="w-6 h-6 text-white" />
+      icon: <Gauge className="w-6 h-6 text-foreground" />
     },
     {
       title: "TTL & Routing Insights",
       description: "Capture Time-To-Live values with each ping to detect routing changes and diagnose network path issues.",
-      icon: <Network className="w-6 h-6 text-white" />
+      icon: <Network className="w-6 h-6 text-foreground" />
     },
     {
       title: "Geographic Enrichment",
       description: "Every check enriches results with target geolocation, ASN, ISP, and organization data for full network context.",
-      icon: <MapPin className="w-6 h-6 text-white" />
+      icon: <MapPin className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Failure Detection",
       description: "Automatic 30-second re-checks on first failure. Alerts only fire after 4 consecutive failures to eliminate false positives.",
-      icon: <Shield className="w-6 h-6 text-white" />
+      icon: <Shield className="w-6 h-6 text-foreground" />
     },
     {
       title: "European Monitoring",
       description: "Ping hosts from our European server to detect network issues and measure latency.",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     }
   ];
 
@@ -170,37 +170,37 @@ const ICMPMonitoring = () => {
       title: "Real-Time Monitoring",
       description: "Monitor websites and APIs with fast checks and instant alerts when issues occur.",
       href: "/real-time-monitoring",
-      icon: <Clock className="w-6 h-6 text-white" />
+      icon: <Clock className="w-6 h-6 text-foreground" />
     },
     {
       title: "Global Monitoring",
       description: "Monitor your infrastructure from multiple global locations for comprehensive coverage.",
       href: "/global-monitoring",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Alerting",
       description: "Configure webhooks, email alerts, and custom notification rules to stay informed about issues.",
       href: "/alerting",
-      icon: <Bell className="w-6 h-6 text-white" />
+      icon: <Bell className="w-6 h-6 text-foreground" />
     },
     {
       title: "Analytics & Reports",
       description: "Track uptime trends, response times, and performance metrics with detailed analytics.",
       href: "/analytics",
-      icon: <BarChart3 className="w-6 h-6 text-white" />
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />
     },
     {
       title: "Comprehensive Logs",
       description: "View detailed monitoring history with advanced search, filtering, and export capabilities.",
       href: "/logs",
-      icon: <FileText className="w-6 h-6 text-white" />
+      icon: <FileText className="w-6 h-6 text-foreground" />
     },
     {
       title: "API Integration",
       description: "Integrate monitoring data into your workflows with our comprehensive REST API.",
       href: "/api-webhooks",
-      icon: <Code className="w-6 h-6 text-white" />
+      icon: <Code className="w-6 h-6 text-foreground" />
     }
   ];
 

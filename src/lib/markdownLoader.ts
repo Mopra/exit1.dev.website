@@ -1,7 +1,9 @@
 import matter from 'gray-matter';
 import { remark } from 'remark';
-import remarkHtml from 'remark-html';
 import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+import rehypePrettyCode, { type Options as RehypePrettyCodeOptions } from 'rehype-pretty-code';
 import fs from 'fs';
 import path from 'path';
 import { extractHeadings, addIdsToHeadings, type TocItem } from './tocUtils';
@@ -47,11 +49,18 @@ const remarkExternalLinks = () => {
   };
 };
 
-// Memoized remark processor
+const prettyCodeOptions: RehypePrettyCodeOptions = {
+  theme: 'dark-plus',
+  keepBackground: true,
+  defaultLang: 'plaintext',
+};
+
 const remarkProcessor = remark()
   .use(remarkGfm)
   .use(remarkExternalLinks)
-  .use(remarkHtml);
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypePrettyCode, prettyCodeOptions)
+  .use(rehypeStringify, { allowDangerousHtml: true });
 
 // Get all markdown files from the posts directory
 const getPostFiles = () => {

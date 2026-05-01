@@ -34,13 +34,13 @@ const CookieBanner = ({ onCustomize }: CookieBannerProps) => {
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'
       }`}
     >
-      <div className="rounded-xl border border-white/10 bg-black/70 backdrop-blur-xl shadow-2xl p-4 text-white">
+      <div className="rounded-xl border border-foreground/10 bg-background/70 backdrop-blur-xl shadow-2xl p-4 text-foreground">
         <div className="flex items-start gap-3">
-          <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 border border-white/10">
-            <Cookie className="h-4 w-4 text-white/80" />
+          <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-foreground/5 border border-foreground/10">
+            <Cookie className="h-4 w-4 text-foreground/80" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-light leading-relaxed text-white/85">
+            <p className="text-sm font-light leading-relaxed text-foreground/85">
               We use cookies to improve your experience.{' '}
               <Link
                 href="/privacy"
@@ -54,7 +54,7 @@ const CookieBanner = ({ onCustomize }: CookieBannerProps) => {
               <Button
                 size="sm"
                 onClick={acceptAll}
-                className="h-8 px-3 bg-white text-black hover:bg-white/90 cursor-pointer"
+                className="h-8 px-3 bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
               >
                 Accept
               </Button>
@@ -62,14 +62,14 @@ const CookieBanner = ({ onCustomize }: CookieBannerProps) => {
                 size="sm"
                 variant="ghost"
                 onClick={rejectAll}
-                className="h-8 px-3 text-white/80 hover:text-white hover:bg-white/10 cursor-pointer"
+                className="h-8 px-3 text-foreground/80 hover:text-foreground hover:bg-foreground/10 cursor-pointer"
               >
                 Decline
               </Button>
               <button
                 type="button"
                 onClick={onCustomize}
-                className="ml-auto text-xs text-white/60 hover:text-white/90 transition-colors cursor-pointer"
+                className="ml-auto text-xs text-foreground/60 hover:text-foreground/90 transition-colors cursor-pointer"
               >
                 Customize
               </button>

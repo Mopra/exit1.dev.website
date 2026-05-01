@@ -49,6 +49,12 @@
       "name": "Domain Intelligence",
       "description": "Domain expiration monitoring, RDAP lookups, DNS security, and domain health tracking",
       "slug": "domain-intelligence"
+    },
+    {
+      "id": "founder-log",
+      "name": "Founder Log",
+      "description": "Opinions, learnings, and behind-the-scenes notes from the founder of exit1.dev",
+      "slug": "founder-log"
     }
   ]
 }

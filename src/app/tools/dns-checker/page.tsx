@@ -16,6 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
@@ -155,15 +156,15 @@ export default function DnsCheckerPage() {
                 it above with any domain.
               </p>
               <div
-                className="bg-white/[0.02] border border-white/10 rounded-xl p-6 sm:p-8"
+                className="bg-foreground/[0.02] border border-foreground/10 rounded-xl p-6 sm:p-8"
                 aria-label="Example DNS lookup result"
               >
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xs font-bold text-emerald-400">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-foreground/10">
+                  <div className="w-8 h-8 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center text-xs font-bold text-success">
                     A
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-emerald-400">
+                    <p className="text-sm font-semibold text-success">
                       DNS Health: A
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -172,7 +173,7 @@ export default function DnsCheckerPage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">
                       A Record
                     </span>
@@ -180,7 +181,7 @@ export default function DnsCheckerPage() {
                       93.184.216.34
                     </span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">
                       AAAA Record
                     </span>
@@ -188,7 +189,7 @@ export default function DnsCheckerPage() {
                       2606:2800:21f:...
                     </span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">
                       Nameservers
                     </span>
@@ -196,7 +197,7 @@ export default function DnsCheckerPage() {
                       a.iana-servers.net
                     </span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">
                       MX Records
                     </span>
@@ -204,17 +205,17 @@ export default function DnsCheckerPage() {
                       10 mail.example.com
                     </span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">SPF</span>
-                    <span className="text-sm font-medium text-emerald-400">
+                    <span className="text-sm font-medium text-success">
                       Found
                     </span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">
                       DMARC
                     </span>
-                    <span className="text-sm font-medium text-emerald-400">
+                    <span className="text-sm font-medium text-success">
                       Found
                     </span>
                   </div>
@@ -224,23 +225,23 @@ export default function DnsCheckerPage() {
                 <p>
                   The DNS lookup queries authoritative nameservers to retrieve
                   every record type configured for your domain. You&apos;ll see{" "}
-                  <strong className="text-white">A and AAAA records</strong>{" "}
+                  <strong className="text-foreground">A and AAAA records</strong>{" "}
                   (your domain&apos;s IP addresses with TTL values),{" "}
-                  <strong className="text-white">
+                  <strong className="text-foreground">
                     nameservers and SOA data
                   </strong>{" "}
                   (who manages your DNS zone), and{" "}
-                  <strong className="text-white">MX records</strong> (where your
+                  <strong className="text-foreground">MX records</strong> (where your
                   email is routed).
                 </p>
                 <p>
                   The tool also performs an{" "}
-                  <strong className="text-white">
+                  <strong className="text-foreground">
                     email security analysis
                   </strong>
                   , checking for SPF and DMARC records that protect your domain
                   from email spoofing and impersonation. Combined with{" "}
-                  <strong className="text-white">CAA record checks</strong>{" "}
+                  <strong className="text-foreground">CAA record checks</strong>{" "}
                   (which restrict certificate issuance), this gives you a
                   comprehensive picture of your domain&apos;s DNS health.
                 </p>
@@ -333,7 +334,7 @@ export default function DnsCheckerPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
                 <Link
                   href="/blog/dns-record-types-explained"
-                  className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors"
+                  className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors"
                 >
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                     DNS Record Types Explained
@@ -345,7 +346,7 @@ export default function DnsCheckerPage() {
                 </Link>
                 <Link
                   href="/blog/spf-dkim-dmarc-email-authentication-guide"
-                  className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors"
+                  className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors"
                 >
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                     SPF, DKIM, and DMARC Guide
@@ -357,7 +358,7 @@ export default function DnsCheckerPage() {
                 </Link>
                 <Link
                   href="/blog/how-to-check-dns-records"
-                  className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors"
+                  className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors"
                 >
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                     How to Check DNS Records
@@ -369,7 +370,7 @@ export default function DnsCheckerPage() {
                 </Link>
                 <Link
                   href="/blog/dns-propagation-how-long-do-changes-take"
-                  className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors"
+                  className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors"
                 >
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
                     DNS Propagation Explained
@@ -396,14 +397,19 @@ export default function DnsCheckerPage() {
                   misconfigurations and hijacking attempts before they affect
                   your users.
                 </p>
-                <a
-                  href="https://app.exit1.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-200"
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-8 text-base font-semibold"
                 >
-                  Start Free Monitoring
-                </a>
+                  <a
+                    href="https://app.exit1.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start Free Monitoring
+                  </a>
+                </Button>
               </div>
             </SectionContent>
           </PageSection>

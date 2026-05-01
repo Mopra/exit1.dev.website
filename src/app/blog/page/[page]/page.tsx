@@ -89,7 +89,7 @@ export default async function BlogPageByNumber({
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
               {blogData.title}
             </h1>
-            <p className="text-xl sm:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
               {blogData.subtitle}
             </p>
           </PageHero>

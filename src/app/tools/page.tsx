@@ -9,6 +9,7 @@ import {
   SectionContent,
 } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Free Website & Server Tools — SSL, Domain, DNS, API, Ping, Redirect & Uptime Checkers | exit1.dev",
@@ -173,7 +174,7 @@ export default function ToolsPage() {
                     <Link
                       key={tool.href}
                       href={tool.href}
-                      className="group block p-6 sm:p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/20 transition-all"
+                      className="group block p-6 sm:p-8 rounded-2xl border border-foreground/10 bg-foreground/[0.02] hover:bg-foreground/[0.05] hover:border-foreground/20 transition-all"
                     >
                       <div className="flex items-start gap-4 mb-4">
                         <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
@@ -258,14 +259,19 @@ export default function ToolsPage() {
                   SSL certificates, and API endpoints automatically — with
                   instant alerts when something goes wrong.
                 </p>
-                <a
-                  href="https://app.exit1.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-200"
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-8 text-base font-semibold"
                 >
-                  Start Free Monitoring
-                </a>
+                  <a
+                    href="https://app.exit1.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start Free Monitoring
+                  </a>
+                </Button>
               </div>
             </SectionContent>
           </PageSection>

@@ -40,6 +40,7 @@ export interface GlassSurfaceProps {
   className?: string;
   style?: React.CSSProperties;
   allowOverflow?: boolean;
+  surfaceTint?: string;
 }
 
 const useDarkMode = () => {
@@ -81,6 +82,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   className = "",
   style = {},
   allowOverflow = false,
+  surfaceTint,
 }) => {
   const uniqueId = useId().replace(/:/g, '-');
   const filterId = `glass-filter-${uniqueId}`;
@@ -107,6 +109,10 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     const actualHeight = rect?.height || 200;
     const edgeSize = Math.min(actualWidth, actualHeight) * (borderWidth * 0.5);
 
+    // NOTE: The 'red' / 'blue' / 'black' / '#0000' literals below are SVG filter
+    // primitives that encode channel data for chromatic aberration — NOT theme
+    // colors. They drive the displacement map and must remain as raw channel
+    // values for the glass distortion effect to work.
     const svgContent = `
       <svg viewBox="0 0 ${actualWidth} ${actualHeight}" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -223,12 +229,20 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       borderRadius: `${borderRadius}px`,
     } as React.CSSProperties;
 
+    // Helpers — all surface tints derive from theme tokens via color-mix.
+    const fg = "var(--foreground)";
+    const bg = "var(--background)";
+    const primary = "var(--primary)";
+    const tint = (token: string, percent: number) =>
+      `color-mix(in oklch, ${token} ${percent}%, transparent)`;
+
     // For SSR and initial render, use consistent fallback styles
     if (!isHydrated) {
+      const fallbackSurface = surfaceTint ?? fg;
       return {
         ...baseStyles,
-        background: "rgba(255, 255, 255, 0.1)",
-        border: "1px solid rgba(255, 255, 255, 0.2)",
+        background: tint(fallbackSurface, Math.max(backgroundOpacity * 100, 10)),
+        border: `1px solid ${tint(fg, 20)}`,
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
       };
@@ -238,67 +252,72 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     const backdropFilterSupported = supportsBackdropFilter();
 
     if (svgSupported) {
+      // Surface tint = contrast color (foreground in light, background in dark)
+      // Inner highlight = always foreground; in dark theme that produces a
+      // light specular, in light theme a subtle dark vignette.
+      const surface = surfaceTint ?? (isDark ? bg : fg);
+      const surfaceBg = `color-mix(in oklch, ${surface} ${backgroundOpacity * 100}%, transparent)`;
+      const innerHi = tint(fg, isDark ? 15 : 5);
+      const innerHiSoft = tint(fg, isDark ? 5 : 2);
+      // Drop shadow is always dark relative to its surroundings.
+      const dropShadow = tint(isDark ? bg : fg, 5);
       return {
         ...baseStyles,
         "--glass-frost": backgroundOpacity,
         "--glass-saturation": saturation,
-        background: isDark
-          ? `hsl(0 0% 0% / ${backgroundOpacity})`
-          : `hsl(0 0% 100% / ${backgroundOpacity})`,
+        background: surfaceBg,
         backdropFilter: `url(#${filterId}) saturate(${saturation})`,
-        boxShadow: isDark
-          ? `0 0 1px 0px color-mix(in oklch, white, transparent 85%) inset,
-             0 0 4px 2px color-mix(in oklch, white, transparent 95%) inset,
-             0px 4px 16px rgba(17, 17, 26, 0.05),
-             0px 8px 24px rgba(17, 17, 26, 0.05),
-             0px 16px 56px rgba(17, 17, 26, 0.05)`
-          : `0 0 1px 0px color-mix(in oklch, black, transparent 95%) inset,
-             0 0 4px 2px color-mix(in oklch, black, transparent 98%) inset,
-             0px 4px 16px rgba(17, 17, 26, 0.05),
-             0px 8px 24px rgba(17, 17, 26, 0.05),
-             0px 16px 56px rgba(17, 17, 26, 0.05)`,
+        boxShadow: `0 0 1px 0px ${innerHi} inset,
+             0 0 4px 2px ${innerHiSoft} inset,
+             0px 4px 16px ${dropShadow},
+             0px 8px 24px ${dropShadow},
+             0px 16px 56px ${dropShadow}`,
       } as React.CSSProperties & { [key: string]: string | number | undefined };
     } else {
       if (isDark) {
         if (!backdropFilterSupported) {
+          const fallbackSurface = surfaceTint ?? bg;
           return {
             ...baseStyles,
-            background: "rgba(0, 0, 0, 0.4)",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-            boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
-                        inset 0 -1px 0 0 rgba(255, 255, 255, 0.05)`,
+            background: tint(fallbackSurface, Math.max(backgroundOpacity * 100, 40)),
+            border: `1px solid ${tint(fg, 20)}`,
+            boxShadow: `inset 0 1px 0 0 ${tint(fg, 10)},
+                        inset 0 -1px 0 0 ${tint(fg, 5)}`,
           };
         } else {
+          const fallbackSurface = surfaceTint ?? fg;
           return {
             ...baseStyles,
-            background: "rgba(255, 255, 255, 0.1)",
+            background: tint(fallbackSurface, Math.max(backgroundOpacity * 100, 10)),
             backdropFilter: "blur(12px) saturate(1.8) brightness(1.2)",
             WebkitBackdropFilter: "blur(12px) saturate(1.8) brightness(1.2)",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-            boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
-                        inset 0 -1px 0 0 rgba(255, 255, 255, 0.05)`,
+            border: `1px solid ${tint(fg, 20)}`,
+            boxShadow: `inset 0 1px 0 0 ${tint(fg, 10)},
+                        inset 0 -1px 0 0 ${tint(fg, 5)}`,
           };
         }
       } else {
         if (!backdropFilterSupported) {
+          const fallbackSurface = surfaceTint ?? fg;
           return {
             ...baseStyles,
-            background: "rgba(255, 255, 255, 0.4)",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-            boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
-                        inset 0 -1px 0 0 rgba(255, 255, 255, 0.1)`,
+            background: tint(fallbackSurface, Math.max(backgroundOpacity * 100, 40)),
+            border: `1px solid ${tint(fg, 30)}`,
+            boxShadow: `inset 0 1px 0 0 ${tint(fg, 20)},
+                        inset 0 -1px 0 0 ${tint(fg, 10)}`,
           };
         } else {
+          const fallbackSurface = surfaceTint ?? fg;
           return {
             ...baseStyles,
-            background: "rgba(255, 255, 255, 0.25)",
+            background: tint(fallbackSurface, Math.max(backgroundOpacity * 100, 25)),
             backdropFilter: "blur(12px) saturate(1.8) brightness(1.1)",
             WebkitBackdropFilter: "blur(12px) saturate(1.8) brightness(1.1)",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-            boxShadow: `0 8px 32px 0 rgba(31, 38, 135, 0.2),
-                        0 2px 16px 0 rgba(31, 38, 135, 0.1),
-                        inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
-                        inset 0 -1px 0 0 rgba(255, 255, 255, 0.1)`,
+            border: `1px solid ${tint(fg, 30)}`,
+            boxShadow: `0 8px 32px 0 ${tint(primary, 20)},
+                        0 2px 16px 0 ${tint(primary, 10)},
+                        inset 0 1px 0 0 ${tint(fg, 20)},
+                        inset 0 -1px 0 0 ${tint(fg, 10)}`,
           };
         }
       }
@@ -308,9 +327,8 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   const glassSurfaceClasses =
     `relative flex items-center justify-center ${allowOverflow ? '' : 'overflow-hidden'} transition-opacity duration-[260ms] ease-out`;
 
-  const focusVisibleClasses = isDark
-    ? "focus-visible:outline-2 focus-visible:outline-[#0A84FF] focus-visible:outline-offset-2"
-    : "focus-visible:outline-2 focus-visible:outline-[#007AFF] focus-visible:outline-offset-2";
+  const focusVisibleClasses =
+    "focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2";
 
   return (
     <div

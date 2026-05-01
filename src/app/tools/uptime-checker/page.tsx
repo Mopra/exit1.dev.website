@@ -16,6 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 import { cn } from "@/lib/utils";
 
@@ -155,14 +156,14 @@ export default function UptimeCheckerPage() {
                 Here&apos;s an example of the health report this tool provides.
                 Try it above with any website.
               </p>
-              <div className="bg-white/[0.02] border border-white/10 rounded-xl p-6 sm:p-8" aria-label="Example uptime check result">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center justify-center">
-                    <span className="text-lg font-bold text-emerald-400">A</span>
-                    <span className="text-[9px] text-emerald-400/70">92/100</span>
+              <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl p-6 sm:p-8" aria-label="Example uptime check result">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-foreground/10">
+                  <div className="w-12 h-12 rounded-xl bg-success/10 border border-success/20 flex flex-col items-center justify-center">
+                    <span className="text-lg font-bold text-success">A</span>
+                    <span className="text-[9px] text-success/70">92/100</span>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-emerald-400">Website is Up &amp; Healthy</p>
+                    <p className="text-sm font-semibold text-success">Website is Up &amp; Healthy</p>
                     <p className="text-xs text-muted-foreground">https://example.com — 187ms response time</p>
                   </div>
                 </div>
@@ -174,11 +175,11 @@ export default function UptimeCheckerPage() {
                     { label: "Response", grade: "A", score: "90" },
                     { label: "Security", grade: "B", score: "80" },
                   ].map((cat) => (
-                    <div key={cat.label} className="text-center bg-white/[0.02] rounded-lg p-3 border border-white/5">
+                    <div key={cat.label} className="text-center bg-foreground/[0.02] rounded-lg p-3 border border-foreground/5">
                       <div className="text-[10px] text-muted-foreground uppercase">{cat.label}</div>
                       <div className={cn(
                         "text-xl font-bold mt-1",
-                        cat.grade.startsWith("A") ? "text-emerald-400" : "text-blue-400"
+                        cat.grade.startsWith("A") ? "text-success" : "text-primary"
                       )}>
                         {cat.grade}
                       </div>
@@ -188,37 +189,37 @@ export default function UptimeCheckerPage() {
                 </div>
                 <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Key Findings</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">TTFB</span>
-                    <span className="text-sm font-medium text-emerald-400">142ms</span>
+                    <span className="text-sm font-medium text-success">142ms</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">SSL Certificate</span>
-                    <span className="text-sm font-medium text-emerald-400">Valid (287 days)</span>
+                    <span className="text-sm font-medium text-success">Valid (287 days)</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">HSTS</span>
-                    <span className="text-xs font-medium text-emerald-400">Enabled + Preload</span>
+                    <span className="text-xs font-medium text-success">Enabled + Preload</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Compression</span>
-                    <span className="text-xs font-medium text-emerald-400">gzip</span>
+                    <span className="text-xs font-medium text-success">gzip</span>
                   </div>
                 </div>
               </div>
               <div className="mt-8 space-y-4 text-sm text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 <p>
                   The uptime checker performs a deep analysis of your website
-                  across seven categories. <strong className="text-white">DNS
+                  across seven categories. <strong className="text-foreground">DNS
                   resolution</strong> verifies your domain resolves correctly and
-                  measures lookup speed. <strong className="text-white">SSL/TLS</strong> checks
+                  measures lookup speed. <strong className="text-foreground">SSL/TLS</strong> checks
                   certificate validity, expiry, and protocol version.
                 </p>
                 <p>
-                  <strong className="text-white">Security headers</strong> evaluate
+                  <strong className="text-foreground">Security headers</strong> evaluate
                   protection against common web attacks — HSTS, CSP, clickjacking
-                  prevention, and more. <strong className="text-white">Performance</strong> measures
-                  response time, TTFB, content size, and compression. <strong className="text-white">Content
+                  prevention, and more. <strong className="text-foreground">Performance</strong> measures
+                  response time, TTFB, content size, and compression. <strong className="text-foreground">Content
                   health</strong> checks that your page has proper HTML structure
                   (title, meta description, favicon) and isn&apos;t returning an
                   error page.
@@ -309,19 +310,19 @@ export default function UptimeCheckerPage() {
                 Guides on uptime monitoring, security headers, and website performance.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                <Link href="/blog/how-to-check-if-website-is-down" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/how-to-check-if-website-is-down" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">How to Check If a Website Is Down</h3>
                   <p className="text-sm text-muted-foreground">Step-by-step guide to verifying outages, checking status codes, and diagnosing server issues.</p>
                 </Link>
-                <Link href="/blog/http-security-headers-explained" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/http-security-headers-explained" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">HTTP Security Headers Explained</h3>
                   <p className="text-sm text-muted-foreground">Complete checklist of security headers: HSTS, CSP, CORS, and how to implement them.</p>
                 </Link>
-                <Link href="/blog/api-endpoint-monitoring-playbook-2025" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/api-endpoint-monitoring-playbook-2025" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">API Endpoint Monitoring Playbook</h3>
                   <p className="text-sm text-muted-foreground">Build a comprehensive API monitoring strategy with validation, alerts, and global coverage.</p>
                 </Link>
-                <Link href="/blog/api-observability-automation-toolkit" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/api-observability-automation-toolkit" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">API Observability Automation Toolkit</h3>
                   <p className="text-sm text-muted-foreground">Automate API monitoring with payload validation, status automation, and incident response.</p>
                 </Link>
@@ -342,14 +343,19 @@ export default function UptimeCheckerPage() {
                   alerts via email, Slack, Discord, or webhooks when something goes
                   wrong.
                 </p>
-                <a
-                  href="https://app.exit1.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-200"
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-8 text-base font-semibold"
                 >
-                  Start Free Monitoring
-                </a>
+                  <a
+                    href="https://app.exit1.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start Free Monitoring
+                  </a>
+                </Button>
               </div>
             </SectionContent>
           </PageSection>

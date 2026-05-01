@@ -43,32 +43,32 @@ const FreeWebsiteMonitorPage = () => {
     {
       title: 'Built for storefront uptime',
       description: 'Shopify, WooCommerce, custom carts—watch product pages, checkout flows, and promo landing pages without limits.',
-      icon: <ShoppingBag className="w-6 h-6 text-white" />,
+      icon: <ShoppingBag className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Jamstack and static sites welcome',
       description: 'Monitor GitHub Pages, Netlify, Vercel, Cloudflare Pages, and any CDN edge without installing agents.',
-      icon: <Code className="w-6 h-6 text-white" />,
+      icon: <Code className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Content validation baked in',
       description: 'Confirm hero copy, pricing snippets, and CTA buttons render correctly by asserting keywords or JSON payloads.',
-      icon: <Sparkle className="w-6 h-6 text-white" />,
+      icon: <Sparkle className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'SSL and DNS checks',
       description: 'Never lose sales to an expired certificate. We track the boring stuff so you do not have to.',
-      icon: <Shield className="w-6 h-6 text-white" />,
+      icon: <Shield className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Real alerts, not vanity emails',
       description: 'Instant webhooks and emails that only fire after we confirm the issue. Tie directly into PagerDuty, Opsgenie, or Slack.',
-      icon: <Bell className="w-6 h-6 text-white" />,
+      icon: <Bell className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Unlimited regions & rollups',
       description: 'Probe your pages from multiple continents and aggregate the data in analytics and logs for proper postmortems.',
-      icon: <Globe className="w-6 h-6 text-white" />,
+      icon: <Globe className="w-6 h-6 text-foreground" />,
     },
   ];
 
@@ -152,19 +152,19 @@ const FreeWebsiteMonitorPage = () => {
       title: 'Analytics & Reports',
       description: 'Slice uptime, response times, and campaign performance without another BI license.',
       href: '/analytics',
-      icon: <BarChart3 className="w-6 h-6 text-white" />,
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Comprehensive Logs',
       description: 'Pull request-by-request history to debug CDN rules, caching issues, and DNS hiccups.',
       href: '/logs',
-      icon: <FileText className="w-6 h-6 text-white" />,
+      icon: <FileText className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Global Monitoring',
       description: 'See how fast your site responds from every region we cover and tune for international buyers.',
       href: '/global-monitoring',
-      icon: <Layers className="w-6 h-6 text-white" />,
+      icon: <Layers className="w-6 h-6 text-foreground" />,
     },
   ];
 

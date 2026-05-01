@@ -43,42 +43,42 @@ const StatusPages = () => {
     {
       title: "Real-Time Status Updates",
       description: "Your status page automatically refreshes every 60 seconds, showing live status for all your monitored services. No manual updates needed.",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     },
     {
       title: "30-Day Heartbeat History",
       description: "Every check displays a visual 30-day history showing daily status. Your customers can see at a glance how reliable your services have been.",
-      icon: <Calendar className="w-6 h-6 text-white" />
+      icon: <Calendar className="w-6 h-6 text-foreground" />
     },
     {
       title: "Multiple Layout Options",
       description: "Choose from 2-column grid, 3-column grid, or single column layouts. Pick what fits your needs and number of services best.",
-      icon: <LayoutGrid className="w-6 h-6 text-white" />
+      icon: <LayoutGrid className="w-6 h-6 text-foreground" />
     },
     {
       title: "Public or Private",
       description: "Set your status page as public for customers to access, or keep it private for internal team visibility only.",
-      icon: <Lock className="w-6 h-6 text-white" />
+      icon: <Lock className="w-6 h-6 text-foreground" />
     },
     {
       title: "Drag & Drop Builder",
       description: "Arrange your monitors exactly how you want them. Drag and drop to reorder, group by service, and create the perfect layout for your audience (Nano and above).",
-      icon: <GripVertical className="w-6 h-6 text-white" />
+      icon: <GripVertical className="w-6 h-6 text-foreground" />
     },
     {
       title: "Fullscreen Mode",
       description: "Perfect for NOC displays, office dashboards, or TV monitors. One click expands to a clean, distraction-free view.",
-      icon: <Maximize2 className="w-6 h-6 text-white" />
+      icon: <Maximize2 className="w-6 h-6 text-foreground" />
     },
     {
       title: "Sound Alerts",
       description: "Enable audio alerts and get an audible notification when any service goes offline. Ideal for keeping a status page open while you work.",
-      icon: <Volume2 className="w-6 h-6 text-white" />
+      icon: <Volume2 className="w-6 h-6 text-foreground" />
     },
     {
       title: "Browser Tab Alerts",
       description: "When a service goes down, the page title changes and the favicon pulses with a red indicator. Notice issues even when the tab is in the background.",
-      icon: <Bell className="w-6 h-6 text-white" />
+      icon: <Bell className="w-6 h-6 text-foreground" />
     }
   ];
 
@@ -178,37 +178,37 @@ const StatusPages = () => {
       title: "Real-Time Monitoring",
       description: "Monitor websites and APIs with fast checks and instant alerts when issues occur.",
       href: "/real-time-monitoring",
-      icon: <Clock className="w-6 h-6 text-white" />
+      icon: <Clock className="w-6 h-6 text-foreground" />
     },
     {
       title: "Analytics & Reports",
       description: "Track uptime trends, response times, and performance metrics with detailed analytics.",
       href: "/analytics",
-      icon: <BarChart3 className="w-6 h-6 text-white" />
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />
     },
     {
       title: "Comprehensive Logs",
       description: "View detailed monitoring history with advanced search, filtering, and export capabilities.",
       href: "/logs",
-      icon: <FileText className="w-6 h-6 text-white" />
+      icon: <FileText className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Alerting",
       description: "Get notified via webhooks and email when issues occur. Prevent alert fatigue with smart suppression.",
       href: "/alerting",
-      icon: <Bell className="w-6 h-6 text-white" />
+      icon: <Bell className="w-6 h-6 text-foreground" />
     },
     {
       title: "SSL Monitoring",
       description: "Monitor SSL certificate validity, expiration dates, and security issues automatically.",
       href: "/ssl-monitoring",
-      icon: <Shield className="w-6 h-6 text-white" />
+      icon: <Shield className="w-6 h-6 text-foreground" />
     },
     {
       title: "API Integration",
       description: "Integrate monitoring and status pages into your workflows with our comprehensive REST API.",
       href: "/api-webhooks",
-      icon: <Code className="w-6 h-6 text-white" />
+      icon: <Code className="w-6 h-6 text-foreground" />
     }
   ];
 

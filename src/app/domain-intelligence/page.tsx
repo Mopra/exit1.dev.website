@@ -41,32 +41,32 @@ const DomainIntelligence = () => {
     {
       title: "Zero Setup Required",
       description: "Domains are auto-detected from the URLs you're already monitoring. Enable it and it just works.",
-      icon: <Zap className="w-6 h-6 text-white" />
+      icon: <Zap className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Alert Timing",
       description: "Get notified at 30, 14, 7, and 1 day before expiry. Customizable thresholds per domain.",
-      icon: <Bell className="w-6 h-6 text-white" />
+      icon: <Bell className="w-6 h-6 text-foreground" />
     },
     {
       title: "Intelligent Check Frequency",
       description: "Monthly checks for far-off expirations, twice daily as deadlines approach. No wasted resources.",
-      icon: <Clock className="w-6 h-6 text-white" />
+      icon: <Clock className="w-6 h-6 text-foreground" />
     },
     {
       title: "Real-Time Dashboard",
       description: "Color-coded status indicators, sortable views, search and filter across all domains.",
-      icon: <Search className="w-6 h-6 text-white" />
+      icon: <Search className="w-6 h-6 text-foreground" />
     },
     {
       title: "Renewal Detection",
       description: "Automatically detects when domains are renewed and sends confirmation. No more guessing.",
-      icon: <RefreshCw className="w-6 h-6 text-white" />
+      icon: <RefreshCw className="w-6 h-6 text-foreground" />
     },
     {
       title: "Multi-Channel Alerts",
       description: "Email, SMS, webhooks - Slack, Discord, or your custom endpoint. Your choice.",
-      icon: <AlertTriangle className="w-6 h-6 text-white" />
+      icon: <AlertTriangle className="w-6 h-6 text-foreground" />
     }
   ];
 
@@ -169,37 +169,37 @@ const DomainIntelligence = () => {
       title: "SSL Monitoring",
       description: "Monitor SSL certificate validity, expiration dates, and security issues automatically.",
       href: "/ssl-monitoring",
-      icon: <Shield className="w-6 h-6 text-white" />
+      icon: <Shield className="w-6 h-6 text-foreground" />
     },
     {
       title: "Real-Time Monitoring",
       description: "Monitor websites and APIs with fast checks and instant alerts when issues occur.",
       href: "/real-time-monitoring",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Alerting",
       description: "Configure webhooks, email alerts, SMS, and custom notification rules.",
       href: "/alerting",
-      icon: <Bell className="w-6 h-6 text-white" />
+      icon: <Bell className="w-6 h-6 text-foreground" />
     },
     {
       title: "Analytics & Reports",
       description: "Track uptime trends, response times, and performance metrics with detailed analytics.",
       href: "/analytics",
-      icon: <BarChart3 className="w-6 h-6 text-white" />
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />
     },
     {
       title: "Comprehensive Logs",
       description: "View detailed monitoring history with advanced search and filtering capabilities.",
       href: "/logs",
-      icon: <FileText className="w-6 h-6 text-white" />
+      icon: <FileText className="w-6 h-6 text-foreground" />
     },
     {
       title: "API Integration",
       description: "Integrate monitoring data into your workflows with our comprehensive REST API.",
       href: "/api-webhooks",
-      icon: <Code className="w-6 h-6 text-white" />
+      icon: <Code className="w-6 h-6 text-foreground" />
     }
   ];
 

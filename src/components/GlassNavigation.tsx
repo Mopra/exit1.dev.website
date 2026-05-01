@@ -35,7 +35,7 @@ export default function GlassNavigation() {
                   key={item.href}
                   variant="ghost"
                   size="sm"
-                  className="h-10 px-3 rounded-xl hover:bg-white/10 hover:text-primary transition-all duration-200 text-sm font-medium flex items-center gap-2 cursor-pointer"
+                  className="h-10 px-3 rounded-xl hover:bg-foreground/10 hover:text-primary transition-all duration-200 text-sm font-medium flex items-center gap-2 cursor-pointer"
                   asChild
                 >
                   <Link href={item.href}>
@@ -86,7 +86,7 @@ export default function GlassNavigation() {
                 key={item.href}
                 variant="ghost"
                 size="sm"
-                className="h-10 px-3 rounded-xl hover:bg-white/10 hover:text-primary transition-all duration-200 text-sm font-medium flex items-center gap-2 cursor-pointer"
+                className="h-10 px-3 rounded-xl hover:bg-foreground/10 hover:text-primary transition-all duration-200 text-sm font-medium flex items-center gap-2 cursor-pointer"
                 asChild
               >
                 <Link href={item.href}>

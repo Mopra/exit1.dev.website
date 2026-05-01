@@ -20,12 +20,12 @@ export function FeatureGridItem({
   const content = (
     <>
       <div className="flex items-start justify-between mb-6">
-        <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+        <div className="w-12 h-12 rounded-lg bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors">
           {icon}
         </div>
       </div>
       <h3 className="text-2xl font-semibold mb-3">{title}</h3>
-      <p className="text-white/60 leading-relaxed">{description}</p>
+      <p className="text-foreground/60 leading-relaxed">{description}</p>
     </>
   );
 
@@ -34,7 +34,7 @@ export function FeatureGridItem({
       <Link
         href={href}
         className={cn(
-          "group block bg-black px-20 py-20 cursor-pointer border-inset",
+          "group block bg-background px-20 py-20 cursor-pointer border-inset",
           className
         )}
       >
@@ -46,7 +46,7 @@ export function FeatureGridItem({
   return (
     <div
       className={cn(
-        "group block bg-black px-20 py-20 border-inset",
+        "group block bg-background px-20 py-20 border-inset",
         className
       )}
     >

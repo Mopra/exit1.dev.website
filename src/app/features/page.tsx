@@ -26,31 +26,31 @@ const sections = [
         name: "Uptime Monitoring",
         href: "/free-uptime-monitor",
         description: "HTTP, HTTPS, and endpoint checks with support for all methods, custom headers, and body validation.",
-        icon: <Activity className="w-6 h-6 text-white" />,
+        icon: <Activity className="w-6 h-6 text-foreground" />,
       },
       {
         name: "Real-Time Monitoring",
         href: "/real-time-monitoring",
         description: "Live status updates for websites and APIs with instant change detection.",
-        icon: <Radio className="w-6 h-6 text-white" />,
+        icon: <Radio className="w-6 h-6 text-foreground" />,
       },
       {
         name: "Global Monitoring",
         href: "/global-monitoring",
         description: "Worldwide coverage from US, EU, and Asia regions with geo-performance insights.",
-        icon: <Globe className="w-6 h-6 text-white" />,
+        icon: <Globe className="w-6 h-6 text-foreground" />,
       },
       {
         name: "Domain Intelligence",
         href: "/domain-intelligence",
         description: "Automatic domain and SSL expiration alerts so nothing lapses unnoticed.",
-        icon: <Search className="w-6 h-6 text-white" />,
+        icon: <Search className="w-6 h-6 text-foreground" />,
       },
       {
         name: "Smart Alerting",
         href: "/alerting",
         description: "Configurable notifications via email, SMS, Slack, Discord, Teams, and webhooks.",
-        icon: <Bell className="w-6 h-6 text-white" />,
+        icon: <Bell className="w-6 h-6 text-foreground" />,
       },
     ],
   },
@@ -61,19 +61,19 @@ const sections = [
         name: "SSL Monitoring",
         href: "/ssl-monitoring",
         description: "Certificate expiration tracking, chain validation, and protocol analysis.",
-        icon: <Shield className="w-6 h-6 text-white" />,
+        icon: <Shield className="w-6 h-6 text-foreground" />,
       },
       {
         name: "ICMP Monitoring",
         href: "/icmp-monitoring",
         description: "Ping-based host availability and latency measurement.",
-        icon: <Activity className="w-6 h-6 text-white" />,
+        icon: <Activity className="w-6 h-6 text-foreground" />,
       },
       {
         name: "WebSocket Monitoring",
         href: "/websocket-monitoring",
         description: "WS/WSS handshake and connection checks for real-time services.",
-        icon: <Code className="w-6 h-6 text-white" />,
+        icon: <Code className="w-6 h-6 text-foreground" />,
       },
     ],
   },
@@ -84,37 +84,37 @@ const sections = [
         name: "Status Pages",
         href: "/status-pages",
         description: "Public status pages to share service health with your customers.",
-        icon: <Globe className="w-6 h-6 text-white" />,
+        icon: <Globe className="w-6 h-6 text-foreground" />,
       },
       {
         name: "Analytics & Reports",
         href: "/analytics",
         description: "Statistics dashboard with response time trends and availability insights.",
-        icon: <BarChart3 className="w-6 h-6 text-white" />,
+        icon: <BarChart3 className="w-6 h-6 text-foreground" />,
       },
       {
         name: "Logs",
         href: "/logs",
         description: "Unlimited log retention with full-text search and filtering.",
-        icon: <FileText className="w-6 h-6 text-white" />,
+        icon: <FileText className="w-6 h-6 text-foreground" />,
       },
       {
         name: "API & Webhooks",
         href: "/api-webhooks",
         description: "Full REST API and webhook integrations for automation.",
-        icon: <Webhook className="w-6 h-6 text-white" />,
+        icon: <Webhook className="w-6 h-6 text-foreground" />,
       },
       {
         name: "MCP Integration",
         href: "/mcp",
         description: "Query your monitors from AI assistants via the Model Context Protocol.",
-        icon: <Bot className="w-6 h-6 text-white" />,
+        icon: <Bot className="w-6 h-6 text-foreground" />,
       },
       {
         name: "Status Badges",
         href: "/badges",
         description: "Embeddable SVG badges showing real-time status, uptime, and response time.",
-        icon: <BadgeCheck className="w-6 h-6 text-white" />,
+        icon: <BadgeCheck className="w-6 h-6 text-foreground" />,
       },
     ],
   },
@@ -129,7 +129,7 @@ export default function FeaturesPage() {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6 tracking-tight">
               Everything you need to stay online
             </h1>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
               Monitoring, alerting, analytics, and integrations — all in one platform.
             </p>
           </SectionContent>
@@ -138,24 +138,24 @@ export default function FeaturesPage() {
         {sections.map((section) => (
           <PageSection key={section.title} className="py-16">
             <SectionContent className="px-8 sm:px-12">
-              <h2 className="text-sm font-medium uppercase tracking-widest text-white/40 mb-10">
+              <h2 className="text-sm font-medium uppercase tracking-widest text-foreground/40 mb-10">
                 {section.title}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.06] rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-foreground/[0.06] rounded-2xl overflow-hidden">
                 {section.features.map((feature) => (
                   <Link
                     key={feature.href}
                     href={feature.href}
-                    className="group bg-black p-8 hover:bg-white/[0.03] transition-colors"
+                    className="group bg-background p-8 hover:bg-foreground/[0.03] transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-colors">
+                    <div className="w-10 h-10 rounded-lg bg-foreground/5 flex items-center justify-center mb-4 group-hover:bg-foreground/10 transition-colors">
                       {feature.icon}
                     </div>
                     <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
                       {feature.name}
-                      <ArrowRight className="w-4 h-4 text-white/0 group-hover:text-white/60 transition-colors" />
+                      <ArrowRight className="w-4 h-4 text-foreground/0 group-hover:text-foreground/60 transition-colors" />
                     </h3>
-                    <p className="text-sm text-white/50 leading-relaxed">
+                    <p className="text-sm text-foreground/50 leading-relaxed">
                       {feature.description}
                     </p>
                   </Link>

@@ -28,32 +28,32 @@ const DataPrivacy = () => {
     {
       title: "GDPR Compliant",
       description: "Built to meet European data protection standards and regulations.",
-      icon: <Shield className="w-6 h-6 text-white" />
+      icon: <Shield className="w-6 h-6 text-foreground" />
     },
     {
       title: "Data Control",
       description: "Full control over your monitoring data and account information.",
-      icon: <Lock className="w-6 h-6 text-white" />
+      icon: <Lock className="w-6 h-6 text-foreground" />
     },
     {
       title: "Privacy First",
       description: "Privacy considerations built into every feature from the ground up.",
-      icon: <Eye className="w-6 h-6 text-white" />
+      icon: <Eye className="w-6 h-6 text-foreground" />
     },
     {
       title: "Transparent Policies",
       description: "Clear, understandable privacy policies with no hidden fine print.",
-      icon: <FileCheck className="w-6 h-6 text-white" />
+      icon: <FileCheck className="w-6 h-6 text-foreground" />
     },
     {
       title: "Global Standards",
       description: "Meets international privacy standards and best practices.",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     },
     {
       title: "User Rights",
       description: "Easy access to view, export, and manage your personal data.",
-      icon: <CheckCircle className="w-6 h-6 text-white" />
+      icon: <CheckCircle className="w-6 h-6 text-foreground" />
     }
   ];
 

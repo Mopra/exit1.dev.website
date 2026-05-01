@@ -161,7 +161,7 @@ function ResultRow({
   className?: string;
 }) {
   return (
-    <div className="flex items-start gap-3 py-3 border-b border-white/5 last:border-0">
+    <div className="flex items-start gap-3 py-3 border-b border-foreground/5 last:border-0">
       <Icon className={cn("w-4 h-4 mt-0.5 shrink-0", className)} />
       <div className="min-w-0 flex-1">
         <div className="text-xs text-muted-foreground">{label}</div>
@@ -187,11 +187,11 @@ function SectionCard({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-white/[0.02] border border-white/10 rounded-xl overflow-hidden">
+    <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl overflow-hidden">
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-white/[0.02] transition-colors"
+        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-foreground/[0.02] transition-colors"
       >
         <div className="flex items-center gap-3">
           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
@@ -220,8 +220,8 @@ function StatusPill({ ok, label }: { ok: boolean; label: string }) {
       className={cn(
         "inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border",
         ok
-          ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
-          : "bg-red-500/10 border-red-500/20 text-red-400"
+          ? "bg-success/10 border-success/20 text-success"
+          : "bg-destructive/10 border-destructive/20 text-destructive"
       )}
     >
       {ok ? <CheckCircle className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
@@ -236,12 +236,12 @@ function GradeBadge({ grade }: { grade: string }) {
       className={cn(
         "text-xs font-bold px-2 py-0.5 rounded border",
         grade.startsWith("A")
-          ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
+          ? "bg-success/20 border-success/30 text-success"
           : grade === "B"
-            ? "bg-blue-500/20 border-blue-500/30 text-blue-400"
+            ? "bg-primary/20 border-primary/30 text-primary"
             : grade === "C"
-              ? "bg-yellow-500/20 border-yellow-500/30 text-yellow-400"
-              : "bg-red-500/20 border-red-500/30 text-red-400"
+              ? "bg-warning/20 border-warning/30 text-warning"
+              : "bg-destructive/20 border-destructive/30 text-destructive"
       )}
     >
       {grade}
@@ -256,7 +256,7 @@ function GradeReasons({ reasons }: { reasons: string[] }) {
         const isBad = reason.startsWith("Missing") || reason.startsWith("No ") || reason.startsWith("Not ") || reason.includes("EXPIRED") || reason.includes("NOT trusted") || reason.includes("error") || reason.includes("slow") || reason.includes("very slow") || reason.includes("weak") || reason.includes("outdated") || reason.includes("heavy") || reason.includes("excessive") || reason.includes("bad for") || reason.includes("issues") || reason.includes("failed") || reason.includes("unreachable");
         return (
           <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-            <span className={cn("mt-0.5", isBad ? "text-red-400" : "text-emerald-400")}>
+            <span className={cn("mt-0.5", isBad ? "text-destructive" : "text-success")}>
               {isBad ? "!" : "+"}
             </span>
             {reason}
@@ -448,12 +448,12 @@ export default function UptimeCheckerTool() {
     checkUrl(exampleUrl);
   }
 
-  /* Grade color for the big overall display */
-  function gradeColor(grade: string) {
-    if (grade.startsWith("A")) return "emerald";
-    if (grade === "B") return "blue";
-    if (grade === "C") return "yellow";
-    return "red";
+  /* Grade color for the big overall display — returns a CSS variable name */
+  function gradeColor(grade: string): "success" | "info" | "warning" | "destructive" {
+    if (grade.startsWith("A")) return "success";
+    if (grade === "B") return "info";
+    if (grade === "C") return "warning";
+    return "destructive";
   }
 
   return (
@@ -473,14 +473,14 @@ export default function UptimeCheckerTool() {
               }
             }}
             placeholder="example.com"
-            className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl sm:rounded-r-none text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
+            className="w-full pl-11 pr-4 py-3 bg-foreground/5 border border-foreground/10 rounded-xl sm:rounded-r-none text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
             disabled={loading}
           />
         </div>
         <Button
           type="submit"
           disabled={loading || !url.trim()}
-          className="rounded-xl sm:rounded-l-none px-6 py-3 h-auto bg-white text-black hover:bg-white/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
+          className="rounded-xl sm:rounded-l-none px-6 py-3 h-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
         >
           {loading ? (
             <Loader2 className="w-4 h-4 animate-spin" />
@@ -511,7 +511,7 @@ export default function UptimeCheckerTool() {
 
       {/* Loading Progress */}
       {loading && (
-        <div className="mt-6 p-4 bg-white/[0.02] border border-white/10 rounded-xl">
+        <div className="mt-6 p-4 bg-foreground/[0.02] border border-foreground/10 rounded-xl">
           <div className="space-y-2">
             {LOADING_STEPS.map((step, i) => (
               <div
@@ -519,9 +519,9 @@ export default function UptimeCheckerTool() {
                 className={cn(
                   "flex items-center gap-2.5 text-sm transition-all duration-300",
                   i < loadingStep
-                    ? "text-emerald-400"
+                    ? "text-success"
                     : i === loadingStep
-                      ? "text-white"
+                      ? "text-foreground"
                       : "text-muted-foreground/40"
                 )}
               >
@@ -541,11 +541,11 @@ export default function UptimeCheckerTool() {
 
       {/* Error */}
       {error && (
-        <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-start gap-3">
-          <ShieldAlert className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+        <div className="mt-6 p-4 bg-destructive/10 border border-destructive/20 rounded-xl flex items-start gap-3">
+          <ShieldAlert className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
           <div>
-            <div className="font-medium text-red-400">Check Failed</div>
-            <div className="text-sm text-red-400/80 mt-1">{error}</div>
+            <div className="font-medium text-destructive">Check Failed</div>
+            <div className="text-sm text-destructive/80 mt-1">{error}</div>
           </div>
         </div>
       )}
@@ -561,20 +561,17 @@ export default function UptimeCheckerTool() {
                 className={cn(
                   "p-5 rounded-xl border flex flex-col sm:flex-row sm:items-center gap-4",
                   result.isUp
-                    ? "bg-emerald-500/10 border-emerald-500/20"
-                    : "bg-red-500/10 border-red-500/20"
+                    ? "bg-success/10 border-success/20"
+                    : "bg-destructive/10 border-destructive/20"
                 )}
               >
                 {/* Overall grade circle */}
                 <div
-                  className={cn(
-                    "w-16 h-16 rounded-2xl flex flex-col items-center justify-center shrink-0 border",
-                    `bg-${color}-500/20 border-${color}-500/30 text-${color}-400`
-                  )}
+                  className="w-16 h-16 rounded-2xl flex flex-col items-center justify-center shrink-0 border"
                   style={{
-                    backgroundColor: color === "emerald" ? "rgba(16,185,129,0.2)" : color === "blue" ? "rgba(59,130,246,0.2)" : color === "yellow" ? "rgba(234,179,8,0.2)" : "rgba(239,68,68,0.2)",
-                    borderColor: color === "emerald" ? "rgba(16,185,129,0.3)" : color === "blue" ? "rgba(59,130,246,0.3)" : color === "yellow" ? "rgba(234,179,8,0.3)" : "rgba(239,68,68,0.3)",
-                    color: color === "emerald" ? "rgb(52,211,153)" : color === "blue" ? "rgb(96,165,250)" : color === "yellow" ? "rgb(250,204,21)" : "rgb(248,113,113)",
+                    backgroundColor: `color-mix(in oklch, var(--${color}) 20%, transparent)`,
+                    borderColor: `color-mix(in oklch, var(--${color}) 30%, transparent)`,
+                    color: `var(--${color})`,
                   }}
                 >
                   <span className="text-xl font-bold leading-none">{result.overallGrade}</span>
@@ -583,14 +580,14 @@ export default function UptimeCheckerTool() {
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2 flex-wrap">
                     {result.isUp ? (
-                      <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+                      <ShieldCheck className="w-5 h-5 text-success shrink-0" />
                     ) : (
-                      <ShieldAlert className="w-5 h-5 text-red-400 shrink-0" />
+                      <ShieldAlert className="w-5 h-5 text-destructive shrink-0" />
                     )}
                     <span
                       className={cn(
                         "font-semibold text-lg",
-                        result.isUp ? "text-emerald-400" : "text-red-400"
+                        result.isUp ? "text-success" : "text-destructive"
                       )}
                     >
                       {result.isUp ? "Website is Up" : "Website is Down"}
@@ -619,7 +616,7 @@ export default function UptimeCheckerTool() {
                       label={`Performance: ${result.performanceGrade.grade}`}
                     />
                     {result.response.ttfbMs > 0 && (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-purple-500/10 border-purple-500/20 text-purple-400">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-secondary/10 border-secondary/20 text-secondary">
                         <Zap className="w-3 h-3" />
                         {result.response.ttfbMs}ms TTFB
                       </span>
@@ -643,19 +640,19 @@ export default function UptimeCheckerTool() {
             ].map(({ label, grade }) => (
               <div
                 key={label}
-                className="bg-white/[0.02] border border-white/10 rounded-xl p-4 text-center"
+                className="bg-foreground/[0.02] border border-foreground/10 rounded-xl p-4 text-center"
               >
                 <div className="text-xs text-muted-foreground uppercase tracking-wide mb-2">{label}</div>
                 <div
                   className={cn(
                     "text-2xl font-bold",
                     grade.grade.startsWith("A")
-                      ? "text-emerald-400"
+                      ? "text-success"
                       : grade.grade === "B"
-                        ? "text-blue-400"
+                        ? "text-primary"
                         : grade.grade === "C"
-                          ? "text-yellow-400"
-                          : "text-red-400"
+                          ? "text-warning"
+                          : "text-destructive"
                   )}
                 >
                   {grade.grade}
@@ -667,12 +664,12 @@ export default function UptimeCheckerTool() {
 
           {/* DNS Section */}
           <SectionCard title="DNS Resolution" badge={<GradeBadge grade={result.dnsGrade.grade} />}>
-            <div className="divide-y divide-white/5 mb-4">
+            <div className="divide-y divide-foreground/5 mb-4">
               <ResultRow
                 icon={Network}
                 label="Resolution Status"
                 value={result.dns.resolved ? "Resolved" : "Failed"}
-                className={result.dns.resolved ? "text-emerald-400" : "text-red-400"}
+                className={result.dns.resolved ? "text-success" : "text-destructive"}
               />
               {result.dns.ip && (
                 <ResultRow icon={Server} label="IP Address" value={result.dns.ip} className="text-primary" />
@@ -681,13 +678,13 @@ export default function UptimeCheckerTool() {
                 icon={Clock}
                 label="Resolution Time"
                 value={`${result.dns.resolutionTimeMs}ms`}
-                className={result.dns.resolutionTimeMs <= 100 ? "text-emerald-400" : result.dns.resolutionTimeMs <= 300 ? "text-yellow-400" : "text-red-400"}
+                className={result.dns.resolutionTimeMs <= 100 ? "text-success" : result.dns.resolutionTimeMs <= 300 ? "text-warning" : "text-destructive"}
               />
               <ResultRow
                 icon={Globe}
                 label="IPv6 Support"
                 value={result.dns.hasIPv6 ? "Yes (AAAA record found)" : "No"}
-                className={result.dns.hasIPv6 ? "text-emerald-400" : "text-muted-foreground"}
+                className={result.dns.hasIPv6 ? "text-success" : "text-muted-foreground"}
               />
             </div>
             <GradeReasons reasons={result.dnsGrade.reasons} />
@@ -696,12 +693,12 @@ export default function UptimeCheckerTool() {
           {/* SSL Section */}
           {result.ssl && result.sslGrade && (
             <SectionCard title="SSL / TLS" badge={<GradeBadge grade={result.sslGrade.grade} />}>
-              <div className="divide-y divide-white/5 mb-4">
+              <div className="divide-y divide-foreground/5 mb-4">
                 <ResultRow
                   icon={result.ssl.valid ? ShieldCheck : ShieldAlert}
                   label="Certificate Status"
                   value={result.ssl.valid ? "Valid & Trusted" : "Invalid or Untrusted"}
-                  className={result.ssl.valid ? "text-emerald-400" : "text-red-400"}
+                  className={result.ssl.valid ? "text-success" : "text-destructive"}
                 />
                 {result.ssl.subject && (
                   <ResultRow icon={Globe} label="Subject" value={result.ssl.subject} className="text-primary" />
@@ -714,7 +711,7 @@ export default function UptimeCheckerTool() {
                     icon={Lock}
                     label="Protocol"
                     value={result.ssl.protocol}
-                    className={result.ssl.protocol === "TLSv1.3" ? "text-emerald-400" : result.ssl.protocol === "TLSv1.2" ? "text-blue-400" : "text-red-400"}
+                    className={result.ssl.protocol === "TLSv1.3" ? "text-success" : result.ssl.protocol === "TLSv1.2" ? "text-primary" : "text-destructive"}
                   />
                 )}
                 {result.ssl.cipherSuite && (
@@ -725,7 +722,7 @@ export default function UptimeCheckerTool() {
                     icon={Lock}
                     label="Key Size"
                     value={`${result.ssl.keySize}-bit`}
-                    className={result.ssl.keySize >= 2048 ? "text-emerald-400" : "text-red-400"}
+                    className={result.ssl.keySize >= 2048 ? "text-success" : "text-destructive"}
                   />
                 )}
                 {result.ssl.daysUntilExpiry !== undefined && (
@@ -735,15 +732,15 @@ export default function UptimeCheckerTool() {
                     value={result.ssl.daysUntilExpiry <= 0 ? "EXPIRED" : `${result.ssl.daysUntilExpiry} days`}
                     className={
                       result.ssl.daysUntilExpiry <= 0
-                        ? "text-red-400"
+                        ? "text-destructive"
                         : result.ssl.daysUntilExpiry <= 30
-                          ? "text-yellow-400"
-                          : "text-emerald-400"
+                          ? "text-warning"
+                          : "text-success"
                     }
                   />
                 )}
                 {result.ssl.selfSigned && (
-                  <ResultRow icon={AlertTriangle} label="Self-Signed" value="Yes" className="text-yellow-400" />
+                  <ResultRow icon={AlertTriangle} label="Self-Signed" value="Yes" className="text-warning" />
                 )}
               </div>
               <GradeReasons reasons={result.sslGrade.reasons} />
@@ -760,7 +757,7 @@ export default function UptimeCheckerTool() {
               <div className="space-y-2 mb-4">
                 {result.redirects.chain.map((hop, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm">
-                    <span className="font-mono text-xs px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-400">
+                    <span className="font-mono text-xs px-1.5 py-0.5 rounded bg-primary/20 text-primary">
                       {hop.statusCode}
                     </span>
                     <span className="text-muted-foreground break-all">{hop.url}</span>
@@ -768,10 +765,10 @@ export default function UptimeCheckerTool() {
                   </div>
                 ))}
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="font-mono text-xs px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400">
+                  <span className="font-mono text-xs px-1.5 py-0.5 rounded bg-success/20 text-success">
                     {result.response.statusCode}
                   </span>
-                  <span className="text-white break-all font-medium">{result.redirects.finalUrl}</span>
+                  <span className="text-foreground break-all font-medium">{result.redirects.finalUrl}</span>
                 </div>
               </div>
             ) : null}
@@ -786,13 +783,13 @@ export default function UptimeCheckerTool() {
               <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                 <button
                   onClick={copyShareLink}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy share link"
                 >
                   {copiedLink ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -803,13 +800,13 @@ export default function UptimeCheckerTool() {
                 </button>
                 <button
                   onClick={copyResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy results"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -820,7 +817,7 @@ export default function UptimeCheckerTool() {
                 </button>
                 <button
                   onClick={downloadResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Download report"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -829,30 +826,30 @@ export default function UptimeCheckerTool() {
               </div>
             }
           >
-            <div className="divide-y divide-white/5 mb-4">
+            <div className="divide-y divide-foreground/5 mb-4">
               <ResultRow
                 icon={Activity}
                 label="Status Code"
                 value={`${result.response.statusCode} ${result.response.statusText}`}
                 className={
                   result.response.statusCode >= 200 && result.response.statusCode < 300
-                    ? "text-emerald-400"
+                    ? "text-success"
                     : result.response.statusCode >= 300 && result.response.statusCode < 400
-                      ? "text-blue-400"
-                      : "text-red-400"
+                      ? "text-primary"
+                      : "text-destructive"
                 }
               />
               <ResultRow
                 icon={Zap}
                 label="Time to First Byte (TTFB)"
                 value={`${result.response.ttfbMs}ms`}
-                className={result.response.ttfbMs <= 200 ? "text-emerald-400" : result.response.ttfbMs <= 500 ? "text-yellow-400" : "text-red-400"}
+                className={result.response.ttfbMs <= 200 ? "text-success" : result.response.ttfbMs <= 500 ? "text-warning" : "text-destructive"}
               />
               <ResultRow
                 icon={Clock}
                 label="Total Response Time"
                 value={`${result.response.responseTimeMs}ms`}
-                className={result.response.responseTimeMs <= 500 ? "text-emerald-400" : result.response.responseTimeMs <= 1500 ? "text-yellow-400" : "text-red-400"}
+                className={result.response.responseTimeMs <= 500 ? "text-success" : result.response.responseTimeMs <= 1500 ? "text-warning" : "text-destructive"}
               />
               {result.response.serverHeader && (
                 <ResultRow icon={Server} label="Server" value={result.response.serverHeader} className="text-primary" />
@@ -869,12 +866,12 @@ export default function UptimeCheckerTool() {
 
           {/* Performance Section */}
           <SectionCard title="Performance" badge={<GradeBadge grade={result.performanceGrade.grade} />}>
-            <div className="divide-y divide-white/5 mb-4">
+            <div className="divide-y divide-foreground/5 mb-4">
               <ResultRow
                 icon={Clock}
                 label="Total Load Time"
                 value={`${result.performance.totalTimeMs}ms`}
-                className={result.performance.totalTimeMs <= 1000 ? "text-emerald-400" : result.performance.totalTimeMs <= 3000 ? "text-yellow-400" : "text-red-400"}
+                className={result.performance.totalTimeMs <= 1000 ? "text-success" : result.performance.totalTimeMs <= 3000 ? "text-warning" : "text-destructive"}
               />
               {result.performance.contentSize !== undefined && (
                 <ResultRow
@@ -888,7 +885,7 @@ export default function UptimeCheckerTool() {
                 icon={result.performance.compressed ? CheckCircle : XCircle}
                 label="Compression"
                 value={result.performance.compressed ? `Enabled (${result.performance.contentEncoding})` : "Not detected"}
-                className={result.performance.compressed ? "text-emerald-400" : "text-yellow-400"}
+                className={result.performance.compressed ? "text-success" : "text-warning"}
               />
             </div>
             <GradeReasons reasons={result.performanceGrade.reasons} />
@@ -896,7 +893,7 @@ export default function UptimeCheckerTool() {
 
           {/* Security Headers Section */}
           <SectionCard title="Security Headers" badge={<GradeBadge grade={result.securityGrade.grade} />}>
-            <div className="divide-y divide-white/5 mb-4">
+            <div className="divide-y divide-foreground/5 mb-4">
               {[
                 { label: "Strict-Transport-Security (HSTS)", value: result.securityHeaders.strictTransportSecurity },
                 { label: "Content-Security-Policy", value: result.securityHeaders.contentSecurityPolicy },
@@ -910,7 +907,7 @@ export default function UptimeCheckerTool() {
                   icon={value ? ShieldCheck : Eye}
                   label={label}
                   value={value || "Not set"}
-                  className={value ? "text-emerald-400" : "text-red-400"}
+                  className={value ? "text-success" : "text-destructive"}
                 />
               ))}
             </div>
@@ -919,18 +916,18 @@ export default function UptimeCheckerTool() {
 
           {/* Content Section */}
           <SectionCard title="Content Health" badge={<GradeBadge grade={result.contentGrade.grade} />}>
-            <div className="divide-y divide-white/5 mb-4">
+            <div className="divide-y divide-foreground/5 mb-4">
               <ResultRow
                 icon={result.content.isErrorPage ? AlertTriangle : CheckCircle}
                 label="Page Type"
                 value={result.content.isErrorPage ? "Error page detected" : "Valid page"}
-                className={result.content.isErrorPage ? "text-red-400" : "text-emerald-400"}
+                className={result.content.isErrorPage ? "text-destructive" : "text-success"}
               />
               <ResultRow
                 icon={result.content.hasTitle ? CheckCircle : XCircle}
                 label="Title Tag"
                 value={result.content.hasTitle ? result.content.title! : "Missing"}
-                className={result.content.hasTitle ? "text-emerald-400" : "text-red-400"}
+                className={result.content.hasTitle ? "text-success" : "text-destructive"}
               />
               <ResultRow
                 icon={result.content.hasMetaDescription ? CheckCircle : XCircle}
@@ -942,13 +939,13 @@ export default function UptimeCheckerTool() {
                       : result.content.metaDescription!
                     : "Missing"
                 }
-                className={result.content.hasMetaDescription ? "text-emerald-400" : "text-red-400"}
+                className={result.content.hasMetaDescription ? "text-success" : "text-destructive"}
               />
               <ResultRow
                 icon={result.content.hasFavicon ? CheckCircle : XCircle}
                 label="Favicon"
                 value={result.content.hasFavicon ? "Detected" : "Not found"}
-                className={result.content.hasFavicon ? "text-emerald-400" : "text-yellow-400"}
+                className={result.content.hasFavicon ? "text-success" : "text-warning"}
               />
               <ResultRow
                 icon={FileText}

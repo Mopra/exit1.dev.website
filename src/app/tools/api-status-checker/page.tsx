@@ -16,6 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
@@ -149,51 +150,51 @@ export default function ApiStatusCheckerPage() {
                 Here&apos;s an example of the API health report this tool
                 provides. Try it above with any endpoint.
               </p>
-              <div className="bg-white/[0.02] border border-white/10 rounded-xl p-6 sm:p-8" aria-label="Example API status check result">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xs font-bold text-emerald-400">
+              <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl p-6 sm:p-8" aria-label="Example API status check result">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-foreground/10">
+                  <div className="w-8 h-8 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center text-xs font-bold text-success">
                     200
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-emerald-400">Endpoint Healthy</p>
+                    <p className="text-sm font-semibold text-success">Endpoint Healthy</p>
                     <p className="text-xs text-muted-foreground">https://api.example.com — 142 ms response time</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-6">
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Status Code</span>
-                    <span className="text-sm font-medium text-emerald-400">200 OK</span>
+                    <span className="text-sm font-medium text-success">200 OK</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Response Time</span>
                     <span className="text-sm font-medium">142 ms</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Content-Type</span>
                     <span className="text-sm font-medium">application/json</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Server</span>
                     <span className="text-sm font-medium">cloudflare</span>
                   </div>
                 </div>
                 <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Security Headers</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Strict-Transport-Security</span>
-                    <span className="text-xs font-medium text-emerald-400">Present</span>
+                    <span className="text-xs font-medium text-success">Present</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Content-Security-Policy</span>
-                    <span className="text-xs font-medium text-emerald-400">Present</span>
+                    <span className="text-xs font-medium text-success">Present</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">X-Frame-Options</span>
-                    <span className="text-xs font-medium text-emerald-400">DENY</span>
+                    <span className="text-xs font-medium text-success">DENY</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">X-Content-Type-Options</span>
-                    <span className="text-xs font-medium text-emerald-400">nosniff</span>
+                    <span className="text-xs font-medium text-success">nosniff</span>
                   </div>
                 </div>
               </div>
@@ -201,13 +202,13 @@ export default function ApiStatusCheckerPage() {
                 <p>
                   The checker tests your endpoint with the HTTP method you choose
                   (GET, POST, HEAD, etc.) and reports the status code, response
-                  time, and full response headers. A <strong className="text-white">200
+                  time, and full response headers. A <strong className="text-foreground">200
                   OK</strong> confirms the endpoint is healthy. Codes like 301/302
                   indicate redirects, 403 means access is forbidden, and 5xx codes
                   signal server errors.
                 </p>
                 <p>
-                  <strong className="text-white">Security headers</strong> protect
+                  <strong className="text-foreground">Security headers</strong> protect
                   your users from common attacks.
                   Strict-Transport-Security (HSTS) forces HTTPS connections,
                   Content-Security-Policy prevents XSS attacks, X-Frame-Options
@@ -301,19 +302,19 @@ export default function ApiStatusCheckerPage() {
                 Guides on checking website status, security headers, and API endpoint monitoring.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                <Link href="/blog/how-to-check-if-website-is-down" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/how-to-check-if-website-is-down" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">How to Check If a Website Is Down</h3>
                   <p className="text-sm text-muted-foreground">Step-by-step guide to verifying outages, checking status codes, and diagnosing server issues.</p>
                 </Link>
-                <Link href="/blog/http-security-headers-explained" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/http-security-headers-explained" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">HTTP Security Headers Explained</h3>
                   <p className="text-sm text-muted-foreground">Complete checklist of security headers: HSTS, CSP, CORS, and how to implement them.</p>
                 </Link>
-                <Link href="/blog/api-endpoint-monitoring-playbook-2025" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/api-endpoint-monitoring-playbook-2025" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">API Endpoint Monitoring Playbook</h3>
                   <p className="text-sm text-muted-foreground">Build a comprehensive API monitoring strategy with validation, alerts, and global coverage.</p>
                 </Link>
-                <Link href="/blog/api-observability-automation-toolkit" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/api-observability-automation-toolkit" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">API Observability Automation Toolkit</h3>
                   <p className="text-sm text-muted-foreground">Automate API monitoring with payload validation, status automation, and incident response.</p>
                 </Link>
@@ -333,14 +334,19 @@ export default function ApiStatusCheckerPage() {
                   websites 24/7 and alerts you instantly when something goes
                   wrong. Get notified via email, Slack, Discord, or webhooks.
                 </p>
-                <a
-                  href="https://app.exit1.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-200"
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-8 text-base font-semibold"
                 >
-                  Start Free Monitoring
-                </a>
+                  <a
+                    href="https://app.exit1.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start Free Monitoring
+                  </a>
+                </Button>
               </div>
             </SectionContent>
           </PageSection>

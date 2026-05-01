@@ -60,14 +60,14 @@ const SearchInput = ({
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
           aria-label={ariaLabel}
-          className="pl-12 pr-4 h-12 text-base bg-white/15 border-white/40 text-white placeholder:text-white/40 focus:bg-white/20 focus:border-white/60 transition-all duration-200"
+          className="pl-12 pr-4 h-12 text-base bg-foreground/15 border-foreground/40 text-foreground placeholder:text-foreground/40 focus:bg-foreground/20 focus:border-foreground/60 transition-all duration-200"
           aria-describedby={isSearching ? 'search-status' : undefined}
         />
         
         {/* Search Icon */}
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
           <svg
-            className="h-5 w-5 text-white/50"
+            className="h-5 w-5 text-foreground/50"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -85,7 +85,7 @@ const SearchInput = ({
         {/* Loading Indicator */}
         {isSearching && (
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white/70"></div>
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-foreground/70"></div>
           </div>
         )}
 
@@ -94,7 +94,7 @@ const SearchInput = ({
           <button
             type="button"
             onClick={() => setQuery('')}
-            className="absolute inset-y-0 right-0 pr-3 flex items-center text-white/60 hover:text-white focus:outline-none focus:text-white transition-colors duration-200 interactive"
+            className="absolute inset-y-0 right-0 pr-3 flex items-center text-foreground/60 hover:text-foreground focus:outline-none focus:text-foreground transition-colors duration-200 interactive"
             aria-label="Clear search"
           >
             <svg
@@ -122,8 +122,8 @@ const SearchInput = ({
       )}
 
       {/* Keyboard Shortcuts Help */}
-      <div className="mt-2 mb-6 text-xs text-white/60">
-        Press <kbd className="px-1 py-0.5 bg-white/10 border border-white/20 rounded text-xs">Esc</kbd> to clear
+      <div className="mt-2 mb-6 text-xs text-foreground/60">
+        Press <kbd className="px-1 py-0.5 bg-foreground/10 border border-foreground/20 rounded text-xs">Esc</kbd> to clear
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
@@ -151,38 +152,38 @@ export default function DomainExpirationCheckerPage() {
                 Here&apos;s an example of the domain registration details this
                 tool reveals. Try it above with any domain.
               </p>
-              <div className="bg-white/[0.02] border border-white/10 rounded-xl p-6 sm:p-8" aria-label="Example domain check result">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xs font-bold text-emerald-400">
+              <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl p-6 sm:p-8" aria-label="Example domain check result">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-foreground/10">
+                  <div className="w-8 h-8 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center text-xs font-bold text-success">
                     OK
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-emerald-400">Domain Active</p>
+                    <p className="text-sm font-semibold text-success">Domain Active</p>
                     <p className="text-xs text-muted-foreground">example.com — Expires in 243 days</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Domain</span>
                     <span className="text-sm font-medium">example.com</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Registrar</span>
                     <span className="text-sm font-medium">ICANN</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Created</span>
                     <span className="text-sm font-medium">Aug 14, 1995</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Expires</span>
                     <span className="text-sm font-medium">Aug 13, 2026</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Nameservers</span>
                     <span className="text-sm font-medium">a.iana-servers.net</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Domain Age</span>
                     <span className="text-sm font-medium">30 years</span>
                   </div>
@@ -192,13 +193,13 @@ export default function DomainExpirationCheckerPage() {
                 <p>
                   The checker queries RDAP and WHOIS databases to retrieve your
                   domain&apos;s registration record. You&apos;ll see the exact{" "}
-                  <strong className="text-white">expiry date</strong> with a
+                  <strong className="text-foreground">expiry date</strong> with a
                   countdown in days, the registrar that manages the domain,
                   authoritative nameservers, and the original creation date. This
                   tells you how much time you have before renewal is required.
                 </p>
                 <p>
-                  <strong className="text-white">Registry status codes</strong> like
+                  <strong className="text-foreground">Registry status codes</strong> like
                   clientTransferProhibited or serverDeleteProhibited indicate
                   protections applied to the domain. If a domain shows
                   pendingDelete or redemptionPeriod, it may be expiring or already
@@ -292,19 +293,19 @@ export default function DomainExpirationCheckerPage() {
                 Guides on domain expiration, WHOIS lookups, and protecting your domain portfolio.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                <Link href="/blog/how-to-check-domain-expiration-date" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/how-to-check-domain-expiration-date" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">How to Check When a Domain Expires</h3>
                   <p className="text-sm text-muted-foreground">Three free methods to find any domain&apos;s expiration date, registrar, and nameservers.</p>
                 </Link>
-                <Link href="/blog/domain-expiration-silent-killer-websites" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/domain-expiration-silent-killer-websites" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Domain Expiration: The Silent Killer</h3>
                   <p className="text-sm text-muted-foreground">Why domain expiration is the most preventable disaster in web operations.</p>
                 </Link>
-                <Link href="/blog/whois-lookup-guide" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/whois-lookup-guide" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">WHOIS Lookup Guide</h3>
                   <p className="text-sm text-muted-foreground">What domain registration data reveals about ownership, security, and expiration.</p>
                 </Link>
-                <Link href="/blog/never-lose-domain-again-complete-guide" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/never-lose-domain-again-complete-guide" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">How to Never Lose a Domain Again</h3>
                   <p className="text-sm text-muted-foreground">The definitive guide to domain monitoring, alerts, and renewal automation.</p>
                 </Link>
@@ -324,14 +325,19 @@ export default function DomainExpirationCheckerPage() {
                   expirations automatically and alerts you before they lapse.
                   Never lose a domain again.
                 </p>
-                <a
-                  href="https://app.exit1.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-200"
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-8 text-base font-semibold"
                 >
-                  Start Free Monitoring
-                </a>
+                  <a
+                    href="https://app.exit1.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start Free Monitoring
+                  </a>
+                </Button>
               </div>
             </SectionContent>
           </PageSection>

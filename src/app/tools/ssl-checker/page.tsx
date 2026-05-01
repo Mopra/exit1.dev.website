@@ -16,6 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
@@ -151,55 +152,55 @@ export default function SSLCheckerPage() {
                 Here&apos;s an example of the SSL certificate details this tool
                 reveals. Try it above with any domain.
               </p>
-              <div className="bg-white/[0.02] border border-white/10 rounded-xl p-6 sm:p-8" aria-label="Example SSL check result">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xs font-bold text-emerald-400">
+              <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl p-6 sm:p-8" aria-label="Example SSL check result">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-foreground/10">
+                  <div className="w-8 h-8 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center text-xs font-bold text-success">
                     A
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-emerald-400">SSL Certificate Valid</p>
+                    <p className="text-sm font-semibold text-success">SSL Certificate Valid</p>
                     <p className="text-xs text-muted-foreground">example.com — Expires in 82 days</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Subject</span>
                     <span className="text-sm font-medium">*.example.com</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Issuer</span>
                     <span className="text-sm font-medium">Let&apos;s Encrypt R3</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">TLS Protocol</span>
                     <span className="text-sm font-medium">TLSv1.3</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Key Size</span>
                     <span className="text-sm font-medium">2048 bits</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Valid From</span>
                     <span className="text-sm font-medium">Jan 15, 2026</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Valid Until</span>
                     <span className="text-sm font-medium">Apr 15, 2026</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Browser Trusted</span>
-                    <span className="text-sm font-medium text-emerald-400">Yes</span>
+                    <span className="text-sm font-medium text-success">Yes</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5">
+                  <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">HSTS Enabled</span>
-                    <span className="text-sm font-medium text-emerald-400">Yes</span>
+                    <span className="text-sm font-medium text-success">Yes</span>
                   </div>
                 </div>
               </div>
               <div className="mt-8 space-y-4 text-sm text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 <p>
                   The SSL grade is calculated from your TLS protocol version, key
-                  strength, and certificate validity. A grade of <strong className="text-white">A</strong> means
+                  strength, and certificate validity. A grade of <strong className="text-foreground">A</strong> means
                   the site uses TLS 1.3 with a strong key and the certificate is
                   not close to expiring. Lower grades indicate outdated protocols
                   like TLS 1.0 or 1.1, weak key sizes, or certificates nearing
@@ -299,19 +300,19 @@ export default function SSLCheckerPage() {
                 Guides and best practices for managing SSL certificates and keeping your sites secure.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                <Link href="/blog/how-to-check-ssl-certificate" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/how-to-check-ssl-certificate" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">How to Check an SSL Certificate</h3>
                   <p className="text-sm text-muted-foreground">Complete guide to verifying SSL certificates using browsers, command line, and online tools.</p>
                 </Link>
-                <Link href="/blog/ssl-certificate-errors-explained" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/ssl-certificate-errors-explained" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">SSL Certificate Errors Explained</h3>
                   <p className="text-sm text-muted-foreground">Every SSL error your browser can throw — what causes it and how to fix it fast.</p>
                 </Link>
-                <Link href="/blog/free-ssl-certificate-monitoring" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/free-ssl-certificate-monitoring" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Free SSL Certificate Monitoring</h3>
                   <p className="text-sm text-muted-foreground">Set up automated SSL monitoring with alerts before your certificates expire.</p>
                 </Link>
-                <Link href="/blog/ssl-certificate-expiration-other-deadline" className="group block p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/ssl-certificate-expiration-other-deadline" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">SSL Expiration: The Other Deadline</h3>
                   <p className="text-sm text-muted-foreground">Why SSL certificate expiry deserves the same attention as domain expiration.</p>
                 </Link>
@@ -331,14 +332,19 @@ export default function SSLCheckerPage() {
                   certificates automatically and alerts you before they expire.
                   10 free monitors. Unlimited with Nano.
                 </p>
-                <a
-                  href="https://app.exit1.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-200"
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-8 text-base font-semibold"
                 >
-                  Start Free Monitoring
-                </a>
+                  <a
+                    href="https://app.exit1.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start Free Monitoring
+                  </a>
+                </Button>
               </div>
             </SectionContent>
           </PageSection>

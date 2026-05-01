@@ -38,7 +38,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
                 ) : (
                   <Link
                     href={item.href}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-foreground transition-colors"
                   >
                     {item.name}
                   </Link>

@@ -11,7 +11,7 @@ import { validateDomain } from '@/lib/domainUtils'
 const Prism = dynamic(() => import('./Prism'), {
   ssr: false,
   loading: () => (
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20" />
+    <div className="absolute inset-0 bg-gradient-to-br from-decorative-from/20 via-decorative-via/20 to-decorative-to/20" />
   )
 })
 
@@ -86,33 +86,33 @@ export default function Hero() {
           suspendWhenOffscreen={true}
         />
         {/* Fade overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1
             id="hero-heading"
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight tracking-tight text-white drop-shadow-lg"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight tracking-tight text-foreground drop-shadow-lg"
           >
             Free Uptime Monitoring. No Limits. No Catches.
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 mb-3 sm:mb-5 max-w-3xl mx-auto font-medium leading-relaxed px-2 sm:px-4 drop-shadow-md">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-foreground/90 mb-3 sm:mb-5 max-w-3xl mx-auto font-medium leading-relaxed px-2 sm:px-4 drop-shadow-md">
             Check every site, storefront, and API every minute. Exit1.dev is the free uptime monitor and free website monitor that actually runs hot: unlimited checks, instant alerts, SSL coverage, no bait-and-switch.
           </p>
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/70 mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-4">
-            Need proof? Hit the <a href="/free-uptime-monitor" className="underline decoration-dotted underline-offset-4 hover:text-white/90 transition-colors">Free Uptime Monitor</a> or <a href="/free-website-monitor" className="underline decoration-dotted underline-offset-4 hover:text-white/90 transition-colors">Free Website Monitor</a> breakdowns and see why we run circles around the “free” teasers from the usual suspects.
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-foreground/70 mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-4">
+            Need proof? Hit the <a href="/free-uptime-monitor" className="underline decoration-dotted underline-offset-4 hover:text-foreground/90 transition-colors">Free Uptime Monitor</a> or <a href="/free-website-monitor" className="underline decoration-dotted underline-offset-4 hover:text-foreground/90 transition-colors">Free Website Monitor</a> breakdowns and see why we run circles around the “free” teasers from the usual suspects.
           </p>
 
           {/* Quick Start Form */}
           <form onSubmit={handleStartMonitoring} className="max-w-md mx-auto mb-8 sm:mb-12 lg:mb-16">
             <div className="flex flex-col sm:flex-row gap-3 w-full">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 w-4 h-4" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50 w-4 h-4" />
                 <div className="relative flex items-center">
                   {/* HTTPS Prefix */}
-                  <div className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white/40 text-sm font-mono pointer-events-none select-none z-10">
+                  <div className="absolute left-6 top-1/2 transform -translate-y-1/2 text-foreground/40 text-sm font-mono pointer-events-none select-none z-10">
                     https://
                   </div>
                   {/* URL Input */}
@@ -121,8 +121,8 @@ export default function Hero() {
                     placeholder="example.com"
                     value={websiteUrl}
                     onChange={handleInputChange}
-                    className={`pl-24 h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 backdrop-blur-md focus:bg-white/15 transition-all duration-300 cursor-pointer ${
-                      error ? 'border-red-400 focus:border-red-400' : ''
+                    className={`pl-24 h-12 bg-foreground/10 border-foreground/20 text-foreground placeholder:text-foreground/50 backdrop-blur-md focus:bg-foreground/15 transition-all duration-300 cursor-pointer ${
+                      error ? 'border-destructive focus:border-destructive' : ''
                     }`}
                     required
                   />
@@ -132,7 +132,7 @@ export default function Hero() {
                 type="submit"
                 size="lg"
                 disabled={isLoading || !isFormValid}
-                className="font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-12 px-6 glass-primary border backdrop-blur-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-12 px-6 bg-primary text-primary-foreground hover:bg-primary/90 border border-primary/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isLoading ? 'Starting...' : 'Start Monitoring'}
               </Button>
@@ -140,26 +140,26 @@ export default function Hero() {
             
             {/* Error Message */}
             {error && (
-              <div className="flex items-center gap-2 text-red-300 text-sm mt-2 bg-red-900/20 border border-red-500/30 rounded-md p-2 backdrop-blur-md">
+              <div className="flex items-center gap-2 text-destructive text-sm mt-2 bg-destructive/20 border border-destructive/30 rounded-md p-2 backdrop-blur-md">
                 <AlertCircle className="w-4 h-4 flex-shrink-0" />
                 <span>{error}</span>
               </div>
             )}
-            
-            <p className="text-xs text-white/60 mt-2">
+
+            <p className="text-xs text-foreground/60 mt-2">
               Enter your website URL and we&apos;ll set up monitoring in seconds
             </p>
           </form>
-          
-          <div 
+
+          <div
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center px-4"
             role="group"
             aria-label="Additional action buttons"
           >
-            <Button 
+            <Button
               variant="outline"
               size="lg"
-              className="font-semibold transition-all duration-300 w-full sm:w-auto text-sm sm:text-base backdrop-blur-md border-white/30 hover:bg-white/10 text-white cursor-pointer"
+              className="font-semibold transition-all duration-300 w-full sm:w-auto text-sm sm:text-base backdrop-blur-md border-foreground/30 hover:bg-foreground/10 text-foreground cursor-pointer"
               asChild
             >
               <a href="https://discord.com/invite/uZvWbpwJZS" target="_blank" rel="noopener noreferrer" className="interactive">

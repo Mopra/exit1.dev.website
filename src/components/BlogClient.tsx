@@ -130,8 +130,8 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
                     onClick={() => handleCategoryChange(category)}
                     className={`rounded-full px-4 py-2 text-sm font-medium cursor-pointer whitespace-nowrap transition-all duration-200 ${
                       isSelected
-                        ? 'text-white/50 hover:bg-white/85'
-                        : 'border-white/20 text-white hover:bg-white/5'
+                        ? 'text-foreground/50 hover:bg-foreground/85'
+                        : 'border-foreground/20 text-foreground hover:bg-foreground/5'
                     }`}
                   >
                     {category}
@@ -140,7 +140,7 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
               })}
             </div>
 
-            <div className="text-center text-sm text-white/60">
+            <div className="text-center text-sm text-foreground/60">
               {totalPosts === 1 ? (
                 <span>Showing 1 article</span>
               ) : (
@@ -163,7 +163,7 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
           <div className="text-center py-8 sm:py-12" role="status" aria-live="polite">
             <div className="mb-4">
               <svg
-                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-white/60"
+                className="mx-auto h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-foreground/60"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -177,10 +177,10 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
                 />
               </svg>
             </div>
-            <h3 className="text-base sm:text-lg font-medium text-white mb-2">
+            <h3 className="text-base sm:text-lg font-medium text-foreground mb-2">
               No articles found
             </h3>
-            <p className="text-sm sm:text-base text-white/60">
+            <p className="text-sm sm:text-base text-foreground/60">
               Try adjusting your search or filter criteria.
             </p>
           </div>
@@ -190,14 +190,14 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
               {visiblePosts.map((post) => (
                 <InsetCard
                   key={post.id}
-                  className="group cursor-pointer border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.35)]"
+                  className="group cursor-pointer border border-foreground/10"
                 >
                   <CardContent className="p-10 h-full">
                     <div className="mb-4">
-                      <Badge variant="secondary" className="mb-2 text-xs bg-white/10 text-white border border-white/10">
+                      <Badge variant="secondary" className="mb-2 text-xs bg-foreground/10 text-foreground border border-foreground/10">
                         {post.categoryName}
                       </Badge>
-                      <div className="flex items-center text-sm text-white/60 mb-3 flex-wrap gap-2">
+                      <div className="flex items-center text-sm text-foreground/60 mb-3 flex-wrap gap-2">
                         <span>{post.formattedDate}</span>
                         <span className="mx-2">•</span>
                         <span>{post.readTime}</span>
@@ -208,9 +208,9 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
                             alt="Morten Pradsgaard"
                             width={20}
                             height={20}
-                            className="rounded-full border border-white/20"
+                            className="rounded-full border border-foreground/20"
                           />
-                          <Link href="/about" className="text-white hover:underline cursor-pointer interactive">
+                          <Link href="/about" className="text-foreground hover:underline cursor-pointer interactive">
                             {post.author}
                           </Link>
                         </div>
@@ -218,13 +218,13 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
                     </div>
 
                     <Link href={`/blog/${post.slug}`} className="block cursor-pointer">
-                      <h3 className="text-lg sm:text-xl font-semibold mb-3 group-hover:text-white transition-colors duration-200 line-clamp-2">
+                      <h3 className="text-lg sm:text-xl font-semibold mb-3 group-hover:text-foreground transition-colors duration-200 line-clamp-2">
                         {post.title}
                       </h3>
-                      <p className="text-sm sm:text-base text-white/60 leading-relaxed mb-4 line-clamp-3">
+                      <p className="text-sm sm:text-base text-foreground/60 leading-relaxed mb-4 line-clamp-3">
                         {post.excerpt}
                       </p>
-                      <div className="flex items-center text-white font-medium group-hover:translate-x-1 transition-transform duration-200 text-sm sm:text-base">
+                      <div className="flex items-center text-foreground font-medium group-hover:translate-x-1 transition-transform duration-200 text-sm sm:text-base">
                         Read more
                         <svg
                           className="ml-2 w-4 h-4"
@@ -252,7 +252,7 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
                   variant="outline"
                   size="lg"
                   onClick={handleLoadMore}
-                  className="rounded-full border-white/30 text-white hover:bg-white/10 cursor-pointer"
+                  className="rounded-full border-foreground/30 text-foreground hover:bg-foreground/10 cursor-pointer"
                 >
                   Load more
                 </Button>
@@ -265,14 +265,14 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
                     asChild
                     variant="outline"
                     size="sm"
-                    className="rounded-full border-white/20 text-white hover:bg-white/10"
+                    className="rounded-full border-foreground/20 text-foreground hover:bg-foreground/10"
                   >
                     <Link href={getPageHref(activePage - 1)} rel="prev">
                       Prev
                     </Link>
                   </Button>
                 ) : (
-                  <span className="rounded-full border border-white/10 px-3 py-2 text-xs text-white/30" aria-disabled="true">
+                  <span className="rounded-full border border-foreground/10 px-3 py-2 text-xs text-foreground/30" aria-disabled="true">
                     Prev
                   </span>
                 )}
@@ -285,7 +285,7 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
                       asChild
                       variant="outline"
                       size="sm"
-                      className={`rounded-full border-white/20 text-white hover:bg-white/10 ${isCurrent ? 'bg-white/10 border-white/60' : ''}`}
+                      className={`rounded-full border-foreground/20 text-foreground hover:bg-foreground/10 ${isCurrent ? 'bg-foreground/10 border-foreground/60' : ''}`}
                     >
                       <Link href={getPageHref(page)} aria-current={isCurrent ? 'page' : undefined}>
                         {page}
@@ -299,14 +299,14 @@ export function BlogClient({ posts, categories, currentPage = 1 }: BlogClientPro
                     asChild
                     variant="outline"
                     size="sm"
-                    className="rounded-full border-white/20 text-white hover:bg-white/10"
+                    className="rounded-full border-foreground/20 text-foreground hover:bg-foreground/10"
                   >
                     <Link href={getPageHref(activePage + 1)} rel="next">
                       Next
                     </Link>
                   </Button>
                 ) : (
-                  <span className="rounded-full border border-white/10 px-3 py-2 text-xs text-white/30" aria-disabled="true">
+                  <span className="rounded-full border border-foreground/10 px-3 py-2 text-xs text-foreground/30" aria-disabled="true">
                     Next
                   </span>
                 )}

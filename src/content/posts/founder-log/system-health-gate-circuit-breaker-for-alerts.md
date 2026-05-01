@@ -1,7 +1,7 @@
 ---
 title: "The Night We Almost Paged 10,000 People Because Our Own VPS Blinked"
 author: "Morten Pradsgaard"
-category: "incident"
+category: "founder-log"
 excerpt: "When a thousand unrelated sites all fail in the same second, the problem is almost never a thousand unrelated sites. Here's how we built a circuit breaker for our own alerts — and why every monitoring system needs one."
 date: "2026-04-12"
 metaDescription: "How we built a circuit breaker for our alerting pipeline to stop paging customers when our own infrastructure blinks. A real incident, a real fix, and the subtle bugs we hit along the way."

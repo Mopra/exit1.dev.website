@@ -15,6 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
@@ -153,15 +154,15 @@ export default function RedirectCheckerPage() {
                 Try it above with any URL.
               </p>
               <div
-                className="bg-white/[0.02] border border-white/10 rounded-xl p-6 sm:p-8"
+                className="bg-foreground/[0.02] border border-foreground/10 rounded-xl p-6 sm:p-8"
                 aria-label="Example redirect chain result"
               >
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xs font-bold text-emerald-400">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-foreground/10">
+                  <div className="w-8 h-8 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center text-xs font-bold text-success">
                     2
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-emerald-400">
+                    <p className="text-sm font-semibold text-success">
                       Redirect Chain Complete
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -171,15 +172,15 @@ export default function RedirectCheckerPage() {
                 </div>
                 <div className="space-y-4">
                   {/* Hop 1 */}
-                  <div className="flex items-start gap-4 p-3 rounded-lg bg-white/[0.02] border border-white/5">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-                      <span className="text-xs font-bold text-blue-400">
+                  <div className="flex items-start gap-4 p-3 rounded-lg bg-foreground/[0.02] border border-foreground/5">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <span className="text-xs font-bold text-primary">
                         1
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-mono font-bold text-blue-400">
+                        <span className="text-xs font-mono font-bold text-primary">
                           301
                         </span>
                         <span className="text-xs text-muted-foreground">
@@ -198,15 +199,15 @@ export default function RedirectCheckerPage() {
                     </div>
                   </div>
                   {/* Hop 2 */}
-                  <div className="flex items-start gap-4 p-3 rounded-lg bg-white/[0.02] border border-white/5">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-                      <span className="text-xs font-bold text-blue-400">
+                  <div className="flex items-start gap-4 p-3 rounded-lg bg-foreground/[0.02] border border-foreground/5">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <span className="text-xs font-bold text-primary">
                         2
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-mono font-bold text-blue-400">
+                        <span className="text-xs font-mono font-bold text-primary">
                           301
                         </span>
                         <span className="text-xs text-muted-foreground">
@@ -225,15 +226,15 @@ export default function RedirectCheckerPage() {
                     </div>
                   </div>
                   {/* Final destination */}
-                  <div className="flex items-start gap-4 p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/10">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-                      <span className="text-xs font-bold text-emerald-400">
+                  <div className="flex items-start gap-4 p-3 rounded-lg bg-success/5 border border-success/10">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-success/10 border border-success/20 flex items-center justify-center">
+                      <span className="text-xs font-bold text-success">
                         ✓
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-mono font-bold text-emerald-400">
+                        <span className="text-xs font-mono font-bold text-success">
                           200
                         </span>
                         <span className="text-xs text-muted-foreground">
@@ -257,8 +258,8 @@ export default function RedirectCheckerPage() {
                 <p>
                   The redirect chain shows every hop from the initial URL to the
                   final destination. Each hop displays the HTTP status code (
-                  <strong className="text-white">301</strong> for permanent,{" "}
-                  <strong className="text-white">302</strong> for temporary),
+                  <strong className="text-foreground">301</strong> for permanent,{" "}
+                  <strong className="text-foreground">302</strong> for temporary),
                   the Location header that tells the browser where to go next,
                   and the response time for that individual hop.
                 </p>
@@ -357,14 +358,19 @@ export default function RedirectCheckerPage() {
                   automatically and alerts you when redirect chains change or
                   break. 10 free monitors. Unlimited with Nano.
                 </p>
-                <a
-                  href="https://app.exit1.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-200"
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full px-8 text-base font-semibold"
                 >
-                  Start Free Monitoring
-                </a>
+                  <a
+                    href="https://app.exit1.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start Free Monitoring
+                  </a>
+                </Button>
               </div>
             </SectionContent>
           </PageSection>

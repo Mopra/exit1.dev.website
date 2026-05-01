@@ -42,32 +42,32 @@ const MCPPage = () => {
     {
       title: "Natural Language Queries",
       description: "Ask \"are any of my monitors down?\" or \"what's the uptime for my API this week?\" and get instant answers. No dashboards, no clicking, no context switching.",
-      icon: <MessageSquare className="w-6 h-6 text-white" />,
+      icon: <MessageSquare className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Works with Every Major AI Tool",
       description: "Connect to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, ChatGPT, and more. Any AI tool that supports the Model Context Protocol can plug in.",
-      icon: <Bot className="w-6 h-6 text-white" />,
+      icon: <Bot className="w-6 h-6 text-foreground" />,
     },
     {
       title: "5 Read-Only Tools",
       description: "List checks, get check details, pull historical results, query aggregate stats, and view status pages. All read-only — your data stays safe.",
-      icon: <Shield className="w-6 h-6 text-white" />,
+      icon: <Shield className="w-6 h-6 text-foreground" />,
     },
     {
       title: "One-Line Setup",
       description: "Install via npx with zero dependencies. Add your API key to the config and restart your AI assistant. Connected in under 2 minutes.",
-      icon: <Zap className="w-6 h-6 text-white" />,
+      icon: <Zap className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Uptime & Performance Stats",
       description: "Query uptime percentages, average/min/max response times across multiple time ranges. Compare this week vs last week in a single prompt.",
-      icon: <BarChart3 className="w-6 h-6 text-white" />,
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Incident Investigation",
       description: "Ask your AI assistant to show recent failures, filter by status, and dig into historical check results with timestamps and error details.",
-      icon: <Search className="w-6 h-6 text-white" />,
+      icon: <Search className="w-6 h-6 text-foreground" />,
     },
   ];
 
@@ -173,37 +173,37 @@ const MCPPage = () => {
       title: "API & Webhooks",
       description: "Full REST API access for programmatic integration. The MCP server is built on top of the same API.",
       href: "/api-webhooks",
-      icon: <Code className="w-6 h-6 text-white" />,
+      icon: <Code className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Analytics & Reports",
       description: "Track uptime trends and response times. MCP lets you query the same data conversationally.",
       href: "/analytics",
-      icon: <BarChart3 className="w-6 h-6 text-white" />,
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Smart Alerting",
       description: "Get notified via email, SMS, and webhooks. Use MCP to investigate after alerts fire.",
       href: "/alerting",
-      icon: <Bell className="w-6 h-6 text-white" />,
+      icon: <Bell className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Status Pages",
       description: "Public status pages for your customers. Query their current state via MCP.",
       href: "/status-pages",
-      icon: <Globe className="w-6 h-6 text-white" />,
+      icon: <Globe className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Real-Time Monitoring",
       description: "Live status updates for websites and APIs. Ask your AI assistant about current status anytime.",
       href: "/real-time-monitoring",
-      icon: <Activity className="w-6 h-6 text-white" />,
+      icon: <Activity className="w-6 h-6 text-foreground" />,
     },
     {
       title: "Global Monitoring",
       description: "Monitor from multiple regions. MCP surfaces data from all regions in a single conversation.",
       href: "/global-monitoring",
-      icon: <Clock className="w-6 h-6 text-white" />,
+      icon: <Clock className="w-6 h-6 text-foreground" />,
     },
   ];
 

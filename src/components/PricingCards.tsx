@@ -77,43 +77,43 @@ type TierTheme = {
 const tierTheme: Record<TierKey, TierTheme> = {
   free: {
     icon: Sparkles,
-    iconClass: "text-white/70",
-    border: "border-white/10",
-    bg: "bg-white/[0.03]",
+    iconClass: "text-tier-free",
+    border: "border-tier-free/20",
+    bg: "bg-tier-free/[0.03]",
     shadow: "",
     buttonPrimary: "",
-    buttonOutline: "border-white/20 text-white/90 hover:bg-white/5",
-    checkClass: "text-white/60",
+    buttonOutline: "border-tier-free/30 text-foreground/90 hover:bg-foreground/5",
+    checkClass: "text-tier-free",
   },
   nano: {
     icon: Zap,
-    iconClass: "text-violet-300",
-    border: "border-violet-400/40",
-    bg: "bg-violet-400/[0.04]",
-    shadow: "shadow-lg shadow-violet-500/10",
-    buttonPrimary: "bg-violet-400 text-black hover:bg-violet-300",
-    buttonOutline: "border-violet-400/50 text-violet-300 hover:bg-violet-400/10 hover:text-violet-200",
-    checkClass: "text-violet-300",
+    iconClass: "text-tier-nano",
+    border: "border-tier-nano/40",
+    bg: "bg-tier-nano/[0.04]",
+    shadow: "shadow-lg shadow-tier-nano/10",
+    buttonPrimary: "bg-tier-nano text-tier-nano-foreground hover:bg-tier-nano/90",
+    buttonOutline: "border-tier-nano/50 text-tier-nano hover:bg-tier-nano/10 hover:text-tier-nano",
+    checkClass: "text-tier-nano",
   },
   pro: {
     icon: Gem,
-    iconClass: "text-amber-300",
-    border: "border-amber-400/50",
-    bg: "bg-amber-400/[0.05]",
-    shadow: "shadow-lg shadow-amber-500/15",
-    buttonPrimary: "bg-amber-400 text-black hover:bg-amber-300",
-    buttonOutline: "border-amber-400/50 text-amber-300 hover:bg-amber-400/10 hover:text-amber-200",
-    checkClass: "text-amber-300",
+    iconClass: "text-tier-pro",
+    border: "border-tier-pro/50",
+    bg: "bg-tier-pro/[0.05]",
+    shadow: "shadow-lg shadow-tier-pro/15",
+    buttonPrimary: "bg-tier-pro text-tier-pro-foreground hover:bg-tier-pro/90",
+    buttonOutline: "border-tier-pro/50 text-tier-pro hover:bg-tier-pro/10 hover:text-tier-pro",
+    checkClass: "text-tier-pro",
   },
   agency: {
     icon: Crown,
-    iconClass: "text-emerald-300",
-    border: "border-emerald-400/40",
-    bg: "bg-emerald-400/[0.04]",
-    shadow: "shadow-lg shadow-emerald-500/10",
-    buttonPrimary: "bg-emerald-400 text-black hover:bg-emerald-300",
-    buttonOutline: "border-emerald-400/50 text-emerald-300 hover:bg-emerald-400/10 hover:text-emerald-200",
-    checkClass: "text-emerald-300",
+    iconClass: "text-tier-agency",
+    border: "border-tier-agency/40",
+    bg: "bg-tier-agency/[0.04]",
+    shadow: "shadow-lg shadow-tier-agency/10",
+    buttonPrimary: "bg-tier-agency text-tier-agency-foreground hover:bg-tier-agency/90",
+    buttonOutline: "border-tier-agency/50 text-tier-agency hover:bg-tier-agency/10 hover:text-tier-agency",
+    checkClass: "text-tier-agency",
   },
 };
 
@@ -157,14 +157,14 @@ export function PricingCards() {
         <div
           role="tablist"
           aria-label="Billing period"
-          className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] backdrop-blur p-1 text-sm"
+          className="inline-flex items-center rounded-full border border-border bg-foreground/[0.04] backdrop-blur p-1 text-sm"
         >
           <button
             role="tab"
             aria-selected={!isAnnual}
             onClick={() => setIsAnnual(false)}
             className={`px-4 py-1.5 rounded-full font-medium transition-colors cursor-pointer ${
-              !isAnnual ? "bg-white text-black" : "text-white/60 hover:text-white"
+              !isAnnual ? "bg-foreground text-background" : "text-foreground/60 hover:text-foreground"
             }`}
           >
             Monthly
@@ -174,15 +174,15 @@ export function PricingCards() {
             aria-selected={isAnnual}
             onClick={() => setIsAnnual(true)}
             className={`px-4 py-1.5 rounded-full font-medium transition-colors cursor-pointer inline-flex items-center gap-2 ${
-              isAnnual ? "bg-white text-black" : "text-white/60 hover:text-white"
+              isAnnual ? "bg-foreground text-background" : "text-foreground/60 hover:text-foreground"
             }`}
           >
             Annual
             <span
               className={`text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded-full border ${
                 isAnnual
-                  ? "bg-emerald-400/15 border-emerald-400/30 text-emerald-600"
-                  : "border-white/15 text-white/50"
+                  ? "bg-success/15 border-success/30 text-success"
+                  : "border-border text-foreground/50"
               }`}
             >
               Save ~20%
@@ -239,7 +239,7 @@ function PricingCard({
     >
       {highlighted && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="inline-flex items-center gap-1 bg-amber-400 text-black text-[10px] font-bold uppercase tracking-wide px-3 py-1 rounded-full">
+          <span className="inline-flex items-center gap-1 bg-tier-pro text-tier-pro-foreground text-[10px] font-bold uppercase tracking-wide px-3 py-1 rounded-full">
             <Sparkles className="w-3 h-3" />
             Most Popular
           </span>
@@ -251,13 +251,13 @@ function PricingCard({
           <Icon className={`w-5 h-5 ${theme.iconClass}`} />
           <h3 className="text-xl font-bold">{tierLabels[tier]}</h3>
         </div>
-        <p className="text-white/60 text-sm mb-5">{tierTagline[tier]}</p>
+        <p className="text-foreground/60 text-sm mb-5">{tierTagline[tier]}</p>
 
         <div className="flex items-baseline gap-1">
           <span className="text-4xl font-bold">{priceLabel}</span>
-          {!isFree && <span className="text-white/60">{priceSuffix}</span>}
+          {!isFree && <span className="text-foreground/60">{priceSuffix}</span>}
         </div>
-        <p className="text-white/60 mt-2 text-sm">{billingText}</p>
+        <p className="text-foreground/60 mt-2 text-sm">{billingText}</p>
       </div>
 
       <Button
@@ -278,9 +278,9 @@ function PricingCard({
           <li key={i} className="flex items-start gap-2 text-sm">
             <CircleCheck className={`w-4 h-4 ${theme.checkClass} mt-0.5 flex-shrink-0`} />
             <div className="flex flex-col gap-1">
-              <span className="text-white/85">{f.label}</span>
+              <span className="text-foreground/85">{f.label}</span>
               {f.comingSoon && (
-                <span className="inline-flex items-center gap-1 self-start text-[10px] font-medium uppercase tracking-wide text-white/50 border border-white/15 bg-white/5 rounded px-1.5 py-0.5">
+                <span className="inline-flex items-center gap-1 self-start text-[10px] font-medium uppercase tracking-wide text-foreground/50 border border-border bg-foreground/5 rounded px-1.5 py-0.5">
                   <Clock className="w-3 h-3" />
                   Coming soon
                 </span>

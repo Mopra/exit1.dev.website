@@ -82,7 +82,7 @@ function ResultRow({
   className?: string;
 }) {
   return (
-    <div className="flex items-start gap-3 py-3 border-b border-white/5 last:border-0">
+    <div className="flex items-start gap-3 py-3 border-b border-foreground/5 last:border-0">
       <Icon className={cn("w-4 h-4 mt-0.5 shrink-0", className)} />
       <div className="min-w-0 flex-1">
         <div className="text-xs text-muted-foreground">{label}</div>
@@ -108,13 +108,13 @@ function SectionCard({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-white/[0.02] border border-white/10 rounded-xl overflow-hidden">
+    <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl overflow-hidden">
       <div
         role="button"
         tabIndex={0}
         onClick={() => setOpen(!open)}
         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(!open); } }}
-        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-white/[0.02] transition-colors"
+        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-foreground/[0.02] transition-colors"
       >
         <div className="flex items-center gap-3">
           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
@@ -143,8 +143,8 @@ function StatusPill({ ok, label }: { ok: boolean; label: string }) {
       className={cn(
         "inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border",
         ok
-          ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
-          : "bg-red-500/10 border-red-500/20 text-red-400"
+          ? "bg-success/10 border-success/20 text-success"
+          : "bg-destructive/10 border-destructive/20 text-destructive"
       )}
     >
       {ok ? <CheckCircle className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
@@ -154,29 +154,29 @@ function StatusPill({ ok, label }: { ok: boolean; label: string }) {
 }
 
 function latencyColor(ms: number | null): string {
-  if (ms === null) return "text-red-400";
-  if (ms <= 50) return "text-emerald-400";
-  if (ms <= 100) return "text-green-400";
-  if (ms <= 200) return "text-yellow-400";
-  if (ms <= 500) return "text-orange-400";
-  return "text-red-400";
+  if (ms === null) return "text-destructive";
+  if (ms <= 50) return "text-success";
+  if (ms <= 100) return "text-success";
+  if (ms <= 200) return "text-warning";
+  if (ms <= 500) return "text-warning";
+  return "text-destructive";
 }
 
 function latencyBg(ms: number | null): string {
-  if (ms === null) return "bg-red-500/20";
-  if (ms <= 50) return "bg-emerald-500/20";
-  if (ms <= 100) return "bg-green-500/20";
-  if (ms <= 200) return "bg-yellow-500/20";
-  if (ms <= 500) return "bg-orange-500/20";
-  return "bg-red-500/20";
+  if (ms === null) return "bg-destructive/20";
+  if (ms <= 50) return "bg-success/20";
+  if (ms <= 100) return "bg-success/20";
+  if (ms <= 200) return "bg-warning/20";
+  if (ms <= 500) return "bg-warning/20";
+  return "bg-destructive/20";
 }
 
 function gradeColor(grade: string): { text: string; bg: string; border: string } {
-  if (grade.startsWith("A")) return { text: "text-emerald-400", bg: "bg-emerald-500/20", border: "border-emerald-500/30" };
-  if (grade === "B") return { text: "text-green-400", bg: "bg-green-500/20", border: "border-green-500/30" };
-  if (grade === "C") return { text: "text-yellow-400", bg: "bg-yellow-500/20", border: "border-yellow-500/30" };
-  if (grade === "D") return { text: "text-orange-400", bg: "bg-orange-500/20", border: "border-orange-500/30" };
-  return { text: "text-red-400", bg: "bg-red-500/20", border: "border-red-500/30" };
+  if (grade.startsWith("A")) return { text: "text-success", bg: "bg-success/20", border: "border-success/30" };
+  if (grade === "B") return { text: "text-success", bg: "bg-success/20", border: "border-success/30" };
+  if (grade === "C") return { text: "text-warning", bg: "bg-warning/20", border: "border-warning/30" };
+  if (grade === "D") return { text: "text-warning", bg: "bg-warning/20", border: "border-warning/30" };
+  return { text: "text-destructive", bg: "bg-destructive/20", border: "border-destructive/30" };
 }
 
 function LatencyChart({ pings, maxMs }: { pings: PingEntry[]; maxMs: number }) {
@@ -194,15 +194,15 @@ function LatencyChart({ pings, maxMs }: { pings: PingEntry[]; maxMs: number }) {
             : chartHeight;
           const color = ping.timeMs !== null
             ? ping.timeMs <= 50
-              ? "bg-emerald-500"
+              ? "bg-success"
               : ping.timeMs <= 100
-                ? "bg-green-500"
+                ? "bg-success"
                 : ping.timeMs <= 200
-                  ? "bg-yellow-500"
+                  ? "bg-warning"
                   : ping.timeMs <= 500
-                    ? "bg-orange-500"
-                    : "bg-red-500"
-            : "bg-red-500/40";
+                    ? "bg-warning"
+                    : "bg-destructive"
+            : "bg-destructive/40";
 
           return (
             <div
@@ -212,7 +212,7 @@ function LatencyChart({ pings, maxMs }: { pings: PingEntry[]; maxMs: number }) {
             >
               {/* Tooltip */}
               <div className="absolute bottom-full mb-2 hidden group-hover:block z-10">
-                <div className="bg-black/90 border border-white/20 rounded-lg px-2.5 py-1.5 text-xs whitespace-nowrap">
+                <div className="bg-background/90 border border-foreground/20 rounded-lg px-2.5 py-1.5 text-xs whitespace-nowrap">
                   <div className="font-mono font-semibold">
                     {ping.timeMs !== null ? `${ping.timeMs}ms` : "Failed"}
                   </div>
@@ -442,11 +442,11 @@ export default function PingTestTool() {
               value={count}
               onChange={(e) => setCount(parseInt(e.target.value))}
               disabled={loading}
-              className="px-3 py-3 bg-white/5 border border-white/10 border-r-0 rounded-l-xl text-white text-sm font-mono font-semibold focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all appearance-none cursor-pointer"
+              className="px-3 py-3 bg-foreground/5 border border-foreground/10 border-r-0 rounded-l-xl text-foreground text-sm font-mono font-semibold focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all appearance-none cursor-pointer"
               style={{ minWidth: "4.5rem" }}
             >
               {PING_COUNTS.map((c) => (
-                <option key={c} value={c} className="bg-black text-white">
+                <option key={c} value={c} className="bg-background text-foreground">
                   {c}x
                 </option>
               ))}
@@ -465,7 +465,7 @@ export default function PingTestTool() {
                   }
                 }}
                 placeholder="google.com or 8.8.8.8"
-                className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-r-xl sm:rounded-r-none text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
+                className="w-full pl-11 pr-4 py-3 bg-foreground/5 border border-foreground/10 rounded-r-xl sm:rounded-r-none text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
                 disabled={loading}
               />
             </div>
@@ -473,7 +473,7 @@ export default function PingTestTool() {
           <Button
             type="submit"
             disabled={loading || !host.trim()}
-            className="rounded-xl px-6 py-3 h-auto bg-white text-black hover:bg-white/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
+            className="rounded-xl px-6 py-3 h-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
           >
             {loading ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -494,7 +494,7 @@ export default function PingTestTool() {
               value={port}
               onChange={(e) => setPort(e.target.value.replace(/\D/g, "").slice(0, 5))}
               placeholder="Port (auto)"
-              className="w-36 pl-8 pr-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+              className="w-36 pl-8 pr-3 py-2 bg-foreground/5 border border-foreground/10 rounded-lg text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
               disabled={loading}
             />
           </div>
@@ -522,7 +522,7 @@ export default function PingTestTool() {
 
       {/* Loading Progress */}
       {loading && (
-        <div className="mt-6 bg-white/[0.02] border border-white/10 rounded-xl p-5 space-y-4">
+        <div className="mt-6 bg-foreground/[0.02] border border-foreground/10 rounded-xl p-5 space-y-4">
           <div className="space-y-3">
             {LOADING_STEPS.map((step, i) => {
               const isActive = i === loadingStepIndex;
@@ -538,20 +538,20 @@ export default function PingTestTool() {
                   )}
                 >
                   {isDone ? (
-                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-success shrink-0" />
                   ) : isActive ? (
                     <Loader2 className="w-4 h-4 text-primary animate-spin shrink-0" />
                   ) : (
-                    <div className="w-4 h-4 rounded-full border border-white/20 shrink-0" />
+                    <div className="w-4 h-4 rounded-full border border-foreground/20 shrink-0" />
                   )}
                   <div className="min-w-0">
                     <div
                       className={cn(
                         "text-sm font-medium",
                         isDone
-                          ? "text-emerald-400"
+                          ? "text-success"
                           : isActive
-                            ? "text-white"
+                            ? "text-foreground"
                             : "text-muted-foreground"
                       )}
                     >
@@ -568,7 +568,7 @@ export default function PingTestTool() {
             })}
           </div>
           {/* Progress bar */}
-          <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+          <div className="h-1 bg-foreground/10 rounded-full overflow-hidden">
             <div
               className="h-full bg-primary rounded-full transition-all duration-500"
               style={{
@@ -581,11 +581,11 @@ export default function PingTestTool() {
 
       {/* Error */}
       {error && (
-        <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-start gap-3">
-          <WifiOff className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+        <div className="mt-6 p-4 bg-destructive/10 border border-destructive/20 rounded-xl flex items-start gap-3">
+          <WifiOff className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
           <div>
-            <div className="font-medium text-red-400">Ping Failed</div>
-            <div className="text-sm text-red-400/80 mt-1">{error}</div>
+            <div className="font-medium text-destructive">Ping Failed</div>
+            <div className="text-sm text-destructive/80 mt-1">{error}</div>
           </div>
         </div>
       )}
@@ -608,10 +608,10 @@ export default function PingTestTool() {
                 className={cn(
                   "p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center gap-4",
                   isDown
-                    ? "bg-red-500/10 border-red-500/20"
+                    ? "bg-destructive/10 border-destructive/20"
                     : isPartial
-                      ? "bg-yellow-500/10 border-yellow-500/20"
-                      : "bg-emerald-500/10 border-emerald-500/20"
+                      ? "bg-warning/10 border-warning/20"
+                      : "bg-success/10 border-success/20"
                 )}
               >
                 {/* Grade badge */}
@@ -629,20 +629,20 @@ export default function PingTestTool() {
                       className={cn(
                         "w-5 h-5 shrink-0",
                         isDown
-                          ? "text-red-400"
+                          ? "text-destructive"
                           : isPartial
-                            ? "text-yellow-400"
-                            : "text-emerald-400"
+                            ? "text-warning"
+                            : "text-success"
                       )}
                     />
                     <span
                       className={cn(
                         "font-semibold",
                         isDown
-                          ? "text-red-400"
+                          ? "text-destructive"
                           : isPartial
-                            ? "text-yellow-400"
-                            : "text-emerald-400"
+                            ? "text-warning"
+                            : "text-success"
                       )}
                     >
                       {label}
@@ -668,17 +668,17 @@ export default function PingTestTool() {
                     />
                     {!isDown && (
                       <>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-blue-500/10 border-blue-500/20 text-blue-400">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-primary/10 border-primary/20 text-primary">
                           <Zap className="w-3 h-3" />
                           avg {result.stats.avgMs}ms
                         </span>
                         <span className={cn(
                           "inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border",
                           result.stats.jitterMs <= 5
-                            ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
+                            ? "bg-success/10 border-success/20 text-success"
                             : result.stats.jitterMs <= 20
-                              ? "bg-yellow-500/10 border-yellow-500/20 text-yellow-400"
-                              : "bg-red-500/10 border-red-500/20 text-red-400"
+                              ? "bg-warning/10 border-warning/20 text-warning"
+                              : "bg-destructive/10 border-destructive/20 text-destructive"
                         )}>
                           <BarChart3 className="w-3 h-3" />
                           {result.stats.jitterMs}ms jitter
@@ -686,12 +686,12 @@ export default function PingTestTool() {
                       </>
                     )}
                     {result.dnsTimeMs > 0 && (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-purple-500/10 border-purple-500/20 text-purple-400">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-secondary/10 border-secondary/20 text-secondary">
                         DNS {result.dnsTimeMs}ms
                       </span>
                     )}
                     {isFullSuccess && (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-emerald-500/10 border-emerald-500/20 text-emerald-400">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-success/10 border-success/20 text-success">
                         {result.stats.sent}/{result.stats.sent} received
                       </span>
                     )}
@@ -719,11 +719,11 @@ export default function PingTestTool() {
               <LatencyChart pings={result.pings} maxMs={result.stats.maxMs} />
               {/* Legend */}
               <div className="flex flex-wrap gap-x-4 gap-y-1 mt-4 text-[10px] text-muted-foreground">
-                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-emerald-500" /> &le;50ms</span>
-                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-green-500" /> &le;100ms</span>
-                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-yellow-500" /> &le;200ms</span>
-                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-orange-500" /> &le;500ms</span>
-                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-red-500" /> &gt;500ms</span>
+                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-success" /> &le;50ms</span>
+                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-success" /> &le;100ms</span>
+                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-warning" /> &le;200ms</span>
+                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-warning" /> &le;500ms</span>
+                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-destructive" /> &gt;500ms</span>
               </div>
             </SectionCard>
           )}
@@ -735,13 +735,13 @@ export default function PingTestTool() {
               <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                 <button
                   onClick={copyShareLink}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy share link"
                 >
                   {copiedLink ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -752,13 +752,13 @@ export default function PingTestTool() {
                 </button>
                 <button
                   onClick={copyResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy results"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -769,7 +769,7 @@ export default function PingTestTool() {
                 </button>
                 <button
                   onClick={downloadResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Download report"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -782,7 +782,7 @@ export default function PingTestTool() {
               {result.pings.map((ping) => (
                 <div
                   key={ping.seq}
-                  className="flex items-center gap-3 py-2 border-b border-white/5 last:border-0"
+                  className="flex items-center gap-3 py-2 border-b border-foreground/5 last:border-0"
                 >
                   <span className="text-xs text-muted-foreground font-mono w-6 shrink-0 text-right">
                     #{ping.seq}
@@ -790,7 +790,7 @@ export default function PingTestTool() {
                   {ping.timeMs !== null ? (
                     <>
                       {/* Latency bar */}
-                      <div className="flex-1 h-6 bg-white/5 rounded-md overflow-hidden relative">
+                      <div className="flex-1 h-6 bg-foreground/5 rounded-md overflow-hidden relative">
                         <div
                           className={cn(
                             "h-full rounded-md transition-all duration-500",
@@ -813,16 +813,16 @@ export default function PingTestTool() {
                           {ping.timeMs}ms
                         </span>
                       </div>
-                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-success shrink-0" />
                     </>
                   ) : (
                     <>
-                      <div className="flex-1 h-6 bg-red-500/10 rounded-md flex items-center px-2">
-                        <span className="text-xs font-mono text-red-400">
+                      <div className="flex-1 h-6 bg-destructive/10 rounded-md flex items-center px-2">
+                        <span className="text-xs font-mono text-destructive">
                           {ping.error || "Failed"}
                         </span>
                       </div>
-                      <XCircle className="w-4 h-4 text-red-400 shrink-0" />
+                      <XCircle className="w-4 h-4 text-destructive shrink-0" />
                     </>
                   )}
                 </div>
@@ -838,22 +838,22 @@ export default function PingTestTool() {
                 className={cn(
                   "text-xs font-bold px-2 py-0.5 rounded border",
                   result.stats.lossPercent === 0
-                    ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
+                    ? "bg-success/20 border-success/30 text-success"
                     : result.stats.lossPercent < 50
-                      ? "bg-yellow-500/20 border-yellow-500/30 text-yellow-400"
-                      : "bg-red-500/20 border-red-500/30 text-red-400"
+                      ? "bg-warning/20 border-warning/30 text-warning"
+                      : "bg-destructive/20 border-destructive/30 text-destructive"
                 )}
               >
                 {result.stats.lossPercent}% loss
               </span>
             }
           >
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-foreground/5">
               <ResultRow
                 icon={Activity}
                 label="Packets Sent / Received / Lost"
                 value={`${result.stats.sent} / ${result.stats.received} / ${result.stats.lost}`}
-                className={result.stats.lost === 0 ? "text-emerald-400" : "text-red-400"}
+                className={result.stats.lost === 0 ? "text-success" : "text-destructive"}
               />
               {result.stats.received > 0 && (
                 <>
@@ -880,10 +880,10 @@ export default function PingTestTool() {
                     }
                     className={
                       result.stats.jitterMs <= 5
-                        ? "text-emerald-400"
+                        ? "text-success"
                         : result.stats.jitterMs <= 20
-                          ? "text-yellow-400"
-                          : "text-red-400"
+                          ? "text-warning"
+                          : "text-destructive"
                     }
                   />
                   <ResultRow
@@ -903,10 +903,10 @@ export default function PingTestTool() {
                     }
                     className={
                       result.stats.stdDevMs <= 5
-                        ? "text-emerald-400"
+                        ? "text-success"
                         : result.stats.stdDevMs <= 20
-                          ? "text-yellow-400"
-                          : "text-red-400"
+                          ? "text-warning"
+                          : "text-destructive"
                     }
                   />
                 </>
@@ -934,7 +934,7 @@ export default function PingTestTool() {
                 The grade is computed from latency, packet loss, and jitter:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="bg-white/[0.03] rounded-lg p-3 border border-white/5">
+                <div className="bg-foreground/[0.03] rounded-lg p-3 border border-foreground/5">
                   <div className="text-xs text-muted-foreground mb-1">Latency</div>
                   <div className={cn("text-lg font-bold font-mono", latencyColor(result.stats.avgMs))}>
                     {result.stats.avgMs}ms
@@ -953,11 +953,11 @@ export default function PingTestTool() {
                               : "Very Poor"}
                   </div>
                 </div>
-                <div className="bg-white/[0.03] rounded-lg p-3 border border-white/5">
+                <div className="bg-foreground/[0.03] rounded-lg p-3 border border-foreground/5">
                   <div className="text-xs text-muted-foreground mb-1">Packet Loss</div>
                   <div className={cn(
                     "text-lg font-bold font-mono",
-                    result.stats.lossPercent === 0 ? "text-emerald-400" : result.stats.lossPercent <= 2 ? "text-yellow-400" : "text-red-400"
+                    result.stats.lossPercent === 0 ? "text-success" : result.stats.lossPercent <= 2 ? "text-warning" : "text-destructive"
                   )}>
                     {result.stats.lossPercent}%
                   </div>
@@ -969,11 +969,11 @@ export default function PingTestTool() {
                         : "Problematic"}
                   </div>
                 </div>
-                <div className="bg-white/[0.03] rounded-lg p-3 border border-white/5">
+                <div className="bg-foreground/[0.03] rounded-lg p-3 border border-foreground/5">
                   <div className="text-xs text-muted-foreground mb-1">Jitter</div>
                   <div className={cn(
                     "text-lg font-bold font-mono",
-                    result.stats.jitterMs <= 5 ? "text-emerald-400" : result.stats.jitterMs <= 20 ? "text-yellow-400" : "text-red-400"
+                    result.stats.jitterMs <= 5 ? "text-success" : result.stats.jitterMs <= 20 ? "text-warning" : "text-destructive"
                   )}>
                     {result.stats.jitterMs}ms
                   </div>
@@ -991,7 +991,7 @@ export default function PingTestTool() {
 
           {/* Host Info */}
           <SectionCard title="Host Info" defaultOpen={false}>
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-foreground/5">
               <ResultRow
                 icon={Globe}
                 label="Hostname"
@@ -1026,10 +1026,10 @@ export default function PingTestTool() {
                   result.dnsTimeMs === 0
                     ? "text-muted-foreground"
                     : result.dnsTimeMs <= 50
-                      ? "text-emerald-400"
+                      ? "text-success"
                       : result.dnsTimeMs <= 200
-                        ? "text-yellow-400"
-                        : "text-red-400"
+                        ? "text-warning"
+                        : "text-destructive"
                 }
               />
               <ResultRow

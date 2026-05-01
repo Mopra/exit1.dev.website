@@ -110,7 +110,7 @@ const PricingPage = () => {
           <div className="mb-6 sm:mb-8">
             <Link
               href="/"
-              className="inline-flex items-center text-white/70 hover:text-white transition-colors duration-200 mb-4 sm:mb-6 text-sm sm:text-base cursor-pointer interactive"
+              className="inline-flex items-center text-foreground/70 hover:text-foreground transition-colors duration-200 mb-4 sm:mb-6 text-sm sm:text-base cursor-pointer interactive"
             >
               <ArrowLeft className="mr-2 w-3 h-3 sm:w-4 sm:h-4" />
               Back to Home
@@ -123,7 +123,7 @@ const PricingPage = () => {
             No surprises.
           </h1>
 
-          <p className="text-xl sm:text-2xl text-white/70 leading-relaxed max-w-2xl">
+          <p className="text-xl sm:text-2xl text-foreground/70 leading-relaxed max-w-2xl">
             Start free. Scale up when you need faster checks, SMS, API access, or more monitors.
           </p>
         </PageHero>
@@ -136,15 +136,15 @@ const PricingPage = () => {
             <div className="mt-20">
               <div className="mb-8 text-center">
                 <h2 className="text-3xl font-bold mb-3">Compare every feature</h2>
-                <p className="text-white/60">
+                <p className="text-foreground/60">
                   Every limit and capability across all four plans.
                 </p>
               </div>
 
-              <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
+              <div className="overflow-x-auto rounded-2xl border border-foreground/10 bg-foreground/[0.02]">
                 <table className="w-full text-sm">
-                  <thead className="sticky top-0 bg-black/60 backdrop-blur-sm">
-                    <tr className="border-b border-white/10">
+                  <thead className="sticky top-0 bg-background/60 backdrop-blur-sm">
+                    <tr className="border-b border-foreground/10">
                       <th className="text-left font-semibold px-4 py-4 min-w-[240px]">Feature</th>
                       {tierOrder.map((t) => (
                         <th key={t} className="text-left font-semibold px-4 py-4 min-w-[120px]">
@@ -156,20 +156,20 @@ const PricingPage = () => {
                   <tbody>
                     {featureGroups.map((group) => (
                       <Fragment key={group.title}>
-                        <tr className="bg-white/[0.03]">
+                        <tr className="bg-foreground/[0.03]">
                           <td
                             colSpan={5}
-                            className="px-4 py-3 text-xs uppercase tracking-wider font-semibold text-white/50"
+                            className="px-4 py-3 text-xs uppercase tracking-wider font-semibold text-foreground/50"
                           >
                             {group.title}
                           </td>
                         </tr>
                         {group.rows.map((row) => (
-                          <tr key={`${group.title}-${row.label}`} className="border-b border-white/5">
-                            <td className="px-4 py-3 text-white/80 align-top">
+                          <tr key={`${group.title}-${row.label}`} className="border-b border-foreground/5">
+                            <td className="px-4 py-3 text-foreground/80 align-top">
                               {row.label}
                               {row.comingSoon && (
-                                <span className="ml-2 text-[10px] uppercase tracking-wider text-blue-400/80 bg-blue-500/10 border border-blue-500/20 rounded px-1.5 py-0.5 align-middle">
+                                <span className="ml-2 text-[10px] uppercase tracking-wider text-primary/80 bg-primary/10 border border-primary/20 rounded px-1.5 py-0.5 align-middle">
                                   Coming soon
                                 </span>
                               )}
@@ -191,7 +191,7 @@ const PricingPage = () => {
             {/* FAQ/Additional info */}
             <div className="mt-20 text-center">
               <h2 className="text-2xl font-bold mb-4">Questions?</h2>
-              <p className="text-white/70 mb-6 max-w-xl mx-auto">
+              <p className="text-foreground/70 mb-6 max-w-xl mx-auto">
                 The Free plan is genuinely free — no credit card, no trial period.
                 Save 25% on any paid plan with annual billing. Cancel or change plans anytime.
               </p>
@@ -199,7 +199,7 @@ const PricingPage = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5"
+                  className="rounded-full px-6 py-3 border-foreground/20 hover:bg-foreground/5"
                 >
                   <Link href="/compare">
                     Compare to alternatives
@@ -208,7 +208,7 @@ const PricingPage = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5"
+                  className="rounded-full px-6 py-3 border-foreground/20 hover:bg-foreground/5"
                 >
                   <a href="https://docs.exit1.dev/billing/faq" target="_blank" rel="noopener noreferrer">
                     Read the Docs
@@ -217,7 +217,7 @@ const PricingPage = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full px-6 py-3 border-white/20 hover:bg-white/5"
+                  className="rounded-full px-6 py-3 border-foreground/20 hover:bg-foreground/5"
                 >
                   <a href="https://discord.com/invite/uZvWbpwJZS" target="_blank" rel="noopener noreferrer">
                     Ask in Discord
@@ -233,9 +233,9 @@ const PricingPage = () => {
 };
 
 function ValueCell({ value }: { value: Value }) {
-  if (value === true) return <Check className="w-4 h-4 text-green-400" />;
-  if (value === false) return <Minus className="w-4 h-4 text-white/20" />;
-  return <span className="text-white/80">{value}</span>;
+  if (value === true) return <Check className="w-4 h-4 text-success" />;
+  if (value === false) return <Minus className="w-4 h-4 text-foreground/20" />;
+  return <span className="text-foreground/80">{value}</span>;
 }
 
 export default PricingPage;

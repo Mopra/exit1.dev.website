@@ -90,7 +90,7 @@ function ResultRow({
   valueClassName?: string;
 }) {
   return (
-    <div className="flex items-start gap-3 py-3 border-b border-white/5 last:border-0">
+    <div className="flex items-start gap-3 py-3 border-b border-foreground/5 last:border-0">
       <Icon className={cn("w-4 h-4 mt-0.5 shrink-0", className)} />
       <div className="min-w-0 flex-1">
         <div className="text-xs text-muted-foreground">{label}</div>
@@ -114,11 +114,11 @@ function SectionCard({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-white/[0.02] border border-white/10 rounded-xl overflow-hidden">
+    <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl overflow-hidden">
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-white/[0.02] transition-colors"
+        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-foreground/[0.02] transition-colors"
       >
         <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
           {title}
@@ -144,8 +144,8 @@ function StatusPill({ ok, label }: { ok: boolean; label: string }) {
       className={cn(
         "inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border",
         ok
-          ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
-          : "bg-red-500/10 border-red-500/20 text-red-400"
+          ? "bg-success/10 border-success/20 text-success"
+          : "bg-destructive/10 border-destructive/20 text-destructive"
       )}
     >
       {ok ? <CheckCircle className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
@@ -359,14 +359,14 @@ export default function SSLCheckerTool() {
               }
             }}
             placeholder="example.com"
-            className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
+            className="w-full pl-11 pr-4 py-3 bg-foreground/5 border border-foreground/10 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
             disabled={loading}
           />
         </div>
         <Button
           type="submit"
           disabled={loading || !url.trim()}
-          className="rounded-xl px-6 py-3 h-auto bg-white text-black hover:bg-white/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
+          className="rounded-xl px-6 py-3 h-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
         >
           {loading ? (
             <Loader2 className="w-4 h-4 animate-spin" />
@@ -381,7 +381,7 @@ export default function SSLCheckerTool() {
 
       {/* Loading Progress */}
       {loading && (
-        <div className="mt-6 p-4 bg-white/[0.02] border border-white/10 rounded-xl">
+        <div className="mt-6 p-4 bg-foreground/[0.02] border border-foreground/10 rounded-xl">
           <div className="space-y-2">
             {LOADING_STEPS.map((step, i) => (
               <div
@@ -389,9 +389,9 @@ export default function SSLCheckerTool() {
                 className={cn(
                   "flex items-center gap-2.5 text-sm transition-all duration-300",
                   i < loadingStep
-                    ? "text-emerald-400"
+                    ? "text-success"
                     : i === loadingStep
-                      ? "text-white"
+                      ? "text-foreground"
                       : "text-muted-foreground/40"
                 )}
               >
@@ -411,11 +411,11 @@ export default function SSLCheckerTool() {
 
       {/* Error */}
       {error && (
-        <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-start gap-3">
-          <ShieldAlert className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+        <div className="mt-6 p-4 bg-destructive/10 border border-destructive/20 rounded-xl flex items-start gap-3">
+          <ShieldAlert className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
           <div>
-            <div className="font-medium text-red-400">Check Failed</div>
-            <div className="text-sm text-red-400/80 mt-1">{error}</div>
+            <div className="font-medium text-destructive">Check Failed</div>
+            <div className="text-sm text-destructive/80 mt-1">{error}</div>
           </div>
         </div>
       )}
@@ -428,8 +428,8 @@ export default function SSLCheckerTool() {
             className={cn(
               "p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center gap-4",
               result.valid
-                ? "bg-emerald-500/10 border-emerald-500/20"
-                : "bg-red-500/10 border-red-500/20"
+                ? "bg-success/10 border-success/20"
+                : "bg-destructive/10 border-destructive/20"
             )}
           >
             {result.grade && (
@@ -437,12 +437,12 @@ export default function SSLCheckerTool() {
                 className={cn(
                   "w-14 h-14 rounded-xl flex items-center justify-center text-2xl font-bold shrink-0 border",
                   result.grade.startsWith("A")
-                    ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
+                    ? "bg-success/20 border-success/30 text-success"
                     : result.grade === "B"
-                      ? "bg-blue-500/20 border-blue-500/30 text-blue-400"
+                      ? "bg-primary/20 border-primary/30 text-primary"
                       : result.grade === "C"
-                        ? "bg-yellow-500/20 border-yellow-500/30 text-yellow-400"
-                        : "bg-red-500/20 border-red-500/30 text-red-400"
+                        ? "bg-warning/20 border-warning/30 text-warning"
+                        : "bg-destructive/20 border-destructive/30 text-destructive"
                 )}
               >
                 {result.grade}
@@ -451,14 +451,14 @@ export default function SSLCheckerTool() {
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
                 {result.valid ? (
-                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <ShieldCheck className="w-5 h-5 text-success shrink-0" />
                 ) : (
-                  <ShieldAlert className="w-5 h-5 text-red-400 shrink-0" />
+                  <ShieldAlert className="w-5 h-5 text-destructive shrink-0" />
                 )}
                 <span
                   className={cn(
                     "font-semibold",
-                    result.valid ? "text-emerald-400" : "text-red-400"
+                    result.valid ? "text-success" : "text-destructive"
                   )}
                 >
                   {result.valid ? "SSL Certificate Valid" : "SSL Certificate Invalid"}
@@ -470,7 +470,7 @@ export default function SSLCheckerTool() {
                   <>
                     {" — "}
                     {result.daysUntilExpiry <= 30 ? (
-                      <span className="text-yellow-400">
+                      <span className="text-warning">
                         Expires in {result.daysUntilExpiry} days
                       </span>
                     ) : (
@@ -492,7 +492,7 @@ export default function SSLCheckerTool() {
                   <StatusPill ok={result.hsts} label="HSTS" />
                 )}
                 {result.certType && (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-blue-500/10 border-blue-500/20 text-blue-400">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-primary/10 border-primary/20 text-primary">
                     {result.certType}
                   </span>
                 )}
@@ -516,7 +516,7 @@ export default function SSLCheckerTool() {
 
           {/* Certificate Info */}
           <SectionCard title="Certificate Information">
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-foreground/5">
               {result.subject && (
                 <ResultRow
                   icon={Globe}
@@ -538,7 +538,7 @@ export default function SSLCheckerTool() {
                   icon={FileKey}
                   label="Certificate Type"
                   value={certTypeLabel[result.certType] || result.certType}
-                  className="text-blue-400"
+                  className="text-primary"
                 />
               )}
               {result.validFrom && (
@@ -556,7 +556,7 @@ export default function SSLCheckerTool() {
                   value={formatDate(result.validTo)}
                   className={cn(
                     result.daysUntilExpiry != null && result.daysUntilExpiry <= 30
-                      ? "text-yellow-400"
+                      ? "text-warning"
                       : "text-muted-foreground"
                   )}
                 />
@@ -568,15 +568,15 @@ export default function SSLCheckerTool() {
                   value={`${result.daysUntilExpiry} days`}
                   className={cn(
                     result.daysUntilExpiry <= 7
-                      ? "text-red-400"
+                      ? "text-destructive"
                       : result.daysUntilExpiry <= 30
-                        ? "text-yellow-400"
-                        : "text-emerald-400"
+                        ? "text-warning"
+                        : "text-success"
                   )}
                 />
               )}
               {result.altNames && result.altNames.length > 0 && (
-                <div className="py-3 border-b border-white/5 last:border-0">
+                <div className="py-3 border-b border-foreground/5 last:border-0">
                   <div className="flex items-start gap-3">
                     <Network className="w-4 h-4 mt-0.5 shrink-0 text-muted-foreground" />
                     <div className="min-w-0 flex-1">
@@ -587,7 +587,7 @@ export default function SSLCheckerTool() {
                         {result.altNames.map((name) => (
                           <span
                             key={name}
-                            className="inline-flex items-center text-xs font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80"
+                            className="inline-flex items-center text-xs font-mono px-2 py-0.5 rounded-md bg-foreground/5 border border-foreground/10 text-foreground/80"
                           >
                             {name}
                           </span>
@@ -602,7 +602,7 @@ export default function SSLCheckerTool() {
 
           {/* Security Analysis */}
           <SectionCard title="Security Analysis">
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-foreground/5">
               {result.browserTrusted != null && (
                 <ResultRow
                   icon={result.browserTrusted ? ShieldCheck : ShieldAlert}
@@ -612,7 +612,7 @@ export default function SSLCheckerTool() {
                       ? "Trusted by all major browsers"
                       : `Not trusted — ${result.browserTrustedReason || "unknown reason"}`
                   }
-                  className={result.browserTrusted ? "text-emerald-400" : "text-red-400"}
+                  className={result.browserTrusted ? "text-success" : "text-destructive"}
                 />
               )}
               {result.hostnameMatch != null && (
@@ -624,7 +624,7 @@ export default function SSLCheckerTool() {
                       ? `Certificate matches ${result.hostname}`
                       : `Certificate does NOT match ${result.hostname}`
                   }
-                  className={result.hostnameMatch ? "text-emerald-400" : "text-red-400"}
+                  className={result.hostnameMatch ? "text-success" : "text-destructive"}
                 />
               )}
               {result.protocol && (
@@ -634,10 +634,10 @@ export default function SSLCheckerTool() {
                   value={result.protocol}
                   className={
                     result.protocol === "TLSv1.3"
-                      ? "text-emerald-400"
+                      ? "text-success"
                       : result.protocol === "TLSv1.2"
-                        ? "text-blue-400"
-                        : "text-red-400"
+                        ? "text-primary"
+                        : "text-destructive"
                   }
                 />
               )}
@@ -655,7 +655,7 @@ export default function SSLCheckerTool() {
                   label="Key Size"
                   value={`${result.keySize} bits`}
                   className={cn(
-                    result.keySize >= 2048 ? "text-emerald-400" : "text-yellow-400"
+                    result.keySize >= 2048 ? "text-success" : "text-warning"
                   )}
                 />
               )}
@@ -683,7 +683,7 @@ export default function SSLCheckerTool() {
                       "Not enabled — recommended for security"
                     )
                   }
-                  className={result.hsts ? "text-emerald-400" : "text-yellow-400"}
+                  className={result.hsts ? "text-success" : "text-warning"}
                 />
               )}
             </div>
@@ -706,8 +706,8 @@ export default function SSLCheckerTool() {
                         i === 0
                           ? "bg-primary/5 border-primary/20"
                           : cert.isSelfSigned
-                            ? "bg-yellow-500/5 border-yellow-500/20"
-                            : "bg-white/[0.02] border-white/10"
+                            ? "bg-warning/5 border-warning/20"
+                            : "bg-foreground/[0.02] border-foreground/10"
                       )}
                     >
                       <div
@@ -716,15 +716,15 @@ export default function SSLCheckerTool() {
                           i === 0
                             ? "bg-primary/20 border-primary/30 text-primary"
                             : cert.isSelfSigned
-                              ? "bg-yellow-500/20 border-yellow-500/30 text-yellow-400"
-                              : "bg-white/10 border-white/20 text-muted-foreground"
+                              ? "bg-warning/20 border-warning/30 text-warning"
+                              : "bg-foreground/10 border-foreground/20 text-muted-foreground"
                         )}
                       >
                         {i + 1}
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm font-medium text-white">
+                          <span className="text-sm font-medium text-foreground">
                             {cert.subject}
                           </span>
                           {i === 0 && (
@@ -733,12 +733,12 @@ export default function SSLCheckerTool() {
                             </span>
                           )}
                           {cert.isSelfSigned && (
-                            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+                            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-warning/20 text-warning border border-warning/30">
                               Root
                             </span>
                           )}
                           {!cert.isSelfSigned && i > 0 && (
-                            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-white/10 text-muted-foreground border border-white/20">
+                            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-foreground/10 text-muted-foreground border border-foreground/20">
                               Intermediate
                             </span>
                           )}
@@ -762,13 +762,13 @@ export default function SSLCheckerTool() {
               <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                 <button
                   onClick={copyShareLink}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy share link"
                 >
                   {copiedLink ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -779,13 +779,13 @@ export default function SSLCheckerTool() {
                 </button>
                 <button
                   onClick={copyResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy certificate details"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -796,7 +796,7 @@ export default function SSLCheckerTool() {
                 </button>
                 <button
                   onClick={downloadResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Download certificate report"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -805,7 +805,7 @@ export default function SSLCheckerTool() {
               </div>
             }
           >
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-foreground/5">
               {result.serialNumber && (
                 <ResultRow
                   icon={Fingerprint}

@@ -18,11 +18,11 @@ export default function GlassTest() {
     <div className="fixed top-32 left-4 right-4 z-30 max-w-[1800px] mx-auto">
       {/* Background content */}
       <div className="absolute inset-0 -z-10">
-        <div className="w-full h-[200px] bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-2xl"></div>
+        <div className="w-full h-[200px] bg-gradient-to-r from-decorative-from/30 via-decorative-via/30 to-decorative-to/30 rounded-2xl"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-primary/10 rounded-2xl"></div>
-        <div className="absolute top-4 left-4 w-32 h-32 bg-red-500/40 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-4 right-4 w-24 h-24 bg-blue-500/40 rounded-full blur-2xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-green-500/40 rounded-full blur-xl"></div>
+        <div className="absolute top-4 left-4 w-32 h-32 bg-destructive/40 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-4 right-4 w-24 h-24 bg-primary/40 rounded-full blur-2xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-success/40 rounded-full blur-xl"></div>
       </div>
       
       <GlassSurface

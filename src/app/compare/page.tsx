@@ -83,30 +83,30 @@ const paidRows: Row[] = [
 
 function CellValue({ value }: { value: Cell }) {
   if (value === true) {
-    return <Check className="w-4 h-4 text-emerald-400 mx-auto" />;
+    return <Check className="w-4 h-4 text-success mx-auto" />;
   }
   if (value === false) {
-    return <Minus className="w-4 h-4 text-white/25 mx-auto" />;
+    return <Minus className="w-4 h-4 text-foreground/25 mx-auto" />;
   }
-  return <span className="text-sm text-white/85">{value}</span>;
+  return <span className="text-sm text-foreground/85">{value}</span>;
 }
 
 function ColumnHeader({ column }: { column: Column }) {
   const isHero = column.highlight === 'hero';
   const isExit1 = column.highlight === 'exit1';
   const highlightClass = isHero
-    ? 'text-amber-300'
+    ? 'text-warning'
     : isExit1
-      ? 'text-white'
-      : 'text-white/70';
+      ? 'text-foreground'
+      : 'text-foreground/70';
   return (
     <div className="flex flex-col items-center gap-0.5">
-      <span className={`text-xs uppercase tracking-wider ${column.highlight ? 'text-white/60' : 'text-white/40'}`}>
+      <span className={`text-xs uppercase tracking-wider ${column.highlight ? 'text-foreground/60' : 'text-foreground/40'}`}>
         {column.product}
       </span>
       <span className={`text-sm font-semibold ${highlightClass}`}>{column.plan}</span>
-      <span className="text-xs text-white/50 font-normal">{column.price}</span>
-      {column.note && <span className="text-[10px] text-white/40">{column.note}</span>}
+      <span className="text-xs text-foreground/50 font-normal">{column.price}</span>
+      {column.note && <span className="text-[10px] text-foreground/40">{column.note}</span>}
     </div>
   );
 }
@@ -122,18 +122,18 @@ function ComparisonTable({
   return (
     <>
       {/* Desktop table */}
-      <div className="hidden md:block overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
+      <div className="hidden md:block overflow-x-auto rounded-2xl border border-foreground/10 bg-foreground/[0.02]">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-white/10">
-              <th className="text-left py-5 px-5 font-semibold text-white/80 text-sm w-[32%]">
+            <tr className="border-b border-foreground/10">
+              <th className="text-left py-5 px-5 font-semibold text-foreground/80 text-sm w-[32%]">
                 Feature
               </th>
               {columns.map((col, idx) => (
                 <th
                   key={col.key}
                   className={`py-5 px-4 text-center ${
-                    idx === heroIdx ? 'bg-amber-400/[0.06]' : ''
+                    idx === heroIdx ? 'bg-warning/[0.06]' : ''
                   }`}
                 >
                   <ColumnHeader column={col} />
@@ -145,14 +145,14 @@ function ComparisonTable({
             {rows.map((row, rIdx) => (
               <tr
                 key={row.feature}
-                className={rIdx === rows.length - 1 ? '' : 'border-b border-white/5'}
+                className={rIdx === rows.length - 1 ? '' : 'border-b border-foreground/5'}
               >
-                <td className="py-3.5 px-5 text-sm text-white/75">{row.feature}</td>
+                <td className="py-3.5 px-5 text-sm text-foreground/75">{row.feature}</td>
                 {row.values.map((value, cIdx) => (
                   <td
                     key={cIdx}
                     className={`py-3.5 px-4 text-center ${
-                      cIdx === heroIdx ? 'bg-amber-400/[0.06]' : ''
+                      cIdx === heroIdx ? 'bg-warning/[0.06]' : ''
                     }`}
                   >
                     <CellValue value={value} />
@@ -172,28 +172,28 @@ function ComparisonTable({
             <div
               key={col.key}
               className={`rounded-xl border ${
-                isHero ? 'border-amber-400/40 bg-amber-400/[0.04]' : 'border-white/10 bg-white/[0.03]'
+                isHero ? 'border-warning/40 bg-warning/[0.04]' : 'border-foreground/10 bg-foreground/[0.03]'
               } overflow-hidden`}
             >
-              <div className="px-4 py-3 border-b border-white/10 flex items-baseline justify-between gap-3">
+              <div className="px-4 py-3 border-b border-foreground/10 flex items-baseline justify-between gap-3">
                 <div>
-                  <div className="text-[11px] uppercase tracking-wider text-white/50">
+                  <div className="text-[11px] uppercase tracking-wider text-foreground/50">
                     {col.product}
                   </div>
                   <div
                     className={`text-base font-semibold ${
-                      isHero ? 'text-amber-300' : 'text-white'
+                      isHero ? 'text-warning' : 'text-foreground'
                     }`}
                   >
                     {col.plan}
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-sm text-white/80">{col.price}</div>
-                  {col.note && <div className="text-[10px] text-white/40">{col.note}</div>}
+                  <div className="text-sm text-foreground/80">{col.price}</div>
+                  {col.note && <div className="text-[10px] text-foreground/40">{col.note}</div>}
                 </div>
               </div>
-              <dl className="divide-y divide-white/5">
+              <dl className="divide-y divide-foreground/5">
                 {rows.map((row) => {
                   const idx = columns.indexOf(col);
                   return (
@@ -201,7 +201,7 @@ function ComparisonTable({
                       key={row.feature}
                       className="flex items-center justify-between px-4 py-2.5 gap-4"
                     >
-                      <dt className="text-xs text-white/60 flex-1">{row.feature}</dt>
+                      <dt className="text-xs text-foreground/60 flex-1">{row.feature}</dt>
                       <dd className="text-right">
                         <CellValue value={row.values[idx]} />
                       </dd>
@@ -225,7 +225,7 @@ export default function ComparePage() {
           <div className="mb-6 sm:mb-8">
             <Link
               href="/pricing"
-              className="inline-flex items-center text-white/70 hover:text-white transition-colors duration-200 mb-4 sm:mb-6 text-sm sm:text-base cursor-pointer interactive"
+              className="inline-flex items-center text-foreground/70 hover:text-foreground transition-colors duration-200 mb-4 sm:mb-6 text-sm sm:text-base cursor-pointer interactive"
             >
               <ArrowLeft className="mr-2 w-3 h-3 sm:w-4 sm:h-4" />
               Back to Pricing
@@ -236,7 +236,7 @@ export default function ComparePage() {
             Compare uptime monitors
           </h1>
 
-          <p className="text-xl sm:text-2xl text-white/70 leading-relaxed max-w-2xl">
+          <p className="text-xl sm:text-2xl text-foreground/70 leading-relaxed max-w-2xl">
             Tier against tier. Free plans compared to free plans, similarly-priced paid plans next
             to each other — so you can actually tell who wins.
           </p>
@@ -248,18 +248,18 @@ export default function ComparePage() {
             <div className="mb-6 flex items-baseline justify-between flex-wrap gap-3">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold">Free tier</h2>
-                <p className="text-white/60 text-sm mt-1">
+                <p className="text-foreground/60 text-sm mt-1">
                   What you get without paying a cent.
                 </p>
               </div>
-              <p className="text-xs text-white/40">
+              <p className="text-xs text-foreground/40">
                 Pingdom has no free tier — 14-day trial only.
               </p>
             </div>
 
             <ComparisonTable columns={freeColumns} rows={freeRows} />
 
-            <p className="mt-4 text-xs text-white/40">
+            <p className="mt-4 text-xs text-foreground/40">
               UptimeRobot lets you put 50 monitors on a free account, but the check interval tops
               out at 5 minutes and SSL/alerting depth is thinner than it looks.
             </p>
@@ -270,12 +270,12 @@ export default function ComparePage() {
         <PageSection className="pt-12 pb-12">
           <SectionContent size="lg">
             <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber-300 mb-3">
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-warning/30 bg-warning/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-warning mb-3">
                 <Sparkles className="w-3 h-3" />
                 Best value
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold">Around $24–$34 / month</h2>
-              <p className="text-white/60 text-sm mt-1">
+              <p className="text-foreground/60 text-sm mt-1">
                 The tier where most teams actually land. Apples-to-apples against the cheapest
                 real paid plan from each competitor.
               </p>
@@ -283,8 +283,8 @@ export default function ComparePage() {
 
             <ComparisonTable columns={paidColumns} rows={paidRows} />
 
-            <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm text-white/70">
-              <strong className="text-white">A fair comparison note:</strong> Better Stack&apos;s
+            <div className="mt-6 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-5 text-sm text-foreground/70">
+              <strong className="text-foreground">A fair comparison note:</strong> Better Stack&apos;s
               Responder plan includes just 10 monitors at its base price — scaling to 50 adds
               roughly $21–$25/month. UptimeRobot caps SMS via prepaid credits rather than a monthly
               allowance. Hyperping doesn&apos;t publish SMS quotas. Exit1 Pro bundles 50 SMS, REST
@@ -296,11 +296,11 @@ export default function ComparePage() {
         {/* Scaling beyond */}
         <PageSection className="pt-8 pb-12">
           <SectionContent size="lg">
-            <div className="rounded-2xl border border-emerald-400/30 bg-emerald-400/[0.04] p-6 sm:p-8">
+            <div className="rounded-2xl border border-success/30 bg-success/[0.04] p-6 sm:p-8">
               <div className="flex items-start gap-4 flex-col sm:flex-row">
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-2">Running 500+ monitors?</h3>
-                  <p className="text-white/70 text-sm">
+                  <p className="text-foreground/70 text-sm">
                     Exit1 Agency is $49/month (or $37 billed annually) for 1,000 monitors,
                     15-second checks, and 3-year retention. For comparison: Hyperping Pro is
                     $74/mo for 100 monitors, Checkly Team is $64/mo for 75 monitors.
@@ -309,7 +309,7 @@ export default function ComparePage() {
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full border-emerald-400/40 text-emerald-300 hover:bg-emerald-400/10 hover:text-emerald-200"
+                  className="rounded-full border-success/40 text-success hover:bg-success/10 hover:text-success"
                 >
                   <Link href="/pricing">
                     See all plans
@@ -324,42 +324,42 @@ export default function ComparePage() {
         {/* Bottom line */}
         <PageSection className="pt-4 pb-20">
           <SectionContent size="lg">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+            <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8">
               <h2 className="text-xl sm:text-2xl font-semibold mb-5">The bottom line</h2>
-              <ul className="space-y-3.5 text-white/70 text-sm sm:text-base">
+              <ul className="space-y-3.5 text-foreground/70 text-sm sm:text-base">
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                  <Check className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong className="text-white">Exit1 Free</strong> is the only free tier with
+                    <strong className="text-foreground">Exit1 Free</strong> is the only free tier with
                     TCP, UDP, WebSocket, and ICMP checks — not just HTTP pings.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-amber-300 mt-0.5 flex-shrink-0" />
+                  <Check className="w-5 h-5 text-warning mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong className="text-white">Exit1 Pro at $24/mo</strong> is the cheapest
+                    <strong className="text-foreground">Exit1 Pro at $24/mo</strong> is the cheapest
                     plan in this comparison that ships with 30-second checks, 50 SMS, REST API,
                     and MCP — all bundled, no add-ons.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-amber-300 mt-0.5 flex-shrink-0" />
+                  <Check className="w-5 h-5 text-warning mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong className="text-white">500 monitors</strong> on Pro vs. 10–100 on the
+                    <strong className="text-foreground">500 monitors</strong> on Pro vs. 10–100 on the
                     same-priced tier from competitors.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-amber-300 mt-0.5 flex-shrink-0" />
+                  <Check className="w-5 h-5 text-warning mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong className="text-white">MCP access</strong> means you can query your
+                    <strong className="text-foreground">MCP access</strong> means you can query your
                     checks directly from Claude, Cursor, or Windsurf — nobody else offers this.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-white/70 mt-0.5 flex-shrink-0" />
+                  <Check className="w-5 h-5 text-foreground/70 mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong className="text-white">Where others win:</strong> Better Stack ships
+                    <strong className="text-foreground">Where others win:</strong> Better Stack ships
                     unlimited SMS at its paid tier. UptimeRobot gives you 50 monitors on the free
                     plan. We&apos;re being honest about that.
                   </span>

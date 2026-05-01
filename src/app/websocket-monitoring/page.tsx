@@ -42,32 +42,32 @@ const WebSocketMonitoring = () => {
     {
       title: "WS & WSS Handshake Checks",
       description: "Verify WebSocket connections by performing a full handshake. Detect failures in the HTTP upgrade, TLS negotiation, and protocol switch.",
-      icon: <Radio className="w-6 h-6 text-white" />
+      icon: <Radio className="w-6 h-6 text-foreground" />
     },
     {
       title: "Connection Latency Tracking",
       description: "Measure how long it takes to establish a WebSocket connection, broken down by DNS, TCP, TLS, and handshake phases.",
-      icon: <Gauge className="w-6 h-6 text-white" />
+      icon: <Gauge className="w-6 h-6 text-foreground" />
     },
     {
       title: "SSL Certificate Monitoring",
       description: "WSS endpoints get automatic SSL certificate validation, expiration alerts, and security checks included with every check.",
-      icon: <Lock className="w-6 h-6 text-white" />
+      icon: <Lock className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Failure Detection",
       description: "Automatic 30-second re-checks on first failure. Alerts only fire after consecutive failures to eliminate false positives from transient issues.",
-      icon: <Shield className="w-6 h-6 text-white" />
+      icon: <Shield className="w-6 h-6 text-foreground" />
     },
     {
       title: "European Monitoring",
       description: "Test WebSocket connections from our European server to verify connectivity and catch issues fast.",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     },
     {
       title: "Real-Time Alerts",
       description: "Get notified instantly via email, SMS, Slack, Discord, or any webhook when your WebSocket endpoints fail.",
-      icon: <Zap className="w-6 h-6 text-white" />
+      icon: <Zap className="w-6 h-6 text-foreground" />
     }
   ];
 
@@ -165,37 +165,37 @@ const WebSocketMonitoring = () => {
       title: "Real-Time Monitoring",
       description: "Monitor websites and APIs with fast checks and instant alerts when issues occur.",
       href: "/real-time-monitoring",
-      icon: <Clock className="w-6 h-6 text-white" />
+      icon: <Clock className="w-6 h-6 text-foreground" />
     },
     {
       title: "SSL Monitoring",
       description: "Automatic certificate validation, expiration alerts, and security checks for HTTPS and WSS endpoints.",
       href: "/ssl-monitoring",
-      icon: <Lock className="w-6 h-6 text-white" />
+      icon: <Lock className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Alerting",
       description: "Configure webhooks, email alerts, and custom notification rules to stay informed about issues.",
       href: "/alerting",
-      icon: <Bell className="w-6 h-6 text-white" />
+      icon: <Bell className="w-6 h-6 text-foreground" />
     },
     {
       title: "Analytics & Reports",
       description: "Track uptime trends, response times, and performance metrics with detailed analytics.",
       href: "/analytics",
-      icon: <BarChart3 className="w-6 h-6 text-white" />
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />
     },
     {
       title: "Global Monitoring",
       description: "Monitor your infrastructure from multiple global locations for comprehensive coverage.",
       href: "/global-monitoring",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     },
     {
       title: "API Integration",
       description: "Integrate monitoring data into your workflows with our comprehensive REST API.",
       href: "/api-webhooks",
-      icon: <Code className="w-6 h-6 text-white" />
+      icon: <Code className="w-6 h-6 text-foreground" />
     }
   ];
 

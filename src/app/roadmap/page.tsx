@@ -17,7 +17,7 @@ export default function RoadmapPage() {
           </p>
           
           <div className="space-y-8">
-            <div className="border-l-4 border-green-500 pl-6">
+            <div className="border-l-4 border-success pl-6">
               <h2 className="text-2xl font-semibold mb-4">✅ Recently Completed</h2>
               <ul className="space-y-2">
                 <li>• Free website monitoring (10 monitors, unlimited with Nano)</li>
@@ -27,7 +27,7 @@ export default function RoadmapPage() {
               </ul>
             </div>
             
-            <div className="border-l-4 border-blue-500 pl-6">
+            <div className="border-l-4 border-primary pl-6">
               <h2 className="text-2xl font-semibold mb-4">🚧 In Progress</h2>
               <ul className="space-y-2">
                 <li>• Enhanced analytics dashboard</li>
@@ -36,7 +36,7 @@ export default function RoadmapPage() {
               </ul>
             </div>
             
-            <div className="border-l-4 border-gray-400 pl-6">
+            <div className="border-l-4 border-border pl-6">
               <h2 className="text-2xl font-semibold mb-4">📋 Planned</h2>
               <ul className="space-y-2">
                 <li>• Advanced alerting rules and conditions</li>

@@ -9,7 +9,7 @@ export function InsetCard({
   return (
     <Card
       className={cn(
-        "border-0 shadow-none rounded-none bg-black text-white border-inset gap-0 py-0",
+        "border-0 shadow-none rounded-none bg-background text-foreground border-inset gap-0 py-0",
         className
       )}
       {...props}

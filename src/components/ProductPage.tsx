@@ -86,17 +86,17 @@ const ProductPage: React.FC<ProductPageProps> = ({
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
                 {title}
               </h1>
-              <p className="text-xl sm:text-2xl text-white/70 mb-6 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl sm:text-2xl text-foreground/70 mb-6 max-w-3xl mx-auto leading-relaxed">
                 {subtitle}
               </p>
-              <p className="text-lg sm:text-xl text-white/60 mb-10 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-foreground/60 mb-10 max-w-2xl mx-auto leading-relaxed">
                 {description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
                   size="lg"
-                  className="rounded-full px-8 py-6 text-lg font-semibold bg-white text-black hover:bg-white/90 cursor-pointer"
+                  className="rounded-full px-8 py-6 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
                 >
                   <a href={ctaHref} target="_blank" rel="noopener noreferrer">
                     {ctaText}
@@ -107,7 +107,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                   asChild
                   variant="outline"
                   size="lg"
-                  className="rounded-full px-8 py-6 text-lg font-semibold border-white/20 hover:bg-white/5 cursor-pointer"
+                  className="rounded-full px-8 py-6 text-lg font-semibold border-foreground/20 hover:bg-foreground/5 cursor-pointer"
                 >
                   <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
                     Sign In
@@ -126,7 +126,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                     {video.title}
                   </h2>
                   {video.description && (
-                    <p className="text-lg text-white/70 max-w-2xl mx-auto">
+                    <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                       {video.description}
                     </p>
                   )}
@@ -134,7 +134,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                 <YouTubeVideo
                   videoId={video.videoId}
                   title={video.title}
-                  className="shadow-2xl shadow-black/50"
+                  className="shadow-2xl shadow-background/50"
                 />
               </SectionContent>
             </PageSection>
@@ -146,7 +146,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
                   Key Features
                 </h2>
-                <p className="text-lg text-white/70 max-w-2xl mx-auto">
+                <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                   Everything you need to monitor your infrastructure effectively
                 </p>
               </div>
@@ -171,7 +171,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                   <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
                     Why Choose exit1.dev?
                   </h2>
-                  <p className="text-lg text-white/70 max-w-2xl mx-auto">
+                  <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                     See how we stack up against the competition
                   </p>
                 </div>
@@ -192,23 +192,23 @@ const ProductPage: React.FC<ProductPageProps> = ({
                           <TableCell className="text-center">
                             {typeof row.exit1 === "boolean" ? (
                               row.exit1 ? (
-                                <Check className="w-5 h-5 text-emerald-400 mx-auto" />
+                                <Check className="w-5 h-5 text-success mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-red-400 mx-auto" />
+                                <X className="w-5 h-5 text-destructive mx-auto" />
                               )
                             ) : (
-                              <span className="text-sm text-white/70">{row.exit1}</span>
+                              <span className="text-sm text-foreground/70">{row.exit1}</span>
                             )}
                           </TableCell>
                           <TableCell className="text-center">
                             {typeof row.competitors === "boolean" ? (
                               row.competitors ? (
-                                <Check className="w-5 h-5 text-emerald-400 mx-auto" />
+                                <Check className="w-5 h-5 text-success mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-red-400 mx-auto" />
+                                <X className="w-5 h-5 text-destructive mx-auto" />
                               )
                             ) : (
-                              <span className="text-sm text-white/70">{row.competitors}</span>
+                              <span className="text-sm text-foreground/70">{row.competitors}</span>
                             )}
                           </TableCell>
                         </TableRow>
@@ -227,7 +227,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                   <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
                     Technical Details
                   </h2>
-                  <p className="text-lg text-white/70 max-w-2xl mx-auto">
+                  <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                     Built for developers, by developers
                   </p>
                 </div>
@@ -237,7 +237,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                     <InsetCard className="h-full">
                       <CardContent className="p-10">
                         <h3 className="text-2xl font-semibold mb-3">Architecture</h3>
-                        <p className="text-white/60 leading-relaxed">
+                        <p className="text-foreground/60 leading-relaxed">
                           {technicalDetails.architecture}
                         </p>
                       </CardContent>
@@ -248,7 +248,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                     <InsetCard className="h-full">
                       <CardContent className="p-10">
                         <h3 className="text-2xl font-semibold mb-3">Performance</h3>
-                        <p className="text-white/60 leading-relaxed">
+                        <p className="text-foreground/60 leading-relaxed">
                           {technicalDetails.performance}
                         </p>
                       </CardContent>
@@ -259,7 +259,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                     <InsetCard className="h-full">
                       <CardContent className="p-10">
                         <h3 className="text-2xl font-semibold mb-3">API</h3>
-                        <p className="text-white/60 leading-relaxed">
+                        <p className="text-foreground/60 leading-relaxed">
                           {technicalDetails.api}
                         </p>
                       </CardContent>
@@ -277,7 +277,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                   <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
                     Frequently Asked Questions
                   </h2>
-                  <p className="text-lg text-white/70 max-w-2xl mx-auto">
+                  <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                     Everything you need to know about our monitoring
                   </p>
                 </div>
@@ -289,7 +289,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                         <AccordionTrigger className="px-6 text-left">
                           {item.question}
                         </AccordionTrigger>
-                        <AccordionContent className="px-6 text-white/60">
+                        <AccordionContent className="px-6 text-foreground/60">
                           {item.answer}
                         </AccordionContent>
                       </AccordionItem>
@@ -303,18 +303,18 @@ const ProductPage: React.FC<ProductPageProps> = ({
           {nanoUpgrade && (
             <PageSection className="py-16">
               <SectionContent size="md">
-                <div className="p-6 sm:p-8 rounded-2xl border border-green-500/30 bg-green-500/10">
+                <div className="p-6 sm:p-8 rounded-2xl border border-success/30 bg-success/10">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                      <Zap className="w-6 h-6 text-green-400" />
+                    <div className="w-12 h-12 rounded-lg bg-success/20 flex items-center justify-center flex-shrink-0">
+                      <Zap className="w-6 h-6 text-success" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold mb-2">{nanoUpgrade.title}</h3>
-                      <p className="text-white/70 mb-4">{nanoUpgrade.description}</p>
+                      <p className="text-foreground/70 mb-4">{nanoUpgrade.description}</p>
                       <div className="flex flex-col sm:flex-row gap-3">
                         <Button
                           asChild
-                          className="rounded-full px-6 py-2 font-semibold bg-white text-black hover:bg-white/90"
+                          className="rounded-full px-6 py-2 font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
                         >
                           <Link href="/pricing">
                             See Pricing
@@ -323,7 +323,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                         <Button
                           asChild
                           variant="outline"
-                          className="rounded-full px-6 py-2 font-semibold border-white/20 hover:bg-white/5"
+                          className="rounded-full px-6 py-2 font-semibold border-foreground/20 hover:bg-foreground/5"
                         >
                           <Link href="/why-nano">
                             Learn More

@@ -44,42 +44,42 @@ const Badges = () => {
     {
       title: "Status Badges",
       description: "Show real-time up/down status for any monitored service. Green for online, red for offline, amber for maintenance — updates automatically.",
-      icon: <BadgeCheck className="w-6 h-6 text-white" />
+      icon: <BadgeCheck className="w-6 h-6 text-foreground" />
     },
     {
       title: "Uptime Badges",
       description: "Display your 30-day uptime percentage. Color-coded thresholds: green for 99%+, amber for 95%+, and red below 95%.",
-      icon: <Clock className="w-6 h-6 text-white" />
+      icon: <Clock className="w-6 h-6 text-foreground" />
     },
     {
       title: "Response Time Badges",
       description: "Show average response time for any check. Give visitors and contributors confidence in your service performance at a glance.",
-      icon: <Activity className="w-6 h-6 text-white" />
+      icon: <Activity className="w-6 h-6 text-foreground" />
     },
     {
       title: "Multiple Embed Formats",
       description: "Embed via script tag, HTML img tag, or Markdown. Works in GitHub READMEs, documentation sites, dashboards, and any webpage.",
-      icon: <Code className="w-6 h-6 text-white" />
+      icon: <Code className="w-6 h-6 text-foreground" />
     },
     {
       title: "Removable Branding",
       description: "Free badges include a small exit1.dev footer. Users on any paid plan can remove branding for a clean, white-label look.",
-      icon: <Palette className="w-6 h-6 text-white" />
+      icon: <Palette className="w-6 h-6 text-foreground" />
     },
     {
       title: "Live Preview",
       description: "Preview all three badge types in the dashboard before embedding. Copy the snippet you need with one click.",
-      icon: <Eye className="w-6 h-6 text-white" />
+      icon: <Eye className="w-6 h-6 text-foreground" />
     },
     {
       title: "SVG Rendering",
       description: "Badges are rendered as crisp SVGs that look sharp on any screen. Lightweight, fast-loading, and retina-ready.",
-      icon: <Layers className="w-6 h-6 text-white" />
+      icon: <Layers className="w-6 h-6 text-foreground" />
     },
     {
       title: "Automatic Caching",
       description: "Badge responses are cached for 5 minutes with proper Cache-Control headers. Fast delivery worldwide without hammering your monitors.",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     }
   ];
 
@@ -174,37 +174,37 @@ const Badges = () => {
       title: "Status Pages",
       description: "Full public status pages with real-time updates, 30-day history, and drag & drop builder.",
       href: "/status-pages",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     },
     {
       title: "Analytics & Reports",
       description: "Track uptime trends, response times, and performance metrics with detailed analytics.",
       href: "/analytics",
-      icon: <BarChart3 className="w-6 h-6 text-white" />
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />
     },
     {
       title: "API & Webhooks",
       description: "Integrate monitoring into your workflows with our comprehensive REST API.",
       href: "/api-webhooks",
-      icon: <Code className="w-6 h-6 text-white" />
+      icon: <Code className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Alerting",
       description: "Get notified via email, SMS, Slack, Discord, Teams, and webhooks when issues occur.",
       href: "/alerting",
-      icon: <Bell className="w-6 h-6 text-white" />
+      icon: <Bell className="w-6 h-6 text-foreground" />
     },
     {
       title: "SSL Monitoring",
       description: "Monitor SSL certificate validity, expiration dates, and security issues automatically.",
       href: "/ssl-monitoring",
-      icon: <Shield className="w-6 h-6 text-white" />
+      icon: <Shield className="w-6 h-6 text-foreground" />
     },
     {
       title: "Comprehensive Logs",
       description: "View detailed monitoring history with advanced search, filtering, and export capabilities.",
       href: "/logs",
-      icon: <FileText className="w-6 h-6 text-white" />
+      icon: <FileText className="w-6 h-6 text-foreground" />
     }
   ];
 
@@ -261,21 +261,21 @@ const Badges = () => {
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
                   Live Badges
                 </h2>
-                <p className="text-lg text-white/70 max-w-2xl mx-auto">
+                <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                   These are real badges, updating every 5 minutes
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
                 <div className="flex flex-col items-center gap-3">
-                  <span className="text-sm text-white/50 uppercase tracking-wide font-medium">Status</span>
+                  <span className="text-sm text-foreground/50 uppercase tracking-wide font-medium">Status</span>
                   <UptimeBadge type="status" />
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <span className="text-sm text-white/50 uppercase tracking-wide font-medium">Uptime</span>
+                  <span className="text-sm text-foreground/50 uppercase tracking-wide font-medium">Uptime</span>
                   <UptimeBadge type="uptime" />
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <span className="text-sm text-white/50 uppercase tracking-wide font-medium">Response Time</span>
+                  <span className="text-sm text-foreground/50 uppercase tracking-wide font-medium">Response Time</span>
                   <UptimeBadge type="response" />
                 </div>
               </div>

@@ -41,32 +41,32 @@ const Logs = () => {
     {
       title: "Comprehensive History",
       description: "Track all monitoring events with detailed logs and performance data.",
-      icon: <Database className="w-6 h-6 text-white" />
+      icon: <Database className="w-6 h-6 text-foreground" />
     },
     {
       title: "Advanced Search",
       description: "Find specific events quickly with powerful search and filtering tools.",
-      icon: <Search className="w-6 h-6 text-white" />
+      icon: <Search className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Filtering",
       description: "Filter by time, status, website, and more to focus on what matters.",
-      icon: <Filter className="w-6 h-6 text-white" />
+      icon: <Filter className="w-6 h-6 text-foreground" />
     },
     {
       title: "Easy Export",
       description: "Download logs as CSV or Excel for external analysis and reporting.",
-      icon: <Download className="w-6 h-6 text-white" />
+      icon: <Download className="w-6 h-6 text-foreground" />
     },
     {
       title: "Real-Time Updates",
       description: "Watch logs as they happen with live streaming updates.",
-      icon: <Zap className="w-6 h-6 text-white" />
+      icon: <Zap className="w-6 h-6 text-foreground" />
     },
     {
       title: "Detailed Records",
       description: "Complete logs with status, latency, errors, and performance metrics.",
-      icon: <FileText className="w-6 h-6 text-white" />
+      icon: <FileText className="w-6 h-6 text-foreground" />
     }
   ];
 
@@ -169,37 +169,37 @@ const Logs = () => {
       title: "Real-Time Monitoring",
       description: "Monitor websites and APIs with fast checks and instant alerts when issues occur.",
       href: "/real-time-monitoring",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     },
     {
       title: "Analytics & Reports",
       description: "Track uptime trends, response times, and performance metrics with detailed analytics and custom reports.",
       href: "/analytics",
-      icon: <BarChart3 className="w-6 h-6 text-white" />
+      icon: <BarChart3 className="w-6 h-6 text-foreground" />
     },
     {
       title: "Smart Alerting",
       description: "Configure webhooks, email alerts, and custom notification rules to stay informed about issues.",
       href: "/alerting",
-      icon: <Bell className="w-6 h-6 text-white" />
+      icon: <Bell className="w-6 h-6 text-foreground" />
     },
     {
       title: "SSL Monitoring",
       description: "Monitor SSL certificate validity, expiration dates, and security issues automatically.",
       href: "/ssl-monitoring",
-      icon: <Shield className="w-6 h-6 text-white" />
+      icon: <Shield className="w-6 h-6 text-foreground" />
     },
     {
       title: "Global Monitoring",
       description: "Monitor your infrastructure from multiple global locations for comprehensive coverage.",
       href: "/global-monitoring",
-      icon: <Globe className="w-6 h-6 text-white" />
+      icon: <Globe className="w-6 h-6 text-foreground" />
     },
     {
       title: "API Integration",
       description: "Integrate monitoring and logs into your workflows with our comprehensive REST API.",
       href: "/api-webhooks",
-      icon: <Code className="w-6 h-6 text-white" />
+      icon: <Code className="w-6 h-6 text-foreground" />
     }
   ];
 

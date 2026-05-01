@@ -39,26 +39,26 @@ export interface BentoProps {
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = "oklch(0.86 0.06 231)";
+const DEFAULT_GLOW_COLOR = "var(--primary)";
 const MOBILE_BREAKPOINT = 768;
 
 const cardData: BentoCardProps[] = [
   {
-    color: "oklch(0.05 0 0)",
+    color: "var(--card)",
     title: "Real-Time Monitoring",
     description: "Free uptime monitoring for up to 10 websites and APIs",
     label: "Core",
     href: "/real-time-monitoring",
   },
   {
-    color: "oklch(0.05 0 0)",
+    color: "var(--card)",
     title: "SSL Monitoring",
     description: "SSL certificate monitoring with expiration alerts",
     label: "Security",
     href: "/ssl-monitoring",
   },
   {
-    color: "oklch(0.05 0 0)",
+    color: "var(--card)",
     title: "Analytics & Reports",
     description: "Comprehensive statistics and performance insights",
     label: "Reports and KPIs",
@@ -70,7 +70,7 @@ const cardData: BentoCardProps[] = [
     },
   },
   {
-    color: "oklch(0.05 0 0)",
+    color: "var(--card)",
     title: "Smart Alerting",
     description: "Webhook integration and real-time notifications",
     label: "Alerts",
@@ -81,14 +81,14 @@ const cardData: BentoCardProps[] = [
     },
   },
   {
-    color: "oklch(0.05 0 0)",
+    color: "var(--card)",
     title: "Website Monitoring",
     description: "Real-time monitoring with performance tracking and analytics",
     label: "Monitoring",
     href: "/global-monitoring",
   },
   {
-    color: "oklch(0.05 0 0)",
+    color: "var(--card)",
     title: "Data Privacy",
     description: "GDPR compliant with transparent data handling",
     label: "Protection",
@@ -113,8 +113,8 @@ const createParticleElement = (
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: oklch(0.86 0.06 231);
-    box-shadow: 0 0 6px oklch(0.86 0.06 231 / 0.6);
+    background: var(--primary);
+    box-shadow: 0 0 6px color-mix(in oklch, var(--primary) 60%, transparent);
     pointer-events: none;
     z-index: 100;
     left: ${x}px;
@@ -350,7 +350,7 @@ const ParticleCard: React.FC<{
         width: ${maxDistance * 2}px;
         height: ${maxDistance * 2}px;
         border-radius: 50%;
-        background: radial-gradient(circle, oklch(0.86 0.06 231 / 0.4) 0%, oklch(0.86 0.06 231 / 0.2) 30%, transparent 70%);
+        background: radial-gradient(circle, color-mix(in oklch, var(--primary) 40%, transparent) 0%, color-mix(in oklch, var(--primary) 20%, transparent) 30%, transparent 70%);
         left: ${x - maxDistance}px;
         top: ${y - maxDistance}px;
         pointer-events: none;
@@ -439,11 +439,11 @@ const GlobalSpotlight: React.FC<{
       border-radius: 50%;
       pointer-events: none;
       background: radial-gradient(circle,
-        oklch(0.86 0.06 231 / 0.15) 0%,
-        oklch(0.86 0.06 231 / 0.08) 15%,
-        oklch(0.86 0.06 231 / 0.04) 25%,
-        oklch(0.86 0.06 231 / 0.02) 40%,
-        oklch(0.86 0.06 231 / 0.01) 65%,
+        color-mix(in oklch, var(--primary) 15%, transparent) 0%,
+        color-mix(in oklch, var(--primary) 8%, transparent) 15%,
+        color-mix(in oklch, var(--primary) 4%, transparent) 25%,
+        color-mix(in oklch, var(--primary) 2%, transparent) 40%,
+        color-mix(in oklch, var(--primary) 1%, transparent) 65%,
         transparent 70%
       );
       z-index: 200;
@@ -638,13 +638,13 @@ const MagicBento: React.FC<BentoProps> = ({
              --glow-y: 50%;
              --glow-intensity: 0;
              --glow-radius: 200px;
-             --glow-color: oklch(0.86 0.06 231);
-             --border-color: oklch(1 0 0 / 10%);
-             --background-dark: oklch(0.05 0 0);
-             --white: oklch(0.985 0 0);
-             --primary-color: oklch(0.86 0.06 231);
-             --primary-glow: oklch(0.86 0.06 231 / 0.2);
-             --primary-border: oklch(0.86 0.06 231 / 0.8);
+             --glow-color: var(--primary);
+             --border-color: var(--border);
+             --background-dark: var(--card);
+             --white: var(--foreground);
+             --primary-color: var(--primary);
+             --primary-glow: color-mix(in oklch, var(--primary) 20%, transparent);
+             --primary-border: color-mix(in oklch, var(--primary) 80%, transparent);
            }
           
           .card-responsive {
@@ -686,13 +686,14 @@ const MagicBento: React.FC<BentoProps> = ({
              inset: 0;
              padding: 6px;
              background: radial-gradient(var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-                 oklch(0.86 0.06 231 / calc(var(--glow-intensity) * 0.8)) 0%,
-                 oklch(0.86 0.06 231 / calc(var(--glow-intensity) * 0.4)) 30%,
+                 color-mix(in oklch, var(--primary) calc(var(--glow-intensity) * 80%), transparent) 0%,
+                 color-mix(in oklch, var(--primary) calc(var(--glow-intensity) * 40%), transparent) 30%,
                  transparent 60%);
              border-radius: inherit;
-             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+             /* mask gradient endpoints just need an opaque color — currentColor works in any theme */
+             mask: linear-gradient(currentColor 0 0) content-box, linear-gradient(currentColor 0 0);
              mask-composite: subtract;
-             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+             -webkit-mask: linear-gradient(currentColor 0 0) content-box, linear-gradient(currentColor 0 0);
              -webkit-mask-composite: xor;
              pointer-events: none;
              transition: opacity 0.3s ease;
@@ -705,7 +706,9 @@ const MagicBento: React.FC<BentoProps> = ({
            }
           
           .card--border-glow:hover {
-            box-shadow: 0 4px 20px oklch(0.86 0.06 231 / 0.4), 0 0 30px oklch(0.86 0.06 231 / 0.2);
+            box-shadow:
+              0 4px 20px color-mix(in oklch, var(--primary) 40%, transparent),
+              0 0 30px color-mix(in oklch, var(--primary) 20%, transparent);
           }
           
                      .particle::before {
@@ -715,13 +718,15 @@ const MagicBento: React.FC<BentoProps> = ({
              left: -2px;
              right: -2px;
              bottom: -2px;
-             background: oklch(0.86 0.06 231 / 0.2);
+             background: color-mix(in oklch, var(--primary) 20%, transparent);
              border-radius: 50%;
              z-index: -1;
            }
-          
+
           .particle-container:hover {
-            box-shadow: 0 4px 20px oklch(0.86 0.06 231 / 0.2), 0 0 30px oklch(0.86 0.06 231 / 0.2);
+            box-shadow:
+              0 4px 20px color-mix(in oklch, var(--primary) 20%, transparent),
+              0 0 30px color-mix(in oklch, var(--primary) 20%, transparent);
           }
           
           .text-clamp-1 {
@@ -743,15 +748,15 @@ const MagicBento: React.FC<BentoProps> = ({
           }
           
           .card__title {
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 1px 2px color-mix(in oklch, var(--background) 30%, transparent);
           }
-          
+
           .card__description {
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 1px 2px color-mix(in oklch, var(--background) 20%, transparent);
           }
-          
+
           .card__label {
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 1px 2px color-mix(in oklch, var(--background) 20%, transparent);
           }
           
           .card__video {
@@ -780,14 +785,19 @@ const MagicBento: React.FC<BentoProps> = ({
           }
           
           .card__content {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.7) 100%);
+            background: linear-gradient(180deg,
+              color-mix(in oklch, var(--background) 70%, transparent) 0%,
+              color-mix(in oklch, var(--background) 40%, transparent) 50%,
+              color-mix(in oklch, var(--background) 70%, transparent) 100%);
             padding: 1rem;
             border-radius: 12px;
             backdrop-filter: blur(4px);
           }
-          
+
           .card__header {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+            background: linear-gradient(180deg,
+              color-mix(in oklch, var(--background) 70%, transparent) 0%,
+              color-mix(in oklch, var(--background) 40%, transparent) 100%);
             padding: 0.75rem;
             border-radius: 12px;
             backdrop-filter: blur(4px);
@@ -852,8 +862,8 @@ const MagicBento: React.FC<BentoProps> = ({
                   {card.href && (
                     <a href={card.href} className="absolute inset-0 z-20" aria-label={`Learn more about ${card.title}`} />
                   )}
-                  <div className="card__header flex justify-between gap-3 relative text-white z-10">
-                    <span className="card__label text-lg font-medium text-white/95">{card.label}</span>
+                  <div className="card__header flex justify-between gap-3 relative text-foreground z-10">
+                    <span className="card__label text-lg font-medium text-foreground/95">{card.label}</span>
                   </div>
                   {card.video && (
                     <div className="card__video absolute inset-0 z-0">
@@ -868,7 +878,7 @@ const MagicBento: React.FC<BentoProps> = ({
                         preload="metadata"
                         className="w-full h-full object-cover rounded-[20px]"
                       />
-                      <div className="card__video-overlay absolute inset-0 bg-black/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>
+                      <div className="card__video-overlay absolute inset-0 bg-background/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>
                     </div>
                   )}
                   {card.image && (
@@ -882,17 +892,17 @@ const MagicBento: React.FC<BentoProps> = ({
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         priority={false}
                       />
-                      <div className="card__image-overlay absolute inset-0 bg-black/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>
+                      <div className="card__image-overlay absolute inset-0 bg-background/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>
                     </div>
                   )}
-                  <div className="card__content flex flex-col relative text-white z-10">
+                  <div className="card__content flex flex-col relative text-foreground z-10">
                     <h2
-                      className={`card__title font-semibold text-xl m-0 mb-2 text-white ${textAutoHide ? "text-clamp-1" : ""}`}
+                      className={`card__title font-semibold text-xl m-0 mb-2 text-foreground ${textAutoHide ? "text-clamp-1" : ""}`}
                     >
                       {card.title}
                     </h2>
                     <p
-                      className={`card__description text-sm leading-6 text-white/90 font-normal ${textAutoHide ? "text-clamp-2" : ""}`}
+                      className={`card__description text-sm leading-6 text-foreground/90 font-normal ${textAutoHide ? "text-clamp-2" : ""}`}
                     >
                       {card.description}
                     </p>
@@ -986,7 +996,7 @@ const MagicBento: React.FC<BentoProps> = ({
                       width: ${maxDistance * 2}px;
                       height: ${maxDistance * 2}px;
                       border-radius: 50%;
-                      background: radial-gradient(circle, oklch(0.86 0.06 231 / 0.4) 0%, oklch(0.86 0.06 231 / 0.2) 30%, transparent 70%);
+                      background: radial-gradient(circle, color-mix(in oklch, var(--primary) 40%, transparent) 0%, color-mix(in oklch, var(--primary) 20%, transparent) 30%, transparent 70%);
                       left: ${x - maxDistance}px;
                       top: ${y - maxDistance}px;
                       pointer-events: none;
@@ -1021,8 +1031,8 @@ const MagicBento: React.FC<BentoProps> = ({
                 {card.href && (
                   <a href={card.href} className="absolute inset-0 z-20" aria-label={`Learn more about ${card.title}`} />
                 )}
-                <div className="card__header flex justify-between gap-3 relative text-white z-10">
-                  <span className="card__label text-lg font-medium text-white/95">{card.label}</span>
+                <div className="card__header flex justify-between gap-3 relative text-foreground z-10">
+                  <span className="card__label text-lg font-medium text-foreground/95">{card.label}</span>
                 </div>
                 {card.video && (
                   <div className="card__video absolute inset-0 z-0">
@@ -1036,7 +1046,7 @@ const MagicBento: React.FC<BentoProps> = ({
                       playsInline
                       className="w-full h-full object-cover rounded-[20px]"
                     />
-                    <div className="card__video-overlay absolute inset-0 bg-black/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>
+                    <div className="card__video-overlay absolute inset-0 bg-background/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>
                   </div>
                 )}
                 {card.image && (
@@ -1047,17 +1057,17 @@ const MagicBento: React.FC<BentoProps> = ({
                       fill
                       className="w-full h-full object-cover rounded-[20px]"
                     />
-                    <div className="card__image-overlay absolute inset-0 bg-black/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>
+                    <div className="card__image-overlay absolute inset-0 bg-background/50 rounded-[20px] transition-opacity duration-300 ease-in-out"></div>
                   </div>
                 )}
-                <div className="card__content flex flex-col relative text-white z-10">
+                <div className="card__content flex flex-col relative text-foreground z-10">
                   <h2
-                    className={`card__title font-semibold text-xl m-0 mb-2 text-white ${textAutoHide ? "text-clamp-1" : ""}`}
+                    className={`card__title font-semibold text-xl m-0 mb-2 text-foreground ${textAutoHide ? "text-clamp-1" : ""}`}
                   >
                     {card.title}
                   </h2>
                   <p
-                    className={`card__description text-sm leading-6 text-white/90 font-normal ${textAutoHide ? "text-clamp-2" : ""}`}
+                    className={`card__description text-sm leading-6 text-foreground/90 font-normal ${textAutoHide ? "text-clamp-2" : ""}`}
                   >
                     {card.description}
                   </p>

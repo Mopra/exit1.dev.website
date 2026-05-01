@@ -21,7 +21,7 @@ const Footer = () => {
       return (
         <button
           onClick={() => setShowCookieSettings(true)}
-          className="text-base text-white/70 hover:text-white transition-colors duration-200 font-light cursor-pointer text-left interactive"
+          className="text-base text-foreground/70 hover:text-foreground transition-colors duration-200 font-light cursor-pointer text-left interactive"
         >
           {item.name}
         </button>
@@ -39,7 +39,7 @@ const Footer = () => {
               });
             }
           }}
-          className="text-base text-white/70 hover:text-white transition-colors duration-200 font-light cursor-pointer text-left interactive"
+          className="text-base text-foreground/70 hover:text-foreground transition-colors duration-200 font-light cursor-pointer text-left interactive"
         >
           {item.name}
         </button>
@@ -49,7 +49,7 @@ const Footer = () => {
       return (
         <Link
           href={item.href}
-          className="text-base text-white/70 hover:text-white transition-colors duration-200 font-light cursor-pointer interactive"
+          className="text-base text-foreground/70 hover:text-foreground transition-colors duration-200 font-light cursor-pointer interactive"
         >
           {item.name}
         </Link>
@@ -59,7 +59,7 @@ const Footer = () => {
       return (
         <a
           href={item.href}
-          className="text-base text-white/70 hover:text-white transition-colors duration-200 font-light cursor-pointer interactive"
+          className="text-base text-foreground/70 hover:text-foreground transition-colors duration-200 font-light cursor-pointer interactive"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -70,7 +70,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-background text-foreground">
       <PageContainer>
         <div className="border-inset-top px-6 lg:px-8">
           <div className="py-12 sm:py-16 lg:py-20">
@@ -78,10 +78,10 @@ const Footer = () => {
         <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
           {/* Brand section - full width on mobile */}
           <div className="space-y-6 lg:col-span-1">
-            <Link href="/" className="text-white font-mono text-2xl font-semibold tracking-tight hover:text-white/80 transition-colors duration-200 cursor-pointer interactive">
+            <Link href="/" className="text-foreground font-mono text-2xl font-semibold tracking-tight hover:text-foreground/80 transition-colors duration-200 cursor-pointer interactive">
               {content.brand.logo}
             </Link>
-            <p className="text-white/70 text-base font-light leading-relaxed">
+            <p className="text-foreground/70 text-base font-light leading-relaxed">
               {content.brand.description}
             </p>
             
@@ -116,7 +116,7 @@ const Footer = () => {
           {/* Navigation sections - stacked on mobile, grid on larger screens */}
           <div className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-5 lg:gap-8 lg:space-y-0">
             <div>
-              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
                 Monitoring
               </h3>
               <ul className="mt-4 space-y-3">
@@ -128,7 +128,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
                 Analytics & Tools
               </h3>
               <ul className="mt-4 space-y-3">
@@ -140,7 +140,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
                 Tools
               </h3>
               <ul className="mt-4 space-y-3">
@@ -152,7 +152,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
                 Support
               </h3>
               <ul className="mt-4 space-y-3">
@@ -164,7 +164,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
                 Legal
               </h3>
               <ul className="mt-4 space-y-3">
@@ -191,17 +191,17 @@ const Footer = () => {
                   className="rounded"
                 />
                 <div className="flex flex-col">
-                  <span className="text-sm font-medium text-[#003399]">Made and hosted in the</span>
-                  <span className="text-sm font-bold text-[#003399]">European Union</span>
+                  <span className="text-sm font-medium text-brand-eu">Made and hosted in the</span>
+                  <span className="text-sm font-bold text-brand-eu">European Union</span>
                 </div>
               </div>
               
               {/* Business info and Copyright */}
               <div className="flex flex-col items-center lg:items-end gap-1">
-                <p className="text-sm text-white/50 font-light">
-                  <a href="https://pradsgaardlabs.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors duration-200">Pradsgaard Labs EMV</a> | CVR: DK46156153
+                <p className="text-sm text-foreground/50 font-light">
+                  <a href="https://pradsgaardlabs.com/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground/70 transition-colors duration-200">Pradsgaard Labs EMV</a> | CVR: DK46156153
                 </p>
-                <p className="text-base text-white/60 font-light"
+                <p className="text-base text-foreground/60 font-light"
                  dangerouslySetInnerHTML={{ __html: content.copyright.replace('2024', new Date().getFullYear().toString()) }}>
                 </p>
               </div>

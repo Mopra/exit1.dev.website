@@ -110,7 +110,7 @@ function ResultRow({
   mono?: boolean;
 }) {
   return (
-    <div className="flex items-start gap-3 py-3 border-b border-white/5 last:border-0">
+    <div className="flex items-start gap-3 py-3 border-b border-foreground/5 last:border-0">
       <Icon className={cn("w-4 h-4 mt-0.5 shrink-0", className)} />
       <div className="min-w-0 flex-1">
         <div className="text-xs text-muted-foreground">{label}</div>
@@ -143,11 +143,11 @@ function SectionCard({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-white/[0.02] border border-white/10 rounded-xl overflow-hidden">
+    <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl overflow-hidden">
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-white/[0.02] transition-colors"
+        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-foreground/[0.02] transition-colors"
       >
         <div className="flex items-center gap-3">
           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
@@ -176,8 +176,8 @@ function StatusPill({ ok, label }: { ok: boolean; label: string }) {
       className={cn(
         "inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border",
         ok
-          ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
-          : "bg-red-500/10 border-red-500/20 text-red-400"
+          ? "bg-success/10 border-success/20 text-success"
+          : "bg-destructive/10 border-destructive/20 text-destructive"
       )}
     >
       {ok ? (
@@ -196,34 +196,34 @@ function GradeBadge({ result }: { result: DnsCheckResult }) {
     { bg: string; iconBg: string; textClass: string }
   > = {
     "A+": {
-      bg: "bg-emerald-500/10 border-emerald-500/20",
-      iconBg: "bg-emerald-500/20 border-emerald-500/30",
-      textClass: "text-emerald-400",
+      bg: "bg-success/10 border-success/20",
+      iconBg: "bg-success/20 border-success/30",
+      textClass: "text-success",
     },
     A: {
-      bg: "bg-emerald-500/10 border-emerald-500/20",
-      iconBg: "bg-emerald-500/20 border-emerald-500/30",
-      textClass: "text-emerald-400",
+      bg: "bg-success/10 border-success/20",
+      iconBg: "bg-success/20 border-success/30",
+      textClass: "text-success",
     },
     B: {
-      bg: "bg-blue-500/10 border-blue-500/20",
-      iconBg: "bg-blue-500/20 border-blue-500/30",
-      textClass: "text-blue-400",
+      bg: "bg-primary/10 border-primary/20",
+      iconBg: "bg-primary/20 border-primary/30",
+      textClass: "text-primary",
     },
     C: {
-      bg: "bg-yellow-500/10 border-yellow-500/20",
-      iconBg: "bg-yellow-500/20 border-yellow-500/30",
-      textClass: "text-yellow-400",
+      bg: "bg-warning/10 border-warning/20",
+      iconBg: "bg-warning/20 border-warning/30",
+      textClass: "text-warning",
     },
     D: {
-      bg: "bg-orange-500/10 border-orange-500/20",
-      iconBg: "bg-orange-500/20 border-orange-500/30",
-      textClass: "text-orange-400",
+      bg: "bg-warning/10 border-warning/20",
+      iconBg: "bg-warning/20 border-warning/30",
+      textClass: "text-warning",
     },
     F: {
-      bg: "bg-red-500/10 border-red-500/20",
-      iconBg: "bg-red-500/20 border-red-500/30",
-      textClass: "text-red-400",
+      bg: "bg-destructive/10 border-destructive/20",
+      iconBg: "bg-destructive/20 border-destructive/30",
+      textClass: "text-destructive",
     },
   };
 
@@ -510,14 +510,14 @@ export default function DnsCheckerTool() {
               }
             }}
             placeholder="example.com"
-            className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
+            className="w-full pl-11 pr-4 py-3 bg-foreground/5 border border-foreground/10 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
             disabled={loading}
           />
         </div>
         <Button
           type="submit"
           disabled={loading || !domain.trim()}
-          className="rounded-xl px-6 py-3 h-auto bg-white text-black hover:bg-white/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
+          className="rounded-xl px-6 py-3 h-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
         >
           {loading ? (
             <Loader2 className="w-4 h-4 animate-spin" />
@@ -548,7 +548,7 @@ export default function DnsCheckerTool() {
 
       {/* Loading Progress */}
       {loading && (
-        <div className="mt-6 p-4 bg-white/[0.02] border border-white/10 rounded-xl">
+        <div className="mt-6 p-4 bg-foreground/[0.02] border border-foreground/10 rounded-xl">
           <div className="space-y-2">
             {LOADING_STEPS.map((step, i) => (
               <div
@@ -556,9 +556,9 @@ export default function DnsCheckerTool() {
                 className={cn(
                   "flex items-center gap-2.5 text-sm transition-all duration-300",
                   i < loadingStep
-                    ? "text-emerald-400"
+                    ? "text-success"
                     : i === loadingStep
-                      ? "text-white"
+                      ? "text-foreground"
                       : "text-muted-foreground/40"
                 )}
               >
@@ -578,11 +578,11 @@ export default function DnsCheckerTool() {
 
       {/* Error */}
       {error && (
-        <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-start gap-3">
-          <ShieldAlert className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+        <div className="mt-6 p-4 bg-destructive/10 border border-destructive/20 rounded-xl flex items-start gap-3">
+          <ShieldAlert className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
           <div>
-            <div className="font-medium text-red-400">Lookup Failed</div>
-            <div className="text-sm text-red-400/80 mt-1">{error}</div>
+            <div className="font-medium text-destructive">Lookup Failed</div>
+            <div className="text-sm text-destructive/80 mt-1">{error}</div>
           </div>
         </div>
       )}
@@ -603,13 +603,13 @@ export default function DnsCheckerTool() {
               >
                 <button
                   onClick={copyShareLink}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy share link"
                 >
                   {copiedLink ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -620,13 +620,13 @@ export default function DnsCheckerTool() {
                 </button>
                 <button
                   onClick={copyResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy DNS results"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -637,7 +637,7 @@ export default function DnsCheckerTool() {
                 </button>
                 <button
                   onClick={downloadResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Download DNS report"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -646,10 +646,10 @@ export default function DnsCheckerTool() {
               </div>
             }
           >
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-foreground/5">
               {/* A Records */}
               {result.records.a.length > 0 && (
-                <div className="py-3 border-b border-white/5">
+                <div className="py-3 border-b border-foreground/5">
                   <div className="flex items-start gap-3">
                     <Network className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
                     <div className="min-w-0 flex-1">
@@ -662,10 +662,10 @@ export default function DnsCheckerTool() {
                             key={rec.address}
                             className="flex items-center gap-2 flex-wrap"
                           >
-                            <span className="text-sm font-mono text-white/80">
+                            <span className="text-sm font-mono text-foreground/80">
                               {rec.address}
                             </span>
-                            <span className="text-xs text-muted-foreground px-1.5 py-0.5 rounded bg-white/5 border border-white/10">
+                            <span className="text-xs text-muted-foreground px-1.5 py-0.5 rounded bg-foreground/5 border border-foreground/10">
                               TTL: {formatTtl(rec.ttl)}
                             </span>
                           </div>
@@ -678,9 +678,9 @@ export default function DnsCheckerTool() {
 
               {/* AAAA Records */}
               {result.records.aaaa.length > 0 && (
-                <div className="py-3 border-b border-white/5">
+                <div className="py-3 border-b border-foreground/5">
                   <div className="flex items-start gap-3">
-                    <Network className="w-4 h-4 mt-0.5 shrink-0 text-blue-400" />
+                    <Network className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
                     <div className="min-w-0 flex-1">
                       <div className="text-xs text-muted-foreground">
                         AAAA Records (IPv6)
@@ -691,10 +691,10 @@ export default function DnsCheckerTool() {
                             key={rec.address}
                             className="flex items-center gap-2 flex-wrap"
                           >
-                            <span className="text-sm font-mono text-white/80">
+                            <span className="text-sm font-mono text-foreground/80">
                               {rec.address}
                             </span>
-                            <span className="text-xs text-muted-foreground px-1.5 py-0.5 rounded bg-white/5 border border-white/10">
+                            <span className="text-xs text-muted-foreground px-1.5 py-0.5 rounded bg-foreground/5 border border-foreground/10">
                               TTL: {formatTtl(rec.ttl)}
                             </span>
                           </div>
@@ -718,7 +718,7 @@ export default function DnsCheckerTool() {
                         {result.records.cname.map((cname) => (
                           <span
                             key={cname}
-                            className="inline-flex items-center text-xs font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80"
+                            className="inline-flex items-center text-xs font-mono px-2 py-0.5 rounded-md bg-foreground/5 border border-foreground/10 text-foreground/80"
                           >
                             {cname}
                           </span>
@@ -749,7 +749,7 @@ export default function DnsCheckerTool() {
                 {result.records.ns.map((ns) => (
                   <span
                     key={ns}
-                    className="inline-flex items-center text-xs font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80"
+                    className="inline-flex items-center text-xs font-mono px-2 py-0.5 rounded-md bg-foreground/5 border border-foreground/10 text-foreground/80"
                   >
                     {ns}
                   </span>
@@ -761,7 +761,7 @@ export default function DnsCheckerTool() {
           {/* SOA Record */}
           {result.records.soa && (
             <SectionCard title="SOA Record" defaultOpen={false}>
-              <div className="divide-y divide-white/5">
+              <div className="divide-y divide-foreground/5">
                 <ResultRow
                   icon={Server}
                   label="Primary Nameserver"
@@ -830,10 +830,10 @@ export default function DnsCheckerTool() {
               />
             }
           >
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-foreground/5">
               {/* MX Records */}
               {result.records.mx.length > 0 ? (
-                <div className="py-3 border-b border-white/5">
+                <div className="py-3 border-b border-foreground/5">
                   <div className="flex items-start gap-3">
                     <Mail className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
                     <div className="min-w-0 flex-1">
@@ -846,10 +846,10 @@ export default function DnsCheckerTool() {
                             key={mx.exchange}
                             className="flex items-center gap-2"
                           >
-                            <span className="text-xs font-mono px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                            <span className="text-xs font-mono px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
                               {mx.priority}
                             </span>
-                            <span className="text-xs font-mono text-white/80">
+                            <span className="text-xs font-mono text-foreground/80">
                               {mx.exchange}
                             </span>
                           </div>
@@ -863,19 +863,19 @@ export default function DnsCheckerTool() {
                   icon={Mail}
                   label="MX Records"
                   value="No mail servers configured"
-                  className="text-red-400"
+                  className="text-destructive"
                 />
               )}
 
               {/* SPF */}
-              <div className="py-3 border-b border-white/5">
+              <div className="py-3 border-b border-foreground/5">
                 <div className="flex items-start gap-3">
                   <Shield
                     className={cn(
                       "w-4 h-4 mt-0.5 shrink-0",
                       result.emailSecurity.spf.found
-                        ? "text-emerald-400"
-                        : "text-red-400"
+                        ? "text-success"
+                        : "text-destructive"
                     )}
                   />
                   <div className="min-w-0 flex-1">
@@ -883,11 +883,11 @@ export default function DnsCheckerTool() {
                       SPF Record
                     </div>
                     {result.emailSecurity.spf.found ? (
-                      <div className="text-xs font-mono text-white/70 bg-black/40 border border-white/5 rounded-lg p-2 mt-1.5 break-all">
+                      <div className="text-xs font-mono text-foreground/70 bg-background/40 border border-foreground/5 rounded-lg p-2 mt-1.5 break-all">
                         {result.emailSecurity.spf.record}
                       </div>
                     ) : (
-                      <div className="text-sm font-medium text-red-400">
+                      <div className="text-sm font-medium text-destructive">
                         Not found — vulnerable to email spoofing
                       </div>
                     )}
@@ -902,8 +902,8 @@ export default function DnsCheckerTool() {
                     className={cn(
                       "w-4 h-4 mt-0.5 shrink-0",
                       result.emailSecurity.dmarc.found
-                        ? "text-emerald-400"
-                        : "text-red-400"
+                        ? "text-success"
+                        : "text-destructive"
                     )}
                   />
                   <div className="min-w-0 flex-1">
@@ -911,11 +911,11 @@ export default function DnsCheckerTool() {
                       DMARC Record
                     </div>
                     {result.emailSecurity.dmarc.found ? (
-                      <div className="text-xs font-mono text-white/70 bg-black/40 border border-white/5 rounded-lg p-2 mt-1.5 break-all">
+                      <div className="text-xs font-mono text-foreground/70 bg-background/40 border border-foreground/5 rounded-lg p-2 mt-1.5 break-all">
                         {result.emailSecurity.dmarc.record}
                       </div>
                     ) : (
-                      <div className="text-sm font-medium text-red-400">
+                      <div className="text-sm font-medium text-destructive">
                         Not found — no email impersonation protection
                       </div>
                     )}
@@ -935,7 +935,7 @@ export default function DnsCheckerTool() {
                 {result.records.txt.map((txt, i) => (
                   <div
                     key={i}
-                    className="text-xs font-mono text-white/70 bg-black/40 border border-white/5 rounded-lg p-3 break-all"
+                    className="text-xs font-mono text-foreground/70 bg-background/40 border border-foreground/5 rounded-lg p-3 break-all"
                   >
                     {txt}
                   </div>
@@ -953,14 +953,14 @@ export default function DnsCheckerTool() {
               <div className="space-y-2">
                 {result.records.caa.map((caa, i) => (
                   <div key={i} className="flex items-center gap-2 flex-wrap">
-                    <span className="text-xs font-mono px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                    <span className="text-xs font-mono px-1.5 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/20">
                       {caa.tag}
                     </span>
-                    <span className="text-xs font-mono text-white/80">
+                    <span className="text-xs font-mono text-foreground/80">
                       {caa.value}
                     </span>
                     {caa.critical > 0 && (
-                      <span className="text-xs px-1.5 py-0.5 rounded bg-red-500/10 text-red-400 border border-red-500/20">
+                      <span className="text-xs px-1.5 py-0.5 rounded bg-destructive/10 text-destructive border border-destructive/20">
                         critical
                       </span>
                     )}
@@ -978,8 +978,8 @@ export default function DnsCheckerTool() {
                   key={`good-${i}`}
                   className="flex items-center gap-2 text-sm"
                 >
-                  <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="text-emerald-400">{point}</span>
+                  <CheckCircle className="w-4 h-4 text-success shrink-0" />
+                  <span className="text-success">{point}</span>
                 </div>
               ))}
               {result.issues.map((issue, i) => (
@@ -987,8 +987,8 @@ export default function DnsCheckerTool() {
                   key={`issue-${i}`}
                   className="flex items-center gap-2 text-sm"
                 >
-                  <XCircle className="w-4 h-4 text-red-400 shrink-0" />
-                  <span className="text-red-400">{issue}</span>
+                  <XCircle className="w-4 h-4 text-destructive shrink-0" />
+                  <span className="text-destructive">{issue}</span>
                 </div>
               ))}
             </div>

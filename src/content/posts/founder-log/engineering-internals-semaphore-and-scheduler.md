@@ -1,7 +1,7 @@
 ---
 title: "Engineering Internals: A 20-Line Semaphore and a Scheduler That Barely Touches the Database"
 author: "Morten Pradsgaard"
-category: "infrastructure-monitoring"
+category: "founder-log"
 excerpt: "Two small but load-bearing pieces of code from our check runner: a lock-free semaphore that fits on a napkin, and an in-memory schedule that cut our database reads by over 99%."
 date: "2026-04-12"
 metaDescription: "How we run 200 concurrent network checks on a single Node.js box without race conditions or database bills. A permit-transfer semaphore and a decoupled in-memory scheduler."

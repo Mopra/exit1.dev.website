@@ -53,10 +53,10 @@ const LOADING_STEPS = [
 ];
 
 function statusCodeBg(code: number): string {
-  if (code >= 200 && code < 300) return "bg-emerald-500/10 border-emerald-500/20 text-emerald-400";
-  if (code >= 300 && code < 400) return "bg-blue-500/10 border-blue-500/20 text-blue-400";
-  if (code >= 400 && code < 500) return "bg-yellow-500/10 border-yellow-500/20 text-yellow-400";
-  return "bg-red-500/10 border-red-500/20 text-red-400";
+  if (code >= 200 && code < 300) return "bg-success/10 border-success/20 text-success";
+  if (code >= 300 && code < 400) return "bg-primary/10 border-primary/20 text-primary";
+  if (code >= 400 && code < 500) return "bg-warning/10 border-warning/20 text-warning";
+  return "bg-destructive/10 border-destructive/20 text-destructive";
 }
 
 function redirectTypeLabel(code: number): string {
@@ -90,11 +90,11 @@ function SectionCard({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-white/[0.02] border border-white/10 rounded-xl overflow-hidden">
+    <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl overflow-hidden">
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-white/[0.02] transition-colors"
+        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-foreground/[0.02] transition-colors"
       >
         <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
           {title}
@@ -297,14 +297,14 @@ export default function RedirectCheckerTool() {
               }
             }}
             placeholder="https://example.com"
-            className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
+            className="w-full pl-11 pr-4 py-3 bg-foreground/5 border border-foreground/10 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
             disabled={loading}
           />
         </div>
         <Button
           type="submit"
           disabled={loading || !url.trim()}
-          className="rounded-xl px-6 py-3 h-auto bg-white text-black hover:bg-white/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
+          className="rounded-xl px-6 py-3 h-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
         >
           {loading ? (
             <Loader2 className="w-4 h-4 animate-spin" />
@@ -319,7 +319,7 @@ export default function RedirectCheckerTool() {
 
       {/* Loading Progress */}
       {loading && (
-        <div className="mt-6 p-4 bg-white/[0.02] border border-white/10 rounded-xl">
+        <div className="mt-6 p-4 bg-foreground/[0.02] border border-foreground/10 rounded-xl">
           <div className="space-y-2">
             {LOADING_STEPS.map((step, i) => (
               <div
@@ -327,9 +327,9 @@ export default function RedirectCheckerTool() {
                 className={cn(
                   "flex items-center gap-2.5 text-sm transition-all duration-300",
                   i < loadingStep
-                    ? "text-emerald-400"
+                    ? "text-success"
                     : i === loadingStep
-                      ? "text-white"
+                      ? "text-foreground"
                       : "text-muted-foreground/40"
                 )}
               >
@@ -349,11 +349,11 @@ export default function RedirectCheckerTool() {
 
       {/* Error */}
       {error && (
-        <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-start gap-3">
-          <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+        <div className="mt-6 p-4 bg-destructive/10 border border-destructive/20 rounded-xl flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
           <div>
-            <div className="font-medium text-red-400">Check Failed</div>
-            <div className="text-sm text-red-400/80 mt-1">{error}</div>
+            <div className="font-medium text-destructive">Check Failed</div>
+            <div className="text-sm text-destructive/80 mt-1">{error}</div>
           </div>
         </div>
       )}
@@ -366,28 +366,28 @@ export default function RedirectCheckerTool() {
             className={cn(
               "p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center gap-4",
               result.error
-                ? "bg-red-500/10 border-red-500/20"
+                ? "bg-destructive/10 border-destructive/20"
                 : result.isRedirect
-                  ? "bg-blue-500/10 border-blue-500/20"
-                  : "bg-emerald-500/10 border-emerald-500/20"
+                  ? "bg-primary/10 border-primary/20"
+                  : "bg-success/10 border-success/20"
             )}
           >
             <div
               className={cn(
                 "w-14 h-14 rounded-xl flex items-center justify-center shrink-0 border",
                 result.error
-                  ? "bg-red-500/20 border-red-500/30"
+                  ? "bg-destructive/20 border-destructive/30"
                   : result.isRedirect
-                    ? "bg-blue-500/20 border-blue-500/30"
-                    : "bg-emerald-500/20 border-emerald-500/30"
+                    ? "bg-primary/20 border-primary/30"
+                    : "bg-success/20 border-success/30"
               )}
             >
               {result.error ? (
-                <XCircle className="w-7 h-7 text-red-400" />
+                <XCircle className="w-7 h-7 text-destructive" />
               ) : result.isRedirect ? (
-                <ArrowRight className="w-7 h-7 text-blue-400" />
+                <ArrowRight className="w-7 h-7 text-primary" />
               ) : (
-                <CheckCircle className="w-7 h-7 text-emerald-400" />
+                <CheckCircle className="w-7 h-7 text-success" />
               )}
             </div>
             <div className="min-w-0 flex-1">
@@ -396,10 +396,10 @@ export default function RedirectCheckerTool() {
                   className={cn(
                     "font-semibold",
                     result.error
-                      ? "text-red-400"
+                      ? "text-destructive"
                       : result.isRedirect
-                        ? "text-blue-400"
-                        : "text-emerald-400"
+                        ? "text-primary"
+                        : "text-success"
                   )}
                 >
                   {result.error
@@ -420,11 +420,11 @@ export default function RedirectCheckerTool() {
               </div>
               {/* Quick stats */}
               <div className="flex flex-wrap gap-3 mt-3">
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-white/5 border-white/10 text-muted-foreground">
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-foreground/5 border-foreground/10 text-muted-foreground">
                   <Clock className="w-3 h-3" />
                   {result.totalTimeMs}ms
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-white/5 border-white/10 text-muted-foreground">
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-foreground/5 border-foreground/10 text-muted-foreground">
                   <ArrowRight className="w-3 h-3" />
                   {result.totalHops} hop{result.totalHops !== 1 ? "s" : ""}
                 </span>
@@ -456,8 +456,8 @@ export default function RedirectCheckerTool() {
                       className={cn(
                         "p-4 rounded-lg border",
                         isFinal
-                          ? "bg-emerald-500/5 border-emerald-500/20"
-                          : "bg-white/[0.02] border-white/10"
+                          ? "bg-success/5 border-success/20"
+                          : "bg-foreground/[0.02] border-foreground/10"
                       )}
                     >
                       <div className="flex items-start gap-3">
@@ -465,8 +465,8 @@ export default function RedirectCheckerTool() {
                           className={cn(
                             "w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 border",
                             isFinal
-                              ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
-                              : "bg-white/10 border-white/20 text-muted-foreground"
+                              ? "bg-success/20 border-success/30 text-success"
+                              : "bg-foreground/10 border-foreground/20 text-muted-foreground"
                           )}
                         >
                           {i + 1}
@@ -487,7 +487,7 @@ export default function RedirectCheckerTool() {
                               </span>
                             )}
                             {isFinal && (
-                              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-success/20 text-success border border-success/30">
                                 Final Destination
                               </span>
                             )}
@@ -495,12 +495,12 @@ export default function RedirectCheckerTool() {
                           <div className="mt-2 space-y-1">
                             <div className="flex items-start gap-2 text-sm">
                               <ExternalLink className="w-3.5 h-3.5 mt-0.5 shrink-0 text-muted-foreground/60" />
-                              <span className="break-all text-white/80">{hop.url}</span>
+                              <span className="break-all text-foreground/80">{hop.url}</span>
                             </div>
                             {hop.location && (
                               <div className="flex items-start gap-2 text-sm">
-                                <ArrowRight className="w-3.5 h-3.5 mt-0.5 shrink-0 text-blue-400/60" />
-                                <span className="break-all text-blue-400/80">
+                                <ArrowRight className="w-3.5 h-3.5 mt-0.5 shrink-0 text-primary/60" />
+                                <span className="break-all text-primary/80">
                                   {hop.location}
                                 </span>
                               </div>
@@ -535,8 +535,8 @@ export default function RedirectCheckerTool() {
                   <div className="text-xs font-medium text-muted-foreground mb-2">
                     Step {i + 1} — {hop.statusCode} {hop.statusText}
                   </div>
-                  <div className="bg-black/20 rounded-lg border border-white/5 p-3 overflow-x-auto max-h-48 overflow-y-auto">
-                    <pre className="text-xs font-mono text-white/70 whitespace-pre-wrap break-all">
+                  <div className="bg-background/20 rounded-lg border border-foreground/5 p-3 overflow-x-auto max-h-48 overflow-y-auto">
+                    <pre className="text-xs font-mono text-foreground/70 whitespace-pre-wrap break-all">
                       {Object.entries(hop.headers)
                         .map(([key, value]) => `${key}: ${value}`)
                         .join("\n")}
@@ -549,11 +549,11 @@ export default function RedirectCheckerTool() {
 
           {/* Error details */}
           {result.error && (
-            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+            <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-xl flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
               <div>
-                <div className="font-medium text-red-400">Error</div>
-                <div className="text-sm text-red-400/80 mt-1">{result.error}</div>
+                <div className="font-medium text-destructive">Error</div>
+                <div className="text-sm text-destructive/80 mt-1">{result.error}</div>
               </div>
             </div>
           )}
@@ -566,13 +566,13 @@ export default function RedirectCheckerTool() {
               <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                 <button
                   onClick={copyShareLink}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy share link"
                 >
                   {copiedLink ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -583,13 +583,13 @@ export default function RedirectCheckerTool() {
                 </button>
                 <button
                   onClick={copyResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy results"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -600,7 +600,7 @@ export default function RedirectCheckerTool() {
                 </button>
                 <button
                   onClick={downloadResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Download report"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -613,10 +613,10 @@ export default function RedirectCheckerTool() {
               <Button
                 onClick={copyShareLink}
                 variant="outline"
-                className="rounded-lg border-white/10 bg-white/5 text-white hover:bg-white/10 cursor-pointer"
+                className="rounded-lg border-foreground/10 bg-foreground/5 text-foreground hover:bg-foreground/10 cursor-pointer"
               >
                 {copiedLink ? (
-                  <Check className="w-4 h-4 mr-2 text-emerald-400" />
+                  <Check className="w-4 h-4 mr-2 text-success" />
                 ) : (
                   <Link2 className="w-4 h-4 mr-2" />
                 )}
@@ -625,10 +625,10 @@ export default function RedirectCheckerTool() {
               <Button
                 onClick={copyResults}
                 variant="outline"
-                className="rounded-lg border-white/10 bg-white/5 text-white hover:bg-white/10 cursor-pointer"
+                className="rounded-lg border-foreground/10 bg-foreground/5 text-foreground hover:bg-foreground/10 cursor-pointer"
               >
                 {copied ? (
-                  <Check className="w-4 h-4 mr-2 text-emerald-400" />
+                  <Check className="w-4 h-4 mr-2 text-success" />
                 ) : (
                   <Copy className="w-4 h-4 mr-2" />
                 )}
@@ -637,7 +637,7 @@ export default function RedirectCheckerTool() {
               <Button
                 onClick={downloadResults}
                 variant="outline"
-                className="rounded-lg border-white/10 bg-white/5 text-white hover:bg-white/10 cursor-pointer"
+                className="rounded-lg border-foreground/10 bg-foreground/5 text-foreground hover:bg-foreground/10 cursor-pointer"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download .txt

@@ -120,7 +120,7 @@ function ResultRow({
   className?: string;
 }) {
   return (
-    <div className="flex items-start gap-3 py-3 border-b border-white/5 last:border-0">
+    <div className="flex items-start gap-3 py-3 border-b border-foreground/5 last:border-0">
       <Icon className={cn("w-4 h-4 mt-0.5 shrink-0", className)} />
       <div className="min-w-0 flex-1">
         <div className="text-xs text-muted-foreground">{label}</div>
@@ -146,11 +146,11 @@ function SectionCard({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-white/[0.02] border border-white/10 rounded-xl overflow-hidden">
+    <div className="bg-foreground/[0.02] border border-foreground/10 rounded-xl overflow-hidden">
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-white/[0.02] transition-colors"
+        className="w-full flex items-center justify-between p-5 pb-4 cursor-pointer hover:bg-foreground/[0.02] transition-colors"
       >
         <div className="flex items-center gap-3">
           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
@@ -179,8 +179,8 @@ function StatusPill({ ok, label }: { ok: boolean; label: string }) {
       className={cn(
         "inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border",
         ok
-          ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
-          : "bg-red-500/10 border-red-500/20 text-red-400"
+          ? "bg-success/10 border-success/20 text-success"
+          : "bg-destructive/10 border-destructive/20 text-destructive"
       )}
     >
       {ok ? <CheckCircle className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
@@ -204,13 +204,13 @@ function formatJson(str: string): string {
 }
 
 const METHOD_COLORS: Record<string, string> = {
-  GET: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-  HEAD: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-  POST: "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
-  PUT: "text-orange-400 bg-orange-500/10 border-orange-500/20",
-  DELETE: "text-red-400 bg-red-500/10 border-red-500/20",
-  PATCH: "text-purple-400 bg-purple-500/10 border-purple-500/20",
-  OPTIONS: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+  GET: "text-success bg-success/10 border-success/20",
+  HEAD: "text-primary bg-primary/10 border-primary/20",
+  POST: "text-warning bg-warning/10 border-warning/20",
+  PUT: "text-warning bg-warning/10 border-warning/20",
+  DELETE: "text-destructive bg-destructive/10 border-destructive/20",
+  PATCH: "text-secondary bg-secondary/10 border-secondary/20",
+  OPTIONS: "text-secondary bg-secondary/10 border-secondary/20",
 };
 
 export default function ApiStatusCheckerTool() {
@@ -438,11 +438,11 @@ export default function ApiStatusCheckerTool() {
             value={method}
             onChange={(e) => setMethod(e.target.value)}
             disabled={loading}
-            className="px-3 py-3 bg-white/5 border border-white/10 border-r-0 rounded-l-xl text-white text-sm font-mono font-semibold focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all appearance-none cursor-pointer"
+            className="px-3 py-3 bg-foreground/5 border border-foreground/10 border-r-0 rounded-l-xl text-foreground text-sm font-mono font-semibold focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all appearance-none cursor-pointer"
             style={{ minWidth: "5.5rem" }}
           >
             {HTTP_METHODS.map((m) => (
-              <option key={m} value={m} className="bg-black text-white">
+              <option key={m} value={m} className="bg-background text-foreground">
                 {m}
               </option>
             ))}
@@ -461,7 +461,7 @@ export default function ApiStatusCheckerTool() {
                 }
               }}
               placeholder="https://api.example.com/endpoint"
-              className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-r-xl sm:rounded-r-none text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
+              className="w-full pl-11 pr-4 py-3 bg-foreground/5 border border-foreground/10 rounded-r-xl sm:rounded-r-none text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-base"
               disabled={loading}
             />
           </div>
@@ -469,7 +469,7 @@ export default function ApiStatusCheckerTool() {
         <Button
           type="submit"
           disabled={loading || !url.trim()}
-          className="rounded-xl px-6 py-3 h-auto bg-white text-black hover:bg-white/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
+          className="rounded-xl px-6 py-3 h-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
         >
           {loading ? (
             <Loader2 className="w-4 h-4 animate-spin" />
@@ -500,7 +500,7 @@ export default function ApiStatusCheckerTool() {
 
       {/* Loading Progress */}
       {loading && (
-        <div className="mt-6 p-4 bg-white/[0.02] border border-white/10 rounded-xl">
+        <div className="mt-6 p-4 bg-foreground/[0.02] border border-foreground/10 rounded-xl">
           <div className="space-y-2">
             {LOADING_STEPS.map((step, i) => (
               <div
@@ -508,9 +508,9 @@ export default function ApiStatusCheckerTool() {
                 className={cn(
                   "flex items-center gap-2.5 text-sm transition-all duration-300",
                   i < loadingStep
-                    ? "text-emerald-400"
+                    ? "text-success"
                     : i === loadingStep
-                      ? "text-white"
+                      ? "text-foreground"
                       : "text-muted-foreground/40"
                 )}
               >
@@ -530,11 +530,11 @@ export default function ApiStatusCheckerTool() {
 
       {/* Error */}
       {error && (
-        <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-start gap-3">
-          <ShieldAlert className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+        <div className="mt-6 p-4 bg-destructive/10 border border-destructive/20 rounded-xl flex items-start gap-3">
+          <ShieldAlert className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
           <div>
-            <div className="font-medium text-red-400">Check Failed</div>
-            <div className="text-sm text-red-400/80 mt-1">{error}</div>
+            <div className="font-medium text-destructive">Check Failed</div>
+            <div className="text-sm text-destructive/80 mt-1">{error}</div>
           </div>
         </div>
       )}
@@ -553,9 +553,9 @@ export default function ApiStatusCheckerTool() {
                   "p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center gap-4",
                   isGood
                     ? result.status === "redirect"
-                      ? "bg-blue-500/10 border-blue-500/20"
-                      : "bg-emerald-500/10 border-emerald-500/20"
-                    : "bg-red-500/10 border-red-500/20"
+                      ? "bg-primary/10 border-primary/20"
+                      : "bg-success/10 border-success/20"
+                    : "bg-destructive/10 border-destructive/20"
                 )}
               >
                 {/* Status badge */}
@@ -563,17 +563,17 @@ export default function ApiStatusCheckerTool() {
                   className={cn(
                     "w-14 h-14 rounded-xl flex items-center justify-center text-lg font-bold shrink-0 border",
                     result.status === "up"
-                      ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
+                      ? "bg-success/20 border-success/30 text-success"
                       : result.status === "redirect"
-                        ? "bg-blue-500/20 border-blue-500/30 text-blue-400"
-                        : "bg-red-500/20 border-red-500/30 text-red-400"
+                        ? "bg-primary/20 border-primary/30 text-primary"
+                        : "bg-destructive/20 border-destructive/30 text-destructive"
                   )}
                 >
                   {result.statusCode || "ERR"}
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className={cn("font-mono text-xs px-1.5 py-0.5 rounded border", METHOD_COLORS[result.method] || "text-white bg-white/10 border-white/20")}>
+                    <span className={cn("font-mono text-xs px-1.5 py-0.5 rounded border", METHOD_COLORS[result.method] || "text-foreground bg-foreground/10 border-foreground/20")}>
                       {result.method}
                     </span>
                     <StatusIcon
@@ -581,9 +581,9 @@ export default function ApiStatusCheckerTool() {
                         "w-5 h-5 shrink-0",
                         isGood
                           ? result.status === "redirect"
-                            ? "text-blue-400"
-                            : "text-emerald-400"
-                          : "text-red-400"
+                            ? "text-primary"
+                            : "text-success"
+                          : "text-destructive"
                       )}
                     />
                     <span
@@ -591,9 +591,9 @@ export default function ApiStatusCheckerTool() {
                         "font-semibold",
                         isGood
                           ? result.status === "redirect"
-                            ? "text-blue-400"
-                            : "text-emerald-400"
-                          : "text-red-400"
+                            ? "text-primary"
+                            : "text-success"
+                          : "text-destructive"
                       )}
                     >
                       {config.label}
@@ -615,17 +615,17 @@ export default function ApiStatusCheckerTool() {
                       label={`Security: ${result.securityGrade}`}
                     />
                     {result.cors && (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-blue-500/10 border-blue-500/20 text-blue-400">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-primary/10 border-primary/20 text-primary">
                         CORS
                       </span>
                     )}
                     {result.redirectChain.length > 0 && (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-yellow-500/10 border-yellow-500/20 text-yellow-400">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-warning/10 border-warning/20 text-warning">
                         {result.redirectChain.length} redirect{result.redirectChain.length > 1 ? "s" : ""}
                       </span>
                     )}
                     {result.tlsInfo?.protocol && (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-purple-500/10 border-purple-500/20 text-purple-400">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border bg-secondary/10 border-secondary/20 text-secondary">
                         {result.tlsInfo.protocol}
                       </span>
                     )}
@@ -643,12 +643,12 @@ export default function ApiStatusCheckerTool() {
                 className={cn(
                   "text-xs font-bold px-2 py-0.5 rounded border",
                   result.securityGrade.startsWith("A")
-                    ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
+                    ? "bg-success/20 border-success/30 text-success"
                     : result.securityGrade === "B"
-                      ? "bg-blue-500/20 border-blue-500/30 text-blue-400"
+                      ? "bg-primary/20 border-primary/30 text-primary"
                       : result.securityGrade === "C"
-                        ? "bg-yellow-500/20 border-yellow-500/30 text-yellow-400"
-                        : "bg-red-500/20 border-red-500/30 text-red-400"
+                        ? "bg-warning/20 border-warning/30 text-warning"
+                        : "bg-destructive/20 border-destructive/30 text-destructive"
                 )}
               >
                 {result.securityGrade}
@@ -664,8 +664,8 @@ export default function ApiStatusCheckerTool() {
                   <span className={cn(
                     "mt-0.5",
                     reason.startsWith("Missing") || reason.startsWith("Not using")
-                      ? "text-red-400"
-                      : "text-emerald-400"
+                      ? "text-destructive"
+                      : "text-success"
                   )}>
                     {reason.startsWith("Missing") || reason.startsWith("Not using")
                       ? "!"
@@ -684,13 +684,13 @@ export default function ApiStatusCheckerTool() {
               <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                 <button
                   onClick={copyShareLink}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy share link"
                 >
                   {copiedLink ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -701,13 +701,13 @@ export default function ApiStatusCheckerTool() {
                 </button>
                 <button
                   onClick={copyResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Copy results"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-success" />
+                      <span className="text-success">Copied</span>
                     </>
                   ) : (
                     <>
@@ -718,7 +718,7 @@ export default function ApiStatusCheckerTool() {
                 </button>
                 <button
                   onClick={downloadResults}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   aria-label="Download report"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -727,17 +727,17 @@ export default function ApiStatusCheckerTool() {
               </div>
             }
           >
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-foreground/5">
               <ResultRow
                 icon={Zap}
                 label="Response Time"
                 value={`${result.responseTimeMs}ms`}
                 className={cn(
                   result.responseTimeMs <= 200
-                    ? "text-emerald-400"
+                    ? "text-success"
                     : result.responseTimeMs <= 1000
-                      ? "text-yellow-400"
-                      : "text-red-400"
+                      ? "text-warning"
+                      : "text-destructive"
                 )}
               />
               <ResultRow
@@ -746,17 +746,17 @@ export default function ApiStatusCheckerTool() {
                 value={`${result.statusCode} ${result.statusText}`}
                 className={cn(
                   result.statusCode >= 200 && result.statusCode < 300
-                    ? "text-emerald-400"
+                    ? "text-success"
                     : result.statusCode >= 300 && result.statusCode < 400
-                      ? "text-blue-400"
-                      : "text-red-400"
+                      ? "text-primary"
+                      : "text-destructive"
                 )}
               />
               <ResultRow
                 icon={Lock}
                 label="HTTPS"
                 value={result.isHttps ? "Yes" : "No"}
-                className={result.isHttps ? "text-emerald-400" : "text-red-400"}
+                className={result.isHttps ? "text-success" : "text-destructive"}
               />
               {result.tlsInfo?.protocol && (
                 <ResultRow
@@ -765,10 +765,10 @@ export default function ApiStatusCheckerTool() {
                   value={result.tlsInfo.protocol}
                   className={
                     result.tlsInfo.protocol === "TLSv1.3"
-                      ? "text-emerald-400"
+                      ? "text-success"
                       : result.tlsInfo.protocol === "TLSv1.2"
-                        ? "text-blue-400"
-                        : "text-red-400"
+                        ? "text-primary"
+                        : "text-destructive"
                   }
                 />
               )}
@@ -838,14 +838,14 @@ export default function ApiStatusCheckerTool() {
               defaultOpen={false}
               badge={
                 result.responseBodyTruncated ? (
-                  <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+                  <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-warning/20 text-warning border border-warning/30">
                     Truncated
                   </span>
                 ) : undefined
               }
             >
               <div className="relative">
-                <pre className="text-xs font-mono text-white/80 bg-black/40 border border-white/5 rounded-lg p-4 overflow-x-auto max-h-80 overflow-y-auto whitespace-pre-wrap break-all">
+                <pre className="text-xs font-mono text-foreground/80 bg-background/40 border border-foreground/5 rounded-lg p-4 overflow-x-auto max-h-80 overflow-y-auto whitespace-pre-wrap break-all">
                   {result.contentType?.includes("json")
                     ? formatJson(result.responseBody)
                     : result.responseBody}
@@ -863,7 +863,7 @@ export default function ApiStatusCheckerTool() {
           {/* CORS */}
           {result.cors && (
             <SectionCard title="CORS Headers">
-              <div className="divide-y divide-white/5">
+              <div className="divide-y divide-foreground/5">
                 {result.cors.allowOrigin && (
                   <ResultRow
                     icon={Globe}
@@ -871,8 +871,8 @@ export default function ApiStatusCheckerTool() {
                     value={result.cors.allowOrigin}
                     className={
                       result.cors.allowOrigin === "*"
-                        ? "text-yellow-400"
-                        : "text-emerald-400"
+                        ? "text-warning"
+                        : "text-success"
                     }
                   />
                 )}
@@ -899,7 +899,7 @@ export default function ApiStatusCheckerTool() {
                     value={result.cors.allowCredentials}
                     className={
                       result.cors.allowCredentials === "true"
-                        ? "text-yellow-400"
+                        ? "text-warning"
                         : "text-muted-foreground"
                     }
                   />
@@ -927,7 +927,7 @@ export default function ApiStatusCheckerTool() {
           {/* Caching */}
           {result.caching && (
             <SectionCard title="Caching Headers">
-              <div className="divide-y divide-white/5">
+              <div className="divide-y divide-foreground/5">
                 {result.caching.cacheControl && (
                   <ResultRow
                     icon={Archive}
@@ -987,7 +987,7 @@ export default function ApiStatusCheckerTool() {
                 {result.redirectChain.map((hop, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm">
                     <span
-                      className="font-mono text-xs px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-400"
+                      className="font-mono text-xs px-1.5 py-0.5 rounded bg-primary/20 text-primary"
                     >
                       {hop.statusCode}
                     </span>
@@ -1002,13 +1002,13 @@ export default function ApiStatusCheckerTool() {
                     className={cn(
                       "font-mono text-xs px-1.5 py-0.5 rounded",
                       result.statusCode >= 200 && result.statusCode < 300
-                        ? "bg-emerald-500/20 text-emerald-400"
-                        : "bg-red-500/20 text-red-400"
+                        ? "bg-success/20 text-success"
+                        : "bg-destructive/20 text-destructive"
                     )}
                   >
                     {result.statusCode}
                   </span>
-                  <span className="text-white break-all font-medium">
+                  <span className="text-foreground break-all font-medium">
                     {result.finalUrl}
                   </span>
                 </div>
@@ -1024,7 +1024,7 @@ export default function ApiStatusCheckerTool() {
             >
               <div className="space-y-0">
                 {Object.entries(result.allHeaders).map(([key, value]) => (
-                  <div key={key} className="flex items-start gap-2 py-1.5 border-b border-white/5 last:border-0">
+                  <div key={key} className="flex items-start gap-2 py-1.5 border-b border-foreground/5 last:border-0">
                     <span className="text-xs font-mono font-semibold text-primary shrink-0">
                       {key}:
                     </span>
