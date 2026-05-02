@@ -24,13 +24,38 @@ const spaceMono = Space_Mono({
   fallback: ['monospace']
 });
 
+const siteTitle = "Exit1.dev - Free Uptime Monitor & Free Website Monitor";
+const siteDescription = "The best free uptime and website monitoring stack with API observability and instant alerts. 10 monitors free with 5-minute checks, unlimited with Nano. No credit card required.";
+
 export const metadata: Metadata = {
-  title: "Exit1.dev - Free Uptime Monitor & Free Website Monitor",
-  description: "The best free uptime and website monitoring stack with API observability and instant alerts. 10 monitors free with 5-minute checks, unlimited with Nano. No credit card required.",
+  metadataBase: new URL("https://exit1.dev"),
+  title: siteTitle,
+  description: siteDescription,
   icons: {
     icon: '/e_.svg',
     shortcut: '/e_.svg',
-    apple: '/e_.svg',
+    apple: '/e_-logo.png',
+  },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "https://exit1.dev",
+    siteName: "Exit1.dev",
+    images: [
+      {
+        url: "/e_-logo-large.png",
+        width: 500,
+        height: 500,
+        alt: "Exit1.dev logo",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/e_-logo-large.png"],
   },
 };
 

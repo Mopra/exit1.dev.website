@@ -1,7 +1,35 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
+
+type CarouselItem = { src: string; alt: string } | { label: string };
+
+const carouselItems: CarouselItem[] = [
+  { src: "/integrations/datadog.svg", alt: "Datadog" },
+  { label: "Acme Co" },
+  { src: "/integrations/github.svg", alt: "GitHub" },
+  { src: "/integrations/gitlab.svg", alt: "GitLab" },
+  { label: "Contoso" },
+  { src: "/integrations/jira.svg", alt: "Jira" },
+  { src: "/integrations/linear.svg", alt: "Linear" },
+  { label: "Fabrikam" },
+  { src: "/integrations/notion.svg", alt: "Notion" },
+  { src: "/integrations/opsgenie.svg", alt: "Opsgenie" },
+  { label: "Northwind" },
+  { src: "/integrations/pagerduty.svg", alt: "PagerDuty" },
+  { src: "/integrations/splunk.svg", alt: "Splunk" },
+  { label: "Lumen" },
+  { src: "/integrations/teams.svg", alt: "Microsoft Teams" },
+  { src: "/integrations/telegram.svg", alt: "Telegram" },
+  { label: "Vertex" },
+  { src: "/integrations/zapier.svg", alt: "Zapier" },
+  { src: "/slack.svg", alt: "Slack" },
+  { label: "Apex" },
+  { src: "/discord.svg", alt: "Discord" },
+  { label: "Helio" },
+];
 
 export default function NewHomePage() {
   return (
@@ -32,7 +60,7 @@ export default function NewHomePage() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <Button
                 asChild
                 size="lg"
@@ -54,7 +82,49 @@ export default function NewHomePage() {
                 </Link>
               </Button>
             </div>
+
+            <Image
+              src="/exit1-mockup.webp"
+              alt="Exit1 dashboard preview"
+              width={2400}
+              height={1500}
+              priority
+              className="w-full h-auto rounded-xl [mask-image:linear-gradient(to_bottom,black_15%,transparent_85%)] [-webkit-mask-image:linear-gradient(to_bottom,black_15%,transparent_85%)]"
+            />
           </SectionContent>
+
+          <div className="overflow-hidden w-full">
+            <div className="flex w-max animate-marquee">
+              {[...carouselItems, ...carouselItems].map((item, i) => (
+                <div
+                  key={`${"src" in item ? item.alt : item.label}-${i}`}
+                  className="flex items-center justify-center shrink-0 w-32 sm:w-40 h-12"
+                >
+                  {"src" in item ? (
+                    <div
+                      role="img"
+                      aria-label={item.alt}
+                      className="h-7 sm:h-8 w-24 sm:w-28 bg-foreground opacity-70 hover:opacity-100 transition-opacity"
+                      style={{
+                        maskImage: `url(${item.src})`,
+                        WebkitMaskImage: `url(${item.src})`,
+                        maskRepeat: "no-repeat",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        WebkitMaskPosition: "center",
+                        maskSize: "contain",
+                        WebkitMaskSize: "contain",
+                      }}
+                    />
+                  ) : (
+                    <span className="text-base sm:text-lg font-bold uppercase tracking-wider opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {item.label}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </PageSection>
       </PageContainer>
     </PageShell>

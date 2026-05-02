@@ -271,6 +271,16 @@
     50% { opacity: 1; transform: translateX(100%); }
   }
 
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 60s linear infinite;
+    will-change: transform;
+  }
+
   @keyframes specDriftY {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }

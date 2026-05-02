@@ -44,7 +44,15 @@
       "WebFetch(domain:www.infoq.com)",
       "WebFetch(domain:solomonneas.dev)",
       "WebFetch(domain:mrshu.github.io)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(git stash *)",
+      "Bash(echo \"exit: $?\")",
+      "WebFetch(domain:reactbits.dev)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh api *)",
+      "Bash(grep -oiE '\\(fill|stroke\\)=\"[^\"]+\"|#[0-9a-f]{3,6}|currentColor' c:/Users/morte/Documents/Github/exit1/exit1.dev.website/public/slack.svg)",
+      "Bash(grep -oiE '\\(fill|stroke\\)=\"[^\"]+\"|#[0-9a-f]{3,6}|currentColor' c:/Users/morte/Documents/Github/exit1/exit1.dev.website/public/discord.svg)",
+      "Bash(identify \"C:\\\\Users\\\\morte\\\\Documents\\\\Github\\\\exit1\\\\exit1.dev.website\\\\public\\\\e_ Logo.png\" \"C:\\\\Users\\\\morte\\\\Documents\\\\Github\\\\exit1\\\\exit1.dev.website\\\\public\\\\e_ Logo Large.png\")"
     ]
   }
 }
