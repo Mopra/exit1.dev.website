@@ -1,6 +1,6 @@
 # Design System — exit1.dev (marketing site)
 
-Single source of truth for tokens lives in [`src/app/globals.css`](../src/app/globals.css). Don't hardcode colors, fonts, or radii anywhere else — re-theme by editing the `:root` block.
+Single source of truth for tokens lives in [`src/app/globals.css`](src/app/globals.css). Don't hardcode colors, fonts, or radii anywhere else — re-theme by editing the `:root` block.
 
 ---
 
@@ -85,7 +85,7 @@ Per-token syntax colors come from Shiki (VS Code Dark+) via `rehype-pretty-code`
 
 ## Typography
 
-Loaded as Next.js fonts in [`src/app/layout.tsx`](../src/app/layout.tsx).
+Loaded as Next.js fonts in [`src/app/layout.tsx`](src/app/layout.tsx).
 
 | Family | Variable | Use |
 |---|---|---|
@@ -122,7 +122,7 @@ CTAs and pills use `rounded-full`. Cards/inputs use the radius scale.
 
 ## Layout primitives
 
-Defined in [`src/components/PageLayout.tsx`](../src/components/PageLayout.tsx). Compose pages from these — don't reinvent containers.
+Defined in [`src/components/PageLayout.tsx`](src/components/PageLayout.tsx). Compose pages from these — don't reinvent containers.
 
 ```tsx
 <PageShell>          {/* min-h-screen, page bg, mounts <FinalCta/> at bottom */}
@@ -146,7 +146,7 @@ Defined in [`src/components/PageLayout.tsx`](../src/components/PageLayout.tsx). 
 ## Components & patterns
 
 ### Buttons
-shadcn `Button` from [`src/components/ui/button.tsx`](../src/components/ui/button.tsx). Variants: `default | destructive | outline | secondary | ghost | link`. Sizes: `sm | default | lg | icon`.
+shadcn `Button` from [`src/components/ui/button.tsx`](src/components/ui/button.tsx). Variants: `default | destructive | outline | secondary | ghost | link`. Sizes: `sm | default | lg | icon`.
 
 **Hero / final CTA** (overrides default radius and size for emphasis):
 ```tsx
@@ -223,7 +223,7 @@ GSAP and Framer Motion are available for richer interactions but ambient motion 
 ## Accessibility
 
 - `*:focus-visible` → `outline-2 outline-offset-2 outline-ring` (ring = primary).
-- Skip link mounted in [`src/app/layout.tsx`](../src/app/layout.tsx); styled via `.skip-link` in `globals.css`.
+- Skip link mounted in [`src/app/layout.tsx`](src/app/layout.tsx); styled via `.skip-link` in `globals.css`.
 - All interactive elements should pair `cursor-pointer` with `transition-all duration-200` (`.interactive` utility available).
 - Status colors must never carry meaning alone — pair with icons (Lucide) or text.
 
