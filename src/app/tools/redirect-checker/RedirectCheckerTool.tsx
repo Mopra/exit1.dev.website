@@ -52,6 +52,13 @@ const LOADING_STEPS = [
   "Building report...",
 ];
 
+const QUICK_TRY_URLS = [
+  "http://github.com",
+  "http://stripe.com",
+  "http://google.com",
+  "http://vercel.com",
+];
+
 function statusCodeBg(code: number): string {
   if (code >= 200 && code < 300) return "bg-success/10 border-success/20 text-success";
   if (code >= 300 && code < 400) return "bg-primary/10 border-primary/20 text-primary";
@@ -316,6 +323,26 @@ export default function RedirectCheckerTool() {
           )}
         </Button>
       </form>
+
+      {/* Quick-try chips */}
+      {!result && !loading && (
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <span className="text-xs text-muted-foreground">Try:</span>
+          {QUICK_TRY_URLS.map((u) => (
+            <button
+              key={u}
+              type="button"
+              onClick={() => {
+                setUrl(u);
+                runCheck(u);
+              }}
+              className="text-xs font-mono px-2.5 py-1 rounded-full border border-foreground/10 bg-foreground/5 text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer"
+            >
+              {u}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Loading Progress */}
       {loading && (

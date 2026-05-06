@@ -46,6 +46,94 @@ export const metadata: Metadata = {
   },
 };
 
+const LAST_UPDATED_ISO = "2026-05-04";
+const LAST_UPDATED_DISPLAY = "May 4, 2026";
+
+const howToSteps = [
+  {
+    name: "Enter a host",
+    text: "Type any hostname, domain, or IP — example.com, 1.1.1.1, or my-server.internal. Pick how many pings to send (1–10).",
+  },
+  {
+    name: "Run the test",
+    text: "Our server resolves the hostname and opens TCP connections one at a time, recording the round-trip time for each attempt.",
+  },
+  {
+    name: "Read the report",
+    text: "See min/avg/max latency, jitter, packet loss, and a per-ping breakdown. Spot regional latency, instability, and outages at a glance.",
+  },
+];
+
+const pingResults = [
+  {
+    code: "Latency under 50 ms",
+    title: "Excellent — same-region performance",
+    body: "Typical of a server in the same city or country. Real-time apps (gaming, voice, live trading) feel instant. If a critical user-facing endpoint is over 50 ms, consider edge deployment or a closer region.",
+  },
+  {
+    code: "Latency 50–150 ms",
+    title: "Good — typical cross-region",
+    body: "Normal for cross-country or transatlantic traffic. Web browsing and most apps feel responsive. Above ~120 ms, voice and video start to feel slightly sluggish.",
+  },
+  {
+    code: "Latency 150–300 ms",
+    title: "Acceptable — long-haul connection",
+    body: "Cross-continental traffic (Europe ↔ Asia, US ↔ Australia). Web works fine; real-time interactivity is noticeably degraded. CDN edges and regional replicas help close the gap.",
+  },
+  {
+    code: "Latency over 300 ms",
+    title: "Poor — investigate the path",
+    body: "Either a genuinely long path (satellite link, far region) or a routing problem. Check whether the result is consistent. If it spikes only sometimes, the path has congestion or an unstable hop.",
+  },
+  {
+    code: "Jitter over 20 ms",
+    title: "Unstable connection",
+    body: "Even when average latency is fine, high jitter wrecks voice, video, and any app expecting steady packet delivery. Common causes: WiFi interference, congested ISP link, or buffer-bloated router on the path.",
+  },
+  {
+    code: "Packet loss above 1%",
+    title: "Network is dropping packets",
+    body: "Anything above 1% degrades real-time apps and slows TCP throughput (TCP retransmits + reduces congestion window). 5%+ is broken. Investigate which hop is dropping with a traceroute.",
+  },
+  {
+    code: "100% packet loss",
+    title: "Host is unreachable",
+    body: "Either the host is down, a firewall is blocking the chosen port, or there is no route to it. TCP ping (this tool) checks ports 80/443 — many servers respond on those even when ICMP is filtered.",
+  },
+  {
+    code: "TCP timeout",
+    title: "Connection never completed",
+    body: "The TCP three-way handshake did not finish in time. Often a stateful firewall silently dropping SYN, the server overwhelmed, or routing returning to a black hole. Try ICMP ping or a different port.",
+  },
+];
+
+const glossary = [
+  {
+    term: "Latency (RTT)",
+    body: "Round-trip time — the time for a packet to travel from your machine to the server and back. Bound by physics: light through fibre is roughly 2/3 the speed of light in vacuum, so any path adds a real, unavoidable floor.",
+  },
+  {
+    term: "Jitter",
+    body: "Variation in latency between consecutive packets. Calculated as the average absolute difference between successive RTTs. Low jitter (< 5 ms) means a steady connection; high jitter (> 20 ms) means VoIP and video will struggle even when average latency looks OK.",
+  },
+  {
+    term: "Packet loss",
+    body: "Percentage of packets that never received a response. A small amount (< 1%) is tolerable; anything more degrades streaming, calls, and TCP throughput. Always measured over a sample — a single missing packet on a 5-ping test is 20% loss but probably noise.",
+  },
+  {
+    term: "TCP ping vs ICMP ping",
+    body: "ICMP ping (the classic ping command) uses ICMP Echo. TCP ping opens a TCP connection on a real port (usually 80 or 443) and times the handshake. TCP is more useful for web work because many firewalls block ICMP but allow TCP, and it tests the same path your traffic actually uses.",
+  },
+  {
+    term: "Hop",
+    body: "Each router along the path between you and the destination. Latency accumulates per hop. A traceroute shows them all; a ping just shows the round-trip total. Most internet paths cross 10–20 hops.",
+  },
+  {
+    term: "MTU",
+    body: "Maximum Transmission Unit — the largest packet a link will carry. Default for Ethernet is 1500 bytes. PMTU mismatches cause fragmentation or black-hole drops, which look like inexplicable timeouts on otherwise healthy paths.",
+  },
+];
+
 const faq = [
   {
     question: "What does this ping test do?",
@@ -94,11 +182,47 @@ export default function PingTestPage() {
           description:
             "Free online ping test tool to instantly check latency, packet loss, jitter, and response time to any server or website.",
           url: "https://exit1.dev/tools/ping-test",
+          dateModified: LAST_UPDATED_ISO,
           publisher: {
             "@type": "Organization",
             name: "exit1.dev",
             url: "https://exit1.dev",
           },
+        }}
+      />
+      <StructuredData
+        type="SoftwareApplication"
+        data={{
+          name: "Free Ping Test Tool",
+          applicationCategory: "DeveloperApplication",
+          operatingSystem: "Web",
+          url: "https://exit1.dev/tools/ping-test",
+          description:
+            "Free online ping test. Measures latency, jitter, and packet loss to any server using TCP connections — works even when ICMP is blocked.",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "exit1.dev",
+            url: "https://exit1.dev",
+          },
+        }}
+      />
+      <StructuredData
+        type="HowTo"
+        data={{
+          name: "How to ping a server from your browser",
+          description:
+            "Use the exit1.dev ping test to measure latency, jitter, and packet loss to any host without installing tools.",
+          step: howToSteps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.name,
+            text: s.text,
+          })),
         }}
       />
       <StructuredData
@@ -266,6 +390,57 @@ export default function PingTestPage() {
             </SectionContent>
           </PageSection>
 
+          {/* Network Glossary */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                Network Glossary
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                The terms behind every ping result — explained without the textbook detour.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                {glossary.map((item) => (
+                  <div
+                    key={item.term}
+                    id={`glossary-${item.term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <h3 className="font-semibold mb-1.5">{item.term}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* What Ping Results Mean */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                What Your Ping Results Actually Mean
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                The latency, jitter, and loss numbers you will see — and what action they should trigger.
+              </p>
+              <div className="space-y-4 max-w-3xl mx-auto">
+                {pingResults.map((r) => (
+                  <div
+                    key={r.code}
+                    id={`result-${r.code.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <code className="inline-block text-xs font-mono px-2 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary mb-3">
+                      {r.code}
+                    </code>
+                    <h3 className="font-semibold mb-2">{r.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{r.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
           {/* FAQ Section */}
           <PageSection>
             <SectionContent size="md" className="py-16 sm:py-20">
@@ -320,6 +495,21 @@ export default function PingTestPage() {
                   <p className="text-sm text-muted-foreground">When to use ping checks vs HTTP checks, and why you need both for full-stack visibility.</p>
                 </Link>
               </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Trust & freshness */}
+          <PageSection>
+            <SectionContent size="md" className="py-6">
+              <p className="text-center text-xs text-muted-foreground">
+                Last updated{" "}
+                <time dateTime={LAST_UPDATED_ISO}>{LAST_UPDATED_DISPLAY}</time>{" "}
+                · Built and maintained by{" "}
+                <Link href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
+                  exit1.dev
+                </Link>
+                {" "}— uptime, SSL, and domain monitoring with instant alerts.
+              </p>
             </SectionContent>
           </PageSection>
 

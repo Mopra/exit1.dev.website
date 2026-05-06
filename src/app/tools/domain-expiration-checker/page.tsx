@@ -43,6 +43,98 @@ export const metadata: Metadata = {
   },
 };
 
+const LAST_UPDATED_ISO = "2026-05-04";
+const LAST_UPDATED_DISPLAY = "May 4, 2026";
+
+const howToSteps = [
+  {
+    name: "Enter a domain",
+    text: "Type any domain or full URL. The tool extracts the registrable name (apex) for you — example.com from https://www.example.com/path.",
+  },
+  {
+    name: "Run the lookup",
+    text: "Our server queries RDAP first (the modern protocol) and falls back to WHOIS for registries that have not migrated yet.",
+  },
+  {
+    name: "Inspect the registration",
+    text: "See expiry, days remaining, registrar, nameservers, creation date, and EPP status codes. Copy, share, or download the report.",
+  },
+];
+
+const domainStatuses = [
+  {
+    code: "ok / active",
+    title: "Domain is registered and unrestricted",
+    body: "The default healthy state. The domain is registered, in good standing, and has no active locks. Allow it does not mean any action is permitted — combined with other status codes, more specific restrictions still apply.",
+  },
+  {
+    code: "clientTransferProhibited",
+    title: "Transfer lock — the recommended default",
+    body: "Set by your registrar to prevent unauthorised transfers. You should always have this lock enabled on important domains — disable it only briefly when actually transferring. Without it, a leaked auth code is enough to steal the domain.",
+  },
+  {
+    code: "clientDeleteProhibited",
+    title: "Deletion lock",
+    body: "Prevents accidental or malicious deletion at the registrar level. Recommended for any domain you actually care about.",
+  },
+  {
+    code: "clientUpdateProhibited",
+    title: "Update lock",
+    body: "Prevents changes to nameservers or registrant data. Useful when you suspect compromise or want to freeze the configuration.",
+  },
+  {
+    code: "pendingDelete",
+    title: "Domain is about to be deleted",
+    body: "End of the line. The domain has passed the redemption period and is queued for deletion (typically a 5-day window). After deletion it becomes available for anyone to register.",
+  },
+  {
+    code: "redemptionPeriod",
+    title: "Expired — last chance to renew",
+    body: "The domain expired and is now in the 30-day redemption period. The original owner can still recover it, but the registrar will charge a redemption fee on top of the renewal cost (often $80–$200).",
+  },
+  {
+    code: "autoRenewPeriod",
+    title: "In auto-renew grace window",
+    body: "The registrar auto-renewed the domain and is in the grace period before billing finalises. Cancellable in this window. Most registrars use ~45 days.",
+  },
+  {
+    code: "serverHold",
+    title: "Removed from the DNS by the registry",
+    body: "The registry has put the domain on hold — usually due to non-payment, a UDRP/legal action, or abuse. The domain still exists but does not resolve.",
+  },
+];
+
+const glossary = [
+  {
+    term: "RDAP vs WHOIS",
+    body: "RDAP is the modern replacement for WHOIS — structured JSON over HTTPS, with proper internationalisation. WHOIS is the legacy text-based protocol over port 43. RDAP is the future; WHOIS still has the longest tail of registry support.",
+  },
+  {
+    term: "Registrar vs registry",
+    body: "The registry runs the TLD (Verisign for .com, Public Interest Registry for .org). The registrar is the company you bought the domain from (Namecheap, Cloudflare, GoDaddy). Registrars sell — registries store the authoritative record.",
+  },
+  {
+    term: "EPP status codes",
+    body: "Standardised codes that describe the current state of a domain — clientTransferProhibited, pendingDelete, redemptionPeriod, etc. Codes prefixed with 'client' are set by your registrar; 'server' codes are set by the registry.",
+  },
+  {
+    term: "Grace period",
+    body: "After the expiry date, most registrars give a 30–45 day grace period where you can renew at the normal price. Your domain still works during this window in many TLDs.",
+  },
+  {
+    term: "Redemption period",
+    body: "After the grace period, the domain enters a ~30-day redemption phase. You can still recover it but pay a steep redemption fee. The domain stops resolving during redemption.",
+  },
+  {
+    term: "Pending delete",
+    body: "Final ~5-day window before the domain drops to the public pool. After this, anyone (including drop-catchers and squatters) can register it. If your domain hits pendingDelete, recovery is no longer guaranteed.",
+  },
+  {
+    term: "ccTLD vs gTLD",
+    body: "ccTLDs are country-code TLDs (.de, .fr, .uk) — each runs under that country's policies. gTLDs are generic TLDs (.com, .org, .dev) governed by ICANN. ccTLDs often have stricter privacy rules and may not expose all registration data publicly.",
+  },
+];
+
 const faq = [
   {
     question: "What does this domain expiration checker do?",
@@ -96,11 +188,47 @@ export default function DomainExpirationCheckerPage() {
           description:
             "Free domain expiration checker tool to instantly verify any domain's expiry date, registrar, nameservers, and registration details.",
           url: "https://exit1.dev/tools/domain-expiration-checker",
+          dateModified: LAST_UPDATED_ISO,
           publisher: {
             "@type": "Organization",
             name: "exit1.dev",
             url: "https://exit1.dev",
           },
+        }}
+      />
+      <StructuredData
+        type="SoftwareApplication"
+        data={{
+          name: "Free Domain Expiration Checker",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          url: "https://exit1.dev/tools/domain-expiration-checker",
+          description:
+            "Free online domain expiration checker. Queries RDAP and WHOIS for any domain to retrieve expiry, registrar, nameservers, EPP status codes, and registration history.",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "exit1.dev",
+            url: "https://exit1.dev",
+          },
+        }}
+      />
+      <StructuredData
+        type="HowTo"
+        data={{
+          name: "How to check when a domain expires",
+          description:
+            "Use the exit1.dev domain expiration checker to look up any domain's expiry, registrar, and registration status in seconds.",
+          step: howToSteps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.name,
+            text: s.text,
+          })),
         }}
       />
       <StructuredData
@@ -256,6 +384,57 @@ export default function DomainExpirationCheckerPage() {
             </SectionContent>
           </PageSection>
 
+          {/* Domain Glossary */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                Domain Registration Glossary
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                The terms that appear on every domain lookup — explained without the registrar marketing fluff.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                {glossary.map((item) => (
+                  <div
+                    key={item.term}
+                    id={`glossary-${item.term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <h3 className="font-semibold mb-1.5">{item.term}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* EPP Status Codes */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                EPP Status Codes &amp; Domain Lifecycle
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                The codes you will see in the lookup result — what they mean and which ones to actually worry about.
+              </p>
+              <div className="space-y-4 max-w-3xl mx-auto">
+                {domainStatuses.map((s) => (
+                  <div
+                    key={s.code}
+                    id={`status-${s.code.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <code className="inline-block text-xs font-mono px-2 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary mb-3">
+                      {s.code}
+                    </code>
+                    <h3 className="font-semibold mb-2">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{s.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
           {/* FAQ Section */}
           <PageSection>
             <SectionContent size="md" className="py-16 sm:py-20">
@@ -310,6 +489,21 @@ export default function DomainExpirationCheckerPage() {
                   <p className="text-sm text-muted-foreground">The definitive guide to domain monitoring, alerts, and renewal automation.</p>
                 </Link>
               </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Trust & freshness */}
+          <PageSection>
+            <SectionContent size="md" className="py-6">
+              <p className="text-center text-xs text-muted-foreground">
+                Last updated{" "}
+                <time dateTime={LAST_UPDATED_ISO}>{LAST_UPDATED_DISPLAY}</time>{" "}
+                · Built and maintained by{" "}
+                <Link href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
+                  exit1.dev
+                </Link>
+                {" "}— uptime, SSL, and domain monitoring with instant alerts.
+              </p>
             </SectionContent>
           </PageSection>
 

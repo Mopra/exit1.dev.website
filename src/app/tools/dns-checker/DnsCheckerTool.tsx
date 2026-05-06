@@ -60,7 +60,7 @@ interface DnsCheckResult {
 
 // ── Constants ────────────────────────────────────────────────────────
 
-const EXAMPLE_DOMAINS = ["google.com", "github.com", "cloudflare.com"];
+const EXAMPLE_DOMAINS = ["google.com", "github.com", "cloudflare.com", "microsoft.com"];
 
 const LOADING_STEPS = [
   "Resolving hostname...",
@@ -532,13 +532,14 @@ export default function DnsCheckerTool() {
 
       {/* Example Domains */}
       {!result && !error && !loading && (
-        <div className="mt-3 flex items-center gap-2 flex-wrap">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           <span className="text-xs text-muted-foreground">Try:</span>
           {EXAMPLE_DOMAINS.map((d) => (
             <button
               key={d}
+              type="button"
               onClick={() => handleExampleClick(d)}
-              className="text-xs text-primary/70 hover:text-primary transition-colors cursor-pointer hover:underline"
+              className="text-xs font-mono px-2.5 py-1 rounded-full border border-foreground/10 bg-foreground/5 text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer"
             >
               {d}
             </button>

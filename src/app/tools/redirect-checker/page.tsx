@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
+import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import RedirectCheckerTool from "./RedirectCheckerTool";
 import {
@@ -43,6 +44,84 @@ export const metadata: Metadata = {
     canonical: "https://exit1.dev/tools/redirect-checker",
   },
 };
+
+const LAST_UPDATED_ISO = "2026-05-04";
+const LAST_UPDATED_DISPLAY = "May 4, 2026";
+
+const howToSteps = [
+  {
+    name: "Enter a URL",
+    text: "Type any URL — http or https, with or without www. The tool starts the trace from exactly the URL you give it.",
+  },
+  {
+    name: "Trace the chain",
+    text: "Our server follows each 3xx response, recording status code, the Location header, and timing for every hop until it reaches a non-redirect response.",
+  },
+  {
+    name: "Inspect the result",
+    text: "See every hop, the final destination, and total time. Spot redundant chains (HTTP→HTTPS→www→/path), redirect loops, and downgrades.",
+  },
+];
+
+const redirectErrors = [
+  {
+    code: "ERR_TOO_MANY_REDIRECTS",
+    title: "Redirect loop detected",
+    body: "The server is redirecting in a circle — usually a misconfigured load balancer, a missing trailing slash rule, or a CDN-level redirect that conflicts with an origin redirect. Trace the chain above to see exactly where the loop closes.",
+  },
+  {
+    code: "301 Moved Permanently",
+    title: "Permanent redirect",
+    body: "The original URL is gone for good. Search engines transfer link equity to the destination. Use this when content has permanently moved or for HTTPS upgrades.",
+  },
+  {
+    code: "302 Found",
+    title: "Temporary redirect (legacy)",
+    body: "The redirect is temporary — search engines keep the original URL indexed. Often misused where 301 was intended, which loses SEO equity. Some clients also change the request method on a 302; use 307 if you need to preserve POST.",
+  },
+  {
+    code: "307 Temporary Redirect",
+    title: "Method-preserving temporary redirect",
+    body: "Like 302 but guarantees the HTTP method is preserved. A POST stays a POST after the redirect. The right choice for temporary moves of API endpoints.",
+  },
+  {
+    code: "308 Permanent Redirect",
+    title: "Method-preserving permanent redirect",
+    body: "The modern equivalent of 301 that preserves the HTTP method. Recommended over 301 for API endpoints that accept POST/PUT/PATCH.",
+  },
+  {
+    code: "Mixed redirect chain",
+    title: "HTTP and HTTPS hops together",
+    body: "If your chain bounces between HTTP and HTTPS along the way, you have a configuration problem. The redirect from HTTP should go directly to the final HTTPS URL — bouncing exposes a window for downgrade attacks and adds latency.",
+  },
+];
+
+const glossary = [
+  {
+    term: "301 vs 302",
+    body: "301 = permanent (search engines transfer link equity, browsers cache aggressively). 302 = temporary (search engines keep the old URL, browsers do not cache). Mixing these up is one of the most common SEO mistakes.",
+  },
+  {
+    term: "307 and 308",
+    body: "Modern method-preserving versions. 307 = temporary like 302 but the request method survives. 308 = permanent like 301 but method-preserving. Use these for API endpoints.",
+  },
+  {
+    term: "Location header",
+    body: "The HTTP response header that tells the client where to go next. Can be absolute (https://...) or relative (/new-path). The browser follows it automatically when paired with a 3xx status code.",
+  },
+  {
+    term: "Redirect loop",
+    body: "A→B→A or any chain that returns to a URL it has already visited. Browsers give up after ~20 hops and show ERR_TOO_MANY_REDIRECTS. Common causes: HTTP→HTTPS rule plus an HTTPS→HTTP rule, or trailing-slash mismatches.",
+  },
+  {
+    term: "Canonical URL",
+    body: "The single URL you want search engines to treat as authoritative. Redirects help enforce this — bare-domain → www, HTTP → HTTPS, /path/ → /path. The canonical URL should always be the final destination, not an intermediate hop.",
+  },
+  {
+    term: "Link equity (PageRank)",
+    body: "The SEO value passed from one page to another via a link or redirect. 301 redirects pass nearly all of it. 302 redirects historically passed less, though Google has narrowed that gap. Each extra hop in a chain still dilutes equity slightly.",
+  },
+];
 
 const faq = [
   {
@@ -97,11 +176,47 @@ export default function RedirectCheckerPage() {
           description:
             "Free redirect checker tool to trace the full HTTP redirect chain for any URL. See every hop, status code, Location header, and response time.",
           url: "https://exit1.dev/tools/redirect-checker",
+          dateModified: LAST_UPDATED_ISO,
           publisher: {
             "@type": "Organization",
             name: "exit1.dev",
             url: "https://exit1.dev",
           },
+        }}
+      />
+      <StructuredData
+        type="SoftwareApplication"
+        data={{
+          name: "Free Redirect Checker",
+          applicationCategory: "DeveloperApplication",
+          operatingSystem: "Web",
+          url: "https://exit1.dev/tools/redirect-checker",
+          description:
+            "Free online redirect tracer. Follows the full HTTP redirect chain hop by hop, reporting status codes, Location headers, and timing for any URL.",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "exit1.dev",
+            url: "https://exit1.dev",
+          },
+        }}
+      />
+      <StructuredData
+        type="HowTo"
+        data={{
+          name: "How to trace an HTTP redirect chain",
+          description:
+            "Use the exit1.dev redirect checker to follow every hop from a starting URL to the final destination, with status codes and timing.",
+          step: howToSteps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.name,
+            text: s.text,
+          })),
         }}
       />
       <StructuredData
@@ -319,6 +434,57 @@ export default function RedirectCheckerPage() {
             </SectionContent>
           </PageSection>
 
+          {/* HTTP Redirect Glossary */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                HTTP Redirect Glossary
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                The terms that show up in any redirect chain — explained without the spec-speak.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                {glossary.map((item) => (
+                  <div
+                    key={item.term}
+                    id={`glossary-${item.term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <h3 className="font-semibold mb-1.5">{item.term}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Redirect Status Codes & Issues */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                Redirect Status Codes &amp; Common Issues
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                What each redirect code means, when to use it, and the chain problems to watch for.
+              </p>
+              <div className="space-y-4 max-w-3xl mx-auto">
+                {redirectErrors.map((err) => (
+                  <div
+                    key={err.code}
+                    id={`code-${err.code.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <code className="inline-block text-xs font-mono px-2 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary mb-3">
+                      {err.code}
+                    </code>
+                    <h3 className="font-semibold mb-2">{err.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{err.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
           {/* FAQ Section */}
           <PageSection>
             <SectionContent size="md" className="py-16 sm:py-20">
@@ -343,6 +509,21 @@ export default function RedirectCheckerPage() {
                   ))}
                 </Accordion>
               </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Trust & freshness */}
+          <PageSection>
+            <SectionContent size="md" className="py-6">
+              <p className="text-center text-xs text-muted-foreground">
+                Last updated{" "}
+                <time dateTime={LAST_UPDATED_ISO}>{LAST_UPDATED_DISPLAY}</time>{" "}
+                · Built and maintained by{" "}
+                <Link href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
+                  exit1.dev
+                </Link>
+                {" "}— uptime, SSL, and domain monitoring with instant alerts.
+              </p>
             </SectionContent>
           </PageSection>
 

@@ -96,6 +96,7 @@ const EXAMPLE_URLS = [
   "https://api.github.com",
   "https://jsonplaceholder.typicode.com/posts/1",
   "https://httpbin.org/get",
+  "https://api.stripe.com/v1",
 ];
 
 const HTTP_METHODS = ["GET", "HEAD", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"] as const;
@@ -484,13 +485,14 @@ export default function ApiStatusCheckerTool() {
 
       {/* Example URLs */}
       {!result && !error && !loading && (
-        <div className="mt-3 flex items-center gap-2 flex-wrap">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           <span className="text-xs text-muted-foreground">Try:</span>
           {EXAMPLE_URLS.map((exampleUrl) => (
             <button
               key={exampleUrl}
+              type="button"
               onClick={() => handleExampleClick(exampleUrl)}
-              className="text-xs text-primary/70 hover:text-primary transition-colors cursor-pointer hover:underline"
+              className="text-xs font-mono px-2.5 py-1 rounded-full border border-foreground/10 bg-foreground/5 text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer"
             >
               {exampleUrl.replace("https://", "")}
             </button>

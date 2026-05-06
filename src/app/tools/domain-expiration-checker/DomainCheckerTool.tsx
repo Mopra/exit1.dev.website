@@ -54,7 +54,7 @@ interface DomainResult {
   error?: string;
 }
 
-const EXAMPLE_DOMAINS = ["google.com", "github.com", "bbc.co.uk"];
+const EXAMPLE_DOMAINS = ["google.com", "github.com", "openai.com", "bbc.co.uk"];
 
 const LOADING_STEPS = [
   "Resolving domain...",
@@ -475,13 +475,14 @@ export default function DomainCheckerTool() {
 
       {/* Example Domains */}
       {!result && !error && !loading && (
-        <div className="mt-3 flex items-center gap-2 flex-wrap">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           <span className="text-xs text-muted-foreground">Try:</span>
           {EXAMPLE_DOMAINS.map((domain) => (
             <button
               key={domain}
+              type="button"
               onClick={() => handleExampleClick(domain)}
-              className="text-xs text-primary/70 hover:text-primary transition-colors cursor-pointer hover:underline"
+              className="text-xs font-mono px-2.5 py-1 rounded-full border border-foreground/10 bg-foreground/5 text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer"
             >
               {domain}
             </button>

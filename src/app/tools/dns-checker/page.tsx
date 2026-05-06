@@ -46,6 +46,93 @@ export const metadata: Metadata = {
   },
 };
 
+const LAST_UPDATED_ISO = "2026-05-04";
+const LAST_UPDATED_DISPLAY = "May 4, 2026";
+
+const howToSteps = [
+  {
+    name: "Enter a domain",
+    text: "Type any domain or full URL — example.com or https://example.com/path. The tool extracts the registrable hostname for you.",
+  },
+  {
+    name: "Run the lookup",
+    text: "Our server queries authoritative nameservers for every standard record type in parallel — A, AAAA, CNAME, MX, NS, TXT, SOA, CAA, plus the _dmarc subdomain.",
+  },
+  {
+    name: "Inspect the report",
+    text: "See every record, an email-security analysis (SPF + DMARC), a CAA check, and an overall DNS health grade. Copy, share, or download the report.",
+  },
+];
+
+const dnsIssues = [
+  {
+    code: "NXDOMAIN",
+    title: "Non-existent domain",
+    body: "The DNS resolver returned NXDOMAIN — the domain has no record at all. Either the domain is unregistered, the nameservers do not know it, or the apex record is missing. Confirm the domain is spelled correctly and the registrar's nameservers match what is configured at the registry.",
+  },
+  {
+    code: "SERVFAIL",
+    title: "Server failure",
+    body: "The authoritative nameserver could not produce an answer — usually a DNSSEC validation failure, an unreachable upstream, or a misconfigured zone. Re-check zone data and DNSSEC signing if you have it enabled.",
+  },
+  {
+    code: "No MX record",
+    title: "Domain cannot receive email",
+    body: "Without MX records, mail servers fall back to the A record (or refuse delivery entirely). If the domain should receive email, add MX records pointing at your mail provider with appropriate priorities (10, 20, ...).",
+  },
+  {
+    code: "Missing SPF",
+    title: "Anyone can spoof email from your domain",
+    body: "An SPF TXT record (v=spf1 ...) tells receivers which servers are allowed to send mail as you. Without it, your domain is trivial to spoof in phishing campaigns and your legitimate mail is more likely to land in spam.",
+  },
+  {
+    code: "Missing DMARC",
+    title: "No policy for failed authentication",
+    body: "DMARC tells receiving servers what to do with email that fails SPF or DKIM checks (reject, quarantine, or none). A _dmarc TXT record with at least p=none gives you reporting; p=quarantine or p=reject actually stops spoofing.",
+  },
+  {
+    code: "Missing CAA",
+    title: "Any CA can issue a certificate for your domain",
+    body: "CAA records restrict which certificate authorities can issue SSL/TLS certificates for your domain. Without CAA, a misissuance attack against any trusted CA can produce a valid cert for your domain. Adding 'CAA 0 issue \"letsencrypt.org\"' (or your CA of choice) closes that gap.",
+  },
+  {
+    code: "Single nameserver",
+    title: "No DNS redundancy",
+    body: "Best practice is at least two nameservers, ideally on different networks. A single NS is a single point of failure — when it goes down, your entire domain becomes unreachable.",
+  },
+];
+
+const glossary = [
+  {
+    term: "A vs AAAA",
+    body: "A records map a hostname to an IPv4 address (4 bytes, e.g. 93.184.216.34). AAAA records map to IPv6 (16 bytes). Modern domains should publish both — IPv6 traffic is now significant on every major network.",
+  },
+  {
+    term: "CNAME",
+    body: "An alias that points one hostname at another hostname (not an IP). The resolver follows the chain until it finds an A or AAAA. CNAMEs cannot coexist with most other record types at the same name and cannot live at the apex (use ALIAS or ANAME at the apex).",
+  },
+  {
+    term: "MX",
+    body: "Mail exchanger records — where email for the domain should be delivered. Each record has a priority (lower = preferred) and a target hostname. The target must itself resolve to an A/AAAA — never to a CNAME.",
+  },
+  {
+    term: "TXT, SPF, DKIM, DMARC",
+    body: "TXT records hold arbitrary text. Email authentication uses three of them: SPF (v=spf1 ...) lists allowed sending servers, DKIM publishes a public key for signing outgoing mail, and DMARC (_dmarc subdomain) tells receivers what to do when SPF or DKIM fails.",
+  },
+  {
+    term: "NS and SOA",
+    body: "NS records list the authoritative nameservers for the zone. SOA (Start of Authority) holds zone metadata — primary nameserver, admin email, serial number, and refresh/retry timers used by secondary nameservers.",
+  },
+  {
+    term: "CAA",
+    body: "Certificate Authority Authorization. Restricts which CAs are allowed to issue certificates for the domain. Without a CAA record, any public CA can issue. With one, only the listed CAs can — a cheap and effective defense against misissuance.",
+  },
+  {
+    term: "TTL (Time To Live)",
+    body: "How long resolvers may cache a record before re-querying. Low TTL (60s) makes changes propagate fast but increases DNS load. High TTL (24h) reduces load but means changes take longer to take effect. Lower TTLs before planned migrations.",
+  },
+];
+
 const faq = [
   {
     question: "What does this DNS lookup tool do?",
@@ -99,11 +186,47 @@ export default function DnsCheckerPage() {
           description:
             "Free DNS lookup tool to check all DNS records for any domain — A, AAAA, MX, NS, TXT, SOA, CAA, CNAME — with email security analysis and DNS health grading.",
           url: "https://exit1.dev/tools/dns-checker",
+          dateModified: LAST_UPDATED_ISO,
           publisher: {
             "@type": "Organization",
             name: "exit1.dev",
             url: "https://exit1.dev",
           },
+        }}
+      />
+      <StructuredData
+        type="SoftwareApplication"
+        data={{
+          name: "Free DNS Lookup Tool",
+          applicationCategory: "DeveloperApplication",
+          operatingSystem: "Web",
+          url: "https://exit1.dev/tools/dns-checker",
+          description:
+            "Free online DNS lookup tool. Resolves A, AAAA, CNAME, MX, NS, TXT, SOA, CAA records, plus SPF and DMARC checks, with an overall DNS health grade.",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "exit1.dev",
+            url: "https://exit1.dev",
+          },
+        }}
+      />
+      <StructuredData
+        type="HowTo"
+        data={{
+          name: "How to look up DNS records for any domain",
+          description:
+            "Use the exit1.dev DNS checker to retrieve every record type and analyze email security in seconds.",
+          step: howToSteps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.name,
+            text: s.text,
+          })),
         }}
       />
       <StructuredData
@@ -294,6 +417,57 @@ export default function DnsCheckerPage() {
             </SectionContent>
           </PageSection>
 
+          {/* DNS Glossary */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                DNS Record Glossary
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                Plain-language definitions of every record type you will see in a DNS lookup.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                {glossary.map((item) => (
+                  <div
+                    key={item.term}
+                    id={`glossary-${item.term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <h3 className="font-semibold mb-1.5">{item.term}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Common DNS Issues */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                Common DNS Issues
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                The misconfigurations and resolver errors that hurt DNS health — and how to spot them.
+              </p>
+              <div className="space-y-4 max-w-3xl mx-auto">
+                {dnsIssues.map((err) => (
+                  <div
+                    key={err.code}
+                    id={`issue-${err.code.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <code className="inline-block text-xs font-mono px-2 py-1 rounded-md bg-warning/10 border border-warning/20 text-warning mb-3">
+                      {err.code}
+                    </code>
+                    <h3 className="font-semibold mb-2">{err.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{err.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
           {/* FAQ Section */}
           <PageSection>
             <SectionContent size="md" className="py-16 sm:py-20">
@@ -381,6 +555,21 @@ export default function DnsCheckerPage() {
                   </p>
                 </Link>
               </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Trust & freshness */}
+          <PageSection>
+            <SectionContent size="md" className="py-6">
+              <p className="text-center text-xs text-muted-foreground">
+                Last updated{" "}
+                <time dateTime={LAST_UPDATED_ISO}>{LAST_UPDATED_DISPLAY}</time>{" "}
+                · Built and maintained by{" "}
+                <Link href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
+                  exit1.dev
+                </Link>
+                {" "}— uptime, SSL, and domain monitoring with instant alerts.
+              </p>
             </SectionContent>
           </PageSection>
 

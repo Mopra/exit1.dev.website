@@ -47,6 +47,98 @@ export const metadata: Metadata = {
   },
 };
 
+const LAST_UPDATED_ISO = "2026-05-04";
+const LAST_UPDATED_DISPLAY = "May 4, 2026";
+
+const howToSteps = [
+  {
+    name: "Enter a URL",
+    text: "Type any website URL or domain. The tool resolves DNS, follows redirects, and analyses the full response chain.",
+  },
+  {
+    name: "Run the deep check",
+    text: "Our server tests DNS, SSL, redirects, response time, TTFB, security headers, compression, and page content in parallel.",
+  },
+  {
+    name: "Read the graded report",
+    text: "See an A+ to F grade per category — DNS, SSL, response, security, performance, content — plus an overall score and prioritised recommendations.",
+  },
+];
+
+const uptimeIssues = [
+  {
+    code: "Connection timeout",
+    title: "Server did not respond in time",
+    body: "Either the host is overloaded, a firewall is dropping packets, or the path is broken. Test with the ping tool to see if TCP can connect at all. If TCP connects but HTTP times out, the application layer is the problem.",
+  },
+  {
+    code: "DNS resolution failed",
+    title: "Domain does not resolve",
+    body: "NXDOMAIN, SERVFAIL, or no answer. Check that the domain is registered and that nameservers respond. If you just made a change, propagation can take from minutes to 48 hours depending on TTL.",
+  },
+  {
+    code: "SSL certificate expired",
+    title: "TLS certificate has passed its expiry date",
+    body: "Browsers block the page completely. Renew immediately. The SSL Checker tool shows exact validFrom/validTo and which CA issued the certificate. Modern setups (Let's Encrypt, Caddy, Cloudflare) auto-renew — re-enable it.",
+  },
+  {
+    code: "5xx server errors",
+    title: "Application is broken",
+    body: "500/502/503/504 mean the server reached you but the app failed. Check application logs and your error tracker. Recent deployments are the most common cause.",
+  },
+  {
+    code: "Slow TTFB (> 600 ms)",
+    title: "Server is slow to first byte",
+    body: "Hurts perceived performance and Core Web Vitals. Common causes: slow database query on the home page, no CDN, unoptimised render path, or under-provisioned servers. Profile the slow request to find the bottleneck.",
+  },
+  {
+    code: "Missing HSTS",
+    title: "No HTTPS enforcement",
+    body: "Without HSTS, the first request after typing http:// is vulnerable to a downgrade attack. Add Strict-Transport-Security with at least max-age=31536000 once you are confident in your HTTPS setup.",
+  },
+  {
+    code: "Missing CSP",
+    title: "No Content Security Policy",
+    body: "CSP is the strongest defence against stored and reflected XSS. Without one, any injected script can run with full page privileges. Start with a report-only policy, watch the violations, then enforce.",
+  },
+  {
+    code: "No compression",
+    title: "Responses sent uncompressed",
+    body: "Without gzip or brotli, text payloads are 4–10× larger than they should be. Hurts bandwidth costs and load time. Enable at the CDN or origin — almost every server framework supports it with one flag.",
+  },
+];
+
+const glossary = [
+  {
+    term: "Uptime",
+    body: "Percentage of time a service responds correctly. Three nines = 99.9% (≈ 8.7 hours of downtime per year). Four nines = 99.99% (≈ 52 minutes per year). The number sets your engineering budget — every additional nine costs roughly an order of magnitude more.",
+  },
+  {
+    term: "TTFB",
+    body: "Time To First Byte. The wall-clock time from request sent to first response byte received. Includes DNS, TCP, TLS, and server processing. A core Web Vitals input — Google considers under 800 ms 'good' and over 1.8 s 'poor'.",
+  },
+  {
+    term: "HSTS",
+    body: "HTTP Strict Transport Security. A response header that locks the browser to HTTPS for the configured max-age. With the preload directive, your domain ships in browser binaries, so even the first connection is HTTPS.",
+  },
+  {
+    term: "CSP",
+    body: "Content Security Policy. The most effective in-browser defence against XSS. Restricts which sources can load scripts, styles, frames, and connect-src endpoints. Best deployed in report-only mode first, then enforced.",
+  },
+  {
+    term: "Core Web Vitals",
+    body: "Google's user-experience metrics that influence ranking. LCP (Largest Contentful Paint) measures load speed; INP (Interaction to Next Paint) measures responsiveness; CLS (Cumulative Layout Shift) measures visual stability. TTFB feeds into LCP.",
+  },
+  {
+    term: "Compression (gzip / brotli)",
+    body: "Compresses HTTP responses before sending. gzip is universal; brotli is newer and ~15% better for text. Mandatory for HTML, CSS, JS, and JSON. Already-compressed payloads (images, video) should not be double-compressed.",
+  },
+  {
+    term: "Status page",
+    body: "A public page that reports current operational status. Communicates incidents transparently to users without overwhelming support. exit1.dev includes managed status pages on every plan.",
+  },
+];
+
 const faq = [
   {
     question: "What does this uptime checker do?",
@@ -100,11 +192,47 @@ export default function UptimeCheckerPage() {
           description:
             "Free uptime checker tool to instantly verify any website's health, including DNS, SSL, redirects, response time, security headers, and content health.",
           url: "https://exit1.dev/tools/uptime-checker",
+          dateModified: LAST_UPDATED_ISO,
           publisher: {
             "@type": "Organization",
             name: "exit1.dev",
             url: "https://exit1.dev",
           },
+        }}
+      />
+      <StructuredData
+        type="SoftwareApplication"
+        data={{
+          name: "Free Website Uptime Checker",
+          applicationCategory: "DeveloperApplication",
+          operatingSystem: "Web",
+          url: "https://exit1.dev/tools/uptime-checker",
+          description:
+            "Free online uptime and website health checker. Tests DNS, SSL, redirects, TTFB, security headers, compression, and content health, with category grades and an overall score.",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "exit1.dev",
+            url: "https://exit1.dev",
+          },
+        }}
+      />
+      <StructuredData
+        type="HowTo"
+        data={{
+          name: "How to check if a website is up and healthy",
+          description:
+            "Use the exit1.dev uptime checker to run a deep health analysis on any website — DNS, SSL, security, performance, and content — in seconds.",
+          step: howToSteps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.name,
+            text: s.text,
+          })),
         }}
       />
       <StructuredData
@@ -273,6 +401,57 @@ export default function UptimeCheckerPage() {
             </SectionContent>
           </PageSection>
 
+          {/* Website Health Glossary */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                Website Health Glossary
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                The terms behind every grade in your health report — without the marketing fluff.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                {glossary.map((item) => (
+                  <div
+                    key={item.term}
+                    id={`glossary-${item.term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <h3 className="font-semibold mb-1.5">{item.term}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Common Issues That Hurt Your Grade */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+                Common Issues That Hurt Your Grade
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+                The findings that drag the overall score down — what each one means and how to fix it.
+              </p>
+              <div className="space-y-4 max-w-3xl mx-auto">
+                {uptimeIssues.map((s) => (
+                  <div
+                    key={s.code}
+                    id={`issue-${s.code.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
+                    className="p-5 rounded-xl border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <code className="inline-block text-xs font-mono px-2 py-1 rounded-md bg-warning/10 border border-warning/20 text-warning mb-3">
+                      {s.code}
+                    </code>
+                    <h3 className="font-semibold mb-2">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{s.body}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
           {/* FAQ Section */}
           <PageSection>
             <SectionContent size="md" className="py-16 sm:py-20">
@@ -327,6 +506,21 @@ export default function UptimeCheckerPage() {
                   <p className="text-sm text-muted-foreground">Automate API monitoring with payload validation, status automation, and incident response.</p>
                 </Link>
               </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Trust & freshness */}
+          <PageSection>
+            <SectionContent size="md" className="py-6">
+              <p className="text-center text-xs text-muted-foreground">
+                Last updated{" "}
+                <time dateTime={LAST_UPDATED_ISO}>{LAST_UPDATED_DISPLAY}</time>{" "}
+                · Built and maintained by{" "}
+                <Link href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
+                  exit1.dev
+                </Link>
+                {" "}— uptime, SSL, and domain monitoring with instant alerts.
+              </p>
             </SectionContent>
           </PageSection>
 

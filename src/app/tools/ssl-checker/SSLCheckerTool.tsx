@@ -76,6 +76,13 @@ const LOADING_STEPS = [
   "Analyzing security...",
 ];
 
+const QUICK_TRY_DOMAINS = [
+  "google.com",
+  "github.com",
+  "cloudflare.com",
+  "stripe.com",
+];
+
 function ResultRow({
   icon: Icon,
   label,
@@ -378,6 +385,26 @@ export default function SSLCheckerTool() {
           )}
         </Button>
       </form>
+
+      {/* Quick-try chips */}
+      {!result && !loading && (
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <span className="text-xs text-muted-foreground">Try:</span>
+          {QUICK_TRY_DOMAINS.map((domain) => (
+            <button
+              key={domain}
+              type="button"
+              onClick={() => {
+                setUrl(domain);
+                runCheck(domain);
+              }}
+              className="text-xs font-mono px-2.5 py-1 rounded-full border border-foreground/10 bg-foreground/5 text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer"
+            >
+              {domain}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Loading Progress */}
       {loading && (
