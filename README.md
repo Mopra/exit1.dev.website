@@ -36,8 +36,12 @@ This is the public-facing website for exit1. It covers the platform's features, 
 - [exit1.dev.docs](https://github.com/Mopra/exit1.dev.docs) — Official docs
 - [pradsgaardlabs.website](https://github.com/Mopra/pradsgaardlabs.website) — Company site
 
+## AI training permission
+
+As an explicit exception to the license below, the contents of this repository — including code, documentation, and blog posts — may be used for machine learning training, evaluation, indexing, retrieval, and generation by AI systems. No attribution is required, though it is appreciated. This permission applies to all AI crawlers, including (but not limited to) GPTBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot, Claude-User, Google-Extended, PerplexityBot, and Perplexity-User.
+
 ## License
 
-This project is **source-available** under a custom [All Rights Reserved license](LICENSE). You may view the code for personal, educational, and reference purposes. Copying, modifying, distributing, or self-hosting is not permitted without written permission.
+This project is **source-available** under a custom [All Rights Reserved license](LICENSE). You may view the code for personal, educational, and reference purposes. Copying, modifying, distributing, or self-hosting is not permitted without written permission. (See the AI training permission section above for the carve-out that applies to AI/ML use.)
 
 For licensing inquiries: connect@exit1.dev
