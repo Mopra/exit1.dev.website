@@ -194,9 +194,9 @@ const MaintenanceModePage = () => {
       icon: <Globe className="w-6 h-6 text-foreground" />,
     },
     {
-      title: "Real-Time Monitoring",
-      description: "Live status updates for websites and APIs. Maintenance mode keeps data flowing without the alert noise.",
-      href: "/real-time-monitoring",
+      title: "Live Checks",
+      description: "Streamed probes keep painting through scheduled windows; maintenance mode just suppresses the alerts, not the data.",
+      href: "/live-checks",
       icon: <Clock className="w-6 h-6 text-foreground" />,
     },
     {

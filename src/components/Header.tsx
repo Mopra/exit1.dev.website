@@ -46,7 +46,7 @@ const featuresMenu = {
       title: "Monitoring",
       items: [
         { name: "Uptime Monitoring", href: "/free-uptime-monitor", description: "HTTP, HTTPS, and endpoint checks" },
-        { name: "Real-Time Monitoring", href: "/real-time-monitoring", description: "Live status updates for websites and APIs" },
+        { name: "Live Checks", href: "/live-checks", description: "Streamed probes with sub-second charts" },
         { name: "Global Monitoring", href: "/global-monitoring", description: "Worldwide coverage and geo performance" },
         { name: "Domain Intelligence", href: "/domain-intelligence", description: "Automatic domain expiration alerts" },
         { name: "Smart Alerting", href: "/alerting", description: "Webhooks and real-time notifications" },

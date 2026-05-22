@@ -104,7 +104,7 @@ async function getBlogPosts() {
 
 function getPageName(url: string): string {
   if (url === '/') return 'Home';
-  if (url === '/real-time-monitoring') return 'Real-Time Monitoring';
+  if (url === '/live-checks') return 'Live Checks';
   if (url === '/ssl-monitoring') return 'SSL Certificate Monitoring';
   if (url === '/global-monitoring') return 'Global Monitoring';
   if (url === '/alerting') return 'Alerting & Notifications';
@@ -162,7 +162,7 @@ const Sitemap = async () => {
         features: {
           name: "Features",
           children: {
-            realTime: { name: "Real-Time Monitoring", url: "/real-time-monitoring" },
+            liveChecks: { name: "Live Checks", url: "/live-checks" },
             ssl: { name: "SSL Certificate Monitoring", url: "/ssl-monitoring" },
             global: { name: "Global Monitoring", url: "/global-monitoring" },
             alerting: { name: "Alerting & Notifications", url: "/alerting" },
@@ -210,7 +210,7 @@ const Sitemap = async () => {
             staticPages
               .filter(page =>
                 !['/', '/blog', '/getting-started', '/privacy', '/data-privacy', '/roadmap', '/sitemap',
-                  '/real-time-monitoring', '/ssl-monitoring', '/global-monitoring', '/alerting', '/analytics', '/logs', '/api-webhooks',
+                  '/live-checks', '/ssl-monitoring', '/global-monitoring', '/alerting', '/analytics', '/logs', '/api-webhooks',
                   '/signup', '/signin', '/dashboard', '/install'].includes(page.url) &&
                 !page.url.startsWith('/product/')
               )

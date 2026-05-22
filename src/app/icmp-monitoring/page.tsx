@@ -167,9 +167,9 @@ const ICMPMonitoring = () => {
 
   const relatedFeatures = [
     {
-      title: "Real-Time Monitoring",
-      description: "Monitor websites and APIs with fast checks and instant alerts when issues occur.",
-      href: "/real-time-monitoring",
+      title: "Live Checks",
+      description: "Streamed probes paint in your browser the moment they finish. Drag-to-zoom chart and per-stage DNS / Connect / TLS / TTFB phases.",
+      href: "/live-checks",
       icon: <Clock className="w-6 h-6 text-foreground" />
     },
     {

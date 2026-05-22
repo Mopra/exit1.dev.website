@@ -52,7 +52,7 @@ export default function AccuracySection() {
             {/* Badge */}
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-primary dark:text-primary">Smart detection, not spam. Start with the <a href="/real-time-monitoring" className="underline decoration-dotted underline-offset-4 hover:text-primary transition-colors">real-time uptime monitor</a>.</span>
+              <span className="text-sm font-medium text-primary dark:text-primary">Smart detection, not spam. Watch it live on the <a href="/live-checks" className="underline decoration-dotted underline-offset-4 hover:text-primary transition-colors">streamed-probe Live page</a>.</span>
             </div>
           </div>
         </div>

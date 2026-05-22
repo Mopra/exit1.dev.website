@@ -263,7 +263,7 @@ export default function NewHomePage() {
         <PageSection className="!px-0">
           <div className="md:grid md:grid-cols-3">
             <FeatureGridItem
-              href="/real-time-monitoring"
+              href="/live-checks"
               title="Fast check intervals"
               description="5-min on Free, 2-min on Nano, 30-sec on Pro, 15-sec on Agency. No throttling. Know when things break, not when your billing cycle resets."
               icon={<Zap className="w-6 h-6 text-foreground" />}

@@ -29,9 +29,9 @@ const sections = [
         icon: <Activity className="w-6 h-6 text-foreground" />,
       },
       {
-        name: "Real-Time Monitoring",
-        href: "/real-time-monitoring",
-        description: "Live status updates for websites and APIs with instant change detection.",
+        name: "Live Checks",
+        href: "/live-checks",
+        description: "Streamed probes over WebSocket — sub-second paint, drag-to-zoom chart, per-stage DNS / Connect / TLS / TTFB phases, CSV + JSON export.",
         icon: <Radio className="w-6 h-6 text-foreground" />,
       },
       {

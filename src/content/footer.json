@@ -5,7 +5,7 @@
   },
   "navigation": {
     "monitoring": [
-      { "name": "Real-Time Monitoring", "href": "/real-time-monitoring" },
+      { "name": "Live Checks", "href": "/live-checks" },
       { "name": "SSL Monitoring", "href": "/ssl-monitoring" },
       { "name": "Global Monitoring", "href": "/global-monitoring" },
       { "name": "Smart Alerting", "href": "/alerting" },

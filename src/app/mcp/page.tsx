@@ -194,9 +194,9 @@ const MCPPage = () => {
       icon: <Globe className="w-6 h-6 text-foreground" />,
     },
     {
-      title: "Real-Time Monitoring",
-      description: "Live status updates for websites and APIs. Ask your AI assistant about current status anytime.",
-      href: "/real-time-monitoring",
+      title: "Live Checks",
+      description: "Watch probes stream live in the browser while your AI assistant queries the same data via MCP.",
+      href: "/live-checks",
       icon: <Activity className="w-6 h-6 text-foreground" />,
     },
     {

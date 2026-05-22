@@ -8,7 +8,7 @@ import { Home, Monitor, Shield, BarChart3, Bell, Globe, Settings } from 'lucide-
 
 const glassNavItems = [
   { name: "Dashboard", href: "/", icon: Home },
-  { name: "Monitoring", href: "/real-time-monitoring", icon: Monitor },
+  { name: "Monitoring", href: "/live-checks", icon: Monitor },
   { name: "SSL", href: "/ssl-monitoring", icon: Shield },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
   { name: "Alerts", href: "/alerting", icon: Bell },

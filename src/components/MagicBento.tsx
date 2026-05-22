@@ -45,10 +45,10 @@ const MOBILE_BREAKPOINT = 768;
 const cardData: BentoCardProps[] = [
   {
     color: "var(--card)",
-    title: "Real-Time Monitoring",
-    description: "Free uptime monitoring for up to 10 websites and APIs",
+    title: "Live Checks",
+    description: "Probes stream into your browser the moment they finish — sub-second paint, drag-to-zoom",
     label: "Core",
-    href: "/real-time-monitoring",
+    href: "/live-checks",
   },
   {
     color: "var(--card)",

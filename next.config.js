@@ -38,6 +38,8 @@ const nextConfig = {
       { source: '/blog/webhook-alerts-slack-discord', destination: '/blog', permanent: true },
       { source: '/blog/downtime-alerts-guide', destination: '/blog', permanent: true },
       { source: '/blog/beyond-uptime-monitoring-guide', destination: '/blog', permanent: true },
+      // Live Checks rebrand — consolidate /real-time-monitoring into /live-checks
+      { source: '/real-time-monitoring', destination: '/live-checks', permanent: true },
     ];
   },
 };
