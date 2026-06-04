@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils'
 
 const navigation = [
   { name: "Pricing", href: "/pricing" },
-  { name: "Why Nano?", href: "/why-nano" },
+  { name: "Why upgrade?", href: "/why-upgrade" },
   { name: "Getting Started", href: "/getting-started" },
   { name: "Docs", href: "https://docs.exit1.dev", external: true }
 ]
@@ -27,6 +27,7 @@ const toolsMenu = {
     { name: "Ping Test", href: "/tools/ping-test", description: "Test latency to any host" },
     { name: "Redirect Checker", href: "/tools/redirect-checker", description: "Trace HTTP redirect chains for any URL" },
     { name: "Uptime Checker", href: "/tools/uptime-checker", description: "Check if any website is online and healthy" },
+    { name: "Live Status", href: "/status", description: "Real-time uptime of popular sites & APIs" },
   ]
 }
 
@@ -100,8 +101,8 @@ export default function Header() {
     >
       <div
         className={cn(
-          "rounded-2xl transition-shadow duration-500",
-          isScrolled && "shadow-xl"
+          "rounded-2xl transition-shadow duration-500 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.6)]",
+          isScrolled && "shadow-[0_18px_60px_-12px_rgba(0,0,0,0.75)]"
         )}
       >
         <GlassSurface
@@ -119,7 +120,7 @@ export default function Header() {
           greenOffset={15}
           blueOffset={25}
           mixBlendMode="screen"
-          surfaceTint="#161616"
+          surfaceTint="oklch(0.155 0.014 285)"
           className="cursor-pointer"
           allowOverflow={true}
       >
@@ -178,7 +179,7 @@ export default function Header() {
                     >
                       {featuresMenu.name}
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="left-1/2 -translate-x-1/2 border border-white/10 bg-[#161616] text-white shadow-2xl rounded-xl">
+                    <NavigationMenuContent className="left-1/2 -translate-x-1/2 border border-white/10 bg-[#0F0F15] text-white shadow-2xl rounded-xl">
                       <div className="grid grid-cols-3 gap-6 p-6 w-[calc(100vw-3rem)] max-w-[680px]">
                         {featuresMenu.sections.map((section) => (
                           <div key={section.title}>
@@ -222,7 +223,7 @@ export default function Header() {
                     >
                       {toolsMenu.name}
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="left-1/2 -translate-x-1/2 border border-white/10 bg-[#161616] text-white shadow-2xl rounded-xl">
+                    <NavigationMenuContent className="left-1/2 -translate-x-1/2 border border-white/10 bg-[#0F0F15] text-white shadow-2xl rounded-xl">
                       <div className="w-64 p-3">
                         {toolsMenu.items.map((item) => (
                           <NavigationMenuLink key={item.href} asChild>
@@ -248,7 +249,7 @@ export default function Header() {
                     >
                       {companyMenu.name}
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="left-1/2 -translate-x-1/2 border border-white/10 bg-[#161616] text-white shadow-2xl rounded-xl">
+                    <NavigationMenuContent className="left-1/2 -translate-x-1/2 border border-white/10 bg-[#0F0F15] text-white shadow-2xl rounded-xl">
                       <div className="w-64 p-3">
                         {companyMenu.items.map((item) => (
                           <NavigationMenuLink key={item.href} asChild>

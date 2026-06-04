@@ -25,16 +25,27 @@ const CookieBanner = ({ onCustomize }: CookieBannerProps) => {
 
   if (!showBanner) return null;
 
+  // Dark tokens scoped to the banner so it matches the app theme regardless
+  // of which page (light or dark) hosts the layout-level Footer that mounts it.
+  const darkTokens: React.CSSProperties & Record<string, string> = {
+    "--background": "#15151B",
+    "--foreground": "oklch(0.9851 0 0)",
+    "--primary": "oklch(0.5854 0.1022 167.0051)",
+    "--primary-foreground": "oklch(0 0 0)",
+    "--border": "oklch(0.2768 0 0)",
+  };
+
   return (
     <div
       role="dialog"
       aria-live="polite"
       aria-label="Cookie consent"
+      style={darkTokens}
       className={`fixed z-50 bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm transition-all duration-500 ease-out ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'
       }`}
     >
-      <div className="rounded-xl border border-foreground/10 bg-background/70 backdrop-blur-xl shadow-2xl p-4 text-foreground">
+      <div className="rounded-xl border border-border bg-background/90 backdrop-blur-xl shadow-2xl p-4 text-foreground">
         <div className="flex items-start gap-3">
           <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-foreground/5 border border-foreground/10">
             <Cookie className="h-4 w-4 text-foreground/80" />

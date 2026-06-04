@@ -32,7 +32,8 @@
       { "name": "Domain Checker", "href": "/tools/domain-expiration-checker" },
       { "name": "DNS Checker", "href": "/tools/dns-checker" },
       { "name": "API Status Checker", "href": "/tools/api-status-checker" },
-      { "name": "Ping Test", "href": "/tools/ping-test" }
+      { "name": "Ping Test", "href": "/tools/ping-test" },
+      { "name": "Live Status", "href": "/status" }
     ],
     "legal": [
       { "name": "Privacy Policy", "href": "/privacy" },

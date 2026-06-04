@@ -325,7 +325,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                           variant="outline"
                           className="rounded-full px-6 py-2 font-semibold border-foreground/20 hover:bg-foreground/5"
                         >
-                          <Link href="/why-nano">
+                          <Link href="/why-upgrade">
                             Learn More
                           </Link>
                         </Button>

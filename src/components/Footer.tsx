@@ -6,10 +6,23 @@ import Image from 'next/image';
 import footerContent from '../content/footer.json';
 import CookieSettings from './CookieSettings';
 import CookieBanner from './CookieBanner';
-import { PageContainer } from "@/components/PageLayout";
 import { UptimeBadge } from './UptimeBadge';
 
 const BADGE_TYPES = ['status', 'uptime', 'response'] as const;
+
+// Dark tokens scoped to the footer. The footer mounts at layout level (above
+// the page wrapper), so it inherits the global light theme — overriding tokens
+// here makes the footer dark on every page without touching globals.css.
+const footerDarkTokens: React.CSSProperties & Record<string, string> = {
+  "--background": "#0A0A0F",
+  "--foreground": "oklch(0.9851 0 0)",
+  "--primary": "oklch(0.5854 0.1022 167.0051)",
+  "--primary-foreground": "oklch(0 0 0)",
+  "--muted": "oklch(0.278 0.014 285)",
+  "--muted-foreground": "oklch(0.7090 0 0)",
+  "--border": "oklch(0.2768 0 0)",
+  "--brand-eu": "oklch(0.78 0.10 230)",
+};
 
 const Footer = () => {
   const [showCookieSettings, setShowCookieSettings] = useState(false);
@@ -70,9 +83,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-background text-foreground">
-      <PageContainer>
-        <div className="border-inset-top px-6 lg:px-8">
+    <footer style={footerDarkTokens} className="bg-background text-foreground border-t border-border">
+      <div className="mx-auto max-w-6xl">
+        <div className="px-6 lg:px-8">
           <div className="py-12 sm:py-16 lg:py-20">
         {/* Mobile-first grid layout */}
         <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
@@ -209,8 +222,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </PageContainer>
-      
+    </div>
+
       {/* Cookie consent banner (first visit) */}
       <CookieBanner onCustomize={() => setShowCookieSettings(true)} />
 

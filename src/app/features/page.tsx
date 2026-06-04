@@ -137,7 +137,7 @@ export default function FeaturesPage() {
 
         {sections.map((section) => (
           <PageSection key={section.title} className="py-16">
-            <SectionContent className="px-8 sm:px-12">
+            <SectionContent size="xl" className="px-8 sm:px-12">
               <h2 className="text-sm font-medium uppercase tracking-widest text-foreground/40 mb-10">
                 {section.title}
               </h2>
