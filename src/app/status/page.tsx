@@ -6,9 +6,9 @@ import StructuredData from "@/components/StructuredData";
 import { PageHero } from "@/components/PageHero";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
 import { StatusDirectory } from "@/components/status/StatusDirectory";
-import { classifyStatus, getAllPublicMonitors, makeComparator } from "@/lib/publicMonitors";
+import { classifyStatus, getAllPublicMonitors, isIndexEntryMature, makeComparator } from "@/lib/publicMonitors";
 
-export const revalidate = 3600;
+export const revalidate = 900;
 
 export const metadata: Metadata = {
   title: "Live Status & Uptime of Popular Sites",
@@ -34,11 +34,14 @@ export default async function StatusHubPage() {
   for (const m of monitors) counts[classifyStatus(m.status)]++;
   const total = monitors.length;
 
+  // Only point the ItemList at pages mature enough to index — no sense
+  // advertising thin, noindexed pages to crawlers.
+  const indexable = sorted.filter(isIndexEntryMature);
   const itemListData = {
     name: "Live status & uptime of popular sites",
     description: "Curated uptime monitors tracked by exit1.dev.",
-    numberOfItems: sorted.length,
-    itemListElement: sorted.map((m, i) => ({
+    numberOfItems: indexable.length,
+    itemListElement: indexable.map((m, i) => ({
       "@type": "ListItem",
       position: i + 1,
       url: `https://exit1.dev/status/${m.slug}`,
@@ -48,7 +51,7 @@ export default async function StatusHubPage() {
 
   return (
     <>
-      {total > 0 && <StructuredData type="ItemList" data={itemListData} />}
+      {indexable.length > 0 && <StructuredData type="ItemList" data={itemListData} />}
       <PageShell>
         <main>
           <PageContainer>
@@ -104,6 +107,30 @@ export default async function StatusHubPage() {
                     <StatusDirectory monitors={sorted} />
                   </>
                 )}
+
+                {/* Crawlable explainer — targets "website status checker",
+                    "is it down right now", "real-time uptime" intent. */}
+                <div className="mt-16 max-w-3xl">
+                  <h2 className="mb-3 text-xl font-semibold">Is it down right now?</h2>
+                  <p className="text-sm leading-relaxed text-foreground/70">
+                    Pick any site or API above to see whether it&apos;s down right now, its live
+                    uptime percentage, average response time and a 90-day outage history. Every
+                    figure is an independent, third-party measurement — exit1.dev probes each
+                    target continuously from multiple regions, so the numbers aren&apos;t
+                    self-reported by the services themselves.
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-foreground/70">
+                    Want this for your own website or API?{" "}
+                    <Link href="https://app.exit1.dev" className="font-medium text-foreground hover:underline interactive">
+                      Start monitoring free
+                    </Link>{" "}
+                    — 5-minute checks, instant alerts and a public{" "}
+                    <Link href="/status-pages" className="font-medium text-foreground hover:underline interactive">
+                      status page
+                    </Link>{" "}
+                    of your own, no credit card required.
+                  </p>
+                </div>
               </SectionContent>
             </PageSection>
           </PageContainer>

@@ -33,6 +33,10 @@ export type MonitorIndexEntry = {
   status: string;
   lastChecked: number;
   uptime30d: number | null;
+  // Days (in the 90-day window) with at least one recorded check. Backend added
+  // this for the data-maturity guard; optional so a frontend deploy that lands
+  // before the backend deploy doesn't deindex everything.
+  daysWithData?: number;
 };
 
 export type MonitorPage = MonitorIndexEntry & {
@@ -168,4 +172,140 @@ export function lastCheckedLabel(ms: number, now: number = Date.now()): string {
   const hrs = Math.round(mins / 60);
   if (hrs < 24) return `${hrs} hr ago`;
   return `${Math.round(hrs / 24)} d ago`;
+}
+
+// ---------------------------------------------------------------------------
+// SEO / data-maturity helpers
+//
+// These curated status pages exist to rank for "is X down", "X uptime", etc.
+// A page with only a day or two of history is thin, near-duplicate content that
+// drags the whole /status section's quality. We require a minimum amount of
+// real history before a page is allowed into the sitemap and indexed.
+// ---------------------------------------------------------------------------
+
+/** Minimum days of recorded data before a monitor page is indexable. */
+export const MIN_DAYS_FOR_INDEX = 7;
+
+/** Count of 90-day-window days that recorded at least one check. */
+export function countDaysWithData(heartbeat: HeartbeatDay[]): number {
+  return heartbeat.reduce((n, d) => (d.totalChecks > 0 ? n + 1 : n), 0);
+}
+
+/**
+ * Is this index entry mature enough to index? Backends that predate
+ * `daysWithData` report `undefined`; we treat that as mature so a frontend
+ * deploy ahead of the backend doesn't deindex the whole section.
+ */
+export function isIndexEntryMature(m: MonitorIndexEntry): boolean {
+  return (m.daysWithData ?? MIN_DAYS_FOR_INDEX) >= MIN_DAYS_FOR_INDEX;
+}
+
+/** Detail-page maturity, computed from the full heartbeat we already have. */
+export function isMonitorPageMature(m: MonitorPage): boolean {
+  return countDaysWithData(m.heartbeat) >= MIN_DAYS_FOR_INDEX;
+}
+
+/** Brand/display name for headings & copy; falls back to the bare host. */
+export function displayName(m: { name?: string | null; host: string }): string {
+  const n = m.name?.trim();
+  return n && n.toLowerCase() !== m.host.toLowerCase() ? n : m.host;
+}
+
+/** Plain-English current-state phrase keyed off the coarse status bucket. */
+export function statusPhrase(status: string): { isDown: boolean; phrase: string } {
+  const c = classifyStatus(status);
+  if (c === "down") return { isDown: true, phrase: "appears to be down" };
+  if (c === "degraded") return { isDown: false, phrase: "is up but degraded" };
+  if (c === "operational") return { isDown: false, phrase: "is up and running normally" };
+  return { isDown: false, phrase: "has an unknown status right now" };
+}
+
+/** "Sep 14, 2025" in UTC (heartbeat days are UTC day-starts). */
+export function formatDateUTC(ms: number): string {
+  return new Date(ms).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+/** Whole days elapsed since `ms`. */
+export function daysAgo(ms: number, now: number = Date.now()): number {
+  return Math.max(0, Math.floor((now - ms) / 86_400_000));
+}
+
+export type IncidentSummary = {
+  outages: HeartbeatDay[]; // offline days, newest first
+  daysWithData: number;
+  totalOutageDays: number;
+  lastOutage: HeartbeatDay | null;
+  cleanStreakDays: number; // consecutive most-recent days with data and no outage
+};
+
+/** Derive a textual incident history from the heartbeat (no backend needed). */
+export function summarizeIncidents(heartbeat: HeartbeatDay[]): IncidentSummary {
+  const withData = heartbeat.filter((d) => d.totalChecks > 0);
+  const outages = withData.filter((d) => d.status === "offline").slice().reverse();
+
+  let cleanStreakDays = 0;
+  for (let i = heartbeat.length - 1; i >= 0; i--) {
+    const d = heartbeat[i];
+    if (d.totalChecks <= 0) continue; // gaps don't break the streak
+    if (d.status === "offline") break;
+    cleanStreakDays++;
+  }
+
+  return {
+    outages,
+    daysWithData: withData.length,
+    totalOutageDays: outages.length,
+    lastOutage: outages[0] ?? null,
+    cleanStreakDays,
+  };
+}
+
+export type Faq = { question: string; answer: string };
+
+/**
+ * Query-matched FAQ set, rendered both visibly (crawlable) and as FAQPage
+ * JSON-LD. Covers the real search variants: is-it-down, uptime %, response
+ * time, recent outages, and how it's measured (E-E-A-T / trust).
+ */
+export function buildFaqs(m: MonitorPage): Faq[] {
+  const name = displayName(m);
+  const { phrase } = statusPhrase(m.status);
+  const incidents = summarizeIncidents(m.heartbeat);
+
+  const faqs: Faq[] = [
+    {
+      question: `Is ${name} down right now?`,
+      answer: `As of the last check (${lastCheckedLabel(m.lastChecked)}), ${m.host} ${phrase}. exit1.dev probes it continuously and updates this page automatically.`,
+    },
+    {
+      question: `What is ${name}'s uptime?`,
+      answer: `${m.host} has recorded ${formatUptime(m.stats.uptime30d)} uptime over the last 30 days and ${formatUptime(m.stats.uptime90d)} over the last 90 days, based on exit1.dev's independent monitoring.`,
+    },
+  ];
+
+  if (m.stats.avgResponseMs != null) {
+    faqs.push({
+      question: `What is ${name}'s average response time?`,
+      answer: `${m.host} responds in about ${formatResponse(m.stats.avgResponseMs)} on average over the last 30 days.`,
+    });
+  }
+
+  faqs.push({
+    question: `Has ${name} had any outages recently?`,
+    answer: incidents.totalOutageDays
+      ? `exit1.dev detected downtime on ${incidents.totalOutageDays} ${incidents.totalOutageDays === 1 ? "day" : "days"} in the last 90 days${incidents.lastOutage ? `. The most recent was ${formatDateUTC(incidents.lastOutage.day)}` : ""}.`
+      : `No outages have been detected for ${m.host} in the last 90 days.`,
+  });
+
+  faqs.push({
+    question: `How does exit1.dev measure ${name}'s status?`,
+    answer: `exit1.dev runs automated uptime checks against ${m.host} around the clock from multiple regions, recording status and response time on every probe. The figures here are independent, third-party measurements — not self-reported by ${name}.`,
+  });
+
+  return faqs;
 }

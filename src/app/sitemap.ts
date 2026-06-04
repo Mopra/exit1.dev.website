@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { MetadataRoute } from 'next';
 import { POSTS_PER_PAGE } from '@/lib/blogPagination';
-import { getAllPublicMonitors } from '@/lib/publicMonitors';
+import { getAllPublicMonitors, isIndexEntryMature } from '@/lib/publicMonitors';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://exit1.dev';
@@ -105,7 +105,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Public status pages (curated uptime landing pages). Dynamic segments are
-  // skipped by the filesystem scan above, so add them explicitly.
+  // skipped by the filesystem scan above, so add them explicitly. Only mature
+  // pages (enough recorded history) are listed — thin pages are noindexed and
+  // excluded here so crawl budget isn't spent on near-empty templates.
   const monitors = await getAllPublicMonitors();
   const statusPages = [
     {
@@ -114,11 +116,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
       lastmod: new Date().toISOString(),
     },
-    ...monitors.map((m) => ({
+    ...monitors.filter(isIndexEntryMature).map((m) => ({
       url: `${baseUrl}/status/${m.slug}`,
       changefreq: 'daily' as const,
       priority: 0.6,
-      lastmod: new Date().toISOString(),
+      // Real freshness signal: last time we recorded a check, not "now".
+      lastmod: new Date(m.lastChecked || Date.now()).toISOString(),
     })),
   ];
 
