@@ -2,7 +2,7 @@
 
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { Search, X } from "lucide-react";
+import { Search, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { InsetCard } from "@/components/InsetCard";
@@ -37,20 +37,24 @@ function present(status: string): { label: string; tone: keyof typeof dotTone } 
 
 const SORT_OPTIONS: { value: SortKey; label: string }[] = [
   { value: "worst", label: "Issues first" },
-  { value: "name", label: "Name (A–Z)" },
-  { value: "uptime-desc", label: "Uptime (high → low)" },
-  { value: "uptime-asc", label: "Uptime (low → high)" },
+  { value: "name", label: "Name A–Z" },
+  { value: "uptime-desc", label: "Highest uptime" },
+  { value: "uptime-asc", label: "Lowest uptime" },
   { value: "recent", label: "Recently checked" },
 ];
 
-function StatusPill({
+// One control style for every filter: fixed h-9, rounded-md, text-sm, bordered;
+// active = filled. Keeps status + type filters visually identical and aligned.
+function FilterChip({
   active,
   onClick,
-  children,
+  label,
+  count,
 }: {
   active: boolean;
   onClick: () => void;
-  children: React.ReactNode;
+  label: string;
+  count?: number;
 }) {
   return (
     <button
@@ -58,14 +62,17 @@ function StatusPill({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "rounded-full border px-3 py-1 text-sm transition-colors cursor-pointer interactive",
+        "inline-flex h-9 items-center gap-1.5 rounded-md border px-3 text-sm transition-colors cursor-pointer interactive",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background",
         active
           ? "border-foreground bg-foreground text-background"
           : "border-border text-foreground/70 hover:text-foreground hover:border-foreground/40",
       )}
     >
-      {children}
+      {label}
+      {count !== undefined && (
+        <span className={cn("tabular-nums text-xs", active ? "text-background/60" : "text-foreground/40")}>{count}</span>
+      )}
     </button>
   );
 }
@@ -136,9 +143,9 @@ export function StatusDirectory({ monitors }: { monitors: MonitorIndexEntry[] })
 
   return (
     <div>
-      {/* Controls */}
-      <div className="mb-6 space-y-4">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      {/* Controls: search + sort on top, aligned filter chips below */}
+      <div className="mb-6 space-y-3">
+        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center">
           <div className="relative flex-1">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
             <label htmlFor={searchId} className="sr-only">
@@ -156,13 +163,13 @@ export function StatusDirectory({ monitors }: { monitors: MonitorIndexEntry[] })
                   setQuery("");
                 }
               }}
-              placeholder={`Search ${monitors.length} sites and APIs…  (press /)`}
+              placeholder={`Search ${monitors.length} sites and APIs…`}
               autoComplete="off"
               spellCheck={false}
               aria-controls="status-results"
-              className="h-10 pl-9 pr-9"
+              className="h-9 pl-9 pr-9"
             />
-            {query && (
+            {query ? (
               <button
                 type="button"
                 onClick={() => {
@@ -174,28 +181,14 @@ export function StatusDirectory({ monitors }: { monitors: MonitorIndexEntry[] })
               >
                 <X className="h-4 w-4" />
               </button>
+            ) : (
+              <kbd className="pointer-events-none absolute right-2.5 top-1/2 hidden -translate-y-1/2 rounded border border-border px-1.5 font-sans text-xs text-muted-foreground sm:block">
+                /
+              </kbd>
             )}
           </div>
 
-          <div className="flex items-center gap-2">
-            {showTypeFilter && (
-              <div className="flex rounded-md border border-border p-0.5" role="group" aria-label="Filter by type">
-                {(["all", "website", "api"] as TypeFilter[]).map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    onClick={() => setType(t)}
-                    aria-pressed={type === t}
-                    className={cn(
-                      "rounded px-2.5 py-1 text-xs transition-colors cursor-pointer interactive",
-                      type === t ? "bg-foreground text-background" : "text-foreground/70 hover:text-foreground",
-                    )}
-                  >
-                    {t === "all" ? "All" : t === "website" ? "Websites" : "APIs"}
-                  </button>
-                ))}
-              </div>
-            )}
+          <div className="relative shrink-0">
             <label htmlFor={`${searchId}-sort`} className="sr-only">
               Sort monitors
             </label>
@@ -203,24 +196,38 @@ export function StatusDirectory({ monitors }: { monitors: MonitorIndexEntry[] })
               id={`${searchId}-sort`}
               value={sortKey}
               onChange={(e) => setSortKey(e.target.value as SortKey)}
-              className="h-10 cursor-pointer rounded-md border border-input bg-transparent px-3 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="h-9 w-full cursor-pointer appearance-none rounded-md border border-input bg-transparent pl-3 pr-8 text-sm text-foreground outline-none transition-colors hover:border-foreground/40 focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-primary sm:w-52"
             >
               {SORT_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value} className="bg-background text-foreground">
-                  {o.label}
+                  Sort: {o.label}
                 </option>
               ))}
             </select>
+            <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by status">
-          {statusPills.map((p) => (
-            <StatusPill key={p.key} active={status === p.key} onClick={() => setStatus(p.key)}>
-              {p.label}
-              <span className="ml-1.5 tabular-nums text-foreground/40">{p.count}</span>
-            </StatusPill>
-          ))}
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by status">
+            {statusPills.map((p) => (
+              <FilterChip key={p.key} active={status === p.key} onClick={() => setStatus(p.key)} label={p.label} count={p.count} />
+            ))}
+          </div>
+          {showTypeFilter && (
+            <>
+              <span className="mx-1 hidden h-5 w-px self-center bg-border sm:block" aria-hidden="true" />
+              <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by type">
+                {([
+                  { key: "all", label: "All types" },
+                  { key: "website", label: "Websites" },
+                  { key: "api", label: "APIs" },
+                ] as { key: TypeFilter; label: string }[]).map((t) => (
+                  <FilterChip key={t.key} active={type === t.key} onClick={() => setType(t.key)} label={t.label} />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
