@@ -89,3 +89,83 @@ export function formatResponse(ms: number | null): string {
   if (ms == null) return "—";
   return `${Math.round(ms)} ms`;
 }
+
+/** Coarse health bucket used for counts, the summary bar, and worst-first sort. */
+export type StatusClass = "operational" | "down" | "degraded" | "other";
+
+export function classifyStatus(status: string): StatusClass {
+  const s = status.toLowerCase();
+  if (s === "online" || s === "up") return "operational";
+  if (s === "offline" || s === "down") return "down";
+  if (s === "degraded") return "degraded";
+  return "other"; // disabled / paused / unknown
+}
+
+/** Coarse type bucket for the Websites vs APIs filter. */
+export function classifyType(type: string): "api" | "website" {
+  return /rest|api/i.test(type) ? "api" : "website";
+}
+
+export type SortKey = "worst" | "name" | "uptime-desc" | "uptime-asc" | "recent";
+
+// Surface problems first: down → degraded → other → operational.
+const STATUS_RANK: Record<StatusClass, number> = { down: 0, degraded: 1, other: 2, operational: 3 };
+
+const byName = (a: MonitorIndexEntry, b: MonitorIndexEntry) => a.host.localeCompare(b.host);
+// Nulls always sort last regardless of direction.
+const cmpUptime = (a: MonitorIndexEntry, b: MonitorIndexEntry, dir: 1 | -1) => {
+  const av = a.uptime30d;
+  const bv = b.uptime30d;
+  if (av == null && bv == null) return 0;
+  if (av == null) return 1;
+  if (bv == null) return -1;
+  return (av - bv) * dir;
+};
+
+/** Comparator factory backed entirely by real index fields. */
+export function makeComparator(sortKey: SortKey): (a: MonitorIndexEntry, b: MonitorIndexEntry) => number {
+  switch (sortKey) {
+    case "name":
+      return byName;
+    case "uptime-desc":
+      return (a, b) => cmpUptime(a, b, -1) || byName(a, b);
+    case "uptime-asc":
+      return (a, b) => cmpUptime(a, b, 1) || byName(a, b);
+    case "recent":
+      return (a, b) => (b.lastChecked || 0) - (a.lastChecked || 0) || byName(a, b);
+    case "worst":
+    default:
+      return (a, b) =>
+        STATUS_RANK[classifyStatus(a.status)] - STATUS_RANK[classifyStatus(b.status)] ||
+        cmpUptime(a, b, 1) ||
+        byName(a, b);
+  }
+}
+
+/** Tailwind text class coloring an uptime number by health (green is reserved for status dots). */
+export function uptimeColorClass(pct: number | null): string {
+  if (pct == null) return "text-muted-foreground";
+  if (pct >= 99.9) return "text-foreground/70";
+  if (pct >= 99) return "text-foreground";
+  if (pct >= 95) return "text-amber-500";
+  return "text-red-500";
+}
+
+/** Tailwind bg class for the proportional uptime bar. */
+export function uptimeBarClass(pct: number | null): string {
+  if (pct == null) return "bg-transparent";
+  if (pct >= 99) return "bg-foreground/25";
+  if (pct >= 95) return "bg-amber-500/60";
+  return "bg-red-500/70";
+}
+
+/** Compact relative "last checked" label, e.g. "3 min ago". */
+export function lastCheckedLabel(ms: number, now: number = Date.now()): string {
+  if (!ms) return "—";
+  const mins = Math.round((now - ms) / 60000);
+  if (mins < 1) return "just now";
+  if (mins < 60) return `${mins} min ago`;
+  const hrs = Math.round(mins / 60);
+  if (hrs < 24) return `${hrs} hr ago`;
+  return `${Math.round(hrs / 24)} d ago`;
+}
