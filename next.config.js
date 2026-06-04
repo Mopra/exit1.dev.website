@@ -40,6 +40,8 @@ const nextConfig = {
       { source: '/blog/beyond-uptime-monitoring-guide', destination: '/blog', permanent: true },
       // Live Checks rebrand — consolidate /real-time-monitoring into /live-checks
       { source: '/real-time-monitoring', destination: '/live-checks', permanent: true },
+      // /why-nano reframed as /why-upgrade to cover Nano, Pro, and Agency
+      { source: '/why-nano', destination: '/why-upgrade', permanent: true },
     ];
   },
 };
