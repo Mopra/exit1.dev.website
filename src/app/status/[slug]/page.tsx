@@ -142,6 +142,13 @@ export default async function MonitorStatusPage({
     description: `Independently measured uptime percentage and response time for ${monitor.host}, recorded continuously by exit1.dev over a rolling 90-day window.`,
     url: `https://exit1.dev/status/${monitor.slug}`,
     isAccessibleForFree: true,
+    // CC BY 4.0: data is free to reuse with attribution to exit1.dev. Required by
+    // Google's Dataset guidelines (the "Missing field license" Search Console warning).
+    license: {
+      "@type": "CreativeWork",
+      name: "Creative Commons Attribution 4.0",
+      url: "https://creativecommons.org/licenses/by/4.0/",
+    },
     creator: { "@type": "Organization", name: "exit1.dev", url: "https://exit1.dev" },
     variableMeasured: ["Uptime percentage", "Average response time (ms)"],
     measurementTechnique: "Automated HTTP uptime monitoring",
