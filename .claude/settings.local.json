@@ -125,7 +125,21 @@
       "Bash(awk '{s+=$5; printf \"%.1f MB  %s\\\\n\", $5/1048576, $9} END{printf \"TOTAL unused originals: %.0f MB\\\\n\", s/1048576}')",
       "Bash(git check-ignore *)",
       "Bash(echo \"\\(exit $?\\)\")",
-      "Bash(git -c core.quotepath=false status --short src/components/home src/components/getting-started)"
+      "Bash(git -c core.quotepath=false status --short src/components/home src/components/getting-started)",
+      "Bash(git rev-list *)",
+      "Bash(echo \"ancestor-exit: $?\")",
+      "Bash(git merge *)",
+      "Bash(git switch *)",
+      "Bash(gh pr *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(findstr /I \"DISCORD\")",
+      "Bash(findstr /I /N \"images remotePatterns domains discordapp\" next.config.js)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\(JSON.stringify\\(p.scripts,null,0\\)\\); console.log\\('next:',p.dependencies.next, '| react:', p.dependencies.react\\)\")",
+      "PowerShell($conns = Get-NetTCPConnection -LocalPort 3939 -State Listen -ErrorAction SilentlyContinue; if \\($conns\\) { $conns | Select-Object -Expand OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force }; \"killed listener\\(s\\) on 3939\" } else { \"port 3939 free\" })",
+      "Bash(git --no-pager diff --stat HEAD)",
+      "Bash(git restore *)",
+      "Bash(git --no-pager diff .claude/settings.local.json)"
     ]
   }
 }
