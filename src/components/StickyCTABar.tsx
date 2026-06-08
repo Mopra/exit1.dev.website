@@ -13,8 +13,11 @@ const DISMISS_KEY = "exit1_cta_bar_dismissed_at";
 const DISMISS_DAYS = 14;
 // Only appear once the visitor has engaged a little (scrolled past the hero).
 const SCROLL_THRESHOLD = 480;
-// Excluded routes: the home page already sells, and the auth pages are redundant.
-const HIDDEN_PATHS = new Set(["/", "/signin", "/signup"]);
+// Retract near the page bottom so the bar never stacks on the dedicated CTA
+// sections (homepage ClosingCTA, the "Start Free" card at the foot of each tool).
+const BOTTOM_OFFSET = 600;
+// Excluded routes: the auth pages are redundant (signup is already underway there).
+const HIDDEN_PATHS = new Set(["/signin", "/signup"]);
 
 // Dark tokens scoped to the bar, mirroring CookieBanner/Footer — this component
 // mounts at layout level, so scoping guarantees it looks right on every page
@@ -32,6 +35,7 @@ export default function StickyCTABar() {
   const pathname = usePathname();
   const { showBanner } = useCookieConsent();
   const [scrolledPast, setScrolledPast] = useState(false);
+  const [nearBottom, setNearBottom] = useState(false);
   // Start hidden until we've read storage — avoids a flash on first paint.
   const [dismissed, setDismissed] = useState(true);
 
@@ -50,10 +54,20 @@ export default function StickyCTABar() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolledPast(window.scrollY > SCROLL_THRESHOLD);
+    const onScroll = () => {
+      setScrolledPast(window.scrollY > SCROLL_THRESHOLD);
+      setNearBottom(
+        window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - BOTTOM_OFFSET
+      );
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   const handleDismiss = () => {
@@ -69,7 +83,7 @@ export default function StickyCTABar() {
   // (avoids a bottom-left collision), or once dismissed.
   if (HIDDEN_PATHS.has(pathname ?? "") || dismissed || showBanner) return null;
 
-  const visible = scrolledPast;
+  const visible = scrolledPast && !nearBottom;
 
   return (
     <div
