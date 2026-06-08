@@ -8,6 +8,7 @@ import { AIReady } from "@/components/home/AIReady";
 import { SignalStatement } from "@/components/home/SignalStatement";
 import { Integrations } from "@/components/home/Integrations";
 import { Testimonials } from "@/components/Testimonials";
+import { CommunityProof } from "@/components/home/CommunityProof";
 import { ClosingCTA } from "@/components/home/ClosingCTA";
 
 export default function HomePage() {
@@ -36,6 +37,7 @@ export default function HomePage() {
       <SignalStatement />
       <Integrations />
       <Testimonials />
+      <CommunityProof />
       <ClosingCTA />
     </>
   );

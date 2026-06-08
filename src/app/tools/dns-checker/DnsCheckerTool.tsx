@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ToolResultCTA } from "@/components/tools/ToolResultCTA";
 
 // ── Types ────────────────────────────────────────────────────────────
 
@@ -593,6 +594,32 @@ export default function DnsCheckerTool() {
         <div className="mt-6 space-y-4">
           {/* Grade Badge */}
           <GradeBadge result={result} />
+
+          {/* Conversion CTA — result-aware */}
+          {(() => {
+            const domain = result.domain;
+            const issues = result.issues?.length ?? 0;
+            if (issues > 0) {
+              return (
+                <ToolResultCTA
+                  campaign="dns_checker"
+                  target={domain}
+                  tone="alert"
+                  headline={`${issues} DNS issue${issues > 1 ? "s" : ""} found on ${domain}`}
+                  subline="DNS and email-security gaps cause silent outages and spoofing. exit1 monitors your domain and alerts you when uptime or records change."
+                />
+              );
+            }
+            return (
+              <ToolResultCTA
+                campaign="dns_checker"
+                target={domain}
+                tone="positive"
+                headline={`${domain}'s DNS looks healthy`}
+                subline="Catch the next change before your users do. exit1 monitors uptime, SSL and domain expiry 24/7 — free."
+              />
+            );
+          })()}
 
           {/* Address Records */}
           <SectionCard

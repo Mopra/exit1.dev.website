@@ -49,6 +49,8 @@ This is not a bug in the formula. This is the formula.
 
 A while ago GitHub also quietly stopped publishing aggregate uptime numbers on the page itself. Independent projects like Marek Šuppa's "Missing GitHub Status Page" exist for exactly this reason — somebody had to reconstruct what the official page no longer wants to summarize. When a public company maintains a status page and then removes the part that compresses the truth into a single number, that's a tell. You don't take down a scoreboard you're proud of.
 
+We keep our own running scoreboard for exactly this: a [live, independent status page for github.com](/status/github.com) that records real 30- and 90-day uptime and a rolling outage history, measured from outside, with no incentive to round the number up.
+
 ## The detection lag
 
 There's a smaller, less discussed problem on top of the math: GitHub is not always the first to notice GitHub is broken.

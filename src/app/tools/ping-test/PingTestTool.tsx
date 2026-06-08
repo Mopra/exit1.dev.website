@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ToolResultCTA } from "@/components/tools/ToolResultCTA";
 
 interface PingEntry {
   seq: number;
@@ -699,6 +700,44 @@ export default function PingTestTool() {
                   </div>
                 </div>
               </div>
+            );
+          })()}
+
+          {/* Conversion CTA — result-aware */}
+          {(() => {
+            const host = result.host;
+            const isDown = result.stats.received === 0;
+            const hasLoss = result.stats.lossPercent > 0;
+            if (isDown) {
+              return (
+                <ToolResultCTA
+                  campaign="ping_test"
+                  target={host}
+                  tone="alert"
+                  headline={`${host} is unreachable`}
+                  subline="If it's down for you, it may be down for your users. exit1 probes it every 2 minutes and alerts you the second it drops."
+                />
+              );
+            }
+            if (hasLoss) {
+              return (
+                <ToolResultCTA
+                  campaign="ping_test"
+                  target={host}
+                  tone="alert"
+                  headline={`${host} is dropping ${result.stats.lossPercent}% of packets`}
+                  subline="Packet loss means a flaky connection your users feel. exit1 tracks reachability and latency 24/7 and alerts you on trouble."
+                />
+              );
+            }
+            return (
+              <ToolResultCTA
+                campaign="ping_test"
+                target={host}
+                tone="positive"
+                headline={`${host} is reachable`}
+                subline="Catch the next outage before your users do. exit1 monitors uptime and latency around the clock — free."
+              />
             );
           })()}
 

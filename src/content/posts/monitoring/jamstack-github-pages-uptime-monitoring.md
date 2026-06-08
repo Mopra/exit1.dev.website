@@ -48,6 +48,8 @@ Configure webhooks for PagerDuty or Opsgenie, keep a Slack channel for the marke
 
 GitHub Pages sometimes lags after new commits. Set monitors for the CDN endpoint and the `*.github.io` domain. If the custom domain fails, you’ll see it.
 
+GitHub Pages also rides on GitHub's own infrastructure, so when your site misbehaves it's worth ruling out an upstream problem first. We track [github.com's live status and uptime](/status/github.com) independently, so you can tell a GitHub-wide incident apart from something in your own build.
+
 Use keyword validation to make sure the new Markdown made it to production. Add monitors for the sitemap and RSS feed so search traffic doesn’t quietly die.
 
 ## Netlify, Vercel, Cloudflare Pages

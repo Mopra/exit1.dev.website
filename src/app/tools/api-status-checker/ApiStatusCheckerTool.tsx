@@ -30,6 +30,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ToolResultCTA } from "@/components/tools/ToolResultCTA";
+import { hostFromUrl } from "@/lib/cta";
 
 interface CorsInfo {
   allowOrigin?: string;
@@ -634,6 +636,34 @@ export default function ApiStatusCheckerTool() {
                   </div>
                 </div>
               </div>
+            );
+          })()}
+
+          {/* Conversion CTA — result-aware */}
+          {(() => {
+            const host = hostFromUrl(result.url);
+            const isDown = result.status === "down" || result.status === "error";
+            if (isDown) {
+              return (
+                <ToolResultCTA
+                  campaign="api_status_checker"
+                  target={result.url}
+                  tone="alert"
+                  headline={`${host} is not responding`}
+                  subline="A dead endpoint breaks everything downstream. exit1 checks your API every 2 minutes and alerts you the moment it fails."
+                  ctaLabel="Monitor this API free"
+                />
+              );
+            }
+            return (
+              <ToolResultCTA
+                campaign="api_status_checker"
+                target={result.url}
+                tone="positive"
+                headline={`${host} is responding`}
+                subline="Know the instant it stops. exit1 monitors your API 24/7 with status, latency and payload checks — and alerts on failure."
+                ctaLabel="Monitor this API free"
+              />
             );
           })()}
 

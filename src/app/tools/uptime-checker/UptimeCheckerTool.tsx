@@ -30,6 +30,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ToolResultCTA } from "@/components/tools/ToolResultCTA";
+import { hostFromUrl } from "@/lib/cta";
 
 /* ------------------------------------------------------------------ */
 /*  Types (mirror API response)                                        */
@@ -626,6 +628,55 @@ export default function UptimeCheckerTool() {
                   </div>
                 </div>
               </div>
+            );
+          })()}
+
+          {/* Conversion CTA — result-aware */}
+          {(() => {
+            const host = hostFromUrl(result.url);
+            const grades = [
+              result.dnsGrade,
+              result.sslGrade,
+              result.redirectGrade,
+              result.responseGrade,
+              result.performanceGrade,
+              result.securityGrade,
+              result.contentGrade,
+            ].filter(Boolean) as CategoryGrade[];
+            const issues = grades.filter(
+              (g) => !g.grade.startsWith("A") && g.grade !== "B"
+            ).length;
+
+            if (!result.isUp) {
+              return (
+                <ToolResultCTA
+                  campaign="uptime_checker"
+                  target={result.url}
+                  tone="alert"
+                  headline={`${host} is down right now`}
+                  subline="Don't hear about it from your customers first. exit1 re-checks every 2 minutes and alerts you the second it drops — and when it's back."
+                />
+              );
+            }
+            if (issues > 0) {
+              return (
+                <ToolResultCTA
+                  campaign="uptime_checker"
+                  target={result.url}
+                  tone="alert"
+                  headline={`${issues} issue${issues > 1 ? "s" : ""} found on ${host}`}
+                  subline="exit1 watches your uptime, SSL, response time and more 24/7 — and alerts you the moment any of it breaks."
+                />
+              );
+            }
+            return (
+              <ToolResultCTA
+                campaign="uptime_checker"
+                target={result.url}
+                tone="positive"
+                headline={`${host} looks healthy`}
+                subline="Keep it that way. exit1 monitors it around the clock and pings you the moment anything changes."
+              />
             );
           })()}
 

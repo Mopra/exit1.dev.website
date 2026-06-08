@@ -147,7 +147,7 @@ Some practical changes I would make if I were running a team that depends heavil
 6. Rotate GitHub, npm, cloud, SSH, and password-manager-derived credentials after any suspected workstation compromise.
 7. Audit what secrets are actually reachable from a normal developer laptop.
 8. Keep customer data, support excerpts, logs, and screenshots out of internal repos by default.
-9. Monitor your critical vendors and internal systems externally, because official green lights are always late and always political.
+9. Monitor your critical vendors and internal systems externally, because official green lights are always late and always political — it's the same reason we publish a [live, independent status page for github.com](/status/github.com), measured from outside.
 10. Build muscle for boring incident response before the interesting incident arrives.
 
 None of this is glamorous. That is the point.

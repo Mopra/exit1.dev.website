@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ToolResultCTA } from "@/components/tools/ToolResultCTA";
 import { useSearchParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 
@@ -526,6 +527,45 @@ export default function SSLCheckerTool() {
               </div>
             </div>
           </div>
+
+          {/* Conversion CTA — result-aware */}
+          {(() => {
+            const host = result.hostname;
+            if (!result.valid) {
+              return (
+                <ToolResultCTA
+                  campaign="ssl_checker"
+                  target={host}
+                  tone="alert"
+                  headline={`${host} has an SSL problem`}
+                  subline="An invalid or untrusted certificate blocks every visitor. exit1 tracks your cert and warns you long before it fails."
+                  ctaLabel="Monitor SSL free"
+                />
+              );
+            }
+            if (result.daysUntilExpiry != null && result.daysUntilExpiry <= 30) {
+              return (
+                <ToolResultCTA
+                  campaign="ssl_checker"
+                  target={host}
+                  tone="alert"
+                  headline={`${host}'s certificate expires in ${result.daysUntilExpiry} days`}
+                  subline="Don't let an expired cert take your site down. exit1 alerts you weeks ahead — and monitors uptime too."
+                  ctaLabel="Monitor SSL free"
+                />
+              );
+            }
+            return (
+              <ToolResultCTA
+                campaign="ssl_checker"
+                target={host}
+                tone="positive"
+                headline={`${host}'s SSL is valid`}
+                subline="Get alerted weeks before it expires — and the moment your site goes down. exit1 watches both, free."
+                ctaLabel="Monitor SSL free"
+              />
+            );
+          })()}
 
           {/* Grade Breakdown */}
           {result.gradeReasons && result.gradeReasons.length > 0 && (

@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ToolResultCTA } from "@/components/tools/ToolResultCTA";
+import { hostFromUrl } from "@/lib/cta";
 import { useSearchParams, useRouter } from "next/navigation";
 
 interface RedirectHop {
@@ -466,6 +468,33 @@ export default function RedirectCheckerTool() {
               </div>
             </div>
           </div>
+
+          {/* Conversion CTA — result-aware */}
+          {(() => {
+            const host = hostFromUrl(result.inputUrl);
+            const target = result.finalUrl || result.inputUrl;
+            const broken = !!result.error || result.finalStatusCode >= 400;
+            if (broken) {
+              return (
+                <ToolResultCTA
+                  campaign="redirect_checker"
+                  target={target}
+                  tone="alert"
+                  headline={`${host}'s redirect ends in an error`}
+                  subline="A broken redirect quietly loses traffic and rankings. exit1 follows your URLs 24/7 and alerts you when one breaks."
+                />
+              );
+            }
+            return (
+              <ToolResultCTA
+                campaign="redirect_checker"
+                target={target}
+                tone="positive"
+                headline={`${host}'s redirects resolve cleanly`}
+                subline="Get alerted if a redirect ever breaks or your site goes down. exit1 watches the whole chain 24/7 — free."
+              />
+            );
+          })()}
 
           {/* Redirect Chain */}
           <SectionCard title={`Redirect Chain (${result.chain.length} step${result.chain.length !== 1 ? "s" : ""})`}>
