@@ -67,6 +67,15 @@ export async function generateMetadata({
       type: "website",
       url: `https://exit1.dev/status/${monitor.slug}`,
     },
+    // Without an explicit twitter block the page inherits the root layout's
+    // default card (generic title + logo). Setting it here makes X/social use
+    // the per-monitor copy; title/description/image auto-fill from openGraph,
+    // where the dynamic opengraph-image.tsx supplies the image.
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
     alternates: {
       canonical: `https://exit1.dev/status/${monitor.slug}`,
     },

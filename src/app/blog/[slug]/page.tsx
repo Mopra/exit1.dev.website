@@ -44,6 +44,13 @@ export async function generateMetadata({
       authors: [post.author],
       url: `https://exit1.dev/blog/${post.slug}`,
     },
+    // Mirror onto the twitter card so X uses the post copy + generated image
+    // instead of inheriting the root layout's default card.
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+    },
     alternates: {
       canonical: `https://exit1.dev/blog/${post.slug}`,
     },
