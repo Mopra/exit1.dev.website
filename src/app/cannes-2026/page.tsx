@@ -1,0 +1,235 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { SectionContent } from "@/components/PageLayout";
+import { Eyebrow } from "@/components/home/Eyebrow";
+import { Reveal } from "@/components/home/Reveal";
+import { RequestInvitationForm } from "@/components/cannes/RequestInvitationForm";
+import { CannesSlider } from "@/components/cannes/CannesSlider";
+
+const cannesImages = [
+  "/cannes/0075ea8f-e6fc-47d8-b7ab-3b18e5bc2da7.avif",
+  "/cannes/6ca07889-bbe3-4422-aa20-a8001f1518dc.avif",
+  "/cannes/9dd57b6c-ceae-428a-9ddb-5d472e821ef4.avif",
+];
+
+const title = "Monitoring Summit Cannes 2026 | exit1.dev";
+const description =
+  "Join exit1 at the Monitoring Summit, Cannes 2026. Four days of ideas, real conversations, and the people building what comes next. Request your invitation.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: {
+    canonical: "https://exit1.dev/cannes-2026",
+  },
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    url: "https://exit1.dev/cannes-2026",
+    siteName: "Exit1.dev",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
+};
+
+const schedule = [
+  { date: "June 22", day: "Monday", hours: "11:00 AM – 4:00 PM" },
+  { date: "June 23", day: "Tuesday", hours: "11:00 AM – 4:00 PM" },
+  { date: "June 24", day: "Wednesday", hours: "11:00 AM – 5:00 PM" },
+  { date: "June 25", day: "Thursday", hours: "10:00 AM – 5:00 PM" },
+];
+
+export default function CannesSummitPage() {
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Hero — full-bleed background */}
+      <section className="relative isolate overflow-hidden">
+          {/* Cannes skyline photo blended with the brand aurora wash */}
+          <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+            <Image
+              src="/cannes-lions-hero.png"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[center_35%] opacity-90"
+            />
+            {/* Fade only the lower edge into the page background so the photo stays
+                vivid up top while the collage below still blends in */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/25 to-background" />
+          </div>
+
+          <SectionContent size="lg" className="px-4 py-36 text-center sm:py-52">
+            <Reveal>
+              <Eyebrow className="justify-center text-foreground">
+                Join us at
+              </Eyebrow>
+            </Reveal>
+
+            <Reveal delay={0.05}>
+              <h1 className="mt-3 text-[2.75rem] font-bold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
+                Monitoring Summit
+                <br />
+                <span className="text-foreground">Cannes 2026</span>
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground sm:text-xl">
+                4 days of ideas, real conversations, and the people building
+                what comes next.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <div className="mt-10">
+                <RequestInvitationForm />
+              </div>
+            </Reveal>
+          </SectionContent>
+      </section>
+
+      {/* Off-stage collage — headline + intro over a scattered bento of stats,
+          a photo, and the homepage data-stream line. */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+        {/* Heading row */}
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+          <Reveal className="lg:col-span-7">
+            <h2 className="text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
+              Where the most important conversations in the industry happen off
+              stage.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.08} className="lg:col-span-4 lg:col-start-9 lg:pt-2">
+            <p className="text-base leading-relaxed text-muted-foreground">
+              The Monitoring Summit brings together the people responsible for
+              keeping the industry moving. Four days of closed sessions, private
+              conversations, and the ideas that don&apos;t make it onto the main
+              stage.
+            </p>
+          </Reveal>
+        </div>
+
+        {/* Scatter: left stat · center photo+stat · right stat+video */}
+        <div className="mt-16 grid grid-cols-1 items-center gap-12 sm:mt-20 lg:grid-cols-3 lg:grid-rows-2 lg:gap-x-10 lg:gap-y-16">
+          {/* $5B+ — left column, vertically centered across both rows */}
+          <Reveal className="text-center lg:row-span-2 lg:self-center lg:text-left">
+            <div className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+              $5B+
+            </div>
+            <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">
+              worth of assets monitored
+            </div>
+          </Reveal>
+
+          {/* Photo — center, top. Crossfade slider through the Cannes shots. */}
+          <Reveal delay={0.05} className="lg:col-start-2 lg:row-start-1">
+            <CannesSlider images={cannesImages} />
+          </Reveal>
+
+          {/* 4 Days — right, top */}
+          <Reveal delay={0.1} className="text-center lg:col-start-3 lg:row-start-1">
+            <div className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+              4 Days
+            </div>
+            <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">
+              of curated programming
+            </div>
+          </Reveal>
+
+          {/* 99.99% — center, bottom */}
+          <Reveal delay={0.05} className="text-center lg:col-start-2 lg:row-start-2">
+            <div className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+              99.99%
+            </div>
+            <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">
+              platform availability
+            </div>
+          </Reveal>
+
+          {/* Data-stream line — right, bottom. The homepage "always on" motif. */}
+          <Reveal delay={0.1} className="lg:col-start-3 lg:row-start-2">
+            <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40">
+              <video
+                className="h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/exit1-data-stream-line.jpg"
+                aria-hidden="true"
+              >
+                <source src="/exit1-data-stream-line.webm" type="video/webm" />
+                <source src="/exit1-data-stream-line.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Details card */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionContent size="lg" className="py-16">
+            <Reveal>
+              <div className="rounded-3xl bg-[#6366F1] p-8 text-white sm:p-12">
+                <span className="inline-flex items-center font-mono text-xs uppercase tracking-[0.2em] text-white/80">
+                  Schedule
+                </span>
+                <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
+                  Four days in Cannes, France.
+                </h2>
+                <p className="mt-3 max-w-2xl text-white/80">
+                  Your infrastructure stays up because exit1 never sleeps. For
+                  four days in Cannes, the teams keeping it that way get a room
+                  of their own.
+                </p>
+
+                <dl className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                  {schedule.map((slot) => (
+                    <div key={slot.date}>
+                      <dt className="text-xl font-bold tracking-tight text-white">
+                        {slot.date}
+                      </dt>
+                      <dd className="mt-1 text-base text-white/80">
+                        {slot.day}
+                      </dd>
+                      <dd className="mt-4 font-mono text-sm tracking-tight text-white/70">
+                        {slot.hours}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </Reveal>
+          </SectionContent>
+      </section>
+
+      {/* Closing CTA — request invite again */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionContent size="md" className="py-24 text-center sm:py-28">
+            <Reveal>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                Request your invitation.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+                Seats are limited. Add your email and we&apos;ll send you the
+                details.
+              </p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <div className="mt-10">
+                <RequestInvitationForm />
+              </div>
+            </Reveal>
+          </SectionContent>
+      </section>
+    </div>
+  );
+}

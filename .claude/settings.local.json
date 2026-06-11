@@ -153,7 +153,11 @@
       "PowerShell(npm run build)",
       "PowerShell($r = Invoke-WebRequest \"https://exit1.dev/status/ahrefs.com/opengraph-image\" -UseBasicParsing -Method Head; $r.Headers.GetEnumerator\\(\\) | Where-Object { $_.Key -match 'cache|age|vercel' } | ForEach-Object { \"$\\($_.Key\\): $\\($_.Value\\)\" })",
       "Skill(commit-commands:commit)",
-      "Skill(commit-commands:commit:*)"
+      "Skill(commit-commands:commit:*)",
+      "PowerShell(git push)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\morte\\Documents\\Github\\exit1\\exit1.dev.website\\.git"
     ]
   }
 }
