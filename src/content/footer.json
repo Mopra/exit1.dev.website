@@ -37,6 +37,7 @@
     ],
     "legal": [
       { "name": "Privacy Policy", "href": "/privacy" },
+      { "name": "Terms of Service", "href": "https://app.exit1.dev/terms" },
       { "name": "Sitemap", "href": "/site-map" },
       { "name": "About", "href": "/about" },
       { "name": "Cookie Settings", "href": "#cookie-settings" }

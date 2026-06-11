@@ -18,8 +18,8 @@ const CAPABILITIES: Capability[] = [
   {
     n: '02',
     title: 'Watched from both sides of the Atlantic.',
-    body: 'Probes fire from the US and EU on two-minute intervals, so a regional outage looks like a regional outage — not a false alarm from a single vantage point.',
-    meta: ['US', 'EU', '2-min checks'],
+    body: 'Probes can run from both the US and EU, so a regional outage looks like a regional outage — not a false alarm from a single vantage point.',
+    meta: ['US', 'EU', 'Multi-region'],
   },
   {
     n: '03',
@@ -30,8 +30,8 @@ const CAPABILITIES: Capability[] = [
   {
     n: '04',
     title: 'A status page without the design ticket.',
-    body: 'Drag-and-drop builder, real-time updates, 30-day history, and your own domain. Show customers you are up in a few minutes, not a sprint.',
-    meta: ['Real-time', 'Custom domain', '30-day history'],
+    body: 'Drag-and-drop builder, real-time updates, uptime history, and your own domain. Show customers you are up in a few minutes, not a sprint.',
+    meta: ['Real-time', 'Custom domain', 'Uptime history'],
   },
 ];
 

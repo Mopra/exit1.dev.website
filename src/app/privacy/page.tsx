@@ -93,6 +93,25 @@ const Privacy = () => {
 
                 <InsetCard className="mb-8">
                   <CardContent className="p-8">
+                    <h2 className="text-2xl font-bold text-foreground mb-4 tracking-tight">SMS Text Messaging</h2>
+                    <p className="text-foreground/70 mb-4">
+                      If you opt in to SMS alerts by adding your phone number on the SMS Settings page in our app
+                      (app.exit1.dev/sms), we send you automated text messages related to your website monitoring
+                      configuration, such as site down/up notifications, SSL certificate warnings, and domain expiry alerts.
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 text-foreground/70">
+                      <li><strong>Opt-in:</strong> SMS alerts are strictly opt-in. You receive messages only after you add your phone number and enable SMS notifications for your own checks.</li>
+                      <li><strong>Frequency:</strong> Message frequency varies based on your alert configuration and the status of your monitored sites, and is subject to hourly and monthly limits.</li>
+                      <li><strong>Costs:</strong> Message and data rates may apply.</li>
+                      <li><strong>Opt-out:</strong> Reply STOP to any message to unsubscribe at any time. You can also remove your phone number or disable SMS alerts in your account settings.</li>
+                      <li><strong>Help:</strong> Reply HELP to any message, or contact us at connect@exit1.dev.</li>
+                      <li><strong>No sharing:</strong> No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</li>
+                    </ul>
+                  </CardContent>
+                </InsetCard>
+
+                <InsetCard className="mb-8">
+                  <CardContent className="p-8">
                     <h2 className="text-2xl font-bold text-foreground mb-4 tracking-tight">Data Security</h2>
                     <p className="text-foreground/70 mb-4">
                       We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.

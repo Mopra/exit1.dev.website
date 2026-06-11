@@ -17,11 +17,11 @@ const NATIVE: Channel[] = [
   { name: 'Webhooks', icon: Webhook },
 ];
 
-const VIA_WEBHOOK: { name: string; src: string }[] = [
+const BUILT_IN: { name: string; src?: string }[] = [
   { name: 'PagerDuty', src: '/integrations/pagerduty.svg' },
   { name: 'Opsgenie', src: '/integrations/opsgenie.svg' },
-  { name: 'Telegram', src: '/integrations/telegram.svg' },
-  { name: 'Zapier', src: '/integrations/zapier.svg' },
+  { name: 'Pushover' },
+  { name: 'Pumble' },
 ];
 
 const maskStyle = (src: string): CSSProperties => ({
@@ -38,8 +38,8 @@ const maskStyle = (src: string): CSSProperties => ({
 /**
  * Alert destinations. A live lock-screen phone shows alerts actually landing
  * (SMS, Slack, Discord), while the channel grid lists the full set. Logos are
- * tinted to the foreground for a calm, uniform look; native channels lead and
- * everything else reaches you through webhooks.
+ * tinted to the foreground for a calm, uniform look; native channels lead,
+ * built-in integrations follow, and anything webhook-compatible still works.
  */
 export function Integrations() {
   return (
@@ -101,21 +101,27 @@ export function Integrations() {
 
               <div className="mt-10">
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  Also via webhooks
+                  Built-in integrations
                 </span>
                 <ul className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-4">
-                  {VIA_WEBHOOK.map((ch) => (
+                  {BUILT_IN.map((ch) => (
                     <li key={ch.name} className="flex items-center gap-2.5">
-                      <span
-                        role="img"
-                        aria-label={ch.name}
-                        className="block h-5 w-5 bg-foreground/45 transition-colors duration-300 hover:bg-foreground/80"
-                        style={maskStyle(ch.src)}
-                      />
+                      {ch.src && (
+                        <span
+                          role="img"
+                          aria-label={ch.name}
+                          className="block h-5 w-5 bg-foreground/45 transition-colors duration-300 hover:bg-foreground/80"
+                          style={maskStyle(ch.src)}
+                        />
+                      )}
                       <span className="text-sm text-muted-foreground">{ch.name}</span>
                     </li>
                   ))}
                 </ul>
+                <p className="mt-4 text-sm text-muted-foreground/80">
+                  Plus any webhook-compatible tool, including Zapier and Telegram
+                  bridges.
+                </p>
               </div>
             </Reveal>
           </div>

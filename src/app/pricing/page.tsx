@@ -193,7 +193,7 @@ const PricingPage = () => {
               <h2 className="text-2xl font-bold mb-4">Questions?</h2>
               <p className="text-foreground/70 mb-6 max-w-xl mx-auto">
                 The Free plan is genuinely free — no credit card, no trial period.
-                Save 25% on any paid plan with annual billing. Cancel or change plans anytime.
+                Save ~20% on any paid plan with annual billing. Cancel or change plans anytime.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <Button
