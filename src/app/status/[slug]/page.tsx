@@ -26,7 +26,9 @@ import {
   formatUptime,
 } from "@/lib/publicMonitors";
 
-export const revalidate = 900;
+// Match the data-fetch cache (publicMonitors REVALIDATE_SECONDS): regenerating
+// more often than the data refreshes just burns ISR write units on identical output.
+export const revalidate = 3600;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {

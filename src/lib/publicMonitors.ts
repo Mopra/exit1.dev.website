@@ -163,15 +163,23 @@ export function uptimeBarClass(pct: number | null): string {
   return "bg-red-500/70";
 }
 
-/** Compact relative "last checked" label, e.g. "3 min ago". */
+/**
+ * Coarse "last checked" label, e.g. "within the last hour".
+ *
+ * Deliberately hour-granular: Vercel charges no ISR write units when a
+ * regeneration produces byte-identical output, so everything rendered into
+ * these ISR pages must be deterministic for a given data snapshot. A
+ * minute-level "3 min ago" re-derives from Date.now() and changes on every
+ * regeneration, forcing a full write each time — and it overstates precision
+ * anyway, since the underlying fetch cache refreshes hourly.
+ */
 export function lastCheckedLabel(ms: number, now: number = Date.now()): string {
   if (!ms) return "—";
-  const mins = Math.round((now - ms) / 60000);
-  if (mins < 1) return "just now";
-  if (mins < 60) return `${mins} min ago`;
-  const hrs = Math.round(mins / 60);
-  if (hrs < 24) return `${hrs} hr ago`;
-  return `${Math.round(hrs / 24)} d ago`;
+  const hrs = Math.floor((now - ms) / 3_600_000);
+  if (hrs < 1) return "within the last hour";
+  if (hrs < 24) return `${hrs} ${hrs === 1 ? "hour" : "hours"} ago`;
+  const days = Math.floor(hrs / 24);
+  return `${days} ${days === 1 ? "day" : "days"} ago`;
 }
 
 // ---------------------------------------------------------------------------

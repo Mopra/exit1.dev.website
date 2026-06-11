@@ -122,6 +122,14 @@ export default async function Image({
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      // Image routes under a dynamic segment render as a plain function (no
+      // ISR), so without this every social unfurl re-renders the PNG. Post
+      // content only changes on deploy, and the CDN cache resets then anyway.
+      headers: {
+        "Cache-Control": "public, s-maxage=604800, stale-while-revalidate=86400",
+      },
+    }
   );
 }

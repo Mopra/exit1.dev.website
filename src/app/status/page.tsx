@@ -8,7 +8,9 @@ import { PageContainer, PageSection, PageShell, SectionContent } from "@/compone
 import { StatusDirectory } from "@/components/status/StatusDirectory";
 import { classifyStatus, getAllPublicMonitors, isIndexEntryMature, makeComparator } from "@/lib/publicMonitors";
 
-export const revalidate = 900;
+// Match the data-fetch cache (publicMonitors REVALIDATE_SECONDS): regenerating
+// more often than the data refreshes just burns ISR write units on identical output.
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Live Status & Uptime of Popular Sites",

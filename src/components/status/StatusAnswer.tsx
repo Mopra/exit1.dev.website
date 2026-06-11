@@ -25,7 +25,7 @@ export function StatusAnswer({ monitor }: { monitor: MonitorPage }) {
       <strong className="font-semibold text-foreground">
         Is {name} down? {isDown ? "Yes" : "No"}
       </strong>{" "}
-      — as of {lastCheckedLabel(monitor.lastChecked)}, {monitor.host} {phrase}.
+      — {monitor.host} {phrase}, checked {lastCheckedLabel(monitor.lastChecked)}.
       {hasUptime && (
         <>
           {" "}

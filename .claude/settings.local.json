@@ -139,7 +139,21 @@
       "PowerShell($conns = Get-NetTCPConnection -LocalPort 3939 -State Listen -ErrorAction SilentlyContinue; if \\($conns\\) { $conns | Select-Object -Expand OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force }; \"killed listener\\(s\\) on 3939\" } else { \"port 3939 free\" })",
       "Bash(git --no-pager diff --stat HEAD)",
       "Bash(git restore *)",
-      "Bash(git --no-pager diff .claude/settings.local.json)"
+      "Bash(git --no-pager diff .claude/settings.local.json)",
+      "mcp__plugin_context7_context7__query-docs",
+      "PowerShell(npx eslint \"src/app/status/[slug]/opengraph-image.tsx\" \"src/app/blog/[slug]/opengraph-image.tsx\" \"src/app/status/[slug]/page.tsx\" \"src/app/blog/[slug]/page.tsx\" 2>&1)",
+      "PowerShell(npm run build 2>&1)",
+      "PowerShell($env:PORT=\"3123\"; npm run start 2>&1 | Out-File -FilePath \".og-server.log\" -Encoding utf8)",
+      "PowerShell(git add \"src/app/status/[slug]/opengraph-image.tsx\" \"src/app/status/[slug]/page.tsx\" \"src/app/blog/[slug]/opengraph-image.tsx\" \"src/app/blog/[slug]/page.tsx\")",
+      "PowerShell($r = Invoke-RestMethod \"https://app.exit1.dev/v1/public/monitors\"; $r.monitors.Count)",
+      "PowerShell($slug = \\(Invoke-RestMethod \"https://app.exit1.dev/v1/public/monitors\"\\).monitors[0].slug; $mon = Invoke-WebRequest \"https://app.exit1.dev/v1/public/monitor?slug=$slug\" -UseBasicParsing; $page = Invoke-WebRequest \"https://exit1.dev/status/$slug\" -UseBasicParsing; $hub = Invoke-WebRequest \"https://exit1.dev/status\" -UseBasicParsing; $idx = Invoke-WebRequest \"https://app.exit1.dev/v1/public/monitors\" -UseBasicParsing; \"slug: $slug\"; \"monitor API JSON: $\\($mon.RawContentLength\\) bytes\"; \"index API JSON: $\\($idx.RawContentLength\\) bytes\"; \"slug page HTML: $\\($page.RawContentLength\\) bytes\"; \"hub page HTML: $\\($hub.RawContentLength\\) bytes\"; \"slug page cache: $\\($page.Headers['x-vercel-cache']\\)\")",
+      "PowerShell($x = \\(Invoke-WebRequest \"https://exit1.dev/sitemap.xml\" -UseBasicParsing\\).Content; \"total length: $\\($x.Length\\)\"; $x.Substring\\(0, 1200\\))",
+      "PowerShell($og = Invoke-WebRequest \"https://exit1.dev/status/acme-v02.api.letsencrypt.org/opengraph-image\" -UseBasicParsing; \"og image: $\\($og.RawContentLength\\) bytes, type: $\\($og.Headers['Content-Type']\\)\")",
+      "PowerShell(npx tsc --noEmit 2>&1)",
+      "PowerShell(npm run build)",
+      "PowerShell($r = Invoke-WebRequest \"https://exit1.dev/status/ahrefs.com/opengraph-image\" -UseBasicParsing -Method Head; $r.Headers.GetEnumerator\\(\\) | Where-Object { $_.Key -match 'cache|age|vercel' } | ForEach-Object { \"$\\($_.Key\\): $\\($_.Value\\)\" })",
+      "Skill(commit-commands:commit)",
+      "Skill(commit-commands:commit:*)"
     ]
   }
 }

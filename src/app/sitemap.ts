@@ -4,20 +4,34 @@ import { MetadataRoute } from 'next';
 import { POSTS_PER_PAGE } from '@/lib/blogPagination';
 import { getAllPublicMonitors, isIndexEntryMature } from '@/lib/publicMonitors';
 
+// NOTE — this route is ISR'd (it inherits the hourly revalidate from the
+// monitors fetch) and Vercel only charges write units when the output actually
+// changes. Keep every field deterministic per data snapshot: no `new Date()`
+// timestamps, and day-granular lastmod. An hourly-churning lastmod across ~300
+// URLs also tells Google "everything changed", inviting recrawl storms that
+// trigger more ISR regenerations.
+
+/** Day-granular ISO date (sitemaps don't need more, and it keeps output stable). */
+function isoDay(ms: number): string {
+  return new Date(ms).toISOString().slice(0, 10);
+}
+
+type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://exit1.dev';
 
   // Auto-discover pages from file system
   async function getStaticPages() {
     const appDir = path.join(process.cwd(), 'src', 'app');
-    const pages: Array<{ url: string; changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'; priority: number }> = [];
-    
+    const pages: Array<{ url: string; changeFrequency: ChangeFrequency; priority: number }> = [];
+
     async function scanDirectory(dir: string, urlPath: string = '') {
       const entries = await fs.readdir(dir, { withFileTypes: true });
-      
+
       for (const entry of entries) {
         const fullPath = path.join(dir, entry.name);
-        
+
         if (entry.isDirectory()) {
           const isRouteGroup = entry.name.startsWith('(') && entry.name.endsWith(')');
           const isDynamicSegment = entry.name.startsWith('[') && entry.name.endsWith(']');
@@ -34,18 +48,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           const finalUrl = urlPath === '' ? '/' : urlPath;
           pages.push({
             url: finalUrl,
-            changefreq: getChangeFreq(finalUrl),
+            changeFrequency: getChangeFreq(finalUrl),
             priority: getPriority(finalUrl)
           });
         }
       }
     }
-    
+
     await scanDirectory(appDir);
     return pages;
   }
 
-  function getChangeFreq(url: string): 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' {
+  function getChangeFreq(url: string): ChangeFrequency {
     if (url === '/') return 'weekly';
     if (url.includes('/blog')) return 'weekly';
     if (url.includes('/product') || url.includes('/signup') || url.includes('/signin')) return 'monthly';
@@ -69,23 +83,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const postsDir = path.join(process.cwd(), 'src', 'content', 'posts');
   const categories = await fs.readdir(postsDir);
 
-  const blogPosts = [];
+  const blogPosts: MetadataRoute.Sitemap = [];
   for (const category of categories) {
     const categoryDir = path.join(postsDir, category);
     const files = await fs.readdir(categoryDir);
-    
+
     for (const file of files) {
       if (file.endsWith('.md')) {
         const slug = file.replace('.md', '');
-        const url = `/blog/${slug}`;
-        // Get lastmod from file stats
+        // Real freshness signal: the post file's last modification time.
         const stats = await fs.stat(path.join(categoryDir, file));
-        const lastmod = stats.mtime.toISOString();
-        
+
         blogPosts.push({
-          url,
-          lastmod,
-          changefreq: 'monthly',
+          url: `${baseUrl}/blog/${slug}`,
+          lastModified: isoDay(stats.mtime.getTime()),
+          changeFrequency: 'monthly',
           priority: 0.7
         });
       }
@@ -93,14 +105,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const totalPages = Math.max(1, Math.ceil(blogPosts.length / POSTS_PER_PAGE));
-  const blogPaginationPages = [];
+  const blogPaginationPages: MetadataRoute.Sitemap = [];
   for (let page = 2; page <= totalPages; page++) {
-    const url = `/blog/page/${page}`;
+    const url = `${baseUrl}/blog/page/${page}`;
     blogPaginationPages.push({
       url,
-      changefreq: getChangeFreq(url),
-      priority: getPriority(url),
-      lastmod: new Date().toISOString()
+      changeFrequency: 'weekly',
+      priority: 0.7
     });
   }
 
@@ -109,47 +120,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // pages (enough recorded history) are listed — thin pages are noindexed and
   // excluded here so crawl budget isn't spent on near-empty templates.
   const monitors = await getAllPublicMonitors();
-  const statusPages = [
+  const statusPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/status`,
-      changefreq: 'daily' as const,
+      changeFrequency: 'daily',
       priority: 0.7,
-      lastmod: new Date().toISOString(),
     },
     ...monitors.filter(isIndexEntryMature).map((m) => ({
       url: `${baseUrl}/status/${m.slug}`,
-      changefreq: 'daily' as const,
+      changeFrequency: 'daily' as const,
       priority: 0.6,
-      // Real freshness signal: last time we recorded a check, not "now".
-      lastmod: new Date(m.lastChecked || Date.now()).toISOString(),
+      // Real freshness signal: last time we recorded a check, day-granular.
+      ...(m.lastChecked ? { lastModified: isoDay(m.lastChecked) } : {}),
     })),
   ];
 
-  // Combine all
-  const allPages = [
+  // Combine all. Pages without a known modification date simply omit
+  // lastModified — a fabricated "now" is worse than none for crawlers.
+  return [
     // llms.txt — machine-readable site summary for LLMs
     {
       url: `${baseUrl}/llms.txt`,
-      changefreq: 'monthly' as const,
+      changeFrequency: 'monthly',
       priority: 0.3,
-      lastmod: new Date().toISOString()
     },
     ...staticPages.map(page => ({
       url: `${baseUrl}${page.url}`,
-      changefreq: page.changefreq,
+      changeFrequency: page.changeFrequency,
       priority: page.priority,
-      lastmod: new Date().toISOString() // Use current date for static
     })),
-    ...blogPosts.map(post => ({
-      ...post,
-      url: `${baseUrl}${post.url}`
-    })),
-    ...blogPaginationPages.map(page => ({
-      ...page,
-      url: `${baseUrl}${page.url}`
-    })),
+    ...blogPosts,
+    ...blogPaginationPages,
     ...statusPages
   ];
-
-  return allPages;
 }

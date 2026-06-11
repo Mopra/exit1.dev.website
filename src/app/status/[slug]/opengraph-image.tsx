@@ -8,8 +8,6 @@ import {
 } from "@/lib/publicMonitors";
 
 export const runtime = "nodejs";
-// Match the page's ISR window so the shared card stays in sync with the data.
-export const revalidate = 900;
 export const alt = "Live status & uptime — exit1.dev";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -212,6 +210,14 @@ export default async function Image({
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      // Image routes under a dynamic segment render as a plain function (no
+      // ISR), so without this every social unfurl re-renders the PNG. CDN-cache
+      // it for a day — a card doesn't need fresher stats than that.
+      headers: {
+        "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=86400",
+      },
+    }
   );
 }
