@@ -26,7 +26,7 @@ const darkTokens: React.CSSProperties & Record<string, string> = {
   "--background": "#15151B",
   "--foreground": "oklch(0.9851 0 0)",
   "--primary": "oklch(0.5854 0.1022 167.0051)",
-  "--primary-foreground": "oklch(0 0 0)",
+  "--primary-foreground": "oklch(1 0 0)",
   "--muted-foreground": "oklch(0.7090 0 0)",
   "--border": "oklch(0.2768 0 0)",
 };

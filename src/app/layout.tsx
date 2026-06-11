@@ -37,7 +37,7 @@ const appDarkTheme: React.CSSProperties & Record<string, string> = {
   "--popover": "oklch(0.155 0.014 285)",
   "--popover-foreground": "oklch(0.9851 0 0)",
   "--primary": "oklch(0.5854 0.1022 167.0051)",
-  "--primary-foreground": "oklch(0 0 0)",
+  "--primary-foreground": "oklch(1 0 0)",
   "--secondary": "oklch(0.235 0.014 285)",
   "--secondary-foreground": "oklch(0.9851 0 0)",
   "--muted": "oklch(0.278 0.014 285)",
