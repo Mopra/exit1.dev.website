@@ -113,7 +113,7 @@ export function RequestInvitationForm() {
       )}
 
       <p className="mt-3 text-xs text-foreground/60">
-        Limited seats. We&apos;ll email you the details — no spam, ever.
+        Limited seats.
       </p>
     </form>
   );

@@ -155,6 +155,25 @@ export function uptimeColorClass(pct: number | null): string {
   return "text-red-500";
 }
 
+/**
+ * Subtle status-tinted gradient wash for cards — a softer status signal than a
+ * dot. Operational greens, down reds, degraded ambers; muted/unknown stays
+ * neutral so paused entries don't get a false tint. Layers as a background
+ * image, so card hover background-colors still apply underneath.
+ */
+export function statusGradientClass(status: string): string {
+  switch (classifyStatus(status)) {
+    case "operational":
+      return "bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent";
+    case "down":
+      return "bg-gradient-to-br from-red-500/10 via-transparent to-transparent";
+    case "degraded":
+      return "bg-gradient-to-br from-amber-500/10 via-transparent to-transparent";
+    default:
+      return "";
+  }
+}
+
 /** Tailwind bg class for the proportional uptime bar. */
 export function uptimeBarClass(pct: number | null): string {
   if (pct == null) return "bg-transparent";

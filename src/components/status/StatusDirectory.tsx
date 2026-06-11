@@ -6,11 +6,13 @@ import { Search, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { InsetCard } from "@/components/InsetCard";
+import { BrandLogo } from "@/components/status/BrandLogo";
 import {
   classifyStatus,
   classifyType,
   formatUptime,
   makeComparator,
+  statusGradientClass,
   statusPresentation,
   uptimeBarClass,
   uptimeColorClass,
@@ -21,16 +23,11 @@ import {
 type StatusFilter = "all" | "operational" | "down" | "degraded" | "other";
 type TypeFilter = "all" | "website" | "api";
 
-const dotTone = {
-  up: "bg-emerald-500",
-  down: "bg-red-500",
-  degraded: "bg-amber-500",
-  muted: "bg-foreground/30",
-} as const;
+type Tone = "up" | "down" | "degraded" | "muted";
 
 // statusPresentation collapses "degraded" into the red "down" tone; here we
 // pull it back out to amber so a partial degradation doesn't read as a hard outage.
-function present(status: string): { label: string; tone: keyof typeof dotTone } {
+function present(status: string): { label: string; tone: Tone } {
   if (classifyStatus(status) === "degraded") return { label: "Degraded", tone: "degraded" };
   return statusPresentation(status);
 }
@@ -77,7 +74,13 @@ function FilterChip({
   );
 }
 
-export function StatusDirectory({ monitors }: { monitors: MonitorIndexEntry[] }) {
+export function StatusDirectory({
+  monitors,
+  showControls = true,
+}: {
+  monitors: MonitorIndexEntry[];
+  showControls?: boolean;
+}) {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<StatusFilter>("all");
   const [type, setType] = useState<TypeFilter>("all");
@@ -143,6 +146,8 @@ export function StatusDirectory({ monitors }: { monitors: MonitorIndexEntry[] })
 
   return (
     <div>
+      {showControls && (
+      <>
       {/* Controls: search + sort on top, aligned filter chips below */}
       <div className="mb-6 space-y-3">
         <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center">
@@ -244,6 +249,8 @@ export function StatusDirectory({ monitors }: { monitors: MonitorIndexEntry[] })
           </button>
         )}
       </p>
+      </>
+      )}
 
       {/* Results */}
       {filtered.length === 0 ? (
@@ -269,10 +276,10 @@ export function StatusDirectory({ monitors }: { monitors: MonitorIndexEntry[] })
                   aria-label={`${m.host}: ${label}, ${formatUptime(m.uptime30d)} 30-day uptime`}
                   className="group block cursor-pointer rounded-none outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
                 >
-                  <InsetCard className="h-full p-4 transition-colors motion-safe:duration-150 group-hover:bg-foreground/[0.03]">
+                  <InsetCard className={cn("h-full p-4 transition-colors motion-safe:duration-150 group-hover:bg-foreground/[0.03]", statusGradientClass(m.status))}>
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex min-w-0 items-center gap-2.5">
-                        <span role="img" aria-label={label} className={cn("h-2 w-2 shrink-0 rounded-full", dotTone[tone])} />
+                        <BrandLogo host={m.host} name={m.name} size={28} />
                         <span className="truncate font-medium" title={m.host}>
                           {m.host}
                         </span>

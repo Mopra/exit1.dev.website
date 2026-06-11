@@ -14,6 +14,7 @@ import { StatusAnswer } from "@/components/status/StatusAnswer";
 import { IncidentHistory } from "@/components/status/IncidentHistory";
 import { StatusFaq } from "@/components/status/StatusFaq";
 import { RelatedStatusList } from "@/components/status/RelatedStatusList";
+import { BrandLogo } from "@/components/status/BrandLogo";
 import {
   buildFaqs,
   displayName,
@@ -198,9 +199,12 @@ export default async function MonitorStatusPage({
                 </span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
-                {name} status
-              </h1>
+              <div className="mb-6 flex items-center gap-4">
+                <BrandLogo host={monitor.host} name={name} size={56} className="rounded-lg" />
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+                  {name} status
+                </h1>
+              </div>
 
               <StatusAnswer monitor={monitor} />
 

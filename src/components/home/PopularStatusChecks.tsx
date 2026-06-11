@@ -7,19 +7,53 @@ import {
   getAllPublicMonitors,
   isIndexEntryMature,
   makeComparator,
+  statusGradientClass,
   statusPresentation,
   uptimeColorClass,
 } from '@/lib/publicMonitors';
 import { cn } from '@/lib/utils';
-
-const dotTone = {
-  up: 'bg-emerald-500',
-  down: 'bg-red-500',
-  muted: 'bg-foreground/30',
-} as const;
+import { BrandLogo } from '@/components/status/BrandLogo';
 
 const FEATURED = 9;
 const MIN_TO_SHOW = 6;
+
+/**
+ * Curated brands for the homepage proof grid — recognizable names across our
+ * three core audiences (developers, agencies, store owners), so the wall reads
+ * as "tools you already depend on" rather than a random sample. Matched by host
+ * against the live public-monitor index; anything not public or not yet mature
+ * is simply skipped, and if too few are live we fall back to the global
+ * highest-uptime set so the section never goes sparse.
+ */
+const HOMEPAGE_FEATURED_HOSTS = new Set<string>([
+  // Developer infra & tooling
+  'github.com',
+  'cloudflare.com',
+  'vercel.com',
+  'stripe.com',
+  'openai.com',
+  'anthropic.com',
+  'supabase.com',
+  'docker.com',
+  'npmjs.com',
+  'sentry.io',
+  'mongodb.com',
+  'figma.com',
+  'linear.app',
+  // Agencies & site builders
+  'webflow.com',
+  'wordpress.com',
+  'semrush.com',
+  'ahrefs.com',
+  'notion.so',
+  'sanity.io',
+  'contentful.com',
+  // Store owners / commerce
+  'shopify.com',
+  'woocommerce.com',
+  'squarespace.com',
+  'wix.com',
+]);
 
 /**
  * Living proof beat. Turns the static logo wall above into something real: the
@@ -36,8 +70,13 @@ export async function PopularStatusChecks() {
 
   if (monitors.length < MIN_TO_SHOW) return null;
 
+  // Prefer the curated audience-relevant brands; fall back to the full set if
+  // too few of them are live so the section never goes sparse.
+  const curated = monitors.filter((m) => HOMEPAGE_FEATURED_HOSTS.has(m.host));
+  const pool = curated.length >= MIN_TO_SHOW ? curated : monitors;
+
   // Highest uptime first — show our best, capped to a tidy grid.
-  const featured = [...monitors].sort(makeComparator('uptime-desc')).slice(0, FEATURED);
+  const featured = [...pool].sort(makeComparator('uptime-desc')).slice(0, FEATURED);
 
   return (
     <section
@@ -64,19 +103,19 @@ export async function PopularStatusChecks() {
         <Reveal delay={0.15}>
           <ul className="mt-12 grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((m) => {
-              const { label, tone } = statusPresentation(m.status);
+              const { label } = statusPresentation(m.status);
               return (
                 <li key={m.slug}>
                   <Link
                     href={`/status/${m.slug}`}
                     aria-label={`${m.host}: ${label}, ${formatUptime(m.uptime30d)} 30-day uptime`}
-                    className="group flex items-center justify-between gap-3 rounded-xl border border-border/60 px-4 py-3.5 transition-colors hover:border-foreground/30 hover:bg-foreground/[0.02] interactive"
+                    className={cn(
+                      'group flex items-center justify-between gap-3 rounded-xl border border-border/60 px-4 py-3.5 transition-colors hover:border-foreground/30 hover:bg-foreground/[0.02] interactive',
+                      statusGradientClass(m.status),
+                    )}
                   >
                     <span className="flex min-w-0 items-center gap-2.5">
-                      <span
-                        className={cn('h-2 w-2 shrink-0 rounded-full', dotTone[tone])}
-                        aria-hidden="true"
-                      />
+                      <BrandLogo host={m.host} name={m.name} size={28} />
                       <span className="truncate text-sm font-medium text-foreground">
                         {m.host}
                       </span>

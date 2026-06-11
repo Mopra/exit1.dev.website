@@ -6,7 +6,8 @@ import { SectionContent } from "@/components/PageLayout";
 import { Eyebrow } from "@/components/home/Eyebrow";
 import { Reveal } from "@/components/home/Reveal";
 import { StatusDirectory } from "@/components/status/StatusDirectory";
-import { getCannesEventMonitors } from "@/lib/cannesEvents";
+import { FeaturedStatus } from "@/components/status/FeaturedStatus";
+import { getCannesEventMonitors, selectCannesFeatured } from "@/lib/cannesEvents";
 import { classifyStatus, makeComparator } from "@/lib/publicMonitors";
 
 // Match the public-monitors fetch cache (REVALIDATE_SECONDS): regenerating more
@@ -42,6 +43,8 @@ export default async function CannesEventStatusPage() {
   // Worst-first so any incident leads the SSR'd HTML; the client island
   // re-sorts on demand but defaults to this same order.
   const sorted = [...monitors].sort(makeComparator("worst"));
+  // Marquee names, surfaced in a highlighted strip above the full directory.
+  const featured = selectCannesFeatured(monitors);
 
   const counts = { operational: 0, down: 0, degraded: 0, other: 0 };
   for (const m of monitors) counts[classifyStatus(m.status)]++;
@@ -140,7 +143,18 @@ export default async function CannesEventStatusPage() {
               </div>
             </Reveal>
 
-            <StatusDirectory monitors={sorted} />
+            {featured.length > 0 && (
+              <Reveal>
+                <div className="mb-12">
+                  <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                    Featured
+                  </h2>
+                  <FeaturedStatus monitors={featured} />
+                </div>
+              </Reveal>
+            )}
+
+            <StatusDirectory monitors={sorted} showControls={false} />
 
             <div className="mt-16 max-w-3xl">
               <h2 className="mb-3 text-xl font-semibold">How this board works</h2>

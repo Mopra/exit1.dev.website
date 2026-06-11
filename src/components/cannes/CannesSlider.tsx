@@ -9,6 +9,8 @@ type Props = {
   /** Time each slide is shown, in ms. */
   interval?: number;
   className?: string;
+  /** Fill the parent's height instead of locking to a 4:3 ratio (bento cells). */
+  fill?: boolean;
 };
 
 /**
@@ -16,7 +18,7 @@ type Props = {
  * the supplied images and exposes dot controls. Pauses nothing fancy — just a
  * calm, looping fade that matches the page's quiet rhythm.
  */
-export function CannesSlider({ images, interval = 4000, className }: Props) {
+export function CannesSlider({ images, interval = 4000, className, fill = false }: Props) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -30,7 +32,9 @@ export function CannesSlider({ images, interval = 4000, className }: Props) {
 
   return (
     <div
-      className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-card ${className ?? ""}`}
+      className={`relative overflow-hidden rounded-2xl bg-card ${
+        fill ? "h-full w-full" : "aspect-[4/3]"
+      } ${className ?? ""}`}
     >
       {images.map((src, i) => (
         <Image

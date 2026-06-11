@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { SectionContent } from "@/components/PageLayout";
 import { Eyebrow } from "@/components/home/Eyebrow";
 import { Reveal } from "@/components/home/Reveal";
@@ -114,48 +116,49 @@ export default function CannesSummitPage() {
           </Reveal>
         </div>
 
-        {/* Scatter: left stat · center photo+stat · right stat+video */}
-        <div className="mt-16 grid grid-cols-1 items-center gap-12 sm:mt-20 lg:grid-cols-3 lg:grid-rows-2 lg:gap-x-10 lg:gap-y-16">
-          {/* $5B+ — left column, vertically centered across both rows */}
-          <Reveal className="text-center lg:row-span-2 lg:self-center lg:text-left">
-            <div className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
-              $5B+
-            </div>
-            <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">
-              worth of assets monitored
+        {/* Interlocking bento — photo and the data-stream video are the two
+            anchors at different sizes; the two stats stack between them.
+            Row1: [  photo  ][ $5B+ ][ video ]
+            Row2: [  photo  ][4 Days][ video ]  */}
+        <div className="mt-16 grid grid-cols-2 gap-4 sm:mt-20 sm:gap-5 lg:h-[34rem] lg:grid-cols-5 lg:grid-rows-2">
+          {/* Photo — large anchor, 3 cols × 2 rows. Crossfade slider through the Cannes shots. */}
+          <Reveal className="col-span-2 lg:col-span-3 lg:col-start-1 lg:row-span-2 lg:row-start-1">
+            <CannesSlider images={cannesImages} fill className="h-full min-h-[18rem]" />
+          </Reveal>
+
+          {/* $5B+ */}
+          <Reveal delay={0.05} className="lg:col-start-4 lg:row-start-1">
+            <div className="flex h-full flex-col justify-center rounded-2xl bg-muted/40 p-6">
+              <div className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                $5B+
+              </div>
+              <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">
+                worth of assets monitored
+              </div>
             </div>
           </Reveal>
 
-          {/* Photo — center, top. Crossfade slider through the Cannes shots. */}
-          <Reveal delay={0.05} className="lg:col-start-2 lg:row-start-1">
-            <CannesSlider images={cannesImages} />
-          </Reveal>
-
-          {/* 4 Days — right, top */}
-          <Reveal delay={0.1} className="text-center lg:col-start-3 lg:row-start-1">
-            <div className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
-              4 Days
-            </div>
-            <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">
-              of curated programming
+          {/* 4 Days */}
+          <Reveal delay={0.1} className="lg:col-start-4 lg:row-start-2">
+            <div className="flex h-full flex-col justify-center rounded-2xl bg-muted/40 p-6">
+              <div className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                4 Days
+              </div>
+              <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">
+                of curated programming
+              </div>
             </div>
           </Reveal>
 
-          {/* 99.99% — center, bottom */}
-          <Reveal delay={0.05} className="text-center lg:col-start-2 lg:row-start-2">
-            <div className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
-              99.99%
-            </div>
-            <div className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">
-              platform availability
-            </div>
-          </Reveal>
-
-          {/* Data-stream line — right, bottom. The homepage "always on" motif. */}
-          <Reveal delay={0.1} className="lg:col-start-3 lg:row-start-2">
-            <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40">
+          {/* Data-stream line — tall video rail, 1×2. The homepage "always on"
+              motif, linked to the live event status board. */}
+          <Reveal delay={0.15} className="col-span-2 lg:col-span-1 lg:col-start-5 lg:row-span-2 lg:row-start-1">
+            <Link
+              href="/cannes-2026/status"
+              className="group relative block aspect-video h-full overflow-hidden rounded-2xl bg-black/40 lg:aspect-auto"
+            >
               <video
-                className="h-full w-full object-cover"
+                className="h-full w-full rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
                 autoPlay
                 muted
                 loop
@@ -167,14 +170,20 @@ export default function CannesSummitPage() {
                 <source src="/exit1-data-stream-line.webm" type="video/webm" />
                 <source src="/exit1-data-stream-line.mp4" type="video/mp4" />
               </video>
-            </div>
+              <div className="absolute inset-x-0 bottom-0 rounded-t-2xl bg-[#F5C842] p-4">
+                <span className="flex items-center gap-1.5 text-sm font-medium text-black">
+                  Live event status
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </span>
+              </div>
+            </Link>
           </Reveal>
         </div>
       </section>
 
       {/* Details card */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
-          <SectionContent size="lg" className="py-16">
+          <SectionContent size="xl" className="py-16">
             <Reveal>
               <div className="rounded-3xl bg-[#6366F1] p-8 text-white sm:p-12">
                 <span className="inline-flex items-center font-mono text-xs uppercase tracking-[0.2em] text-white/80">
