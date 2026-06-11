@@ -1,5 +1,6 @@
 import { Eyebrow } from './Eyebrow';
 import { Reveal } from './Reveal';
+import { LazyVideo } from './LazyVideo';
 
 /**
  * The headline differentiator, told as one big number. exit1 checks down to
@@ -12,19 +13,16 @@ export function Speed() {
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-10">
           <Reveal className="md:col-span-5">
             <div className="relative overflow-hidden rounded-xl">
-              <video
-                className="block w-full"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
+              <LazyVideo
+                className="block h-auto w-full"
+                width={1080}
+                height={1080}
                 poster="/exit1-data-stream-line.jpg"
-                aria-hidden="true"
-              >
-                <source src="/exit1-data-stream-line.webm" type="video/webm" />
-                <source src="/exit1-data-stream-line.mp4" type="video/mp4" />
-              </video>
+                sources={[
+                  { src: '/exit1-data-stream-line.webm', type: 'video/webm' },
+                  { src: '/exit1-data-stream-line.mp4', type: 'video/mp4' },
+                ]}
+              />
               {/* Fade the lower half so the number stays legible over the stream */}
               <div
                 aria-hidden="true"

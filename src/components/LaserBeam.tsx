@@ -1,6 +1,12 @@
-import type { CSSProperties } from 'react';
+'use client';
+
+import { useEffect, useState, type CSSProperties } from 'react';
+import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
-import LaserFlow from './LaserFlow';
+
+// LaserFlow pulls in three.js (~170KB gzipped). Load it as a separate chunk,
+// client-only, so it never lands in the route's first-load bundle.
+const LaserFlow = dynamic(() => import('./LaserFlow'), { ssr: false });
 
 type LaserBeamProps = {
   className?: string;
@@ -51,6 +57,21 @@ export function LaserBeam({
   falloffStart = 3,
   endFade = 0.6,
 }: LaserBeamProps) {
+  // Mount the WebGL beam only once the main thread is idle, and never for
+  // prefers-reduced-motion. Keeps hydration + three.js parse out of the
+  // LCP/TBT window; the beam fades in a beat later as pure decoration.
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(() => setReady(true), { timeout: 2500 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = window.setTimeout(() => setReady(true), 1200);
+    return () => window.clearTimeout(id);
+  }, []);
+
   const fadeStart = `${(1 - endFade) * 100}%`;
   // The far end is the bottom for direction='down', top for direction='up'.
   const maskImage =
@@ -73,9 +94,11 @@ export function LaserBeam({
           width: '100%',
           height: '100%',
           transform: direction === 'down' ? 'scaleY(-1)' : undefined,
+          opacity: ready ? 1 : 0,
+          transition: 'opacity 600ms ease',
         }}
       >
-        <LaserFlow
+        {ready && <LaserFlow
           color={color}
           horizontalBeamOffset={0}
           verticalBeamOffset={beamOffset}
@@ -91,7 +114,7 @@ export function LaserBeam({
           falloffStart={falloffStart}
           verticalSizing={verticalSizing}
           horizontalSizing={horizontalSizing}
-        />
+        />}
       </div>
     </div>
   );

@@ -8,21 +8,22 @@ type Logo = {
   src: string;
 };
 
+// Self-hosted (Simple Icons, CC0) — keeps the marquee off third-party origins.
 const LOGOS: Logo[] = [
-  { label: 'Next.js', src: 'https://cdn.simpleicons.org/nextdotjs/ffffff' },
-  { label: 'Vercel', src: 'https://cdn.simpleicons.org/vercel/ffffff' },
-  { label: 'Cloudflare', src: 'https://cdn.simpleicons.org/cloudflare/ffffff' },
+  { label: 'Next.js', src: '/logos/nextdotjs.svg' },
+  { label: 'Vercel', src: '/logos/vercel.svg' },
+  { label: 'Cloudflare', src: '/logos/cloudflare.svg' },
   { label: 'AWS', src: '/aws.svg' },
-  { label: 'Stripe', src: 'https://cdn.simpleicons.org/stripe/ffffff' },
-  { label: 'GitHub', src: 'https://cdn.simpleicons.org/github/ffffff' },
-  { label: 'Firebase', src: 'https://cdn.simpleicons.org/firebase/ffffff' },
-  { label: 'Supabase', src: 'https://cdn.simpleicons.org/supabase/ffffff' },
-  { label: 'Shopify', src: 'https://cdn.simpleicons.org/shopify/ffffff' },
+  { label: 'Stripe', src: '/logos/stripe.svg' },
+  { label: 'GitHub', src: '/logos/github.svg' },
+  { label: 'Firebase', src: '/logos/firebase.svg' },
+  { label: 'Supabase', src: '/logos/supabase.svg' },
+  { label: 'Shopify', src: '/logos/shopify.svg' },
   { label: 'Slack', src: '/slack.svg' },
-  { label: 'Discord', src: 'https://cdn.simpleicons.org/discord/ffffff' },
-  { label: 'Linear', src: 'https://cdn.simpleicons.org/linear/ffffff' },
-  { label: 'Notion', src: 'https://cdn.simpleicons.org/notion/ffffff' },
-  { label: 'Figma', src: 'https://cdn.simpleicons.org/figma/ffffff' },
+  { label: 'Discord', src: '/logos/discord.svg' },
+  { label: 'Linear', src: '/logos/linear.svg' },
+  { label: 'Notion', src: '/logos/notion.svg' },
+  { label: 'Figma', src: '/logos/figma.svg' },
 ];
 
 /**
@@ -59,6 +60,8 @@ export function TrustedBy() {
                       <img
                         src={logo.src}
                         alt={copy === 0 ? logo.label : ''}
+                        width={32}
+                        height={32}
                         loading="lazy"
                         decoding="async"
                         draggable={false}

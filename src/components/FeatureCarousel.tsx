@@ -7,7 +7,7 @@ import { Activity, ArrowRight, FolderTree, Globe, Radio, ShieldCheck, Zap, type 
 import { cn } from '@/lib/utils';
 
 type FeatureMedia =
-  | { kind: 'video'; src: string; poster?: string }
+  | { kind: 'video'; src: string; webm?: string; poster?: string }
   | { kind: 'image'; src: string; width: number; height: number };
 
 type Feature = {
@@ -32,6 +32,7 @@ const FEATURES: Feature[] = [
     media: {
       kind: 'video',
       src: '/exit1-live-page-mockup-1.web.mp4',
+      webm: '/exit1-live-page-mockup-1.web.webm',
     },
     href: '/live-checks',
     cta: 'Explore live checks',
@@ -46,6 +47,7 @@ const FEATURES: Feature[] = [
     media: {
       kind: 'video',
       src: '/exit1-folder-view-mockup-1.web.mp4',
+      webm: '/exit1-folder-view-mockup-1.web.webm',
     },
   },
   {
@@ -58,6 +60,7 @@ const FEATURES: Feature[] = [
     media: {
       kind: 'video',
       src: '/exit1-add-check-mockup-1.web.mp4',
+      webm: '/exit1-add-check-mockup-1.web.webm',
     },
   },
   {
@@ -70,6 +73,7 @@ const FEATURES: Feature[] = [
     media: {
       kind: 'video',
       src: '/exit1-logs-mockup-1.web.mp4',
+      webm: '/exit1-logs-mockup-1.web.webm',
     },
   },
   {
@@ -82,6 +86,7 @@ const FEATURES: Feature[] = [
     media: {
       kind: 'video',
       src: '/exit1-domain-intelligence-mockup-1.web.mp4',
+      webm: '/exit1-domain-intelligence-mockup-1.web.webm',
     },
     href: '/domain-intelligence',
     cta: 'Explore domain intelligence',
@@ -96,6 +101,7 @@ const FEATURES: Feature[] = [
     media: {
       kind: 'video',
       src: '/exit1-custom-status-page-setup-1.web.mp4',
+      webm: '/exit1-custom-status-page-setup-1.web.webm',
     },
     href: '/status-pages',
     cta: 'Explore custom status pages',
@@ -189,6 +195,7 @@ export function FeatureCarousel() {
                     {feature.media.kind === 'video' ? (
                       <VideoSlide
                         src={feature.media.src}
+                        webm={feature.media.webm}
                         videoRef={(el) => {
                           videoRefs.current[index] = el;
                         }}
@@ -249,10 +256,12 @@ export function FeatureCarousel() {
 
 type VideoSlideProps = {
   src: string;
+  /** VP9 variant, ~half the size of the MP4; browsers that can't decode it fall through. */
+  webm?: string;
   videoRef: (el: HTMLVideoElement | null) => void;
 };
 
-function VideoSlide({ src, videoRef }: VideoSlideProps) {
+function VideoSlide({ src, webm, videoRef }: VideoSlideProps) {
   const localRef = useRef<HTMLVideoElement | null>(null);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -310,6 +319,7 @@ function VideoSlide({ src, videoRef }: VideoSlideProps) {
         onTimeUpdate={onTimeUpdate}
         onLoadedMetadata={onLoadedMetadata}
       >
+        {webm && <source src={webm} type='video/webm; codecs="vp9"' />}
         <source src={src} type="video/mp4" />
       </video>
 
