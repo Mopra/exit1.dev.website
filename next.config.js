@@ -32,6 +32,24 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'gsap'],
   },
 
+  async headers() {
+    return [
+      {
+        // Static media in /public ships with Vercel's default
+        // `max-age=0, must-revalidate` otherwise — Lighthouse flags it and
+        // repeat visits re-download videos/logos. 30 days is safe as long as
+        // changed assets get a new filename (the usual convention here).
+        source: '/:path*\\.(mp4|webm|svg|png|jpg|jpeg|webp|avif|ico)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=2592000, stale-while-revalidate=86400',
+          },
+        ],
+      },
+    ];
+  },
+
   async redirects() {
     return [
       { source: '/blog/get-started', destination: '/blog', permanent: true },

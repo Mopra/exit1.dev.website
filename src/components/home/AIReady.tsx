@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Eyebrow } from './Eyebrow';
 import { Reveal } from './Reveal';
-import { AIChat } from './AIChat';
+import { LazyAIChat } from './LazyAIChat';
 
 /**
  * The second differentiator: exit1 is AI-ready over MCP. A short, concrete
@@ -42,7 +42,7 @@ export function AIReady() {
           </div>
 
           <Reveal delay={0.1}>
-            <AIChat />
+            <LazyAIChat />
           </Reveal>
         </div>
       </div>

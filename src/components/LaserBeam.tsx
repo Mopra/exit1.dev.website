@@ -57,13 +57,17 @@ export function LaserBeam({
   falloffStart = 3,
   endFade = 0.6,
 }: LaserBeamProps) {
-  // Mount the WebGL beam only once the main thread is idle, and never for
-  // prefers-reduced-motion. Keeps hydration + three.js parse out of the
-  // LCP/TBT window; the beam fades in a beat later as pure decoration.
+  // Mount the WebGL beam only on devices that can afford it: fine-pointer,
+  // large-viewport, no prefers-reduced-motion — and only once the main thread
+  // is idle. Phones never load three.js (parse + shader compile + a perpetual
+  // rAF loop is seconds of main-thread work on a throttled mobile CPU); they
+  // keep the CSS beam below, which is server-rendered and paints immediately.
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (window.matchMedia('(max-width: 1023px)').matches) return;
     if (typeof window.requestIdleCallback === 'function') {
       const id = window.requestIdleCallback(() => setReady(true), { timeout: 2500 });
       return () => window.cancelIdleCallback(id);
@@ -91,13 +95,57 @@ export function LaserBeam({
     >
       <div
         style={{
+          position: 'relative',
           width: '100%',
           height: '100%',
           transform: direction === 'down' ? 'scaleY(-1)' : undefined,
-          opacity: ready ? 1 : 0,
-          transition: 'opacity 600ms ease',
         }}
       >
+        {/* CSS approximation of the beam — server-rendered so the hero paints
+            complete at FCP. Stays as the final visual on touch/small devices;
+            fades out under the WebGL beam once that mounts on desktop. */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: ready ? 0 : 1,
+            transition: 'opacity 900ms ease',
+          }}
+        >
+          {/* fog glow around the source (local bottom = badge end after flip) */}
+          <div
+            style={{
+              position: 'absolute',
+              left: '50%',
+              bottom: '-8%',
+              width: '85%',
+              height: '75%',
+              transform: 'translateX(-50%)',
+              background: `radial-gradient(ellipse 50% 65% at 50% 100%, ${color}59 0%, ${color}1f 48%, transparent 75%)`,
+            }}
+          />
+          {/* beam core */}
+          <div
+            style={{
+              position: 'absolute',
+              left: '50%',
+              top: 0,
+              bottom: 0,
+              width: 3,
+              transform: 'translateX(-50%)',
+              background: `linear-gradient(to top, ${color}E6 0%, ${color}66 55%, transparent 100%)`,
+              boxShadow: `0 0 22px 7px ${color}40`,
+            }}
+          />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: ready ? 1 : 0,
+            transition: 'opacity 600ms ease',
+          }}
+        >
         {ready && <LaserFlow
           color={color}
           horizontalBeamOffset={0}
@@ -115,6 +163,7 @@ export function LaserBeam({
           verticalSizing={verticalSizing}
           horizontalSizing={horizontalSizing}
         />}
+        </div>
       </div>
     </div>
   );

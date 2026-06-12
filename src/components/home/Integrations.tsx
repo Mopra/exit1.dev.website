@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import { Mail, MessageSquare, Webhook, type LucideIcon } from 'lucide-react';
 import { Eyebrow } from './Eyebrow';
 import { Reveal } from './Reveal';
-import { NotificationPhone } from './NotificationPhone';
+import { LazyNotificationPhone } from './LazyNotificationPhone';
 
 type Channel =
   | { name: string; src: string }
@@ -69,7 +69,7 @@ export function Integrations() {
         <div className="mt-14 grid items-center gap-12 sm:mt-16 lg:grid-cols-2 lg:gap-16">
           {/* Phone — leads on mobile, sits right on desktop */}
           <Reveal className="order-1 lg:order-2">
-            <NotificationPhone />
+            <LazyNotificationPhone />
           </Reveal>
 
           {/* Channel grid */}

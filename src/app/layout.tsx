@@ -5,8 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyCTABar from "@/components/StickyCTABar";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Script from "next/script";
-import ClarityAnalytics from "@/components/ClarityAnalytics";
+import DeferredAnalytics from "@/components/DeferredAnalytics";
 import { getGithubStars } from "@/lib/github";
 
 const dmSans = DM_Sans({
@@ -99,47 +98,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <head>
-        {/* Google Tag Manager — lazyOnload keeps tag JS out of the
-            LCP/TBT window; pageviews still fire once the page settles. */}
-        <Script id="google-tag-manager" strategy="lazyOnload">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-TPFBP3W4');
-          `}
-        </Script>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-TW8WXE2TZP"
-          strategy="lazyOnload"
-        />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-TW8WXE2TZP');
-          `}
-        </Script>
-        {/* Meta Pixel */}
-        <Script id="meta-pixel" strategy="lazyOnload">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1282482619958596');
-            fbq('track', 'PageView');
-          `}
-        </Script>
-      </head>
       <body
         style={appDarkTheme}
         className={`${dmSans.variable} ${spaceMono.variable} antialiased bg-background text-foreground`}
@@ -172,7 +130,10 @@ export default async function RootLayout({
         <Footer />
         <StickyCTABar />
         <SpeedInsights />
-        <ClarityAnalytics />
+        {/* GTM, GA4, Meta Pixel, and Clarity — loads on first interaction
+            (or a 12s fallback) so third-party JS stays out of the
+            Core Web Vitals measurement window. */}
+        <DeferredAnalytics />
       </body>
     </html>
   );
