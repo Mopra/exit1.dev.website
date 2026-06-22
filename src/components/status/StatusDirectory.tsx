@@ -274,9 +274,9 @@ export function StatusDirectory({
                 <Link
                   href={`/status/${m.slug}`}
                   aria-label={`${m.host}: ${label}, ${formatUptime(m.uptime30d)} 30-day uptime`}
-                  className="group block cursor-pointer rounded-none outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                  className="group block cursor-pointer rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
                 >
-                  <InsetCard className={cn("h-full p-4 transition-colors motion-safe:duration-150 group-hover:bg-foreground/[0.03]", statusGradientClass(m.status))}>
+                  <InsetCard className={cn("h-full overflow-hidden rounded-xl p-4 transition-colors motion-safe:duration-150 group-hover:bg-foreground/[0.03]", statusGradientClass(m.status))}>
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex min-w-0 items-center gap-2.5">
                         <BrandLogo host={m.host} name={m.name} size={28} />

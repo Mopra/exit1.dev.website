@@ -30,7 +30,7 @@ All colors are exposed as CSS custom properties on `:root` and consumed via Tail
 ### Brand
 | Token | Value | Notes |
 |---|---|---|
-| `--primary` | `#2F8F6F` | Evergreen. The single brand color. |
+| `--primary` | `#277E61` | Evergreen. The single brand color. |
 | `--primary-foreground` | `#FFFCF0` | Cream-on-green for solid CTAs. |
 
 ### Status palette

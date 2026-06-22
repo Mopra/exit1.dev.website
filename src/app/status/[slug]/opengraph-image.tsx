@@ -15,7 +15,7 @@ export const contentType = "image/png";
 // tone (from statusPresentation) → signal color. Green/red carries the same
 // up/down motif used across the status pages and homepage.
 const toneColor: Record<"up" | "down" | "muted", string> = {
-  up: "#2F8F6F",
+  up: "#277E61",
   down: "#DC2626",
   muted: "#9CA3AF",
 };
@@ -70,7 +70,7 @@ export default async function Image({
                 width: "40px",
                 height: "40px",
                 borderRadius: "10px",
-                background: "#2F8F6F",
+                background: "#277E61",
                 color: "#FFFCF0",
                 display: "flex",
                 alignItems: "center",
@@ -89,7 +89,7 @@ export default async function Image({
             style={{
               fontSize: "16px",
               fontFamily: "monospace",
-              color: "#2F8F6F",
+              color: "#277E61",
               textTransform: "uppercase",
               letterSpacing: "0.12em",
               padding: "8px 14px",

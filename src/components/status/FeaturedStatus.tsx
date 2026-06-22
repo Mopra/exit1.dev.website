@@ -36,9 +36,9 @@ export function FeaturedStatus({ monitors }: { monitors: MonitorIndexEntry[] }) 
             <Link
               href={`/status/${m.slug}`}
               aria-label={`${m.host}: ${label}, ${formatUptime(m.uptime30d)} 30-day uptime`}
-              className="group block cursor-pointer rounded-none outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+              className="group block cursor-pointer rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
             >
-              <InsetCard className={cn("h-full bg-foreground/[0.02] p-5 transition-colors motion-safe:duration-150 group-hover:bg-foreground/[0.05] sm:p-6", statusGradientClass(m.status))}>
+              <InsetCard className={cn("h-full overflow-hidden rounded-2xl bg-foreground/[0.02] p-5 transition-colors motion-safe:duration-150 group-hover:bg-foreground/[0.05] sm:p-6", statusGradientClass(m.status))}>
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex min-w-0 items-center gap-3">
                     <BrandLogo host={m.host} name={m.name} size={40} />
