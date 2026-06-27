@@ -29,7 +29,7 @@ export default function HomePage() {
 
           {/* Spacer scales with the badge font-size so the CTA always lands
               below the laser's tail. Nudge this single value if the gap drifts. */}
-          <div aria-hidden className="text-5xl sm:text-6xl lg:text-7xl h-[5.5em]" />
+          <div aria-hidden className="text-5xl sm:text-6xl lg:text-7xl h-[7.5em]" />
 
           <HeroCTA />
         </div>
