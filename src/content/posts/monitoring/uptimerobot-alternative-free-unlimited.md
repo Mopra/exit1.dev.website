@@ -5,7 +5,7 @@ date: "2025-02-01"
 category: "monitoring"
 excerpt: "What UptimeRobot's free plan actually includes — 50 monitors and 5-minute checks — and where it falls short. Plus exit1.dev, a free alternative with unlimited monitors and 1-minute checks on Nano ($5/month)."
 readTime: "5 min read"
-metaDescription: "UptimeRobot free plan: 50 monitors, 5-minute checks, no credit card. See exactly what you get and the limits — plus exit1.dev's free alternative with 1-minute checks on Nano ($5/mo)."
+metaDescription: "UptimeRobot free plan: 50 monitors, 5-min checks, no card. See its limits — and exit1.dev, a free alternative with 1-minute checks on Nano ($5/mo)."
 ---
 
 # UptimeRobot Free Plan: What You Get, the Limits, and a Better Free Alternative
