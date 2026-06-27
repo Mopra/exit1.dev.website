@@ -4,7 +4,10 @@
 // measurable in analytics, and the checked target can be deep-linked into the
 // app so the first in-app action is pre-filled.
 
-const APP_URL = "https://app.exit1.dev/";
+// Land on the sign-up screen specifically — the app's root ("/") renders sign-in,
+// so a bare app URL sends new visitors to the wrong form. The query string
+// (UTM + ?website= prefill) is read by App.tsx on any route, so it survives here.
+const APP_URL = "https://app.exit1.dev/sign-up";
 
 interface SignupUrlOptions {
   /** Campaign identifier, e.g. "uptime_checker" or "sticky_bar". */
