@@ -26,7 +26,10 @@ export function buildSignupUrl(opts: SignupUrlOptions = {}): string {
 
   const cleanedTarget = target?.trim();
   if (cleanedTarget) {
-    params.set("url", cleanedTarget);
+    // The app (app.exit1.dev) reads this back as the `website` param in App.tsx
+    // and stashes it for the onboarding's first-check pre-fill. Keep the name in
+    // sync with that consumer — a mismatch silently drops the pre-fill.
+    params.set("website", cleanedTarget);
   }
 
   return `${APP_URL}?${params.toString()}`;
