@@ -99,10 +99,11 @@ function expectedCtr(pos) {
 }
 
 async function analyzeGsc() {
-  const [queries, pages, prevQueries] = await Promise.all([
+  const [queries, pages, prevQueries, queryPages] = await Promise.all([
     gscQuery(['query']),
     gscQuery(['page']),
     gscQuery(['query'], { start: PREV_START, end: PREV_END }),
+    gscQuery(['query', 'page']),
   ]);
 
   const prevByQuery = new Map(prevQueries.map((r) => [r.keys[0], r]));
@@ -130,6 +131,30 @@ async function analyzeGsc() {
     .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))
     .slice(0, 25);
 
+  // Content gaps: demand exists but coverage is weak. A query is a gap when it
+  // pulls real impressions yet either (a) only the homepage/root ranks for it —
+  // no dedicated page — or (b) its best page sits past position 15. These are
+  // candidates for a *new* page or a serious strengthening of the matched one.
+  const bestPageByQuery = new Map();
+  for (const r of queryPages) {
+    const [q, page] = r.keys;
+    const prev = bestPageByQuery.get(q);
+    if (!prev || r.position < prev.position) bestPageByQuery.set(q, { ...r, page });
+  }
+  const path = (u) => u.replace(/^https?:\/\/[^/]+/, '') || '/';
+  const isRoot = (u) => path(u) === '/' || /^\/\?/.test(path(u));
+  const gaps = [...bestPageByQuery.values()]
+    .filter((r) => r.impressions >= 50 && (isRoot(r.page) || r.position > 15) && r.clicks <= 2)
+    .map((r) => ({
+      query: r.keys[0],
+      impressions: r.impressions,
+      position: r.position,
+      page: path(r.page),
+      reason: isRoot(r.page) ? 'no dedicated page (only root ranks)' : 'weak coverage (rank > 15)',
+    }))
+    .sort((a, b) => b.impressions - a.impressions)
+    .slice(0, 30);
+
   return {
     totals: queries.reduce(
       (t, r) => ({ clicks: t.clicks + r.clicks, impressions: t.impressions + r.impressions }),
@@ -140,6 +165,7 @@ async function analyzeGsc() {
     striking,
     lowCtr,
     movers,
+    gaps,
   };
 }
 
@@ -238,6 +264,17 @@ function buildReport(gsc, ga4) {
     );
     lines.push('');
 
+    lines.push('### 🧩 Content gaps (demand exists, coverage is weak)');
+    lines.push('Real impressions, but only the homepage ranks or the best page sits past #15 — candidates for a new page or a serious rewrite of the matched one.');
+    lines.push('');
+    lines.push(
+      table(
+        ['Query', 'Impr', 'Pos', 'Best page', 'Why'],
+        gsc.gaps.map((r) => [r.query, num(r.impressions), pos(r.position), r.page, r.reason]),
+      ),
+    );
+    lines.push('');
+
     lines.push(`### 📈 Movers vs previous ${DAYS}d`);
     lines.push('');
     lines.push(
@@ -308,7 +345,10 @@ function buildReport(gsc, ga4) {
 
     console.log(report.split('\n').slice(0, 6).join('\n'));
     console.log(`\n✔ Full report written to ${out}`);
-    if (gsc) console.log(`  ${gsc.striking.length} striking-distance queries · ${gsc.lowCtr.length} CTR opportunities`);
+    if (gsc)
+      console.log(
+        `  ${gsc.striking.length} striking-distance · ${gsc.lowCtr.length} CTR opportunities · ${gsc.gaps.length} content gaps`,
+      );
   } catch (err) {
     fail(err.message || String(err));
   }

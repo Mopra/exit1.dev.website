@@ -7,6 +7,7 @@ The report is built around *what to do*, not raw rows:
 
 - **Striking distance** — queries ranking 5–20 with real impressions (push to page 1)
 - **Title/meta rewrites** — high impressions but CTR below what the position should earn
+- **Content gaps** — demand exists but only the homepage ranks, or the best page sits past #15 (build/strengthen a page)
 - **Movers** — biggest click swings vs the previous equal window
 - **Top queries / pages** and **GA4 channels / landing pages** for context
 
