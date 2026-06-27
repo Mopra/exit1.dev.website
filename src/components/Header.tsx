@@ -10,6 +10,7 @@ import GlassSurface from '@/components/GlassSurface'
 import { Menu, X, ChevronRight, ArrowRight, Github, Star } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { GITHUB_REPO_URL, formatStarCount } from '@/lib/github'
+import { buildSignupUrl } from '@/lib/cta'
 
 const DISCORD_INVITE_URL = 'https://discord.gg/uZvWbpwJZS'
 
@@ -355,7 +356,7 @@ export default function Header({ githubStars }: { githubStars: number | null }) 
               className="bg-primary text-primary-foreground border border-primary/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 interactive"
               asChild
             >
-              <a href="https://app.exit1.dev/" target="_blank" rel="noopener noreferrer">
+              <a href={buildSignupUrl({ campaign: "header", medium: "nav" })}>
                 Start Free
               </a>
             </Button>
@@ -406,7 +407,7 @@ export default function Header({ githubStars }: { githubStars: number | null }) 
                     className="w-full justify-start bg-primary text-primary-foreground border border-primary/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 interactive" 
                     asChild
                   >
-                    <a href="https://app.exit1.dev/" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
+                    <a href={buildSignupUrl({ campaign: "header", medium: "nav_mobile" })} onClick={closeMobileMenu}>
                       Start Free
                     </a>
                   </Button>

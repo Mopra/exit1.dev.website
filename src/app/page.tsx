@@ -10,6 +10,7 @@ import { Integrations } from "@/components/home/Integrations";
 import { Testimonials } from "@/components/Testimonials";
 import { CommunityProof } from "@/components/home/CommunityProof";
 import { ClosingCTA } from "@/components/home/ClosingCTA";
+import { HeroCTA } from "@/components/home/HeroCTA";
 
 export default function HomePage() {
   return (
@@ -25,6 +26,12 @@ export default function HomePage() {
           <div className="mt-20 lg:mt-40 flex justify-center">
             <HeroBadge />
           </div>
+
+          {/* Spacer scales with the badge font-size so the CTA always lands
+              below the laser's tail. Nudge this single value if the gap drifts. */}
+          <div aria-hidden className="text-5xl sm:text-6xl lg:text-7xl h-[5.5em]" />
+
+          <HeroCTA />
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { buildSignupUrl } from "@/lib/cta";
 
 export function PageBackground() {
   return null;
@@ -84,9 +85,7 @@ export function FinalCta() {
               className="rounded-full w-full px-16 py-12 text-3xl sm:text-4xl font-semibold bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
             >
               <a
-                href="https://app.exit1.dev"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={buildSignupUrl({ campaign: "final_cta", medium: "final_cta" })}
                 className="flex items-center justify-center gap-4 cursor-pointer"
               >
                 Start Monitoring

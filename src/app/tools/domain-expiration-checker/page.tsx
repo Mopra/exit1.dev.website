@@ -10,6 +10,7 @@ import {
   SectionContent,
 } from "@/components/PageLayout";
 import { ToolPageHero } from "@/components/ToolPageHero";
+import { buildSignupUrl } from "@/lib/cta";
 import {
   Accordion,
   AccordionContent,
@@ -525,9 +526,7 @@ export default function DomainExpirationCheckerPage() {
                   className="rounded-full px-8 text-base font-semibold"
                 >
                   <a
-                    href="https://app.exit1.dev/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={buildSignupUrl({ campaign: "tool_domain_expiry", medium: "tool_footer" })}
                   >
                     Start Free Monitoring
                   </a>

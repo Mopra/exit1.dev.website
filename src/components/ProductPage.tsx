@@ -11,6 +11,7 @@ import { PageHero } from "@/components/PageHero";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
 import { RelatedFeatures, type RelatedFeature } from "@/components/RelatedFeatures";
 import { YouTubeVideo } from "@/components/YouTubeVideo";
+import { buildSignupUrl } from "@/lib/cta";
 
 interface Feature {
   title: string;
@@ -78,6 +79,16 @@ const ProductPage: React.FC<ProductPageProps> = ({
   video,
   heroExtra,
 }) => {
+  // Route a bare "go to the app" CTA through buildSignupUrl so every feature
+  // page carries UTM attribution (and the app can pre-fill). Pages that point
+  // somewhere specific (e.g. /billing) are left untouched.
+  const isAppRootCta = /^https?:\/\/app\.exit1\.dev\/?$/.test(ctaHref);
+  const primaryCtaHref = isAppRootCta
+    ? buildSignupUrl({
+        campaign: `feature_${title.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "")}`,
+        medium: "feature_hero",
+      })
+    : ctaHref;
   return (
     <PageShell>
       <main>
@@ -98,7 +109,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                   size="lg"
                   className="rounded-full px-8 py-6 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
                 >
-                  <a href={ctaHref} target="_blank" rel="noopener noreferrer">
+                  <a href={primaryCtaHref}>
                     {ctaText}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </a>
@@ -109,11 +120,14 @@ const ProductPage: React.FC<ProductPageProps> = ({
                   size="lg"
                   className="rounded-full px-8 py-6 text-lg font-semibold border-foreground/20 hover:bg-foreground/5 cursor-pointer"
                 >
-                  <a href="https://app.exit1.dev" target="_blank" rel="noopener noreferrer">
+                  <a href="https://app.exit1.dev">
                     Sign In
                   </a>
                 </Button>
               </div>
+              <p className="mt-6 text-sm text-foreground/60">
+                Free forever · No credit card · Sign up with GitHub or Google
+              </p>
           </PageHero>
 
           {heroExtra}

@@ -11,6 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { buildSignupUrl } from "@/lib/cta";
 
 export type TierKey = "free" | "nano" | "pro" | "agency";
 type PaidTierKey = Exclude<TierKey, "free">;
@@ -201,7 +202,7 @@ export function PricingCards() {
             priceSuffix="/mo"
             billingText={t === "free" ? "Always free" : billingText(t)}
             ctaLabel={t === "free" ? "Get Started" : `Get ${tierLabels[t]}`}
-            ctaHref={t === "free" ? "https://app.exit1.dev" : "https://app.exit1.dev/billing"}
+            ctaHref={t === "free" ? buildSignupUrl({ campaign: "pricing_free", medium: "pricing" }) : "https://app.exit1.dev/billing"}
             highlighted={t === "pro"}
           />
         ))}
@@ -268,7 +269,7 @@ function PricingCard({
             : theme.buttonPrimary
         }`}
       >
-        <a href={ctaHref} target="_blank" rel="noopener noreferrer">
+        <a href={ctaHref}>
           {ctaLabel}
         </a>
       </Button>

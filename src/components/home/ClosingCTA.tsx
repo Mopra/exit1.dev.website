@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { OnlineBadge } from '@/components/OnlineBadge';
 import { Reveal } from './Reveal';
+import { buildSignupUrl } from '@/lib/cta';
 
 /**
  * Closing bookend. The line leads; below it sits a single badge-styled pill —
@@ -23,12 +24,14 @@ export function ClosingCTA() {
         <Reveal delay={0.05}>
           <p className="mt-5 text-lg text-muted-foreground">
             Start monitoring in under a minute. No credit card — 10 monitors free.
+            <br className="hidden sm:block" />
+            Sign up with GitHub or Google.
           </p>
         </Reveal>
 
         <Reveal delay={0.1} className="mt-12 flex justify-center">
           <Link
-            href="https://app.exit1.dev/sign-up"
+            href={buildSignupUrl({ campaign: "home_closing", medium: "closing_cta" })}
             aria-label="Start monitoring"
             className="group relative inline-flex cursor-pointer items-center justify-center rounded-full outline-none transition-transform duration-300 hover:scale-[1.04] focus-visible:ring-2 focus-visible:ring-[#22F0B5] focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           >
