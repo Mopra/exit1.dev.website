@@ -10,7 +10,7 @@ metaDescription: "AI anomaly detection spots trouble before users bail. Learn ho
 
 # AI Detection: Catch Issues Before They Explode
 
-Traditional monitoring waits for fires. Dumb. AI predicts them. If you're still wrestling with manual thresholds, revisit our [Monitoring 101 primer](/blog/website-monitoring-101) to see exactly where classic uptime checks fall short before layering in smarter detection. At exit1.dev, we're baking this in because devs deserve tools that think ahead.
+Traditional monitoring waits for fires. Dumb. AI predicts them. If you're still wrestling with manual thresholds, revisit our [Monitoring 101 primer](/blog/intro-to-website-monitoring) to see exactly where classic uptime checks fall short before layering in smarter detection. At exit1.dev, we're baking this in because devs deserve tools that think ahead.
 
 ## Traditional Sucks
 
@@ -90,6 +90,6 @@ AI anomaly detection turns monitoring from passive logging into early warning. H
 
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
-- [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) – Evaluate which free website monitor fits your stack and alerting needs.
+- [Free Website Monitoring Tools 2025 Guide](/blog/best-free-uptime-monitoring-tools) – Evaluate which free website monitor fits your stack and alerting needs.
 - [Free Website Monitoring for Developers](/blog/free-website-monitoring-for-developers) – See how engineering teams automate alerts, SLO tracking, and reporting with a free website monitor.
 

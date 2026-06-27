@@ -34,7 +34,7 @@ Everyone claims "free" server monitoring. Most bolt on strings. Here is the blun
 
 - **Strengths:** Automatic Linux agent, instant dashboards.
 - **Weaknesses:** No global check network, limited alert routing.
-- **Fix:** Treat Netdata as local troubleshooting. Exit1.dev handles customer-facing uptime and SLA evidence, as detailed in the [SLA reporting stack](/blog/monitoring/sla-reporting-free-uptime-stack).
+- **Fix:** Treat Netdata as local troubleshooting. Exit1.dev handles customer-facing uptime and SLA evidence, as detailed in the [SLA reporting stack](/blog/free-sla-monitoring-reporting-playbook).
 
 ## Cloud Provider Freebies (AWS CloudWatch, Azure Monitor, GCP Cloud Monitoring)
 

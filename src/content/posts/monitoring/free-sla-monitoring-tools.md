@@ -41,7 +41,7 @@ Exit1.dev ships the uptime coverage and reporting rigor legal teams expect. The 
 ## How To Assemble A Free SLA Monitoring Stack
 
 1. **Deploy Exit1.dev for real-time uptime checks**. Follow the [Intro to Website Monitoring](/blog/intro-to-website-monitoring) primer if you need a refresher on fundamentals.
-2. **Add status transparency**. Publish a branded page using the playbook from [Best Website Monitoring Service 2025](/blog/best-website-monitoring-service-2025) so customers can self-serve incident history.
+2. **Add status transparency**. Publish a branded page using the playbook from [Best Website Monitoring Service 2025](/blog/best-free-uptime-monitoring-tools) so customers can self-serve incident history.
 3. **Route alerts where they matter**. Slack for engineers via the [Free Uptime Monitor Slack Integration](/blog/free-uptime-monitor-slack-integration), email for execs, and [Discord notifications](/blog/free-website-monitor-discord-integration) for community managers.
 4. **Automate weekly SLA summaries**. Export availability data, calculate uptime vs. SLA targets, and share with stakeholders. Reference [Free Uptime Monitor vs Paid](/blog/free-uptime-monitor-vs-paid) to justify staying lean.
 
@@ -80,7 +80,7 @@ The agency still keeps a secondary Pingdom probe, but Exit1.dev handles the repo
 Yes. Exit1.dev monitors from Europe on the free tier with consistent, frequent checks. Pair with a second tool if you need additional redundancy.
 
 **How do I prove SLA compliance during renewals?**
-Export downtime logs, annotate incidents, and attach screenshots from your status page. Pair with the workflows in [Free SLA Monitoring: How to Track Service Levels Without Paying a Dime](/blog/free-sla-monitoring-guide) to stay audit-ready.
+Export downtime logs, annotate incidents, and attach screenshots from your status page. Pair with the workflows in [Free SLA Monitoring: How to Track Service Levels Without Paying a Dime](/blog/free-sla-monitoring-strategy) to stay audit-ready.
 
 **What about API monitoring?**
 Use JSON assertions and header checks. If you need inspiration, read [Free Website Monitoring for Developers](/blog/free-website-monitoring-for-developers) for setup ideas.
@@ -96,7 +96,7 @@ The companies that win renewals in 2025 will be the ones who treat SLA monitorin
 
 ## Next Steps & Related Reads
 
-- [Free SLA Monitoring: How to Track Service Levels Without Paying a Dime](/blog/free-sla-monitoring-guide)
-- [Free Uptime Monitors With No Limits (2025)](/blog/free-uptime-monitors-no-limits-2025)
+- [Free SLA Monitoring: How to Track Service Levels Without Paying a Dime](/blog/free-sla-monitoring-strategy)
+- [Free Uptime Monitors With No Limits (2025)](/blog/best-free-uptime-monitoring-tools)
 - [UptimeRobot Alternative: Free & Unlimited Monitoring](/blog/uptimerobot-alternative-free-unlimited)
 - [Pingdom Alternative: Free Unlimited Monitoring](/blog/pingdom-alternative-free-unlimited-monitoring)

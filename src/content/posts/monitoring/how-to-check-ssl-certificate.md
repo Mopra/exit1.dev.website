@@ -170,4 +170,4 @@ Before you move on, verify these essentials:
 - [Free SSL Checker Tool](/tools/ssl-checker) – Check any website's SSL certificate instantly
 - [Free SSL Certificate Monitoring](/blog/free-ssl-certificate-monitoring) – Set up automated SSL monitoring
 - [SSL Certificate Expiration: The Other Deadline](/blog/ssl-certificate-expiration-other-deadline) – Why SSL expiry deserves the same attention as domain expiry
-- [Free SSL Monitoring with Slack Alerts](/blog/free-ssl-monitoring-slack-alerts) – Get SSL alerts in your team chat
+- [Free SSL Monitoring with Slack Alerts](/blog/free-ssl-certificate-monitoring) – Get SSL alerts in your team chat

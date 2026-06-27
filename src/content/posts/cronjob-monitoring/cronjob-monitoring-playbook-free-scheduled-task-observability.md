@@ -29,7 +29,7 @@ You now have a watchdog that screams when the job disappears. Pair it with [our 
 
 Heartbeat-only monitoring is lazy. Send JSON alongside the ping with fields like `duration_ms`, `records_processed`, and `result`. exit1.dev lets you assert JSONPath expressions so you catch "succeeded": false states before support tickets pile up.
 
-Add a second synthetic monitor to the API that the job feeds. If a nightly import fails, the next request should fail too. [Intro to website monitoring](/blog/website-monitoring-101) shows how to chain checks without getting buried in noise.
+Add a second synthetic monitor to the API that the job feeds. If a nightly import fails, the next request should fail too. [Intro to website monitoring](/blog/intro-to-website-monitoring) shows how to chain checks without getting buried in noise.
 
 ## Step 4: Route alerts like you mean it
 
@@ -46,7 +46,7 @@ Pin your critical jobs inside the uptime dashboard next to customer-facing monit
 ## Related playbooks
 
 - [Monitor Cron Jobs and Workers with HTTP Hooks](/blog/cron-job-worker-monitoring-http-hooks)
-- [SLA Reporting with a Free Uptime Stack](/blog/sla-reporting-free-uptime-stack)
+- [SLA Reporting with a Free Uptime Stack](/blog/free-sla-monitoring-reporting-playbook)
 - [Free Uptime Monitor for SaaS](/blog/free-uptime-monitor-for-saas)
 
 Set this up once and cronjob failures stop being surprises. exit1.dev gives you the guardrails. Your team just has to use them.

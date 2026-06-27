@@ -158,7 +158,7 @@ exit1.dev foundation. 1-min, global, intelligent. With planning, response, learn
 
 Goal: Minimize frequency, duration, learn.
 
-Related: [101](/blog/website-monitoring-101), [Alerts](/blog/downtime-alerts-guide), [Real-time](/blog/importance-of-real-time-alerts), [Best Practices](/blog/website-monitoring-best-practices-2025)
+Related: [101](/blog/intro-to-website-monitoring), [Alerts](/blog/downtime-alerts-guide), [Real-time](/blog/importance-of-real-time-alerts), [Best Practices](/blog/website-monitoring-best-practices-2025)
 
 *Monitor with exit1.dev [here](https://app.exit1.dev/). Catch before outages.*
 
@@ -172,6 +172,6 @@ Related: [101](/blog/website-monitoring-101), [Alerts](/blog/downtime-alerts-gui
 
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
-- [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) – Evaluate which free website monitor fits your stack and alerting needs.
+- [Free Website Monitoring Tools 2025 Guide](/blog/best-free-uptime-monitoring-tools) – Evaluate which free website monitor fits your stack and alerting needs.
 - [Free Website Monitoring for Developers](/blog/free-website-monitoring-for-developers) – See how engineering teams automate alerts, SLO tracking, and reporting with a free website monitor.
 

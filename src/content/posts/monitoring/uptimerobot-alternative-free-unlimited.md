@@ -1,5 +1,6 @@
 ---
 title: "UptimeRobot Free Plan: Limits, Pricing & the Best Free Alternative (2026)"
+seoTitle: "UptimeRobot Free Plan Limits + Best Free Alternative"
 author: "Morten Pradsgaard"
 date: "2025-02-01"
 category: "monitoring"

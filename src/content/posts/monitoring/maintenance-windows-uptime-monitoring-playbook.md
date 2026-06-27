@@ -112,4 +112,4 @@ Your on-call team will notice the difference immediately.
 - [Maintenance Mode — Suppress Alerts During Planned Downtime](/maintenance-mode) — Full feature overview, comparison table, and FAQ.
 - [Alert Fatigue Starts with Your Maintenance Process](/blog/alert-fatigue-starts-with-maintenance-process) — How deploy alerts erode incident response.
 - [Why Planned Maintenance Is Destroying Your Uptime Numbers](/blog/planned-maintenance-destroying-uptime-numbers) — The SLA impact of not using maintenance windows.
-- [Free SLA Monitoring Checklist](/blog/free-sla-monitoring-checklist) — End-to-end SLA monitoring setup including maintenance hygiene.
+- [Free SLA Monitoring Checklist](/blog/free-sla-monitoring-strategy) — End-to-end SLA monitoring setup including maintenance hygiene.

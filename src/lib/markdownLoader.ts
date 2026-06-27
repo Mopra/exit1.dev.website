@@ -12,7 +12,11 @@ import blogData from '@/content/blog.json';
 export interface BlogPostMeta {
   id: string;
   title: string;
+  /** Optional SEO-tuned <title>; falls back to `title`. Keyword-led, ≤60 chars. */
+  seoTitle?: string;
   excerpt: string;
+  /** Hand-written meta description (frontmatter); falls back to `excerpt`. */
+  metaDescription: string;
   readTime: string;
   category: string;
   categoryName: string;
@@ -54,6 +58,13 @@ const prettyCodeOptions: RehypePrettyCodeOptions = {
   keepBackground: true,
   defaultLang: 'plaintext',
 };
+
+// Posts author their own leading `# H1` in the body, but the post page already
+// renders `post.title` as the page H1 — so the body H1 produced a duplicate H1
+// on every post (bad for on-page SEO and visually redundant). Strip a single
+// leading H1 from the body before rendering / TOC extraction.
+const stripLeadingH1 = (md: string): string =>
+  md.replace(/^﻿?\s*#\s+.*(?:\r?\n)+/, '');
 
 const remarkProcessor = remark()
   .use(remarkGfm)
@@ -119,10 +130,14 @@ export const getAllPosts = (): BlogPostMeta[] => {
     const categoryId = data.category || path.dirname(file);
     const categoryName = categoryNameMap.get(categoryId) || categoryId;
 
+    const excerpt = data.excerpt || markdownContent.substring(0, 150) + '...';
+
     posts.push({
       id: slug,
       title: data.title || 'Untitled',
-      excerpt: data.excerpt || markdownContent.substring(0, 150) + '...',
+      seoTitle: data.seoTitle || undefined,
+      excerpt,
+      metaDescription: data.metaDescription || excerpt,
       readTime: `${readTime} min read`,
       category: categoryId,
       categoryName,
@@ -178,18 +193,25 @@ export const getPostBySlug = async (slug: string): Promise<BlogPostMeta | null> 
   const wordCount = markdownContent.split(/\s+/).length;
   const readTime = Math.ceil(wordCount / 200);
   
+  // Strip the duplicate leading H1 (page renders post.title as the H1).
+  const bodyForRender = stripLeadingH1(markdownContent);
+
   // Process markdown to HTML
-  const processedContent = await remarkProcessor.process(markdownContent);
+  const processedContent = await remarkProcessor.process(bodyForRender);
   const htmlContent = processedContent.toString();
-  
+
   // Extract headings and add IDs
-  const headings = extractHeadings(markdownContent);
+  const headings = extractHeadings(bodyForRender);
   const htmlWithIds = addIdsToHeadings(htmlContent);
-  
+
+  const excerpt = data.excerpt || markdownContent.substring(0, 150) + '...';
+
   return {
     id: slug,
     title: data.title || 'Untitled',
-    excerpt: data.excerpt || markdownContent.substring(0, 150) + '...',
+    seoTitle: data.seoTitle || undefined,
+    excerpt,
+    metaDescription: data.metaDescription || excerpt,
     readTime: `${readTime} min read`,
     category: categoryId,
     categoryName,

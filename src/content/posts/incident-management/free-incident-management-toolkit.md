@@ -29,7 +29,7 @@ Automation should clear the runway for human decisions. Combine exit1.dev with:
 - **Status page updates** via API calls triggered by exit1.dev webhooks.
 - **Incident ticket templates** in Linear or Jira so every event captures the same metadata.
 
-Tie the automations back to the [free uptime monitor SLA reporting stack](/blog/sla-reporting-free-uptime-stack) so stakeholders get consistent metrics.
+Tie the automations back to the [free uptime monitor SLA reporting stack](/blog/free-sla-monitoring-reporting-playbook) so stakeholders get consistent metrics.
 
 ## Communication: clarity beats spin
 
@@ -46,7 +46,7 @@ Keep the updates short, timestamped, and free of speculation. Your audience care
 After recovery, export exit1.dev logs and attach them to the incident ticket. Review them in your retro alongside:
 
 - The [incident postmortem templates](/blog/incident-postmortem-templates-with-exit1) for structured follow-up.
-- The [best free website monitoring tool comparison](/blog/best-free-website-monitoring-tool-2025) to ensure your stack stays sharp.
+- The [best free website monitoring tool comparison](/blog/best-free-uptime-monitoring-tools) to ensure your stack stays sharp.
 
 Assign owners to every action item and set due dates on the spot. If a task doesn’t have an owner, it’s fantasy.
 

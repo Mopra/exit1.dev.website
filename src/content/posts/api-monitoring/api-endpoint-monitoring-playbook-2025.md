@@ -66,7 +66,7 @@ Escalate only when monitors fail twice in a row. One fluke shouldn’t wake anyo
 Product, sales, and compliance want proof that APIs stay up. Build reports that matter:
 
 - Weekly uptime summaries by endpoint family.
-- Error budget consumption tied to the SLA commitments you made in [Free SLA Monitoring Guide](/blog/free-sla-monitoring-guide).
+- Error budget consumption tied to the SLA commitments you made in [Free SLA Monitoring Guide](/blog/free-sla-monitoring-strategy).
 - Post-incident retros that link alert timestamps, owner, fix time, and future prevention.
 
 Export raw data into your warehouse via exit1.dev webhooks. Correlate with customer churn, support tickets, and revenue dips. That’s how you get buy-in for reliability budget.

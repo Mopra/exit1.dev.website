@@ -52,7 +52,7 @@ When something breaks, response should be muscle memory:
 APIs power regulated workflows. Auditors want receipts.
 
 - Export uptime and alert history monthly into your governance repository.
-- Store SLA adherence metrics alongside the [Free SLA Monitoring Guide](/blog/free-sla-monitoring-guide) documents.
+- Store SLA adherence metrics alongside the [Free SLA Monitoring Guide](/blog/free-sla-monitoring-strategy) documents.
 - Map critical endpoints to controls like SOC 2 CC7.2 so compliance questions get resolved before the meeting ends.
 
 ## Next moves for platform leaders

@@ -44,7 +44,7 @@ Postmortems should bridge gaps between clouds:
 
 - Use the [incident management templates](/blog/monitoring/incident-postmortem-templates-with-exit1) to document what broke where.
 - Update runbooks inside the [incident response hub](/blog/incident-management/) so context is not lost.
-- Share uptime and SLA charts with leadership via the [SLA reporting stack](/blog/monitoring/sla-reporting-free-uptime-stack).
+- Share uptime and SLA charts with leadership via the [SLA reporting stack](/blog/free-sla-monitoring-reporting-playbook).
 
 ## Why Free Infrastructure Monitoring Wins Hybrid
 

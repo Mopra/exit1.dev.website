@@ -56,6 +56,31 @@ const nextConfig = {
       { source: '/blog/webhook-alerts-slack-discord', destination: '/blog', permanent: true },
       { source: '/blog/downtime-alerts-guide', destination: '/blog', permanent: true },
       { source: '/blog/beyond-uptime-monitoring-guide', destination: '/blog', permanent: true },
+      // Blog de-cannibalization — consolidate thin duplicate competitor pages
+      // into their richer canonical post (301 preserves their ranking signals).
+      { source: '/blog/uptimerobot-alternatives', destination: '/blog/uptimerobot-alternative-free-unlimited', permanent: true },
+      { source: '/blog/pingdom-free-alternative', destination: '/blog/pingdom-alternative-free-unlimited-monitoring', permanent: true },
+      // "Best free monitoring tools" mega-cluster -> single canonical
+      { source: '/blog/free-website-monitoring-tools-2025', destination: '/blog/best-free-uptime-monitoring-tools', permanent: true },
+      { source: '/blog/best-free-website-monitoring-tool-2025', destination: '/blog/best-free-uptime-monitoring-tools', permanent: true },
+      { source: '/blog/best-website-monitoring-service-2025', destination: '/blog/best-free-uptime-monitoring-tools', permanent: true },
+      { source: '/blog/free-uptime-monitors-no-limits-2025', destination: '/blog/best-free-uptime-monitoring-tools', permanent: true },
+      // Freshping cluster -> canonical replacement page (migration checklist kept separate)
+      { source: '/blog/free-freshping-alternative', destination: '/blog/freshping-replacement-uptime-monitoring', permanent: true },
+      { source: '/blog/freshping-alternative-for-teams', destination: '/blog/freshping-replacement-uptime-monitoring', permanent: true },
+      // Free vs paid pair -> canonical
+      { source: '/blog/free-vs-paid-website-monitoring', destination: '/blog/free-uptime-monitor-vs-paid', permanent: true },
+      // SSL monitoring: channel variants folded into one canonical
+      { source: '/blog/free-ssl-monitoring-discord-alerts', destination: '/blog/free-ssl-certificate-monitoring', permanent: true },
+      { source: '/blog/free-ssl-monitoring-email-alerts', destination: '/blog/free-ssl-certificate-monitoring', permanent: true },
+      { source: '/blog/free-ssl-monitoring-slack-alerts', destination: '/blog/free-ssl-certificate-monitoring', permanent: true },
+      { source: '/blog/ssl-certificate-monitoring-alerts-made-easy-and-why-it-matters', destination: '/blog/free-ssl-certificate-monitoring', permanent: true },
+      // SLA cluster -> strategy pillar + reporting playbook
+      { source: '/blog/free-sla-monitoring-guide', destination: '/blog/free-sla-monitoring-strategy', permanent: true },
+      { source: '/blog/free-sla-monitoring-checklist', destination: '/blog/free-sla-monitoring-strategy', permanent: true },
+      { source: '/blog/sla-reporting-free-uptime-stack', destination: '/blog/free-sla-monitoring-reporting-playbook', permanent: true },
+      // Intro/101 -> single beginner pillar
+      { source: '/blog/website-monitoring-101', destination: '/blog/intro-to-website-monitoring', permanent: true },
       // Live Checks rebrand — consolidate /real-time-monitoring into /live-checks
       { source: '/real-time-monitoring', destination: '/live-checks', permanent: true },
       // /why-nano reframed as /why-upgrade to cover Nano, Pro, and Agency

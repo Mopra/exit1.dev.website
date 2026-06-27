@@ -19,7 +19,7 @@ Document the obvious failure modes and the first move. Keep it in a simple table
 | --- | --- | --- |
 | 2 consecutive 500s on checkout API | Flip traffic to secondary region runbook | Ops lead |
 | Latency spikes >1s on auth | Roll back the last deployment | Engineering on-call |
-| SSL expiry warning | Follow [free SSL monitoring alerts guide](/blog/ssl-certificate-monitoring-alerts-made-easy-and-why-it-matters) | Platform lead |
+| SSL expiry warning | Follow [free SSL monitoring alerts guide](/blog/free-ssl-certificate-monitoring) | Platform lead |
 | Third-party dependency down | Enable feature flag failsafe | Product engineer |
 
 You can add nuance later. Right now you’re aiming for a fast response, not legalese.

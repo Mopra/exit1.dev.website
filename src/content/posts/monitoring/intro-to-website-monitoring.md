@@ -1,522 +1,203 @@
 ---
-title: "What Is Website Monitoring? Complete Guide for Beginners 2025"
+title: "What Is Website Monitoring? The Complete Beginner's Guide"
+seoTitle: "What Is Website Monitoring? Complete Beginner Guide"
 author: "Morten Pradsgaard"
 date: "2025-01-16"
 category: "monitoring"
-excerpt: "Complete beginner's guide to website monitoring and uptime checking. Learn how to monitor websites for free, set up alerts, and choose the best monitoring service for your needs."
-readTime: "5 min read"
-metaDescription: "What Is Website Monitoring? Complete Beginner's Guide 2025 - Learn how to monitor websites for free, set up alerts, choose the best monitoring service, and avoid common mistakes."
+excerpt: "A plain-English guide to website monitoring: what it is, why it matters, the metrics that count, the types of checks, and how to start for free in minutes."
+readTime: "8 min read"
+metaDescription: "Website monitoring explained for beginners: what it is, why it matters, key metrics, types of checks, common mistakes, and how to start free in minutes."
 ---
 
-# What Is Website Monitoring? No-BS Guide 2025
-
-Websites crash. Monitoring spots issues before users rage. Here's how.
+# What Is Website Monitoring? The Complete Beginner's Guide
 
-## Digital Risks
+Websites go down. Pages get slow. Forms quietly stop working. Website monitoring is how you find out before your users do — and before it costs you traffic, revenue, or trust.
 
-### The Modern Web Landscape
+This is the plain-English starting point. By the end you'll know what monitoring actually does, which metrics matter, the different types of checks, the mistakes beginners make, and how to set up your first monitor for free.
 
-The internet has evolved dramatically over the past decade. What once were simple static websites have become complex applications with multiple dependencies, real-time features, and global user bases. This complexity brings both opportunities and challenges:
+## What Is Website Monitoring?
 
-**Opportunities:**
-- Global reach with instant accessibility
-- Real-time user engagement and transactions
-- Scalable business models and revenue streams
-- Rich user experiences with dynamic content
+Website monitoring is the practice of automatically checking your site around the clock to confirm three things:
 
-**Challenges:**
-- Increased complexity means more potential failure points
-- User expectations for instant, reliable access
-- Competition is just one click away
-- Security threats and performance bottlenecks
-
-### The Cost of Poor Monitoring
-
-Monitoring gaps have tangible business impact:
-
-**Financial Impact**
-- Small increases in page load time reduce engagement and conversions; bounce probability rises as load time grows (source: https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/; https://web.dev/articles/vitals)
-
-**Reputation Impact**
-- Slow or unstable experiences drive users away and increase bounce rates (source: https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/)
-
-**Operational Impact**
-- Downtime carries significant direct and indirect costs; reliability engineering practices emphasize proactive monitoring and fast incident response (source: https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html; https://sre.google/sre-book/monitoring-distributed-systems/)
-
-## Why Bother
-
-Website monitoring serves multiple critical business functions beyond just "keeping the lights on":
-
-### Ensure Uptime and Availability
-
-**Proactive Issue Detection**
-Modern monitoring detects issues before they impact users, allowing teams to:
-- Address problems during low-traffic periods
-- Prevent minor issues from cascading into major outages
-- Maintain service level agreements (SLAs) with customers
-- Build customer trust through consistent reliability
-
-**Geographic Availability**
-Your website needs to work for users worldwide, which means monitoring from multiple locations to ensure:
-- Content delivery networks (CDNs) are functioning properly
-- Regional server issues don't go unnoticed
-- DNS resolution works globally
-- Network routing problems are detected quickly
-
-### Improve User Experience
-
-**Performance Optimization**
-Monitoring provides the data needed to continuously improve user experience:
-- Track page load times and optimize slow-loading resources
-- Identify and fix broken user journeys
-- Monitor mobile vs. desktop performance differences
-- Optimize for Core Web Vitals and SEO rankings
-
-**User Journey Monitoring**
-Beyond basic uptime, monitor critical user paths:
-- Registration and login processes
-- Shopping cart and checkout flows
-- Search functionality and results
-- File upload and download capabilities
-
-### Detect Issues Before They Affect Users
-
-**Early Warning Systems**
-Effective monitoring acts as an early warning system:
-- Performance degradation alerts before complete failure
-- Resource exhaustion warnings before services crash
-- Dependency monitoring for third-party services
-- Security breach detection and response
-
-**Predictive Insights**
-Advanced monitoring can predict issues before they occur:
-- Traffic spike predictions based on historical patterns
-- Capacity planning insights from resource utilization trends
-- Seasonal load pattern recognition
-- Infrastructure scaling recommendations
-
-### Optimize Performance and Speed
-
-**Data-Driven Optimization**
-Monitoring provides the metrics needed for informed optimization decisions:
-- Identify the slowest pages and components
-- Track the impact of performance improvements
-- Monitor user engagement metrics relative to site speed
-- Benchmark against competitors and industry standards
-
-**Continuous Improvement**
-Establish feedback loops for ongoing optimization:
-- A/B testing of performance improvements
-- Regular performance audits and reviews
-- Team training on performance best practices
-- Investment prioritization based on user impact
-
-## Key Metrics
-
-When monitoring your website, focus on these key metrics that directly impact user experience and business outcomes:
-
-### Uptime and Availability Metrics
-
-**Overall Uptime Percentage**
-- **99.9% uptime** = 43.2 minutes of downtime per month
-- **99.99% uptime** = 4.32 minutes of downtime per month
-- **99.999% uptime** = 25.9 seconds of downtime per month
-
-```javascript
-// Example uptime calculation
-function calculateUptime(totalChecks, failedChecks) {
-  const successfulChecks = totalChecks - failedChecks;
-  const uptimePercentage = (successfulChecks / totalChecks) * 100;
-  
-  // Calculate downtime in minutes per month
-  const monthlyMinutes = 30 * 24 * 60; // 43,200 minutes
-  const downtimeMinutes = (monthlyMinutes * (100 - uptimePercentage)) / 100;
-  
-  return {
-    uptime: uptimePercentage.toFixed(3),
-    monthlyDowntime: downtimeMinutes.toFixed(1) + ' minutes'
-  };
-}
-```
-
-**Availability from Multiple Locations**
-Monitor from at least 3-5 geographic locations to ensure global availability and distinguish between local and global issues.
-
-### Response Time and Performance
-
-**Response Time Metrics**
-- **Time to First Byte (TTFB)**: Server processing time
-- **Page Load Time**: Complete page rendering time
-- **DNS Resolution Time**: Domain name lookup speed
-- **SSL Handshake Time**: Secure connection establishment
-
-**Core Web Vitals**
-Google's user experience metrics that impact SEO:
-- **Largest Contentful Paint (LCP)**: Loading performance (target: <2.5s)
-- **First Input Delay (FID)**: Interactivity (target: <100ms)
-- **Cumulative Layout Shift (CLS)**: Visual stability (target: <0.1)
-
-### Error Rate and Reliability
-
-**HTTP Status Code Monitoring**
-```yaml
-### Status code categories and their implications
-status_codes:
-  success: [200, 201, 202, 204]     # Successful responses
-  redirect: [301, 302, 307, 308]    # Redirection responses
-  client_error: [400, 401, 403, 404] # Client errors
-  server_error: [500, 502, 503, 504] # Server errors
-
-alert_thresholds:
-  client_errors: 5%    # Alert if >5% of requests are 4xx
-  server_errors: 1%    # Alert if >1% of requests are 5xx
-  timeout_rate: 2%     # Alert if >2% of requests timeout
-```
-
-**JavaScript Error Monitoring**
-Track frontend errors that impact user experience:
-- Uncaught exceptions and promise rejections
-- Resource loading failures (images, scripts, stylesheets)
-- Network request failures
-- Third-party service integration errors
-
-### Business and User Impact Metrics
-
-**User Engagement Metrics**
-- Bounce rate correlation with page load times
-- Conversion rate impact from performance issues
-- User session duration and page views
-- Mobile vs. desktop performance differences
-
-**Revenue Impact Tracking**
-```python
-#### Example: Correlating performance with business metrics
-class PerformanceBusinessImpact:
-    def calculate_revenue_impact(self, performance_data, revenue_data):
-        """Calculate revenue impact of performance changes"""
-        
-        # Group data by performance buckets
-        fast_sessions = revenue_data.filter(load_time < 2.0)
-        medium_sessions = revenue_data.filter(load_time >= 2.0, load_time < 5.0)
-        slow_sessions = revenue_data.filter(load_time >= 5.0)
-        
-        # Calculate conversion rates
-        fast_conversion = fast_sessions.conversions / fast_sessions.total
-        medium_conversion = medium_sessions.conversions / medium_sessions.total
-        slow_conversion = slow_sessions.conversions / slow_sessions.total
-        
-        # Estimate revenue impact
-        potential_revenue = slow_sessions.total * fast_conversion * average_order_value
-        actual_revenue = slow_sessions.conversions * average_order_value
-        lost_revenue = potential_revenue - actual_revenue
-        
-        return {
-            'conversion_rates': {
-                'fast': fast_conversion,
-                'medium': medium_conversion,
-                'slow': slow_conversion
-            },
-            'estimated_monthly_loss': lost_revenue * 30
-        }
-```
-
-## Tools Basics
-
-The website monitoring landscape offers various tools and approaches, each with specific strengths:
-
-### Real-Time Monitoring Services
-
-**Synthetic Monitoring**
-Automated checks that simulate user interactions:
-- **HTTP/HTTPS monitoring**: Basic availability and response time checks
-- **API endpoint monitoring**: RESTful API health and performance
-- **Multi-step transactions**: Complete user journey testing
-- **Browser-based monitoring**: Full page rendering and interaction testing
-
-**Example synthetic monitoring with exit1.dev:**
-```bash
-#### Basic HTTP monitoring
-exit1 add https://mysite.com \
-  --name "Homepage" \
-  --interval 60 \
-  --timeout 30 \
-  --expected-status 200
-
-#### API endpoint monitoring
-exit1 add https://api.mysite.com/health \
-  --name "API Health" \
-  --interval 60 \
-  --headers "Authorization: Bearer token123" \
-  --expected-json "status:ok"
-
-#### SSL certificate monitoring
-exit1 add https://mysite.com \
-  --name "SSL Certificate" \
-  --check-ssl \
-  --ssl-expiry-warning 30
-```
-
-### Performance Analytics Tools
-
-**Real User Monitoring (RUM)**
-Track actual user experiences:
-- Browser performance timing API data
-- User interaction tracking
-- Error rate monitoring
-- Geographic performance variations
-
-**Application Performance Monitoring (APM)**
-Deep dive into application-level performance:
-- Database query performance
-- Function execution times
-- Memory and CPU usage
-- Dependency mapping and monitoring
-
-### Infrastructure Monitoring
-
-**Server and Resource Monitoring**
-Track the underlying infrastructure:
-- CPU, memory, and disk utilization
-- Network throughput and latency
-- Database performance metrics
-- Container and orchestration health
-
-**Log Analysis and Monitoring**
-Analyze application and server logs for insights:
-- Error pattern detection
-- Performance trend analysis
-- Security event monitoring
-- User behavior insights
-
-## Automated Alerts and Notifications
-
-Effective monitoring requires intelligent alerting that reduces noise while ensuring critical issues get immediate attention:
-
-### Alert Channel Strategy
-
-**Multi-Channel Approach**
-```javascript
-// Example alert routing logic
-const alertRouting = {
-  critical: ['slack', 'discord', 'email', 'sms', 'phone'],
-  high: ['slack', 'discord', 'email'],
-  medium: ['slack', 'email'],
-  low: ['email'],
-  
-  // Business hours vs. after-hours routing
-  getChannelsForSeverity: (severity, isBusinessHours) => {
-    const baseChannels = alertRouting[severity];
-    
-    if (!isBusinessHours && severity === 'critical') {
-      // Add phone calls for critical after-hours issues
-      return [...baseChannels, 'phone_call'];
-    }
-    
-    return baseChannels;
-  }
-};
-```
-
-**Escalation Policies**
-Implement time-based escalation to ensure issues get resolved:
-
-1. **Immediate** (0 min): Primary on-call engineer via Slack/Discord
-2. **Escalation 1** (5 min): Secondary engineer and team lead via email/SMS
-3. **Escalation 2** (15 min): Engineering manager and stakeholders
-4. **Escalation 3** (30 min): Executive team and emergency procedures
-
-### Smart Alert Configuration
-
-**Threshold-Based Alerts**
-```yaml
-#### Example alert configuration
-alerts:
-  response_time:
-    warning: 2000ms
-    critical: 5000ms
-    evaluation_window: 3_checks
-    
-  uptime:
-    critical: 1_failure
-    evaluation_window: 1_check
-    
-  ssl_certificate:
-    warning: 30_days_before_expiry
-    critical: 7_days_before_expiry
-    check_frequency: daily
-```
-
-**Anomaly-Based Alerts**
-Move beyond static thresholds to intelligent anomaly detection:
-- Traffic pattern deviations
-- Response time trends
-- Error rate anomalies
-- Seasonal pattern recognition
-
-## Quickstart Checklist
-
-- Add site
-- Set alerts
-- Test
-
-## Get Going
-
-### Phase 1: Basic Monitoring Setup
-
-**Essential Monitors**
-Start with these fundamental checks:
-
-1. **Homepage availability**: Ensure your main page is accessible
-2. **Critical API endpoints**: Monitor essential backend services
-3. **SSL certificate validity**: Prevent security warnings
-4. **DNS resolution**: Ensure domain name accessibility
-
-```bash
-#### Quick start with exit1.dev
-exit1 add https://mysite.com --name "Homepage"
-exit1 add https://api.mysite.com/health --name "API Health"
-exit1 add https://mysite.com --check-ssl --name "SSL Check"
-exit1 add https://mysite.com --check-dns --name "DNS Check"
-```
-
-**Basic Alert Setup**
-Configure notifications for immediate issues:
-```bash
-#### Configure Slack alerts
-exit1 alert add-channel slack \
-  --webhook-url "https://hooks.slack.com/..." \
-  --severity critical,high
-
-#### Configure email alerts
-exit1 alert add-channel email \
-  --addresses "team@company.com" \
-  --severity medium,low
-```
-
-### Phase 2: Comprehensive Coverage
-
-**User Journey Monitoring**
-Add monitors for critical user paths:
-- Registration and login flows
-- Payment and checkout processes
-- Search and navigation functionality
-- File upload and download features
-
-**Performance Monitoring**
-Implement detailed performance tracking:
-- Page load time monitoring
-- API response time tracking
-- Database query performance
-- CDN and static asset delivery
-
-### Phase 3: Advanced Monitoring
-
-**Business Logic Monitoring**
-Monitor business-specific functionality:
-- Inventory management systems
-- Customer support tools
-- Analytics and reporting systems
-- Integration with third-party services
-
-**Predictive Monitoring**
-Implement monitoring that predicts issues:
-- Capacity planning alerts
-- Trend-based performance warnings
-- Seasonal traffic preparation
-- Resource exhaustion predictions
-
-## Best Practices
-
-### Monitor Design Principles
-
-**Start Simple, Scale Gradually**
-- Begin with basic availability monitoring
-- Add complexity as your understanding grows
-- Focus on user-impacting issues first
-- Expand coverage based on actual incidents
-
-**Monitor What Matters**
-- Prioritize user-facing functionality
-- Track business-critical processes
-- Monitor dependencies and integrations
-- Focus on actionable metrics
-
-### Team and Process Integration
-
-**Incident Response Procedures**
-1. **Detection**: Automated monitoring alerts
-2. **Assessment**: Rapid impact evaluation
-3. **Response**: Coordinated team mobilization
-4. **Resolution**: Systematic problem solving
-5. **Learning**: Post-incident analysis and improvement
-
-**Documentation and Knowledge Sharing**
-- Maintain runbooks for common issues
-- Document monitoring configurations
-- Share incident learnings with the team
-- Regular monitoring effectiveness reviews
-
-### Continuous Improvement
-
-**Regular Monitoring Reviews**
-- Monthly uptime and performance reports
-- Quarterly monitoring coverage assessments
-- Annual monitoring strategy reviews
-- Ongoing alert effectiveness analysis
-
-**Metrics-Driven Optimization**
-```python
-#### Example monitoring effectiveness analysis
-class MonitoringEffectiveness:
-    def analyze_monitoring_coverage(self, incidents, monitors):
-        """Analyze how well monitoring covers actual incidents"""
-        
-        detected_by_monitoring = 0
-        detected_by_users = 0
-        
-        for incident in incidents:
-            if incident.first_detection_source == 'monitoring':
-                detected_by_monitoring += 1
-            else:
-                detected_by_users += 1
-        
-        coverage_percentage = (detected_by_monitoring / len(incidents)) * 100
-        
-        return {
-            'monitoring_coverage': coverage_percentage,
-            'gaps': self.identify_monitoring_gaps(incidents, monitors),
-            'recommendations': self.generate_improvement_recommendations()
-        }
-```
+- **It's accessible** — the page actually loads for visitors.
+- **It's functional** — key flows like login, search, and checkout still work.
+- **It's performing** — the site responds quickly, not just eventually.
+
+Instead of you manually refreshing your homepage every morning, a monitoring service does it for you every minute, from multiple locations, and alerts you the moment something breaks.
+
+A simple example: for an e-commerce store, monitoring confirms the homepage loads, the cart accepts items, and checkout completes. If any step fails, you get an alert — usually long before a customer would have emailed to complain.
+
+## Why Website Monitoring Matters
+
+"Keeping the lights on" is only half the story. Good monitoring protects the business in several ways.
+
+### It protects revenue and reputation
+
+Slow or unstable experiences drive users away — bounce probability rises as load time grows ([Think with Google](https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/), [web.dev](https://web.dev/articles/vitals)). Downtime carries direct and indirect costs, which is exactly why reliability engineering emphasizes proactive monitoring and fast incident response ([Google SRE Book](https://sre.google/sre-book/monitoring-distributed-systems/)).
+
+### It catches problems early
+
+Monitoring acts as an early-warning system. You can catch a failing API, an expiring SSL certificate, or a slow region before it cascades into a full outage — and fix it during quiet hours instead of at 2 a.m.
+
+### It gives you proof
+
+Monitoring produces a real record of uptime and response times. That's what you use to hold a host accountable, back an SLA, or show a client your site is genuinely reliable.
+
+## Monitoring vs. Performance: Two Questions
+
+Beginners often blur these together. They answer different questions:
+
+- **Monitoring** asks: *Is it up or down?*
+- **Performance** asks: *How well is it running?*
+
+You need both. A site that's technically "up" but takes eight seconds to load is still losing users. Start with uptime monitoring, then layer performance tracking on top.
+
+## Uptime vs. Availability
+
+Two more terms that get mixed up:
+
+- **Uptime** is the percentage of time the service is operational.
+- **Availability** is the probability it's reachable when needed, including planned maintenance.
+
+The headline number everyone quotes is uptime, expressed in "nines." Here's what each level actually costs you in downtime:
+
+| Uptime | Per month | Per year | Verdict |
+|--------|-----------|----------|---------|
+| 90% | ~72 hrs | ~36.5 days | Bad |
+| 95% | ~36 hrs | ~18.25 days | Poor |
+| 99% | ~7.2 hrs | ~3.65 days | Okay |
+| 99.9% | ~43 min | ~8.77 hrs | Good |
+| 99.99% | ~4 min | ~52 min | Excellent |
+| 99.999% | ~26 sec | ~5 min | World-class |
+
+The lesson: 99% sounds great until you realize it allows a full weekend of downtime per year. Aim for 99.9% as a baseline.
+
+## The Metrics That Matter
+
+You don't need to track everything. Focus on the handful of metrics that map directly to user experience.
+
+### Uptime and availability
+
+The core number. Monitor from at least 3–5 geographic locations so you can tell the difference between a real outage and a local network blip.
+
+### Response time
+
+How fast the server replies. A useful rule of thumb:
+
+- **Under 200ms** — great
+- **Under 1s** — acceptable
+- **Over 3s** — users are leaving
+
+Related sub-metrics include Time to First Byte (TTFB), DNS resolution time, and SSL handshake time.
+
+### HTTP status codes
+
+The quickest signal of health ([MDN status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)):
+
+- **2xx** — success
+- **3xx** — redirects (usually fine)
+- **4xx** — client errors (e.g., 404 not found)
+- **5xx** — server errors (something is broken on your side)
+
+### SSL certificates
+
+A monitor should warn you well before a certificate expires — typically 30 days out — so you never serve scary "not secure" browser warnings.
+
+### Content and Core Web Vitals
+
+Beyond a 200 response, you can validate that the right keywords are present, an API returns expected JSON, or a form still works. For deeper performance, Google's [Core Web Vitals](https://web.dev/articles/vitals) — LCP (loading), interactivity, and CLS (visual stability) — also feed into SEO.
+
+## Types of Website Monitoring
+
+There are a handful of check types, from simplest to most thorough:
+
+1. **Ping** — is the server alive at all?
+2. **HTTP/HTTPS** — does the page return a healthy response and load in time?
+3. **API** — do your endpoints return the right status and data?
+4. **Transaction** — do full multi-step flows (login → cart → checkout) succeed?
+5. **DNS** — does your domain still resolve correctly?
+
+Most beginners start with HTTP/HTTPS checks on their key pages and grow from there.
+
+## How to Get Started (in Minutes)
+
+You don't need a complex setup to begin. A solid first day looks like this:
+
+1. **Add your homepage** as an HTTP check.
+2. **Add your critical endpoints** — a health-check API, the login page, checkout.
+3. **Turn on SSL expiry monitoring** so certificates never lapse silently.
+4. **Connect an alert channel** — email, Slack, or Discord.
+5. **Test the alert** by intentionally triggering a failure, so you trust it when it counts.
+
+A sensible check-frequency strategy:
+
+- **Critical pages** (homepage, login, checkout, API): every 1 minute
+- **Important pages**: every 5 minutes
+- **Secondary pages**: every 15 minutes
+
+## Common Beginner Mistakes to Avoid
+
+1. **Alert fatigue** — too many noisy alerts and you start ignoring them. Tune your thresholds.
+2. **Only checking internally** — a server that can reach itself tells you nothing. Use external monitoring.
+3. **Ignoring SSL** — expired certificates cause instant trust loss. Monitor expiry.
+4. **Skipping the full journey** — a loading homepage doesn't prove checkout works. Add transaction checks.
+5. **Forgetting mobile** — monitor the experience your mobile users actually get.
+6. **No documentation** — write down your setup and who responds to what.
+
+## Free vs. Paid: When to Upgrade
+
+You can do real monitoring without paying anything.
+
+- **exit1.dev Free** — 10 monitors, 5-minute checks, no credit card required. Enough to cover a personal site or small project end to end.
+- **exit1.dev Nano ($5/mo)** — unlimited monitors and 1-minute checks, for when you outgrow the free tier and want faster detection across more endpoints.
+
+Start free, prove the value, and upgrade only when more monitors or tighter intervals actually move the needle for you.
+
+## FAQ
+
+### What is website monitoring in simple terms?
+
+It's an automated service that checks your website around the clock to confirm it's online, working, and fast — and alerts you the instant something breaks.
+
+### How often should a website be checked?
+
+Critical pages every 1 minute, important pages every 5 minutes, and secondary pages every 15 minutes. exit1.dev's free tier runs 5-minute checks; the Nano plan runs 1-minute checks.
+
+### What's a good uptime percentage?
+
+Aim for 99.9% as a baseline — that's about 43 minutes of downtime a month. 99% sounds fine but allows a full weekend offline over a year.
+
+### What's the difference between monitoring and performance tracking?
+
+Monitoring answers "is it up or down?" Performance answers "how well is it running?" You need both; a site that's up but slow still loses users.
+
+### Can I monitor a website for free?
+
+Yes. exit1.dev's free tier includes 10 monitors and 5-minute checks with no credit card required, which is enough to cover a small site completely.
 
 ## Conclusion
 
-Monitor or lose users. Simple.
+Website monitoring isn't optional — it's the difference between you finding problems and your users finding them. Start simple: monitor your homepage, set one alert, test it. Expand as you learn. The best monitoring setup is the one that lets you sleep, knowing you'll hear about an outage before your customers do.
+
+[Start monitoring free with exit1.dev →](https://app.exit1.dev/sign-up)
 
 ## Sources
 
 - Google SRE Book: Monitoring Distributed Systems — https://sre.google/sre-book/monitoring-distributed-systems/
 - MDN: HTTP response status codes — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 - web.dev: Core Web Vitals — https://web.dev/articles/vitals
-
-exit1.dev provides the foundation for effective website monitoring with fast 1-minute checks, global monitoring locations, and intelligent alerting. Start with basic availability monitoring and gradually expand your coverage as your understanding and needs grow.
-
-Remember, the best monitoring system is one that helps you sleep better at night, knowing that your website is being watched by reliable, intelligent systems that will alert you the moment something needs attention.
+- Think with Google: Page load time statistics — https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/
 
 **Related Reading:**
-- [Website Monitoring 101](/blog/website-monitoring-101) - Learn the fundamentals
-- [Get Started with Website Monitoring](/blog/get-started) - Step-by-step setup guide
-- [Best Website Monitoring Service 2025](/blog/best-website-monitoring-service-2025) - Compare top tools
-- [Free vs Paid Website Monitoring](/blog/free-vs-paid-website-monitoring) - When to upgrade
-
----
-
-*Ready to start monitoring your website effectively? [Begin with exit1.dev](https://exit1.dev) and build a monitoring strategy that grows with your business.* 
+- [Get Started with Website Monitoring](/blog/get-started) — step-by-step setup guide
+- [Best Website Monitoring Service 2025](/blog/best-free-uptime-monitoring-tools) — compare top tools
+- [Free vs Paid Website Monitoring](/blog/free-uptime-monitor-vs-paid) — when to upgrade
+- [Understanding Website Downtime](/blog/understanding-website-downtime) — causes and fixes
+- [Website Monitoring Best Practices 2025](/blog/website-monitoring-best-practices-2025) — level up your setup
 
 ## Recommended Free Monitoring Resources
 
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
-- [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) – Evaluate which free website monitor fits your stack and alerting needs.
+- [Free Website Monitoring Tools 2025 Guide](/blog/best-free-uptime-monitoring-tools) – Evaluate which free website monitor fits your stack and alerting needs.
 - [Free Website Monitoring for Developers](/blog/free-website-monitoring-for-developers) – See how engineering teams automate alerts, SLO tracking, and reporting with a free website monitor.
-

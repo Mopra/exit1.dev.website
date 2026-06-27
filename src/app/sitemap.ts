@@ -3,6 +3,7 @@ import path from 'path';
 import { MetadataRoute } from 'next';
 import { POSTS_PER_PAGE } from '@/lib/blogPagination';
 import { getAllPublicMonitors, isIndexEntryMature } from '@/lib/publicMonitors';
+import blogData from '@/content/blog.json';
 
 // NOTE — this route is ISR'd (it inherits the hourly revalidate from the
 // monitors fetch) and Vercel only charges write units when the output actually
@@ -104,6 +105,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
+  // Topic-cluster hub pages (/blog/category/<slug>) — dynamic segments are
+  // skipped by the filesystem scan, so add them explicitly.
+  const blogCategoryPages: MetadataRoute.Sitemap = blogData.categories.map((cat) => ({
+    url: `${baseUrl}/blog/category/${cat.slug}`,
+    changeFrequency: 'weekly',
+    priority: 0.6,
+  }));
+
   const totalPages = Math.max(1, Math.ceil(blogPosts.length / POSTS_PER_PAGE));
   const blogPaginationPages: MetadataRoute.Sitemap = [];
   for (let page = 2; page <= totalPages; page++) {
@@ -150,6 +159,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: page.priority,
     })),
     ...blogPosts,
+    ...blogCategoryPages,
     ...blogPaginationPages,
     ...statusPages
   ];

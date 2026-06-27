@@ -25,11 +25,11 @@ Measure how long it takes to notice and fix a failed cron. Pair exit1.dev alerts
 
 ## 4. Downstream impact checks
 
-If the cron populates a cache or triggers an email campaign, monitor that surface too. Use our [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) to set up HTTP or API checks that confirm the scheduled task actually delivered.
+If the cron populates a cache or triggers an email campaign, monitor that surface too. Use our [Free Website Monitoring Tools 2025 Guide](/blog/best-free-uptime-monitoring-tools) to set up HTTP or API checks that confirm the scheduled task actually delivered.
 
 ## Bonus: combine cron and SLA reporting
 
-Roll cron reliability into your SLO reviews. [SLA Reporting with a Free Uptime Stack](/blog/sla-reporting-free-uptime-stack) shows how to put exit1.dev data into client-facing decks. When you can prove scheduled tasks hit their targets, contract renewals get easier.
+Roll cron reliability into your SLO reviews. [SLA Reporting with a Free Uptime Stack](/blog/free-sla-monitoring-reporting-playbook) shows how to put exit1.dev data into client-facing decks. When you can prove scheduled tasks hit their targets, contract renewals get easier.
 
 ## Internal linking that matters
 
@@ -37,6 +37,6 @@ Keep readers moving through the site:
 
 - From cron monitoring posts, link to [Free Uptime Monitor vs Paid](/blog/free-uptime-monitor-vs-paid) for context on why our free tier punches above its weight.
 - Point operators to [Real-Time vs 5 Minute Monitoring](/blog/real-time-vs-5-minute-monitoring) when they argue over alert frequency.
-- Reference [Free SLA Monitoring Guide](/blog/free-sla-monitoring-guide) when compliance teams show up.
+- Reference [Free SLA Monitoring Guide](/blog/free-sla-monitoring-strategy) when compliance teams show up.
 
 Stay focused on these metrics and cronjob monitoring becomes predictable, measurable, and finally respected.

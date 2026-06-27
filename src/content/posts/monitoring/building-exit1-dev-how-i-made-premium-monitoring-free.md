@@ -31,7 +31,7 @@ The "premium" features? SSL certificate monitoring, custom headers, response val
 
 But here's the thing: **modern cloud infrastructure makes this incredibly cheap to run at scale.**
 
-Compare tools: [Best 2025](/blog/best-website-monitoring-service-2025). Free alternatives: [Free Tools](/blog/free-website-monitoring-tools-2025).
+Compare tools: [Best 2025](/blog/best-free-uptime-monitoring-tools). Free alternatives: [Free Tools](/blog/best-free-uptime-monitoring-tools).
 
 ## The Architecture That Makes It Possible
 
@@ -392,7 +392,7 @@ The question is: what are you going to build with these tools?
 
 [Sign up free](https://app.exit1.dev/). See the architecture in action.
 
-Related: [Get Started](/blog/getting-started), [Free Tools](/blog/free-website-monitoring-tools-2025), [Best Practices](/blog/website-monitoring-best-practices-2025), [Real-time vs 5-min](/blog/real-time-vs-5-minute-monitoring), [Free vs Paid](/blog/free-vs-paid-website-monitoring)
+Related: [Get Started](/blog/getting-started), [Free Tools](/blog/best-free-uptime-monitoring-tools), [Best Practices](/blog/website-monitoring-best-practices-2025), [Real-time vs 5-min](/blog/real-time-vs-5-minute-monitoring), [Free vs Paid](/blog/free-uptime-monitor-vs-paid)
 
 ## Sources
 
@@ -405,5 +405,5 @@ Related: [Get Started](/blog/getting-started), [Free Tools](/blog/free-website-m
 
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
-- [Free Website Monitoring Tools 2025 Guide](/blog/free-website-monitoring-tools-2025) – Evaluate which free website monitor fits your stack and alerting needs.
+- [Free Website Monitoring Tools 2025 Guide](/blog/best-free-uptime-monitoring-tools) – Evaluate which free website monitor fits your stack and alerting needs.
 - [Free Website Monitoring for Developers](/blog/free-website-monitoring-for-developers) – See how engineering teams automate alerts, SLO tracking, and reporting with a free website monitor.

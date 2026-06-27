@@ -44,7 +44,7 @@ Set alert fatigue boundaries. Infrastructure monitoring is worthless if everyone
 
 Business stakeholders care about reliability trends, not excuses. Turn your uptime data into SLA dashboards:
 
-- Reuse the [Free SLA monitoring guide](/blog/monitoring/free-sla-monitoring-guide) to translate availability into promises.
+- Reuse the [Free SLA monitoring guide](/blog/free-sla-monitoring-strategy) to translate availability into promises.
 - Generate monthly reports straight from Exit1.dev so finance and sales see proof, not hopes.
 - Export to CSV and attach context from post-incident reviews.
 

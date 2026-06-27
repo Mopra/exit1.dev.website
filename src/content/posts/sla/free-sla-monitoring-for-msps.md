@@ -27,7 +27,7 @@ This keeps the free SLA monitoring experience consistent while still delivering 
 Stop rolling installs by hand. Create a playbook:
 
 1. Import the client’s SLA clauses into your template.
-2. Run the [Free SLA Monitoring Checklist](/blog/free-sla-monitoring-checklist) during kickoff.
+2. Run the [Free SLA Monitoring Checklist](/blog/free-sla-monitoring-strategy) during kickoff.
 3. Clone monitor groups, alert policies, and reporting exports inside Exit1.dev.
 4. Schedule quarterly reviews and plug them into your PSA or ticketing tool.
 
@@ -37,7 +37,7 @@ The result? Every new client hits compliance in under a day, and the ops team is
 
 Clients don’t want raw logs. They want proof you met the SLA:
 
-- Send branded monthly summaries powered by the [SLA reporting toolkit](/blog/sla-reporting-free-uptime-stack).
+- Send branded monthly summaries powered by the [SLA reporting toolkit](/blog/free-sla-monitoring-reporting-playbook).
 - Attach incident timelines generated from the [postmortem templates](/blog/incident-postmortem-templates-with-exit1). Keep them plain language.
 - During QBRs, reference the flagship [Free SLA Monitoring Tools breakdown](/blog/free-sla-monitoring-tools) to show why your stack beats DIY setups.
 

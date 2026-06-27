@@ -12,6 +12,8 @@ import StructuredData from '@/components/StructuredData';
 import { InsetCard } from '@/components/InsetCard';
 import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
+import { RelatedPosts, pickRelatedPosts } from '@/components/RelatedPosts';
+import blogData from '@/content/blog.json';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -34,12 +36,17 @@ export async function generateMetadata({
     };
   }
 
+  // Keyword-led SEO title (frontmatter `seoTitle`) when provided, else the
+  // post title. No generic "- Blog" suffix — it wasted ~7 chars of the SERP
+  // pixel budget for zero keyword value.
+  const seoTitle = post.seoTitle || post.title;
+
   return {
-    title: `${post.title} - Blog`,
-    description: post.excerpt,
+    title: seoTitle,
+    description: post.metaDescription,
     openGraph: {
       title: post.title,
-      description: post.excerpt,
+      description: post.metaDescription,
       type: 'article',
       authors: [post.author],
       url: `https://exit1.dev/blog/${post.slug}`,
@@ -49,7 +56,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.excerpt,
+      description: post.metaDescription,
     },
     alternates: {
       canonical: `https://exit1.dev/blog/${post.slug}`,
@@ -68,6 +75,9 @@ export default async function BlogPostPage({
   if (!post) {
     notFound();
   }
+
+  const relatedPosts = pickRelatedPosts(getAllPosts(), post);
+  const categoryMeta = blogData.categories.find((c) => c.id === post.category);
 
   const articleStructuredData = {
     "@context": "https://schema.org",
@@ -103,17 +113,27 @@ export default async function BlogPostPage({
     "timeRequired": post.readTime
   };
 
-  const hasFAQ = post.content.includes('## FAQs') || post.content.includes('### ');
+  // FAQ structured data — ONLY emitted when a post has an explicit
+  // "## FAQ"/"## Frequently Asked Questions" section, and only the `###`
+  // question headings *within* that section are parsed. The previous logic
+  // fired on ANY post containing a `###` heading, treating every subheading as
+  // a fake FAQ question and emitting invalid FAQPage schema across the blog —
+  // which Google can ignore or penalize as structured-data spam.
   let faqStructuredData = null;
+  const faqHeading = post.content.match(
+    /(?:^|\n)##\s+(?:FAQs?|Frequently Asked Questions)\b[^\n]*\n/i
+  );
 
-  if (hasFAQ) {
-    const faqMatches = post.content.match(/### (.+?)\n([\s\S]+?)(?=### |$)/g);
-    const faqItems = faqMatches ? faqMatches.map(match => {
-      const lines = match.split('\n');
-      const question = lines[0].replace('### ', '').trim();
-      const answer = lines.slice(1).join('\n').trim();
-      return { question, answer };
-    }) : [];
+  if (faqHeading) {
+    const sectionStart = (faqHeading.index ?? 0) + faqHeading[0].length;
+    const rest = post.content.slice(sectionStart);
+    const nextH2 = rest.search(/\n##\s/);
+    const section = nextH2 === -1 ? rest : rest.slice(0, nextH2);
+
+    const faqItems = [...section.matchAll(/(?:^|\n)###\s+(.+?)\n([\s\S]*?)(?=\n###\s|$)/g)]
+      .map((m) => ({ question: m[1].trim(), answer: m[2].trim() }))
+      // Only real Q&A pairs: a question ends with "?" and has an answer.
+      .filter((item) => item.question.endsWith('?') && item.answer.length > 0);
 
     if (faqItems.length > 0) {
       faqStructuredData = {
@@ -147,9 +167,17 @@ export default async function BlogPostPage({
               />
             }>
                 <div className="mb-4 sm:mb-6">
-                  <Badge variant="secondary" className="mb-3 sm:mb-4 text-xs bg-foreground/10 text-foreground border border-foreground/10">
-                    {post.category}
-                  </Badge>
+                  {categoryMeta ? (
+                    <Link href={`/blog/category/${categoryMeta.slug}`} className="cursor-pointer interactive">
+                      <Badge variant="secondary" className="mb-3 sm:mb-4 text-xs bg-foreground/10 text-foreground border border-foreground/10 hover:bg-foreground/20 transition-colors">
+                        {post.categoryName}
+                      </Badge>
+                    </Link>
+                  ) : (
+                    <Badge variant="secondary" className="mb-3 sm:mb-4 text-xs bg-foreground/10 text-foreground border border-foreground/10">
+                      {post.categoryName}
+                    </Badge>
+                  )}
                 </div>
 
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
@@ -300,6 +328,8 @@ export default async function BlogPostPage({
                       </div>
                     </div>
                   </aside>
+
+                  <RelatedPosts posts={relatedPosts} />
                 </div>
               </SectionContent>
             </PageSection>

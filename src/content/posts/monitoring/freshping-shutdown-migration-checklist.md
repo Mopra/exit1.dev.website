@@ -113,4 +113,4 @@ Freshping is closing. Move fast and keep uptime boring.
 
 Start here: [Get started](/getting-started)
 
-Related: [Exit1 vs UptimeRobot Migration Checklist](/blog/exit1-vs-uptimerobot-migration-checklist), [Free vs Paid Website Monitoring](/blog/free-vs-paid-website-monitoring), [Incident Postmortem Templates](/blog/incident-postmortem-templates-with-exit1)
+Related: [Exit1 vs UptimeRobot Migration Checklist](/blog/exit1-vs-uptimerobot-migration-checklist), [Free vs Paid Website Monitoring](/blog/free-uptime-monitor-vs-paid), [Incident Postmortem Templates](/blog/incident-postmortem-templates-with-exit1)
