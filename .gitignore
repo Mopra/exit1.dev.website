@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# seo puller — service-account keys + generated reports
+scripts/seo/.keys/
+scripts/seo/output/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
