@@ -23,6 +23,10 @@ export default function HomePage() {
             Until they aren’t.
           </h1>
 
+          <p className="mx-auto mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground">
+            Know before your customers do. Get an alert the second something breaks.
+          </p>
+
           <div className="mt-20 lg:mt-40 flex justify-center">
             <HeroBadge />
           </div>
