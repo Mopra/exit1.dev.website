@@ -35,6 +35,15 @@
       { "name": "Ping Test", "href": "/tools/ping-test" },
       { "name": "Live Status", "href": "/status" }
     ],
+    "compare": [
+      { "name": "All comparisons", "href": "/compare" },
+      { "name": "vs UptimeRobot", "href": "/compare/uptimerobot" },
+      { "name": "vs Pingdom", "href": "/compare/pingdom" },
+      { "name": "vs Better Stack", "href": "/compare/better-stack" },
+      { "name": "vs Freshping", "href": "/compare/freshping" },
+      { "name": "vs StatusCake", "href": "/compare/statuscake" },
+      { "name": "vs Hyperping", "href": "/compare/hyperping" }
+    ],
     "legal": [
       { "name": "Privacy Policy", "href": "/privacy" },
       { "name": "Terms of Service", "href": "https://app.exit1.dev/terms" },

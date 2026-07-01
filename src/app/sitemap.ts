@@ -4,6 +4,7 @@ import { MetadataRoute } from 'next';
 import { POSTS_PER_PAGE } from '@/lib/blogPagination';
 import { getAllPublicMonitors, isIndexEntryMature } from '@/lib/publicMonitors';
 import blogData from '@/content/blog.json';
+import { competitors } from '@/content/competitors';
 
 // NOTE — this route is ISR'd (it inherits the hourly revalidate from the
 // monitors fetch) and Vercel only charges write units when the output actually
@@ -124,6 +125,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
+  // Head-to-head comparison pages (/compare/<competitor>). Dynamic segments are
+  // skipped by the filesystem scan above, so add them explicitly.
+  const comparePages: MetadataRoute.Sitemap = competitors.map((c) => ({
+    url: `${baseUrl}/compare/${c.slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   // Public status pages (curated uptime landing pages). Dynamic segments are
   // skipped by the filesystem scan above, so add them explicitly. Only mature
   // pages (enough recorded history) are listed — thin pages are noindexed and
@@ -161,6 +170,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...blogPosts,
     ...blogCategoryPages,
     ...blogPaginationPages,
+    ...comparePages,
     ...statusPages
   ];
 }

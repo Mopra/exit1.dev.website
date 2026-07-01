@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
 import { Metadata } from 'next';
+import { competitors } from '@/content/competitors';
 
 export const metadata: Metadata = {
   title: 'Compare Uptime Monitors | exit1.dev vs UptimeRobot vs Better Stack vs Hyperping',
@@ -317,6 +318,36 @@ export default function ComparePage() {
                   </Link>
                 </Button>
               </div>
+            </div>
+          </SectionContent>
+        </PageSection>
+
+        {/* Head-to-head pages — one focused comparison per competitor */}
+        <PageSection className="pt-8 pb-12">
+          <SectionContent size="lg">
+            <div className="mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold">Head-to-head comparisons</h2>
+              <p className="text-foreground/60 text-sm mt-1">
+                Prefer a one-on-one breakdown? Each page compares exit1.dev to a single competitor,
+                free tier and paid tier.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {competitors.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/compare/${c.slug}`}
+                  className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 hover:bg-foreground/[0.06] hover:border-foreground/20 transition-colors cursor-pointer interactive"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-lg font-semibold">
+                      {c.name} <span className="text-foreground/40">vs</span> exit1.dev
+                    </h3>
+                    <ArrowRight className="w-4 h-4 text-foreground/40 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+                  </div>
+                  <p className="text-sm text-foreground/60 mt-2 leading-relaxed">{c.heroSubtitle}</p>
+                </Link>
+              ))}
             </div>
           </SectionContent>
         </PageSection>

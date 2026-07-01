@@ -15,6 +15,8 @@ Freshping is shutting down. Uptime still matters. The replacement should be fast
 
 The free tier gives you 10 monitors with 5-minute checks, SSL expiration alerts, email + webhook alerting, and no credit card. Need 1-minute checks and unlimited monitors? The Nano plan is $5/month.
 
+> **Prefer a side-by-side breakdown?** See the full [Freshping vs exit1.dev comparison](/compare/freshping) — feature by feature, plus where to migrate.
+
 ## Why Freshping worked
 
 Before you replace it, know what you actually liked:

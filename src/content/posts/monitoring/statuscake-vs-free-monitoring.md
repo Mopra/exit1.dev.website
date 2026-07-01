@@ -12,6 +12,8 @@ metaDescription: "StatusCake vs free tools 2025: Worth paying?"
 
 StatusCake solid, but free might suffice.
 
+> **Prefer a side-by-side breakdown?** See the full [StatusCake vs exit1.dev comparison](/compare/statuscake) — free tier and paid tier, feature by feature.
+
 ## StatusCake
 
 Free: 10 sites, 5-min, SSL, speed basic, email/webhook, team limited.

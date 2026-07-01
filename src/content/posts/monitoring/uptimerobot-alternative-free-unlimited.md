@@ -13,6 +13,8 @@ metaDescription: "UptimeRobot free plan: 50 monitors, 5-min checks, no card. See
 
 **Quick answer:** UptimeRobot's free plan gives you 50 monitors with 5-minute checks and no credit card — generous, but capped by a hard 50-monitor ceiling, 5-minute resolution, and steady upgrade nudges. If those limits are a problem, exit1.dev offers 10 monitors free and **unlimited** monitors with **1-minute** checks on the Nano plan ($5/month).
 
+> **Prefer a side-by-side breakdown?** See the full [UptimeRobot vs exit1.dev comparison](/compare/uptimerobot) — free tier and paid tier, feature by feature.
+
 ## What the UptimeRobot Free Plan Includes
 
 Before looking at alternatives, here's exactly what UptimeRobot gives you for free:

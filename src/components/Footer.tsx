@@ -127,7 +127,7 @@ const Footer = () => {
           </div>
           
           {/* Navigation sections - stacked on mobile, grid on larger screens */}
-          <div className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-5 lg:gap-8 lg:space-y-0">
+          <div className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:gap-y-10 lg:space-y-0">
             <div>
               <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
                 Monitoring
@@ -158,6 +158,18 @@ const Footer = () => {
               </h3>
               <ul className="mt-4 space-y-3">
                 {content.navigation.tools.map((item) => (
+                  <li key={item.name}>
+                    {renderLink(item)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
+                Compare
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {content.navigation.compare.map((item) => (
                   <li key={item.name}>
                     {renderLink(item)}
                   </li>
