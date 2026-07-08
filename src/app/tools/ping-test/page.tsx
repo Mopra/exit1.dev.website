@@ -21,25 +21,22 @@ import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
-  title:
-    "Free Ping Test Tool — Check Latency & Packet Loss to Any Host | exit1.dev",
+  title: "Online Ping Test — Check Latency, Packet Loss & Jitter Free",
   description:
-    "Free online ping test tool. Instantly check latency, packet loss, jitter, and response time to any server or website. No signup required.",
+    "Ping any host or IP from our servers and see latency, packet loss, and jitter in seconds. Free online ping test — no download, no signup, no limits.",
   keywords:
     "ping test, online ping, free ping tool, ping website, check latency, packet loss test, ping server, network latency test, jitter test, response time checker, tcp ping",
   openGraph: {
-    title:
-      "Free Ping Test Tool — Check Latency & Packet Loss to Any Host | exit1.dev",
+    title: "Online Ping Test — Check Latency, Packet Loss & Jitter Free",
     description:
-      "Free online ping test tool. Instantly check latency, packet loss, jitter, and response time to any server or website. No signup required.",
+      "Ping any host or IP from our servers and see latency, packet loss, and jitter in seconds. Free online ping test — no download, no signup, no limits.",
     type: "website",
     url: "https://exit1.dev/tools/ping-test",
   },
   twitter: {
-    title:
-      "Free Ping Test Tool — Check Latency & Packet Loss to Any Host | exit1.dev",
+    title: "Online Ping Test — Check Latency, Packet Loss & Jitter Free",
     description:
-      "Free online ping test tool. Instantly check latency, packet loss, jitter, and response time to any server or website. No signup required.",
+      "Ping any host or IP from our servers and see latency, packet loss, and jitter in seconds. Free online ping test — no download, no signup, no limits.",
     card: "summary_large_image",
   },
   alternates: {

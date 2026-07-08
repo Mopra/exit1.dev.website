@@ -21,24 +21,22 @@ import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
-  title: "Free Redirect Checker Tool — Trace HTTP Redirect Chains | exit1.dev",
+  title: "301 Redirect Checker — Trace Any URL's Redirect Chain Free",
   description:
-    "Free redirect checker tool. Trace the full HTTP redirect chain for any URL. See every hop, status code, Location header, and response time. No signup required.",
+    "Check 301, 302, 307 and 308 redirects for any URL. Trace the full redirect chain hop by hop — status codes, Location headers, and timing. Free, no signup.",
   keywords:
-    "redirect checker, http redirect checker, redirect chain, 301 redirect checker, 302 redirect, redirect trace, url redirect tester, redirect validator, free redirect tool",
+    "redirect checker, 301 redirect checker, 301 checker, check redirect, http redirect checker, redirect chain, 302 redirect, redirect trace, url redirect tester, redirect validator, free redirect tool",
   openGraph: {
-    title:
-      "Free Redirect Checker Tool — Trace HTTP Redirect Chains | exit1.dev",
+    title: "301 Redirect Checker — Trace Any URL's Redirect Chain Free",
     description:
-      "Free redirect checker tool. Trace the full HTTP redirect chain for any URL. See every hop, status code, Location header, and response time. No signup required.",
+      "Check 301, 302, 307 and 308 redirects for any URL. Trace the full redirect chain hop by hop — status codes, Location headers, and timing. Free, no signup.",
     type: "website",
     url: "https://exit1.dev/tools/redirect-checker",
   },
   twitter: {
-    title:
-      "Free Redirect Checker Tool — Trace HTTP Redirect Chains | exit1.dev",
+    title: "301 Redirect Checker — Trace Any URL's Redirect Chain Free",
     description:
-      "Free redirect checker tool. Trace the full HTTP redirect chain for any URL. See every hop, status code, Location header, and response time. No signup required.",
+      "Check 301, 302, 307 and 308 redirects for any URL. Trace the full redirect chain hop by hop — status codes, Location headers, and timing. Free, no signup.",
     card: "summary_large_image",
   },
   alternates: {
@@ -46,8 +44,8 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED_ISO = "2026-05-04";
-const LAST_UPDATED_DISPLAY = "May 4, 2026";
+const LAST_UPDATED_ISO = "2026-07-08";
+const LAST_UPDATED_DISPLAY = "July 8, 2026";
 
 const howToSteps = [
   {
@@ -139,6 +137,11 @@ const faq = [
     question: "What is an HTTP redirect?",
     answer:
       "An HTTP redirect is a server response that tells the browser to go to a different URL instead of the one originally requested. The server sends a 3xx status code (like 301 or 302) along with a Location header pointing to the new URL. This happens automatically and is usually invisible to the user.",
+  },
+  {
+    question: "How do I check if a 301 redirect is working?",
+    answer:
+      "Enter the old URL in the checker above. The first hop should show status code 301 with a Location header pointing at the new URL, and the chain should end in a 200 at the final destination. Watch for two common mistakes: a 302 where you intended a 301 (search engines won't transfer rankings), and multi-hop chains (old URL → HTTPS → www → new URL) that should be collapsed into a single hop.",
   },
   {
     question: "What is the difference between 301 and 302 redirects?",
@@ -240,7 +243,7 @@ export default function RedirectCheckerPage() {
             toolName="Redirect Checker"
             href="/tools/redirect-checker"
             title="Redirect Checker"
-            description="Trace the full HTTP redirect chain for any URL. See every hop, status code, Location header, and response time. Free, no signup required."
+            description="Check 301, 302, 307, and 308 redirects for any URL. Trace the full chain hop by hop — status codes, Location headers, and response times. Free, no signup required."
           />
 
           {/* Tools Navigation */}
@@ -385,6 +388,19 @@ export default function RedirectCheckerPage() {
                   the bare domain to the www subdomain. This is a common and
                   healthy redirect pattern. Chains with more than 3 hops may
                   indicate misconfiguration and can slow down page loads.
+                </p>
+                <p>
+                  The most common use is{" "}
+                  <strong className="text-foreground">
+                    checking that a 301 redirect is working
+                  </strong>{" "}
+                  after a domain move, HTTPS migration, or URL restructure. Enter
+                  the old URL and confirm the very first hop returns a 301 (not a
+                  302) and that the Location header points directly at the final
+                  destination — a single clean hop preserves the most link
+                  equity. If you see a 302 where you meant a 301, search engines
+                  will keep the old URL indexed and your rankings won&apos;t
+                  transfer.
                 </p>
               </div>
             </SectionContent>

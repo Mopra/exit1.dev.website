@@ -5,6 +5,8 @@
  * CDN-cached; we fetch it with ISR (hourly) so pages stay fresh without rebuilds.
  */
 
+import type { StatusBrandNote } from "@/content/statusBrandNotes";
+
 const API_BASE = process.env.NEXT_PUBLIC_EXIT1_API_BASE || "https://app.exit1.dev";
 const REVALIDATE_SECONDS = 3600;
 
@@ -297,9 +299,10 @@ export type Faq = { question: string; answer: string };
 /**
  * Query-matched FAQ set, rendered both visibly (crawlable) and as FAQPage
  * JSON-LD. Covers the real search variants: is-it-down, uptime %, response
- * time, recent outages, and how it's measured (E-E-A-T / trust).
+ * time, recent outages, and how it's measured (E-E-A-T / trust). Curated brand
+ * notes add an official-status-page answer — the "X status" query in FAQ form.
  */
-export function buildFaqs(m: MonitorPage): Faq[] {
+export function buildFaqs(m: MonitorPage, note?: StatusBrandNote): Faq[] {
   const name = displayName(m);
   const { phrase } = statusPhrase(m.status);
   const incidents = summarizeIncidents(m.heartbeat);
@@ -328,6 +331,18 @@ export function buildFaqs(m: MonitorPage): Faq[] {
       ? `exit1.dev detected downtime on ${incidents.totalOutageDays} ${incidents.totalOutageDays === 1 ? "day" : "days"} in the last 90 days${incidents.lastOutage ? `. The most recent was ${formatDateUTC(incidents.lastOutage.day)}` : ""}.`
       : `No outages have been detected for ${m.host} in the last 90 days.`,
   });
+
+  if (note?.officialStatus) {
+    faqs.push({
+      question: `Does ${name} have an official status page?`,
+      answer: `Yes — ${name} publishes its own status page at ${note.officialStatus.label}. This exit1.dev page complements it with independent measurements, which often catch issues before they are officially acknowledged.`,
+    });
+  } else if (note?.noOfficialStatusNote) {
+    faqs.push({
+      question: `Does ${name} have an official status page?`,
+      answer: note.noOfficialStatusNote,
+    });
+  }
 
   faqs.push({
     question: `How does exit1.dev measure ${name}'s status?`,

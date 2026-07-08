@@ -21,22 +21,22 @@ import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
-  title: "Free Domain Expiration Checker Tool — Check Domain Expiry Instantly | exit1.dev",
+  title: "Domain Expiry Checker — Check Any Domain's Expiration Free",
   description:
-    "Free domain expiration checker tool. Instantly check any domain's expiry date, registrar, nameservers, and registration details. No signup required.",
+    "Check when any domain expires — instant RDAP + WHOIS lookup shows the expiry date, days remaining, registrar, and nameservers. Free, no signup, no limits.",
   keywords:
     "free domain checker, domain expiration checker, domain expiry checker, check domain expiration, domain whois lookup, domain age checker, domain registration checker, whois lookup tool, domain name checker, domain expiry date",
   openGraph: {
-    title: "Free Domain Expiration Checker Tool — Check Domain Expiry Instantly | exit1.dev",
+    title: "Domain Expiry Checker — Check Any Domain's Expiration Free",
     description:
-      "Free domain expiration checker tool. Instantly check any domain's expiry date, registrar, nameservers, and registration details. No signup required.",
+      "Check when any domain expires — instant RDAP + WHOIS lookup shows the expiry date, days remaining, registrar, and nameservers. Free, no signup, no limits.",
     type: "website",
     url: "https://exit1.dev/tools/domain-expiration-checker",
   },
   twitter: {
-    title: "Free Domain Expiration Checker Tool — Check Domain Expiry Instantly | exit1.dev",
+    title: "Domain Expiry Checker — Check Any Domain's Expiration Free",
     description:
-      "Free domain expiration checker tool. Instantly check any domain's expiry date, registrar, nameservers, and registration details. No signup required.",
+      "Check when any domain expires — instant RDAP + WHOIS lookup shows the expiry date, days remaining, registrar, and nameservers. Free, no signup, no limits.",
     card: "summary_large_image",
   },
   alternates: {

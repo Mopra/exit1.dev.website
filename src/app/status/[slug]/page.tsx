@@ -26,6 +26,7 @@ import {
   statusPresentation,
   formatUptime,
 } from "@/lib/publicMonitors";
+import { getStatusBrandNote } from "@/content/statusBrandNotes";
 
 // Match the data-fetch cache (publicMonitors REVALIDATE_SECONDS): regenerating
 // more often than the data refreshes just burns ISR write units on identical output.
@@ -108,7 +109,8 @@ export default async function MonitorStatusPage({
 
   const name = displayName(monitor);
   const { label, tone } = statusPresentation(monitor.status);
-  const faqs = buildFaqs(monitor);
+  const brandNote = getStatusBrandNote(monitor.host);
+  const faqs = buildFaqs(monitor, brandNote);
   // MonitorPage is a superset of MonitorIndexEntry, so it's a safe fallback.
   const indexEntry = allMonitors.find((m) => m.slug === monitor.slug) ?? monitor;
 
@@ -260,6 +262,36 @@ export default async function MonitorStatusPage({
                   </p>
                   <IncidentHistory monitor={monitor} />
                 </div>
+
+                {brandNote && (
+                  <div className="mt-12">
+                    <h2 className="mb-1 text-lg font-semibold">
+                      What a {name} outage looks like
+                    </h2>
+                    <p className="mb-5 text-sm text-muted-foreground">{brandNote.whatItIs}</p>
+                    <div className="space-y-4 text-sm leading-relaxed text-foreground/80">
+                      <p>{brandNote.downSymptoms}</p>
+                      {brandNote.officialStatus ? (
+                        <p>
+                          {name} also publishes an official status page at{" "}
+                          <a
+                            href={brandNote.officialStatus.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium underline underline-offset-2 hover:text-foreground transition-colors"
+                          >
+                            {brandNote.officialStatus.label}
+                          </a>
+                          . The figures on this page are exit1.dev&apos;s own independent
+                          measurements, which often surface issues before they are
+                          officially acknowledged.
+                        </p>
+                      ) : brandNote.noOfficialStatusNote ? (
+                        <p>{brandNote.noOfficialStatusNote}</p>
+                      ) : null}
+                    </div>
+                  </div>
+                )}
 
                 <div className="mt-12">
                   <h2 className="mb-6 text-lg font-semibold">
