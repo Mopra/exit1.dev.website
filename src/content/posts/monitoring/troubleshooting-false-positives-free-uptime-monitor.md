@@ -14,7 +14,7 @@ Nothing kills trust in monitoring faster than false positives. Once the team sto
 
 ## Start with the evidence
 
-Look at the raw response from the monitor before blaming the tool. Is it a TLS handshake failure, a redirect loop, or a timeout? Pipe responses to your warehouse via the [Exit1.dev CSV export](/blog/exit1-logs-to-warehouse-csv-excel) so you can spot patterns across regions and time. If you don’t store evidence, you’re guessing.
+Look at the raw response from the monitor before blaming the tool. Is it a TLS handshake failure, a [redirect loop](/tools/redirect-checker), or a timeout? Pipe responses to your warehouse via the [Exit1.dev CSV export](/blog/exit1-logs-to-warehouse-csv-excel) so you can spot patterns across regions and time. If you don’t store evidence, you’re guessing.
 
 ## Fix DNS and cache weirdness
 

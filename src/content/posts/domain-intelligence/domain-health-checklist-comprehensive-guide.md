@@ -213,7 +213,7 @@ API endpoints require special attention to SSL monitoring because API failures o
 
 Email domains need MX record monitoring to ensure mail can be received, SPF/DKIM/DMARC validation to maintain deliverability, blacklist monitoring to catch reputation issues, and periodic deliverability testing to confirm messages actually reach recipients.
 
-Marketing and landing page domains still need expiration and SSL monitoring at minimum, plus basic uptime checks. If the pages use redirects, verify those redirects continue working.
+Marketing and landing page domains still need expiration and SSL monitoring at minimum, plus basic uptime checks. If the pages use redirects, [check the redirect chain](/tools/redirect-checker) resolves to the destination you expect — campaign URLs accumulate hops as they get reused, and a broken 301 sends paid traffic nowhere.
 
 Internal tools often get overlooked, but internal outages disrupt work just as external ones disrupt customer experience. Apply the same expiration and SSL monitoring to internal domains, add internal DNS resolution monitoring, and track access patterns that might indicate compromise.
 

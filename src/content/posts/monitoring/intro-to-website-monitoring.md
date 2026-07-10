@@ -95,7 +95,7 @@ Related sub-metrics include Time to First Byte (TTFB), DNS resolution time, and 
 The quickest signal of health ([MDN status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)):
 
 - **2xx** — success
-- **3xx** — redirects (usually fine)
+- **3xx** — [redirects](/tools/redirect-checker) (usually fine, until a chain loops)
 - **4xx** — client errors (e.g., 404 not found)
 - **5xx** — server errors (something is broken on your side)
 

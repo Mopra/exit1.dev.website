@@ -40,6 +40,8 @@ The status code tells you exactly what's happening:
 - **302 Found**: Temporary redirect. The original URL is still valid.
 - **307/308**: Temporary/permanent redirect preserving the HTTP method.
 
+A single 3xx tells you little on its own — what matters is where the chain ends. Use the [redirect checker](/tools/redirect-checker) to trace every hop from the original URL to the final destination and spot loops or chains that quietly cost you response time.
+
 ### Client Errors (4xx)
 - **400 Bad Request**: Your request is malformed.
 - **401 Unauthorized**: Authentication required.
