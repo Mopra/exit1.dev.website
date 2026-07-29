@@ -11,6 +11,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { CommunityProof } from "@/components/home/CommunityProof";
 import { ClosingCTA } from "@/components/home/ClosingCTA";
 import { HeroCTA } from "@/components/home/HeroCTA";
+import { AgentSetupPrompt } from "@/components/home/AgentSetupPrompt";
 
 export default function HomePage() {
   return (
@@ -36,6 +37,9 @@ export default function HomePage() {
           <div aria-hidden className="text-5xl sm:text-6xl lg:text-7xl h-[7.5em]" />
 
           <HeroCTA />
+
+          {/* Alternative route for devs who'd rather stay in their editor. */}
+          <AgentSetupPrompt />
         </div>
       </section>
 

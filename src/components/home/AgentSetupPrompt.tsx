@@ -1,18 +1,23 @@
-"use client"
+"use client";
 
-import { Button } from '@/components/ui/button'
-import { Check, Copy, Terminal } from 'lucide-react'
-import { useState } from 'react'
+import { Check, Copy } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 /**
- * The agent-onboarding entry point.
+ * The second path out of the hero, for developers who'd rather not leave their
+ * editor.
  *
- * The whole pitch is that the AI tool has something a signup form never will —
- * the codebase. So the prompt tells it to read the repo and work out what should
- * be monitored, rather than asking the developer to type URLs into a box.
+ * The pitch isn't "sign up from your terminal" — it's that the AI tool has
+ * something the URL field above can never have: the codebase. So the prompt
+ * tells it to read the repo and work out what should be monitored, rather than
+ * asking the visitor to think of URLs.
  *
- * Keep this text in sync with the copy on app.exit1.dev/mcp and the
- * `setup_monitoring` MCP prompt in functions/src/mcp-tools.ts.
+ * Deliberately quieter than HeroCTA: muted, smaller type, no filled button.
+ * It's an alternative route, not a competing call to action.
+ *
+ * Keep this text in sync with app.exit1.dev/mcp and the `setup_monitoring` MCP
+ * prompt in functions/src/mcp-tools.ts (exit1.dev repo).
  */
 const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit1.
 
@@ -24,65 +29,64 @@ const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit1.
    and any /health or /api/status route handlers.
 4. Show me the checks you plan to create before creating them.
 5. Configure email alerts, then send a test alert so I can confirm
-   delivery works.`
+   delivery works.`;
 
-export default function AgentSetupPrompt() {
-  const [copied, setCopied] = useState(false)
+export function AgentSetupPrompt() {
+  const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     try {
       if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(SETUP_PROMPT)
-        setCopied(true)
-        window.setTimeout(() => setCopied(false), 1800)
+        await navigator.clipboard.writeText(SETUP_PROMPT);
+        setCopied(true);
+        window.setTimeout(() => setCopied(false), 1800);
       }
     } catch {
-      // Clipboard can be blocked by permissions policy — the text is selectable
+      // Clipboard can be blocked by permissions policy. The text is selectable
       // in the <pre> below, so there's still a way through.
     }
-  }
+  };
 
   return (
-    <div className="max-w-2xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-left">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-        <div className="flex items-center gap-2 text-foreground/80">
-          <Terminal className="w-4 h-4 shrink-0" aria-hidden="true" />
-          <span className="text-sm font-medium">Or set it up without leaving your editor</span>
-        </div>
+    <div className="mx-auto mt-16 w-full max-w-2xl px-4 text-left sm:mt-20">
+      <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm text-muted-foreground">
+          Or set it up without leaving your editor
+        </p>
         <Button
           type="button"
           size="sm"
           variant="outline"
           onClick={handleCopy}
-          className="backdrop-blur-md border-foreground/30 hover:bg-foreground/10 text-foreground cursor-pointer shrink-0 self-start sm:self-auto"
+          className="w-full cursor-pointer rounded-full sm:w-auto"
         >
           {copied ? (
             <>
-              <Check className="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
+              <Check className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
               Copied
             </>
           ) : (
             <>
-              <Copy className="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
+              <Copy className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
               Copy prompt
             </>
           )}
         </Button>
       </div>
 
-      <pre className="overflow-x-auto rounded-lg border border-foreground/20 bg-foreground/10 backdrop-blur-md p-3 sm:p-4 text-xs sm:text-sm leading-relaxed text-foreground/90">
+      <pre className="overflow-x-auto rounded-xl border border-border bg-muted/40 p-4 text-left font-mono text-xs leading-relaxed text-muted-foreground sm:text-[13px]">
         <code>{SETUP_PROMPT}</code>
       </pre>
 
-      <p className="text-xs text-foreground/60 mt-2">
-        Paste it into Claude Code, Cursor, Codex or any MCP-capable assistant. It reads your repo,
-        creates the checks, and sends you a real test alert. Sign-in happens in your browser — no
-        API key to manage.
+      <p className="mt-3 text-sm text-muted-foreground">
+        Paste it into Claude Code, Cursor, Codex or any MCP-capable assistant. It reads your
+        repo, creates the checks, and sends you a real test alert. Sign-in happens in your
+        browser — no API key to manage.
       </p>
 
       <span aria-live="polite" className="sr-only">
-        {copied ? 'Prompt copied to clipboard' : ''}
+        {copied ? "Prompt copied to clipboard" : ""}
       </span>
     </div>
-  )
+  );
 }
