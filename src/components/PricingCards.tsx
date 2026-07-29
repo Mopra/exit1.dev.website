@@ -4,32 +4,42 @@ import { useState, type ComponentType } from "react";
 import {
   CircleCheck,
   Clock,
-  Crown,
   Gem,
   type LucideProps,
+  Rocket,
   Sparkles,
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { buildSignupUrl } from "@/lib/cta";
 
-export type TierKey = "free" | "nano" | "pro" | "agency";
+export type TierKey = "free" | "indie" | "nano" | "pro";
 type PaidTierKey = Exclude<TierKey, "free">;
 
 type Highlight = { label: string; comingSoon?: boolean };
 
 const tierHighlights: Record<TierKey, Highlight[]> = {
   free: [
-    { label: "10 monitors" },
+    { label: "5 monitors" },
     { label: "5-minute check intervals" },
     { label: "1 webhook integration" },
     { label: "10 emails / month" },
     { label: "1 public status page" },
     { label: "60-day data retention" },
   ],
+  indie: [
+    { label: "10 monitors" },
+    { label: "15-second check intervals" },
+    { label: "1 API key + MCP access" },
+    { label: "3 webhook integrations" },
+    { label: "500 emails / month" },
+    { label: "1 public status page" },
+    { label: "60-day data retention" },
+  ],
   nano: [
-    { label: "50 monitors" },
+    { label: "100 monitors" },
     { label: "2-minute check intervals" },
+    { label: "1 API key + MCP access" },
     { label: "5 webhook integrations" },
     { label: "1,000 emails / month" },
     { label: "5 custom-branded status pages" },
@@ -38,25 +48,16 @@ const tierHighlights: Record<TierKey, Highlight[]> = {
     { label: "60-day data retention" },
   ],
   pro: [
-    { label: "500 monitors" },
-    { label: "30-second check intervals" },
-    { label: "25 webhook integrations" },
-    { label: "10 API keys + MCP access" },
-    { label: "SMS alerts (50 / month)" },
-    { label: "10,000 emails / month" },
-    { label: "25 custom-branded status pages" },
-    { label: "CSV export" },
-    { label: "365-day data retention" },
-  ],
-  agency: [
     { label: "1,000 monitors" },
     { label: "15-second check intervals" },
-    { label: "50 webhook integrations" },
     { label: "25 API keys + MCP access" },
-    { label: "SMS alerts (100 / month)" },
-    { label: "50,000 emails / month" },
+    { label: "50 webhook integrations" },
+    { label: "SMS alerts (50 / month)" },
+    { label: "10,000 emails / month" },
     { label: "50 custom-branded status pages" },
+    { label: "CSV export" },
     { label: "All alert channels" },
+    { label: "Region choice (US / EU / Asia)" },
     { label: "3-year data retention" },
     { label: "Team members & roles", comingSoon: true },
     { label: "Custom status page domain", comingSoon: true },
@@ -86,6 +87,16 @@ const tierTheme: Record<TierKey, TierTheme> = {
     buttonOutline: "border-tier-free/30 text-foreground/90 hover:bg-foreground/5",
     checkClass: "text-tier-free",
   },
+  indie: {
+    icon: Rocket,
+    iconClass: "text-tier-indie",
+    border: "border-tier-indie/40",
+    bg: "bg-tier-indie/[0.04]",
+    shadow: "shadow-lg shadow-tier-indie/10",
+    buttonPrimary: "bg-tier-indie text-tier-indie-foreground hover:bg-tier-indie/90",
+    buttonOutline: "border-tier-indie/50 text-tier-indie hover:bg-tier-indie/10 hover:text-tier-indie",
+    checkClass: "text-tier-indie",
+  },
   nano: {
     icon: Zap,
     iconClass: "text-tier-nano",
@@ -106,47 +117,37 @@ const tierTheme: Record<TierKey, TierTheme> = {
     buttonOutline: "border-tier-pro/50 text-tier-pro hover:bg-tier-pro/10 hover:text-tier-pro",
     checkClass: "text-tier-pro",
   },
-  agency: {
-    icon: Crown,
-    iconClass: "text-tier-agency",
-    border: "border-tier-agency/40",
-    bg: "bg-tier-agency/[0.04]",
-    shadow: "shadow-lg shadow-tier-agency/10",
-    buttonPrimary: "bg-tier-agency text-tier-agency-foreground hover:bg-tier-agency/90",
-    buttonOutline: "border-tier-agency/50 text-tier-agency hover:bg-tier-agency/10 hover:text-tier-agency",
-    checkClass: "text-tier-agency",
-  },
 };
 
 const tierTagline: Record<TierKey, string> = {
   free: "Hobby projects & experiments",
+  indie: "A few sites, watched closely",
   nano: "Production monitoring for small teams",
-  pro: "Serious uptime monitoring at scale",
-  agency: "High-volume fleets & client work",
+  pro: "Everything, at the highest limits",
 };
 
 const tierLabels: Record<TierKey, string> = {
   free: "Free",
+  indie: "Indie",
   nano: "Nano",
   pro: "Pro",
-  agency: "Agency",
 };
 
-const tierOrder: TierKey[] = ["free", "nano", "pro", "agency"];
+const tierOrder: TierKey[] = ["free", "indie", "nano", "pro"];
 
 export function PricingCards() {
   const [isAnnual, setIsAnnual] = useState(true);
 
   // Annual price shown is the effective monthly rate when billed annually.
   const monthlyPrice: Record<PaidTierKey, number> = {
+    indie: isAnnual ? 3 : 4,
     nano: isAnnual ? 7 : 9,
     pro: isAnnual ? 20 : 24,
-    agency: isAnnual ? 37 : 49,
   };
   const annualTotal: Record<PaidTierKey, number> = {
+    indie: monthlyPrice.indie * 12,
     nano: monthlyPrice.nano * 12,
     pro: monthlyPrice.pro * 12,
-    agency: monthlyPrice.agency * 12,
   };
   const billingText = (t: PaidTierKey) =>
     isAnnual ? `Billed $${annualTotal[t]}/year` : "Billed monthly";

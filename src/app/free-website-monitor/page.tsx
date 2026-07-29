@@ -17,7 +17,7 @@ import {
 export const metadata: Metadata = {
   title: 'Free Website Monitor - Keep Shopify, WooCommerce & Jamstack Online | exit1.dev',
   description:
-    'exit1.dev delivers a free website monitor for ecommerce, landing pages, Jamstack, and marketing sites. 10 monitors with 5-minute checks free; paid plans scale to 1,000 monitors and 15-second intervals. SSL coverage, content validation, instant alerts.',
+    'exit1.dev delivers a free website monitor for ecommerce, landing pages, Jamstack, and marketing sites. 5 monitors with 5-minute checks free; paid plans scale to 1,000 monitors and 15-second intervals. SSL coverage, content validation, instant alerts.',
   keywords:
     'free website monitor, shopify uptime monitoring, woocommerce monitoring, jamstack uptime, landing page monitoring, free ecommerce monitoring',
   openGraph: {
@@ -75,7 +75,7 @@ const FreeWebsiteMonitorPage = () => {
   const comparisonTable = [
     {
       feature: 'Ecommerce monitoring coverage',
-      exit1: '10 free, up to 1,000 on Agency',
+      exit1: '5 free, up to 1,000 on Pro',
       competitors: 'Single homepage unless you upgrade',
     },
     {
@@ -134,7 +134,7 @@ const FreeWebsiteMonitorPage = () => {
     {
       question: 'Is there a limit to the number of pages I can watch?',
       answer:
-        'The free tier gives you 10 monitors. Nano ($9/mo) takes you to 50, Pro ($24/mo) to 500, and Agency ($49/mo) to 1,000 monitors across every microsite, promo page, and shop.',
+        'The free tier gives you 5 monitors. Indie ($4/mo) takes you to 10 at 15-second checks, Nano ($9/mo) to 100, and Pro ($24/mo) to 1,000 monitors across every microsite, promo page, and shop.',
     },
   ];
 
@@ -142,7 +142,7 @@ const FreeWebsiteMonitorPage = () => {
     architecture:
       'Serverless monitors with redundant storage. Each check hits the real HTTP endpoints and validates content signatures.',
     performance:
-      '5-minute polling on free tier, down to 2-minute (Nano), 30-second (Pro), or 15-second (Agency) intervals. Multi-step verification before alerts fire. Response data stored for analytics and export.',
+      '5-minute polling on free tier, down to 15-second intervals on Indie and Pro (2-minute on Nano). Multi-step verification before alerts fire. Response data stored for analytics and export.',
     api:
       'REST API and webhooks for managing monitors, syncing with CMS workflows, and exporting uptime data into your warehouse.',
   };

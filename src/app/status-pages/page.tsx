@@ -135,7 +135,7 @@ const StatusPages = () => {
     },
     {
       feature: "Multiple status pages",
-      exit1: "5 on Nano, 25 on Pro, 50 on Agency",
+      exit1: "5 on Nano, 50 on Pro",
       competitors: "Per-page pricing"
     }
   ];
@@ -147,7 +147,7 @@ const StatusPages = () => {
     },
     {
       question: "Can I show different checks to different audiences?",
-      answer: "Yes, you can create multiple status pages on any paid plan (5 on Nano, 25 on Pro, 50 on Agency) with different selections of checks for different audiences. Show customer-facing services while keeping internal infrastructure private."
+      answer: "Yes, you can create multiple status pages with the builder on Nano (5 pages) and Pro (50 pages) with different selections of checks for different audiences. Show customer-facing services while keeping internal infrastructure private."
     },
     {
       question: "What happens if a check goes down?",
@@ -269,7 +269,7 @@ const StatusPages = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Need more status pages?",
-          description: "Nano ($9/mo) unlocks the drag & drop builder and 5 pages. Pro gives you 25, Agency 50 — with custom branding across all paid plans."
+          description: "Nano ($9/mo) unlocks the drag & drop builder and 5 pages. Pro gives you 50 — with custom branding across all paid plans."
         }}
         video={{
           videoId: "rBmL8lIschk",

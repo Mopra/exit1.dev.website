@@ -260,7 +260,7 @@ const Alerting = () => {
 relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Want SMS alerts and team notifications?",
-          description: "Get texted when your site goes down — not hours later via email. Pro adds SMS alerts, Slack/Discord/Microsoft Teams channels, and API + MCP access for $24/month."
+          description: "Get texted when your site goes down — not hours later via email. Indie adds API + MCP access from $4/month; Pro adds SMS alerts and Slack/Discord/Microsoft Teams channels for $24/month."
         }}
         video={{
           videoId: "lpGr0TkYXnA",

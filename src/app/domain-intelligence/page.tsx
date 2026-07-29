@@ -154,7 +154,7 @@ const DomainIntelligence = () => {
     },
     {
       question: "Is this included in the free plan?",
-      answer: "Domain Intelligence is available on the Nano subscription tier as a premium feature. It's designed for professionals who need proactive domain management across multiple properties."
+      answer: "Domain Intelligence is available from the Nano plan as a premium feature. It's designed for professionals who need proactive domain management across multiple properties."
     }
   ];
 
@@ -261,7 +261,7 @@ const DomainIntelligence = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Domain Intelligence is a Nano Feature",
-          description: "Get automatic domain expiration monitoring, smart alerts, and renewal detection starting with Nano — $7/month (annual) or $9/month (monthly). Included on Pro and Agency too."
+          description: "Get automatic domain expiration monitoring, smart alerts, and renewal detection starting with Nano — $7/month (annual) or $9/month (monthly). Included on Pro too."
         }}
       />
     </>

@@ -83,7 +83,7 @@ const nextConfig = {
       { source: '/blog/website-monitoring-101', destination: '/blog/intro-to-website-monitoring', permanent: true },
       // Live Checks rebrand — consolidate /real-time-monitoring into /live-checks
       { source: '/real-time-monitoring', destination: '/live-checks', permanent: true },
-      // /why-nano reframed as /why-upgrade to cover Nano, Pro, and Agency
+      // /why-nano reframed as /why-upgrade to cover Indie, Nano, and Pro
       { source: '/why-nano', destination: '/why-upgrade', permanent: true },
     ];
   },

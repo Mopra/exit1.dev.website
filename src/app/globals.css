@@ -41,12 +41,12 @@
   /* Pricing tiers */
   --color-tier-free: var(--tier-free);
   --color-tier-free-foreground: var(--tier-free-foreground);
+  --color-tier-indie: var(--tier-indie);
+  --color-tier-indie-foreground: var(--tier-indie-foreground);
   --color-tier-nano: var(--tier-nano);
   --color-tier-nano-foreground: var(--tier-nano-foreground);
   --color-tier-pro: var(--tier-pro);
   --color-tier-pro-foreground: var(--tier-pro-foreground);
-  --color-tier-agency: var(--tier-agency);
-  --color-tier-agency-foreground: var(--tier-agency-foreground);
 
   /* Decorative gradients & aurora */
   --color-decorative-from: var(--decorative-from);
@@ -132,12 +132,12 @@
 
   --tier-free: oklch(0.55 0 0);
   --tier-free-foreground: oklch(1 0 0);
+  --tier-indie: oklch(0.58 0.13 205);
+  --tier-indie-foreground: oklch(1 0 0);
   --tier-nano: var(--primary);
   --tier-nano-foreground: var(--primary-foreground);
   --tier-pro: oklch(0.62 0.16 50);
   --tier-pro-foreground: oklch(1 0 0);
-  --tier-agency: oklch(0.45 0.18 265);
-  --tier-agency-foreground: oklch(1 0 0);
 
   --decorative-from: var(--primary);
   --decorative-via: oklch(0.7 0.09 167);

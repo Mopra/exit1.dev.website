@@ -104,7 +104,7 @@ const ICMPMonitoring = () => {
     },
     {
       feature: "Sub-minute check intervals",
-      exit1: "30-sec on Pro, 15-sec on Agency",
+      exit1: "15-sec from Indie ($4/mo)",
       competitors: "5+ minutes"
     },
     {
@@ -131,7 +131,7 @@ const ICMPMonitoring = () => {
     },
     {
       question: "Is ICMP monitoring included in the free tier?",
-      answer: "Yes, ICMP ping monitoring is available on every plan. Free: 10 monitors with 5-minute intervals. Nano ($9/mo): 50 monitors with 2-minute intervals. Pro ($24/mo): 500 monitors with 30-second intervals. Agency ($49/mo): 1,000 monitors with 15-second intervals."
+      answer: "Yes, ICMP ping monitoring is available on every plan. Free: 5 monitors with 5-minute intervals. Indie ($4/mo): 10 monitors with 15-second intervals. Nano ($9/mo): 100 monitors with 2-minute intervals. Pro ($24/mo): 1,000 monitors with 15-second intervals."
     },
     {
       question: "When should I use ICMP checks instead of HTTP checks?",
@@ -155,7 +155,7 @@ const ICMPMonitoring = () => {
     },
     {
       question: "What alert channels are supported for ICMP checks?",
-      answer: "ICMP checks support the same alert channels as all other check types: email (all plans), SMS (Pro and Agency), and webhooks (all plans). Slack, Discord, and Microsoft Teams channels are included on Pro and Agency. Webhooks integrate with PagerDuty, Opsgenie, and any other webhook-enabled platform."
+      answer: "ICMP checks support the same alert channels as all other check types: email (all plans), SMS (Pro), and webhooks (all plans). Slack, Discord, and Microsoft Teams channels are included on Pro. Webhooks integrate with PagerDuty, Opsgenie, and any other webhook-enabled platform."
     }
   ];
 
@@ -261,7 +261,7 @@ const ICMPMonitoring = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Need faster ping checks?",
-          description: "Upgrade to Nano for 1-minute ICMP check intervals, SMS alerts, 200 monitors, and 1-year data retention."
+          description: "Upgrade to Indie for 15-second ICMP check intervals, or Pro for 1,000 monitors, SMS alerts and 3-year data retention."
         }}
       />
     </>

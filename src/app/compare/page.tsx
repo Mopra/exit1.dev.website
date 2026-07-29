@@ -37,7 +37,7 @@ const freeColumns: Column[] = [
 ];
 
 const freeRows: Row[] = [
-  { feature: 'Monitors', values: ['10', '50', '10', '20'] },
+  { feature: 'Monitors', values: ['5', '50', '10', '20'] },
   { feature: 'Check interval', values: ['5 min', '5 min', '3 min', '5 min'] },
   { feature: 'Multi-region checks', values: [false, true, false, false] },
   { feature: 'HTTP / TCP / UDP / ICMP / WebSocket', values: [true, 'HTTP only', 'HTTP only', 'HTTP only'] },
@@ -66,20 +66,20 @@ const paidColumns: Column[] = [
 ];
 
 const paidRows: Row[] = [
-  { feature: 'Monitors included', values: ['500', '100', '10 (add-ons extra)', '50'] },
-  { feature: 'Minimum check interval', values: ['30 sec', '60 sec', '30 sec', '30 sec'] },
+  { feature: 'Monitors included', values: ['1,000', '100', '10 (add-ons extra)', '50'] },
+  { feature: 'Minimum check interval', values: ['15 sec', '60 sec', '30 sec', '30 sec'] },
   { feature: 'Multi-region checks', values: [true, true, true, true] },
   { feature: 'HTTP / TCP / UDP / ICMP / WebSocket', values: [true, 'HTTP + keyword', 'HTTP + TCP + DNS', 'HTTP + TCP + DNS'] },
   { feature: 'SSL certificate monitoring', values: [true, true, true, true] },
   { feature: 'Domain expiry alerts', values: [true, true, true, true] },
   { feature: 'SMS alerts', values: ['50 / month', 'Credits — $0.03+ each', 'Unlimited', 'Unclear'] },
   { feature: 'Slack / Discord / Teams', values: [true, true, true, true] },
-  { feature: 'Webhooks', values: ['25', true, true, true] },
+  { feature: 'Webhooks', values: ['50', true, true, true] },
   { feature: 'REST API', values: [true, true, true, true] },
   { feature: 'MCP (Claude, Cursor, Windsurf)', values: [true, false, false, false] },
-  { feature: 'Branded status pages', values: ['25', 'Unlimited', 'Multiple', '1 + custom domain'] },
+  { feature: 'Branded status pages', values: ['50', 'Unlimited', 'Multiple', '1 + custom domain'] },
   { feature: 'CSV bulk export', values: [true, false, false, false] },
-  { feature: 'Log retention', values: ['365 days', '24 months', 'Unlimited incidents', 'Unclear'] },
+  { feature: 'Log retention', values: ['3 years', '24 months', 'Unlimited incidents', 'Unclear'] },
 ];
 
 function CellValue({ value }: { value: Cell }) {
@@ -302,7 +302,7 @@ export default function ComparePage() {
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-2">Running 500+ monitors?</h3>
                   <p className="text-foreground/70 text-sm">
-                    Exit1 Agency is $49/month (or $37 billed annually) for 1,000 monitors,
+                    Exit1 Pro is $24/month (or $20 billed annually) for 1,000 monitors,
                     15-second checks, and 3-year retention. For comparison: Hyperping Pro is
                     $74/mo for 100 monitors, Checkly Team is $64/mo for 75 monitors.
                   </p>
@@ -369,14 +369,14 @@ export default function ComparePage() {
                   <Check className="w-5 h-5 text-warning mt-0.5 flex-shrink-0" />
                   <span>
                     <strong className="text-foreground">Exit1 Pro at $24/mo</strong> is the cheapest
-                    plan in this comparison that ships with 30-second checks, 50 SMS, REST API,
+                    plan in this comparison that ships with 15-second checks, 50 SMS, REST API,
                     and MCP — all bundled, no add-ons.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-warning mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong className="text-foreground">500 monitors</strong> on Pro vs. 10–100 on the
+                    <strong className="text-foreground">1,000 monitors</strong> on Pro vs. 10–100 on the
                     same-priced tier from competitors.
                   </span>
                 </li>

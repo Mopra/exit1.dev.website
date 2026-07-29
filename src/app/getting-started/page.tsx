@@ -227,7 +227,7 @@ export default function GettingStartedPage() {
 
           <Reveal delay={0.2}>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-              {["No install", "10 monitors free", "No credit card"].map((label) => (
+              {["No install", "5 monitors free", "No credit card"].map((label) => (
                 <span
                   key={label}
                   className="rounded-full bg-white/[0.05] px-3 py-1 font-mono text-xs text-muted-foreground"
@@ -757,7 +757,7 @@ export default function GettingStartedPage() {
           </Reveal>
           <Reveal delay={0.05}>
             <p className="mx-auto mt-5 max-w-md text-lg text-muted-foreground">
-              It takes about a minute. No credit card — 10 monitors free.
+              It takes about a minute. No credit card — 5 monitors free.
             </p>
           </Reveal>
           <Reveal delay={0.1}>

@@ -267,7 +267,7 @@ export default async function CompareCompetitorPage({ params }: Props) {
             <SectionContent size="lg">
               <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 sm:p-6 text-sm text-foreground/70">
                 <strong className="text-foreground">{c.name} has no free tier.</strong> exit1.dev&apos;s
-                free plan is free forever — 10 monitors, every protocol, SSL monitoring, no credit card.
+                free plan is free forever — 5 monitors, every protocol, SSL monitoring, no credit card.
               </div>
             </SectionContent>
           </PageSection>
@@ -351,8 +351,8 @@ export default async function CompareCompetitorPage({ params }: Props) {
                     Try exit1.dev free — no credit card
                   </h3>
                   <p className="text-foreground/70 text-sm sm:text-base">
-                    10 monitors, every protocol, SSL monitoring, and instant alerts on the free plan.
-                    Scale to 500 monitors and 30-second checks on Pro whenever you&apos;re ready.
+                    5 monitors, every protocol, SSL monitoring, and instant alerts on the free plan.
+                    Scale to 1,000 monitors and 15-second checks on Pro whenever you&apos;re ready.
                   </p>
                   {c.relatedPost && (
                     <p className="mt-3 text-sm">

@@ -245,7 +245,7 @@ export default async function BlogPostPage({
                             <ArrowRight className="w-4 h-4 text-foreground/60 group-hover:text-foreground transition-colors duration-200" />
                           </div>
                           <p className="text-sm text-foreground/60 leading-relaxed">
-                            10 free monitors with 5-minute checks. Paid plans scale to 1,000 monitors with 15-second checks. See the feature deep dive and migration checklist.
+                            5 free monitors with 5-minute checks. Paid plans start at $4/mo for 15-second checks and scale to 1,000 monitors. See the feature deep dive and migration checklist.
                           </p>
                         </CardContent>
                       </InsetCard>

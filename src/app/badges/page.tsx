@@ -155,7 +155,7 @@ const Badges = () => {
     },
     {
       question: "Can I remove the exit1.dev branding?",
-      answer: "Yes — users on any paid plan (Nano, Pro, Agency) can toggle branding off in the dashboard. Free plan badges include a small exit1.dev footer."
+      answer: "Yes — users on any paid plan (Indie, Nano, Pro) can toggle branding off in the dashboard. Free plan badges include a small exit1.dev footer."
     },
     {
       question: "What happens if my check is paused or deleted?",
@@ -293,7 +293,7 @@ const Badges = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Want clean, unbranded badges?",
-          description: "Remove the exit1.dev footer from your badges on any paid plan. White-label status badges for your README and docs, starting at $9/month with Nano."
+          description: "Remove the exit1.dev footer from your badges on any paid plan. White-label status badges for your README and docs, starting at $4/month with Indie."
         }}
       />
     </>

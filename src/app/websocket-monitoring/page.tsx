@@ -99,7 +99,7 @@ const WebSocketMonitoring = () => {
     },
     {
       feature: "Sub-minute check intervals",
-      exit1: "30-sec on Pro, 15-sec on Agency",
+      exit1: "15-sec from Indie ($4/mo)",
       competitors: "5+ minutes"
     },
     {
@@ -126,7 +126,7 @@ const WebSocketMonitoring = () => {
     },
     {
       question: "Is WebSocket monitoring included in the free tier?",
-      answer: "Yes, WebSocket monitoring is available on every plan. Free: 10 monitors, 5-minute checks. Nano ($9/mo): 50 monitors, 2-minute checks. Pro ($24/mo): 500 monitors, 30-second checks. Agency ($49/mo): 1,000 monitors, 15-second checks."
+      answer: "Yes, WebSocket monitoring is available on every plan. Free: 5 monitors, 5-minute checks. Indie ($4/mo): 10 monitors, 15-second checks. Nano ($9/mo): 100 monitors, 2-minute checks. Pro ($24/mo): 1,000 monitors, 15-second checks."
     },
     {
       question: "What is the difference between WS and WSS?",
@@ -150,7 +150,7 @@ const WebSocketMonitoring = () => {
     },
     {
       question: "What alert channels are supported for WebSocket checks?",
-      answer: "WebSocket checks support all the same alert channels as other check types: email (all plans), SMS (Pro and Agency), and webhooks (all plans). Slack, Discord, and Microsoft Teams channels are included on Pro and Agency. Webhooks integrate with PagerDuty, Opsgenie, and any other webhook-enabled platform."
+      answer: "WebSocket checks support all the same alert channels as other check types: email (all plans), SMS (Pro), and webhooks (all plans). Slack, Discord, and Microsoft Teams channels are included on Pro. Webhooks integrate with PagerDuty, Opsgenie, and any other webhook-enabled platform."
     }
   ];
 
@@ -256,7 +256,7 @@ const WebSocketMonitoring = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Need faster WebSocket checks?",
-          description: "Upgrade to Nano for 1-minute WebSocket check intervals, SMS alerts, 200 monitors, and 1-year data retention."
+          description: "Upgrade to Indie for 15-second WebSocket check intervals, or Pro for 1,000 monitors, SMS alerts and 3-year data retention."
         }}
       />
     </>

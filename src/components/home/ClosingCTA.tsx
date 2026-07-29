@@ -23,7 +23,7 @@ export function ClosingCTA() {
 
         <Reveal delay={0.05}>
           <p className="mt-5 text-lg text-muted-foreground">
-            Start monitoring in under a minute. No credit card — 10 monitors free.
+            Start monitoring in under a minute. No credit card — 5 monitors free.
             <br className="hidden sm:block" />
             Sign up with GitHub or Google.
           </p>

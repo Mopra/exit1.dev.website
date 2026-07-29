@@ -55,7 +55,7 @@ const appDarkTheme: React.CSSProperties & Record<string, string> = {
 };
 
 const siteTitle = "Exit1.dev - Free Uptime Monitor & Free Website Monitor";
-const siteDescription = "The best free uptime and website monitoring stack with API observability and instant alerts. 10 monitors free with 5-minute checks, unlimited with Nano. No credit card required.";
+const siteDescription = "The best free uptime and website monitoring stack with API observability and instant alerts. 5 monitors free with 5-minute checks, or 15-second checks from $4/mo. No credit card required.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://exit1.dev"),

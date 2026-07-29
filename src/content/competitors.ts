@@ -8,12 +8,20 @@
 // other instead of cannibalising the same SERP.
 //
 // exit1.dev tier facts are the source of truth from /pricing:
-//   Free   — 10 monitors, 5-min checks, all protocols, SSL, 1 webhook,
-//            1 status page, 60-day retention. $0, no card.
-//   Nano   — 50 monitors, 2-min, multi-region, domain intelligence. $9/mo ($7 annual).
-//   Pro    — 500 monitors, 30-sec, 50 SMS/mo, Slack/Discord/Teams, REST API,
-//            MCP, CSV export, 365-day retention. $24/mo ($20 annual).
-//   Agency — 1,000 monitors, 15-sec, 100 SMS/mo, 3-yr retention. $49/mo ($37 annual).
+//   Free  — 5 monitors, 5-min checks, all protocols, SSL, 1 webhook,
+//           1 status page, 60-day retention. $0, no card.
+//   Indie — 10 monitors, 15-sec checks, 1 API key + MCP, 3 webhooks,
+//           60-day retention. $4/mo ($3 annual).
+//   Nano  — 100 monitors, 2-min, 1 API key + MCP, domain intelligence,
+//           status page builder, maintenance mode. $9/mo ($7 annual).
+//   Pro   — 1,000 monitors, 15-sec, 50 SMS/mo, Slack/Discord/Teams, REST API,
+//           MCP, CSV export, region choice, 3-yr retention. $24/mo ($20 annual).
+//
+// NOTE: the interval ladder is intentionally non-monotonic — Indie ($4) checks
+// every 15s while Nano ($9) checks every 2min. Indie is "a few sites watched
+// closely"; Nano is "many sites watched normally". Don't "correct" this.
+//
+// The Agency tier was retired in 2026 and folded into Pro.
 //
 // Competitor numbers are current as of 2026 and mirror the vetted /compare
 // table. Competitor pricing changes often — re-check before major edits.
@@ -82,7 +90,7 @@ export const competitors: Competitor[] = [
     name: "UptimeRobot",
     seoTitle: "UptimeRobot vs exit1.dev — Free & Paid Compared (2026)",
     seoDescription:
-      "UptimeRobot vs exit1.dev, tier for tier. 50 free monitors vs multi-protocol checks, bundled SMS, MCP, and 500 monitors on Pro at $24/mo. An honest head-to-head.",
+      "UptimeRobot vs exit1.dev, tier for tier. 50 free monitors vs multi-protocol checks, bundled SMS, MCP, and 1,000 monitors on Pro at $24/mo. An honest head-to-head.",
     keywords:
       "uptimerobot vs exit1, uptimerobot alternative, uptimerobot comparison, uptimerobot free plan, uptimerobot vs exit1.dev",
     heroSubtitle:
@@ -91,14 +99,14 @@ export const competitors: Competitor[] = [
       "UptimeRobot is the default name in cheap uptime monitoring — its free plan hands you 50 HTTP monitors and everyone knows it. exit1.dev trades raw free-monitor count for depth: every protocol on the free tier, bundled SMS instead of prepaid credits, and MCP so you can query checks from Claude or Cursor. Here's the tier-by-tier reality.",
     bestKnownFor: "Best known for: 50 free HTTP monitors and a huge install base.",
     verdict:
-      "If you just need 50 basic HTTP pings for free, UptimeRobot's free tier is hard to beat on monitor count. If you monitor TCP/UDP/ICMP/WebSocket endpoints, want SMS without metered credits, or run 100+ monitors, exit1.dev is cheaper and deeper — Pro gives you 500 monitors and 30-second checks at $24/mo versus UptimeRobot Team's 100 monitors at $34/mo.",
+      "If you just need 50 basic HTTP pings for free, UptimeRobot's free tier is hard to beat on monitor count. If you monitor TCP/UDP/ICMP/WebSocket endpoints, want SMS without metered credits, or run 100+ monitors, exit1.dev is cheaper and deeper — Pro gives you 1,000 monitors and 15-second checks at $24/mo versus UptimeRobot Team's 100 monitors at $34/mo.",
     free: {
       exit1Plan: "exit1.dev Free",
       competitorPlan: "UptimeRobot Free",
       heading: "Free tier",
       subheading: "What each gives you for $0, no credit card.",
       rows: [
-        { feature: "Monitors", exit1: "10", competitor: "50" },
+        { feature: "Monitors", exit1: "5", competitor: "50" },
         { feature: "Check interval", exit1: "5 min", competitor: "5 min" },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP, ping, port, keyword" },
         { feature: "Multi-region checks", exit1: false, competitor: true },
@@ -117,46 +125,46 @@ export const competitors: Competitor[] = [
       heading: "Paid tier",
       subheading: "exit1.dev Pro ($24/mo, $20 annual) vs the cheapest real UptimeRobot paid plan.",
       rows: [
-        { feature: "Monitors included", exit1: "500", competitor: "100" },
-        { feature: "Minimum check interval", exit1: "30 sec", competitor: "60 sec" },
+        { feature: "Monitors included", exit1: "1,000", competitor: "100" },
+        { feature: "Minimum check interval", exit1: "15 sec", competitor: "60 sec" },
         { feature: "Multi-region checks", exit1: true, competitor: true },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP + keyword" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: true },
         { feature: "SMS alerts", exit1: "50 / month included", competitor: "Prepaid credits, $0.03+ each" },
         { feature: "Slack / Discord / Teams", exit1: true, competitor: true },
-        { feature: "Webhooks", exit1: "25", competitor: true },
+        { feature: "Webhooks", exit1: "50", competitor: true },
         { feature: "REST API", exit1: true, competitor: true },
         { feature: "MCP (Claude, Cursor, Windsurf)", exit1: true, competitor: false },
         { feature: "CSV bulk export", exit1: true, competitor: false },
-        { feature: "Log retention", exit1: "365 days", competitor: "24 months" },
+        { feature: "Log retention", exit1: "3 years", competitor: "24 months" },
       ],
     },
     exit1Wins: [
       "TCP, UDP, ICMP, and WebSocket checks on the free tier — not just HTTP pings.",
-      "500 monitors on Pro ($24/mo) vs 100 on UptimeRobot Team ($34/mo).",
+      "1,000 monitors on Pro ($24/mo) vs 100 on UptimeRobot Team ($34/mo).",
       "50 SMS bundled every month instead of prepaid credits at $0.03+ each.",
       "MCP access — query your checks straight from Claude, Cursor, or Windsurf. UptimeRobot has no equivalent.",
     ],
     competitorWins: [
-      "50 free monitors vs our 10 — the most generous free monitor count in the category.",
-      "Longer paid log retention (24 months vs our 365 days on Pro).",
+      "50 free monitors vs our 5 — the most generous free monitor count in the category.",
+      "Comparable paid log retention (24 months vs our 3 years on Pro).",
       "A larger brand and community, and integrations built up over a decade.",
     ],
     faq: [
       {
         question: "Is exit1.dev a good UptimeRobot alternative?",
         answer:
-          "Yes, especially if you monitor more than HTTP. exit1.dev's free tier covers TCP, UDP, ICMP, and WebSocket checks, and Pro gives you 500 monitors with 30-second checks at $24/mo. UptimeRobot's free plan still wins on raw monitor count (50 vs 10), so the right pick depends on whether you value count or depth.",
+          "Yes, especially if you monitor more than HTTP. exit1.dev's free tier covers TCP, UDP, ICMP, and WebSocket checks, and Pro gives you 1,000 monitors with 15-second checks at $24/mo. UptimeRobot's free plan still wins on raw monitor count (50 vs 5), so the right pick depends on whether you value count or depth.",
       },
       {
         question: "How does UptimeRobot's free plan compare to exit1.dev's?",
         answer:
-          "UptimeRobot free gives 50 HTTP/ping/port monitors at 5-minute intervals. exit1.dev free gives 10 monitors but across every protocol, with SSL monitoring, JSON/header validation, and a webhook included. Fewer monitors, more capability per monitor.",
+          "UptimeRobot free gives 50 HTTP/ping/port monitors at 5-minute intervals. exit1.dev free gives 5 monitors but across every protocol, with SSL monitoring, JSON/header validation, and a webhook included. Fewer monitors, more capability per monitor.",
       },
       {
         question: "Is exit1.dev cheaper than UptimeRobot?",
         answer:
-          "At the paid tier, yes. exit1.dev Pro is $24/mo ($20 annually) for 500 monitors and 30-second checks. UptimeRobot Team is $34/mo for 100 monitors at 60-second checks, with SMS billed as prepaid credits on top.",
+          "At the paid tier, yes. exit1.dev Pro is $24/mo ($20 annually) for 1,000 monitors and 15-second checks. UptimeRobot Team is $34/mo for 100 monitors at 60-second checks, with SMS billed as prepaid credits on top.",
       },
       {
         question: "Can I migrate from UptimeRobot to exit1.dev?",
@@ -178,7 +186,7 @@ export const competitors: Competitor[] = [
     name: "Pingdom",
     seoTitle: "Pingdom vs exit1.dev — Cheaper Uptime Monitoring (2026)",
     seoDescription:
-      "Pingdom (SolarWinds) vs exit1.dev. Pingdom has no free tier and prices per check; exit1.dev gives 10 monitors free and 500 on Pro at $24/mo. Head-to-head comparison.",
+      "Pingdom (SolarWinds) vs exit1.dev. Pingdom has no free tier and prices per check; exit1.dev gives 5 monitors free and 1,000 on Pro at $24/mo. Head-to-head comparison.",
     keywords:
       "pingdom vs exit1, pingdom alternative, pingdom pricing, cheaper than pingdom, pingdom vs exit1.dev",
     heroSubtitle:
@@ -187,7 +195,7 @@ export const competitors: Competitor[] = [
       "Pingdom (now part of SolarWinds) is the enterprise incumbent — synthetic monitoring and real-user monitoring, priced per check. There's no free tier and costs climb fast as you add checks. exit1.dev takes the opposite approach: a genuinely free plan, then flat pricing where one plan covers hundreds of monitors. Here's how they stack up.",
     bestKnownFor: "Best known for: enterprise-grade synthetic + real-user monitoring, at an enterprise price.",
     verdict:
-      "Pingdom makes sense if you need its real-user monitoring and page-speed analytics inside the SolarWinds ecosystem and have the budget. For straight uptime and API monitoring, exit1.dev is dramatically cheaper: you start free, and Pro covers 500 monitors for $24/mo — roughly what Pingdom charges for a couple dozen checks.",
+      "Pingdom makes sense if you need its real-user monitoring and page-speed analytics inside the SolarWinds ecosystem and have the budget. For straight uptime and API monitoring, exit1.dev is dramatically cheaper: you start free, and Pro covers 1,000 monitors for $24/mo — roughly what Pingdom charges for a couple dozen checks.",
     free: null,
     paid: {
       exit1Plan: "exit1.dev Pro — $24/mo",
@@ -195,10 +203,10 @@ export const competitors: Competitor[] = [
       heading: "Paid comparison",
       subheading: "exit1.dev Pro vs Pingdom's per-check Synthetic Monitoring.",
       rows: [
-        { feature: "Free tier", exit1: "Yes — 10 monitors", competitor: "No (14-day trial)" },
-        { feature: "Pricing model", exit1: "Flat — 500 monitors per plan", competitor: "Per uptime check" },
+        { feature: "Free tier", exit1: "Yes — 5 monitors", competitor: "No (14-day trial)" },
+        { feature: "Pricing model", exit1: "Flat — 1,000 monitors per plan", competitor: "Per uptime check" },
         { feature: "Entry price for real usage", exit1: "$0 free · $24/mo Pro", competitor: "Scales quickly with checks" },
-        { feature: "Minimum check interval", exit1: "30 sec", competitor: "1 min" },
+        { feature: "Minimum check interval", exit1: "15 sec", competitor: "1 min" },
         { feature: "Multi-region checks", exit1: true, competitor: true },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP + transaction checks" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: true },
@@ -210,7 +218,7 @@ export const competitors: Competitor[] = [
     },
     exit1Wins: [
       "A real free tier — Pingdom has none, only a 14-day trial.",
-      "Flat pricing: 500 monitors on one $24/mo plan instead of paying per check.",
+      "Flat pricing: 1,000 monitors on one $24/mo plan instead of paying per check.",
       "TCP, UDP, ICMP, and WebSocket monitoring included.",
       "MCP access for querying uptime data from AI assistants.",
     ],
@@ -223,7 +231,7 @@ export const competitors: Competitor[] = [
       {
         question: "Is exit1.dev a cheaper alternative to Pingdom?",
         answer:
-          "Substantially. Pingdom has no free tier and charges per check, so costs rise with every monitor. exit1.dev starts free (10 monitors) and Pro covers 500 monitors for $24/mo — a fraction of a comparable Pingdom bill.",
+          "Substantially. Pingdom has no free tier and charges per check, so costs rise with every monitor. exit1.dev starts free (5 monitors) and Pro covers 1,000 monitors for $24/mo — a fraction of a comparable Pingdom bill.",
       },
       {
         question: "Does Pingdom have a free plan?",
@@ -250,23 +258,23 @@ export const competitors: Competitor[] = [
     name: "Better Stack",
     seoTitle: "Better Stack vs exit1.dev — Uptime Monitoring Compared (2026)",
     seoDescription:
-      "Better Stack (Better Uptime) vs exit1.dev. On-call and unlimited SMS vs 500 monitors, all-protocol checks, and MCP at $24/mo. Tier-by-tier comparison.",
+      "Better Stack (Better Uptime) vs exit1.dev. On-call and unlimited SMS vs 1,000 monitors, all-protocol checks, and MCP at $24/mo. Tier-by-tier comparison.",
     keywords:
       "better stack vs exit1, better uptime alternative, better stack comparison, better stack vs exit1.dev, betterstack alternative",
     heroSubtitle:
-      "Polished on-call and status pages, vs 500 monitors, every protocol, and MCP.",
+      "Polished on-call and status pages, vs 1,000 monitors, every protocol, and MCP.",
     intro:
-      "Better Stack (formerly Better Uptime) built its reputation on slick status pages and on-call incident management. It's a strong product — but its paid plans start at just 10 monitors, with more billed as add-ons. exit1.dev gives you 500 monitors on Pro at a lower price, every protocol on the free tier, and MCP for AI assistants. Here's the honest breakdown.",
+      "Better Stack (formerly Better Uptime) built its reputation on slick status pages and on-call incident management. It's a strong product — but its paid plans start at just 10 monitors, with more billed as add-ons. exit1.dev gives you 1,000 monitors on Pro at a lower price, every protocol on the free tier, and MCP for AI assistants. Here's the honest breakdown.",
     bestKnownFor: "Best known for: beautiful status pages and built-in on-call scheduling.",
     verdict:
-      "Better Stack is the pick if on-call scheduling, incident management, and unlimited SMS are central to your workflow. exit1.dev wins on monitor volume and breadth: 500 monitors on Pro at $24/mo vs Better Stack's 10-monitor Responder base at $34/mo, plus TCP/UDP/ICMP/WebSocket checks free.",
+      "Better Stack is the pick if on-call scheduling, incident management, and unlimited SMS are central to your workflow. exit1.dev wins on monitor volume and breadth: 1,000 monitors on Pro at $24/mo vs Better Stack's 10-monitor Responder base at $34/mo, plus TCP/UDP/ICMP/WebSocket checks free.",
     free: {
       exit1Plan: "exit1.dev Free",
       competitorPlan: "Better Stack Free",
       heading: "Free tier",
       subheading: "What each gives you for $0.",
       rows: [
-        { feature: "Monitors", exit1: "10", competitor: "10" },
+        { feature: "Monitors", exit1: "5", competitor: "10" },
         { feature: "Check interval", exit1: "5 min", competitor: "3 min" },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP only" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: false },
@@ -284,22 +292,22 @@ export const competitors: Competitor[] = [
       heading: "Paid tier",
       subheading: "exit1.dev Pro ($24/mo) vs Better Stack Responder ($34/mo, $29 annual).",
       rows: [
-        { feature: "Monitors included", exit1: "500", competitor: "10 (add-ons extra)" },
-        { feature: "Minimum check interval", exit1: "30 sec", competitor: "30 sec" },
+        { feature: "Monitors included", exit1: "1,000", competitor: "10 (add-ons extra)" },
+        { feature: "Minimum check interval", exit1: "15 sec", competitor: "30 sec" },
         { feature: "Multi-region checks", exit1: true, competitor: true },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP + TCP + DNS" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: true },
         { feature: "SMS alerts", exit1: "50 / month included", competitor: "Unlimited" },
         { feature: "On-call scheduling", exit1: false, competitor: true },
         { feature: "Slack / Discord / Teams", exit1: true, competitor: true },
-        { feature: "Webhooks", exit1: "25", competitor: true },
+        { feature: "Webhooks", exit1: "50", competitor: true },
         { feature: "MCP (Claude, Cursor, Windsurf)", exit1: true, competitor: false },
         { feature: "REST API", exit1: true, competitor: true },
-        { feature: "Log retention", exit1: "365 days", competitor: "Unlimited incidents" },
+        { feature: "Log retention", exit1: "3 years", competitor: "Unlimited incidents" },
       ],
     },
     exit1Wins: [
-      "500 monitors on Pro vs Better Stack Responder's 10-monitor base (the rest are paid add-ons).",
+      "1,000 monitors on Pro vs Better Stack Responder's 10-monitor base (the rest are paid add-ons).",
       "Every protocol — TCP, UDP, ICMP, WebSocket — on the free tier; Better Stack free is HTTP only.",
       "SSL monitoring, JSON validation, and a webhook on the free plan.",
       "MCP access for AI assistants, which Better Stack doesn't offer.",
@@ -313,12 +321,12 @@ export const competitors: Competitor[] = [
       {
         question: "Better Stack vs exit1.dev — which is cheaper?",
         answer:
-          "exit1.dev Pro is $24/mo for 500 monitors. Better Stack Responder is $34/mo but starts at 10 monitors, with more billed as add-ons — so exit1.dev is markedly cheaper once you scale past a handful of monitors.",
+          "exit1.dev Pro is $24/mo for 1,000 monitors. Better Stack Responder is $34/mo but starts at 10 monitors, with more billed as add-ons — so exit1.dev is markedly cheaper once you scale past a handful of monitors.",
       },
       {
         question: "Does Better Stack have on-call scheduling?",
         answer:
-          "Yes — on-call rotations and incident management are a core Better Stack strength. exit1.dev focuses on monitoring depth (all protocols, 500 monitors, MCP) rather than full incident-management workflows, so if on-call is your priority, Better Stack has the edge there.",
+          "Yes — on-call rotations and incident management are a core Better Stack strength. exit1.dev focuses on monitoring depth (all protocols, 1,000 monitors, MCP) rather than full incident-management workflows, so if on-call is your priority, Better Stack has the edge there.",
       },
       {
         question: "Is exit1.dev's free plan better than Better Stack's?",
@@ -346,7 +354,7 @@ export const competitors: Competitor[] = [
       "Freshping was Freshworks' free uptime monitor — generous, with 50 monitors and 1-minute checks. But Freshworks has been winding it down, which leaves teams needing somewhere to land. exit1.dev is a free-forever monitor built by people who actually run infrastructure: all protocols, SSL, JSON validation, and a clean migration path. Here's the comparison and how to move.",
     bestKnownFor: "Best known for: a generous free plan inside Freshworks — now being discontinued.",
     verdict:
-      "If you're still on Freshping, the decision is really 'where do I go?' exit1.dev matches the free-forever promise with 10 monitors free (or 50 on Nano at $9/mo), adds every protocol and SSL monitoring, and gives you a migration checklist so the move is painless.",
+      "If you're still on Freshping, the decision is really 'where do I go?' exit1.dev matches the free-forever promise with 5 monitors free (or 10 on Indie at $4/mo, 100 on Nano at $9/mo), adds every protocol and SSL monitoring, and gives you a migration checklist so the move is painless.",
     discontinuedNote:
       "Freshworks has been discontinuing Freshping. If you're still relying on it, now is the time to migrate before checks stop running.",
     free: {
@@ -356,8 +364,8 @@ export const competitors: Competitor[] = [
       subheading: "exit1.dev's free-forever plan vs Freshping's legacy free plan.",
       rows: [
         { feature: "Status", exit1: "Active & maintained", competitor: "Being discontinued" },
-        { feature: "Monitors", exit1: "10 (50 on Nano, $9/mo)", competitor: "50" },
-        { feature: "Check interval", exit1: "5 min (2 min on Nano)", competitor: "1 min" },
+        { feature: "Monitors", exit1: "5 (10 on Indie $4/mo, 100 on Nano $9/mo)", competitor: "50" },
+        { feature: "Check interval", exit1: "5 min (15 sec on Indie)", competitor: "1 min" },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP only" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: "Limited" },
         { feature: "Response validation (JSON, headers, body)", exit1: true, competitor: false },
@@ -386,7 +394,7 @@ export const competitors: Competitor[] = [
       {
         question: "What's the best Freshping replacement?",
         answer:
-          "exit1.dev is a direct, free-forever replacement: 10 monitors free (50 on Nano at $9/mo), every protocol, SSL monitoring, and a migration checklist to move your existing checks over.",
+          "exit1.dev is a direct, free-forever replacement: 5 monitors free (10 on Indie at $4/mo, 100 on Nano at $9/mo), every protocol, SSL monitoring, and a migration checklist to move your existing checks over.",
       },
       {
         question: "How do I migrate from Freshping to exit1.dev?",
@@ -408,7 +416,7 @@ export const competitors: Competitor[] = [
     name: "StatusCake",
     seoTitle: "StatusCake vs exit1.dev — Uptime Monitoring Compared (2026)",
     seoDescription:
-      "StatusCake vs exit1.dev, tier for tier. All-protocol checks, JSON validation, MCP, and 500 monitors on Pro at $24/mo vs StatusCake's plans. Honest comparison.",
+      "StatusCake vs exit1.dev, tier for tier. All-protocol checks, JSON validation, MCP, and 1,000 monitors on Pro at $24/mo vs StatusCake's plans. Honest comparison.",
     keywords:
       "statuscake vs exit1, statuscake alternative, statuscake comparison, statuscake vs exit1.dev, statuscake free",
     heroSubtitle:
@@ -417,14 +425,14 @@ export const competitors: Competitor[] = [
       "StatusCake bundles uptime with page-speed, domain, and server monitoring — a broad toolkit. exit1.dev goes narrower and deeper on the monitoring itself: every protocol on the free tier, JSON/header validation, bundled SMS, and MCP for AI assistants. Here's the tier-by-tier comparison.",
     bestKnownFor: "Best known for: a broad toolkit spanning uptime, page speed, and domain checks.",
     verdict:
-      "StatusCake is a fine generalist if you want page-speed and domain tools alongside uptime. exit1.dev is the sharper choice for pure monitoring: all protocols and SSL on the free tier, JSON validation, 500 monitors on Pro at $24/mo, and MCP that StatusCake doesn't offer.",
+      "StatusCake is a fine generalist if you want page-speed and domain tools alongside uptime. exit1.dev is the sharper choice for pure monitoring: all protocols and SSL on the free tier, JSON validation, 1,000 monitors on Pro at $24/mo, and MCP that StatusCake doesn't offer.",
     free: {
       exit1Plan: "exit1.dev Free",
       competitorPlan: "StatusCake Free",
       heading: "Free tier",
       subheading: "What each gives you for $0.",
       rows: [
-        { feature: "Monitors", exit1: "10", competitor: "10" },
+        { feature: "Monitors", exit1: "5", competitor: "10" },
         { feature: "Check interval", exit1: "5 min", competitor: "5 min" },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP, TCP, ping" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: "Limited" },
@@ -440,8 +448,8 @@ export const competitors: Competitor[] = [
       heading: "Paid tier",
       subheading: "exit1.dev Pro ($24/mo) vs a similarly-priced StatusCake plan.",
       rows: [
-        { feature: "Monitors included", exit1: "500", competitor: "100+" },
-        { feature: "Minimum check interval", exit1: "30 sec", competitor: "1 min" },
+        { feature: "Monitors included", exit1: "1,000", competitor: "100+" },
+        { feature: "Minimum check interval", exit1: "15 sec", competitor: "1 min" },
         { feature: "Multi-region checks", exit1: true, competitor: true },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP, TCP, ping, DNS" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: true },
@@ -454,7 +462,7 @@ export const competitors: Competitor[] = [
     },
     exit1Wins: [
       "Full JSON/header/body validation vs StatusCake's limited response checks.",
-      "500 monitors on Pro at $24/mo with 30-second checks.",
+      "1,000 monitors on Pro at $24/mo with 15-second checks.",
       "Bundled SMS (50/month) instead of prepaid credits or add-ons.",
       "MCP access for querying checks from AI assistants.",
     ],
@@ -467,17 +475,17 @@ export const competitors: Competitor[] = [
       {
         question: "Is exit1.dev a good StatusCake alternative?",
         answer:
-          "Yes, if monitoring depth matters more than a broad toolkit. exit1.dev covers every protocol on the free tier, adds JSON/header validation, and gives 500 monitors on Pro at $24/mo. StatusCake bundles page-speed and domain tools that exit1.dev leaves to dedicated features.",
+          "Yes, if monitoring depth matters more than a broad toolkit. exit1.dev covers every protocol on the free tier, adds JSON/header validation, and gives 1,000 monitors on Pro at $24/mo. StatusCake bundles page-speed and domain tools that exit1.dev leaves to dedicated features.",
       },
       {
         question: "How do the free plans compare?",
         answer:
-          "Both offer 10 free monitors at 5-minute intervals. exit1.dev adds SSL monitoring, JSON validation, a webhook, and every protocol, with 60-day retention vs StatusCake's 7 days.",
+          "StatusCake free gives 10 monitors at 5-minute intervals; exit1.dev free gives 5. exit1.dev adds SSL monitoring, JSON validation, a webhook, and every protocol, with 60-day retention vs StatusCake's 7 days — and Indie at $4/mo moves you to 15-second checks.",
       },
       {
         question: "Which has faster checks on paid plans?",
         answer:
-          "exit1.dev Pro runs 30-second checks at $24/mo. StatusCake's similarly-priced tier typically runs 1-minute checks, with 30-second checks reserved for higher plans.",
+          "exit1.dev Pro runs 15-second checks at $24/mo. StatusCake's similarly-priced tier typically runs 1-minute checks, with 30-second checks reserved for higher plans.",
       },
     ],
     relatedPost: {
@@ -494,23 +502,23 @@ export const competitors: Competitor[] = [
     name: "Hyperping",
     seoTitle: "Hyperping vs exit1.dev — Uptime Monitoring Compared (2026)",
     seoDescription:
-      "Hyperping vs exit1.dev, tier for tier. Status pages and custom domains vs all-protocol checks, MCP, and 500 monitors on Pro at $24/mo. Honest head-to-head.",
+      "Hyperping vs exit1.dev, tier for tier. Status pages and custom domains vs all-protocol checks, MCP, and 1,000 monitors on Pro at $24/mo. Honest head-to-head.",
     keywords:
       "hyperping vs exit1, hyperping alternative, hyperping comparison, hyperping vs exit1.dev, hyperping pricing",
     heroSubtitle:
-      "Clean status pages with custom domains, vs 500 monitors, every protocol, and MCP.",
+      "Clean status pages with custom domains, vs 1,000 monitors, every protocol, and MCP.",
     intro:
-      "Hyperping is a well-designed monitor with a focus on status pages and custom domains, priced simply. exit1.dev competes on depth and volume: all protocols and SSL on the free tier, 500 monitors on Pro, and MCP for AI assistants. At the same $24 price point, here's what each gets you.",
+      "Hyperping is a well-designed monitor with a focus on status pages and custom domains, priced simply. exit1.dev competes on depth and volume: all protocols and SSL on the free tier, 1,000 monitors on Pro, and MCP for AI assistants. At the same $24 price point, here's what each gets you.",
     bestKnownFor: "Best known for: clean, hosted status pages with custom-domain support.",
     verdict:
-      "Hyperping is a solid pick if a polished status page with a custom domain is the main thing you're buying. exit1.dev delivers far more monitoring for the same price: 500 monitors vs 50 at $24/mo, every protocol on the free tier, and MCP that Hyperping doesn't offer.",
+      "Hyperping is a solid pick if a polished status page with a custom domain is the main thing you're buying. exit1.dev delivers far more monitoring for the same price: 1,000 monitors vs 50 at $24/mo, every protocol on the free tier, and MCP that Hyperping doesn't offer.",
     free: {
       exit1Plan: "exit1.dev Free",
       competitorPlan: "Hyperping Free",
       heading: "Free tier",
       subheading: "What each gives you for $0.",
       rows: [
-        { feature: "Monitors", exit1: "10", competitor: "20" },
+        { feature: "Monitors", exit1: "5", competitor: "20" },
         { feature: "Check interval", exit1: "5 min", competitor: "5 min" },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP only" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: false },
@@ -527,8 +535,8 @@ export const competitors: Competitor[] = [
       heading: "Paid tier",
       subheading: "exit1.dev Pro vs Hyperping Essentials at the same $24/mo price point.",
       rows: [
-        { feature: "Monitors included", exit1: "500", competitor: "50" },
-        { feature: "Minimum check interval", exit1: "30 sec", competitor: "30 sec" },
+        { feature: "Monitors included", exit1: "1,000", competitor: "50" },
+        { feature: "Minimum check interval", exit1: "15 sec", competitor: "30 sec" },
         { feature: "Multi-region checks", exit1: true, competitor: true },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP + TCP + DNS" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: true },
@@ -537,25 +545,25 @@ export const competitors: Competitor[] = [
         { feature: "MCP (Claude, Cursor, Windsurf)", exit1: true, competitor: false },
         { feature: "REST API", exit1: true, competitor: true },
         { feature: "CSV bulk export", exit1: true, competitor: false },
-        { feature: "Log retention", exit1: "365 days", competitor: "Unclear" },
+        { feature: "Log retention", exit1: "3 years", competitor: "Unclear" },
       ],
     },
     exit1Wins: [
-      "500 monitors on Pro vs Hyperping's 50 — at the same $24/mo price.",
+      "1,000 monitors on Pro vs Hyperping's 50 — at the same $24/mo price.",
       "Every protocol (TCP, UDP, ICMP, WebSocket) on the free tier; Hyperping free is HTTP only.",
       "SSL monitoring and JSON validation on the free plan.",
       "MCP access for AI assistants and CSV bulk export.",
     ],
     competitorWins: [
       "Status pages are a Hyperping strong point, with custom-domain support on the entry paid plan.",
-      "20 free monitors vs our 10, plus REST API access on the free tier.",
+      "20 free monitors vs our 5, plus REST API access on the free tier.",
       "Simple, focused product that's quick to set up.",
     ],
     faq: [
       {
         question: "Hyperping vs exit1.dev — which gives more at $24/mo?",
         answer:
-          "exit1.dev Pro includes 500 monitors at $24/mo; Hyperping Essentials includes 50 at the same price. exit1.dev also adds every protocol, MCP, and CSV export. Hyperping counters with a custom-domain status page on its entry plan.",
+          "exit1.dev Pro includes 1,000 monitors at $24/mo; Hyperping Essentials includes 50 at the same price. exit1.dev also adds every protocol, MCP, and CSV export. Hyperping counters with a custom-domain status page on its entry plan.",
       },
       {
         question: "Does Hyperping's free plan beat exit1.dev's?",

@@ -16,70 +16,70 @@ const featureGroups: FeatureGroup[] = [
   {
     title: "Monitoring",
     rows: [
-      { label: "Monitors", values: { free: "10", nano: "50", pro: "500", agency: "1,000" } },
-      { label: "Minimum check interval", values: { free: "5 min", nano: "2 min", pro: "30 sec", agency: "15 sec" } },
-      { label: "Multi-region checks", values: { free: false, nano: true, pro: true, agency: true } },
-      { label: "HTTP/HTTPS, TCP, UDP, WebSocket, ICMP", values: { free: true, nano: true, pro: true, agency: true } },
-      { label: "SSL certificate monitoring", values: { free: true, nano: true, pro: true, agency: true } },
-      { label: "Response validation (JSON, headers, body)", values: { free: true, nano: true, pro: true, agency: true } },
-      { label: "Bulk import + bulk edit", values: { free: true, nano: true, pro: true, agency: true } },
-      { label: "Maintenance mode", values: { free: false, nano: true, pro: true, agency: true } },
+      { label: "Monitors", values: { free: "5", indie: "10", nano: "100", pro: "1,000" } },
+      { label: "Minimum check interval", values: { free: "5 min", indie: "15 sec", nano: "2 min", pro: "15 sec" } },
+      { label: "Region choice (US / EU / Asia)", values: { free: false, indie: false, nano: false, pro: true } },
+      { label: "HTTP/HTTPS, TCP, UDP, WebSocket, ICMP", values: { free: true, indie: true, nano: true, pro: true } },
+      { label: "SSL certificate monitoring", values: { free: true, indie: true, nano: true, pro: true } },
+      { label: "Response validation (JSON, headers, body)", values: { free: true, indie: true, nano: true, pro: true } },
+      { label: "Bulk import + bulk edit", values: { free: true, indie: true, nano: true, pro: true } },
+      { label: "Maintenance mode", values: { free: false, indie: false, nano: true, pro: true } },
     ],
   },
   {
     title: "Alerting",
     rows: [
-      { label: "Email alerts", values: { free: "10/hr, 10/mo", nano: "50/hr, 1,000/mo", pro: "500/hr, 10,000/mo", agency: "1,000/hr, 50,000/mo" } },
-      { label: "SMS alerts", values: { free: false, nano: false, pro: "25/hr, 50/mo", agency: "50/hr, 100/mo" } },
-      { label: "Webhook integrations", values: { free: "1", nano: "5", pro: "25", agency: "50" } },
-      { label: "Slack / Discord / Microsoft Teams", values: { free: false, nano: false, pro: true, agency: true } },
-      { label: "Flap detection + smart verification", values: { free: true, nano: true, pro: true, agency: true } },
+      { label: "Email alerts", values: { free: "10/hr, 10/mo", indie: "50/hr, 500/mo", nano: "50/hr, 1,000/mo", pro: "500/hr, 10,000/mo" } },
+      { label: "SMS alerts", values: { free: false, indie: false, nano: false, pro: "25/hr, 50/mo" } },
+      { label: "Webhook integrations", values: { free: "1", indie: "3", nano: "5", pro: "50" } },
+      { label: "Slack / Discord / Microsoft Teams", values: { free: false, indie: false, nano: false, pro: true } },
+      { label: "Flap detection + smart verification", values: { free: true, indie: true, nano: true, pro: true } },
     ],
   },
   {
     title: "Status pages",
     rows: [
-      { label: "Public status pages", values: { free: "1", nano: "5", pro: "25", agency: "50" } },
-      { label: "Drag-and-drop builder", values: { free: false, nano: true, pro: true, agency: true } },
-      { label: "Custom branding (logo, colors, favicon)", values: { free: false, nano: true, pro: true, agency: true } },
-      { label: "Remove exit1.dev badge branding", values: { free: false, nano: true, pro: true, agency: true } },
-      { label: "Custom domain", values: { free: false, nano: false, pro: false, agency: true }, comingSoon: true },
+      { label: "Public status pages", values: { free: "1", indie: "1", nano: "5", pro: "50" } },
+      { label: "Drag-and-drop builder", values: { free: false, indie: false, nano: true, pro: true } },
+      { label: "Custom branding (logo, colors, favicon)", values: { free: false, indie: false, nano: true, pro: true } },
+      { label: "Remove exit1.dev badge branding", values: { free: false, indie: true, nano: true, pro: true } },
+      { label: "Custom domain", values: { free: false, indie: false, nano: false, pro: true }, comingSoon: true },
     ],
   },
   {
     title: "Domains & intelligence",
     rows: [
-      { label: "Domain Intelligence (WHOIS, DNS)", values: { free: false, nano: true, pro: true, agency: true } },
-      { label: "Domain expiry alerts", values: { free: false, nano: true, pro: true, agency: true } },
+      { label: "Domain Intelligence (WHOIS, DNS)", values: { free: false, indie: false, nano: true, pro: true } },
+      { label: "Domain expiry alerts", values: { free: false, indie: false, nano: true, pro: true } },
     ],
   },
   {
     title: "API & integrations",
     rows: [
-      { label: "REST API access", values: { free: false, nano: false, pro: true, agency: true } },
-      { label: "API keys", values: { free: "—", nano: "—", pro: "10", agency: "25" } },
-      { label: "MCP (Claude, Cursor, Windsurf)", values: { free: false, nano: false, pro: true, agency: true } },
-      { label: "CSV bulk export", values: { free: false, nano: false, pro: true, agency: true } },
+      { label: "REST API access", values: { free: false, indie: true, nano: true, pro: true } },
+      { label: "API keys", values: { free: "—", indie: "1", nano: "1", pro: "25" } },
+      { label: "MCP (Claude, Cursor, Windsurf)", values: { free: false, indie: true, nano: true, pro: true } },
+      { label: "CSV bulk export", values: { free: false, indie: false, nano: false, pro: true } },
     ],
   },
   {
     title: "Data & reporting",
     rows: [
-      { label: "Log retention", values: { free: "60 days", nano: "60 days", pro: "365 days", agency: "1,095 days (3 yr)" } },
-      { label: "Analytics dashboards", values: { free: true, nano: true, pro: true, agency: true } },
-      { label: "SLA reporting", values: { free: false, nano: false, pro: false, agency: true }, comingSoon: true },
+      { label: "Log retention", values: { free: "60 days", indie: "60 days", nano: "60 days", pro: "1,095 days (3 yr)" } },
+      { label: "Analytics dashboards", values: { free: true, indie: true, nano: true, pro: true } },
+      { label: "SLA reporting", values: { free: false, indie: false, nano: false, pro: true }, comingSoon: true },
     ],
   },
   {
     title: "Team",
     rows: [
-      { label: "Team seats", values: { free: "—", nano: "—", pro: "—", agency: "10" }, comingSoon: true },
+      { label: "Team seats", values: { free: "—", indie: "—", nano: "—", pro: "10" }, comingSoon: true },
     ],
   },
 ];
 
-const tierOrder: TierKey[] = ['free', 'nano', 'pro', 'agency'];
-const tierLabels: Record<TierKey, string> = { free: 'Free', nano: 'Nano', pro: 'Pro', agency: 'Agency' };
+const tierOrder: TierKey[] = ['free', 'indie', 'nano', 'pro'];
+const tierLabels: Record<TierKey, string> = { free: 'Free', indie: 'Indie', nano: 'Nano', pro: 'Pro' };
 
 const PricingPage = () => {
   return (
@@ -93,13 +93,13 @@ const PricingPage = () => {
             "name": "Pricing - exit1.dev",
             "description": "Simple, transparent pricing for uptime monitoring.",
             "offers": [
-              { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "10 monitors, 5-minute checks" },
-              { "@type": "Offer", "name": "Nano (Annual)", "price": "7", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "50 monitors, 2-minute checks — billed annually ($84/yr)" },
-              { "@type": "Offer", "name": "Nano (Monthly)", "price": "9", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "50 monitors, 2-minute checks — billed monthly" },
-              { "@type": "Offer", "name": "Pro (Annual)", "price": "20", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "500 monitors, 30-second checks, SMS, API + MCP — billed annually ($240/yr)" },
-              { "@type": "Offer", "name": "Pro (Monthly)", "price": "24", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "500 monitors, 30-second checks, SMS, API + MCP — billed monthly" },
-              { "@type": "Offer", "name": "Agency (Annual)", "price": "37", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "1,000 monitors, 15-second checks, 3-year retention — billed annually ($444/yr)" },
-              { "@type": "Offer", "name": "Agency (Monthly)", "price": "49", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "1,000 monitors, 15-second checks, 3-year retention — billed monthly" },
+              { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "5 monitors, 5-minute checks" },
+              { "@type": "Offer", "name": "Indie (Annual)", "price": "3", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "10 monitors, 15-second checks, API + MCP — billed annually ($36/yr)" },
+              { "@type": "Offer", "name": "Indie (Monthly)", "price": "4", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "10 monitors, 15-second checks, API + MCP — billed monthly" },
+              { "@type": "Offer", "name": "Nano (Annual)", "price": "7", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "100 monitors, 2-minute checks, API + MCP — billed annually ($84/yr)" },
+              { "@type": "Offer", "name": "Nano (Monthly)", "price": "9", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "100 monitors, 2-minute checks, API + MCP — billed monthly" },
+              { "@type": "Offer", "name": "Pro (Annual)", "price": "20", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "1,000 monitors, 15-second checks, 3-year retention, SMS, API + MCP — billed annually ($240/yr)" },
+              { "@type": "Offer", "name": "Pro (Monthly)", "price": "24", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "1,000 monitors, 15-second checks, 3-year retention, SMS, API + MCP — billed monthly" },
             ],
           }),
         }}
