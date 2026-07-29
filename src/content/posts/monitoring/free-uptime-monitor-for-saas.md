@@ -45,7 +45,7 @@ Exit1.dev ships all of this on the free tier, which is why it’s the best free 
 - Tag them by severity (P0, P1, P2) so alert routing matches impact.
 
 ### Day 2: Configure Monitors
-- Create HTTP monitors with 30-second checks for each endpoint.
+- Create HTTP monitors with 15-second checks for each endpoint.
 - Add content verification for login flows—look for "Welcome" or account-specific text.
 - Enable SSL expiry alerts before your certificates make a fool of you.
 

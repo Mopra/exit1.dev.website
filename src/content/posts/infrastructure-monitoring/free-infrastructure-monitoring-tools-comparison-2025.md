@@ -12,10 +12,10 @@ metaDescription: "Free infrastructure monitoring tools comparison 2025: Exit1.de
 
 Everyone claims "free" server monitoring. Most bolt on strings. Here is the blunt breakdown.
 
-## Exit1.dev: Free to Start, Unlimited on Nano
+## Exit1.dev: Free to Start, 100 on Nano
 
 - **Scope:** HTTP, cron, SSL monitoring, incident timelines.
-- **Pricing:** Free tier includes 10 monitors with 5-minute checks. Nano tier ($5/month) unlocks unlimited monitors with 1-minute intervals. No credit card needed for free.
+- **Pricing:** Free tier includes 5 monitors with 5-minute checks. Nano tier ($9/month) unlocks 100 monitors with 2-minute intervals. No credit card needed for free.
 - **Why it matters:** Infrastructure teams ship faster when they do not babysit license limits. Pair it with the [free uptime monitor checklist](/blog/monitoring/free-uptime-monitor-checklist) and you cover both public and internal services.
 
 ## Prometheus + Grafana: Metrics Engine, Not Alerts Out of the Box

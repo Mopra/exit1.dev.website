@@ -47,7 +47,7 @@ You don't need a compliance department to pull this off. Stick to this workflow 
 
 1. **Create an Exit1.dev account** — no credit card, no data fishing.
 2. **Add your website endpoint** — choose simple HTTPS or advanced probes, all stored in the EU.
-3. **Configure 1-minute checks** — faster detection without hoarding payloads.
+3. **Configure 15-second checks** — faster detection without hoarding payloads.
 4. **Pipe alerts to compliant channels** — email, SMS, Slack, or webhook endpoints you control.
 5. **Enable status pages** — show uptime without leaking customer info.
 6. **Schedule data pruning** — use the API to purge logs on your terms.
@@ -58,7 +58,7 @@ That's it. No marketing drip campaigns, no "just one more field" forms. You get 
 
 | Tool | GDPR Stance | Data Residency | Personal Data Collected | Free Tier Limits |
 |------|-------------|----------------|-------------------------|------------------|
-| **Exit1.dev** | EU-first, transparent | EU regions only | None beyond uptime metadata | 10 monitors, 5-min checks (unlimited 1-min on Nano $5/mo) |
+| **Exit1.dev** | EU-first, transparent | EU regions only | None beyond uptime metadata | 5 monitors, 5-min checks (15-sec on Indie $4/mo) |
 | UptimeRobot | Claims compliance, vague docs | Mixed EU/US | Emails, team data, IP logs | 50 monitors, 5-min checks |
 | Pingdom | Compliance add-on | Primarily US | Extensive user analytics | 1 monitor, 1-min checks |
 | StatusCake | Optional EU zones | EU & US mix | Team + visitor data | 10 monitors, 5-min checks |
@@ -81,8 +81,8 @@ Generate a simple monitoring DPIA (Data Protection Impact Assessment). List endp
 
 Regulations will tighten. Competitors will upsell compliance as a premium feature. Skip the ransom. Exit1.dev's free tier already includes:
 
-- 10 free monitors with EU-based probes (unlimited on Nano $5/mo)
-- 5-minute checks on free tier, 1-minute on Nano
+- 5 free monitors with EU-based probes (100 on Nano $9/mo)
+- 5-minute checks on free tier, 2-minute on Nano (15-second on Indie)
 - SSL expiry monitoring and performance baselines
 - Webhooks for your own automation, not theirs
 - Status pages without third-party trackers

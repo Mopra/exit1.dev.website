@@ -99,7 +99,7 @@ WebSocket connections can be briefly interrupted by deployments, load balancer r
 2. Only consecutive failures trigger an alert
 3. This eliminates noise while still catching real outages
 
-## Free vs Nano Tier
+## Free vs paid tiers
 
 Both tiers include full WebSocket monitoring:
 

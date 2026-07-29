@@ -26,7 +26,7 @@ These are table stakes. You wouldn't ship code without tests. Don't adopt a free
 - **Global probes**: US, EU, APAC. No geodiversity, no deal.
 - **Failover logic**: Confirmation from a second region before it wakes you up at 3 a.m.
 
-### 2. Unlimited Monitors (Or A Path To Grow)
+### 2. 100 monitors (Or A Path To Grow)
 - **Baseline**: Ten monitors minimum or you can't cover a real product.
 - **Better**: Unlimited checks even if cadence varies by tier.
 - **Bonus**: Bulk editing through tags or folders so you aren't stuck clicking like it's 2009.

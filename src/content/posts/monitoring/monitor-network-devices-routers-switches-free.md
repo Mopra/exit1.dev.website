@@ -54,7 +54,7 @@ For each device:
 
 ### Step 3: Set up alert routing
 
-Connect your webhook to Slack, Discord, Teams, or PagerDuty so the right people get notified. For critical network devices, consider SMS alerts on the Nano tier for after-hours coverage.
+Connect your webhook to Slack, Discord, Teams, or PagerDuty so the right people get notified. For critical network devices, consider SMS alerts on the Pro tier for after-hours coverage.
 
 ### Step 4: Review latency baselines
 
@@ -69,7 +69,7 @@ If you manage networks for multiple clients, ICMP monitoring is essential:
 - **Latency trending** — spot degrading links before clients complain
 - **Incident evidence** — historical data proves when issues started and ended
 
-Exit1.dev's free tier supports up to 10 monitors — enough to cover the most critical infrastructure. The Nano tier offers unlimited monitors for larger deployments.
+Exit1.dev's free tier supports up to 5 monitors — enough to cover the most critical infrastructure. Nano offers 100 monitors, and Pro 1,000, for larger deployments.
 
 ## Common Pitfalls
 

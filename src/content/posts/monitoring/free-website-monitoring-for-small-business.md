@@ -23,8 +23,8 @@ Hidden: Trust loss (60% don't return), SEO hits, productivity drop, reputation d
 exit1.dev: Simple, affordable.
 
 1. exit1.dev
-- Free tier: 10 monitors, 5-min checks
-- Nano tier: unlimited monitors, 1-min checks, $5/mo
+- Free tier: 5 monitors, 5-min checks
+- Nano tier: 100 monitors, 2-min checks, $9/mo
 - Quick setup
 - SSL, webhooks, API
 

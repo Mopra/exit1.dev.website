@@ -840,8 +840,8 @@ Comparison:
 comparison:
   exit1_dev:
     strengths:
-      - "10 free monitors, 5-min checks"
-      - "Nano: unlimited, 1-min, $5/mo"
+      - "5 free monitors, 5-min checks"
+      - "Indie: 10 monitors, 15-sec, $4/mo"
       - "CLI friendly"
       - "Transparent"
       - "Fast setup"

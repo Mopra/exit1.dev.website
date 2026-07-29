@@ -89,7 +89,7 @@ Ping monitoring has a few constraints worth understanding:
 
 These aren't dealbreakers — they're design boundaries. Use the right check type for the right job.
 
-## Free vs Nano Tier for ICMP Monitoring
+## Free vs paid tiers for ICMP monitoring
 
 Both tiers include full ICMP ping monitoring:
 

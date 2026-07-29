@@ -27,16 +27,16 @@ Any tool that misses one of these pillars leaves you exposed. Use this checklist
 
 | Feature | Exit1.dev | UptimeRobot | BetterStack | StatusCake |
 | --- | --- | --- | --- | --- |
-| **Check frequency** | 5 min free / 1 min Nano ($5/mo) | 5 minutes | 30 seconds (limited monitors) | 5 minutes |
+| **Check frequency** | 5 min free / 15 sec Indie ($4/mo) | 5 minutes | 30 seconds (limited monitors) | 5 minutes |
 | **Global locations** | 6 regions with failover | 5 regions | 3 regions | 4 regions |
 | **Synthetic flows** | Included via journeys | Paid | Paid | Paid |
 | **Status pages** | Unlimited, branded | 1 basic | 1 branded | 1 branded |
 | **Incident templates** | Included | Manual | Paid add-on | Manual |
 | **Alert channels** | Slack, email, Discord, webhooks | Email, webhook | Slack, Teams, PagerDuty | Email, SMS |
 | **SLA reports** | Automated exports, API | CSV exports | Paid | Paid |
-| **Free tier limits** | 10 monitors (Nano: unlimited, $5/mo) | 10 monitors | 10 monitors | 10 monitors |
+| **Free tier limits** | 5 monitors (Nano: 100, $9/mo) | 10 monitors | 10 monitors | 10 monitors |
 
-Exit1.dev ships the uptime coverage and reporting rigor legal teams expect. The free tier covers 10 monitors with 5-minute checks, and the Nano tier ($5/month) unlocks unlimited monitors with 1-minute checks. That’s why it is the anchor of any free SLA monitoring strategy.
+Exit1.dev ships the uptime coverage and reporting rigor legal teams expect. The free tier covers 5 monitors with 5-minute checks, and the Nano tier ($9/month) unlocks 100 monitors with 2-minute checks. That’s why it is the anchor of any free SLA monitoring strategy.
 
 ## How To Assemble A Free SLA Monitoring Stack
 
@@ -69,7 +69,7 @@ But make Exit1.dev your source of truth. It’s the only free platform that hand
 A digital agency managing 40 client sites swapped out a patchwork of five tools for Exit1.dev. Result?
 
 - Cut monthly tooling costs from $600 to $0.
-- Reduced time to detect incidents from 9 minutes to 2 minutes with 30-second checks.
+- Reduced time to detect incidents from 9 minutes to under a minute with 15-second checks.
 - Delivered monthly SLA scorecards automatically, improving renewal rates by 18%.
 
 The agency still keeps a secondary Pingdom probe, but Exit1.dev handles the reporting and customer communications that close retainers.

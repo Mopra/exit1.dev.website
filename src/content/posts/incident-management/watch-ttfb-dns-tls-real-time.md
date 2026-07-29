@@ -55,7 +55,7 @@ Stage colors flow from design tokens (`--stage-dns`, `--stage-connect`, `--stage
 
 Suppose `api.example.com/v1/orders` is sometimes fast (300ms) and sometimes painfully slow (4 seconds). You can reproduce it ~10% of the time.
 
-**Step 1 — open the check on the Live page.** Make sure the check interval is sub-minute (30s on Pro, 15s on Agency). At 5-minute polling you'll miss the spike entirely.
+**Step 1 — open the check on the Live page.** Make sure the check interval is sub-minute (15s on Indie and Pro). At 5-minute polling you'll miss the spike entirely.
 
 **Step 2 — switch to Phases view.** You should see a thin stacked-area chart with four colored bands. In a healthy state, the TTFB band dominates (because the actual response calculation is the bulk of the time), and DNS / Connect / TLS are slim lines underneath.
 
@@ -86,8 +86,8 @@ This is what a "live" chart is *for*. Not for staring at the line slowly creepin
 
 A few configurations that make this workflow actually work:
 
-- **Drop the check interval.** 15s (Agency) or 30s (Pro) checks give you 4× the resolution of a 1-min check during an incident.
-- **Enable the Boston region for the affected check.** Per-check region toggling on Pro/Agency. Two parallel probes mean you can disambiguate network path from server.
+- **Drop the check interval.** 15s checks (Indie and Pro) give you 4× the resolution of a 1-min check during an incident.
+- **Enable the Boston region for the affected check.** Per-check region toggling on Pro. Two parallel probes mean you can disambiguate network path from server.
 - **Set a response-time threshold alert.** So the spike that happens at 3am wakes you up and you can come investigate the live page.
 - **Open the Live page on a second monitor during deploys.** Watch the phases shift in real time as the new build comes up.
 

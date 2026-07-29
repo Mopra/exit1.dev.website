@@ -18,7 +18,7 @@ CLI/API automate. No point-and-click nonsense. When you need the broader context
 
 ## Top Free
 
-exit1.dev: CLI-first, unlimited. Pair it with the [Slack integration guide](/blog/free-uptime-monitor-slack-integration) if you want terminal alerts mirrored straight into incident channels.
+exit1.dev: CLI-first, scales to 1,000 monitors. Pair it with the [Slack integration guide](/blog/free-uptime-monitor-slack-integration) if you want terminal alerts mirrored straight into incident channels.
 
 ## exit1.dev Setup
 

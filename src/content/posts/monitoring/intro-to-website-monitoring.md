@@ -148,8 +148,8 @@ A sensible check-frequency strategy:
 
 You can do real monitoring without paying anything.
 
-- **exit1.dev Free** — 10 monitors, 5-minute checks, no credit card required. Enough to cover a personal site or small project end to end.
-- **exit1.dev Nano ($5/mo)** — unlimited monitors and 1-minute checks, for when you outgrow the free tier and want faster detection across more endpoints.
+- **exit1.dev Free** — 5 monitors, 5-minute checks, no credit card required. Enough to cover a personal site or small project end to end.
+- **exit1.dev Indie ($4/mo)** — 10 monitors at 15-second checks, for when the free tier is too slow. **Nano ($9/mo)** — 100 monitors, for when you need breadth instead.
 
 Start free, prove the value, and upgrade only when more monitors or tighter intervals actually move the needle for you.
 
@@ -161,7 +161,7 @@ It's an automated service that checks your website around the clock to confirm i
 
 ### How often should a website be checked?
 
-Critical pages every 1 minute, important pages every 5 minutes, and secondary pages every 15 minutes. exit1.dev's free tier runs 5-minute checks; the Nano plan runs 1-minute checks.
+Critical pages every 1 minute, important pages every 5 minutes, and secondary pages every 15 minutes. exit1.dev's free tier runs 5-minute checks; Indie runs 15-second checks.
 
 ### What's a good uptime percentage?
 
@@ -173,7 +173,7 @@ Monitoring answers "is it up or down?" Performance answers "how well is it runni
 
 ### Can I monitor a website for free?
 
-Yes. exit1.dev's free tier includes 10 monitors and 5-minute checks with no credit card required, which is enough to cover a small site completely.
+Yes. exit1.dev's free tier includes 5 monitors and 5-minute checks with no credit card required, which is enough to cover a small site completely.
 
 ## Conclusion
 

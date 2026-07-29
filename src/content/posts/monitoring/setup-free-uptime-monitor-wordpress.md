@@ -91,7 +91,7 @@ Exit1.dev gives you response time analytics alongside uptime.
 
 ## Final Word
 
-You don’t need another premium plugin to stay online. Wire up Exit1.dev as your free uptime monitor, get 30-second checks, and keep WordPress revenue safe without begging finance for budget.
+You don’t need another premium plugin to stay online. Wire up Exit1.dev as your free uptime monitor, get 15-second checks from $4/month, and keep WordPress revenue safe without begging finance for budget.
 
 
 ## Recommended Free Monitoring Resources

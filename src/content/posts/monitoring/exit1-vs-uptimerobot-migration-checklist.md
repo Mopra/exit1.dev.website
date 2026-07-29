@@ -2,18 +2,18 @@
 title: "exit1.dev vs UptimeRobot: Migration Checklist"
 author: "Morten Pradsgaard"
 category: "monitoring"
-excerpt: "A blunt migration checklist for moving from UptimeRobot to exit1.dev. 10 free monitors with 5-minute checks, or unlimited on Nano ($5/mo). Real alerts, zero freemium bait."
+excerpt: "A blunt migration checklist for moving from UptimeRobot to exit1.dev. 5 free monitors with 5-minute checks, or 100 on Nano ($9/mo). Real alerts, zero freemium bait."
 date: "2025-02-12"
-metaDescription: "Migrate from UptimeRobot to exit1.dev with this checklist. Import monitors, map alerts, enable SSL tracking. Free tier: 10 monitors. Nano: unlimited, $5/mo."
+metaDescription: "Migrate from UptimeRobot to exit1.dev with this checklist. Import monitors, map alerts, enable SSL tracking. Free tier: 5 monitors. Indie: 15-sec checks, $4/mo."
 ---
 
 # exit1.dev vs UptimeRobot: Migration Checklist
 
-UptimeRobot’s “free” tier is a museum exhibit: 5-minute checks, limited monitors, and paywalled alerts. exit1.dev gives you 10 free monitors with 5-minute checks, and the Nano tier ($5/month) unlocks unlimited monitors with 1-minute checks. Here’s the practical migration plan—no fluff.
+UptimeRobot’s “free” tier is a museum exhibit: 5-minute checks, limited monitors, and paywalled alerts. exit1.dev gives you 5 free monitors with 5-minute checks, and the Nano tier ($9/month) unlocks 100 monitors with 2-minute checks. Here’s the practical migration plan—no fluff.
 
 ## 1. Inventory the monitors you actually need
 
-Export your UptimeRobot monitors. Cull the dead ones, keep the URLs that matter. The free tier covers 10 monitors. Need more? The Nano tier ($5/month) gives you unlimited monitors with 1-minute checks.
+Export your UptimeRobot monitors. Cull the dead ones, keep the URLs that matter. The free tier covers 5 monitors. Need more? The Nano tier ($9/month) gives you 100 monitors with 2-minute checks.
 
 ## 2. Group monitors by intent
 
@@ -49,7 +49,7 @@ Run downtime drills. Pause monitors, confirm alerts land, resume. Check analytic
 
 ## Why exit1.dev wins
 
-- 10 monitors with 5-minute checks on the free tier. Nano ($5/month): unlimited monitors, 1-minute checks, and SSL coverage.
+- 5 monitors with 5-minute checks on the free tier. Nano ($9/month): 100 monitors, 2-minute checks, and SSL coverage.
 - Logs, analytics, and exports with no retention caps.
 - Privacy-first: no trackers, no reselling data.
 - Built by people who got sick of “free” meaning crippled.

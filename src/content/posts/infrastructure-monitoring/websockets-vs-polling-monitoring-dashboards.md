@@ -92,7 +92,7 @@ That's:
 
 Roughly 30 bytes per probe on the wire, about 100 bytes in browser heap.
 
-At a 15-second check interval (the Agency tier floor), that's:
+At a 15-second check interval (the platform floor), that's:
 
 - 240 probes/hour per check
 - 7.2 KB/hour per check
@@ -171,7 +171,7 @@ For everything else, REST and Firestore `onSnapshot` are still right.
 
 ## See the actual implementation
 
-Exit1.dev runs this for every check on Nano, Pro, and Agency. [Open a check on the Live page](/live-checks) and watch the architecture above translate to UI: sub-second paint, individual probes, drag-to-zoom, per-region streaming, replay on reconnect.
+Exit1.dev runs this for every check on Indie, Nano, and Pro. [Open a check on the Live page](/live-checks) and watch the architecture above translate to UI: sub-second paint, individual probes, drag-to-zoom, per-region streaming, replay on reconnect.
 
 ## Related reading
 

@@ -289,7 +289,7 @@ class AwareAlerting:
 
 Real-time necessary. Implement smart.
 
-exit1.dev foundation: 1-min checks, global, intelligent alerts. With config, escalation, improvement, first defense.
+exit1.dev foundation: 15-second checks, global, intelligent alerts. With config, escalation, improvement, first defense.
 
 Goal: Right alerts, right time, right info. Reduces stress, boosts efficiency, keeps sites running.
 

@@ -57,8 +57,8 @@ If you claimed reliability on a homepage, monitor it. Minimum viable coverage:
 
 ### Match Monitor Frequency To Error Budgets
 
-- The Exit1.dev free tier runs 5-minute checks across 10 monitors with no credit card.
-- The Nano tier ($5/month) unlocks unlimited monitors at 1-minute checks — use it when aggressive SLAs (99.95% and up) leave no room for a slow detection window.
+- The Exit1.dev free tier runs 5-minute checks across 5 monitors with no credit card.
+- Indie ($4/month) unlocks 15-second checks — use it when aggressive SLAs (99.95% and up) leave no room for a slow detection window. Nano ($9/month) trades that speed for 100 monitors.
 - Always confirm downtime from a second region before paging humans, so a single bad probe doesn't trigger a false breach.
 
 ## Alerts Must Match Legal Timelines
@@ -130,7 +130,7 @@ SLA violations don't happen because the contract changed. They happen because no
 Pay when:
 
 - You need compliance certifications bundled (SOC 2, HIPAA, etc.).
-- Synthetic monitoring volume explodes beyond what free and Nano tiers allow.
+- Synthetic monitoring volume explodes beyond what the free and lower paid tiers allow.
 - You require deep log correlation or RUM in one pane of glass.
 
 Hold the line on free when:
@@ -149,7 +149,7 @@ Roughly 43 minutes per month. 99.95% allows about 22 minutes, and 99.99% leaves 
 
 ### Is the Exit1.dev free tier enough for SLA monitoring?
 
-For most teams chasing standard 99.9% commitments, yes. The free tier covers 10 monitors with 5-minute checks and no card. Move to the Nano tier ($5/month) for unlimited monitors and 1-minute checks when your SLA leaves no room for a slow detection window.
+For most teams chasing standard 99.9% commitments, yes. The free tier covers 5 monitors with 5-minute checks and no card. Move to the Nano tier ($9/month) for 100 monitors and 2-minute checks when your SLA leaves no room for a slow detection window.
 
 ### How often should I run the SLA checklist?
 

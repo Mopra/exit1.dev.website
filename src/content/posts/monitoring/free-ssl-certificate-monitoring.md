@@ -49,8 +49,8 @@ Before setting up ongoing monitoring, run a one-off scan with the [free SSL chec
 
 That's it: 24/7 monitoring with no scripts to maintain.
 
-**Free tier:** up to 10 monitors with 5-minute checks, alerts, and status pages, no card required.
-**Nano ($5/month):** unlimited monitors with 1-minute checks.
+**Free tier:** up to 5 monitors with 5-minute checks, alerts, and status pages, no card required.
+**Nano ($9/month):** 100 monitors with 2-minute checks.
 
 ## Alert Thresholds
 
@@ -117,7 +117,7 @@ Otherwise, the free stack handles renewals just fine.
 ## FAQ
 
 **Is SSL monitoring really free?**
-Yes. The free tier covers up to 10 SSL monitors with 5-minute checks, alerts, and status pages, no card required. Need more? Nano ($5/month) unlocks unlimited monitors with 1-minute checks.
+Yes. The free tier covers up to 5 SSL monitors with 5-minute checks, alerts, and status pages, no card required. Need more? Nano ($9/month) unlocks 100 monitors with 2-minute checks.
 
 **Can I get alerts in Slack and email at the same time?**
 Yes. Attach as many channels as you want, email, Slack, Discord, and webhooks, to the same monitors.

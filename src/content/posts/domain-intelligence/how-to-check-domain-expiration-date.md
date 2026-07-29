@@ -107,7 +107,7 @@ Start by running each domain through the [domain expiration checker](/tools/doma
 
 ### Set up automatic monitoring
 
-Manual checks don't scale. Set up domain monitoring through exit1.dev to get automatic alerts at 60, 30, 14, 7, and 1 day before expiration. The free tier includes unlimited domain monitoring with multi-channel alerts.
+Manual checks don't scale. Set up domain monitoring through exit1.dev to get automatic alerts at 60, 30, 14, 7, and 1 day before expiration. Domain monitoring is included from the Nano plan upward, with multi-channel alerts.
 
 ## What Else to Check Beyond Expiration
 

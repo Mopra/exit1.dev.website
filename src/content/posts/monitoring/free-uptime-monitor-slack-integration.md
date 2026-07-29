@@ -65,7 +65,7 @@ Tweak the copy so it screams severity. Add owner tags or runbook links. If someo
 
 ## Keep Signal High, Noise Low
 
-- **Short polling for critical paths**: Mission-critical APIs deserve 30-second checks. Brochure sites can chill at 60 seconds.
+- **Short polling for critical paths**: Mission-critical APIs deserve 15-second checks. Brochure sites can chill at 5 minutes.
 - **Confirmation probes**: Require two regions to agree before firing. False positives destroy trust faster than downtime.
 - **Segment by severity**: Performance warnings go to a quieter channel. Hard downtime hits the main incident room.
 - **Review weekly**: Audit alert accuracy in ops reviews. Slack isn’t a landfill; take out the trash.
@@ -78,7 +78,7 @@ Tweak the copy so it screams severity. Add owner tags or runbook links. If someo
 
 ## When You Actually Need Paid Tools
 
-Exit1.dev’s free plan handles up to 10 monitors with 5-minute checks, global probes, Slack webhooks, and status pages. The Nano plan ($5/month) unlocks unlimited monitors with 1-minute checks. Pay more only if you need:
+Exit1.dev’s free plan handles up to 5 monitors with 5-minute checks, global probes, Slack webhooks, and status pages. The Nano plan ($9/month) unlocks 100 monitors with 2-minute checks. Pay more only if you need:
 
 - Complex on-call rotations with SMS/phone escalation.
 - Compliance evidence beyond Slack’s retention limits.
