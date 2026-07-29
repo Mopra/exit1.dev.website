@@ -6,6 +6,7 @@ import { Search, AlertCircle } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { validateDomain } from '@/lib/domainUtils'
+import AgentSetupPrompt from '@/components/home/AgentSetupPrompt'
 
 // Lazy load the heavy Prism component
 const Prism = dynamic(() => import('./Prism'), {
@@ -106,7 +107,7 @@ export default function Hero() {
           </p>
 
           {/* Quick Start Form */}
-          <form onSubmit={handleStartMonitoring} className="max-w-md mx-auto mb-8 sm:mb-12 lg:mb-16">
+          <form onSubmit={handleStartMonitoring} className="max-w-md mx-auto mb-6 sm:mb-8">
             <div className="flex flex-col sm:flex-row gap-3 w-full">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50 w-4 h-4" />
@@ -150,6 +151,9 @@ export default function Hero() {
               Enter your website URL and we&apos;ll set up monitoring in seconds
             </p>
           </form>
+
+          {/* Agent-native path: for devs who'd rather stay in their editor. */}
+          <AgentSetupPrompt />
 
           <div
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center px-4"
