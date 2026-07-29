@@ -28,6 +28,9 @@ export default function HomePage() {
             Know before your customers do. Get an alert the second something breaks.
           </p>
 
+          {/* One-line route for devs who'd rather set this up from their editor. */}
+          <AgentSetupPrompt />
+
           <div className="mt-20 lg:mt-40 flex justify-center">
             <HeroBadge />
           </div>
@@ -37,9 +40,6 @@ export default function HomePage() {
           <div aria-hidden className="text-5xl sm:text-6xl lg:text-7xl h-[7.5em]" />
 
           <HeroCTA />
-
-          {/* Alternative route for devs who'd rather stay in their editor. */}
-          <AgentSetupPrompt />
         </div>
       </section>
 
