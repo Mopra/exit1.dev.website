@@ -502,7 +502,7 @@ export default function UptimeCheckerPage() {
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">API Endpoint Monitoring Playbook</h3>
                   <p className="text-sm text-muted-foreground">Build a comprehensive API monitoring strategy with validation, alerts, and global coverage.</p>
                 </Link>
-                <Link href="/blog/api-observability-automation-toolkit" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
+                <Link href="/blog/api-endpoint-monitoring-playbook-2025" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">API Observability Automation Toolkit</h3>
                   <p className="text-sm text-muted-foreground">Automate API monitoring with payload validation, status automation, and incident response.</p>
                 </Link>

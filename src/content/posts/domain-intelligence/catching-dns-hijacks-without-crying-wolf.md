@@ -74,3 +74,10 @@ And yet it catches a class of attack that almost nobody else in the uptime monit
 If you're building a monitor — or even just thinking about your own infrastructure's observability — add this pattern somewhere. It costs almost nothing. It catches the thing nobody watches for. And it does it without turning into alert spam the rest of the time.
 
 Control theory from the 1940s, applied to a 2026 security problem. Sometimes the old ideas are still the best ones.
+
+## Recommended Tools & Reading
+
+- [Free Nameserver Lookup](/tools/nameserver-lookup) – Check a domain's current NS records and DNS provider
+- [Free DNS Lookup Tool](/tools/dns-checker) – Every record type, plus SPF, DMARC, and CAA
+- [Domain Hijacking Detection](/blog/domain-hijacking-detection-unauthorized-changes) – The signals that indicate a takeover
+- [DNS Provider Concentration Risk](/blog/dns-provider-concentration-risk) – Why one provider is a single point of failure

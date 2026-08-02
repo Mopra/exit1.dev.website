@@ -44,6 +44,21 @@ We don’t run trackers, analytics beacons, or ads. Share our data privacy state
 
 Export uptime analytics and logs quarterly. Store them in your audit evidence repo. 90 days retention max means you’re never scrambling to pull logs before they disappear.
 
+## Prove your SLA without hand-waving
+
+If you promise "99.9% uptime", back it with real numbers rather than assertions. Publish monthly reports that show the **calculation method, the exclusion rules, and the incident notes** — auditors and customers both distrust a bare percentage. Link each incident on your status page to a short postmortem; the point is to demonstrate you learned something, not just that you reset the pager. The [SLA monitoring tools guide](/blog/free-sla-monitoring-tools) covers the mechanics.
+
+Write incident updates like you mean it: what broke, who fixed it, and how it gets prevented. Include the deploy hash or config change in the final update. That level of specificity is what turns monitoring output into audit evidence rather than a log file.
+
+## GDPR and data residency
+
+SOC 2 is about controls; GDPR adds a question about *where the data goes*.
+
+- **Keep data minimal.** If you don't need payload bodies, don't collect them. Data you never stored is data you never have to explain, delete, or breach-notify about.
+- **Document retention and deletion windows** inside your runbook, then prove they're enforced using your exported logs.
+- **Respect regional routing.** Probing EU endpoints from EU regions matters when data residency is in scope — an audit trail showing EU traffic checked from elsewhere invites questions you don't want.
+- **Link your privacy stance from the status page** so compliance reviewers can see you've thought about it before they have to ask.
+
 ## Bonus: Automation
 
 Use our API to dump monitor configs, uptime stats, and log entries straight into your GRC tooling. Schedule it monthly and you’re done.

@@ -97,7 +97,7 @@ Your cloud provider sends a maintenance notification for next Thursday 2–4 AM 
 
 **Using maintenance to hide real problems.** If you're entering maintenance mode because a service is flaky during normal operation, that's not maintenance — that's an incident. Maintenance mode is for planned, intentional work. Don't use it to suppress alerts for problems you should be fixing.
 
-**Not logging reasons.** Always add a maintenance reason. "Deploy v2.4.1" or "AWS us-east-1 maintenance window" gives future you the context to understand why the window existed. This matters for [SLA audits](/blog/free-website-monitoring-audit-sla-evidence) and postmortems.
+**Not logging reasons.** Always add a maintenance reason. "Deploy v2.4.1" or "AWS us-east-1 maintenance window" gives future you the context to understand why the window existed. This matters for [SLA audits](/blog/soc2-iso-website-monitoring-prep-guide) and postmortems.
 
 ## The goal: zero surprise alerts from planned work
 

@@ -392,7 +392,7 @@ The question is: what are you going to build with these tools?
 
 [Sign up free](https://app.exit1.dev/). See the architecture in action.
 
-Related: [Get Started](/blog/getting-started), [Free Tools](/blog/best-free-uptime-monitoring-tools), [Best Practices](/blog/website-monitoring-best-practices-2025), [Real-time vs 5-min](/blog/real-time-vs-5-minute-monitoring), [Free vs Paid](/blog/free-uptime-monitor-vs-paid)
+Related: [Free Tools](/blog/best-free-uptime-monitoring-tools), [Best Practices](/blog/website-monitoring-best-practices-2025), [Real-time vs 5-min](/blog/real-time-vs-5-minute-monitoring), [Free vs Paid](/blog/free-uptime-monitor-vs-paid)
 
 ## Sources
 

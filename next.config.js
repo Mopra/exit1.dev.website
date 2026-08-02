@@ -85,6 +85,51 @@ const nextConfig = {
       { source: '/real-time-monitoring', destination: '/live-checks', permanent: true },
       // /why-nano reframed as /why-upgrade to cover Indie, Nano, and Pro
       { source: '/why-nano', destination: '/why-upgrade', permanent: true },
+
+      // ── Consolidation round 2 (July 2026) ────────────────────────────
+      // See scripts/seo/consolidation-plan-2026-07.md. 126 -> 103 posts.
+
+      // Tool-intent posts -> the actual tool pages. These were thin articles
+      // whose meta descriptions promised a "free X lookup tool" while the real
+      // tool page competed against them for the same query.
+      { source: '/blog/free-nameserver-lookup', destination: '/tools/nameserver-lookup', permanent: true },
+      { source: '/blog/free-a-record-lookup', destination: '/tools/dns-checker', permanent: true },
+      { source: '/blog/free-mx-record-lookup', destination: '/tools/dns-checker', permanent: true },
+      { source: '/blog/free-txt-record-lookup', destination: '/tools/dns-checker', permanent: true },
+      { source: '/blog/free-cname-lookup-tool', destination: '/tools/dns-checker', permanent: true },
+      { source: '/blog/free-caa-record-check', destination: '/tools/dns-checker', permanent: true },
+      { source: '/blog/free-spf-record-checker', destination: '/tools/dns-checker', permanent: true },
+      { source: '/blog/free-dmarc-checker', destination: '/tools/dns-checker', permanent: true },
+
+      // Incident management: 4 near-identical ~440-word posts -> one runbook
+      { source: '/blog/free-incident-management-toolkit', destination: '/blog/free-incident-management-runbook', permanent: true },
+      { source: '/blog/free-incident-management-war-room', destination: '/blog/free-incident-management-runbook', permanent: true },
+      { source: '/blog/free-incident-management-with-exit1', destination: '/blog/free-incident-management-runbook', permanent: true },
+
+      // Infrastructure monitoring -> single checklist (comparison post kept)
+      { source: '/blog/free-infrastructure-monitoring-stack', destination: '/blog/free-server-monitoring-checklist-2025', permanent: true },
+      { source: '/blog/sre-playbook-free-infrastructure-monitoring', destination: '/blog/free-server-monitoring-checklist-2025', permanent: true },
+
+      // Cronjob monitoring: 5 posts sharing one skeleton -> one playbook
+      { source: '/blog/cronjob-monitoring-metrics-that-matter', destination: '/blog/cronjob-monitoring-playbook-free-scheduled-task-observability', permanent: true },
+      { source: '/blog/free-cronjob-monitor-setup-serverless-schedules', destination: '/blog/cronjob-monitoring-playbook-free-scheduled-task-observability', permanent: true },
+      { source: '/blog/scheduled-task-monitoring-checklist-heartbeats-retries-alerts', destination: '/blog/cronjob-monitoring-playbook-free-scheduled-task-observability', permanent: true },
+      { source: '/blog/cron-job-worker-monitoring-http-hooks', destination: '/blog/cronjob-monitoring-playbook-free-scheduled-task-observability', permanent: true },
+
+      // API monitoring playbooks -> single playbook
+      { source: '/blog/api-observability-automation-toolkit', destination: '/blog/api-endpoint-monitoring-playbook-2025', permanent: true },
+      { source: '/blog/platform-api-monitoring-operations-guide', destination: '/blog/api-endpoint-monitoring-playbook-2025', permanent: true },
+
+      // Straight duplicate pairs
+      { source: '/blog/free-uptime-monitor-ecommerce-guide', destination: '/blog/free-website-monitoring-shopify-woocommerce', permanent: true },
+      { source: '/blog/jamstack-github-pages-uptime-monitoring', destination: '/blog/free-uptime-monitor-static-sites-jamstack', permanent: true },
+      { source: '/blog/free-website-monitoring-beyond-uptime-checklist', destination: '/blog/free-uptime-monitor-checklist', permanent: true },
+      { source: '/blog/free-website-monitoring-audit-sla-evidence', destination: '/blog/soc2-iso-website-monitoring-prep-guide', permanent: true },
+
+      // Pagination shrank from 11 to 9 pages (126 -> 103 posts at 12/page).
+      // These were indexed, so send them to the index rather than 404.
+      { source: '/blog/page/10', destination: '/blog', permanent: true },
+      { source: '/blog/page/11', destination: '/blog', permanent: true },
     ];
   },
 };

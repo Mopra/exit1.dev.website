@@ -60,7 +60,7 @@ Treat error budgets as a conversation, not a hammer. When you regularly exceed t
 - Use the [free API status checker](/tools/api-status-checker) to spot-check any endpoint before you audit.
 - Audit your current uptime promises against this math.
 - Wire every critical endpoint into the monitors outlined in the [API Endpoint Monitoring Playbook 2025](/blog/api-endpoint-monitoring-playbook-2025).
-- Ready to level up on automation? Jump to [API Observability Automation Toolkit](/blog/api-observability-automation-toolkit) for synthetic workflows that keep budgets intact.
+- Ready to level up? The playbook's automation and synthetic-flow sections cover keeping budgets intact, and the [free incident management runbook](/blog/free-incident-management-runbook) covers what happens when you blow through one.
 
 Error budgets aren’t theory. They’re the contract between velocity and reliability. Own them, or they’ll own you.
 
@@ -70,4 +70,4 @@ Error budgets aren’t theory. They’re the contract between velocity and relia
 
 - [Free API Status Checker](/tools/api-status-checker) – Instantly check any API endpoint’s health and response time
 - [API Endpoint Monitoring Playbook 2025](/blog/api-endpoint-monitoring-playbook-2025) – Full coverage setup guide
-- [API Observability Automation Toolkit](/blog/api-observability-automation-toolkit) – Automate synthetic workflows
+- [WebSocket vs HTTP Monitoring](/blog/websocket-vs-http-monitoring-real-time-services) – Real-time services need both

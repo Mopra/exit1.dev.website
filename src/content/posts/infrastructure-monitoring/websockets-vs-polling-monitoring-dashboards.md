@@ -177,5 +177,5 @@ Exit1.dev runs this for every check on Indie, Nano, and Pro. [Open a check on th
 
 - [Most "Real-Time" Uptime Monitors Refresh Every 30 Seconds](/blog/real-time-uptime-monitoring-vs-polling)
 - [How to Watch DNS, TCP, TLS and TTFB Change in Real Time](/blog/watch-ttfb-dns-tls-real-time)
-- [Free Infrastructure Monitoring Stack](/blog/free-infrastructure-monitoring-stack)
-- [SRE Playbook for Infrastructure Monitoring](/blog/sre-playbook-free-infrastructure-monitoring)
+- [Free Server Monitoring Checklist](/blog/free-server-monitoring-checklist-2025)
+- [Free Infrastructure Monitoring Tools Compared](/blog/free-infrastructure-monitoring-tools-comparison-2025)

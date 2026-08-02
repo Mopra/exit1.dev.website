@@ -1,10 +1,11 @@
 ---
-title: "Free Website Monitoring for Shopify and WooCommerce Stores"
+title: "Free Uptime Monitoring for E-commerce: Shopify, WooCommerce, and Magento"
+seoTitle: "Free Uptime Monitoring: Shopify, WooCommerce, Magento"
 author: "Morten Pradsgaard"
 category: "monitoring"
 excerpt: "Keep Shopify and WooCommerce stores online with exit1.dev's website monitor. 5 free monitors with 5-minute checks, SSL protection, and blunt advice on keeping carts alive."
 date: "2025-02-10"
-metaDescription: "Learn how to set up free website monitoring for Shopify and WooCommerce with exit1.dev. 5 free monitors, 5-minute checks, SSL alerts, and practical uptime tactics for ecommerce."
+metaDescription: "Free uptime monitoring for e-commerce on Shopify, WooCommerce, and Magento. Covers checkout probes, cache-bypass checks, SSL, DNS, payment gateway dependencies, and alert routing."
 ---
 
 # Free Website Monitoring for Shopify and WooCommerce
@@ -59,6 +60,23 @@ Our analytics show response-time trends for every monitor. Spot plugin regressio
 ## Bundle stores, headless front-ends, and multiple markets
 
 Running Hydrogen, custom Next.js front-ends, or multiple Shopify markets? Add every URL and subdomain. Use tags in exit1.dev to separate locales and campaigns. The Nano tier ($9/month) gives you 100 monitors for broad segmentation.
+
+## Magento, Varnish, and the cache problem
+
+Self-hosted stacks fail in messier ways than hosted ones. Watch PHP timeouts by asserting on response time, not just status code. Cache layers are the specific trap: Varnish or a CDN edge can happily serve a **stale cart page** long after the application behind it has died.
+
+The fix is two probes per critical path — one that goes through the cache, and one that bypasses it and asserts on a dynamic value like a timestamp or nonce. If the cached probe passes while the bypass probe fails, you have found a broken origin being masked by your own CDN. For Magento specifically, watch the Varnish layer and the CDN edges separately, and track database health indirectly through admin login or API responses.
+
+## Payment gateways and third parties you don't control
+
+Stripe, PayPal, Klarna, tax calculators, personalisation scripts — every one is a single point of failure sitting between your customer and their money.
+
+- Monitor the gateways' own status endpoints so you can immediately tell "our checkout is broken" from "Stripe is having a bad morning".
+- Where a lightweight test charge flow is possible, run it as a synthetic check.
+- Where it isn't, monitor the JavaScript and network calls that initialise the payment sheet, and alert on slowdown rather than only on failure — a payment form that takes eight seconds to appear is already costing you carts.
+- Document every dependency on your public status page so customers know what broke and why.
+
+Ship monitor logs to your warehouse via the [CSV export](/blog/exit1-logs-to-warehouse-csv-excel) so finance can reconcile incidents against lost sales. That number is what gets reliability work funded.
 
 ## Free beats “free trial”
 

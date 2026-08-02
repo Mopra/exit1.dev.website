@@ -1,11 +1,12 @@
 ---
-title: "How to Monitor Static Sites on Netlify, Gatsby, Hugo, and Cloudflare Pages With a Free Uptime Monitor"
+title: "How to Monitor Static Sites on Netlify, GitHub Pages, Gatsby, Hugo, and Cloudflare Pages With a Free Uptime Monitor"
+seoTitle: "Monitor Jamstack & GitHub Pages Uptime, Agentless"
 author: "Morten Pradsgaard"
 date: "2025-12-02"
 category: "monitoring"
 excerpt: "Static sites still fail. Here’s the pragmatic, free uptime monitor recipe that keeps Jamstack builds honest across Netlify, Gatsby, Hugo, and Cloudflare Pages."
 readTime: "11 min read"
-metaDescription: "Free uptime monitoring guide for Jamstack static sites on Netlify, Gatsby, Hugo, and Cloudflare Pages. Covers probes, SSL checks, status pages, and alerting discipline."
+metaDescription: "Free agentless uptime monitoring for Jamstack static sites on Netlify, GitHub Pages, Gatsby, Hugo, and Cloudflare Pages. Covers probes, build endpoints, SSL, status pages, and alerting."
 ---
 
 # How to Monitor Static Sites on Netlify, Gatsby, Hugo, and Cloudflare Pages With a Free Uptime Monitor
@@ -29,6 +30,20 @@ Preview builds love to rot. Monitor previews just like production or you’ll pu
 ## Cloudflare Pages and edge hosts
 
 Edge functions are fantastic until cold starts slap you. Add a synthetic check that warms them every five minutes and alerts if latency spikes. Run a second monitor from outside Cloudflare’s network to expose routing loops and DNSSEC misfires. Pipe failures to your warehouse with the [Exit1.dev CSV export](/blog/exit1-logs-to-warehouse-csv-excel) so you can show stakeholders exactly when and where the edge flinched.
+
+## GitHub Pages specifics
+
+GitHub Pages sometimes lags after a new commit, so the deploy "succeeding" tells you very little about what visitors are currently served. Monitor both the CDN endpoint and the `*.github.io` domain — if the custom domain fails while the github.io address works, the problem is DNS, not your build.
+
+Use keyword validation to confirm the new Markdown actually reached production, and add monitors for the sitemap and RSS feed so search and syndication traffic don't quietly die while the homepage looks fine.
+
+GitHub Pages also rides on GitHub's own infrastructure, so when your site misbehaves it's worth ruling out an upstream problem first. We track [github.com's live status and uptime](/status/github.com) independently, so you can tell a GitHub-wide incident apart from something in your own pipeline.
+
+## Watch build endpoints, and staging too
+
+If you run scheduled builds or webhooks — Vercel ISR, Netlify functions, GitHub Actions — add those endpoints as monitors, assert on their JSON payloads, and you'll know when a build pipeline stalls instead of discovering it via stale content.
+
+Monitoring staging costs nothing extra. Add monitors for preview URLs at slower intervals and keep them clearly labelled. Environment drift shows up before promotion rather than after.
 
 ## Publish the truth with a status page
 

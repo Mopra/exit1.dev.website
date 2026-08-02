@@ -369,6 +369,18 @@ export default function DnsCheckerPage() {
                   (which restrict certificate issuance), this gives you a
                   comprehensive picture of your domain&apos;s DNS health.
                 </p>
+                <p>
+                  Only interested in the delegation? The{" "}
+                  <Link
+                    href="/tools/nameserver-lookup"
+                    className="text-primary underline underline-offset-2"
+                  >
+                    nameserver lookup tool
+                  </Link>{" "}
+                  goes deeper on NS records specifically — it resolves each
+                  nameserver to its own IP addresses, identifies which provider
+                  runs your DNS, and grades redundancy across networks.
+                </p>
               </div>
             </SectionContent>
           </PageSection>

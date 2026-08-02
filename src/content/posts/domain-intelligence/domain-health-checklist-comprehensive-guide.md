@@ -193,6 +193,8 @@ For domains where the stakes are relatively low, basic monitoring covers the ess
 
 For business-critical domains, add DNS resolution monitoring to catch configuration issues, certificate chain validation to identify problems before browsers do, and email authentication checking to maintain deliverability. Uptime monitoring services with SSL checks, DNS monitoring tools, and email deliverability testing services provide this coverage.
 
+For the manual audit that establishes your baseline, the [DNS lookup tool](/tools/dns-checker) returns every record type with SPF and DMARC analysis and a health grade, and the [nameserver lookup](/tools/nameserver-lookup) grades your delegation specifically — redundancy, glue resolution, and whether your SOA agrees with your NS set.
+
 ### Level 3: Comprehensive Monitoring
 
 Critical domains warrant comprehensive monitoring that goes beyond basic health checks. Monitor domain status changes to catch unauthorized modifications. Alert on nameserver changes that might indicate hijacking attempts. Verify security configuration matches expectations. Test from multiple geographic locations to catch regional issues.
@@ -272,6 +274,8 @@ Your domains are critical infrastructure. Treat them that way.
 
 - [Free Domain Expiration Checker](/tools/domain-expiration-checker) – Instantly check any domain's expiry date, registrar, and nameservers
 - [Free SSL Checker Tool](/tools/ssl-checker) – Check SSL certificate status, expiry, and security configuration
+- [Free DNS Lookup Tool](/tools/dns-checker) – Every DNS record type, with SPF/DMARC analysis and a health grade
+- [Free Nameserver Lookup](/tools/nameserver-lookup) – Grade your delegation: redundancy, glue, and SOA consistency
 - [Why Domain Expiration is the Silent Killer](/blog/domain-expiration-silent-killer-websites) - The cost of failures
 - [SSL Certificate Expiration](/blog/ssl-certificate-expiration-other-deadline) - Certificate monitoring
 - [Domain Intelligence Feature](/domain-intelligence) - Automated monitoring

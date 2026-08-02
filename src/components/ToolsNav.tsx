@@ -18,6 +18,11 @@ const tools = [
     description: "Look up DNS records globally",
   },
   {
+    name: "Nameservers",
+    href: "/tools/nameserver-lookup",
+    description: "Check a domain's nameservers",
+  },
+  {
     name: "API Status",
     href: "/tools/api-status-checker",
     description: "Test API endpoint health",

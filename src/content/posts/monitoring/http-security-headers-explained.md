@@ -218,4 +218,4 @@ For continuous monitoring, exit1.dev checks your endpoints regularly and can ale
 - [Free API Status Checker](/tools/api-status-checker) – Audit your security headers, response codes, and CORS configuration
 - [Free SSL Checker](/tools/ssl-checker) – Verify your SSL/TLS configuration alongside security headers
 - [API Endpoint Monitoring Playbook](/blog/api-endpoint-monitoring-playbook-2025) – Build comprehensive API monitoring
-- [API Observability Automation Toolkit](/blog/api-observability-automation-toolkit) – Automate your monitoring stack
+- [API Observability Automation Toolkit](/blog/api-endpoint-monitoring-playbook-2025) – Automate your monitoring stack

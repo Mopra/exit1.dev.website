@@ -46,6 +46,8 @@ Any modification to NS records warrants immediate attention. Normal nameserver c
 
 Monitoring should alert instantly when nameservers change. The alert should show both the previous and current configuration so you can immediately assess whether the change is legitimate.
 
+To establish the baseline you are comparing against — or to check a domain right now if you suspect something already moved — run it through the [free nameserver lookup](/tools/nameserver-lookup). It shows the current NS records alongside the DNS provider operating them, which is usually the fastest way to spot delegation pointing somewhere it should not.
+
 ### LastUpdated Timestamp
 
 Every domain record includes a timestamp showing when it was last modified. This field updates whenever contact information changes, nameservers are modified, status flags are added or removed, registrar transfers occur, or any administrative change is made.
@@ -135,4 +137,5 @@ Don't give attackers those hours.
 - [Understanding Registry Status Codes](/blog/registry-status-codes-business-guide) - What those status flags mean
 - [Is Your Domain Really Secure?](/blog/domain-transfer-lock-security) - Transfer lock best practices
 - [Free Domain Expiration Checker](/tools/domain-expiration-checker) - Verify domain registration data instantly
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Spot delegation pointing somewhere it shouldn't
 - [Domain Intelligence Feature](/domain-intelligence) - Automated hijacking detection

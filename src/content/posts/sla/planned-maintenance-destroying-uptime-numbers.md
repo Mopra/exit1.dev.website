@@ -17,7 +17,7 @@ This is one of the most common SLA reporting problems: **your monitoring tool do
 
 A 30-minute deploy every week adds up to roughly 2 hours of "downtime" per month. That alone drops a 99.9% target to 99.7%. Add a monthly database migration window and you're at 99.5%. In a quarter, your SLA report looks like you have a reliability problem when you actually have a tooling problem.
 
-If you're using monitoring data for [SLA evidence and audit trails](/blog/free-website-monitoring-audit-sla-evidence), this pollution matters. Clients see the numbers. Stakeholders see the numbers. Nobody reads the footnotes explaining "well, 2 hours of that was planned."
+If you're using monitoring data for [SLA evidence and audit trails](/blog/soc2-iso-website-monitoring-prep-guide), this pollution matters. Clients see the numbers. Stakeholders see the numbers. Nobody reads the footnotes explaining "well, 2 hours of that was planned."
 
 ## Why "just explain it" doesn't work
 
@@ -73,5 +73,5 @@ Your uptime score should reflect how reliable your service actually is, not how 
 
 - [Maintenance Mode — Suppress Alerts During Planned Downtime](/maintenance-mode) — Full feature overview and FAQ.
 - [Free SLA Monitoring Reporting Playbook](/blog/free-sla-monitoring-reporting-playbook) — Build SLA reports your clients will trust.
-- [Free Website Monitoring Audit SLA Evidence](/blog/free-website-monitoring-audit-sla-evidence) — Use monitoring data as compliance evidence.
+- [Free Website Monitoring Audit SLA Evidence](/blog/soc2-iso-website-monitoring-prep-guide) — Use monitoring data as compliance evidence.
 - [How to Deploy Without Waking Up Your On-Call Team](/blog/deploy-without-waking-oncall-team) — Wire maintenance mode into your deploy process.

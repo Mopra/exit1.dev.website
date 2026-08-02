@@ -16,13 +16,13 @@ Everyone claims "free" server monitoring. Most bolt on strings. Here is the blun
 
 - **Scope:** HTTP, cron, SSL monitoring, incident timelines.
 - **Pricing:** Free tier includes 5 monitors with 5-minute checks. Nano tier ($9/month) unlocks 100 monitors with 2-minute intervals. No credit card needed for free.
-- **Why it matters:** Infrastructure teams ship faster when they do not babysit license limits. Pair it with the [free uptime monitor checklist](/blog/monitoring/free-uptime-monitor-checklist) and you cover both public and internal services.
+- **Why it matters:** Infrastructure teams ship faster when they do not babysit license limits. Pair it with the [free uptime monitor checklist](/blog/free-uptime-monitor-checklist) and you cover both public and internal services.
 
 ## Prometheus + Grafana: Metrics Engine, Not Alerts Out of the Box
 
 - **Strengths:** Rich metrics collection, huge exporter ecosystem.
 - **Weaknesses:** No turnkey alerts, no uptime checks. You must wire Alertmanager, hosts, and notifications manually.
-- **Fix:** Trigger webhooks into Exit1.dev to reuse the alerting and incident stack described in the [infrastructure monitoring stack guide](/blog/infrastructure-monitoring/free-infrastructure-monitoring-stack).
+- **Fix:** Trigger webhooks into Exit1.dev to reuse the alerting and incident stack described in the [infrastructure monitoring stack guide](/blog/free-server-monitoring-checklist-2025).
 
 ## Zabbix: Heavyweight Legacy
 

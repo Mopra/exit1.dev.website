@@ -97,6 +97,21 @@ Regulators don't care that it's free. Your free uptime monitor still has to resp
 - Know where data lives to stay on the right side of GDPR and SOC 2.
 - Access to DPAs on the free tier shows the vendor isn't hiding behind legalese.
 
+## Beyond Uptime: What To Actually Monitor
+
+The fifteen features above are what to demand from a *provider*. This is what to point them at. A green "site is up" checkmark does not mean the site is usable — broken SSL, stale DNS, dead links, or a slow edge hurt you more than a short outage.
+
+- **Content assertions, not status codes.** A `200 OK` can serve garbage. Assert on real copy, a hero asset, or a timestamp. Monitor the key API or GraphQL calls the page depends on — a broken cart API means your "up" site is still losing revenue.
+- **Mixed-content scanning.** Catch `http://` assets on HTTPS pages before the browser warning does it for you.
+- **Performance as a first-class signal.** Alert on degradation, not just downtime. Latency creep is the early warning for the outage you haven't had yet.
+- **Apex and CNAME DNS coverage.** Route changes break sites more often than bad deploys.
+
+### Audit your monitors monthly
+
+Monitoring rots quietly. Once a month: retire dead URLs, validate domains, rotate API tokens, verify alert routes still reach a human, and add probes for surfaces you have shipped since — new landing pages, API endpoints, checkout steps.
+
+And be ruthless about noise: **if an alert doesn't map to a person and a fix, delete it.** Alert fatigue is self-inflicted downtime.
+
 ## Next Steps
 
 Run your current provider through this free uptime monitor checklist. If they miss two items, stop justifying mediocrity and migrate to Exit1.dev. It ships every requirement without the upsell song and dance.

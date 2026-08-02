@@ -34,7 +34,7 @@ The business impact was measured in hundreds of millions of dollars in lost reve
 
 ## Assessing Your DNS Concentration
 
-Understanding your exposure starts with inventorying your DNS configuration. For every domain you own, document what nameservers are configured, who operates those nameservers, and what the underlying infrastructure looks like. A typical inventory might reveal that your main product domain, your marketing site, and your API all use the same DNS provider. If that provider has issues, all three go down together.
+Understanding your exposure starts with inventorying your DNS configuration. For every domain you own, document what nameservers are configured, who operates those nameservers, and what the underlying infrastructure looks like. The [free nameserver lookup tool](/tools/nameserver-lookup) does most of that work for you — it lists every NS record, resolves each nameserver to its own IP addresses, identifies which provider operates them, and flags when all your nameservers sit inside a single network. For the rest of your records, the [DNS lookup tool](/tools/dns-checker) covers every other type. A typical inventory might reveal that your main product domain, your marketing site, and your API all use the same DNS provider. If that provider has issues, all three go down together.
 
 Once you have that inventory, identify your single points of failure. Ask yourself whether all your domains use the same provider, whether that provider has geographic redundancy, what their track record for uptime looks like, and whether you have any secondary DNS configured. For each potential failure scenario, evaluate the impact: if this DNS provider goes down, what services are affected, what's the business cost per hour of downtime, and how quickly could you recover?
 
@@ -128,4 +128,5 @@ Don't let your DNS be your single point of failure.
 
 - [The True Cost of a Forgotten Domain](/blog/true-cost-forgotten-domain-renewal) - Understanding downtime costs
 - [Building a Domain Health Checklist](/blog/domain-health-checklist-comprehensive-guide) - Complete domain audit
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Check delegation redundancy and your DNS provider
 - [Free Uptime Monitoring](/free-uptime-monitor) - Monitor your infrastructure
