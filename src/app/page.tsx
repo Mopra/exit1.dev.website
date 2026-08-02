@@ -16,7 +16,7 @@ import { AgentSetupPrompt } from "@/components/home/AgentSetupPrompt";
 export default function HomePage() {
   return (
     <>
-      <section className="lg:min-h-screen pt-40 lg:pt-[20vh] pb-20 overflow-x-clip">
+      <section className="lg:min-h-screen pt-28 lg:pt-[12vh] pb-20 overflow-x-clip">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <h1 className="text-[2.5rem] leading-[1.05] sm:text-6xl sm:leading-[0.95] md:text-7xl lg:text-8xl font-bold tracking-tight">
             Your sites are online.

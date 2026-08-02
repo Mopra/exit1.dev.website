@@ -2,7 +2,6 @@
 
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 
 /**
  * One-line entry point for developers who'd rather not leave their editor.
@@ -21,10 +20,15 @@ import { Button } from "@/components/ui/button";
  */
 const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit1.
 
-1. Add the MCP server, then keep going:
-   claude mcp add --transport http exit1 https://app.exit1.dev/mcp/v1
-   (If that command doesn't apply to your tool, add the same HTTP MCP server
-   however your tool does it. Sign-in happens in the browser.)
+1. Connect the MCP server. In Claude Code:
+     claude mcp add --transport http exit1 https://app.exit1.dev/mcp/v1
+   Other tools: add the same HTTP MCP server however your tool does it.
+
+   Connecting needs a one-time browser sign-in. Most AI tools CANNOT open that
+   sign-in from inside a conversation turn. If the connection isn't
+   authenticated, don't retry or improvise — stop and tell me to run /mcp (or my
+   tool's equivalent), authenticate in the browser, and come back to you. Then
+   carry on from step 2.
 
 2. Call get_account to see my plan limits, and list_checks to see what's
    already monitored.
@@ -73,32 +77,32 @@ export function AgentSetupPrompt() {
   };
 
   return (
-    <div className="mx-auto mt-8 w-full max-w-xl px-4">
-      <div className="flex w-full items-center gap-3">
+    <div className="mx-auto mt-16 sm:mt-20 flex w-full max-w-xl flex-col items-center px-4">
+      {/* The whole line is the affordance — no field, no submit, just text you take. */}
+      <button
+        type="button"
+        onClick={handleCopy}
+        title="Copy prompt"
+        className="group flex w-full max-w-full cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-left transition-colors hover:bg-foreground/5"
+      >
+        <span aria-hidden className="shrink-0 font-mono text-xs text-foreground/30">
+          &gt;
+        </span>
         {/* min-w-0 is what lets the flex child actually shrink and truncate. */}
-        <div className="flex h-12 min-w-0 flex-1 items-center rounded-lg border border-foreground/40 bg-foreground/15 px-4">
-          <span className="truncate font-mono text-sm text-foreground/80">{PREVIEW}</span>
-        </div>
-        <Button
-          type="button"
-          onClick={handleCopy}
-          className="h-12 shrink-0 cursor-pointer rounded-lg px-5 font-semibold"
-        >
-          {copied ? (
-            <>
-              <Check className="mr-1.5 h-4 w-4" aria-hidden="true" />
-              Copied
-            </>
-          ) : (
-            <>
-              <Copy className="mr-1.5 h-4 w-4" aria-hidden="true" />
-              Copy
-            </>
-          )}
-        </Button>
-      </div>
+        <span className="min-w-0 flex-1 truncate font-mono text-xs sm:text-sm text-foreground/50">
+          {PREVIEW}
+        </span>
+        {copied ? (
+          <Check className="h-3.5 w-3.5 shrink-0 text-foreground/60" aria-hidden="true" />
+        ) : (
+          <Copy
+            className="h-3.5 w-3.5 shrink-0 text-foreground/30 transition-colors group-hover:text-foreground/60"
+            aria-hidden="true"
+          />
+        )}
+      </button>
 
-      <p className="mt-3 text-sm text-foreground/60">
+      <p className="mt-2 text-xs text-foreground/40">
         Paste into Claude Code, Cursor or VS Code — it sets up monitoring from your repo.
       </p>
 
