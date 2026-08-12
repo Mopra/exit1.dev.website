@@ -6,30 +6,31 @@ import {
   Bot,
   MessageSquare,
   BarChart3,
-  Shield,
+  ShieldCheck,
   Zap,
-  Terminal,
   Globe,
-  Clock,
   Bell,
   Code,
   Search,
   Activity,
+  Wrench,
 } from 'lucide-react';
 
+const HOSTED_COMMAND = 'claude mcp add --transport http exit1 https://app.exit1.dev/mcp/v1';
+
 export const metadata: Metadata = {
-  title: "MCP Integration — Query Monitors from AI Assistants",
-  description: "Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Ask about uptime, failures, and response times in natural language. No dashboards required.",
-  keywords: "MCP, Model Context Protocol, AI monitoring, Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, uptime monitoring AI, conversational monitoring, AI assistant integration",
+  title: "Set Up Uptime Monitoring From Your Editor — MCP Server",
+  description: "Let Claude, Cursor or Codex read your repo, create the monitors, wire up alerts and fire a real test alert to prove delivery works. One command, no API key. Then ask about uptime in plain language.",
+  keywords: "MCP, Model Context Protocol, MCP server, AI monitoring, Claude Code, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, uptime monitoring AI, agent monitoring setup, conversational monitoring",
   openGraph: {
-    title: "MCP Integration — Query Monitors from AI Assistants | exit1.dev",
-    description: "Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Ask about uptime, failures, and response times in natural language.",
+    title: "Set Up Uptime Monitoring From Your Editor — exit1.dev MCP Server",
+    description: "One command connects Claude, Cursor or Codex to exit1. Your assistant reads the repo, creates the monitors, configures alerts, and proves delivery works.",
     type: "website",
     url: "https://exit1.dev/mcp",
   },
   twitter: {
-    title: "MCP Integration — Query Monitors from AI Assistants | exit1.dev",
-    description: "Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via MCP. Ask about uptime and failures in natural language.",
+    title: "Set Up Uptime Monitoring From Your Editor — exit1.dev MCP Server",
+    description: "One command connects Claude, Cursor or Codex to exit1. Your assistant reads the repo and sets the monitoring up for you.",
     card: "summary_large_image",
   },
   alternates: {
@@ -40,85 +41,80 @@ export const metadata: Metadata = {
 const MCPPage = () => {
   const features = [
     {
-      title: "Natural Language Queries",
-      description: "Ask \"are any of my monitors down?\" or \"what's the uptime for my API this week?\" and get instant answers. No dashboards, no clicking, no context switching.",
-      icon: <MessageSquare className="w-6 h-6 text-foreground" />,
+      title: "It Sets Monitoring Up For You",
+      description: "Point your assistant at a project and it reads the repo — deploy configs, env files, health route handlers — works out what should be monitored, and creates the checks. You approve the list; it does the typing.",
+      icon: <Wrench className="w-6 h-6 text-foreground" />,
     },
     {
-      title: "Works with Every Major AI Tool",
-      description: "Connect to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, ChatGPT, and more. Any AI tool that supports the Model Context Protocol can plug in.",
-      icon: <Bot className="w-6 h-6 text-foreground" />,
-    },
-    {
-      title: "5 Read-Only Tools",
-      description: "List checks, get check details, pull historical results, query aggregate stats, and view status pages. All read-only — your data stays safe.",
-      icon: <Shield className="w-6 h-6 text-foreground" />,
-    },
-    {
-      title: "One-Line Setup",
-      description: "Install via npx with zero dependencies. Add your API key to the config and restart your AI assistant. Connected in under 2 minutes.",
+      title: "One Command, No API Key",
+      description: "The hosted server uses OAuth. Run one command, approve in the browser, done. Sign-up happens inline if you don't have an account yet — no dashboard visit, no key to paste, no config file to edit.",
       icon: <Zap className="w-6 h-6 text-foreground" />,
     },
     {
-      title: "Uptime & Performance Stats",
-      description: "Query uptime percentages, average/min/max response times across multiple time ranges. Compare this week vs last week in a single prompt.",
-      icon: <BarChart3 className="w-6 h-6 text-foreground" />,
+      title: "14 Tools — Read And Write",
+      description: "Seven read tools for uptime, history and stats. Seven write tools to create and update checks, pause them, set email recipients, and connect Slack, Discord or Teams. Delete is opt-in and never granted by default.",
+      icon: <Bot className="w-6 h-6 text-foreground" />,
     },
     {
-      title: "Incident Investigation",
-      description: "Ask your AI assistant to show recent failures, filter by status, and dig into historical check results with timestamps and error details.",
-      icon: <Search className="w-6 h-6 text-foreground" />,
+      title: "It Proves The Alert Works",
+      description: "The setup playbook finishes by firing a real test alert, because a channel that was configured but never tested is the most common way monitoring silently fails. You see the alert arrive before you walk away.",
+      icon: <Bell className="w-6 h-6 text-foreground" />,
+    },
+    {
+      title: "Real Health Checks, Not 200-Checking",
+      description: "Your assistant finds your /health endpoint and asserts on the response body with JSONPath — because a 200 with a dead database is still a 200. Plus DNS drift, domain expiry, TCP ports, ICMP and cron heartbeats.",
+      icon: <ShieldCheck className="w-6 h-6 text-foreground" />,
+    },
+    {
+      title: "Then Ask It Anything",
+      description: "\"Is anything down?\" \"What's the uptime on my API this month?\" \"Show me the last ten failures.\" \"Compare response times this week vs last.\" No dashboard, no context switch.",
+      icon: <MessageSquare className="w-6 h-6 text-foreground" />,
     },
   ];
 
   const comparisonTable = [
+    {
+      feature: "Agent creates and configures monitors for you",
+      exit1: true,
+      competitors: false,
+    },
+    {
+      feature: "Hosted MCP server with OAuth (no API key)",
+      exit1: true,
+      competitors: false,
+    },
+    {
+      feature: "Ships a setup playbook as an MCP prompt",
+      exit1: true,
+      competitors: false,
+    },
     {
       feature: "Natural language monitoring queries",
       exit1: true,
       competitors: false,
     },
     {
-      feature: "Claude (Desktop, Code, Web) support",
+      feature: "Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose",
       exit1: true,
       competitors: false,
     },
     {
-      feature: "Cursor & Windsurf support",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "VS Code Copilot support",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "Codex, Gemini, Goose & ChatGPT support",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "Read-only (safe) access",
+      feature: "Per-scope permissions, revocable per client",
       exit1: true,
       competitors: "N/A",
     },
     {
-      feature: "Zero-dependency install (npx)",
-      exit1: true,
-      competitors: "N/A",
-    },
-    {
-      feature: "Historical data queries",
+      feature: "Listed on the official MCP registry",
       exit1: true,
       competitors: false,
     },
     {
-      feature: "Multi-range stat comparison",
+      feature: "Historical data and multi-range stat comparison",
       exit1: true,
       competitors: false,
     },
     {
-      feature: "Available on Indie ($4/mo) and up",
+      feature: "Available on the free plan",
       exit1: true,
       competitors: "Enterprise only",
     },
@@ -127,45 +123,45 @@ const MCPPage = () => {
   const faq = [
     {
       question: "What is MCP?",
-      answer: "MCP (Model Context Protocol) is an open standard that lets AI assistants connect to external tools and data sources. Exit1's MCP server gives your AI assistant read-only access to your monitoring data, so you can ask questions in natural language instead of navigating dashboards.",
-    },
-    {
-      question: "Which AI assistants are supported?",
-      answer: "Claude (Desktop, Code, and Web), Cursor, VS Code with Copilot, Windsurf, Codex CLI, Gemini (Code Assist and CLI), Goose, and ChatGPT are all supported with setup instructions. Any AI tool that implements the Model Context Protocol can connect using the same npx-based configuration.",
-    },
-    {
-      question: "Is my data safe?",
-      answer: "Yes. The MCP server provides read-only access. It can list checks, get details, pull history, and view stats — but it cannot create, modify, or delete anything. Your API key needs only the checks:read scope.",
+      answer: "MCP (Model Context Protocol) is an open standard that lets AI assistants connect to external tools and data. Exit1's MCP server gives your assistant both read and write access to your monitoring — so it can set monitoring up for you, then answer questions about it in plain language.",
     },
     {
       question: "How do I set it up?",
-      answer: "Create an API key in your Exit1 dashboard with checks:read scope. Then add the exit1 MCP server config to your AI assistant (a JSON block with your API key). The whole process takes under 2 minutes. See the full setup guide in our docs.",
+      answer: `Run one command: ${HOSTED_COMMAND}. Your assistant opens a browser, you sign in (or sign up — it happens inline), approve the permissions, and you're connected. No API key, no config file, no Node.js install.`,
+    },
+    {
+      question: "Which AI assistants are supported?",
+      answer: "Claude Code and Claude Desktop, Cursor, and VS Code with Copilot support the hosted OAuth server today. Windsurf, Codex CLI, Gemini CLI, Goose and ChatGPT work via the local npm package (exit1-mcp), which exposes exactly the same tools using an API key instead of OAuth. Remote MCP with OAuth is still rolling out across clients.",
+    },
+    {
+      question: "Can it change or delete my monitors?",
+      answer: "It can create, update and pause monitors, and configure alert channels — that is the point, and it is what lets an agent set monitoring up for you. Deleting is separate: the checks:delete scope is never granted unless a client explicitly asks for it, and the consent screen shows you every permission before you approve. You can revoke any connection at app.exit1.dev/mcp, which kills every token issued to that client immediately.",
     },
     {
       question: "What can I ask my AI assistant?",
-      answer: "Anything about your monitoring data. Examples: \"Are any monitors down?\", \"What's the uptime for my API over 30 days?\", \"Show the last 10 failures for production\", \"Compare response times this week vs last week\", \"What does my status page show right now?\"",
-    },
-    {
-      question: "What are the rate limits?",
-      answer: "The MCP server uses your existing API rate limits: 5 requests/minute per key, 500 requests/day per key, and 2,000 requests/day per user. A typical AI conversation uses 2-5 tool calls, so you're unlikely to hit these limits.",
+      answer: "\"Set up monitoring for this project.\" \"Is anything down right now?\" \"What's the uptime for my API over 30 days?\" \"Show the last 10 failures for production.\" \"Add a check on staging and send alerts to #ops in Slack.\" \"Monitor my nightly billing cron as a heartbeat.\"",
     },
     {
       question: "Is MCP available on the free plan?",
-      answer: "MCP is available on every plan, including Free. MCP access follows API access — there is no separate entitlement. Free gives you 1 API key, Indie ($4/mo) 3, Nano ($9/mo) 10, and Pro ($24/mo) 100, alongside 1,000 monitors, 15-second checks, and SMS alerts.",
+      answer: "Yes. The hosted server has no plan requirement at all, and the local npm package needs an API key that every plan can mint, Free included. Normal plan limits still apply either way — Free covers 50 monitors at 5-minute intervals, with DNS and domain checks reserved for paid plans. Your assistant calls get_account first so it plans within whatever your plan allows.",
     },
     {
       question: "Do I need to install anything?",
-      answer: "You need Node.js 18+ installed on your machine. The MCP server itself installs automatically via npx — no manual package installation required.",
+      answer: "Not for the hosted server — it runs on our infrastructure and your client connects over HTTP. The local option needs Node.js 18+ and installs itself via npx, with no manual package install.",
+    },
+    {
+      question: "What are the rate limits?",
+      answer: "The MCP server runs on the same public API rate limits as everything else, applied per key and per user. A typical assistant conversation uses a handful of tool calls, so you are unlikely to notice them. Current numbers are in the API reference in our docs.",
     },
   ];
 
   const technicalDetails = {
     architecture:
-      "The exit1-mcp server runs locally on your machine as a stdio-based MCP server. It communicates with your AI assistant through the Model Context Protocol standard. All API calls go directly from your machine to the Exit1 API — no intermediate servers, no data stored locally.",
+      "Two transports, one identical tool surface. The hosted server is a stateless streamable-HTTP endpoint at app.exit1.dev/mcp/v1, authenticated with OAuth 2.1 (PKCE, dynamic client registration) — your client registers itself, so there is nothing to configure. The local option is the exit1-mcp npm package running on your machine over stdio with an API key. Every tool in both is a thin wrapper over the public REST API, so tier caps, scope checks, rate limits and URL validation are enforced server-side and cannot be bypassed through the MCP surface.",
     performance:
-      "Tool calls execute in under 500ms for most queries. The server starts instantly via npx with zero warm-up time. Rate limits are enforced server-side at 5 requests/minute per API key, with generous daily limits for normal AI conversation patterns.",
+      "Most tool calls return in well under a second. The hosted server needs no install and no warm-up; the local package starts instantly via npx and carries a single runtime dependency, the official MCP SDK. Nothing is stored on your machine beyond your client's own config.",
     api:
-      "The MCP server exposes 5 tools: list_checks, get_check, get_check_history, get_check_stats, and get_status_page. All tools are read-only and require a checks:read scoped API key. The server is published as exit1-mcp on npm and distributed via npx.",
+      "14 tools. Read: get_account, list_checks, get_check, get_check_history, get_check_stats, get_status_page, get_alert_settings. Write: create_check, update_check, toggle_check, delete_check, set_email_alerts, add_webhook_alert, send_test_alert. Plus a setup_monitoring prompt carrying the full playbook. Every tool is annotated with readOnlyHint, and delete_check with destructiveHint, so your client can warn you before it acts. Published as exit1-mcp on npm and as dev.exit1/exit1-mcp on the official MCP registry.",
   };
 
   const relatedFeatures = [
@@ -183,7 +179,7 @@ const MCPPage = () => {
     },
     {
       title: "Smart Alerting",
-      description: "Get notified via email, SMS, and webhooks. Use MCP to investigate after alerts fire.",
+      description: "Email, SMS and webhooks. Your assistant can configure these for you — and prove they work.",
       href: "/alerting",
       icon: <Bell className="w-6 h-6 text-foreground" />,
     },
@@ -203,7 +199,7 @@ const MCPPage = () => {
       title: "Global Monitoring",
       description: "Monitor from multiple regions. MCP surfaces data from all regions in a single conversation.",
       href: "/global-monitoring",
-      icon: <Clock className="w-6 h-6 text-foreground" />,
+      icon: <Search className="w-6 h-6 text-foreground" />,
     },
   ];
 
@@ -212,9 +208,9 @@ const MCPPage = () => {
       <StructuredData
         type="Product"
         data={{
-          name: "MCP Integration",
+          name: "exit1.dev MCP Server",
           description:
-            "Connect exit1.dev to AI assistants like Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Query your monitoring data in natural language.",
+            "Connect Claude, Cursor, VS Code, Windsurf, Codex, Gemini and more to exit1.dev over the Model Context Protocol. Your assistant reads the repo, creates the monitors, configures alerts, and answers uptime questions in plain language.",
           url: "https://exit1.dev/mcp",
           brand: {
             "@type": "Brand",
@@ -222,7 +218,7 @@ const MCPPage = () => {
           },
           offers: {
             "@type": "Offer",
-            price: "3",
+            price: "0",
             priceCurrency: "USD",
             availability: "https://schema.org/InStock",
           },
@@ -246,23 +242,44 @@ const MCPPage = () => {
       />
 
       <ProductPage
-        title="MCP Integration"
-        subtitle="Ask your AI assistant about your monitors"
-        description="Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Check uptime, investigate failures, and compare response times — all in natural language. No dashboards required."
+        title="Set up monitoring from your editor"
+        subtitle="One command. Your AI assistant does the rest."
+        description="Connect exit1.dev to Claude, Cursor, Codex or any MCP client. Your assistant reads the repo, works out what should be monitored, creates the checks, configures alerts, and fires a real test alert to prove delivery works. Then you can just ask it about uptime."
         features={features}
-        ctaText="Set Up MCP"
-        ctaHref="https://docs.exit1.dev/integrations/mcp"
-        seoTitle="MCP Integration — Query Monitors from AI Assistants | exit1.dev"
-        seoDescription="Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Ask about uptime, failures, and response times in natural language."
+        ctaText="Get started free"
+        ctaHref="https://app.exit1.dev/sign-up"
+        seoTitle="Set Up Uptime Monitoring From Your Editor — exit1.dev MCP Server"
+        seoDescription="One command connects Claude, Cursor or Codex to exit1. Your assistant reads the repo, creates the monitors, configures alerts, and proves delivery works. No API key required."
         comparisonTable={comparisonTable}
         faq={faq}
         technicalDetails={technicalDetails}
         relatedFeatures={relatedFeatures}
-        nanoUpgrade={{
-          title: "MCP is a Pro Feature",
-          description:
-            "Connect your AI assistant to exit1.dev and query monitoring data conversationally. Available on every plan — 1 API key on Free, up to 100 on Pro ($24/mo).",
-        }}
+        heroExtra={
+          // The hosted one-liner is the whole pitch, so it goes above the fold
+          // rather than behind a docs link. Visitors arriving from an MCP
+          // directory already know what MCP is — they want the command.
+          <section className="mx-auto w-full max-w-3xl px-4 pb-12 sm:px-6">
+            <div className="rounded-xl border border-border/60 bg-card/50 p-4 sm:p-6">
+              <p className="mb-3 text-sm text-muted-foreground">
+                Paste this into Claude Code, then ask it to set up monitoring for your project:
+              </p>
+              <pre className="overflow-x-auto rounded-lg border border-border/60 bg-muted/40 p-3 text-left text-xs leading-relaxed sm:text-sm">
+                <code>{HOSTED_COMMAND}</code>
+              </pre>
+              <p className="mt-3 text-xs text-muted-foreground">
+                OAuth in the browser — no API key. Sign-up happens inline if you don&rsquo;t have an
+                account.{' '}
+                <a
+                  href="https://docs.exit1.dev/integrations/mcp"
+                  className="underline underline-offset-4 hover:text-foreground"
+                >
+                  Other clients and the npm package
+                </a>
+                .
+              </p>
+            </div>
+          </section>
+        }
       />
     </>
   );
