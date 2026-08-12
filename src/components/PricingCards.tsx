@@ -203,7 +203,9 @@ export function PricingCards() {
         </div>
       </div>
 
-      {/* Pricing cards */}
+      {/* Pricing cards — each card is a 4-row subgrid (header / price / CTA /
+          features) so those rows align across cards no matter how the taglines
+          wrap at a given width. */}
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
         {tierOrder.map((t) => (
           <PricingCard
@@ -247,7 +249,7 @@ function PricingCard({
 
   return (
     <div
-      className={`relative p-6 rounded-2xl border ${theme.border} ${theme.bg} ${theme.shadow} flex flex-col`}
+      className={`relative p-6 rounded-2xl border ${theme.border} ${theme.bg} ${theme.shadow} row-span-4 grid grid-rows-subgrid`}
     >
       {highlighted && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -258,13 +260,15 @@ function PricingCard({
         </div>
       )}
 
-      <div className="mb-6">
+      <div>
         <div className="flex items-center gap-2 mb-2">
           <Icon className={`w-5 h-5 ${theme.iconClass}`} />
           <h3 className="text-xl font-bold">{tierLabels[tier]}</h3>
         </div>
-        <p className="text-foreground/60 text-sm mb-5">{tierTagline[tier]}</p>
+        <p className="text-foreground/60 text-sm">{tierTagline[tier]}</p>
+      </div>
 
+      <div>
         <div className="flex items-baseline gap-1">
           <span className="text-4xl font-bold">{priceLabel}</span>
           {!isFree && <span className="text-foreground/60">{priceSuffix}</span>}
@@ -274,7 +278,7 @@ function PricingCard({
 
       <Button
         asChild
-        className={`w-full rounded-full py-5 font-semibold mb-6 ${
+        className={`w-full rounded-full py-5 font-semibold self-start ${
           isFree
             ? `border ${theme.buttonOutline} bg-transparent`
             : theme.buttonPrimary
@@ -285,7 +289,7 @@ function PricingCard({
         </a>
       </Button>
 
-      <ul className="space-y-2.5 flex-grow">
+      <ul className="space-y-2.5">
         {tierHighlights[tier].map((f, i) => (
           <li key={i} className="flex items-start gap-2 text-sm">
             <CircleCheck className={`w-4 h-4 ${theme.checkClass} mt-0.5 flex-shrink-0`} />
