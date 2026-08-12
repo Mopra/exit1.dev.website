@@ -51,9 +51,10 @@ const SITEMAP_EXCLUDED_ROUTES = new Set<string>([
   // own changeFrequency), so the filesystem scan would duplicate it.
   '/status',
 
-  // Internal-only routes. Both also carry `robots: { index: false }`.
+  // Internal-only routes. All three also carry `robots: { index: false }`.
   '/new_home', // homepage redesign draft
   '/badge-lab', // component sandbox
+  '/ai', // kickbacks.ai campaign landing page — /mcp is the indexed equivalent
 ]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
