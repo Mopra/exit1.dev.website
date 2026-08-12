@@ -130,6 +130,21 @@ const nextConfig = {
       // These were indexed, so send them to the index rather than 404.
       { source: '/blog/page/10', destination: '/blog', permanent: true },
       { source: '/blog/page/11', destination: '/blog', permanent: true },
+
+      // ── kickbacks.ai campaign: typeable alias for the terminal surface ──
+      // That surface renders an ambient, unclickable status line, so the reader
+      // types the URL from memory. A query string is therefore not an option —
+      // nobody types "?s=term&utm_source=..." — so the *path* has to carry the
+      // attribution. /cli is 13 characters and lands on the same page with the
+      // surface and UTMs attached, which is what lets GA4 group these sessions
+      // as a campaign instead of dumping them into Direct.
+      // Not permanent: this is a campaign alias, not a content move.
+      {
+        source: '/cli',
+        destination:
+          '/ai?s=term&utm_source=kickbacks&utm_medium=cli_terminal&utm_campaign=kickbacks_ai',
+        permanent: false,
+      },
     ];
   },
 };
