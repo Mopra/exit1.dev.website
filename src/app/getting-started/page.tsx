@@ -227,7 +227,7 @@ export default function GettingStartedPage() {
 
           <Reveal delay={0.2}>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-              {["No install", "5 monitors free", "No credit card"].map((label) => (
+              {["No install", "50 monitors free", "No credit card"].map((label) => (
                 <span
                   key={label}
                   className="rounded-full bg-white/[0.05] px-3 py-1 font-mono text-xs text-muted-foreground"
@@ -278,7 +278,7 @@ export default function GettingStartedPage() {
             },
             {
               title: "Free to start",
-              body: "Watch up to 10 checks free. Upgrade later for faster intervals, more checks, SMS alerts, and multi-region monitoring.",
+              body: "Watch up to 50 checks free. Upgrade later for faster intervals, more checks, SMS alerts, and multi-region monitoring.",
             },
           ].map((item, i) => (
             <Reveal key={item.title} delay={i * 0.05}>
@@ -757,7 +757,7 @@ export default function GettingStartedPage() {
           </Reveal>
           <Reveal delay={0.05}>
             <p className="mx-auto mt-5 max-w-md text-lg text-muted-foreground">
-              It takes about a minute. No credit card — 5 monitors free.
+              It takes about a minute. No credit card — 50 monitors free.
             </p>
           </Reveal>
           <Reveal delay={0.1}>

@@ -1,7 +1,7 @@
 {
   "brand": {
     "logo": "exit1.dev",
-    "description": "The best free uptime monitoring service. Monitor websites with SSL monitoring and instant alerts. Free 5-minute checks; paid plans scale to 1,000 monitors with 15-second intervals. No credit card required."
+    "description": "The best free uptime monitoring service. Monitor websites with SSL monitoring and instant alerts. 50 monitors free with 5-minute checks and API access; paid plans scale to 1,000 monitors with 15-second intervals. No credit card required."
   },
   "_comment": "This is the site's only sitewide crawlable navigation. The header's mega-menu is a Radix NavigationMenu whose dropdown panels are unmounted until opened, so none of its links reach the server-rendered HTML. Every page that should receive internal link equity must therefore be listed here — if you add a route to the header menus, add it here too.",
   "groups": [

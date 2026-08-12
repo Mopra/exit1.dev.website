@@ -19,8 +19,8 @@ Let's run the math, draw a clear line between when free is enough and when you s
 
 Most teams pay for monitoring features they never use. Modern free tiers cover the fundamentals that catch real outages:
 
-- **Exit1.dev free**: 5 monitors, 5-minute checks, SSL certificate tracking, response-header checks, webhooks, a full REST API, and a status page—no credit card required.
-- **Need more?** Exit1.dev Nano is $9/month for 100 monitors and 2-minute checks.
+- **Exit1.dev free**: 50 monitors, 5-minute checks, SSL certificate tracking, response-header checks, webhooks, a full REST API, and a status page—no credit card required.
+- **Need more?** Exit1.dev Nano is $9/month for 250 monitors and 30-second checks.
 
 For comparison, other free tiers are similarly bounded: UptimeRobot gives 50 monitors at 5-minute checks, StatusCake gives 10 monitors at 5-minute checks, and Pingdom's free coverage is a single 1-minute check. The takeaway: free uptime monitoring is real coverage, not a demo.
 
@@ -117,18 +117,18 @@ You pay for depth where you need it and keep external availability monitoring fr
 
 ## Final Recommendation
 
-Start with the free uptime monitor that already gives you serious coverage—Exit1.dev. Move to Indie ($4/month) the moment you need faster checks, or Nano ($9/month) when you need more than 10 monitors. Layer in a paid suite only when traces, logs, on-call paging, or compliance checklists become real requirements. Until then, keep your spend low and your uptime high.
+Start with the free uptime monitor that already gives you serious coverage—Exit1.dev. Move to Indie ($4/month) the moment you need faster checks, or Nano ($9/month) when you need more than 100 monitors or sub-minute checks. Layer in a paid suite only when traces, logs, on-call paging, or compliance checklists become real requirements. Until then, keep your spend low and your uptime high.
 
 ## FAQ
 
 **Is a free uptime monitor good enough for production?**
-For 1–10 sites that need availability, SSL, and simple alerting, yes. Exit1.dev's free tier gives 5 monitors, 5-minute checks, SSL tracking, webhooks, and a status page with no card required.
+For 1–10 sites that need availability, SSL, and simple alerting, yes. Exit1.dev's free tier gives 50 monitors, 5-minute checks, SSL tracking, webhooks, and a status page with no card required.
 
 **When should I upgrade from free to paid?**
-When you cross 10+ sites, need 15-second checks, require phone/SMS paging or on-call rotations, need team collaboration and escalation, or face compliance requirements like SOC 2.
+When you need sub-minute checks, require phone/SMS paging or on-call rotations, need team collaboration and escalation, or face compliance requirements like SOC 2.
 
 **What's the difference between Exit1.dev Free and Nano?**
-Free is $0 for 5 monitors and 5-minute checks. Indie is $4/month for 10 monitors at 15-second checks; Nano is $9/month for 100 monitors. Both include SSL tracking, header checks, webhooks, the API, email alerts, and a status page.
+Free is $0 for 50 monitors and 5-minute checks. Indie is $4/month for 100 monitors at 1-minute checks; Nano is $9/month for 250 monitors. Both include SSL tracking, header checks, webhooks, the API, email alerts, and a status page.
 
 **How do I know if a paid suite is worth it?**
 Run the ROI math: hourly revenue × downtime hours avoided. If that value exceeds the suite's annual cost (often ~$3,600+), it pays for itself. If not, stay free or on Nano.

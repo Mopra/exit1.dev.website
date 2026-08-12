@@ -107,7 +107,7 @@ And when a scheduled task does fail, treat it like any other incident. Cron fail
 
 ### How many cron monitors can I add?
 
-The free tier includes 5 monitors with 5-minute checks. Indie ($4/month) gives 10 monitors with 15-second checks, and Nano ($9/month) gives 100 monitors with 2-minute checks.
+The free tier includes 50 monitors with 5-minute checks. Indie ($4/month) gives 100 monitors with 1-minute checks, and Nano ($9/month) gives you 250 monitors with 30-second checks.
 
 ### Can I monitor serverless schedules?
 

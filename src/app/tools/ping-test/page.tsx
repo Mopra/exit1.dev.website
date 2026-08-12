@@ -166,7 +166,7 @@ const faq = [
   {
     question: "Can I monitor ping continuously?",
     answer:
-      "Yes! exit1.dev offers continuous uptime and latency monitoring on every plan. Free runs 5-minute checks, Indie and Pro run 15-second, and Nano runs 2-minute. You'll get alerted instantly when your servers go down, respond slowly, or experience packet loss.",
+      "Yes! exit1.dev offers continuous uptime and latency monitoring on every plan. Free runs 5-minute checks, Indie 1-minute, Nano 30-second, and Pro 15-second. You'll get alerted instantly when your servers go down, respond slowly, or experience packet loss.",
   },
 ];
 

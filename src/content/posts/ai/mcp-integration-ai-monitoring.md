@@ -66,7 +66,7 @@ The MCP server only reads data. It can't create, modify, or delete checks. Your 
 
 ## Who Gets It?
 
-MCP is available on the **Indie plan** ($4/month) and above. It joins the REST API, 15-second checks, and everything else that makes a paid plan the plan for professionals.
+MCP is available on **every plan, including Free** — MCP access follows API access, and every tier can mint an API key. Paid plans raise the key count and the check cadence: 1-minute on Indie, 30-second on Nano, 15-second on Pro.
 
 If you're on the free plan, [upgrade to Nano](https://app.exit1.dev/billing) to start using it.
 

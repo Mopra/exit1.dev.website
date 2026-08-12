@@ -151,7 +151,7 @@ const MCPPage = () => {
     },
     {
       question: "Is MCP available on the free plan?",
-      answer: "MCP requires a paid plan (Indie and up). MCP access follows API access — Indie ($4/mo) and Nano ($9/mo) each give you 1 API key; Pro ($24/mo) gives you 25, alongside 1,000 monitors, 15-second checks, and SMS alerts.",
+      answer: "MCP is available on every plan, including Free. MCP access follows API access — there is no separate entitlement. Free gives you 1 API key, Indie ($4/mo) 3, Nano ($9/mo) 10, and Pro ($24/mo) 100, alongside 1,000 monitors, 15-second checks, and SMS alerts.",
     },
     {
       question: "Do I need to install anything?",
@@ -261,7 +261,7 @@ const MCPPage = () => {
         nanoUpgrade={{
           title: "MCP is a Pro Feature",
           description:
-            "Connect your AI assistant to exit1.dev and query monitoring data conversationally. Available from Indie ($4/mo) with 1 API key, up to 25 keys on Pro ($24/mo).",
+            "Connect your AI assistant to exit1.dev and query monitoring data conversationally. Available on every plan — 1 API key on Free, up to 100 on Pro ($24/mo).",
         }}
       />
     </>

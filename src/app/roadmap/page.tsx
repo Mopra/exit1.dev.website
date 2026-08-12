@@ -20,7 +20,7 @@ export default function RoadmapPage() {
             <div className="border-l-4 border-success pl-6">
               <h2 className="text-2xl font-semibold mb-4">✅ Recently Completed</h2>
               <ul className="space-y-2">
-                <li>• Free website monitoring (5 monitors, up to 1,000 on Pro)</li>
+                <li>• Free website monitoring (50 monitors, up to 1,000 on Pro)</li>
                 <li>• Real-time alerts via email, Slack, and Discord</li>
                 <li>• SSL certificate monitoring</li>
                 <li>• Global monitoring locations</li>

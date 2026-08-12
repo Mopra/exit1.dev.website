@@ -841,7 +841,7 @@ comparison:
   exit1_dev:
     strengths:
       - "5 free monitors, 5-min checks"
-      - "Indie: 10 monitors, 15-sec, $4/mo"
+      - "Indie: 100 monitors, 1-min, $4/mo"
       - "CLI friendly"
       - "Transparent"
       - "Fast setup"

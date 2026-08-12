@@ -107,7 +107,7 @@ export default function StickyCTABar() {
               Monitor your sites free — 24/7 checks, instant alerts
             </p>
             <p className="hidden sm:block text-sm text-muted-foreground mt-0.5">
-              Uptime, SSL &amp; domain monitoring. 5 monitors free, no credit card.
+              Uptime, SSL &amp; domain monitoring. 50 monitors free, no credit card.
             </p>
           </div>
           <Button

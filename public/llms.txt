@@ -2,7 +2,7 @@
 
 > Free uptime monitoring service. Monitor your websites, APIs, and services with instant alerts, SSL monitoring, public status pages, and a full API — no credit card required.
 
-exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 5 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, and 60-day data retention. Paid plans: Indie ($4/month) adds 10 monitors at 15-second intervals plus REST API and MCP access; Nano ($9/month) gives 100 monitors, the drag-and-drop status page builder, domain intelligence, and maintenance mode; Pro ($24/month) gives 1,000 monitors at 15-second intervals, SMS alerts, Slack/Discord/Teams, CSV export, region choice, and 3-year data retention.
+exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 50 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, the real-time Live probe stream, REST API + MCP access, and 60-day data retention. Paid plans: Indie ($4/month) adds 100 monitors at 1-minute intervals plus a fully branded status page and 90-day retention; Nano ($9/month) gives 250 monitors at 30-second intervals, domain intelligence, maintenance mode, region choice, and 1-year retention; Pro ($24/month) gives 1,000 monitors at 15-second intervals, SMS alerts, Slack/Discord/Teams, CSV export, and 3-year data retention.
 
 ## Core Features
 
@@ -41,7 +41,7 @@ exit1.dev integrates with Slack, Discord, PagerDuty, Opsgenie, Microsoft Teams, 
 
 ## Pricing
 
-- [Pricing](https://exit1.dev/pricing): Four tiers — Free ($0, 5 monitors, 5-min checks, email alerts, 1 status page), Indie ($4/mo or $3/mo annual, 10 monitors, 15-sec checks, 1 API key + MCP), Nano ($9/mo or $7/mo annual, 100 monitors, 2-min checks, status page builder, domain intelligence), and Pro ($24/mo or $20/mo annual, 1,000 monitors, 15-sec checks, SMS, all alert channels, CSV export, 3-year retention). Note the interval ladder is intentionally non-monotonic: Indie checks every 15 seconds while Nano checks every 2 minutes — Indie is for a few sites watched closely, Nano is for many sites watched normally.
+- [Pricing](https://exit1.dev/pricing): Four tiers — Free ($0, 50 monitors, 5-min checks, email alerts, 1 status page, 1 API key + MCP), Indie ($4/mo or $3/mo annual, 100 monitors, 1-min checks, branded status page, 3 API keys, 90-day retention), Nano ($9/mo or $7/mo annual, 250 monitors, 30-sec checks, domain intelligence, region choice, 1-year retention), and Pro ($24/mo or $20/mo annual, 1,000 monitors, 15-sec checks, SMS, all alert channels, CSV export, 3-year retention). The ladder is monotonic: every tier is a strict superset of the one below it, with check interval as the primary axis. API and MCP access are on every tier including Free, as is the real-time Live probe stream.
 - [Competitor Comparison](https://exit1.dev/compare): Side-by-side comparison against UptimeRobot, Better Stack, Hyperping, and Pingdom — free plan against free plan, and similarly-priced paid plans against each other
 - [Which plan are you?](https://exit1.dev/why-upgrade): Self-diagnostic guide to the persona each tier is built for and the moment you outgrow the one below
 

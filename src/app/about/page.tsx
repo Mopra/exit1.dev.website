@@ -88,7 +88,7 @@ export default function AboutPage() {
                   <div className="mb-12">
                     <h2 className="text-xl sm:text-2xl font-semibold mb-4">What exit1.dev is</h2>
                     <p className="text-base sm:text-lg text-foreground/70 mb-4">
-                      Free, no-nonsense uptime monitoring. <strong>5 monitors. 5-minute checks. SSL monitoring. Instant alerts.</strong> The essentials — done right, and actually free. Paid plans start at $4/mo (Indie) for 10 monitors and 15-second checks, up to 1,000 monitors on Pro.
+                      Free, no-nonsense uptime monitoring. <strong>50 monitors. 5-minute checks. SSL monitoring. Instant alerts. API + MCP access.</strong> The essentials — done right, and actually free. Paid plans start at $4/mo (Indie) for 100 monitors and 1-minute checks, up to 1,000 monitors and 15-second checks on Pro.
                     </p>
                   </div>
 
@@ -143,7 +143,7 @@ export default function AboutPage() {
                   <div className="mb-12">
                     <h2 className="text-xl sm:text-2xl font-semibold mb-4">What You Get Here</h2>
                     <ul className="space-y-3 text-base sm:text-lg text-foreground/70">
-                      <li><strong>Real monitoring, not marketing.</strong> 5 free monitors with 5-min checks. Paid plans scale up to 1,000 monitors and 15-second checks.</li>
+                      <li><strong>Real monitoring, not marketing.</strong> 50 free monitors with 5-min checks, plus API and MCP access. Paid plans scale up to 1,000 monitors and 15-second checks.</li>
                       <li><strong>Setup in minutes.</strong> Create account → add site → get alerts. No BS.</li>
                       <li><strong>Useful features.</strong> SSL/expiry, logs, analytics, API, webhooks.</li>
                       <li><strong>A community you can ping.</strong> Discord for help, ideas, and calling out nonsense.</li>

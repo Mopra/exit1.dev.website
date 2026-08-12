@@ -7,7 +7,7 @@ import { Eyebrow } from '@/components/home/Eyebrow';
 export const metadata: Metadata = {
   title: 'Which plan are you?',
   description:
-    'Find yourself first. Indie is for solo makers who need a few things watched closely. Nano is for freelancers running many sites at a normal cadence. Pro is for teams with paying users and someone on call. Read the moment you outgrow each step, and the pain the next one solves.',
+    'Find yourself first. Free already runs 50 monitors. Indie is for solo makers who need minute-resolution and a branded status page. Nano is for small teams running production. Pro is for teams with paying users and someone on call. Read the moment you outgrow each step, and the pain the next one solves.',
   openGraph: {
     title: 'Which plan are you? | exit1.dev',
     description:
@@ -52,115 +52,121 @@ const TIERS: Tier[] = [
   {
     index: '01',
     tier: 'Indie',
-    cumulative: 'Everything in Free, plus \u2014',
+    cumulative: 'Everything in Free, plus —',
     personaLabel:
-      'Solo makers and indie hackers with a few things that really matter',
-    who: 'For the solo maker, indie hacker, or freelancer running a small number of things that people actually depend on. You don\u2019t need a hundred monitors \u2014 you need the handful you have watched properly, and you\u2019d rather find out in seconds than in five minutes. The point isn\u2019t volume; it\u2019s that the few things you do run are watched closely.',
+      'Solo makers and indie hackers whose work is now something other people see',
+    who: 'For the solo maker, indie hacker, or freelancer running things that people actually depend on. Free already gives you fifty monitors and an API key, so this is not about running out of room — it is about resolution and presentation. You want to know in a minute rather than five, and when a client or a user lands on your status page, you want it to carry your name rather than ours.',
     outgrownLabel: 'You have outgrown Free when',
     outgrownSignals: [
-      'Five-minute checks are too slow \u2014 a blip can start and finish before your monitor ever looks.',
-      'Five monitors no longer covers it: the site, the API, and a job or two.',
-      'You want to ask your editor \u201cis anything down?\u201d and get a real answer \u2014 Free has no API and no MCP.',
+      'Five-minute checks are too slow — a short blip can start and finish before your monitor ever looks.',
+      'Someone other than you is reading your status page, and it still shows exit1 branding.',
+      'Sixty days of history is starting to fall short of the question you are being asked.',
       'You caught an outage from a customer message instead of an alert.',
     ],
     headline: 'When five minutes is long enough to miss it.',
     story:
-      'On Free, a check runs every five minutes \u2014 which means a two-minute outage can begin and end without your monitor ever noticing. Indie drops that to fifteen seconds, the fastest interval exit1 runs, so a short blip surfaces as a real event instead of vanishing between polls. And because Indie ships an API key, the same data is available to Claude, Cursor, or Windsurf over MCP \u2014 you ask what\u2019s happening and get an answer, without opening a dashboard.',
+      'On Free, a check runs every five minutes — which means a two-minute outage can begin and end without your monitor ever noticing. Indie drops that to one minute, so a short blip surfaces as a real event instead of vanishing between polls. It also hands you the status page builder: your logo, your colours, your layout, with the exit1.dev badge gone. The page a client opens stops looking borrowed.',
     solvesLabel: 'How Indie fixes it',
     solves: [
       {
         pain: 'Outages that vanish between checks',
         solvedBy:
-          '15-second checks \u2014 the fastest interval exit1 runs, down from five minutes on Free.',
+          '1-minute checks — five times the resolution of Free, enough to catch the short ones.',
       },
       {
-        pain: 'Running out of room at five monitors',
+        pain: 'A status page that looks borrowed',
         solvedBy:
-          '10 monitors \u2014 the site, the API, staging, and the jobs that matter.',
+          'The full status page builder on your page — your logo, colours and layout, with the exit1.dev badge removed.',
       },
       {
-        pain: 'Monitoring stranded behind a login',
+        pain: 'Fifty monitors starting to feel like a ceiling',
         solvedBy:
-          '1 API key, which also unlocks MCP \u2014 query your checks from Claude, Cursor, or Windsurf.',
+          '100 monitors, and DNS record monitoring on top of the protocols Free already covers.',
       },
       {
-        pain: 'Alerts that only reach an inbox',
+        pain: 'History that runs out mid-question',
         solvedBy:
-          '3 webhook integrations alongside email, so a failure can reach whatever you already use.',
+          '90 days of retention, 3 API keys instead of 1, and 3 webhook integrations alongside email.',
       },
     ],
     signatureValue:
-      'The fastest checks exit1 runs, on the handful of things you actually care about \u2014 plus API and MCP access, for four dollars a month.',
-    statValue: '15',
-    statUnit: 'sec',
-    statLabel: 'between checks, the fastest exit1 runs',
-    statDelta: 'down from 5-minute checks on Free',
+      'Minute-resolution checks and a status page with your name on it, for four dollars a month.',
+    statValue: '1',
+    statUnit: 'min',
+    statLabel: 'between checks',
+    statDelta: 'five times the resolution of Free',
   },
   {
     index: '02',
     tier: 'Nano',
-    cumulative: 'A different shape to Indie \u2014 volume, not speed',
+    cumulative: 'Everything in Indie, plus —',
     personaLabel:
-      'Freelancers and agencies-of-one running many sites at a normal cadence',
-    who: 'For the freelancer or agency-of-one whose clients now open the status page you set up, and for the solo maker running a lot of properties rather than a few critical ones. Nano is not \u201cIndie plus more\u201d \u2014 it is the other shape. Indie watches a few things very closely; Nano watches many things at a normal cadence, and adds the client-facing polish: your branding, your status pages, domain expiry tracking, planned maintenance.',
-    outgrownLabel: 'Choose Nano over Indie when',
+      'Small teams running production, and freelancers with a real roster of clients',
+    who: 'For the small team running something in production, and the freelancer whose client list has become a fleet. Nano is where monitoring stops being a personal habit and starts being infrastructure: half-minute resolution, a page per client, domains watched alongside uptime, and a full year of history to answer questions from last quarter.',
+    outgrownLabel: 'You have outgrown Indie when',
     outgrownSignals: [
-      'You are counting sites, not seconds \u2014 ten monitors is the constraint, and two-minute checks are perfectly fine.',
-      'A client now sees your status page \u2014 and it still carries the exit1.dev badge and a status.exit1.dev/abc123 URL instead of your brand.',
-      'You once renewed a domain late, or nearly did, and the registrar\u2019s reminder got lost with everything else in your inbox.',
+      'A minute is still long enough to miss the failures you care about.',
+      'One status page is not enough — different clients or services need their own.',
+      'You once renewed a domain late, or nearly did, and the registrar’s reminder got lost with everything else in your inbox.',
       'You ship planned work and want to stop the alerts firing during a deploy window.',
+      'Your users are concentrated in one region and you want checks to run from there, not wherever they land.',
     ],
-    headline: 'When one site becomes fifty, and clients start looking.',
+    headline: 'When monitoring becomes infrastructure, not a habit.',
     story:
-      'A client opens the status page you set up and asks why it shows status.exit1.dev/abc123 and another company\u2019s logo. In that one question, the whole setup reads as borrowed, not built. Nano makes the page yours \u2014 your logo, your colours, arranged in the drag-and-drop builder, with the exit1.dev badge gone \u2014 and gives you room for a hundred sites at two-minute checks, with domain expiry tracked alongside uptime and maintenance windows that keep planned work from paging anyone.',
+      'At some point the questions change. Not “is it up?” but “which client is affected, when does that domain expire, and can you show me last quarter?” Nano answers all three: 250 monitors at thirty-second checks, five branded status pages so each client gets their own, domain expiry tracked next to uptime, maintenance windows that keep deploys from paging anyone, and a full year of retained history. It also lets you pin checks to the US, EU, or Asia rather than accepting the default shard.',
     solvesLabel: 'How Nano fixes it',
     solves: [
       {
-        pain: 'A status page that looks borrowed',
+        pain: 'A minute is still too coarse',
         solvedBy:
-          'Up to 5 status pages with your own logo and colours, built in a drag-and-drop builder, with the exit1.dev badge removed.',
+          '30-second checks across up to 250 monitors.',
       },
       {
-        pain: 'Counting sites instead of monitoring them',
+        pain: 'One page for many clients',
         solvedBy:
-          '100 monitors \u2014 room for the site, the API, staging, and a whole roster of client properties.',
+          'Up to 5 branded status pages — one per client, each with their own look.',
       },
       {
         pain: 'A domain that quietly lapses',
         solvedBy:
-          'Domain Intelligence tracks WHOIS/DNS expiry alongside your uptime and warns you before a domain runs out \u2014 the renewal stops depending on memory.',
+          'Domain Intelligence tracks WHOIS/DNS expiry alongside your uptime and warns you before a domain runs out — the renewal stops depending on memory.',
       },
       {
         pain: 'Deploys that page the whole channel',
         solvedBy:
-          'Maintenance mode \u2014 instant, scheduled, or recurring windows that suppress alerts during planned work.',
+          'Maintenance mode — instant, scheduled, or recurring windows that suppress alerts during planned work.',
+      },
+      {
+        pain: 'Checks running from the wrong side of the world',
+        solvedBy:
+          'Region choice — pin checks to the US, EU, or Asia. Plus 10 API keys, 10 webhooks, and a full year of retention.',
       },
     ],
     signatureValue:
-      'Room for a hundred sites, a status page that\u2019s yours rather than ours, and domain expiry watched alongside uptime. If you need speed instead of volume, Indie is the cheaper answer.',
-    statValue: '100',
-    statUnit: 'sites',
-    statLabel: 'watched at 2-minute intervals',
-    statDelta: 'up from 5 on Free \u2014 Indie is faster, Nano is bigger',
+      'Half-minute resolution across 250 monitors, a branded page per client, domains watched alongside uptime, and a year of history behind it all.',
+    statValue: '30',
+    statUnit: 'sec',
+    statLabel: 'between checks, across up to 250 monitors',
+    statDelta: 'twice the resolution of Indie, with region choice',
   },
   {
     index: '03',
     tier: 'Pro',
-    cumulative: 'Everything in Indie and Nano, plus \u2014',
+    cumulative: 'Everything in Nano, plus —',
     focal: true,
     personaLabel: 'Teams with paying users, someone on call, and a fleet to cover',
-    who: 'For product teams, startups, SaaS companies, agencies, and MSPs \u2014 anywhere the site going down means paying users notice first, and where uptime is part of what you deliver. Monitoring is no longer one person\u2019s browser tab: a few people share responsibility, someone is on call, and a failure at 3am has to reach a human. Pro is the only plan that gives you both shapes at once \u2014 fifteen-second checks and a thousand monitors.',
-    outgrownLabel: 'You have outgrown Indie and Nano when',
+    who: 'For product teams, startups, SaaS companies, agencies, and MSPs — anywhere the site going down means paying users notice first, and where uptime is part of what you deliver. Monitoring is no longer one person’s browser tab: a few people share responsibility, someone is on call, and a failure at 3am has to reach a human.',
+    outgrownLabel: 'You have outgrown Nano when',
     outgrownSignals: [
-      'An email alert isn\u2019t enough anymore \u2014 you need a text or a Slack ping to reach whoever is on call.',
-      'You want speed and volume together: fifteen-second checks across far more than ten monitors.',
-      'You\u2019re hand-rolling webhook glue to get alerts into Slack, Discord, or Teams, when those channels could just be native.',
-      'A client or auditor has asked you to prove uptime from more than a year ago, and sixty days of logs can\u2019t reach it.',
-      'You need checks pinned to a region \u2014 US, EU, or Asia \u2014 rather than wherever they land.',
+      'An email alert isn’t enough anymore — you need a text or a Slack ping to reach whoever is on call.',
+      'Thirty seconds is still slower than your error budget tolerates.',
+      'You’re hand-rolling webhook glue to get alerts into Slack, Discord, or Teams, when those channels could just be native.',
+      'A client or auditor has asked you to prove uptime from more than a year ago.',
+      'Your fleet has outgrown 250 monitors, or five status pages.',
     ],
     headline: 'When an outage has to wake someone, not just fill an inbox.',
     story:
-      'On the smaller plans, a failed check at 3am is an email read at 9am \u2014 and your incident channel hears nothing. On Pro, the same failure is a text on the on-call phone and a ping in your Slack channel as soon as the next fifteen-second check confirms it, so someone is on it before the support queue moves. Afterward you pull the full timeline from three years of retained logs to write the postmortem, and your REST keys and MCP connection mean the next question \u2014 \u201cwhat broke last night?\u201d \u2014 gets answered straight from your editor.',
+      'On the smaller plans, a failed check at 3am is an email read at 9am — and your incident channel hears nothing. On Pro, the same failure is a text on the on-call phone and a ping in your Slack channel as soon as the next fifteen-second check confirms it, so someone is on it before the support queue moves. Afterward you pull the full timeline from three years of retained logs to write the postmortem, and your REST keys and MCP connection mean the next question — “what broke last night?” — gets answered straight from your editor.',
     solvesLabel: 'How Pro fixes it',
     solves: [
       {
@@ -169,9 +175,9 @@ const TIERS: Tier[] = [
           'SMS alerts (25/hr, 50/mo) put it on the on-call phone, plus native Slack, Discord, and Microsoft Teams.',
       },
       {
-        pain: 'Having to choose between speed and scale',
+        pain: 'Thirty seconds is still too slow',
         solvedBy:
-          '15-second checks across up to 1,000 monitors \u2014 the only plan that gives you both.',
+          '15-second checks — the fastest interval exit1 runs — across up to 1,000 monitors.',
       },
       {
         pain: 'Proof of uptime that expires before the contract',
@@ -181,12 +187,12 @@ const TIERS: Tier[] = [
       {
         pain: 'One branded page per client, past five',
         solvedBy:
-          '50 custom-branded status pages \u2014 one per client, their look, no exit1 badge.',
+          '50 custom-branded status pages — one per client, their look, no exit1 badge.',
       },
       {
         pain: 'Running the whole fleet across a team',
         solvedBy:
-          '25 API keys to script per-client setup, 50 webhooks, and region choice so checks run from the US, EU, or Asia. Named team members and roles are on the roadmap, not shipped yet.',
+          '100 API keys to script per-client setup, 100 webhooks, per-log comments, and extra email recipients per check and per folder. Named team members and roles are on the roadmap, not shipped yet.',
       },
     ],
     signatureValue:
@@ -246,16 +252,17 @@ export default function WhyUpgradePage() {
                   Start here · Free · $0
                 </span>
                 <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-3xl">
-                  You&rsquo;re kicking the tyres.
+                  You&rsquo;re already covered.
                 </h2>
               </div>
               <div className="md:col-span-6 md:col-start-7">
                 <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  A personal project, a side build, or a first look at exit1. Five
-                  monitors and five-minute checks are free forever — no card, no
-                  clock. You&rsquo;ll know you&rsquo;ve crossed the starting line
-                  the moment someone else starts depending on what you watch.
-                  That&rsquo;s where the three steps below begin.
+                  Fifty monitors, five-minute checks, SSL tracking, a status page,
+                  the real-time Live view, and an API key with MCP access — free
+                  forever, no card, no clock. That is a real setup, not a trial.
+                  You&rsquo;ll know you&rsquo;ve crossed the starting line when you
+                  need to see faster, or when someone else starts reading the page
+                  you built. That&rsquo;s where the three steps below begin.
                 </p>
               </div>
             </div>

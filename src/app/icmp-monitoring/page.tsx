@@ -104,7 +104,7 @@ const ICMPMonitoring = () => {
     },
     {
       feature: "Sub-minute check intervals",
-      exit1: "15-sec from Indie ($4/mo)",
+      exit1: "1-min from Indie ($4/mo), 15-sec on Pro",
       competitors: "5+ minutes"
     },
     {
@@ -131,7 +131,7 @@ const ICMPMonitoring = () => {
     },
     {
       question: "Is ICMP monitoring included in the free tier?",
-      answer: "Yes, ICMP ping monitoring is available on every plan. Free: 5 monitors with 5-minute intervals. Indie ($4/mo): 10 monitors with 15-second intervals. Nano ($9/mo): 100 monitors with 2-minute intervals. Pro ($24/mo): 1,000 monitors with 15-second intervals."
+      answer: "Yes, ICMP ping monitoring is available on every plan. Free: 50 monitors with 5-minute intervals. Indie ($4/mo): 100 monitors with 1-minute intervals. Nano ($9/mo): 250 monitors with 30-second intervals. Pro ($24/mo): 1,000 monitors with 15-second intervals."
     },
     {
       question: "When should I use ICMP checks instead of HTTP checks?",
@@ -261,7 +261,7 @@ const ICMPMonitoring = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Need faster ping checks?",
-          description: "Upgrade to Indie for 15-second ICMP check intervals, or Pro for 1,000 monitors, SMS alerts and 3-year data retention."
+          description: "Upgrade to Indie for 1-minute ICMP check intervals, or Pro for 15-second checks across 1,000 monitors, SMS alerts and 3-year data retention."
         }}
       />
     </>

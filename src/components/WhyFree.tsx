@@ -15,7 +15,7 @@ export default function WhyFree() {
             Uptime is table stakes. You shouldn&apos;t have to swipe a card or babysit a &ldquo;starter&rdquo; tier to know when your shop faceplants. We run a lean, boring stack—no VC, no ads, no tracking—so the free uptime monitor and free website monitor stay wide open.
           </p>
           <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mt-4">
-            5 monitors, 5-minute checks, SSL and domain coverage, webhook and email alerts. That&apos;s the free tier. Step up to Indie ($4/mo) for 10 monitors at 15-second checks plus API and MCP access, Nano ($9/mo) for 100 monitors and 2-minute checks, or Pro ($24/mo) for 1,000 monitors, 15-second checks and 3-year retention. No trial clock, no throttled &ldquo;lite&rdquo; experience. We built this to protect our own launches, and we refuse to play the upsell circus.
+            50 monitors, 5-minute checks, SSL coverage, webhook and email alerts, a status page, the real-time Live view, and an API key with MCP access. That&apos;s the free tier — a real setup, not a trial. Step up to Indie ($4/mo) for 100 monitors at 1-minute checks and a fully branded status page, Nano ($9/mo) for 250 monitors at 30-second checks with domain intelligence and region choice, or Pro ($24/mo) for 1,000 monitors, 15-second checks, SMS and 3-year retention. No trial clock, no throttled &ldquo;lite&rdquo; experience. We built this to protect our own launches, and we refuse to play the upsell circus.
           </p>
         </div>
 

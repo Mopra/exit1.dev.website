@@ -199,9 +199,9 @@ const LiveChecks = () => {
     architecture:
       "Probes are dispatched on a continuous worker pool with a 500ms dispatcher tick on dedicated VPS nodes in Frankfurt (vps-eu-1) and Boston (vps-us-1). When a probe completes, the result is pushed into a region-local WebSocket gateway (wss://live-eu.exit1.dev/ws, wss://live-us.exit1.dev/ws) and fanned out to subscribed clients filtered by verified Firebase uid. The browser opens one WebSocket per region the user has checks in, capped at 10 concurrent connections. Each region is independent and failure-isolated.",
     performance:
-      "Probe → paint p50 under 1 second. Wire format ~30 bytes per probe (compact float fields: {t, rt, sc?, st, dn?, cn?, tl?, ft?}), ~100 bytes in browser heap. Sub-minute check support (15-second floor on Indie and Pro). Hardened DNS stack — c-ares resolver plus a local recursive Unbound cache on the VPS — so DNS phase noise stays out of the chart.",
+      "Probe → paint p50 under 1 second. Wire format ~30 bytes per probe (compact float fields: {t, rt, sc?, st, dn?, cn?, tl?, ft?}), ~100 bytes in browser heap. Sub-minute check support (30-second on Nano, 15-second floor on Pro). Hardened DNS stack — c-ares resolver plus a local recursive Unbound cache on the VPS — so DNS phase noise stays out of the chart.",
     api:
-      "Live Checks is a frontend feature on top of the same Firebase ID token bridge that backs the rest of the app — no new SDK. For programmatic export, the Public API (Indie and up, with the checks:read scope) exposes /v1/checks/{id}/history and /v1/checks/{id}/stats for the same data the Live page renders, and the exit1-mcp server gives AI assistants the same windows.",
+      "Live Checks is a frontend feature on top of the same Firebase ID token bridge that backs the rest of the app — no new SDK. For programmatic export, the Public API (every plan, with the checks:read scope) exposes /v1/checks/{id}/history and /v1/checks/{id}/stats for the same data the Live page renders, and the exit1-mcp server gives AI assistants the same windows.",
   };
 
   const relatedFeatures = [
@@ -308,7 +308,7 @@ const LiveChecks = () => {
         nanoUpgrade={{
           title: "Live Checks streams from Nano upward",
           description:
-            "Free shows a blurred preview with an upgrade overlay. Nano ($9/mo) unlocks the Live page on every check with no rate limits on the WebSocket. Pro adds 15-second intervals, region choice and SMS.",
+            "The Live page is on every plan, Free included — real-time probe streaming is not something we put behind a paywall. What upgrading buys you is a faster probe cadence feeding it: 1-minute on Indie, 30-second on Nano, 15-second on Pro.",
         }}
       />
     </>

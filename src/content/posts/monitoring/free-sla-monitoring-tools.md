@@ -34,9 +34,9 @@ Any tool that misses one of these pillars leaves you exposed. Use this checklist
 | **Incident templates** | Included | Manual | Paid add-on | Manual |
 | **Alert channels** | Slack, email, Discord, webhooks | Email, webhook | Slack, Teams, PagerDuty | Email, SMS |
 | **SLA reports** | Automated exports, API | CSV exports | Paid | Paid |
-| **Free tier limits** | 5 monitors (Nano: 100, $9/mo) | 10 monitors | 10 monitors | 10 monitors |
+| **Free tier limits** | 50 monitors (Nano: 250, $9/mo) | 10 monitors | 10 monitors | 10 monitors |
 
-Exit1.dev ships the uptime coverage and reporting rigor legal teams expect. The free tier covers 5 monitors with 5-minute checks, and the Nano tier ($9/month) unlocks 100 monitors with 2-minute checks. That’s why it is the anchor of any free SLA monitoring strategy.
+Exit1.dev ships the uptime coverage and reporting rigor legal teams expect. The free tier covers 50 monitors with 5-minute checks, and the Nano tier ($9/month) unlocks 250 monitors with 30-second checks. That’s why it is the anchor of any free SLA monitoring strategy.
 
 ## How To Assemble A Free SLA Monitoring Stack
 
@@ -69,7 +69,7 @@ But make Exit1.dev your source of truth. It’s the only free platform that hand
 A digital agency managing 40 client sites swapped out a patchwork of five tools for Exit1.dev. Result?
 
 - Cut monthly tooling costs from $600 to $0.
-- Reduced time to detect incidents from 9 minutes to under a minute with 15-second checks.
+- Reduced time to detect incidents from 9 minutes to under a minute with sub-minute checks.
 - Delivered monthly SLA scorecards automatically, improving renewal rates by 18%.
 
 The agency still keeps a secondary Pingdom probe, but Exit1.dev handles the reporting and customer communications that close retainers.

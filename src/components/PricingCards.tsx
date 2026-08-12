@@ -18,40 +18,50 @@ type PaidTierKey = Exclude<TierKey, "free">;
 
 type Highlight = { label: string; comingSoon?: boolean };
 
+// Mirrors PLAN_MATRIX in the app repo (src/components/billing/plan-matrix-data.ts)
+// and TIER_LIMITS in functions/src/config.ts, which is authoritative. Keep the
+// three in step — the app's tier-ladder test suite guards the backend numbers
+// but cannot see this file.
 const tierHighlights: Record<TierKey, Highlight[]> = {
   free: [
-    { label: "5 monitors" },
+    { label: "50 monitors" },
     { label: "5-minute check intervals" },
+    { label: "Live probe stream" },
+    { label: "1 API key + MCP access" },
     { label: "1 webhook integration" },
-    { label: "10 emails / month" },
+    { label: "300 emails / month" },
     { label: "1 public status page" },
     { label: "60-day data retention" },
   ],
   indie: [
-    { label: "10 monitors" },
-    { label: "15-second check intervals" },
-    { label: "1 API key + MCP access" },
+    { label: "100 monitors" },
+    { label: "1-minute check intervals" },
+    { label: "Live probe stream" },
+    { label: "3 API keys + MCP access" },
     { label: "3 webhook integrations" },
-    { label: "500 emails / month" },
-    { label: "1 public status page" },
-    { label: "60-day data retention" },
+    { label: "800 emails / month" },
+    { label: "1 custom-branded status page" },
+    { label: "90-day data retention" },
   ],
   nano: [
-    { label: "100 monitors" },
-    { label: "2-minute check intervals" },
-    { label: "1 API key + MCP access" },
-    { label: "5 webhook integrations" },
-    { label: "1,000 emails / month" },
+    { label: "250 monitors" },
+    { label: "30-second check intervals" },
+    { label: "Live probe stream" },
+    { label: "10 API keys + MCP access" },
+    { label: "10 webhook integrations" },
+    { label: "2,500 emails / month" },
     { label: "5 custom-branded status pages" },
     { label: "Domain intelligence & expiry alerts" },
     { label: "Maintenance mode" },
-    { label: "60-day data retention" },
+    { label: "Region choice (US / EU / Asia)" },
+    { label: "1-year data retention" },
   ],
   pro: [
     { label: "1,000 monitors" },
     { label: "15-second check intervals" },
-    { label: "25 API keys + MCP access" },
-    { label: "50 webhook integrations" },
+    { label: "Live probe stream" },
+    { label: "100 API keys + MCP access" },
+    { label: "100 webhook integrations" },
     { label: "SMS alerts (50 / month)" },
     { label: "10,000 emails / month" },
     { label: "50 custom-branded status pages" },

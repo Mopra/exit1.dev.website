@@ -84,7 +84,7 @@ Every failure should improve the checklist:
 
 ## What This Costs
 
-Nothing to start: the free tier covers 5 monitors at 5-minute intervals with no card. Indie ($4/month) gives 10 monitors at 15-second intervals; Nano ($9/month) gives 100 monitors at 2-minute intervals. For a comparison against Prometheus, Zabbix, Netdata, and the cloud providers' free offerings, see the [free infrastructure monitoring tools comparison](/blog/free-infrastructure-monitoring-tools-comparison-2025).
+Nothing to start: the free tier covers 50 monitors at 5-minute intervals with no card. Indie ($4/month) gives 100 monitors at 1-minute intervals; Nano ($9/month) gives 250 monitors at 30-second intervals. For a comparison against Prometheus, Zabbix, Netdata, and the cloud providers' free offerings, see the [free infrastructure monitoring tools comparison](/blog/free-infrastructure-monitoring-tools-comparison-2025).
 
 ## The Result: Infrastructure Monitoring That Holds Up
 

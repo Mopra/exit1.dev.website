@@ -4,14 +4,14 @@ seoTitle: "Is UptimeRobot Free? Limits + Best Free Alternative (2026)"
 author: "Morten Pradsgaard"
 date: "2025-02-01"
 category: "monitoring"
-excerpt: "What UptimeRobot's free plan actually includes — 50 monitors and 5-minute checks — and where it falls short. Plus exit1.dev, a free alternative with 100 monitors and 2-minute checks on Nano ($9/month)."
+excerpt: "What UptimeRobot's free plan actually includes — 50 monitors and 5-minute checks — and where it falls short. Plus exit1.dev, a free alternative with 250 monitors and 30-second checks on Nano ($9/month)."
 readTime: "5 min read"
 metaDescription: "Yes — UptimeRobot is free: 50 monitors, 5-min checks, no card. See the limits that bite, and a free alternative with 1-min checks and 100 monitors."
 ---
 
 # UptimeRobot Free Plan: What You Get, the Limits, and a Better Free Alternative
 
-**Quick answer:** UptimeRobot's free plan gives you 50 monitors with 5-minute checks and no credit card — generous, but capped by a hard 50-monitor ceiling, 5-minute resolution, and steady upgrade nudges. If those limits are a problem, exit1.dev offers 5 monitors free, **15-second** checks on Indie ($4/month), and **100** monitors on Nano ($9/month).
+**Quick answer:** UptimeRobot's free plan gives you 50 monitors with 5-minute checks and no credit card — generous, but capped by a hard 50-monitor ceiling, 5-minute resolution, and steady upgrade nudges. If those limits are a problem, exit1.dev offers 50 monitors free, **15-second** checks on Indie ($4/month), and **100** monitors on Nano ($9/month).
 
 > **Prefer a side-by-side breakdown?** See the full [UptimeRobot vs exit1.dev comparison](/compare/uptimerobot) — free tier and paid tier, feature by feature.
 
@@ -82,7 +82,7 @@ UptimeRobot's free tier has real limitations:
 - **Faster detection** with 15-second checks on Indie ($4/month)
 - **5 free monitors** to start, 100 on Nano
 - **Better interface** - modern, fast, mobile-friendly
-- **Affordable upgrade** - Nano at $9/month for 100 monitors
+- **Affordable upgrade** - Nano at $9/month for 250 monitors
 
 ### What You Won't Lose
 - **All monitoring capabilities** carried over
@@ -96,10 +96,10 @@ UptimeRobot's free tier has real limitations:
 *"Hit UptimeRobot's 50-site limit with microservices. Either pay $84/year or delete monitors. Switched to Exit1.dev's Pro plan at $24/month, now monitor 120+ sites with 15-second checks."*
 
 ### Agency Owner
-*"Clients kept asking why alerts took 5+ minutes. UptimeRobot's paid plan was $25/month per client. Exit1.dev's Indie plan gives all clients 15-second monitoring for just $4/month."*
+*"Clients kept asking why alerts took 5+ minutes. UptimeRobot's paid plan was $25/month per client. Exit1.dev's Indie plan gives all clients 1-minute monitoring for just $4/month."*
 
 ### Startup Team
-*"Bootstrapping costs. UptimeRobot wanted $84/year for unlimited. Exit1.dev's free tier got us started with 5 monitors, and Nano at $9/month covers everything we need."*
+*"Bootstrapping costs. UptimeRobot wanted $84/year for unlimited. Exit1.dev's free tier got us started with 50 monitors, and Nano at $9/month covers everything we need."*
 
 ## Where exit1.dev Differs at a Glance
 
@@ -107,7 +107,7 @@ UptimeRobot's free tier has real limitations:
 2. **15-second checks on Indie** — versus UptimeRobot's 5-minute free interval
 3. **No upgrade pressure** in the free tier
 4. **Modern, fast interface** built for current browsers and mobile
-5. **Nano at $9/month** for 100 monitors — below UptimeRobot's paid entry point
+5. **Nano at $9/month** for 250 monitors — below UptimeRobot's paid entry point
 
 ## Technical Comparison
 
@@ -153,6 +153,6 @@ When that happens, exit1.dev is the natural next step:
 
 Migration is simple: export from UptimeRobot, bulk-import to exit1.dev, and reconfigure alerts.
 
-[Try exit1.dev free](https://app.exit1.dev/) — 5 monitors free, or 100 monitors on Nano ($9/month).
+[Try exit1.dev free](https://app.exit1.dev/) — 50 monitors free, or 100 monitors on Nano ($9/month).
 
 

@@ -99,7 +99,7 @@ const WebSocketMonitoring = () => {
     },
     {
       feature: "Sub-minute check intervals",
-      exit1: "15-sec from Indie ($4/mo)",
+      exit1: "1-min from Indie ($4/mo), 15-sec on Pro",
       competitors: "5+ minutes"
     },
     {
@@ -126,7 +126,7 @@ const WebSocketMonitoring = () => {
     },
     {
       question: "Is WebSocket monitoring included in the free tier?",
-      answer: "Yes, WebSocket monitoring is available on every plan. Free: 5 monitors, 5-minute checks. Indie ($4/mo): 10 monitors, 15-second checks. Nano ($9/mo): 100 monitors, 2-minute checks. Pro ($24/mo): 1,000 monitors, 15-second checks."
+      answer: "Yes, WebSocket monitoring is available on every plan. Free: 50 monitors, 5-minute checks. Indie ($4/mo): 100 monitors, 1-minute checks. Nano ($9/mo): 250 monitors, 30-second checks. Pro ($24/mo): 1,000 monitors, 15-second checks."
     },
     {
       question: "What is the difference between WS and WSS?",
@@ -256,7 +256,7 @@ const WebSocketMonitoring = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Need faster WebSocket checks?",
-          description: "Upgrade to Indie for 15-second WebSocket check intervals, or Pro for 1,000 monitors, SMS alerts and 3-year data retention."
+          description: "Upgrade to Indie for 1-minute WebSocket check intervals, or Pro for 15-second checks across 1,000 monitors, SMS alerts and 3-year data retention."
         }}
       />
     </>

@@ -17,7 +17,7 @@ import { AgentSetupPrompt } from "@/components/home/AgentSetupPrompt";
 
 const title = "Free Uptime Monitor & Website Monitoring — exit1.dev";
 const description =
-  "Know before your customers do. Free uptime monitoring for websites, APIs and services with instant alerts, SSL and domain expiry tracking, and public status pages. 5 monitors free, no credit card. 15-second checks from $3/mo.";
+  "Know before your customers do. Free uptime monitoring for websites, APIs and services with instant alerts, SSL and domain expiry tracking, and public status pages. 50 monitors free, no credit card. Faster checks from $3/mo.";
 
 // The homepage previously exported no metadata at all, so it inherited the
 // root layout wholesale: no canonical of its own, and `card: "summary"` —

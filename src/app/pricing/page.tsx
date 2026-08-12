@@ -16,11 +16,13 @@ const featureGroups: FeatureGroup[] = [
   {
     title: "Monitoring",
     rows: [
-      { label: "Monitors", values: { free: "5", indie: "10", nano: "100", pro: "1,000" } },
-      { label: "Minimum check interval", values: { free: "5 min", indie: "15 sec", nano: "2 min", pro: "15 sec" } },
-      { label: "Region choice (US / EU / Asia)", values: { free: false, indie: false, nano: false, pro: true } },
+      { label: "Monitors", values: { free: "50", indie: "100", nano: "250", pro: "1,000" } },
+      { label: "Minimum check interval", values: { free: "5 min", indie: "1 min", nano: "30 sec", pro: "15 sec" } },
+      { label: "Live probe stream", values: { free: true, indie: true, nano: true, pro: true } },
+      { label: "Region choice (US / EU / Asia)", values: { free: false, indie: false, nano: true, pro: true } },
       { label: "HTTP/HTTPS, TCP, UDP, WebSocket, ICMP", values: { free: true, indie: true, nano: true, pro: true } },
       { label: "SSL certificate monitoring", values: { free: true, indie: true, nano: true, pro: true } },
+      { label: "DNS record monitoring", values: { free: false, indie: true, nano: true, pro: true } },
       { label: "Response validation (JSON, headers, body)", values: { free: true, indie: true, nano: true, pro: true } },
       { label: "Bulk import + bulk edit", values: { free: true, indie: true, nano: true, pro: true } },
       { label: "Maintenance mode", values: { free: false, indie: false, nano: true, pro: true } },
@@ -29,9 +31,9 @@ const featureGroups: FeatureGroup[] = [
   {
     title: "Alerting",
     rows: [
-      { label: "Email alerts", values: { free: "10/hr, 10/mo", indie: "50/hr, 500/mo", nano: "50/hr, 1,000/mo", pro: "500/hr, 10,000/mo" } },
+      { label: "Email alerts", values: { free: "50/hr, 300/mo", indie: "100/hr, 800/mo", nano: "250/hr, 2,500/mo", pro: "1,000/hr, 10,000/mo" } },
       { label: "SMS alerts", values: { free: false, indie: false, nano: false, pro: "25/hr, 50/mo" } },
-      { label: "Webhook integrations", values: { free: "1", indie: "3", nano: "5", pro: "50" } },
+      { label: "Webhook integrations", values: { free: "1", indie: "3", nano: "10", pro: "100" } },
       { label: "Slack / Discord / Microsoft Teams", values: { free: false, indie: false, nano: false, pro: true } },
       { label: "Flap detection + smart verification", values: { free: true, indie: true, nano: true, pro: true } },
     ],
@@ -40,8 +42,8 @@ const featureGroups: FeatureGroup[] = [
     title: "Status pages",
     rows: [
       { label: "Public status pages", values: { free: "1", indie: "1", nano: "5", pro: "50" } },
-      { label: "Drag-and-drop builder", values: { free: false, indie: false, nano: true, pro: true } },
-      { label: "Custom branding (logo, colors, favicon)", values: { free: false, indie: false, nano: true, pro: true } },
+      { label: "Drag-and-drop builder", values: { free: false, indie: true, nano: true, pro: true } },
+      { label: "Custom branding (logo, colors, favicon)", values: { free: false, indie: true, nano: true, pro: true } },
       { label: "Remove exit1.dev badge branding", values: { free: false, indie: true, nano: true, pro: true } },
       { label: "Custom domain", values: { free: false, indie: false, nano: false, pro: true }, comingSoon: true },
     ],
@@ -56,16 +58,16 @@ const featureGroups: FeatureGroup[] = [
   {
     title: "API & integrations",
     rows: [
-      { label: "REST API access", values: { free: false, indie: true, nano: true, pro: true } },
-      { label: "API keys", values: { free: "—", indie: "1", nano: "1", pro: "25" } },
-      { label: "MCP (Claude, Cursor, Windsurf)", values: { free: false, indie: true, nano: true, pro: true } },
+      { label: "REST API access", values: { free: true, indie: true, nano: true, pro: true } },
+      { label: "API keys", values: { free: "1", indie: "3", nano: "10", pro: "100" } },
+      { label: "MCP (Claude, Cursor, Windsurf)", values: { free: true, indie: true, nano: true, pro: true } },
       { label: "CSV bulk export", values: { free: false, indie: false, nano: false, pro: true } },
     ],
   },
   {
     title: "Data & reporting",
     rows: [
-      { label: "Log retention", values: { free: "60 days", indie: "60 days", nano: "60 days", pro: "1,095 days (3 yr)" } },
+      { label: "Log retention", values: { free: "60 days", indie: "90 days", nano: "365 days (1 yr)", pro: "1,095 days (3 yr)" } },
       { label: "Analytics dashboards", values: { free: true, indie: true, nano: true, pro: true } },
       { label: "SLA reporting", values: { free: false, indie: false, nano: false, pro: true }, comingSoon: true },
     ],
@@ -101,11 +103,11 @@ const PricingPage = () => {
             "description": "Uptime, SSL, domain and API monitoring with instant alerts, public status pages, a REST API and MCP access.",
             "publisher": { "@type": "Organization", "name": "exit1.dev", "url": "https://exit1.dev" },
             "offers": [
-              { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "5 monitors, 5-minute checks" },
-              { "@type": "Offer", "name": "Indie (Annual)", "price": "3", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "10 monitors, 15-second checks, API + MCP — billed annually ($36/yr)" },
-              { "@type": "Offer", "name": "Indie (Monthly)", "price": "4", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "10 monitors, 15-second checks, API + MCP — billed monthly" },
-              { "@type": "Offer", "name": "Nano (Annual)", "price": "7", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "100 monitors, 2-minute checks, API + MCP — billed annually ($84/yr)" },
-              { "@type": "Offer", "name": "Nano (Monthly)", "price": "9", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "100 monitors, 2-minute checks, API + MCP — billed monthly" },
+              { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "50 monitors, 5-minute checks, API + MCP" },
+              { "@type": "Offer", "name": "Indie (Annual)", "price": "3", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "100 monitors, 1-minute checks, branded status page, API + MCP — billed annually ($36/yr)" },
+              { "@type": "Offer", "name": "Indie (Monthly)", "price": "4", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "100 monitors, 1-minute checks, branded status page, API + MCP — billed monthly" },
+              { "@type": "Offer", "name": "Nano (Annual)", "price": "7", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "250 monitors, 30-second checks, domain intelligence, region choice — billed annually ($84/yr)" },
+              { "@type": "Offer", "name": "Nano (Monthly)", "price": "9", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "250 monitors, 30-second checks, domain intelligence, region choice — billed monthly" },
               { "@type": "Offer", "name": "Pro (Annual)", "price": "20", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "1,000 monitors, 15-second checks, 3-year retention, SMS, API + MCP — billed annually ($240/yr)" },
               { "@type": "Offer", "name": "Pro (Monthly)", "price": "24", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "1,000 monitors, 15-second checks, 3-year retention, SMS, API + MCP — billed monthly" },
             ],
@@ -132,7 +134,7 @@ const PricingPage = () => {
           </h1>
 
           <p className="text-xl sm:text-2xl text-foreground/70 leading-relaxed max-w-2xl">
-            Start free. Scale up when you need faster checks, SMS, API access, or more monitors.
+            Start free with 50 monitors and API access. Scale up when you need faster checks, branding, or team features.
           </p>
         </PageHero>
 

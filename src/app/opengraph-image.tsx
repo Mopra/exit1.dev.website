@@ -105,7 +105,7 @@ export default async function Image() {
         </div>
 
         <div style={{ display: "flex", gap: "12px", marginTop: "32px" }}>
-          {["5 monitors free", "SSL & domain expiry", "Status pages", "REST API + MCP", "No credit card"].map(
+          {["50 monitors free", "SSL & domain expiry", "Status pages", "REST API + MCP", "No credit card"].map(
             (label) => (
               <div
                 key={label}

@@ -16,20 +16,20 @@ import {
 export const metadata: Metadata = {
   title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals',
   description:
-    'exit1.dev is the blunt, free uptime monitor. 5 monitors with 5-minute checks, instant webhook + email alerts, SSL coverage. Upgrade to Indie ($4/mo) for 10 monitors and 15-second checks, Nano ($9/mo) for 100 monitors, or Pro ($24/mo) for 1,000 monitors and 3-year retention. No fake free tier.',
+    'exit1.dev is the blunt, free uptime monitor. 50 monitors with 5-minute checks, instant webhook + email alerts, SSL coverage, REST API + MCP. Upgrade to Indie ($4/mo) for 100 monitors and 1-minute checks, Nano ($9/mo) for 250 monitors at 30 seconds, or Pro ($24/mo) for 1,000 monitors at 15 seconds and 3-year retention. No fake free tier.',
   keywords:
     'free uptime monitor, uptime monitoring, uptime robot alternative, free website uptime monitoring, free api monitoring',
   openGraph: {
     title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
     description:
-      '5 free monitors, fast intervals, webhook + email alerts, SSL, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
+      '50 free monitors, fast intervals, webhook + email alerts, SSL, API access, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
     type: 'website',
     url: 'https://exit1.dev/free-uptime-monitor',
   },
   twitter: {
     title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
     description:
-      '5 free monitors, fast intervals, webhook + email alerts, SSL, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
+      '50 free monitors, fast intervals, webhook + email alerts, SSL, API access, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
     card: 'summary_large_image',
   },
   alternates: {
@@ -41,12 +41,12 @@ const FreeUptimeMonitorPage = () => {
   const features = [
     {
       title: '5 free monitors, zero invoices',
-      description: 'Track up to 5 sites, APIs, or endpoints on the free tier. Need more? Indie gives 10 at 15-second checks, Nano 100, Pro 1,000.',
+      description: 'Track up to 50 sites, APIs, or endpoints on the free tier. Need more? Indie gives 100 at 1-minute checks, Nano 250 at 30 seconds, Pro 1,000 at 15 seconds.',
       icon: <Globe className="w-6 h-6 text-foreground" />,
     },
     {
       title: 'Fast check intervals',
-      description: '5-minute checks free, 15-second on Indie and Pro, 2-minute on Nano. Real polling across regions, not artificial limits.',
+      description: '5-minute checks free, 1-minute on Indie, 30-second on Nano, 15-second on Pro. Real polling across regions, not artificial limits.',
       icon: <Clock className="w-6 h-6 text-foreground" />,
     },
     {
@@ -79,7 +79,7 @@ const FreeUptimeMonitorPage = () => {
     },
     {
       feature: 'Sub-minute intervals',
-      exit1: '15-sec from Indie ($4/mo)',
+      exit1: '1-min from Indie ($4/mo), 15-sec on Pro',
       competitors: 'Locked behind premium',
     },
     {
@@ -118,7 +118,7 @@ const FreeUptimeMonitorPage = () => {
     {
       question: 'Is this really a free uptime monitor?',
       answer:
-        'Yes. The free tier gives you 5 monitors with 5-minute checks. Need more? Indie ($4/mo) unlocks 10 monitors and 15-second checks, Nano ($9/mo) scales to 100 monitors, and Pro ($24/mo) goes to 1,000 monitors with 3-year retention and SMS. Abuse gets throttled, legitimate usage stays free.',
+        'Yes. The free tier gives you 50 monitors with 5-minute checks, plus an API key and MCP access. Need more? Indie ($4/mo) unlocks 100 monitors and 1-minute checks, Nano ($9/mo) scales to 250 monitors at 30 seconds, and Pro ($24/mo) goes to 1,000 monitors at 15 seconds with 3-year retention and SMS. Abuse gets throttled, legitimate usage stays free.',
     },
     {
       question: 'How fast are the uptime checks?',
@@ -179,7 +179,7 @@ const FreeUptimeMonitorPage = () => {
         data={{
           name: 'Free Uptime Monitor',
           description:
-            'Free uptime monitoring with up to 5 monitors, 5-minute checks, and instant alerts. Paid plans scale up to 1,000 monitors with 15-second checks.',
+            'Free uptime monitoring with up to 50 monitors, 5-minute checks, API access, and instant alerts. Paid plans scale up to 1,000 monitors with 15-second checks.',
           url: 'https://exit1.dev/free-uptime-monitor',
           brand: {
             '@type': 'Brand',

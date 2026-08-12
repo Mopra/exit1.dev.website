@@ -113,7 +113,7 @@ export const siteGraph = {
         price: '0',
         priceCurrency: 'USD',
         url: `${SITE_URL}/pricing`,
-        description: 'Free forever: 5 monitors, 5-minute checks, SSL monitoring and a public status page.',
+        description: 'Free forever: 50 monitors, 5-minute checks, SSL monitoring, REST API + MCP access and a public status page.',
       },
     },
   ],

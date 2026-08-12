@@ -2,14 +2,14 @@
 title: "Agency and MSP Playbook for Free Uptime Monitoring"
 author: "Morten Pradsgaard"
 category: "monitoring"
-excerpt: "Run client uptime monitoring affordably. exit1.dev gives agencies and MSPs 5 free monitors with 5-minute checks, or 100 monitors with 2-minute checks on the Nano plan ($9/month)."
+excerpt: "Run client uptime monitoring affordably. exit1.dev gives agencies and MSPs 50 free monitors with 5-minute checks, or 250 monitors with 30-second checks on the Nano plan ($9/month)."
 date: "2025-02-17"
-metaDescription: "Agencies and MSPs can start monitoring client sites free with exit1.dev (5 monitors, 5-min checks) or scale to 100 monitors with Nano ($9/month). Organize monitors, report uptime, and automate alerts."
+metaDescription: "Agencies and MSPs can start monitoring client sites free with exit1.dev (50 monitors, 5-min checks) or scale to 250 monitors with Nano ($9/month). Organize monitors, report uptime, and automate alerts."
 ---
 
 # Agency and MSP Playbook for Free Uptime Monitoring
 
-Billing clients for uptime and then paying another vendor for “premium” monitoring is backwards. exit1.dev lets agencies and MSPs get started with 5 free monitors (5-minute checks) and scale to 100 monitors with 2-minute checks on the Nano plan for just $9/month. Here’s how to run it like a pro.
+Billing clients for uptime and then paying another vendor for “premium” monitoring is backwards. exit1.dev lets agencies and MSPs get started with 50 free monitors (5-minute checks) and scale to 250 monitors with 30-second checks on the Nano plan for just $9/month. Here’s how to run it like a pro.
 
 ## Step 1: Tag everything by client
 
@@ -25,7 +25,7 @@ For every new client:
 - SSL expiry.
 - Cron or worker heartbeats if you manage backend jobs.
 
-Build a template checklist and clone it per client. The Nano plan ($9/month) gives you 100 monitors so you don’t have to ration coverage.
+Build a template checklist and clone it per client. The Nano plan ($9/month) gives you 250 monitors so you don’t have to ration coverage.
 
 ## Step 3: Route alerts by responsibility
 
@@ -41,7 +41,7 @@ Use the exit1.dev API to spin up monitors when you sign a new client. Feed the m
 
 ## Step 6: Monetize the value
 
-You’re providing 24/7 coverage. Bake it into your retainers. The tooling cost is minimal—free for small setups, $9/month for 100 monitors—which means nearly every bit of value flows to your margin.
+You’re providing 24/7 coverage. Bake it into your retainers. The tooling cost is minimal—free for small setups, $9/month for 250 monitors—which means nearly every bit of value flows to your margin.
 
 ## Extra benefits
 
