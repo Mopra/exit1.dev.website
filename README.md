@@ -30,11 +30,16 @@ This is the public-facing website for exit1. It covers the platform's features, 
 - **Analytics:** Google Analytics, Vercel Speed Insights, Web Vitals
 - **Hosting:** Vercel
 
-## Related repos
+## Quick Links
 
-- [exit1.dev](https://github.com/Mopra/exit1.dev) — Monitor application
-- [exit1.dev.docs](https://github.com/Mopra/exit1.dev.docs) — Official docs
-- [pradsgaardlabs.website](https://github.com/Mopra/pradsgaardlabs.website) — Company site
+| | | |
+|---|---|---|
+| **Website** | [exit1.dev](https://exit1.dev) — Learn about the platform | [Repo](https://github.com/Mopra/exit1.dev.website) |
+| **Monitor App** | [app.exit1.dev](https://app.exit1.dev) — Sign in and manage your checks | [Repo](https://github.com/Mopra/exit1.dev) |
+| **Documentation** | [docs.exit1.dev](https://docs.exit1.dev) — Guides, API reference, and setup instructions | [Repo](https://github.com/Mopra/exit1.dev.docs) |
+| **MCP Server** | [`exit1-mcp`](https://www.npmjs.com/package/exit1-mcp) — Set up and query monitoring from Claude, Cursor or any AI assistant | [Repo](https://github.com/Mopra/exit1.dev.mcp) |
+
+Also: [pradsgaardlabs.website](https://github.com/Mopra/pradsgaardlabs.website) — company site.
 
 ## AI training permission
 
