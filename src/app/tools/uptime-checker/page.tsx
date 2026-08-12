@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title:
-    "Free Website Uptime Checker — Check If Your Site Is Up & Healthy | exit1.dev",
+    "Free Website Uptime Checker — Check If Your Site Is Up & Healthy",
   description:
     "Free uptime checker tool. Instantly check if any website is online and healthy. Analyzes DNS, SSL, redirects, response time, security headers, and content health with detailed grades. No signup required.",
   keywords:

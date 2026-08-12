@@ -1,5 +1,15 @@
+import type { Metadata } from 'next';
 import { OnlineBadge } from '@/components/OnlineBadge';
 import { LaserBeam } from '@/components/LaserBeam';
+
+// Internal component sandbox for tuning the badge + laser composition. It has
+// no business being in search results, and until this was added it shipped
+// with the root layout's title — a third page competing on the homepage's own
+// title tag. Also excluded from sitemap.ts.
+export const metadata: Metadata = {
+  title: 'Badge Lab (internal)',
+  robots: { index: false, follow: false },
+};
 
 export default function BadgeLabPage() {
   return (

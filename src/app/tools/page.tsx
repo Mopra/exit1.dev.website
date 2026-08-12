@@ -13,7 +13,7 @@ import { buildSignupUrl } from "@/lib/cta";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Free Website & Server Tools — SSL, Domain, DNS, API, Ping, Redirect & Uptime Checkers | exit1.dev",
+  title: "Free Website & Server Tools — SSL, Domain, DNS, API, Ping, Redirect & Uptime Checkers",
   description:
     "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, DNS records, nameservers, API endpoint status, server latency, redirect chains, and website uptime health. No signup required.",
   keywords:

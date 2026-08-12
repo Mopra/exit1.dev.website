@@ -87,19 +87,27 @@ const PricingPage = () => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
+          // `offers` is not a property of WebPage — the previous shape was
+          // silently dropped by every parser. SoftwareApplication is the right
+          // entity for a monitoring SaaS and is what Google reads offers from.
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Pricing - exit1.dev",
-            "description": "Simple, transparent pricing for uptime monitoring.",
+            "@type": "SoftwareApplication",
+            "name": "exit1.dev",
+            "url": "https://exit1.dev",
+            "applicationCategory": "DeveloperApplication",
+            "applicationSubCategory": "Website & API Uptime Monitoring",
+            "operatingSystem": "Web",
+            "description": "Uptime, SSL, domain and API monitoring with instant alerts, public status pages, a REST API and MCP access.",
+            "publisher": { "@type": "Organization", "name": "exit1.dev", "url": "https://exit1.dev" },
             "offers": [
-              { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "5 monitors, 5-minute checks" },
-              { "@type": "Offer", "name": "Indie (Annual)", "price": "3", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "10 monitors, 15-second checks, API + MCP — billed annually ($36/yr)" },
-              { "@type": "Offer", "name": "Indie (Monthly)", "price": "4", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "10 monitors, 15-second checks, API + MCP — billed monthly" },
-              { "@type": "Offer", "name": "Nano (Annual)", "price": "7", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "100 monitors, 2-minute checks, API + MCP — billed annually ($84/yr)" },
-              { "@type": "Offer", "name": "Nano (Monthly)", "price": "9", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "100 monitors, 2-minute checks, API + MCP — billed monthly" },
-              { "@type": "Offer", "name": "Pro (Annual)", "price": "20", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "1,000 monitors, 15-second checks, 3-year retention, SMS, API + MCP — billed annually ($240/yr)" },
-              { "@type": "Offer", "name": "Pro (Monthly)", "price": "24", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "1,000 monitors, 15-second checks, 3-year retention, SMS, API + MCP — billed monthly" },
+              { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "5 monitors, 5-minute checks" },
+              { "@type": "Offer", "name": "Indie (Annual)", "price": "3", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "10 monitors, 15-second checks, API + MCP — billed annually ($36/yr)" },
+              { "@type": "Offer", "name": "Indie (Monthly)", "price": "4", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "10 monitors, 15-second checks, API + MCP — billed monthly" },
+              { "@type": "Offer", "name": "Nano (Annual)", "price": "7", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "100 monitors, 2-minute checks, API + MCP — billed annually ($84/yr)" },
+              { "@type": "Offer", "name": "Nano (Monthly)", "price": "9", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "100 monitors, 2-minute checks, API + MCP — billed monthly" },
+              { "@type": "Offer", "name": "Pro (Annual)", "price": "20", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "1,000 monitors, 15-second checks, 3-year retention, SMS, API + MCP — billed annually ($240/yr)" },
+              { "@type": "Offer", "name": "Pro (Monthly)", "price": "24", "priceCurrency": "USD", "url": "https://exit1.dev/pricing", "description": "1,000 monitors, 15-second checks, 3-year retention, SMS, API + MCP — billed monthly" },
             ],
           }),
         }}

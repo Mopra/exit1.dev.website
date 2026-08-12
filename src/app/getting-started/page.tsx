@@ -16,7 +16,7 @@ import { HeroVideo } from "@/components/getting-started/HeroVideo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Getting Started — Your First Monitor in Five Minutes | exit1.dev",
+  title: "Getting Started — Your First Monitor in Five Minutes",
   description:
     "A calm, step-by-step guide to exit1.dev: create your first check, keep the sensible defaults, switch on alerts, and read the logs. A live monitor watching your URL — in about five minutes.",
   openGraph: {

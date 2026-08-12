@@ -4,7 +4,7 @@ import { ArrowRight, Activity, Globe, Radio, Shield, Bell, BarChart3, FileText, 
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
 
 export const metadata: Metadata = {
-  title: "Features - Uptime Monitoring Platform | exit1.dev",
+  title: "Features - Uptime Monitoring Platform",
   description: "Explore all exit1.dev features: uptime monitoring, real-time alerts, global coverage, SSL tracking, domain intelligence, status pages, analytics, API & webhooks, and MCP integration.",
   keywords: "uptime monitoring features, website monitoring features, SSL monitoring, domain monitoring, status pages, monitoring API, monitoring alerts",
   openGraph: {

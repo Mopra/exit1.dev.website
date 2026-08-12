@@ -14,7 +14,7 @@ import { classifyStatus, makeComparator } from "@/lib/publicMonitors";
 // often than the data refreshes just burns ISR write units on identical output.
 export const revalidate = 3600;
 
-const title = "Live Event Status — Monitoring Summit Cannes 2026 | exit1.dev";
+const title = "Live Event Status — Monitoring Summit Cannes 2026";
 const description =
   "Live status and uptime for the industry events at the Monitoring Summit, Cannes 2026 — monitored continuously and independently by exit1.dev.";
 

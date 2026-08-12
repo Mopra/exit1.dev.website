@@ -3,55 +3,91 @@
     "logo": "exit1.dev",
     "description": "The best free uptime monitoring service. Monitor websites with SSL monitoring and instant alerts. Free 5-minute checks; paid plans scale to 1,000 monitors with 15-second intervals. No credit card required."
   },
-  "navigation": {
-    "monitoring": [
-      { "name": "Live Checks", "href": "/live-checks" },
-      { "name": "SSL Monitoring", "href": "/ssl-monitoring" },
-      { "name": "Global Monitoring", "href": "/global-monitoring" },
-      { "name": "Smart Alerting", "href": "/alerting" },
-      { "name": "Maintenance Mode", "href": "/maintenance-mode" }
-    ],
-    "analytics": [
-      { "name": "Analytics & Reports", "href": "/analytics" },
-      { "name": "Comprehensive Logs", "href": "/logs" },
-      { "name": "API & Webhooks", "href": "/api-webhooks" },
-      { "name": "MCP Integration", "href": "/mcp" },
-      { "name": "API Reference", "href": "https://docs.exit1.dev/api-reference" },
-      { "name": "Data Privacy", "href": "/data-privacy" }
-    ],
-    "support": [
-      { "name": "Documentation", "href": "https://docs.exit1.dev" },
-      { "name": "Help & Community", "href": "https://discord.gg/uZvWbpwJZS" },
-{ "name": "Release Notes", "href": "https://app.exit1.dev/release-notes" },
-      { "name": "Contact", "href": "/contact" },
-      { "name": "GitHub", "href": "https://github.com/Mopra/exit1.dev" },
-      { "name": "LLMs.txt", "href": "/llms.txt" }
-    ],
-    "tools": [
-      { "name": "SSL Checker", "href": "/tools/ssl-checker" },
-      { "name": "Domain Checker", "href": "/tools/domain-expiration-checker" },
-      { "name": "DNS Checker", "href": "/tools/dns-checker" },
-      { "name": "API Status Checker", "href": "/tools/api-status-checker" },
-      { "name": "Ping Test", "href": "/tools/ping-test" },
-      { "name": "Live Status", "href": "/status" }
-    ],
-    "compare": [
-      { "name": "All comparisons", "href": "/compare" },
-      { "name": "vs UptimeRobot", "href": "/compare/uptimerobot" },
-      { "name": "vs Pingdom", "href": "/compare/pingdom" },
-      { "name": "vs Better Stack", "href": "/compare/better-stack" },
-      { "name": "vs Freshping", "href": "/compare/freshping" },
-      { "name": "vs StatusCake", "href": "/compare/statuscake" },
-      { "name": "vs Hyperping", "href": "/compare/hyperping" }
-    ],
-    "legal": [
-      { "name": "Privacy Policy", "href": "/privacy" },
-      { "name": "Terms of Service", "href": "https://app.exit1.dev/terms" },
-      { "name": "Sitemap", "href": "/site-map" },
-      { "name": "About", "href": "/about" },
-      { "name": "Cookie Settings", "href": "#cookie-settings" }
-    ]
-  },
+  "_comment": "This is the site's only sitewide crawlable navigation. The header's mega-menu is a Radix NavigationMenu whose dropdown panels are unmounted until opened, so none of its links reach the server-rendered HTML. Every page that should receive internal link equity must therefore be listed here — if you add a route to the header menus, add it here too.",
+  "groups": [
+    {
+      "title": "Monitoring",
+      "links": [
+        { "name": "Uptime Monitoring", "href": "/free-uptime-monitor" },
+        { "name": "Website Monitoring", "href": "/free-website-monitor" },
+        { "name": "Live Checks", "href": "/live-checks" },
+        { "name": "SSL Monitoring", "href": "/ssl-monitoring" },
+        { "name": "Global Monitoring", "href": "/global-monitoring" },
+        { "name": "ICMP Monitoring", "href": "/icmp-monitoring" },
+        { "name": "WebSocket Monitoring", "href": "/websocket-monitoring" }
+      ]
+    },
+    {
+      "title": "Platform",
+      "links": [
+        { "name": "Smart Alerting", "href": "/alerting" },
+        { "name": "Status Pages", "href": "/status-pages" },
+        { "name": "Domain Intelligence", "href": "/domain-intelligence" },
+        { "name": "Maintenance Mode", "href": "/maintenance-mode" },
+        { "name": "Analytics & Reports", "href": "/analytics" },
+        { "name": "Comprehensive Logs", "href": "/logs" },
+        { "name": "API & Webhooks", "href": "/api-webhooks" },
+        { "name": "MCP Integration", "href": "/mcp" },
+        { "name": "Status Badges", "href": "/badges" }
+      ]
+    },
+    {
+      "title": "Free Tools",
+      "links": [
+        { "name": "All Tools", "href": "/tools" },
+        { "name": "Uptime Checker", "href": "/tools/uptime-checker" },
+        { "name": "Redirect Checker", "href": "/tools/redirect-checker" },
+        { "name": "Domain Expiry Checker", "href": "/tools/domain-expiration-checker" },
+        { "name": "SSL Checker", "href": "/tools/ssl-checker" },
+        { "name": "DNS Checker", "href": "/tools/dns-checker" },
+        { "name": "Nameserver Lookup", "href": "/tools/nameserver-lookup" },
+        { "name": "API Status Checker", "href": "/tools/api-status-checker" },
+        { "name": "Ping Test", "href": "/tools/ping-test" },
+        { "name": "Live Status", "href": "/status" }
+      ]
+    },
+    {
+      "title": "Compare",
+      "links": [
+        { "name": "All comparisons", "href": "/compare" },
+        { "name": "vs UptimeRobot", "href": "/compare/uptimerobot" },
+        { "name": "vs Pingdom", "href": "/compare/pingdom" },
+        { "name": "vs Better Stack", "href": "/compare/better-stack" },
+        { "name": "vs Freshping", "href": "/compare/freshping" },
+        { "name": "vs StatusCake", "href": "/compare/statuscake" },
+        { "name": "vs Hyperping", "href": "/compare/hyperping" }
+      ]
+    },
+    {
+      "title": "Resources",
+      "links": [
+        { "name": "Blog", "href": "/blog" },
+        { "name": "All Features", "href": "/features" },
+        { "name": "Pricing", "href": "/pricing" },
+        { "name": "Which plan are you?", "href": "/why-upgrade" },
+        { "name": "Getting Started", "href": "/getting-started" },
+        { "name": "Roadmap", "href": "/roadmap" },
+        { "name": "Documentation", "href": "https://docs.exit1.dev" },
+        { "name": "API Reference", "href": "https://docs.exit1.dev/api-reference" },
+        { "name": "LLMs.txt", "href": "/llms.txt" }
+      ]
+    },
+    {
+      "title": "Company",
+      "links": [
+        { "name": "About", "href": "/about" },
+        { "name": "Contact", "href": "/contact" },
+        { "name": "Help & Community", "href": "https://discord.gg/uZvWbpwJZS" },
+        { "name": "GitHub", "href": "https://github.com/Mopra/exit1.dev" },
+        { "name": "Release Notes", "href": "https://app.exit1.dev/release-notes" },
+        { "name": "Data Privacy", "href": "/data-privacy" },
+        { "name": "Privacy Policy", "href": "/privacy" },
+        { "name": "Terms of Service", "href": "https://app.exit1.dev/terms" },
+        { "name": "Sitemap", "href": "/site-map" },
+        { "name": "Cookie Settings", "href": "#cookie-settings" }
+      ]
+    }
+  ],
   "social": [],
   "copyright": "&copy; 2024 exit1.dev. Free uptime monitoring for everyone."
 }

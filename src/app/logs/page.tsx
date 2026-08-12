@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Website Monitoring Logs & History - Comprehensive Logging | exit1.dev",
+  title: "Website Monitoring Logs & History - Comprehensive Logging",
   description: "Detailed monitoring logs with advanced search, filtering, and export capabilities. Track your website performance history with comprehensive logging and analytics. Free logging for developers.",
   keywords: "monitoring logs, website logs, uptime history, monitoring history, log search, log filtering, log export, free logging, monitoring data",
   openGraph: {

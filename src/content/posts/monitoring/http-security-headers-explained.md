@@ -35,6 +35,8 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 **Best practice**: Start with a short `max-age` (e.g., 300 seconds) and increase after confirming HTTPS works everywhere.
 
+HSTS only helps once the browser has seen your site at least once, so the HTTP→HTTPS redirect in front of it still has to be correct. Trace it with the [redirect checker](/tools/redirect-checker): you want a single 301 from `http://` straight to the canonical `https://` origin. A chain that bounces through `www`, then a trailing-slash fix, then HTTPS gives an attacker several plaintext hops to work with — and costs every visitor a round trip per hop.
+
 ## Content-Security-Policy (CSP)
 
 **What it does**: Controls which resources (scripts, styles, images, fonts) can load on your page.
@@ -216,6 +218,7 @@ For continuous monitoring, exit1.dev checks your endpoints regularly and can ale
 ## Recommended Resources
 
 - [Free API Status Checker](/tools/api-status-checker) – Audit your security headers, response codes, and CORS configuration
+- [Free Website Uptime Checker](/tools/uptime-checker) – Grades security headers alongside DNS, SSL, performance, and content health
+- [Free Redirect Checker](/tools/redirect-checker) – Verify your HTTP→HTTPS redirect is a single clean hop
 - [Free SSL Checker](/tools/ssl-checker) – Verify your SSL/TLS configuration alongside security headers
 - [API Endpoint Monitoring Playbook](/blog/api-endpoint-monitoring-playbook-2025) – Build comprehensive API monitoring
-- [API Observability Automation Toolkit](/blog/api-endpoint-monitoring-playbook-2025) – Automate your monitoring stack

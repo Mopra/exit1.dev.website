@@ -26,6 +26,14 @@ export interface BlogPostMeta {
   htmlContent: string;
   headings: TocItem[];
   date: string;
+  /**
+   * Last substantive edit, from the `updated` frontmatter field, falling back
+   * to `date`. Deliberately NOT the file mtime: a git clone stamps every file
+   * with the checkout time, so on Vercel mtime would mark all 103 posts as
+   * modified on every deploy — both a false `dateModified` in Article schema
+   * and a sitemap that tells Google the whole blog just changed.
+   */
+  dateModified: string;
   formattedDate: string;
 }
 
@@ -117,6 +125,7 @@ export const getAllPosts = (): BlogPostMeta[] => {
     const stats = fs.statSync(filePath);
     const parsedDate = data.date ? new Date(data.date) : stats.mtime;
     const isoDate = parsedDate.toISOString();
+    const isoModified = (data.updated ? new Date(data.updated) : parsedDate).toISOString();
     const formattedDate = new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
       month: 'long',
@@ -147,6 +156,7 @@ export const getAllPosts = (): BlogPostMeta[] => {
       htmlContent: '', // Will be processed on demand
       headings: [], // Will be processed on demand
       date: isoDate,
+      dateModified: isoModified,
       formattedDate,
     });
   });
@@ -179,6 +189,7 @@ export const getPostBySlug = async (slug: string): Promise<BlogPostMeta | null> 
   const stats = fs.statSync(filePath);
   const parsedDate = data.date ? new Date(data.date) : stats.mtime;
   const isoDate = parsedDate.toISOString();
+  const isoModified = (data.updated ? new Date(data.updated) : parsedDate).toISOString();
   const formattedDate = new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'long',
@@ -221,6 +232,7 @@ export const getPostBySlug = async (slug: string): Promise<BlogPostMeta | null> 
     htmlContent: htmlWithIds,
     headings,
     date: isoDate,
+    dateModified: isoModified,
     formattedDate,
   };
 };

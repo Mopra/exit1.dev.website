@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "MCP Integration — Query Monitors from AI Assistants | exit1.dev",
+  title: "MCP Integration — Query Monitors from AI Assistants",
   description: "Connect exit1.dev to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more via the Model Context Protocol. Ask about uptime, failures, and response times in natural language. No dashboards required.",
   keywords: "MCP, Model Context Protocol, AI monitoring, Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, uptime monitoring AI, conversational monitoring, AI assistant integration",
   openGraph: {

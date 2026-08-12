@@ -105,6 +105,9 @@ The fifteen features above are what to demand from a *provider*. This is what to
 - **Mixed-content scanning.** Catch `http://` assets on HTTPS pages before the browser warning does it for you.
 - **Performance as a first-class signal.** Alert on degradation, not just downtime. Latency creep is the early warning for the outage you haven't had yet.
 - **Apex and CNAME DNS coverage.** Route changes break sites more often than bad deploys.
+- **Redirect chains.** Every hop between the URL a user types and the page they get is latency you pay on the first request, and a place for an HTTPS downgrade to hide. Trace them with the [redirect checker](/tools/redirect-checker) and make sure the chain is one hop, not four.
+
+Working through that list by hand is tedious; the [free website uptime checker](/tools/uptime-checker) runs most of it in a single pass and grades each layer, which is a fast way to find out where to point your monitors.
 
 ### Audit your monitors monthly
 
@@ -119,8 +122,8 @@ Run your current provider through this free uptime monitor checklist. If they mi
 
 ## Recommended Free Monitoring Resources
 
-- [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
+- [Free Website Uptime Checker](/tools/uptime-checker) – Run the checklist against a live URL and see each layer graded.
+- [Free Redirect Checker](/tools/redirect-checker) – Trace the full redirect chain hop by hop.
 - [Best Free Uptime Monitoring Tools (2025)](/blog/best-free-uptime-monitoring-tools) – Compare the strongest free uptime monitor platforms and when to upgrade.
-- [Free Website Monitoring Tools 2025 Guide](/blog/best-free-uptime-monitoring-tools) – Evaluate which free website monitor fits your stack and alerting needs.
 - [Free Website Monitoring for Developers](/blog/free-website-monitoring-for-developers) – See how engineering teams automate alerts, SLO tracking, and reporting with a free website monitor.
 

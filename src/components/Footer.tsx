@@ -126,81 +126,29 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Navigation sections - stacked on mobile, grid on larger screens */}
-          <div className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:gap-y-10 lg:space-y-0">
-            <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                Monitoring
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {content.navigation.monitoring.map((item) => (
-                  <li key={item.name}>
-                    {renderLink(item)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                Analytics & Tools
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {content.navigation.analytics.map((item) => (
-                  <li key={item.name}>
-                    {renderLink(item)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                Tools
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {content.navigation.tools.map((item) => (
-                  <li key={item.name}>
-                    {renderLink(item)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                Compare
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {content.navigation.compare.map((item) => (
-                  <li key={item.name}>
-                    {renderLink(item)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                Support
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {content.navigation.support.map((item) => (
-                  <li key={item.name}>
-                    {renderLink(item)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                Legal
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {content.navigation.legal.map((item) => (
-                  <li key={item.name}>
-                    {renderLink(item)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          {/* Navigation sections - stacked on mobile, grid on larger screens.
+              This is the site's only crawlable sitewide nav: the header's
+              mega-menu panels are unmounted until opened, so they contribute
+              nothing to the server-rendered HTML. Keep footer.json complete. */}
+          <nav
+            aria-label="Footer"
+            className="space-y-8 lg:col-span-2 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:gap-y-10 lg:space-y-0"
+          >
+            {content.groups.map((group) => (
+              <div key={group.title}>
+                <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
+                  {group.title}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {group.links.map((item) => (
+                    <li key={item.name}>
+                      {renderLink(item)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
         </div>
         
 {/* Copyright - centered on mobile, right-aligned on larger screens */}

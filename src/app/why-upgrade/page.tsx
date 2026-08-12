@@ -5,7 +5,7 @@ import { Reveal } from '@/components/home/Reveal';
 import { Eyebrow } from '@/components/home/Eyebrow';
 
 export const metadata: Metadata = {
-  title: 'Which plan are you? | exit1.dev',
+  title: 'Which plan are you?',
   description:
     'Find yourself first. Indie is for solo makers who need a few things watched closely. Nano is for freelancers running many sites at a normal cadence. Pro is for teams with paying users and someone on call. Read the moment you outgrow each step, and the pain the next one solves.',
   openGraph: {

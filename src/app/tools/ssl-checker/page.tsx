@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
-  title: "Free SSL Checker Tool — Check SSL Certificate Instantly | exit1.dev",
+  title: "Free SSL Checker Tool — Check SSL Certificate Instantly",
   description:
     "Free SSL checker tool. Instantly check any website's SSL certificate status, expiration date, issuer, and security details. No signup required.",
   keywords:

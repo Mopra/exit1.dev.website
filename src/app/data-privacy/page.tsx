@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "GDPR Compliant Data Privacy | exit1.dev",
+  title: "GDPR Compliant Data Privacy",
   description: "GDPR compliant monitoring with transparent data handling and user control. Your data privacy is our priority with clear policies and complete control over your information. Start using privacy-first monitoring for free.",
   openGraph: {
     title: "GDPR Compliant Data Privacy | exit1.dev",

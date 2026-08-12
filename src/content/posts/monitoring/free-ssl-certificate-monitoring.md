@@ -74,7 +74,7 @@ exit1.dev sends SSL alerts to whatever your team actually watches. The certifica
 
 - **Discord.** Ideal for community-facing servers and ops teams that live in Discord. Post expiry countdowns to a locked `#status` channel and ping roles like `@infrastructure` the moment a warning hits. Embeds make the domain, expiry date, and next step obvious at a glance, and threads keep renewal progress out of the main channel.
 
-- **Webhooks.** The automation hook. Wire alerts into your own pipeline to open tickets, trigger an ACME renewal, kick off a Terraform plan, or page on-call. See the [Slack and Discord webhook guide](/blog/webhook-alerts-slack-discord) for setup details.
+- **Webhooks.** The automation hook. Wire alerts into your own pipeline to open tickets, trigger an ACME renewal, kick off a Terraform plan, or page on-call. See the [Slack integration guide](/blog/free-uptime-monitor-slack-integration) or the [Discord integration guide](/blog/free-website-monitor-discord-integration) for setup details.
 
 You can mix channels: email for the audit trail, Slack or Discord for fast response, and webhooks for automation. Whatever the channel, make the message impossible to misread, domain, expiry date, issuer, and the runbook link, all visible without expanding anything.
 

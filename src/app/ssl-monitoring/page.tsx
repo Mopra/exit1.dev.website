@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "SSL Certificate Monitoring & Security Alerts | exit1.dev",
+  title: "SSL Certificate Monitoring & Security Alerts",
   description: "Monitor SSL certificate validity, expiration dates, and security issues automatically. Get alerts before certificates expire and ensure your websites stay secure. Free SSL monitoring for developers.",
   keywords: "SSL monitoring, certificate monitoring, SSL expiration, SSL alerts, certificate validity, SSL security, free SSL monitoring, certificate expiry alerts",
   openGraph: {

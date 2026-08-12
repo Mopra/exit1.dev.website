@@ -119,6 +119,8 @@ There are a handful of check types, from simplest to most thorough:
 
 Most beginners start with HTTP/HTTPS checks on their key pages and grow from there.
 
+If you want to see what one of these checks actually reports before you set anything up, run your homepage through the [free website uptime checker](/tools/uptime-checker). It grades the same layers a real monitor watches — reachability, DNS, SSL, security headers, TTFB and content — in a single pass, with nothing to sign up for.
+
 ## How to Get Started (in Minutes)
 
 You don't need a complex setup to begin. A solid first day looks like this:
@@ -189,7 +191,7 @@ Website monitoring isn't optional — it's the difference between you finding pr
 - Think with Google: Page load time statistics — https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/
 
 **Related Reading:**
-- [Get Started with Website Monitoring](/blog/get-started) — step-by-step setup guide
+- [Getting Started with exit1.dev](/getting-started) — step-by-step setup guide
 - [Best Website Monitoring Service 2025](/blog/best-free-uptime-monitoring-tools) — compare top tools
 - [Free vs Paid Website Monitoring](/blog/free-uptime-monitor-vs-paid) — when to upgrade
 - [Understanding Website Downtime](/blog/understanding-website-downtime) — causes and fixes

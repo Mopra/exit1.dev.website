@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { siteGraph } from "@/lib/siteSchema";
 import { HeroBadge } from "@/components/HeroBadge";
 import { FeatureCarousel } from "@/components/FeatureCarousel";
 import { Speed } from "@/components/home/Speed";
@@ -13,9 +15,43 @@ import { ClosingCTA } from "@/components/home/ClosingCTA";
 import { HeroCTA } from "@/components/home/HeroCTA";
 import { AgentSetupPrompt } from "@/components/home/AgentSetupPrompt";
 
+const title = "Free Uptime Monitor & Website Monitoring — exit1.dev";
+const description =
+  "Know before your customers do. Free uptime monitoring for websites, APIs and services with instant alerts, SSL and domain expiry tracking, and public status pages. 5 monitors free, no credit card. 15-second checks from $3/mo.";
+
+// The homepage previously exported no metadata at all, so it inherited the
+// root layout wholesale: no canonical of its own, and `card: "summary"` —
+// the small X card. It also had no opengraph-image, falling back to the
+// 500x500 logo.
+export const metadata: Metadata = {
+  title: { absolute: title },
+  description,
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    url: "https://exit1.dev",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
+  alternates: {
+    canonical: "https://exit1.dev",
+  },
+};
+
 export default function HomePage() {
   return (
     <>
+      {/* Site-wide entity graph — Organization, WebSite, founder, product.
+          Belongs on the canonical root, not on /about where it used to sit. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteGraph) }}
+      />
+
       <section className="lg:min-h-screen pt-28 lg:pt-[12vh] pb-20 overflow-x-clip">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <h1 className="text-[2.5rem] leading-[1.05] sm:text-6xl sm:leading-[0.95] md:text-7xl lg:text-8xl font-bold tracking-tight">

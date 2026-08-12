@@ -22,7 +22,7 @@ import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
   title:
-    "Free DNS Lookup Tool — Check All DNS Records Instantly | exit1.dev",
+    "Free DNS Lookup Tool — Check All DNS Records Instantly",
   description:
     "Free DNS lookup tool. Check A, AAAA, MX, NS, TXT, SOA, CAA, and CNAME records for any domain. Analyze email security (SPF & DMARC) and get a DNS health grade. No signup required.",
   keywords:

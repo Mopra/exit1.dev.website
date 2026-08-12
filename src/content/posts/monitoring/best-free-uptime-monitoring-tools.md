@@ -116,6 +116,10 @@ After testing every major free service, Exit1.dev wins on transparency and value
 
 ## How to Get Started in 2 Minutes
 
+Before you sign up anywhere, get a baseline: run your site through the [free website uptime checker](/tools/uptime-checker). It grades reachability, DNS, SSL, security headers, TTFB and content health in one pass, so you know which of these tools' features you actually need. No account, no limits.
+
+Then:
+
 1. Go to [Exit1.dev](https://app.exit1.dev/) and sign up — no credit card required.
 2. Add your website URLs (paste or bulk import).
 3. Configure email and/or webhook alerts.
@@ -161,6 +165,8 @@ Free monitoring only matters if it actually keeps you in the loop. UptimeRobot w
 
 ## Recommended Free Monitoring Resources
 
+- [Free Website Uptime Checker](/tools/uptime-checker) – One-off deep check: is the site online and healthy, layer by layer.
+- [Free Redirect Checker](/tools/redirect-checker) – Trace 301/302/307/308 chains hop by hop before they cost you response time.
 - [Free Uptime Monitor Checklist](/blog/free-uptime-monitor-checklist) – Step-by-step actions to configure a free uptime monitor that catches incidents fast.
 - [Free Website Monitoring for Developers](/blog/free-website-monitoring-for-developers) – See how engineering teams automate alerts, SLO tracking, and reporting with a free website monitor.
 - [Free vs Paid Website Monitoring](/blog/free-uptime-monitor-vs-paid) – When it's worth upgrading from a free tier.

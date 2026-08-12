@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Global Website Monitoring - Multi-Location Uptime Monitoring | exit1.dev",
+  title: "Global Website Monitoring - Multi-Location Uptime Monitoring",
   description: "Monitor your websites from multiple global locations for comprehensive coverage. Detect regional issues, network problems, and ensure your services work worldwide. Free global monitoring for developers.",
   keywords: "global monitoring, multi-location monitoring, worldwide monitoring, regional monitoring, network monitoring, global uptime, free global monitoring, worldwide website monitoring",
   openGraph: {

@@ -8,6 +8,7 @@ import { CardContent } from '@/components/ui/card';
 import { InsetCard } from '@/components/InsetCard';
 import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
+import { FOUNDER_ID, ORG_ID, SITE_URL, WEBSITE_ID } from '@/lib/siteSchema';
 
 export default function AboutPage() {
   const [email, setEmail] = useState('');
@@ -23,48 +24,33 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
+          // The Organization / WebSite / Person definitions live on the
+          // homepage (src/lib/siteSchema.ts) with absolute @ids. This page
+          // only *references* them. Previously it redefined the graph here
+          // using bare `#org` fragments, which resolve against /about — so the
+          // brand entity was bound to this page, and every `publisher` and
+          // `about` reference dangled because no node declared that id.
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
               {
-                "@type": ["Organization","SoftwareApplication"],
-                "name": "exit1.dev",
-                "url": "https://exit1.dev",
-                "applicationCategory": "MonitoringApplication",
-                "offers": {
-                  "@type": "Offer",
-                  "price": "0",
-                  "priceCurrency": "USD"
-                },
-                "description": "Uptime monitoring with four plans — Free (5 monitors, 5-min checks), Indie ($4/mo, 10 monitors, 15-sec checks, API + MCP), Nano ($9/mo, 100 monitors, 2-min checks), and Pro ($24/mo, 1,000 monitors, 15-sec checks, SMS + API). SSL alerts and instant notifications included.",
-                "publisher": { "@id": "#org" }
-              },
-              {
-                "@type": "Person",
-                "@id": "#founder",
-                "name": "Morten Pradsgaard",
-                "jobTitle": "Founder & CTO",
-                "url": "https://exit1.dev/about",
-                "email": "mailto:connect@exit1.dev"
-              },
-              {
-                "@type": "WebSite",
-                "name": "exit1.dev",
-                "url": "https://exit1.dev",
-                "inLanguage": "en",
-                "publisher": { "@id": "#org" },
-                "potentialAction": {
-                  "@type": "SearchAction",
-                  "target": "https://exit1.dev/blog?search={query}",
-                  "query-input": "required name=query"
-                }
+                "@type": "AboutPage",
+                "@id": `${SITE_URL}/about#webpage`,
+                "url": `${SITE_URL}/about`,
+                "name": "About Exit1.dev & The Person Behind It",
+                "isPartOf": { "@id": WEBSITE_ID },
+                "about": { "@id": ORG_ID },
+                "mainEntity": { "@id": FOUNDER_ID },
+                "publisher": { "@id": ORG_ID }
               },
               {
                 "@type": "Blog",
+                "@id": `${SITE_URL}/blog#blog`,
                 "name": "Exit1.dev Blog",
-                "url": "https://exit1.dev/blog",
-                "about": { "@id": "#org" },
-                "author": { "@id": "#founder" }
+                "url": `${SITE_URL}/blog`,
+                "about": { "@id": ORG_ID },
+                "author": { "@id": FOUNDER_ID },
+                "publisher": { "@id": ORG_ID }
               }
             ]
           })

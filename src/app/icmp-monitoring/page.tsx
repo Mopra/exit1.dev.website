@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Free ICMP Ping Monitoring | Network Uptime & Latency Checks | exit1.dev",
+  title: "Free ICMP Ping Monitoring | Network Uptime & Latency Checks",
   description: "Monitor network hosts with free ICMP ping checks. Track uptime, round-trip latency, and TTL for servers, routers, and infrastructure. Instant alerts when hosts go down. No credit card required.",
   keywords: "ICMP monitoring, ping monitoring, network monitoring, free ping monitor, host availability, latency monitoring, RTT monitoring, server ping, uptime monitoring, infrastructure monitoring",
   openGraph: {

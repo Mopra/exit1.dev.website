@@ -210,7 +210,7 @@ Enterprise: Uptrends.
 
 [Start exit1.dev](https://exit1.dev)
 
-Related: [Best Service](/blog/best-free-uptime-monitoring-tools), [Free vs Paid](/blog/free-uptime-monitor-vs-paid), [101](/blog/intro-to-website-monitoring), [Get Started](/blog/get-started) 
+Related: [Best Service](/blog/best-free-uptime-monitoring-tools), [Free vs Paid](/blog/free-uptime-monitor-vs-paid), [101](/blog/intro-to-website-monitoring), [Get Started](/getting-started) 
 
 ## Recommended Free Monitoring Resources
 

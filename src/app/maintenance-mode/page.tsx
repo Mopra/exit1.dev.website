@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Maintenance Mode — Suppress Alerts During Planned Downtime | exit1.dev",
+  title: "Maintenance Mode — Suppress Alerts During Planned Downtime",
   description: "Schedule maintenance windows to suppress alerts and protect uptime stats during planned deployments. Immediate, scheduled, and recurring windows. No false alarms, no polluted uptime data.",
   keywords: "maintenance mode, maintenance window, suppress alerts, planned downtime, uptime monitoring, scheduled maintenance, recurring maintenance, alert suppression",
   openGraph: {

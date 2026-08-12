@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Website Monitoring API & Webhooks - REST API Integration | exit1.dev",
+  title: "Website Monitoring API & Webhooks - REST API Integration",
   description: "Integrate website monitoring into your workflows with our comprehensive REST API and webhooks. Get real-time data, manage monitors programmatically, and build custom integrations. Free API access for developers.",
   keywords: "monitoring API, webhooks, REST API, monitoring integration, API access, webhook notifications, monitoring automation, free API, monitoring webhooks",
   openGraph: {

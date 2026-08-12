@@ -7,7 +7,8 @@ import { Metadata } from 'next';
 import { competitors } from '@/content/competitors';
 
 export const metadata: Metadata = {
-  title: 'Compare Uptime Monitors | exit1.dev vs UptimeRobot vs Better Stack vs Hyperping',
+  // `absolute` — brand sits mid-title here, so the template would repeat it.
+  title: { absolute: 'Compare Uptime Monitors | exit1.dev vs UptimeRobot vs Better Stack vs Hyperping' },
   description:
     'Tier-by-tier comparison of exit1.dev against UptimeRobot, Better Stack, Hyperping, and Pingdom. Matching free plans against free plans, and similarly-priced paid plans against each other.',
   openGraph: {

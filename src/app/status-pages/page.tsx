@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Public Status Pages | exit1.dev",
+  title: "Public Status Pages",
   description: "Create beautiful public status pages to share your service health with customers. Real-time updates, 30-day history, and drag & drop builder.",
   keywords: "public status page, uptime status page, service status page, status page builder, status page hosting, uptime monitoring status page, customer status page, SaaS status page, website status page",
   openGraph: {

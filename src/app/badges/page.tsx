@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Embeddable Status Badges | exit1.dev",
+  title: "Embeddable Status Badges",
   description: "Add real-time status, uptime percentage, and response time badges to your README, docs, or website. SVG badges that update automatically every 5 minutes.",
   keywords: "status badge, uptime badge, response time badge, embeddable badge, readme badge, uptime monitor badge, service status badge, svg status badge, website uptime badge",
   openGraph: {

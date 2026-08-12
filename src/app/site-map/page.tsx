@@ -9,7 +9,7 @@ import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
 
 export const metadata: Metadata = {
-  title: "Sitemap | exit1.dev",
+  title: "Sitemap",
   description: "Complete sitemap of exit1.dev - Find all pages, features, and resources for our website monitoring platform.",
   openGraph: {
     title: "Sitemap | exit1.dev",

@@ -22,7 +22,7 @@ import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
   title:
-    "Free API Status Checker — Check Endpoint Health, Headers & Security | exit1.dev",
+    "Free API Status Checker — Check Endpoint Health, Headers & Security",
   description:
     "Free API status checker tool. Instantly check any API endpoint's uptime, response time, security headers, CORS configuration, and redirect chain. No signup required.",
   keywords:

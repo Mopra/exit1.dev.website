@@ -14,9 +14,13 @@ Something isn't loading. Is the site actually down, or is it your connection? Is
 
 Before you start debugging your own setup, verify the problem with an independent check.
 
-## Quick Answer: Use the Free API Status Checker
+## Quick Answer: Run an Independent Check
 
-Our [free API status checker](/tools/api-status-checker) lets you check any URL instantly. Enter the address and get:
+Which tool you reach for depends on what you are checking.
+
+**For a website**, use the [free website uptime checker](/tools/uptime-checker). Paste the address and it runs a deep check in one pass — whether the site answers at all, plus DNS, SSL, security headers, TTFB and content health, each graded so you can see which layer is broken rather than just "up" or "down".
+
+**For an API endpoint**, use the [free API status checker](/tools/api-status-checker). Enter the address and get:
 
 - **HTTP status code** (200, 301, 403, 500, etc.)
 - **Response time** in milliseconds
@@ -24,7 +28,7 @@ Our [free API status checker](/tools/api-status-checker) lets you check any URL 
 - **CORS configuration** check
 - **Redirect chain** analysis
 
-If the tool returns a 200 with fast response time, the site is up and the problem is on your end. If it returns a 5xx error or times out, the site is genuinely down.
+Either way the read is the same: a 200 with a fast response time means the site is up and the problem is on your end. A 5xx or a timeout means it is genuinely down.
 
 ## Understanding HTTP Status Codes
 
@@ -61,7 +65,7 @@ The [API status checker](/tools/api-status-checker) shows you which code the ser
 
 ### Step 1: Check from an independent source
 
-Don't rely on your own browser. Your local DNS cache, corporate proxy, or ISP could be the problem. Use the [API status checker](/tools/api-status-checker) to test from an external location.
+Don't rely on your own browser. Your local DNS cache, corporate proxy, or ISP could be the problem. Run the [website uptime checker](/tools/uptime-checker) to test from an external location — if it reports the site online while your browser doesn't, the fault is local to you.
 
 ### Step 2: Check DNS resolution
 
@@ -146,7 +150,9 @@ Start with a quick check using the [API status checker](/tools/api-status-checke
 
 ## Recommended Resources
 
+- [Free Website Uptime Checker](/tools/uptime-checker) – Is the site online and healthy? Graded checks across DNS, SSL, security, performance, and content
 - [Free API Status Checker](/tools/api-status-checker) – Check any URL's status, response time, and security headers
+- [Free Redirect Checker](/tools/redirect-checker) – Trace the full 301/302/307/308 chain hop by hop
 - [Free Ping Test](/tools/ping-test) – Test network connectivity and latency
 - [Free SSL Checker](/tools/ssl-checker) – Verify SSL certificate validity
 - [Free Domain Expiration Checker](/tools/domain-expiration-checker) – Make sure your domain hasn't expired

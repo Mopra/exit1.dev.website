@@ -30,7 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const url = `https://exit1.dev/compare/${c.slug}`;
   return {
-    title: c.seoTitle,
+    // `absolute` — every competitor seoTitle already reads "X vs exit1.dev",
+    // so the root layout's "%s | exit1.dev" template would repeat the brand.
+    title: { absolute: c.seoTitle },
     description: c.seoDescription,
     keywords: c.keywords,
     alternates: { canonical: url },

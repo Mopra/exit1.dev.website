@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Roadmap - Exit1.dev',
+  title: 'Roadmap',
   description: 'See what we\'re building next for Exit1.dev monitoring platform',
 };
 

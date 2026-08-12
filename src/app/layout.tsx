@@ -59,7 +59,15 @@ const siteDescription = "The best free uptime and website monitoring stack with 
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://exit1.dev"),
-  title: siteTitle,
+  // `template` gives every page that sets a bare `title` a consistent brand
+  // suffix. Before this, page titles drifted across three formats ("Roadmap -
+  // Exit1.dev", "X | exit1.dev", and bare) and pages with no metadata silently
+  // shipped the homepage's title verbatim. Pages that already carry their own
+  // suffix, or want none, use `title: { absolute: "..." }`.
+  title: {
+    default: siteTitle,
+    template: "%s | exit1.dev",
+  },
   description: siteDescription,
   icons: {
     icon: '/e_.svg',
@@ -82,7 +90,10 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    // `summary` renders the small square card. Every route that matters now
+    // sets its own twitter block, but the default should still be the large
+    // card so a page that forgets one doesn't ship a thumbnail.
+    card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
     images: ["/e_-logo-large.png"],

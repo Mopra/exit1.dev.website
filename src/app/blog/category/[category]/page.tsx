@@ -37,7 +37,7 @@ export async function generateMetadata({
   const title = `${cat.name}: Guides & Best Practices`;
 
   return {
-    title: `${title} | exit1.dev`,
+    title,
     description: cat.description,
     openGraph: {
       title,

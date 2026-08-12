@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Live Website Monitoring — Streamed Probes, Sub-Second Charts | exit1.dev",
+  title: "Live Website Monitoring — Streamed Probes, Sub-Second Charts",
   description: "Live website monitoring that actually streams. Watch HTTP probes paint in your browser the moment they finish — over a dedicated WebSocket, not on a 30-second polling refresh. Per-stage DNS / Connect / TLS / TTFB phases, drag-to-zoom charts, CSV/JSON probe export.",
   keywords: "live website monitoring, live response time chart, real-time uptime dashboard, streaming uptime monitoring, websocket monitoring dashboard, live HTTP probe stream, real-time TTFB monitoring, live API monitoring",
   openGraph: {

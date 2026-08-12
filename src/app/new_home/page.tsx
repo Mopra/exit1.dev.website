@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
+
+// Homepage redesign draft. It was indexable and inherited the root layout's
+// title verbatim, so it shipped as a straight duplicate of `/` — same title
+// tag, near-identical pitch. Kept for iteration, kept out of the index.
+// Also excluded from sitemap.ts. Delete this route once the redesign lands.
+export const metadata: Metadata = {
+  title: "Homepage draft (internal)",
+  robots: { index: false, follow: false },
+};
 
 type CarouselItem = { src: string; alt: string } | { label: string };
 

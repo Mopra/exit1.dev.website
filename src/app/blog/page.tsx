@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: `${blogData.title} | exit1.dev`,
+  title: blogData.title,
   description: blogData.subtitle,
   openGraph: {
     title: blogData.title,

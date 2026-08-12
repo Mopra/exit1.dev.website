@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Website Monitoring Alerts & Notifications - Smart Alerting | exit1.dev",
+  title: "Website Monitoring Alerts & Notifications - Smart Alerting",
   description: "Smart website monitoring alerts with webhooks, email notifications, and custom rules. Prevent alert fatigue with intelligent suppression and instant notifications. Free alerting for developers.",
   keywords: "monitoring alerts, website alerts, uptime alerts, webhook notifications, email alerts, alert fatigue, instant notifications, free alerting, monitoring notifications",
   openGraph: {

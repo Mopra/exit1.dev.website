@@ -3,6 +3,7 @@ import path from 'path';
 import { MetadataRoute } from 'next';
 import { POSTS_PER_PAGE } from '@/lib/blogPagination';
 import { getAllPublicMonitors, isIndexEntryMature } from '@/lib/publicMonitors';
+import { getAllPosts } from '@/lib/markdownLoader';
 import blogData from '@/content/blog.json';
 import { competitors } from '@/content/competitors';
 
@@ -19,6 +20,41 @@ function isoDay(ms: number): string {
 }
 
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+
+/**
+ * Routes that have a `page.tsx` but must never be advertised to crawlers.
+ *
+ * The filesystem scan below finds every `page.tsx`, which silently swept in
+ * redirect stubs and internal pages — a sitemap full of 301s and off-site
+ * bounces wastes crawl budget and tells Google the file is unmaintained.
+ *
+ * When adding a `redirect()` stub or an internal-only route, add it here.
+ */
+const SITEMAP_EXCLUDED_ROUTES = new Set<string>([
+  // Redirect stubs — the real 301 lives in next.config.js. Listing the source
+  // URL asks Google to crawl a page whose only job is to point elsewhere.
+  '/real-time-monitoring', // -> /live-checks
+  '/install', // -> /getting-started
+  '/product/alerting', // -> /alerting
+  '/product/analytics', // -> /analytics
+  '/product/global', // -> /global-monitoring
+  '/product/monitoring', // -> /live-checks
+  '/product/ssl-monitoring', // -> /ssl-monitoring
+
+  // Off-site bounces into the app. Nothing to index, and they leak crawl
+  // budget to a host we don't control.
+  '/dashboard',
+  '/signin',
+  '/signup',
+
+  // `/status` is emitted explicitly by the statusPages block below (with its
+  // own changeFrequency), so the filesystem scan would duplicate it.
+  '/status',
+
+  // Internal-only routes. Both also carry `robots: { index: false }`.
+  '/new_home', // homepage redesign draft
+  '/badge-lab', // component sandbox
+]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://exit1.dev';
@@ -48,6 +84,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         } else if (entry.name === 'page.tsx') {
           // Found a page
           const finalUrl = urlPath === '' ? '/' : urlPath;
+          if (SITEMAP_EXCLUDED_ROUTES.has(finalUrl)) {
+            continue;
+          }
           pages.push({
             url: finalUrl,
             changeFrequency: getChangeFreq(finalUrl),
@@ -81,30 +120,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticPages = await getStaticPages();
 
-  // Get blog posts dynamically
-  const postsDir = path.join(process.cwd(), 'src', 'content', 'posts');
-  const categories = await fs.readdir(postsDir);
-
-  const blogPosts: MetadataRoute.Sitemap = [];
-  for (const category of categories) {
-    const categoryDir = path.join(postsDir, category);
-    const files = await fs.readdir(categoryDir);
-
-    for (const file of files) {
-      if (file.endsWith('.md')) {
-        const slug = file.replace('.md', '');
-        // Real freshness signal: the post file's last modification time.
-        const stats = await fs.stat(path.join(categoryDir, file));
-
-        blogPosts.push({
-          url: `${baseUrl}/blog/${slug}`,
-          lastModified: isoDay(stats.mtime.getTime()),
-          changeFrequency: 'monthly',
-          priority: 0.7
-        });
-      }
-    }
-  }
+  // Blog posts. `lastModified` comes from the post's own frontmatter
+  // (`updated`, falling back to `date`) — NOT the file mtime, which was the
+  // previous source. Git does not preserve mtimes, so a fresh clone stamps
+  // every `.md` with the checkout time: on Vercel that made all 103 posts
+  // report a lastmod of "today" on every single deploy. That is exactly the
+  // "everything changed" recrawl storm the note at the top of this file warns
+  // against, and it made the freshness signal worthless.
+  const blogPosts: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: isoDay(new Date(post.dateModified).getTime()),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
 
   // Topic-cluster hub pages (/blog/category/<slug>) — dynamic segments are
   // skipped by the filesystem scan, so add them explicitly.

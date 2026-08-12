@@ -14,7 +14,7 @@ const cannesImages = [
   "/cannes/9dd57b6c-ceae-428a-9ddb-5d472e821ef4.avif",
 ];
 
-const title = "Monitoring Summit Cannes 2026 | exit1.dev";
+const title = "Monitoring Summit Cannes 2026";
 const description =
   "Join exit1 at the Monitoring Summit, Cannes 2026. Four days of ideas, real conversations, and the people building what comes next. Request your invitation.";
 

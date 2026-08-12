@@ -6,7 +6,7 @@ import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | exit1.dev",
+  title: "Privacy Policy",
   description: "Privacy policy for exit1.dev - Learn how we collect, use, and protect your data when using our website monitoring service.",
   openGraph: {
     title: "Privacy Policy | exit1.dev",

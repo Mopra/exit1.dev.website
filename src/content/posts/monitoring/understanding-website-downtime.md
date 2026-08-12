@@ -158,7 +158,7 @@ exit1.dev foundation. 1-min, global, intelligent. With planning, response, learn
 
 Goal: Minimize frequency, duration, learn.
 
-Related: [101](/blog/intro-to-website-monitoring), [Alerts](/blog/downtime-alerts-guide), [Real-time](/blog/importance-of-real-time-alerts), [Best Practices](/blog/website-monitoring-best-practices-2025)
+Related: [101](/blog/intro-to-website-monitoring), [Alerts](/blog/importance-of-real-time-alerts), [Real-time](/blog/importance-of-real-time-alerts), [Best Practices](/blog/website-monitoring-best-practices-2025)
 
 *Monitor with exit1.dev [here](https://app.exit1.dev/). Catch before outages.*
 

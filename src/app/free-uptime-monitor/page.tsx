@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
+  title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals',
   description:
     'exit1.dev is the blunt, free uptime monitor. 5 monitors with 5-minute checks, instant webhook + email alerts, SSL coverage. Upgrade to Indie ($4/mo) for 10 monitors and 15-second checks, Nano ($9/mo) for 100 monitors, or Pro ($24/mo) for 1,000 monitors and 3-year retention. No fake free tier.',
   keywords:

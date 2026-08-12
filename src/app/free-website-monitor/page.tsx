@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Website Monitor - Keep Shopify, WooCommerce & Jamstack Online | exit1.dev',
+  title: 'Free Website Monitor - Keep Shopify, WooCommerce & Jamstack Online',
   description:
     'exit1.dev delivers a free website monitor for ecommerce, landing pages, Jamstack, and marketing sites. 5 monitors with 5-minute checks free; paid plans scale to 1,000 monitors and 15-second intervals. SSL coverage, content validation, instant alerts.',
   keywords:

@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Domain Intelligence - Automatic Domain Expiration Monitoring | exit1.dev",
+  title: "Domain Intelligence - Automatic Domain Expiration Monitoring",
   description: "Never lose a domain to an expired registration again. Automatic domain expiration monitoring with smart alerts at 30, 14, 7, and 1 day before expiry. No spreadsheets, no missed emails - just protection.",
   keywords: "domain expiration monitoring, domain expiry alerts, domain renewal reminders, RDAP monitoring, domain tracking, domain management, domain expiration checker, domain expiry notification",
   openGraph: {

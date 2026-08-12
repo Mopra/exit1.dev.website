@@ -14,11 +14,11 @@ Nothing kills trust in monitoring faster than false positives. Once the team sto
 
 ## Start with the evidence
 
-Look at the raw response from the monitor before blaming the tool. Is it a TLS handshake failure, a [redirect loop](/tools/redirect-checker), or a timeout? Pipe responses to your warehouse via the [Exit1.dev CSV export](/blog/exit1-logs-to-warehouse-csv-excel) so you can spot patterns across regions and time. If you don’t store evidence, you’re guessing.
+Look at the raw response from the monitor before blaming the tool. Is it a TLS handshake failure, a [redirect loop](/tools/redirect-checker), or a timeout? Run the same URL through the [website uptime checker](/tools/uptime-checker) while the alert is still open — an out-of-band second opinion that grades DNS, SSL, headers and TTFB separately will usually tell you which layer moved. Then pipe responses to your warehouse via the [Exit1.dev CSV export](/blog/exit1-logs-to-warehouse-csv-excel) so you can spot patterns across regions and time. If you don’t store evidence, you’re guessing.
 
 ## Fix DNS and cache weirdness
 
-CDNs love to mask DNS mistakes. Monitor apex and `www` separately with the **Free Website Monitor** and verify TTLs aren’t excessively long. If you serve different content by region, make sure the monitor’s location matches the user base. For cache-heavy sites, add a header to bypass cache in one probe and compare it to a cached probe to detect stale or misconfigured layers.
+CDNs love to mask DNS mistakes. Monitor apex and `www` separately with the [free website monitor](/free-website-monitor) and verify TTLs aren’t excessively long. While you're there, check that one of the two actually redirects to the other rather than both serving 200s — the [redirect checker](/tools/redirect-checker) settles it in one pass, and a split apex/`www` is a duplicate-content problem as much as a monitoring one. If you serve different content by region, make sure the monitor’s location matches the user base. For cache-heavy sites, add a header to bypass cache in one probe and compare it to a cached probe to detect stale or misconfigured layers.
 
 ## Tighten assertions, don’t remove them
 

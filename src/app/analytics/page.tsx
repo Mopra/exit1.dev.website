@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Website Monitoring Analytics & Performance Reports | exit1.dev",
+  title: "Website Monitoring Analytics & Performance Reports",
   description: "Comprehensive website monitoring analytics with detailed reports, performance insights, and historical data. Track uptime, response times, and performance trends. Free analytics for developers.",
   keywords: "website analytics, monitoring analytics, uptime reports, performance metrics, response time tracking, free analytics, monitoring reports, website performance",
   openGraph: {

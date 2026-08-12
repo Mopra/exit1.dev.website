@@ -27,7 +27,7 @@ export async function generateMetadata({
 
   if (!Number.isInteger(pageNumber) || pageNumber <= 1) {
     return {
-      title: `${blogData.title} | exit1.dev`,
+      title: blogData.title,
       description: blogData.subtitle,
       alternates: {
         canonical: 'https://exit1.dev/blog',
@@ -36,7 +36,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${blogData.title} - Page ${pageNumber} | exit1.dev`,
+    title: `${blogData.title} - Page ${pageNumber}`,
     description: blogData.subtitle,
     openGraph: {
       title: `${blogData.title} - Page ${pageNumber}`,

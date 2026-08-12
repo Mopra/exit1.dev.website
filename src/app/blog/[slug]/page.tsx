@@ -13,6 +13,7 @@ import { InsetCard } from '@/components/InsetCard';
 import { PageHero } from '@/components/PageHero';
 import { PageContainer, PageSection, PageShell, SectionContent } from '@/components/PageLayout';
 import { RelatedPosts, pickRelatedPosts } from '@/components/RelatedPosts';
+import { FOUNDER_ID, ORG_ID, SITE_URL } from '@/lib/siteSchema';
 import blogData from '@/content/blog.json';
 
 export async function generateStaticParams() {
@@ -42,13 +43,20 @@ export async function generateMetadata({
   const seoTitle = post.seoTitle || post.title;
 
   return {
-    title: seoTitle,
+    // `absolute` keeps the root layout's "%s | exit1.dev" template off post
+    // titles — same reasoning as dropping the "- Blog" suffix above: the SERP
+    // pixel budget is better spent on keywords than on repeating the domain,
+    // which already shows in the breadcrumb line.
+    title: { absolute: seoTitle },
     description: post.metaDescription,
     openGraph: {
       title: post.title,
       description: post.metaDescription,
       type: 'article',
       authors: [post.author],
+      publishedTime: post.date,
+      modifiedTime: post.dateModified,
+      section: post.categoryName,
       url: `https://exit1.dev/blog/${post.slug}`,
     },
     // Mirror onto the twitter card so X uses the post copy + generated image
@@ -86,27 +94,30 @@ export default async function BlogPostPage({
     "description": post.excerpt,
     "author": {
       "@type": "Person",
+      "@id": FOUNDER_ID,
       "name": post.author,
       "url": "https://exit1.dev/about"
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Exit1.dev",
-      "url": "https://exit1.dev",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://exit1.dev/e_.svg"
-      }
-    },
+    // Reference the site Organization declared on `/` rather than redeclaring
+    // a second, competing brand entity here. The old inline logo also pointed
+    // at an SVG, which Google rejects for publisher.logo.
+    "publisher": { "@id": ORG_ID },
+    "isPartOf": { "@id": `${SITE_URL}/blog#blog` },
     "datePublished": post.date,
-    "dateModified": post.date,
+    // Was hardcoded to `post.date`, so every post claimed it had never been
+    // touched since publication. Now driven by the `updated` frontmatter field.
+    "dateModified": post.dateModified,
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `https://exit1.dev/blog/${post.slug}`
     },
+    // The generated per-post card (opengraph-image.tsx), not the author's
+    // headshot — which is what this used to point at.
     "image": {
       "@type": "ImageObject",
-      "url": "https://exit1.dev/Morten-Pradsgaard.jpg"
+      "url": `https://exit1.dev/blog/${post.slug}/opengraph-image`,
+      "width": 1200,
+      "height": 630
     },
     "articleSection": post.categoryName,
     "wordCount": post.content.split(/\s+/).length,

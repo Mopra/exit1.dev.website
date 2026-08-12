@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Free WebSocket Monitoring | WS & WSS Uptime Checks | exit1.dev",
+  title: "Free WebSocket Monitoring | WS & WSS Uptime Checks",
   description: "Monitor WebSocket endpoints with free WS and WSS health checks. Verify handshake connections, track latency, and get instant alerts when real-time services go down. No credit card required.",
   keywords: "WebSocket monitoring, WS monitoring, WSS monitoring, WebSocket health check, WebSocket uptime, real-time monitoring, WebSocket latency, free WebSocket monitor, WebSocket connection monitoring",
   openGraph: {
