@@ -9,7 +9,7 @@ import GlassSurface from '@/components/GlassSurface'
 
 import { Menu, X, ChevronRight, ArrowRight, Github, Star } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { GITHUB_REPO_URL, formatStarCount } from '@/lib/github'
+import { GITHUB_REPO_URL } from '@/lib/github'
 import { buildSignupUrl } from '@/lib/cta'
 
 const DISCORD_INVITE_URL = 'https://discord.gg/uZvWbpwJZS'
@@ -23,14 +23,14 @@ function DiscordIcon({ className }: { className?: string }) {
   )
 }
 
-// GitHub star pill — live count is real social proof and nudges a star.
-function GitHubStars({ stars, className }: { stars: number | null; className?: string }) {
+// GitHub star pill — nudges a star without claiming a count.
+function GitHubStars({ className }: { className?: string }) {
   return (
     <a
       href={GITHUB_REPO_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={stars != null ? `Star exit1.dev on GitHub — ${stars} stars` : 'Star exit1.dev on GitHub'}
+      aria-label="Star exit1.dev on GitHub"
       className={cn(
         'group inline-flex h-8 items-center gap-1.5 rounded-full border border-white/12 px-2.5 text-white/85 hover:border-white/25 hover:bg-white/5 hover:text-white transition-all duration-200 interactive',
         className
@@ -38,9 +38,6 @@ function GitHubStars({ stars, className }: { stars: number | null; className?: s
     >
       <Github className="h-4 w-4" />
       <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400 transition-transform duration-200 group-hover:scale-110" />
-      {stars != null && (
-        <span className="text-xs font-semibold tabular-nums">{formatStarCount(stars)}</span>
-      )}
     </a>
   )
 }
@@ -130,7 +127,7 @@ const featuresMenu = {
   footerLink: { name: "View all features", href: "/features" }
 }
 
-export default function Header({ githubStars }: { githubStars: number | null }) {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -340,7 +337,7 @@ export default function Header({ githubStars }: { githubStars: number | null }) 
 
           {/* CTA Buttons - Right */}
           <div className="hidden xl:flex items-center space-x-2">
-            <GitHubStars stars={githubStars} />
+            <GitHubStars />
             <DiscordLink />
             <Button
               variant="ghost"
@@ -365,7 +362,7 @@ export default function Header({ githubStars }: { githubStars: number | null }) 
 
           {/* Mobile: social + menu button - Right aligned */}
           <div className="flex xl:hidden items-center gap-1.5 ml-auto">
-            <GitHubStars stars={githubStars} />
+            <GitHubStars />
             <DiscordLink />
             <Button
               variant="ghost"

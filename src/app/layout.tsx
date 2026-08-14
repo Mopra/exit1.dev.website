@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import StickyCTABar from "@/components/StickyCTABar";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
-import { getGithubStars } from "@/lib/github";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -100,13 +99,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const githubStars = await getGithubStars();
-
   return (
     <html lang="en">
       <body
@@ -134,7 +131,7 @@ export default async function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <Header githubStars={githubStars} />
+        <Header />
         <main id="main-content">
           {children}
         </main>
