@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "exit1.dev — Free uptime monitoring for websites, APIs and services";
+export const alt = "exit1.dev: uptime monitoring with 15-second checks and live probe streaming";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -87,8 +87,8 @@ export default async function Image() {
               flexDirection: "column",
             }}
           >
-            <span>Your sites are online.</span>
-            <span style={{ color: "#277E61" }}>Until they aren&apos;t.</span>
+            <span>Uptime monitoring,</span>
+            <span style={{ color: "#277E61" }}>15 seconds at a time.</span>
           </div>
           <div
             style={{
@@ -100,12 +100,12 @@ export default async function Image() {
               display: "flex",
             }}
           >
-            Free uptime monitoring with instant alerts. Know before your customers do.
+            Live probe streaming with DNS, connect, TLS and TTFB on every check.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: "12px", marginTop: "32px" }}>
-          {["50 monitors free", "SSL & domain expiry", "Status pages", "REST API + MCP", "No credit card"].map(
+          {["15s checks", "Live probe stream", "1,000 monitors", "50 free, no card", "From $3/mo"].map(
             (label) => (
               <div
                 key={label}

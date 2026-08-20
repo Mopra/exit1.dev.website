@@ -17,7 +17,7 @@ import { AgentSetupPrompt } from "@/components/home/AgentSetupPrompt";
 
 const title = "Free Uptime Monitor & Website Monitoring — exit1.dev";
 const description =
-  "Know before your customers do. Free uptime monitoring for websites, APIs and services with instant alerts, SSL and domain expiry tracking, and public status pages. 50 monitors free, no credit card. Faster checks from $3/mo.";
+  "Uptime monitoring with checks down to 15 seconds and live probe streaming: watch DNS, connect, TLS and TTFB land in real time. 50 monitors free, no credit card. Paid plans from $3/mo.";
 
 // The homepage previously exported no metadata at all, so it inherited the
 // root layout wholesale: no canonical of its own, and `card: "summary"` —
@@ -55,13 +55,21 @@ export default function HomePage() {
       <section className="lg:min-h-screen pt-28 lg:pt-[12vh] pb-20 overflow-x-clip">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <h1 className="text-[2.5rem] leading-[1.05] sm:text-6xl sm:leading-[0.95] md:text-7xl lg:text-8xl font-bold tracking-tight">
-            Your sites are online.
+            Uptime monitoring,
             <br />
-            Until they aren’t.
+            15 seconds at a time.
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground">
-            Know before your customers do. Get an alert the second something breaks.
+            Watch every probe land as it happens, with DNS, connect, TLS and TTFB
+            timings on each one.
+          </p>
+
+          {/* Carries the claims the sentence above doesn't: speed, scale, price.
+              Nothing here restates the subhead, which is what let this drop to
+              one line. Same middot rhythm as the reassurance line under the CTA. */}
+          <p className="mx-auto mt-6 text-sm sm:text-base text-muted-foreground/80">
+            Checks down to 15s · Up to 1,000 monitors · Paid plans from $3/mo
           </p>
 
           {/* One-line route for devs who'd rather set this up from their editor. */}
