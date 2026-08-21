@@ -26,7 +26,7 @@ import { ToolsNav } from "@/components/ToolsNav";
 export const metadata: Metadata = {
   title: "Nameserver Lookup — Check Any Domain's Nameservers Free",
   description:
-    "Free nameserver lookup. Check NS records for any domain, see the IP addresses behind each nameserver, identify the DNS provider, and get a delegation health grade. No signup required.",
+    "Look up any domain's nameservers, the IPs behind each one, its DNS provider and a delegation health grade. Free, no signup.",
   keywords:
     "nameserver lookup, check nameservers, nameserver check, ns record lookup, check domain nameservers, find nameservers for domain, ns lookup, dns delegation check, who hosts my dns, soa record lookup",
   openGraph: {

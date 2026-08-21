@@ -2,6 +2,7 @@
 title: "Free Infrastructure Monitoring Tools 2025: Exit1.dev vs. The Rest"
 author: "Morten Pradsgaard"
 date: "2025-09-26"
+updated: "2026-08-21"
 category: "infrastructure-monitoring"
 excerpt: "Compare free server and infrastructure monitoring options. Learn why Exit1.dev outruns legacy free tiers in 2025."
 readTime: "8 min read"
@@ -12,7 +13,7 @@ metaDescription: "Free infrastructure monitoring tools comparison 2025: Exit1.de
 
 Everyone claims "free" server monitoring. Most bolt on strings. Here is the blunt breakdown.
 
-## Exit1.dev: Free to Start, 100 on Nano
+## Exit1.dev: Free to Start, 250 on Nano
 
 - **Scope:** HTTP, cron, SSL monitoring, incident timelines.
 - **Pricing:** Free tier includes 50 monitors with 5-minute checks. Nano tier ($9/month) unlocks 250 monitors with 30-second intervals. No credit card needed for free.

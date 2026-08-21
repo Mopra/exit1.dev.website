@@ -22,24 +22,24 @@ import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
   title:
-    "Free API Status Checker — Check Endpoint Health, Headers & Security",
+    "Free API Status Checker: Test Endpoint Health & Uptime",
   description:
-    "Free API status checker tool. Instantly check any API endpoint's uptime, response time, security headers, CORS configuration, and redirect chain. No signup required.",
+    "Check any API endpoint in one request: status code, response time, security headers, CORS and the full redirect chain. Free, no signup.",
   keywords:
     "api status checker, api health check, check api status, website status checker, http header checker, security header checker, cors checker, api uptime checker, endpoint checker, response time checker",
   openGraph: {
     title:
-      "Free API Status Checker — Check Endpoint Health, Headers & Security | exit1.dev",
+      "Free API Status Checker: Test Endpoint Health & Uptime | exit1.dev",
     description:
-      "Free API status checker tool. Instantly check any API endpoint's uptime, response time, security headers, CORS configuration, and redirect chain. No signup required.",
+      "Check any API endpoint in one request: status code, response time, security headers, CORS and the full redirect chain. Free, no signup.",
     type: "website",
     url: "https://exit1.dev/tools/api-status-checker",
   },
   twitter: {
     title:
-      "Free API Status Checker — Check Endpoint Health, Headers & Security | exit1.dev",
+      "Free API Status Checker: Test Endpoint Health & Uptime | exit1.dev",
     description:
-      "Free API status checker tool. Instantly check any API endpoint's uptime, response time, security headers, CORS configuration, and redirect chain. No signup required.",
+      "Check any API endpoint in one request: status code, response time, security headers, CORS and the full redirect chain. Free, no signup.",
     card: "summary_large_image",
   },
   alternates: {

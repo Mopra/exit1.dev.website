@@ -23,24 +23,24 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title:
-    "Free Website Uptime Checker — Check If Your Site Is Up & Healthy",
+    "Is My Website Up? Free Uptime and Health Checker",
   description:
-    "Free uptime checker tool. Instantly check if any website is online and healthy. Analyzes DNS, SSL, redirects, response time, security headers, and content health with detailed grades. No signup required.",
+    "Check if any website is up right now. Instant grades for DNS, SSL, redirects, response time and security headers. Free, no signup.",
   keywords:
     "uptime checker, website uptime checker, is my website down, website health check, check if website is up, website status checker, site uptime test, website availability checker, HSTS checker, security headers checker, TTFB checker, website performance checker",
   openGraph: {
     title:
-      "Free Website Uptime Checker — Check If Your Site Is Up & Healthy | exit1.dev",
+      "Is My Website Up? Free Uptime and Health Checker | exit1.dev",
     description:
-      "Free uptime checker tool. Instantly check if any website is online and healthy. Analyzes DNS, SSL, redirects, response time, security headers, and content health with detailed grades. No signup required.",
+      "Check if any website is up right now. Instant grades for DNS, SSL, redirects, response time and security headers. Free, no signup.",
     type: "website",
     url: "https://exit1.dev/tools/uptime-checker",
   },
   twitter: {
     title:
-      "Free Website Uptime Checker — Check If Your Site Is Up & Healthy | exit1.dev",
+      "Is My Website Up? Free Uptime and Health Checker | exit1.dev",
     description:
-      "Free uptime checker tool. Instantly check if any website is online and healthy. Analyzes DNS, SSL, redirects, response time, security headers, and content health with detailed grades. No signup required.",
+      "Check if any website is up right now. Instant grades for DNS, SSL, redirects, response time and security headers. Free, no signup.",
     card: "summary_large_image",
   },
   alternates: {

@@ -6,6 +6,7 @@ import { getAllPublicMonitors, isIndexEntryMature } from '@/lib/publicMonitors';
 import { getAllPosts } from '@/lib/markdownLoader';
 import blogData from '@/content/blog.json';
 import { competitors } from '@/content/competitors';
+import { movesAwaitingRecrawl } from '@/content/contentMoves';
 
 // NOTE — this route is ISR'd (it inherits the hourly revalidate from the
 // monitors fetch) and Vercel only charges write units when the output actually
@@ -182,6 +183,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
+  // Recently moved URLs, re-advertised so Google actually recrawls them.
+  //
+  // A 301 does nothing until Google refetches the old URL, and consolidation
+  // removes every route by which that happens: the post leaves the sitemap and
+  // its internal links get repointed. Measured 2026-08-21, the 2026-08-02 batch
+  // had split cleanly by whether Google happened to recrawl:
+  // /blog/free-cname-lookup-tool (crawled 08-17) had moved its canonical, while
+  // /blog/free-nameserver-lookup (crawled 08-01, one day before the deploy) was
+  // still indexed and still ranking at position 10 against its own destination.
+  //
+  // So keep the source discoverable, with lastModified set to the move date as
+  // the signal that it changed, until it ages out of the window. This is what
+  // Google's site-move guidance asks for. Search Console will file these under
+  // "Page with redirect", which is the goal state rather than a fault.
+  //
+  // Deliberately NOT priority 0: that reads as "never crawl", the opposite of
+  // the intent. Low but non-zero, below every canonical page.
+  // Date.now() is safe against the determinism note at the top of this file: it
+  // only picks the day used to age entries out, and the emitted lastModified is
+  // the fixed move date. Output therefore changes on the day a move expires, not
+  // on every regeneration.
+  const movedPages: MetadataRoute.Sitemap = movesAwaitingRecrawl(isoDay(Date.now())).map((m) => ({
+    url: `${baseUrl}${m.from}`,
+    changeFrequency: 'daily' as const,
+    priority: 0.1,
+    lastModified: m.since,
+  }));
+
   // Combine all. Pages without a known modification date simply omit
   // lastModified — a fabricated "now" is worse than none for crawlers.
   return [
@@ -200,6 +229,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...blogCategoryPages,
     ...blogPaginationPages,
     ...comparePages,
-    ...statusPages
+    ...statusPages,
+    ...movedPages
   ];
 }

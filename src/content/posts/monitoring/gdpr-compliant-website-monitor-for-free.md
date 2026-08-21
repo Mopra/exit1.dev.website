@@ -2,6 +2,7 @@
 title: "GDPR Compliant Website Monitor for Free"
 author: "Morten Pradsgaard"
 date: "2025-01-10"
+updated: "2026-08-21"
 category: "monitoring"
 excerpt: "Get a free website monitor that respects GDPR by default—no cookie popups, no data hoarding, just fast uptime alerts."
 readTime: "6 min read"
@@ -81,7 +82,7 @@ Generate a simple monitoring DPIA (Data Protection Impact Assessment). List endp
 
 Regulations will tighten. Competitors will upsell compliance as a premium feature. Skip the ransom. Exit1.dev's free tier already includes:
 
-- 5 free monitors with EU-based probes (100 on Nano $9/mo)
+- 50 free monitors with EU-based probes (250 on Nano $9/mo)
 - 5-minute checks on free tier, 30-second on Nano (15-second on Pro)
 - SSL expiry monitoring and performance baselines
 - Webhooks for your own automation, not theirs

@@ -2,6 +2,7 @@
 title: "Monitoring Practices 2025: What Pros Do"
 author: "Morten Pradsgaard"
 date: "2025-02-09"
+updated: "2026-08-21"
 category: "monitoring"
 excerpt: "Pro tips from Hotjar, Better Stack, Robotalp."
 readTime: "11 min read"
@@ -840,7 +841,7 @@ Comparison:
 comparison:
   exit1_dev:
     strengths:
-      - "5 free monitors, 5-min checks"
+      - "50 free monitors, 5-min checks"
       - "Indie: 100 monitors, 1-min, $4/mo"
       - "CLI friendly"
       - "Transparent"
