@@ -75,15 +75,18 @@ export default function HomePage() {
           {/* One-line route for devs who'd rather set this up from their editor. */}
           <AgentSetupPrompt />
 
-          <div className="mt-12 lg:mt-40 flex justify-center">
+          {/* Desktop-only decoration. Hovering the badge is the whole effect
+              and touch never fires it, so on a phone the hero goes straight
+              from the copy to the CTA rather than spending most of a viewport
+              on an inert pill and the beam's clearance. */}
+          <div className="hidden justify-center lg:mt-40 lg:flex">
             <HeroBadge />
           </div>
 
-          {/* Clears the laser's tail so the CTA always lands below it. Scales
-              with the badge font-size, so nudge this single value if the gap
-              drifts. lg-only: below that there is no laser to clear, and this
-              was leaving 360px of blank screen on top of the CTA. */}
-          <div aria-hidden className="hidden lg:block text-7xl h-[7.5em]" />
+          {/* Gap between the hero copy and the CTA. At lg it also has to clear
+              the laser's tail, hence the em height read against text-7xl; nudge
+              that single value if the beam and the button drift together. */}
+          <div aria-hidden className="h-12 sm:h-16 lg:text-7xl lg:h-[7.5em]" />
 
           <HeroCTA />
         </div>

@@ -18,10 +18,10 @@ const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
  * "until they aren't." It is purely ornamental, so it stays hidden from
  * assistive tech; the real call-to-action is the button + form beneath it.
  *
- * Below lg the badge shrinks to a static pill and the laser is dropped
- * entirely. Hover is the whole point of the effect and touch never fires it, so
- * mobile was spending roughly 585px of hero height on a 3px CSS line it could
- * not interact with, which pushed the CTA a full screen below the fold.
+ * Desktop only. The caller hides it below lg (see app/page.tsx), because hover
+ * is the whole point and touch never fires it, LaserBeam refuses to mount WebGL
+ * under 1024px anyway, and the badge plus the beam's clearance were costing a
+ * phone most of a viewport above the CTA. Sizing here can therefore assume lg.
  */
 export function HeroBadge() {
   const [hover, setHover] = useState(false);
@@ -69,10 +69,8 @@ export function HeroBadge() {
     >
       {/* Badge + laser group, sized to the badge so the laser's percentage-based
           positioning matches /badge-lab. Font-size lives on the wrapper so the
-          laser (h in em) scales with the badge. Perspective is lg-only because
-          the tilt exists to sell the beam's depth, and there is no beam below
-          lg. */}
-      <div className="relative text-3xl sm:text-4xl lg:text-7xl lg:[perspective:800px]">
+          laser (h in em) scales with the badge. */}
+      <div className="relative text-7xl" style={{ perspective: '800px' }}>
         <LaserBeam
           direction="down"
           color={color}
@@ -85,12 +83,13 @@ export function HeroBadge() {
           falloffStart={4.0}
           wispDensity={10}
           wispIntensity={10}
-          className="absolute left-1/2 top-19/28 hidden -translate-x-1/2 w-[140%] h-[8.33em] lg:block"
+          className="absolute left-1/2 top-19/28 -translate-x-1/2 w-[140%] h-[8.33em]"
         />
         <OnlineBadge
           hovered={hover}
           onHoverChange={setHover}
-          className="relative z-10 origin-bottom cursor-default lg:[transform:rotateX(22deg)]"
+          className="relative z-10 cursor-default"
+          style={{ transform: 'rotateX(22deg)', transformOrigin: 'center bottom' }}
         />
       </div>
     </div>
