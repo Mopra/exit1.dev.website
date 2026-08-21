@@ -75,13 +75,15 @@ export default function HomePage() {
           {/* One-line route for devs who'd rather set this up from their editor. */}
           <AgentSetupPrompt />
 
-          <div className="mt-20 lg:mt-40 flex justify-center">
+          <div className="mt-12 lg:mt-40 flex justify-center">
             <HeroBadge />
           </div>
 
-          {/* Spacer scales with the badge font-size so the CTA always lands
-              below the laser's tail. Nudge this single value if the gap drifts. */}
-          <div aria-hidden className="text-5xl sm:text-6xl lg:text-7xl h-[7.5em]" />
+          {/* Clears the laser's tail so the CTA always lands below it. Scales
+              with the badge font-size, so nudge this single value if the gap
+              drifts. lg-only: below that there is no laser to clear, and this
+              was leaving 360px of blank screen on top of the CTA. */}
+          <div aria-hidden className="hidden lg:block text-7xl h-[7.5em]" />
 
           <HeroCTA />
         </div>
