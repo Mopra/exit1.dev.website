@@ -258,8 +258,8 @@ export default function WhyUpgradePage() {
               <div className="md:col-span-6 md:col-start-7">
                 <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
                   Fifty monitors, five-minute checks, SSL tracking, a status page,
-                  the real-time Live view, and an API key with MCP access — free
-                  forever, no card, no clock. That is a real setup, not a trial.
+                  the real-time Live view, and an API key with MCP access, free
+                  forever, no card, no clock. That is a real setup, not a countdown.
                   You&rsquo;ll know you&rsquo;ve crossed the starting line when you
                   need to see faster, or when someone else starts reading the page
                   you built. That&rsquo;s where the three steps below begin.
@@ -453,7 +453,7 @@ export default function WhyUpgradePage() {
                           rel="noopener noreferrer"
                           className="group inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-primary outline-none transition-colors duration-200 hover:text-primary/80 focus-visible:underline"
                         >
-                          {`This is me — start with ${t.tier}`}
+                          {`This is me · start ${t.tier} free for 7 days`}
                           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
                         </a>
                       </div>
@@ -487,8 +487,8 @@ export default function WhyUpgradePage() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-5 max-w-md text-lg text-muted-foreground">
-              Every plan builds on the one below it. Cancel anytime, change tiers
-              whenever the moment comes.
+              Every plan builds on the one below it. Paid plans open with 7 days
+              free. Cancel anytime, change tiers whenever the moment comes.
             </p>
           </Reveal>
           <Reveal

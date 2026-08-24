@@ -324,7 +324,17 @@ const ProductPage: React.FC<ProductPageProps> = ({
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold mb-2">{nanoUpgrade.title}</h3>
-                      <p className="text-foreground/70 mb-4">{nanoUpgrade.description}</p>
+                      <p className="text-foreground/70 mb-3">{nanoUpgrade.description}</p>
+                      {/* Every `nanoUpgrade` block quotes a price, so the trial
+                          belongs here too. Stated once, centrally, rather than
+                          in each page's copy. */}
+                      <p className="text-sm text-foreground/60 mb-4">
+                        Every paid plan starts with a{" "}
+                        <span className="font-semibold text-foreground/80">
+                          7-day free trial
+                        </span>
+                        . Cancel before it ends and you are not charged.
+                      </p>
                       <div className="flex flex-col sm:flex-row gap-3">
                         <Button
                           asChild

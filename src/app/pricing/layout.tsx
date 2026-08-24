@@ -5,23 +5,23 @@ import type { Metadata } from 'next';
 // inherited the root layout's title and description verbatim — it shipped with
 // the exact same title tag as the homepage and had no canonical.
 export const metadata: Metadata = {
-  title: 'Pricing — Free Uptime Monitoring, Paid Plans From $3/mo',
+  title: 'Pricing: Free Uptime Monitoring, Paid Plans From $3/mo',
   description:
-    'Transparent uptime monitoring pricing. Free forever: 50 monitors, 5-minute checks, SSL monitoring, API + MCP access and a status page. Paid from $3/mo for 1-minute checks, scaling to 1,000 monitors, 15-second checks, SMS alerts and 3-year retention. No credit card to start.',
+    'Transparent uptime monitoring pricing. Free forever: 50 monitors, 5-minute checks, SSL monitoring, API + MCP access and a status page. Paid from $3/mo for 1-minute checks, scaling to 1,000 monitors, 15-second checks, SMS alerts and 3-year retention. Every paid plan starts with a 7-day free trial, and the Free plan needs no credit card at all.',
   keywords:
     'uptime monitoring pricing, website monitoring pricing, free uptime monitoring, cheap uptime monitor, uptime monitoring cost, website monitoring plans',
   openGraph: {
-    title: 'Pricing — Free Uptime Monitoring, Paid Plans From $3/mo',
+    title: 'Pricing: Free Uptime Monitoring, Paid Plans From $3/mo',
     description:
-      'Free forever: 50 monitors, 5-minute checks, SSL monitoring, API + MCP access and a status page. Paid from $3/mo for 1-minute checks, scaling to 1,000 monitors and 15-second checks.',
+      'Free forever: 50 monitors, 5-minute checks, SSL monitoring, API + MCP access and a status page. Paid from $3/mo for 1-minute checks, scaling to 1,000 monitors and 15-second checks, with a 7-day free trial on every paid plan.',
     type: 'website',
     url: 'https://exit1.dev/pricing',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pricing — Free Uptime Monitoring, Paid Plans From $3/mo',
+    title: 'Pricing: Free Uptime Monitoring, Paid Plans From $3/mo',
     description:
-      'Free forever: 50 monitors, 5-minute checks, SSL monitoring, API + MCP access and a status page. Paid from $3/mo for 1-minute checks, scaling to 1,000 monitors and 15-second checks.',
+      'Free forever: 50 monitors, 5-minute checks, SSL monitoring, API + MCP access and a status page. Paid from $3/mo for 1-minute checks, scaling to 1,000 monitors and 15-second checks, with a 7-day free trial on every paid plan.',
   },
   alternates: {
     canonical: 'https://exit1.dev/pricing',

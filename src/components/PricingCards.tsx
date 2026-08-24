@@ -145,6 +145,12 @@ const tierLabels: Record<TierKey, string> = {
 
 const tierOrder: TierKey[] = ["free", "indie", "nano", "pro"];
 
+// Every paid plan starts with a free trial. The trial itself is configured per
+// plan in the Clerk Dashboard (Subscription plans -> free trial); this constant
+// is display-only copy. Keep it in step with the dashboard and with TRIAL_DAYS
+// in the app repo (src/components/billing/plan-matrix-data.ts).
+const TRIAL_DAYS = 7;
+
 export function PricingCards() {
   const [isAnnual, setIsAnnual] = useState(true);
 
@@ -214,7 +220,12 @@ export function PricingCards() {
             priceLabel={t === "free" ? "$0" : `$${monthlyPrice[t]}`}
             priceSuffix="/mo"
             billingText={t === "free" ? "Always free" : billingText(t)}
-            ctaLabel={t === "free" ? "Get Started" : `Get ${tierLabels[t]}`}
+            ctaLabel={t === "free" ? "Get Started" : `Start ${TRIAL_DAYS}-day trial`}
+            ctaNote={
+              t === "free"
+                ? undefined
+                : `${TRIAL_DAYS} days free, then $${monthlyPrice[t]}/mo`
+            }
             ctaHref={t === "free" ? buildSignupUrl({ campaign: "pricing_free", medium: "pricing" }) : "https://app.exit1.dev/billing"}
             highlighted={t === "pro"}
           />
@@ -230,6 +241,8 @@ type PricingCardProps = {
   priceSuffix: string;
   billingText: string;
   ctaLabel: string;
+  /** Trial terms rendered under the CTA. Omitted on the Free card. */
+  ctaNote?: string;
   ctaHref: string;
   highlighted: boolean;
 };
@@ -240,6 +253,7 @@ function PricingCard({
   priceSuffix,
   billingText,
   ctaLabel,
+  ctaNote,
   ctaHref,
   highlighted,
 }: PricingCardProps) {
@@ -276,18 +290,23 @@ function PricingCard({
         <p className="text-foreground/60 mt-2 text-sm">{billingText}</p>
       </div>
 
-      <Button
-        asChild
-        className={`w-full rounded-full py-5 font-semibold self-start ${
-          isFree
-            ? `border ${theme.buttonOutline} bg-transparent`
-            : theme.buttonPrimary
-        }`}
-      >
-        <a href={ctaHref}>
-          {ctaLabel}
-        </a>
-      </Button>
+      <div className="self-start">
+        <Button
+          asChild
+          className={`w-full rounded-full py-5 font-semibold ${
+            isFree
+              ? `border ${theme.buttonOutline} bg-transparent`
+              : theme.buttonPrimary
+          }`}
+        >
+          <a href={ctaHref}>
+            {ctaLabel}
+          </a>
+        </Button>
+        {ctaNote && (
+          <p className="mt-2 text-center text-xs text-foreground/50">{ctaNote}</p>
+        )}
+      </div>
 
       <ul className="space-y-2.5">
         {tierHighlights[tier].map((f, i) => (

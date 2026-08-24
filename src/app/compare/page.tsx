@@ -304,8 +304,9 @@ export default function ComparePage() {
                   <h3 className="text-xl font-bold mb-2">Running 500+ monitors?</h3>
                   <p className="text-foreground/70 text-sm">
                     Exit1 Pro is $24/month (or $20 billed annually) for 1,000 monitors,
-                    15-second checks, and 3-year retention. For comparison: Hyperping Pro is
-                    $74/mo for 100 monitors, Checkly Team is $64/mo for 75 monitors.
+                    15-second checks, and 3-year retention, and it starts with a 7-day
+                    free trial. For comparison: Hyperping Pro is $74/mo for 100 monitors,
+                    Checkly Team is $64/mo for 75 monitors.
                   </p>
                 </div>
                 <Button

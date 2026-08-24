@@ -134,7 +134,7 @@ const PricingPage = () => {
           </h1>
 
           <p className="text-xl sm:text-2xl text-foreground/70 leading-relaxed max-w-2xl">
-            Start free with 50 monitors and API access. Scale up when you need faster checks, branding, or team features.
+            Start free with 50 monitors and API access. Every paid plan opens with a 7-day free trial, so you can try faster checks and branding before you pay.
           </p>
         </PageHero>
 
@@ -202,8 +202,11 @@ const PricingPage = () => {
             <div className="mt-20 text-center">
               <h2 className="text-2xl font-bold mb-4">Questions?</h2>
               <p className="text-foreground/70 mb-6 max-w-xl mx-auto">
-                The Free plan is genuinely free — no credit card, no trial period.
-                Save ~20% on any paid plan with annual billing. Cancel or change plans anytime.
+                The Free plan is genuinely free: no credit card, no time limit, no
+                expiry. Paid plans are the ones with the trial. Every one of them
+                starts with 7 days free, and you can cancel before it ends without
+                being charged. Save ~20% on any paid plan with annual billing, and
+                change plans anytime.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <Button

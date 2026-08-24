@@ -88,7 +88,7 @@ export default function AboutPage() {
                   <div className="mb-12">
                     <h2 className="text-xl sm:text-2xl font-semibold mb-4">What exit1.dev is</h2>
                     <p className="text-base sm:text-lg text-foreground/70 mb-4">
-                      Free, no-nonsense uptime monitoring. <strong>50 monitors. 5-minute checks. SSL monitoring. Instant alerts. API + MCP access.</strong> The essentials — done right, and actually free. Paid plans start at $4/mo (Indie) for 100 monitors and 1-minute checks, up to 1,000 monitors and 15-second checks on Pro.
+                      Free, no-nonsense uptime monitoring. <strong>50 monitors. 5-minute checks. SSL monitoring. Instant alerts. API + MCP access.</strong> The essentials, done right and actually free. Paid plans start at $4/mo (Indie) for 100 monitors and 1-minute checks, up to 1,000 monitors and 15-second checks on Pro, and every one of them opens with a 7-day free trial.
                     </p>
                   </div>
 

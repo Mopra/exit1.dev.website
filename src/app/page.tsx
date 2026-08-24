@@ -17,7 +17,7 @@ import { AgentSetupPrompt } from "@/components/home/AgentSetupPrompt";
 
 const title = "Free Uptime Monitor & Website Monitoring — exit1.dev";
 const description =
-  "Uptime monitoring with checks down to 15 seconds and live probe streaming: watch DNS, connect, TLS and TTFB land in real time. 50 monitors free, no credit card. Paid plans from $3/mo.";
+  "Uptime monitoring with checks down to 15 seconds and live probe streaming: watch DNS, connect, TLS and TTFB land in real time. 50 monitors free, no credit card. Paid plans from $3/mo, each with a 7-day free trial.";
 
 // The homepage previously exported no metadata at all, so it inherited the
 // root layout wholesale: no canonical of its own, and `card: "summary"` —
@@ -69,7 +69,7 @@ export default function HomePage() {
               Nothing here restates the subhead, which is what let this drop to
               one line. Same middot rhythm as the reassurance line under the CTA. */}
           <p className="mx-auto mt-6 text-sm sm:text-base text-muted-foreground/80">
-            Checks down to 15s · Up to 1,000 monitors · Paid plans from $3/mo
+            Checks down to 15s · Up to 1,000 monitors · Paid from $3/mo, 7 days free
           </p>
 
           {/* One-line route for devs who'd rather set this up from their editor. */}
