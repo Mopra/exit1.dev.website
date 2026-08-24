@@ -28,7 +28,8 @@ import {
  *
  * Deliberately two truncated lines. They only have to signal "run this, take
  * this": the full text lives on the clipboard, not on the page, and a
- * ten-line code block in the hero would bury the primary CTA.
+ * ten-line code block in the hero would bury the primary CTA. Sits below
+ * HeroCTA for the same reason: mid-hero it pushed the button below the fold.
  *
  * The /ai campaign landing page is the same idea given the whole page, and
  * shares CONNECT_CLIENTS and SETUP_PROMPT from lib/setupPrompt.
@@ -97,7 +98,7 @@ export function AgentSetupPrompt() {
     CONNECT_CLIENTS.find((c) => c.id === clientId) ?? CONNECT_CLIENTS[0];
 
   return (
-    <div className="mx-auto mt-16 sm:mt-20 flex w-full max-w-xl flex-col items-center px-4">
+    <div className="mx-auto mt-14 sm:mt-16 flex w-full max-w-xl flex-col items-center px-4">
       {/* Tool selector. Text-only pills so it reads as part of the terminal
           line above it, not as a component competing with the hero CTA. */}
       <div className="flex w-full flex-wrap items-center gap-1 pl-2" role="tablist" aria-label="Choose your AI tool">

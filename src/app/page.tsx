@@ -72,14 +72,11 @@ export default function HomePage() {
             Checks down to 15s · Up to 1,000 monitors · Paid from $3/mo, 7 days free
           </p>
 
-          {/* One-line route for devs who'd rather set this up from their editor. */}
-          <AgentSetupPrompt />
-
           {/* Desktop-only decoration. Hovering the badge is the whole effect
               and touch never fires it, so on a phone the hero goes straight
               from the copy to the CTA rather than spending most of a viewport
               on an inert pill and the beam's clearance. */}
-          <div className="hidden justify-center lg:mt-40 lg:flex">
+          <div className="hidden justify-center lg:mt-24 lg:flex">
             <HeroBadge />
           </div>
 
@@ -89,6 +86,11 @@ export default function HomePage() {
           <div aria-hidden className="h-12 sm:h-16 lg:text-7xl lg:h-[7.5em]" />
 
           <HeroCTA />
+
+          {/* Editor-first setup path. Below the primary CTA on purpose: it's
+              the second-most-important action, and mid-hero it separated the
+              pitch from the button. */}
+          <AgentSetupPrompt />
         </div>
       </section>
 
