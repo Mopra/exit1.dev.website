@@ -24,6 +24,15 @@ export const MCP_LOGIN_COMMAND = 'claude mcp login exit1';
 export const MCP_CONNECT_COMMANDS = `${MCP_ADD_COMMAND}
 ${MCP_LOGIN_COMMAND}`;
 
+/**
+ * Clipboard variant of MCP_CONNECT_COMMANDS. The trailing newline matters:
+ * without it, terminals execute the first line on paste and leave the login
+ * command sitting unexecuted at the prompt, which reads as "it only ran half."
+ * Use this for copy buttons, MCP_CONNECT_COMMANDS for display.
+ */
+export const MCP_CONNECT_COMMANDS_COPY = `${MCP_CONNECT_COMMANDS}
+`;
+
 export const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit1.
 
 1. Check whether the Exit1 tools (get_account, list_checks, create_check) are

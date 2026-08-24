@@ -4,7 +4,7 @@ import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import {
   MCP_ADD_COMMAND,
-  MCP_CONNECT_COMMANDS,
+  MCP_CONNECT_COMMANDS_COPY,
   SETUP_PROMPT,
   SETUP_PROMPT_PREVIEW,
 } from "@/lib/setupPrompt";
@@ -96,7 +96,7 @@ export function AgentSetupPrompt() {
       <CopyLine
         step="1"
         display={MCP_ADD_COMMAND}
-        copyText={MCP_CONNECT_COMMANDS}
+        copyText={MCP_CONNECT_COMMANDS_COPY}
         title="Copy connect commands"
         announce="Connect commands copied to clipboard"
       />

@@ -10,7 +10,11 @@ import { TrustedBy } from "@/components/home/TrustedBy";
 import { LazyAIChat } from "@/components/home/LazyAIChat";
 import { buildSignupUrl } from "@/lib/cta";
 import { COPY_PROMPT_EVENT, trackEvent } from "@/lib/analytics";
-import { MCP_CONNECT_COMMANDS, SETUP_PROMPT } from "@/lib/setupPrompt";
+import {
+  MCP_CONNECT_COMMANDS,
+  MCP_CONNECT_COMMANDS_COPY,
+  SETUP_PROMPT,
+} from "@/lib/setupPrompt";
 import { AgentSetupDemo } from "./AgentSetupDemo";
 
 const CAMPAIGN = "kickbacks_ai";
@@ -417,7 +421,7 @@ function CopyPrompt({ campaign, medium }: { campaign: string; medium: string }) 
     try {
       if (!navigator.clipboard?.writeText) return;
       await navigator.clipboard.writeText(
-        target === "commands" ? MCP_CONNECT_COMMANDS : SETUP_PROMPT,
+        target === "commands" ? MCP_CONNECT_COMMANDS_COPY : SETUP_PROMPT,
       );
       setCopied(target);
       window.setTimeout(() => setCopied(null), 2000);
