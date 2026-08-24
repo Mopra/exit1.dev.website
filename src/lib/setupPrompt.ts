@@ -15,8 +15,9 @@
 // terminal commands (connect + browser sign-in via `claude mcp login`), and the
 // prompt's step 1 only exists as a graceful bounce for people who paste first.
 
-export const MCP_ADD_COMMAND =
-  'claude mcp add --transport http exit1 https://app.exit1.dev/mcp/v1';
+export const MCP_REMOTE_URL = 'https://app.exit1.dev/mcp/v1';
+
+export const MCP_ADD_COMMAND = `claude mcp add --transport http exit1 ${MCP_REMOTE_URL}`;
 
 export const MCP_LOGIN_COMMAND = 'claude mcp login exit1';
 
@@ -38,6 +39,81 @@ export const MCP_CONNECT_COMMANDS = `${MCP_ADD_COMMAND} && ${MCP_LOGIN_COMMAND}`
  */
 export const MCP_CONNECT_COMMANDS_COPY = `${MCP_CONNECT_COMMANDS}
 `;
+
+// ---- Per-client connect snippets ----
+//
+// The connect step is the only part of the flow that differs per tool, so the
+// CTA carries a client selector and these are what it swaps between. The
+// setup prompt itself is client-agnostic. Keep the JSON shapes in step with
+// the tabs on app.exit1.dev/mcp (src/pages/Mcp.tsx in the exit1.dev repo).
+
+export type ConnectClient = {
+  id: string;
+  label: string;
+  /** One truncated line for the homepage hero. */
+  displayLine: string;
+  /** Full snippet where there is room to show it (the /ai panel). */
+  snippet: string;
+  /** Clipboard payload (trailing newline on shell commands so they run on paste). */
+  copyText: string;
+  /** Copy-button label; says what kind of thing lands on the clipboard. */
+  copyLabel: string;
+  /** One short line: where the snippet goes and how sign-in happens. */
+  hint: string;
+};
+
+const CURSOR_JSON = `{
+  "mcpServers": {
+    "exit1": { "type": "http", "url": "${MCP_REMOTE_URL}" }
+  }
+}`;
+
+const VSCODE_JSON = `{
+  "servers": {
+    "exit1": { "type": "http", "url": "${MCP_REMOTE_URL}" }
+  }
+}`;
+
+export const CONNECT_CLIENTS: ConnectClient[] = [
+  {
+    id: 'claude-code',
+    label: 'Claude Code',
+    displayLine: MCP_CONNECT_COMMANDS,
+    snippet: MCP_CONNECT_COMMANDS,
+    copyText: MCP_CONNECT_COMMANDS_COPY,
+    copyLabel: 'Copy command',
+    hint: 'Run in your terminal before starting claude. The login opens your browser to sign in.',
+  },
+  {
+    id: 'cursor',
+    label: 'Cursor',
+    displayLine: 'Copy JSON into .cursor/mcp.json, then approve the sign-in',
+    snippet: CURSOR_JSON,
+    copyText: `${CURSOR_JSON}
+`,
+    copyLabel: 'Copy JSON',
+    hint: 'Add to .cursor/mcp.json in your project (or ~/.cursor/mcp.json), then approve the sign-in Cursor prompts for.',
+  },
+  {
+    id: 'vscode',
+    label: 'VS Code',
+    displayLine: 'Copy JSON into .vscode/mcp.json, then complete the sign-in',
+    snippet: VSCODE_JSON,
+    copyText: `${VSCODE_JSON}
+`,
+    copyLabel: 'Copy JSON',
+    hint: 'Add to .vscode/mcp.json (or run MCP: Add Server from the Command Palette and pick HTTP), then complete the sign-in it prompts for.',
+  },
+  {
+    id: 'claude-desktop',
+    label: 'Claude Desktop',
+    displayLine: `Copy the URL into Settings > Connectors, then sign in`,
+    snippet: MCP_REMOTE_URL,
+    copyText: MCP_REMOTE_URL,
+    copyLabel: 'Copy URL',
+    hint: 'Settings > Connectors > Add custom connector, paste this URL, and sign in when prompted.',
+  },
+];
 
 export const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit1.
 

@@ -10,11 +10,8 @@ import { TrustedBy } from "@/components/home/TrustedBy";
 import { LazyAIChat } from "@/components/home/LazyAIChat";
 import { buildSignupUrl } from "@/lib/cta";
 import { COPY_PROMPT_EVENT, trackEvent } from "@/lib/analytics";
-import {
-  MCP_CONNECT_COMMANDS,
-  MCP_CONNECT_COMMANDS_COPY,
-  SETUP_PROMPT,
-} from "@/lib/setupPrompt";
+import { CONNECT_CLIENTS, SETUP_PROMPT } from "@/lib/setupPrompt";
+import { cn } from "@/lib/utils";
 import { AgentSetupDemo } from "./AgentSetupDemo";
 
 const CAMPAIGN = "kickbacks_ai";
@@ -42,7 +39,7 @@ const DEFAULT_MEDIUM = "cli_ad";
 const STEPS = [
   {
     title: "Connect it",
-    body: "One paste in your terminal. The login opens your browser to sign in. No API key, no config file. No account yet? You get one here.",
+    body: "Pick your tool, paste one snippet, sign in from your browser. No API key. No account yet? You get one here.",
   },
   {
     title: "Paste it",
@@ -416,16 +413,24 @@ export function AiLanding() {
  */
 function CopyPrompt({ campaign, medium }: { campaign: string; medium: string }) {
   const [copied, setCopied] = useState<"commands" | "prompt" | null>(null);
+  const [clientId, setClientId] = useState(CONNECT_CLIENTS[0].id);
+  const client =
+    CONNECT_CLIENTS.find((c) => c.id === clientId) ?? CONNECT_CLIENTS[0];
 
   const handleCopy = async (target: "commands" | "prompt") => {
     try {
       if (!navigator.clipboard?.writeText) return;
       await navigator.clipboard.writeText(
-        target === "commands" ? MCP_CONNECT_COMMANDS_COPY : SETUP_PROMPT,
+        target === "commands" ? client.copyText : SETUP_PROMPT,
       );
       setCopied(target);
       window.setTimeout(() => setCopied(null), 2000);
-      trackEvent(COPY_PROMPT_EVENT, { campaign, medium, target });
+      trackEvent(COPY_PROMPT_EVENT, {
+        campaign,
+        medium,
+        // Suffix the client so GA can tell which tool's snippet converts.
+        target: target === "commands" ? `commands_${client.id}` : target,
+      });
     } catch {
       // Clipboard can be blocked by permissions policy; leave the button idle
       // rather than claiming a copy that didn't happen.
@@ -434,7 +439,7 @@ function CopyPrompt({ campaign, medium }: { campaign: string; medium: string }) 
 
   return (
     <div className="flex h-[420px] flex-col overflow-hidden rounded-2xl bg-white/[0.03] p-4 sm:h-[440px] sm:p-5">
-      <div className="flex items-center justify-between gap-4 pb-3">
+      <div className="flex items-center justify-between gap-4 pb-2">
         <span className="font-mono text-xs text-muted-foreground">1 · connect</span>
         <Button
           type="button"
@@ -451,14 +456,36 @@ function CopyPrompt({ campaign, medium }: { campaign: string; medium: string }) 
           ) : (
             <>
               <Copy className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
-              Copy
+              {client.copyLabel}
             </>
           )}
         </Button>
       </div>
+      {/* Only the connect step differs per tool, so the selector lives here
+          and not on the prompt half below. */}
+      <div className="flex flex-wrap items-center gap-1 pb-2" role="tablist" aria-label="Choose your AI tool">
+        {CONNECT_CLIENTS.map((c) => (
+          <button
+            key={c.id}
+            type="button"
+            role="tab"
+            aria-selected={c.id === client.id}
+            onClick={() => setClientId(c.id)}
+            className={cn(
+              "cursor-pointer rounded-full px-2 py-0.5 font-mono text-[11px] transition-colors",
+              c.id === client.id
+                ? "bg-white/10 text-foreground/85"
+                : "text-muted-foreground hover:text-foreground/70",
+            )}
+          >
+            {c.label}
+          </button>
+        ))}
+      </div>
       <pre className="whitespace-pre-wrap break-all font-mono text-xs leading-relaxed text-foreground/65">
-        <code>{MCP_CONNECT_COMMANDS}</code>
+        <code>{client.snippet}</code>
       </pre>
+      <p className="pt-2 text-[11px] leading-snug text-muted-foreground">{client.hint}</p>
 
       <div className="my-4 h-px shrink-0 bg-white/[0.06]" />
 
