@@ -42,7 +42,7 @@ const DEFAULT_MEDIUM = "cli_ad";
 const STEPS = [
   {
     title: "Connect it",
-    body: "Two terminal commands. The second opens your browser to sign in. No API key, no config file. No account yet? You get one here.",
+    body: "One paste in your terminal. The login opens your browser to sign in. No API key, no config file. No account yet? You get one here.",
   },
   {
     title: "Paste it",

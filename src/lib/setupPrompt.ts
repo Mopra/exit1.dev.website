@@ -20,15 +20,21 @@ export const MCP_ADD_COMMAND =
 
 export const MCP_LOGIN_COMMAND = 'claude mcp login exit1';
 
-/** The connect-first CTA: run these in the terminal, then start the agent. */
-export const MCP_CONNECT_COMMANDS = `${MCP_ADD_COMMAND}
-${MCP_LOGIN_COMMAND}`;
+/**
+ * The connect-first CTA, deliberately ONE line chained with `&&`. Pasting two
+ * separate lines into a terminal is unreliable: in cmd.exe the first command's
+ * process grabs console input while it runs and swallows the second line, so
+ * the login step silently never executes (observed in a real run; a trailing
+ * newline did not fix it). `&&` runs in cmd, bash, zsh and PowerShell 7; only
+ * Windows PowerShell 5.1 rejects it, loudly, and those users can run the two
+ * halves separately.
+ */
+export const MCP_CONNECT_COMMANDS = `${MCP_ADD_COMMAND} && ${MCP_LOGIN_COMMAND}`;
 
 /**
- * Clipboard variant of MCP_CONNECT_COMMANDS. The trailing newline matters:
- * without it, terminals execute the first line on paste and leave the login
- * command sitting unexecuted at the prompt, which reads as "it only ran half."
- * Use this for copy buttons, MCP_CONNECT_COMMANDS for display.
+ * Clipboard variant of MCP_CONNECT_COMMANDS. The trailing newline makes the
+ * one-liner execute on paste instead of waiting for Enter. Use this for copy
+ * buttons, MCP_CONNECT_COMMANDS for display.
  */
 export const MCP_CONNECT_COMMANDS_COPY = `${MCP_CONNECT_COMMANDS}
 `;
