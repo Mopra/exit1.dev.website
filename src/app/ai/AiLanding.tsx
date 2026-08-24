@@ -10,7 +10,7 @@ import { TrustedBy } from "@/components/home/TrustedBy";
 import { LazyAIChat } from "@/components/home/LazyAIChat";
 import { buildSignupUrl } from "@/lib/cta";
 import { COPY_PROMPT_EVENT, trackEvent } from "@/lib/analytics";
-import { SETUP_PROMPT } from "@/lib/setupPrompt";
+import { MCP_CONNECT_COMMANDS, SETUP_PROMPT } from "@/lib/setupPrompt";
 import { AgentSetupDemo } from "./AgentSetupDemo";
 
 const CAMPAIGN = "kickbacks_ai";
@@ -37,12 +37,12 @@ const DEFAULT_MEDIUM = "cli_ad";
 // lists. State the thing and stop. Don't explain arithmetic they can do.
 const STEPS = [
   {
-    title: "Paste it",
-    body: "Claude Code, Cursor, Codex, VS Code, whatever you use. The connect command is in the prompt.",
+    title: "Connect it",
+    body: "Two terminal commands. The second opens your browser to sign in. No API key, no config file. No account yet? You get one here.",
   },
   {
-    title: "Click approve",
-    body: "OAuth in the browser. No API key, no config file. No account yet? You get one here.",
+    title: "Paste it",
+    body: "Claude Code, Cursor, Codex, VS Code, whatever you use. The agent reads the repo and proposes the checks.",
   },
   {
     title: "Read what it built",
@@ -118,7 +118,9 @@ export function AiLanding() {
         <div className="mx-auto mt-14 grid max-w-6xl gap-5 lg:grid-cols-2">
           <div>
             <CopyPrompt campaign={CAMPAIGN} medium={medium} />
-            <p className="mt-3 text-center text-sm text-muted-foreground">Paste this.</p>
+            <p className="mt-3 text-center text-sm text-muted-foreground">
+              Connect, then paste this.
+            </p>
           </div>
           <div>
             <AgentSetupDemo />
@@ -185,15 +187,17 @@ export function AiLanding() {
             ))}
           </ol>
 
-          {/* The OAuth hand-off is where this flow actually stalls. Naming it
-              costs a paragraph and saves the visitor deciding we shipped
+          {/* The session-restart cliff is where this flow actually stalls. Naming
+              it costs a paragraph and saves the visitor deciding we shipped
               something broken. */}
           <Reveal delay={0.15}>
             <p className="mt-12 rounded-xl bg-warning/[0.07] p-5 leading-relaxed text-muted-foreground">
-              <span className="font-semibold text-foreground">Where this breaks.</span> Most
-              tools can&rsquo;t open a browser sign-in mid-conversation. If your agent hangs on
-              the connection, run <code className="font-mono">/mcp</code> yourself, approve, and
-              tell it to keep going. The prompt tells it to stop and ask rather than guess.
+              <span className="font-semibold text-foreground">Where this breaks.</span> AI tools
+              load MCP servers at startup and can&rsquo;t open a browser sign-in
+              mid-conversation. That&rsquo;s why you connect before you paste. Pasted first
+              anyway? The prompt tells the agent to stop, hand you the connect commands, and
+              have you resume with <code className="font-mono">claude --continue</code> rather
+              than guess.
             </p>
           </Reveal>
         </div>
@@ -324,7 +328,8 @@ export function AiLanding() {
               <p className="mt-3 leading-relaxed text-muted-foreground">
                 Free checks every 5 minutes. That&rsquo;s a 5-minute outage nobody told you
                 about. Indie drops it to 1 minute, doubles you to 100 monitors, keeps 90 days of
-                history. <span className="font-semibold text-foreground">$3/mo</span> on annual.
+                history. <span className="font-semibold text-foreground">$3/mo</span> on annual,
+                after 7 days free.
               </p>
               <a
                 href="/pricing"
@@ -395,38 +400,73 @@ export function AiLanding() {
 }
 
 /**
- * The prompt block. Copying it is the conversion event on this page — the account
- * is created later, inside the MCP OAuth flow, where no tagged link can reach.
+ * The connect-then-paste block. Copying the prompt is the conversion event on
+ * this page: the account is created later, during `claude mcp login`, where no
+ * tagged link can reach.
+ *
+ * The connect commands sit above the prompt because MCP clients load servers at
+ * startup; an agent handed the prompt in a session without the server can't fix
+ * that from inside the conversation.
  *
  * Height matches AgentSetupDemo so the two hero panels line up.
  */
 function CopyPrompt({ campaign, medium }: { campaign: string; medium: string }) {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<"commands" | "prompt" | null>(null);
 
-  const handleCopy = async () => {
+  const handleCopy = async (target: "commands" | "prompt") => {
     try {
       if (!navigator.clipboard?.writeText) return;
-      await navigator.clipboard.writeText(SETUP_PROMPT);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-      trackEvent(COPY_PROMPT_EVENT, { campaign, medium });
+      await navigator.clipboard.writeText(
+        target === "commands" ? MCP_CONNECT_COMMANDS : SETUP_PROMPT,
+      );
+      setCopied(target);
+      window.setTimeout(() => setCopied(null), 2000);
+      trackEvent(COPY_PROMPT_EVENT, { campaign, medium, target });
     } catch {
-      // Clipboard can be blocked by permissions policy — leave the button idle
+      // Clipboard can be blocked by permissions policy; leave the button idle
       // rather than claiming a copy that didn't happen.
     }
   };
 
   return (
     <div className="flex h-[420px] flex-col overflow-hidden rounded-2xl bg-white/[0.03] p-4 sm:h-[440px] sm:p-5">
-      <div className="flex items-center justify-between gap-4 pb-4">
-        <span className="font-mono text-xs text-muted-foreground">setup prompt</span>
+      <div className="flex items-center justify-between gap-4 pb-3">
+        <span className="font-mono text-xs text-muted-foreground">1 · connect</span>
         <Button
           type="button"
           size="sm"
-          onClick={handleCopy}
+          variant="outline"
+          onClick={() => handleCopy("commands")}
           className="cursor-pointer rounded-full px-4 font-semibold"
         >
-          {copied ? (
+          {copied === "commands" ? (
+            <>
+              <Check className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
+              Copied
+            </>
+          ) : (
+            <>
+              <Copy className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
+              Copy
+            </>
+          )}
+        </Button>
+      </div>
+      <pre className="whitespace-pre-wrap break-all font-mono text-xs leading-relaxed text-foreground/65">
+        <code>{MCP_CONNECT_COMMANDS}</code>
+      </pre>
+
+      <div className="my-4 h-px shrink-0 bg-white/[0.06]" />
+
+      <div className="flex items-center justify-between gap-4 pb-3">
+        <span className="font-mono text-xs text-muted-foreground">2 · paste the prompt</span>
+        <Button
+          type="button"
+          size="sm"
+          onClick={() => handleCopy("prompt")}
+          className="cursor-pointer rounded-full px-4 font-semibold"
+        >
+          {copied === "prompt" ? (
             <>
               <Check className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
               Copied
@@ -443,7 +483,7 @@ function CopyPrompt({ campaign, medium }: { campaign: string; medium: string }) 
       {/* Enough of the real text to prove it's substantial, faded out at the
           bottom rather than scrollable so it never steals the page's scroll.
           Masked rather than overlaid with a gradient so the fade doesn't have to
-          know the panel's tinted background colour — same approach as AIChat. */}
+          know the panel's tinted background colour; same approach as AIChat. */}
       <div className="min-h-0 flex-1">
         <pre className="h-full overflow-hidden font-mono text-xs leading-relaxed text-foreground/65 [mask-image:linear-gradient(to_bottom,#000_55%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,#000_55%,transparent)]">
           <code>{SETUP_PROMPT}</code>
@@ -451,7 +491,11 @@ function CopyPrompt({ campaign, medium }: { campaign: string; medium: string }) 
       </div>
 
       <span aria-live="polite" className="sr-only">
-        {copied ? "Setup prompt copied to clipboard" : ""}
+        {copied === "prompt"
+          ? "Setup prompt copied to clipboard"
+          : copied === "commands"
+            ? "Connect commands copied to clipboard"
+            : ""}
       </span>
     </div>
   );

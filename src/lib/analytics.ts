@@ -78,7 +78,11 @@ export function trackSignupClick({
  */
 export function trackEvent(
   name: string,
-  { campaign, medium }: { campaign: string; medium: string },
+  {
+    campaign,
+    medium,
+    target,
+  }: { campaign: string; medium: string; target?: string },
 ): void {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
   window.gtag("event", name, {
@@ -86,6 +90,9 @@ export function trackEvent(
     // which CTA/placement drove them.
     cta_campaign: campaign,
     cta_medium: medium,
+    // Distinguishes which part of a two-part CTA was copied (connect commands
+    // vs the prompt itself). Absent on single-target events.
+    ...(target ? { cta_target: target } : {}),
     transport_type: "beacon",
   });
 }

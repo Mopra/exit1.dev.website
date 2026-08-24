@@ -5,34 +5,56 @@
 // of a prompt that must already stay in sync with two other repos was one copy
 // too many.
 //
-// Keep SETUP_PROMPT in sync with app.exit1.dev/mcp and the `setup_monitoring`
-// MCP prompt in functions/src/mcp-tools.ts (exit1.dev repo).
+// Keep SETUP_PROMPT in sync with app.exit1.dev/mcp (src/pages/Mcp.tsx in the
+// exit1.dev repo) and the README in the exit1.dev.mcp repo. The hosted
+// `setup_monitoring` MCP prompt (functions/src/mcp-tools.ts) intentionally has
+// no connect step, since by definition the server is connected when it runs.
+//
+// Flow rationale: MCP clients load servers at startup, so a server added
+// mid-session is unusable until restart. The CTA therefore leads with the two
+// terminal commands (connect + browser sign-in via `claude mcp login`), and the
+// prompt's step 1 only exists as a graceful bounce for people who paste first.
 
 export const MCP_ADD_COMMAND =
   'claude mcp add --transport http exit1 https://app.exit1.dev/mcp/v1';
 
+export const MCP_LOGIN_COMMAND = 'claude mcp login exit1';
+
+/** The connect-first CTA: run these in the terminal, then start the agent. */
+export const MCP_CONNECT_COMMANDS = `${MCP_ADD_COMMAND}
+${MCP_LOGIN_COMMAND}`;
+
 export const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit1.
 
-1. Connect the MCP server. In Claude Code:
-     ${MCP_ADD_COMMAND}
-   Other tools: add the same HTTP MCP server however your tool does it.
+1. Check whether the Exit1 tools (get_account, list_checks, create_check) are
+   available to you. If they are, go to step 2.
 
-   Connecting needs a one-time browser sign-in. Most AI tools CANNOT open that
-   sign-in from inside a conversation turn. If the connection isn't
-   authenticated, don't retry or improvise — stop and tell me to run /mcp (or my
-   tool's equivalent), authenticate in the browser, and come back to you. Then
-   carry on from step 2.
+   If they are not, do NOT try to connect from inside this session, and do not
+   improvise with the raw API. Most AI tools load MCP servers only at startup
+   and cannot open a browser sign-in mid-conversation, so a server added now
+   stays unusable until I restart. Instead:
+     - In Claude Code: run
+         ${MCP_ADD_COMMAND}
+       then tell me to quit, run \`${MCP_LOGIN_COMMAND}\` in my terminal (my
+       browser opens to sign in or sign up), and resume you with
+       \`claude --continue\`. If my version has no \`mcp login\`, I
+       authenticate via /mcp after restarting instead.
+     - In other tools: tell me to add the HTTP MCP server
+       https://app.exit1.dev/mcp/v1 the way my tool does it, restart it, and
+       paste this prompt again.
+   While you wait, do step 3 now and show me the checks you intend to create,
+   so my first message after reconnecting can be "go".
 
 2. Call get_account to see my plan limits, and list_checks to see what's
    already monitored.
 
-3. Work out what's worth monitoring by reading this project — don't ask me for
+3. Work out what's worth monitoring by reading this project. Don't ask me for
    URLs you can find yourself. Depending on the stack, look at deploy and
    infra config, environment files and examples, the README, DNS or domain
    config, container healthchecks, CI/CD workflows, and route or endpoint
    definitions. You're looking for:
      - the production site or app, and staging if there is one
-     - health/status endpoints (these are the most valuable — assert on the
+     - health/status endpoints (these are the most valuable; assert on the
        response body, not just a 200, since a 200 with a dead database is
        still a 200)
      - public APIs and webhook receivers other systems depend on
@@ -50,6 +72,6 @@ export const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit
 Be fast and autonomous. Never put API keys, tokens or passwords into a check.
 Prefer a few meaningful checks over many shallow ones.`;
 
-/** First line of the prompt — used where the full text would bury the CTA. */
+/** First line of the prompt, used where the full text would bury the CTA. */
 export const SETUP_PROMPT_PREVIEW =
   'Set up uptime monitoring for this project with Exit1…';
