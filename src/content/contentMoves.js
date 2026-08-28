@@ -132,6 +132,30 @@ const CONTENT_MOVES = [
   // were indexed, so send them to the index rather than 404.
   { from: '/blog/page/10', to: '/blog', since: '2026-08-02' },
   { from: '/blog/page/11', to: '/blog', since: '2026-08-02' },
+
+  // ── Live 404s that Google was still serving (found 2026-08-25) ───────
+  //
+  // These were deleted rather than redirected, so Google held an indexed URL
+  // that returned 404. Found by the URL Inspection sweep in
+  // `scripts/seo/pull-index-coverage.mjs`, which is the only report that can see
+  // them: a 404 earns no impressions once it drops, so Search Analytics alone
+  // shows a page fading out with no reason attached.
+  //
+  // free-domain-monitoring-discord-alerts was the expensive one. Despite being a
+  // 404 since at least 2026-03-11 it still held 509 impressions at position 7.6,
+  // and its named queries were all Discord alerting ("discord uptime alerts",
+  // "lagnis free uptime monitoring discord webhook"), not domain monitoring.
+  // Hence the destination is the Discord post, not a domain one.
+  {
+    from: '/blog/free-domain-monitoring-discord-alerts',
+    to: '/blog/free-website-monitor-discord-integration',
+    since: '2026-08-25',
+  },
+  // Pagination went past 12 pages before the consolidation rounds. page/10 and
+  // page/11 were caught above; page/12 was indexed too and was missed.
+  { from: '/blog/page/12', to: '/blog', since: '2026-08-25' },
+  // Old onboarding URL, superseded by /getting-started.
+  { from: '/quick-start', to: '/getting-started', since: '2026-08-25' },
 ];
 
 /**

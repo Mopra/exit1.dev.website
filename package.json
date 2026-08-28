@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seo": "node --env-file=.env.local scripts/seo/pull-seo.mjs"
+    "seo": "node --env-file=.env.local scripts/seo/pull-seo.mjs",
+    "seo:index": "node --env-file=.env.local scripts/seo/pull-index-coverage.mjs",
+    "seo:recrawl": "node --env-file=.env.local scripts/seo/request-recrawl.mjs"
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.2",
