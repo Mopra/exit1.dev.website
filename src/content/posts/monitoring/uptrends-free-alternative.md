@@ -2,6 +2,7 @@
 title: "Uptrends Alts: Enterprise Free"
 author: "Exit1 Team"
 date: "2025-02-05"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Free tools with Uptrends features, no cost."
 readTime: "5 min read"
@@ -29,8 +30,8 @@ Pricing: $100-500/mo.
 ## Top Free
 
 1. exit1.dev
-- Unlimited
-- 1-min
+- 50 free monitors
+- 5-min free, down to 15-sec on Pro
 - No card
 - SSL
 - Webhooks
@@ -72,8 +73,8 @@ For: Simple reliable.
 Free:
 | Feature | Uptrends | exit1.dev | UptimeRobot | StatusCake | Freshping |
 |---------|----------|-----------|-------------|------------|-----------|
-| Sites | 1 (trial) | Unlimited | 50 | 10 | 50 |
-| Interval | 1 min | 1 min | 5 min | 5 min | 1 min |
+| Sites | 1 (trial) | 50 | 50 | 10 | 50 |
+| Interval | 1 min | 5 min | 5 min | 5 min | 1 min |
 | SSL | ✅ | ✅ | ✅ | ✅ | ✅ |
 | API | Full | Full | Limited | Limited | ❌ |
 | Webhooks | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -160,7 +161,7 @@ Free: PageSpeed, GTmetrix, WebPageTest.
 Paid: WebPageTest Pro $49, GTmetrix Pro $15.
 
 Uptime:
-1. exit1.dev: Unlimited 1-min
+1. exit1.dev: 50 free, 5-min
 2. UptimeRobot: 50 5-min
 3. Freshping: 50 1-min
 
@@ -169,12 +170,6 @@ Uptime:
 Free: Budget $0-100, basic, multi-sites, testing, global not critical.
 
 Uptrends: Global essential, enterprise, SLAs, white-label, budget ok.
-
-## Reviews
-
-Uptrends: "Great global" positive, "Expensive small" negative.
-
-Alts: "Unlimited incredible" (exit1), "50 perfect" (UptimeRobot), "Good free team" (StatusCake), "Simple reliable" (Freshping).
 
 ## Strategy
 
@@ -188,7 +183,7 @@ Phase 3: Add sites, advanced alerting, paid if needed, doc procedures.
 
 Questions:
 1. Global? Yes Uptrends/Pingdom, no free.
-2. Sites? 1-50 free, 50+ exit1.
+2. Sites? Up to 50 free, past that exit1 Indie ($4/mo) or Nano ($9/mo).
 3. Budget? $0-100 free, $100+ Uptrends.
 4. Enterprise? Yes Uptrends, no free.
 5. SLA? Yes paid, no free.
@@ -197,7 +192,7 @@ Questions:
 
 Free matches for most.
 
-Most: exit1.dev best alt, unlimited 1-min pro free.
+Most: exit1.dev is the best alternative, with 50 monitors free and no card.
 
 ## Sources
 

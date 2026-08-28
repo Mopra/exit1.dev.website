@@ -3,7 +3,7 @@ title: "Best Free Website & Uptime Monitoring Tools 2026"
 seoTitle: "8 Best Free Uptime Monitoring Tools (2026, No Card Needed)"
 author: "Morten Pradsgaard"
 date: "2025-01-08"
-updated: "2026-08-21"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "The complete 2026 guide to free website and uptime monitoring tools. Compare UptimeRobot, Better Stack, Pingdom, StatusCake and more, and see which are genuinely free vs. just bait."
 readTime: "8 min read"
@@ -37,7 +37,7 @@ If "unlimited" comes with undocumented throttling, or status pages and exports c
 ### Tier 1: Genuinely Useful Free Plans
 
 **Exit1.dev** — 50 monitors, 5-minute checks (free)
-The free tier includes email + webhook alerts, a public status page, and SSL monitoring — no credit card. The Nano tier ($9/month) removes limits: 250 monitors and 30-second checks. Honest limits, no upgrade pressure. (No mobile app yet.)
+The free tier includes email + webhook alerts, a public status page, and SSL monitoring, with no credit card. The Nano tier ($9/month) raises the ceiling: 250 monitors and 30-second checks. Honest limits, no upgrade pressure. (No mobile app yet.)
 
 **UptimeRobot** — 50 monitors, 5-minute checks (free)
 The grandfather of free monitoring (since 2010) and still the gold standard for volume. 1 free location (upgradeable), email alerts, 1 public status page, 13+ notification integrations. Downsides: 5-minute checks feel slow in 2026 and geographic coverage is thin on free.

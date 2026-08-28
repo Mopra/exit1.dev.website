@@ -72,8 +72,8 @@ const Analytics = () => {
 
   const comparisonTable = [
     {
-      feature: "Unlimited historical data",
-      exit1: true,
+      feature: "Historical data",
+      exit1: "60 days free, up to 3 years",
       competitors: "30-90 days"
     },
     {
@@ -117,8 +117,8 @@ const Analytics = () => {
       competitors: "Limited metrics"
     },
     {
-      feature: "No data retention limits",
-      exit1: true,
+      feature: "Retention on the free plan",
+      exit1: "60 days",
       competitors: false
     }
   ];
@@ -134,11 +134,11 @@ const Analytics = () => {
     },
     {
       question: "Can I export my analytics data?",
-      answer: "Yes, you can export all your analytics data in CSV or Excel format. We also provide API access to programmatically retrieve your analytics data. There are no restrictions on data export or retention limits - you own your data completely."
+      answer: "Yes. Export analytics as CSV or Excel on Pro, or pull it programmatically through the REST API on any plan. Nothing is metered on export volume - you own your data completely."
     },
     {
       question: "How far back does your historical data go?",
-      answer: "We store all your monitoring data indefinitely with no retention limits. You can analyze trends from years ago, compare performance across different time periods, and build long-term reliability reports. Most competitors limit historical data to 30-90 days."
+      answer: "Retention runs 60 days on Free, 90 days on Indie, a year on Nano, and three years on Pro. Pro is long enough to compare this quarter against the same quarter two years ago and to keep an SLA record that outlives the contract it covers."
     },
     {
       question: "Do you provide custom reports?",
@@ -150,7 +150,7 @@ const Analytics = () => {
     },
     {
       question: "What's the difference between your analytics and other monitoring tools?",
-      answer: "Unlike generic analytics tools, we focus specifically on infrastructure monitoring with real-time data, 90 days retention max, and developer-friendly features. We don't track user behavior - we track whether your services are working and how fast they respond."
+      answer: "Unlike generic analytics tools, we focus specifically on infrastructure monitoring: real-time data, retention measured in months and years rather than days, and developer-friendly features. We don't track user behavior - we track whether your services are working and how fast they respond."
     },
     {
       question: "Can I integrate analytics with other tools?",
@@ -159,9 +159,9 @@ const Analytics = () => {
   ];
 
   const technicalDetails = {
-    architecture: "Real-time analytics powered by BigQuery for unlimited data storage and fast queries. Live updates flow instantly while BigQuery processes historical analysis and complex aggregations.",
+    architecture: "Real-time analytics powered by BigQuery for durable storage and fast queries. Live updates flow instantly while BigQuery processes historical analysis and complex aggregations.",
     performance: "Analytics queries return results in under 500ms even for years of data. Real-time dashboards update instantly with new monitoring data. Aggregated metrics are pre-calculated for optimal performance.",
-    api: "Analytics API provides programmatic access to all metrics, trends, and reports. RESTful endpoints with HMAC authentication. Rate limits: 2000 requests/hour per API key. Full OpenAPI documentation available."
+    api: "Analytics API provides programmatic access to all metrics, trends, and reports. RESTful endpoints with HMAC authentication. Rate limits: 5 requests/minute and 500/day per API key (2,000/day per account). Full OpenAPI documentation available."
   };
 
   const relatedFeatures = [
@@ -223,11 +223,6 @@ const Analytics = () => {
           },
           category: "Website Analytics",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "120"
-          }
         }}
       />
       
@@ -248,7 +243,7 @@ const Analytics = () => {
       <ProductPage
         title="Analytics That Cut Through Noise"
         subtitle="Real insights, no fluff metrics"
-        description="Most analytics drown you in data. Ours shows what breaks your site—and why. Track trends, spot issues, fix faster. Free, unlimited."
+        description="Most analytics drown you in data. Ours shows what breaks your site, and why. Track trends, spot issues, fix faster. Included on every plan, Free among them."
         features={features}
         ctaText="See Your Real Stats"
         ctaHref="https://app.exit1.dev/"

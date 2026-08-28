@@ -42,7 +42,7 @@ const FreeWebsiteMonitorPage = () => {
   const features = [
     {
       title: 'Built for storefront uptime',
-      description: 'Shopify, WooCommerce, custom carts—watch product pages, checkout flows, and promo landing pages without limits.',
+      description: 'Shopify, WooCommerce, custom carts. Watch product pages, checkout flows, and promo landing pages without limits.',
       icon: <ShoppingBag className="w-6 h-6 text-foreground" />,
     },
     {
@@ -66,8 +66,8 @@ const FreeWebsiteMonitorPage = () => {
       icon: <Bell className="w-6 h-6 text-foreground" />,
     },
     {
-      title: 'Unlimited regions & rollups',
-      description: 'Probe your pages from multiple continents and aggregate the data in analytics and logs for proper postmortems.',
+      title: 'Global probes & rollups',
+      description: 'Probe your pages from multiple continents and aggregate the data in analytics and logs for proper postmortems. Pin a check to the US, EU, or Asia from Nano upward.',
       icon: <Globe className="w-6 h-6 text-foreground" />,
     },
   ];
@@ -104,8 +104,8 @@ const FreeWebsiteMonitorPage = () => {
       competitors: 'Upgrade required',
     },
     {
-      feature: '90 days retention max',
-      exit1: 'Full export anytime',
+      feature: 'Log retention',
+      exit1: '60 days free, 3 years on Pro',
       competitors: '30-60 day retention',
     },
   ];
@@ -189,11 +189,6 @@ const FreeWebsiteMonitorPage = () => {
           },
           category: 'Website Monitoring',
           features: features.map((feature) => feature.title),
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '210',
-          },
         }}
       />
 
@@ -213,7 +208,7 @@ const FreeWebsiteMonitorPage = () => {
 
       <ProductPage
         title="Free Website Monitor"
-        subtitle="Keep storefronts, landing pages, and Jamstack builds honest—without spending a cent."
+        subtitle="Keep storefronts, landing pages, and Jamstack builds honest, without spending a cent."
         description="Your website is a revenue engine, not a brochure. exit1.dev watches every pixel that matters, fires real alerts, and gives you the data to prove reliability."
         features={features}
         ctaText="Monitor my sites for free"

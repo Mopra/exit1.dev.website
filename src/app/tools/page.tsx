@@ -13,20 +13,20 @@ import { buildSignupUrl } from "@/lib/cta";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Free Website & Server Tools — SSL, Domain, DNS, API, Ping, Redirect & Uptime Checkers",
+  title: "Free Website & Server Checkers: SSL, Domain, DNS, API, Ping",
   description:
     "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, DNS records, nameservers, API endpoint status, server latency, redirect chains, and website uptime health. No signup required.",
   keywords:
     "free ssl checker, domain expiration checker, dns lookup tool, nameserver lookup, check nameservers, api status checker, ping test, redirect checker, uptime checker, free web tools, server monitoring tools, website checker, developer tools",
   openGraph: {
-    title: "Free Website & Server Tools — SSL, Domain, DNS, API, Ping, Redirect & Uptime Checkers | exit1.dev",
+    title: "Free Website & Server Checkers: SSL, Domain, DNS, API, Ping | exit1.dev",
     description:
       "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, DNS records, nameservers, API endpoint status, server latency, redirect chains, and website uptime health. No signup required.",
     type: "website",
     url: "https://exit1.dev/tools",
   },
   twitter: {
-    title: "Free Website & Server Tools — SSL, Domain, DNS, API, Ping, Redirect & Uptime Checkers | exit1.dev",
+    title: "Free Website & Server Checkers: SSL, Domain, DNS, API, Ping | exit1.dev",
     description:
       "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, DNS records, nameservers, API endpoint status, server latency, redirect chains, and website uptime health. No signup required.",
     card: "summary_large_image",
@@ -53,7 +53,7 @@ const tools = [
   {
     name: "Domain Expiration Checker",
     description:
-      "Look up any domain's registration details. See expiry date, registrar, nameservers, and WHOIS data — all from RDAP and WHOIS databases.",
+      "Look up any domain's registration details. See expiry date, registrar, nameservers, and WHOIS data, all from RDAP and WHOIS databases.",
     href: "/tools/domain-expiration-checker",
     icon: Globe,
     features: [
@@ -105,7 +105,7 @@ const tools = [
   {
     name: "Ping Test",
     description:
-      "Measure latency, packet loss, and jitter to any server or website. TCP-based ping from your browser — no command line needed.",
+      "Measure latency, packet loss, and jitter to any server or website. TCP-based ping from your browser, with no command line needed.",
     href: "/tools/ping-test",
     icon: Wifi,
     features: [
@@ -118,7 +118,7 @@ const tools = [
   {
     name: "Redirect Checker",
     description:
-      "Trace the full HTTP redirect chain for any URL. See every hop, status code, Location header, and response time — find broken or unnecessary redirects.",
+      "Trace the full HTTP redirect chain for any URL. See every hop, status code, Location header, and response time. Finds broken or unnecessary redirects.",
     href: "/tools/redirect-checker",
     icon: ArrowRight,
     features: [
@@ -143,21 +143,149 @@ const tools = [
   },
 ];
 
+/**
+ * Symptom-to-tool routing.
+ *
+ * This hub was `Crawled - currently not indexed` for months while all eight of
+ * its children indexed fine (measured 2026-08-25 via the URL Inspection sweep in
+ * scripts/seo/pull-index-coverage.mjs). A hub whose entire content is links plus
+ * the same descriptions its children already carry gives Google nothing to index
+ * that the children do not already cover.
+ *
+ * So this table is the page's own reason to exist: it starts from the symptom you
+ * actually have rather than the tool name you would have to know already, and it
+ * lives nowhere else on the site. Keep it that way. If a row's advice would fit
+ * on the child tool page, it belongs there instead.
+ */
+const symptoms: Array<{
+  symptom: string;
+  cause: string;
+  tool: string;
+  href: string;
+}> = [
+  {
+    symptom: "Browser warns visitors the connection is not private",
+    cause:
+      "The certificate expired, or the chain is missing an intermediate so only some clients trust it.",
+    tool: "SSL Certificate Checker",
+    href: "/tools/ssl-checker",
+  },
+  {
+    symptom: "The site resolves for you but not for someone else",
+    cause:
+      "A stale record, or the registrar and the DNS host disagree about which nameservers are authoritative.",
+    tool: "Nameserver Lookup",
+    href: "/tools/nameserver-lookup",
+  },
+  {
+    symptom: "Email to your domain silently stops arriving",
+    cause:
+      "An MX, SPF, DKIM or DMARC record was edited or dropped. None of it breaks the website, so nothing else alerts.",
+    tool: "DNS Lookup Tool",
+    href: "/tools/dns-checker",
+  },
+  {
+    symptom: "The domain stops working entirely, all at once",
+    cause:
+      "The registration lapsed. Registrar reminders go to whichever mailbox registered it, which is rarely the one you read.",
+    tool: "Domain Expiration Checker",
+    href: "/tools/domain-expiration-checker",
+  },
+  {
+    symptom: "Pages load, but slowly, and only sometimes",
+    cause:
+      "A redirect chain is adding a round trip per hop, or one hop leaves HTTPS and comes back.",
+    tool: "Redirect Checker",
+    href: "/tools/redirect-checker",
+  },
+  {
+    symptom: "The app is up but an integration reports failures",
+    cause:
+      "The endpoint returns 200 with an error body, so anything that only checks status codes sees success.",
+    tool: "API Status Checker",
+    href: "/tools/api-status-checker",
+  },
+  {
+    symptom: "Connections feel unstable rather than down",
+    cause:
+      "Packet loss or jitter on the path. Averages hide it; the variance is the symptom.",
+    tool: "Ping Test",
+    href: "/tools/ping-test",
+  },
+  {
+    symptom: "Something is wrong and you cannot narrow it down yet",
+    cause:
+      "Start wide. One pass over DNS, TLS, redirects, headers and response time tells you which of the above to open.",
+    tool: "Uptime Checker",
+    href: "/tools/uptime-checker",
+  },
+];
+
+const faq: Array<{ question: string; answer: string }> = [
+  {
+    question: "Do these tools need an account?",
+    answer:
+      "No. Every tool on this page runs without a signup, an email address, or a trial. Enter a domain and read the result. Continuous monitoring needs an account because it has to store your checks and reach you when one fails, but nothing here does.",
+  },
+  {
+    question: "What is the difference between a check and monitoring?",
+    answer:
+      "A check is one measurement, right now, from wherever the request happens to originate. Monitoring is the same measurement repeated on a schedule from fixed regions, with the history kept so you can tell a blip from a trend, and an alert when the result changes. A check answers whether something is broken. Monitoring is what tells you it broke at 03:12 while you were asleep.",
+  },
+  {
+    question: "How current are the results?",
+    answer:
+      "Every tool queries live: DNS resolvers, RDAP and WHOIS registries, and the target host itself. Nothing is served from a cache of a previous visitor's lookup. DNS answers are still bounded by the TTL on the record, so a change made seconds ago may not have propagated to the resolver that answers.",
+  },
+  {
+    question: "Can I share or automate a result?",
+    answer:
+      "Each tool encodes its input in the URL, so a result page can be pasted into an issue or a chat and it will re-run for whoever opens it. For anything scripted, use the REST API instead of the browser tools.",
+  },
+];
+
 export default function ToolsPage() {
   return (
     <>
+      {/*
+        CollectionPage + ItemList rather than WebPage: this route is a hub over
+        eight child tools, and `WebPage` described it as a standalone document
+        with no stated relationship to them. The ItemList names the children in
+        order so the hub and its members are one entity group.
+      */}
       <StructuredData
-        type="WebPage"
+        type="CollectionPage"
         data={{
           name: "Free Website & Server Tools",
           description:
-            "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, API endpoint status, and server latency.",
+            "Free online tools for developers and sysadmins. Check SSL certificates, domain expiration, DNS records, nameservers, API endpoint status, server latency, and redirect chains.",
           url: "https://exit1.dev/tools",
           publisher: {
             "@type": "Organization",
             name: "exit1.dev",
             url: "https://exit1.dev",
           },
+          mainEntity: {
+            "@type": "ItemList",
+            numberOfItems: tools.length,
+            itemListElement: tools.map((tool, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: tool.name,
+              description: tool.description,
+              url: `https://exit1.dev${tool.href}`,
+            })),
+          },
+        }}
+      />
+      <StructuredData
+        type="FAQPage"
+        data={{
+          mainEntity: faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
         }}
       />
 
@@ -225,6 +353,62 @@ export default function ToolsPage() {
             </SectionContent>
           </PageSection>
 
+          {/* Symptom -> tool. The reason this hub exists as its own page. */}
+          <PageSection>
+            <SectionContent size="lg" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                Start from the symptom
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mb-12">
+                Most of these failures look identical from the outside: the site
+                is &ldquo;down&rdquo;. What separates them is which layer stopped
+                answering. Find the symptom you actually have, and the tool that
+                confirms it.
+              </p>
+              <div className="space-y-4">
+                {symptoms.map((row) => (
+                  <div
+                    key={row.href + row.symptom}
+                    className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr_auto] gap-4 md:gap-8 md:items-baseline p-5 sm:p-6 rounded-2xl bg-foreground/[0.02]"
+                  >
+                    <h3 className="font-semibold leading-snug">{row.symptom}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {row.cause}
+                    </p>
+                    <Link
+                      href={row.href}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all whitespace-nowrap"
+                    >
+                      {row.tool}
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* FAQ */}
+          <PageSection>
+            <SectionContent size="md" className="py-16 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-12">
+                Questions
+              </h2>
+              <div className="space-y-8">
+                {faq.map((item) => (
+                  <div key={item.question}>
+                    <h3 className="font-semibold text-lg mb-2">
+                      {item.question}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </SectionContent>
+          </PageSection>
+
           {/* Why use these tools */}
           <PageSection>
             <SectionContent size="md" className="py-16 sm:py-20">
@@ -254,7 +438,7 @@ export default function ToolsPage() {
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     Need continuous checks? exit1.dev monitors your sites 24/7.
-                    5 free monitors with 5-minute checks. Up to 1,000 on Pro.
+                    50 free monitors with 5-minute checks. Up to 1,000 on Pro.
                   </p>
                 </div>
               </div>
@@ -270,7 +454,7 @@ export default function ToolsPage() {
                 </h2>
                 <p className="text-muted-foreground max-w-xl mx-auto mb-8">
                   Stop running manual checks. exit1.dev monitors your websites,
-                  SSL certificates, and API endpoints automatically — with
+                  SSL certificates, and API endpoints automatically, with
                   instant alerts when something goes wrong.
                 </p>
                 <Button

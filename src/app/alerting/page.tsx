@@ -161,7 +161,7 @@ const Alerting = () => {
   const technicalDetails = {
     architecture: "Alert system built on serverless functions for instant delivery. Webhooks use HTTP POST with retry logic and timeout handling. Email alerts sent via reliable email service with delivery tracking. All alert configurations stored securely.",
     performance: "Alert delivery typically completes in under 2 seconds. Webhook retries with exponential backoff for failed deliveries. Email alerts processed within 30 seconds. System handles thousands of concurrent alerts with intelligent queuing.",
-    api: "Alerting API allows programmatic management of webhooks and email settings. RESTful endpoints with HMAC authentication. Rate limits: 500 requests/hour per API key. Webhook delivery includes detailed payloads with retry logic."
+    api: "Alerting API allows programmatic management of webhooks and email settings. RESTful endpoints with HMAC authentication. Rate limits: 5 requests/minute and 500/day per API key (2,000/day per account). Webhook delivery includes detailed payloads with retry logic."
   };
 
   const relatedFeatures = [
@@ -223,11 +223,6 @@ const Alerting = () => {
           },
           category: "Website Alerting",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            reviewCount: "110"
-          }
         }}
       />
       

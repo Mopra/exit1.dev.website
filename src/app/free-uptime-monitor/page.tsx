@@ -14,20 +14,20 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals',
+  title: 'Free Uptime Monitor - 50 Free Monitors & Fast Intervals',
   description:
     'exit1.dev is the blunt, free uptime monitor. 50 monitors with 5-minute checks, instant webhook + email alerts, SSL coverage, REST API + MCP. Upgrade to Indie ($4/mo) for 100 monitors and 1-minute checks, Nano ($9/mo) for 250 monitors at 30 seconds, or Pro ($24/mo) for 1,000 monitors at 15 seconds and 3-year retention. No fake free tier.',
   keywords:
     'free uptime monitor, uptime monitoring, uptime robot alternative, free website uptime monitoring, free api monitoring',
   openGraph: {
-    title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
+    title: 'Free Uptime Monitor - 50 Free Monitors & Fast Intervals | exit1.dev',
     description:
       '50 free monitors, fast intervals, webhook + email alerts, SSL, API access, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
     type: 'website',
     url: 'https://exit1.dev/free-uptime-monitor',
   },
   twitter: {
-    title: 'Free Uptime Monitor - 10 Free Monitors & Fast Intervals | exit1.dev',
+    title: 'Free Uptime Monitor - 50 Free Monitors & Fast Intervals | exit1.dev',
     description:
       '50 free monitors, fast intervals, webhook + email alerts, SSL, API access, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
     card: 'summary_large_image',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 const FreeUptimeMonitorPage = () => {
   const features = [
     {
-      title: '5 free monitors, zero invoices',
+      title: '50 free monitors, zero invoices',
       description: 'Track up to 50 sites, APIs, or endpoints on the free tier. Need more? Indie gives 100 at 1-minute checks, Nano 250 at 30 seconds, Pro 1,000 at 15 seconds.',
       icon: <Globe className="w-6 h-6 text-foreground" />,
     },
@@ -61,7 +61,7 @@ const FreeUptimeMonitorPage = () => {
     },
     {
       title: 'Instant data exports',
-      description: '90 days retention max, CSV/Excel exports, and API access so you can run real audits and SLAs without premium lock-in.',
+      description: '60 days of history on Free and up to 3 years on Pro, plus CSV/Excel exports and API access so you can run real audits and SLAs without premium lock-in.',
       icon: <Database className="w-6 h-6 text-foreground" />,
     },
     {
@@ -88,8 +88,8 @@ const FreeUptimeMonitorPage = () => {
       competitors: 'Upgrade required',
     },
     {
-      feature: 'Full log retention',
-      exit1: '90 days retention max',
+      feature: 'Log retention',
+      exit1: '60 days free, 3 years on Pro',
       competitors: '30-90 days max',
     },
     {
@@ -148,7 +148,7 @@ const FreeUptimeMonitorPage = () => {
     performance:
       'Sub-200ms HTTP checks, instant webhook dispatch, and aggressive retry logic to confirm outages without spamming you.',
     api:
-      'REST API with HMAC auth for creating monitors, fetching historical data, and exporting logs in bulk. Unlimited access on the free tier.',
+      'REST API with HMAC auth for creating monitors, fetching historical data, and exporting logs in bulk. Free mints one API key; rate limits are 5 requests/minute and 500/day per key.',
   };
 
   const relatedFeatures = [
@@ -193,11 +193,6 @@ const FreeUptimeMonitorPage = () => {
           },
           category: 'Website Monitoring',
           features: features.map((feature) => feature.title),
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '210',
-          },
         }}
       />
 
@@ -217,8 +212,8 @@ const FreeUptimeMonitorPage = () => {
 
       <ProductPage
         title="Free Uptime Monitor"
-        subtitle="5 free monitors. Fast checks. No strings."
-        description="The incumbents sell rationed uptime as a freebie. We give you the whole stack—alerts, SSL monitoring, analytics—without a paywall."
+        subtitle="50 free monitors. Fast checks. No strings."
+        description="The incumbents sell rationed uptime as a freebie. We give you the whole stack, alerts and SSL monitoring and analytics, without a paywall."
         features={features}
         ctaText="Start monitoring for free"
         ctaHref="https://app.exit1.dev/"

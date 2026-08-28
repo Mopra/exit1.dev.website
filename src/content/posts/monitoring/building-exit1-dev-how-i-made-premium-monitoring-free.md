@@ -2,6 +2,7 @@
 title: "Building Exit1.dev: How I Made Premium Website Monitoring Free"
 author: "Morten Pradsgaard"
 date: "2025-01-18"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Tired of paying $50/month for basic HTTP requests? I built premium monitoring for free using modern cloud infrastructure."
 readTime: "12 min read"
@@ -101,7 +102,7 @@ getAdaptiveTimeout(website: { responseTime?: number; consecutiveFailures: number
 
 This dual approach gives you:
 - **Instant updates** in the UI (Firestore real-time listeners)
-- **Unlimited historical data** (BigQuery scales to petabytes)
+- **Long retention windows** (BigQuery scales to petabytes, so Pro holds three years)
 - **Cost efficiency** (Firestore for hot data, BigQuery for cold data)
 
 ```typescript

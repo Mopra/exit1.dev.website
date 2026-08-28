@@ -222,7 +222,7 @@ const MaintenanceModePage = () => {
           },
           offers: {
             "@type": "Offer",
-            price: "3",
+            price: "7",
             priceCurrency: "USD",
             availability: "https://schema.org/InStock",
           },

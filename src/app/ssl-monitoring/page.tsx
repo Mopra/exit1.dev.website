@@ -161,7 +161,7 @@ const SSLMonitoring = () => {
   const technicalDetails = {
     architecture: "SSL monitoring integrated into our core monitoring system. Certificate validation performed using industry-standard OpenSSL libraries. Certificate information cached and updated with each monitoring check. Security validation follows OWASP guidelines.",
     performance: "SSL certificate checks complete in under 100ms per domain. Certificate validation includes full chain verification and security protocol analysis. System handles thousands of concurrent SSL checks efficiently.",
-    api: "SSL API provides programmatic access to certificate information and validation results. RESTful endpoints with HMAC authentication. Rate limits: 1000 requests/hour per API key. Includes certificate details and security analysis."
+    api: "SSL API provides programmatic access to certificate information and validation results. RESTful endpoints with HMAC authentication. Rate limits: 5 requests/minute and 500/day per API key (2,000/day per account). Includes certificate details and security analysis."
   };
 
   const relatedFeatures = [
@@ -223,11 +223,6 @@ const SSLMonitoring = () => {
           },
           category: "SSL Monitoring",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "85"
-          }
         }}
       />
       

@@ -2,6 +2,7 @@
 title: "MCP Is Here: Query Your Monitors from Claude, Cursor, VS Code & More"
 author: "Morten Pradsgaard"
 date: "2026-03-31"
+updated: "2026-08-28"
 category: "ai"
 excerpt: "Connect exit1.dev to your AI assistant via the Model Context Protocol. Ask about uptime, failures, and response times in plain English."
 readTime: "4 min read"
@@ -68,7 +69,7 @@ The MCP server only reads data. It can't create, modify, or delete checks. Your 
 
 MCP is available on **every plan, including Free** — MCP access follows API access, and every tier can mint an API key. Paid plans raise the key count and the check cadence: 1-minute on Indie, 30-second on Nano, 15-second on Pro.
 
-If you're on the free plan, [upgrade to Nano](https://app.exit1.dev/billing) to start using it.
+If you're on the free plan, you already have it. [Mint an API key](https://app.exit1.dev/) and connect.
 
 ## What's Next
 

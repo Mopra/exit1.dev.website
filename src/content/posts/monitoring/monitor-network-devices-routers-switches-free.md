@@ -2,6 +2,7 @@
 title: "How to Monitor Routers, Switches, and Network Devices for Free"
 author: "Exit1 Team"
 date: "2026-03-10"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Monitor your network infrastructure for free with ICMP ping checks. Learn how to set up alerts for routers, switches, firewalls, and other devices that don't run HTTP."
 readTime: "5 min read"
@@ -49,7 +50,7 @@ List every network device that would cause impact if it went down. Start with yo
 For each device:
 1. Create a new check and select **ICMP Ping**
 2. Enter the device's IP address or hostname
-3. Set the check frequency (5 minutes on Free, 1 minute on Nano)
+3. Set the check frequency (5 minutes on Free, 1 minute on Indie, 30 seconds on Nano)
 4. Enable alerts via email or webhook
 
 ### Step 3: Set up alert routing

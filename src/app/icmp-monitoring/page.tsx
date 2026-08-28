@@ -162,7 +162,7 @@ const ICMPMonitoring = () => {
   const technicalDetails = {
     architecture: "ICMP monitoring runs on the same infrastructure as all exit1.dev checks. Each ping sends a single ICMP Echo Request packet with an adaptive timeout based on historical response times. Results are enriched with IP geolocation, ASN, and ISP data. All check history is stored in BigQuery for long-term analytics.",
     performance: "Ping checks execute in milliseconds with minimal overhead. Strict hostname validation prevents command injection. Process-level timeouts ensure hung checks are terminated cleanly. The system handles thousands of concurrent ICMP checks across all monitoring regions.",
-    api: "ICMP checks are fully supported through the exit1.dev REST API. Create, update, delete, and query ping monitors programmatically. Access check history, response times, and TTL data via API endpoints. HMAC authentication with rate limits of 1000 requests/hour per key."
+    api: "ICMP checks are fully supported through the exit1.dev REST API. Create, update, delete, and query ping monitors programmatically. Access check history, response times, and TTL data via API endpoints. HMAC authentication, with rate limits of 5 requests/minute and 500/day per key."
   };
 
   const relatedFeatures = [
@@ -224,11 +224,6 @@ const ICMPMonitoring = () => {
           },
           category: "Network Monitoring",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "85"
-          }
         }}
       />
 

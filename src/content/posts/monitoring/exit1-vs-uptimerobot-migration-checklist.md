@@ -4,6 +4,7 @@ author: "Morten Pradsgaard"
 category: "monitoring"
 excerpt: "A blunt migration checklist for moving from UptimeRobot to exit1.dev. 50 free monitors with 5-minute checks, or 250 on Nano ($9/mo). Real alerts, zero freemium bait."
 date: "2025-02-12"
+updated: "2026-08-28"
 metaDescription: "Migrate from UptimeRobot to exit1.dev with this checklist. Import monitors, map alerts, enable SSL tracking. Free tier: 50 monitors. Indie: 1-min checks, $4/mo."
 ---
 
@@ -37,7 +38,7 @@ UptimeRobot charges for anything beyond email. exit1.dev does not.
 
 ## 5. Import history (optional)
 
-If you need legacy logs, export from UptimeRobot and stash them. exit1.dev keeps history unlimited, so you’ll never have to do this again.
+If you need legacy logs, export from UptimeRobot and stash them. exit1.dev keeps 60 days of history on Free and up to three years on Pro, so the export scramble stops being an annual ritual.
 
 ## 6. Update runbooks and on-call docs
 
@@ -50,7 +51,7 @@ Run downtime drills. Pause monitors, confirm alerts land, resume. Check analytic
 ## Why exit1.dev wins
 
 - 50 monitors with 5-minute checks on the free tier. Nano ($9/month): 250 monitors, 30-second checks, and SSL coverage.
-- Logs, analytics, and exports with no retention caps.
+- Logs, analytics, and exports across a 60-day window on Free, up to three years on Pro.
 - Privacy-first: no trackers, no reselling data.
 - Built by people who got sick of “free” meaning crippled.
 

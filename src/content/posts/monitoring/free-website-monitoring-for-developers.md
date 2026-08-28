@@ -2,6 +2,7 @@
 title: "Free Monitoring for Devs: CLI, API, No Fluff"
 author: "Exit1 Team"
 date: "2025-01-04"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Tools for devs: CLI, API, webhooks. Free."
 readTime: "8 min read"
@@ -158,7 +159,7 @@ Rate limits: Batch. Bad data: Validate. For product teams juggling customers, ap
 
 ## Free vs Paid
 
-Free: 1-10 sites, basic, simple notifications, budget.
+Free: up to 50 sites, SSL, webhooks, API access, budget.
 
 Paid: 10+ sites, collab, analytics, phone/SMS, custom, enterprise, stakes high.
 

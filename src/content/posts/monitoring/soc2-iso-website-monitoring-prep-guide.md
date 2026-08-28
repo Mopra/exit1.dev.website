@@ -4,6 +4,7 @@ author: "Morten Pradsgaard"
 category: "monitoring"
 excerpt: "Use exit1.dev to satisfy SOC 2 and ISO uptime requirements without buying enterprise tooling. Free monitoring, exportable evidence, privacy-first."
 date: "2025-02-15"
+updated: "2026-08-28"
 metaDescription: "Prepare for SOC 2 and ISO audits using exit1.dev's free monitoring stack. Capture uptime evidence, alert history, and privacy controls without pricey tools."
 ---
 
@@ -42,7 +43,7 @@ We don’t run trackers, analytics beacons, or ads. Share our data privacy state
 
 ## Step 6: Archive reports
 
-Export uptime analytics and logs quarterly. Store them in your audit evidence repo. 90 days retention max means you’re never scrambling to pull logs before they disappear.
+Export uptime analytics and logs quarterly. Store them in your audit evidence repo. Retention runs 60 days on Free and up to three years on Pro, so pick the plan that outlasts your audit window.
 
 ## Prove your SLA without hand-waving
 
@@ -75,7 +76,7 @@ Yes. Use team accounts in the app. Only the people you invite can modify monitor
 
 ### How far back does the data go?
 
-As far as you need. 90 days retention max is included in the free tier.
+Sixty days on the free tier, 90 on Indie, a year on Nano, and three years on Pro. For SOC 2 or ISO evidence you want Nano at minimum, and Pro if the auditor looks back further than a year.
 
 ### Do you support custom reporting formats?
 

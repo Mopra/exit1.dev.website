@@ -4,6 +4,7 @@ author: "Morten Pradsgaard"
 category: "monitoring"
 excerpt: "Stream exit1.dev monitoring logs into CSV, Excel, or your data warehouse. Zero cost, full control."
 date: "2025-02-19"
+updated: "2026-08-28"
 metaDescription: "Export exit1.dev monitoring logs to CSV/Excel and load them into your data warehouse. Build dashboards and analytics without paying for premium add-ons."
 ---
 
@@ -15,7 +16,7 @@ Monitoring data belongs in your warehouse, not in a vendor’s walled garden. ex
 
 - Complete request logs with timestamp, region, status, latency, and error details.
 - Uptime and response-time analytics for any tag or monitor group.
-- 90 days retention max so you never lose data.
+- 60 days of retention on Free and up to three years on Pro, so you can export before anything rolls off.
 
 ## Export paths
 

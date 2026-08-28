@@ -72,8 +72,8 @@ const Logs = () => {
 
   const comparisonTable = [
     {
-      feature: "Unlimited log retention",
-      exit1: true,
+      feature: "Log retention",
+      exit1: "60 days free, up to 3 years",
       competitors: "30-90 days"
     },
     {
@@ -126,7 +126,7 @@ const Logs = () => {
   const faq = [
     {
       question: "How long do you keep my monitoring logs?",
-      answer: "We keep all your monitoring logs indefinitely with no retention limits. Unlike competitors who delete logs after 30-90 days, we believe you should have access to your complete monitoring history for debugging, compliance, and trend analysis."
+      answer: "60 days on the Free plan, 90 days on Indie, a year on Nano, and three years on Pro. Most competitors cap their free tier at a week or less, so even Free gives you a real window for debugging and trend analysis, and Pro outlasts the audit cycle."
     },
     {
       question: "What information is included in each log entry?",
@@ -159,9 +159,9 @@ const Logs = () => {
   ];
 
   const technicalDetails = {
-    architecture: "Logs are stored in BigQuery for 90 days retention max and fast querying. Real-time updates flow instantly for immediate UI updates. Search and filtering use optimized BigQuery queries for sub-second response times.",
+    architecture: "Logs are stored in BigQuery for durable, fast querying across your full retention window. Real-time updates flow instantly for immediate UI updates. Search and filtering use optimized BigQuery queries for sub-second response times.",
     performance: "Log queries return results in under 1 second even for years of data. Real-time streaming updates have sub-100ms latency. Export operations handle millions of log entries efficiently with progress indicators.",
-    api: "Logs API provides programmatic access to all historical data with powerful filtering. RESTful endpoints with HMAC authentication. Rate limits: 1000 requests/hour per API key. Supports pagination for large datasets."
+    api: "Logs API provides programmatic access to all historical data with powerful filtering. RESTful endpoints with HMAC authentication. Rate limits: 5 requests/minute and 500/day per API key (2,000/day per account). Supports pagination for large datasets."
   };
 
   const relatedFeatures = [
@@ -223,11 +223,6 @@ const Logs = () => {
           },
           category: "Website Logging",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.7",
-            reviewCount: "95"
-          }
         }}
       />
       

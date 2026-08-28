@@ -217,18 +217,13 @@ const DomainIntelligence = () => {
           },
           offers: {
             "@type": "Offer",
-            price: "3",
+            price: "7",
             priceCurrency: "USD",
             availability: "https://schema.org/InStock",
             priceValidUntil: "2026-12-31"
           },
           category: "Domain Monitoring",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "47"
-          }
         }}
       />
       

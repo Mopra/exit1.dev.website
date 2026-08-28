@@ -112,7 +112,7 @@ const GlobalMonitoring = () => {
       competitors: "Paid only"
     },
     {
-      feature: "Unlimited global checks",
+      feature: "Global probes on every plan",
       exit1: true,
       competitors: "Location limits"
     },
@@ -161,7 +161,7 @@ const GlobalMonitoring = () => {
   const technicalDetails = {
     architecture: "Global monitoring network distributed across multiple cloud providers and data centers worldwide. Each location runs independent monitoring checks with redundant connectivity. Data aggregated in real-time for comprehensive global analysis.",
     performance: "Global checks complete within 2 seconds across all locations. Real-time aggregation provides instant global status updates. System handles thousands of concurrent global checks with intelligent load distribution.",
-    api: "Global monitoring API provides access to location-specific data and aggregated global metrics. RESTful endpoints with HMAC authentication. Rate limits: 2000 requests/hour per API key. Includes regional performance data."
+    api: "Global monitoring API provides access to location-specific data and aggregated global metrics. RESTful endpoints with HMAC authentication. Rate limits: 5 requests/minute and 500/day per API key (2,000/day per account). Includes regional performance data."
   };
 
   const relatedFeatures = [
@@ -223,11 +223,6 @@ const GlobalMonitoring = () => {
           },
           category: "Global Monitoring",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            reviewCount: "75"
-          }
         }}
       />
       

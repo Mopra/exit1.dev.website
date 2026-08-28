@@ -38,7 +38,7 @@ const freeColumns: Column[] = [
 ];
 
 const freeRows: Row[] = [
-  { feature: 'Monitors', values: ['5', '50', '10', '20'] },
+  { feature: 'Monitors', values: ['50', '50', '10', '20'] },
   { feature: 'Check interval', values: ['5 min', '5 min', '3 min', '5 min'] },
   { feature: 'Multi-region checks', values: [false, true, false, false] },
   { feature: 'HTTP / TCP / UDP / ICMP / WebSocket', values: [true, 'HTTP only', 'HTTP only', 'HTTP only'] },
@@ -48,7 +48,7 @@ const freeRows: Row[] = [
   { feature: 'Webhooks', values: ['1', false, false, true] },
   { feature: 'Slack / Discord / Teams', values: [false, 'Slack only', 'Slack only', 'Basic'] },
   { feature: 'SMS alerts', values: [false, false, false, false] },
-  { feature: 'REST API', values: [false, false, true, true] },
+  { feature: 'REST API', values: [true, false, true, true] },
   { feature: 'Log retention', values: ['60 days', '90 days', '3 days', 'Limited'] },
 ];
 
@@ -75,7 +75,7 @@ const paidRows: Row[] = [
   { feature: 'Domain expiry alerts', values: [true, true, true, true] },
   { feature: 'SMS alerts', values: ['50 / month', 'Credits — $0.03+ each', 'Unlimited', 'Unclear'] },
   { feature: 'Slack / Discord / Teams', values: [true, true, true, true] },
-  { feature: 'Webhooks', values: ['50', true, true, true] },
+  { feature: 'Webhooks', values: ['100', true, true, true] },
   { feature: 'REST API', values: [true, true, true, true] },
   { feature: 'MCP (Claude, Cursor, Windsurf)', values: [true, false, false, false] },
   { feature: 'Branded status pages', values: ['50', 'Unlimited', 'Multiple', '1 + custom domain'] },
@@ -262,8 +262,9 @@ export default function ComparePage() {
             <ComparisonTable columns={freeColumns} rows={freeRows} />
 
             <p className="mt-4 text-xs text-foreground/40">
-              UptimeRobot lets you put 50 monitors on a free account, but the check interval tops
-              out at 5 minutes and SSL/alerting depth is thinner than it looks.
+              UptimeRobot matches the 50-monitor count, but its free tier is HTTP-shaped: no SSL
+              expiry tracking, no REST API, and keyword matching in place of real response
+              validation.
             </p>
           </SectionContent>
         </PageSection>
@@ -393,8 +394,8 @@ export default function ComparePage() {
                   <Check className="w-5 h-5 text-foreground/70 mt-0.5 flex-shrink-0" />
                   <span>
                     <strong className="text-foreground">Where others win:</strong> Better Stack ships
-                    unlimited SMS at its paid tier. UptimeRobot gives you 50 monitors on the free
-                    plan. We&apos;re being honest about that.
+                    unlimited SMS at its paid tier and real on-call scheduling. Hyperping puts a
+                    custom domain on its status page today. We&apos;re being honest about that.
                   </span>
                 </li>
               </ul>

@@ -2,7 +2,7 @@
 title: "How to Monitor Website Uptime for Free (Complete 2025 Guide)"
 author: "Morten Pradsgaard"
 date: "2025-01-12"
-updated: "2026-08-21"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Step-by-step guide to monitoring website uptime for free. Setup takes 2 minutes with Exit1.dev - 50 free monitors, 5-minute checks, no credit card required."
 readTime: "6 min read"
@@ -64,7 +64,7 @@ Modern cloud infrastructure makes monitoring incredibly cheap to provide. Exit1.
 #### Single Website Setup
 1. **Click "Add Website"**
 2. **Enter URL** (e.g., https://yoursite.com)
-3. **Choose check frequency** (5 minutes on free, 1 minute on Nano)
+3. **Choose check frequency** (5 minutes on free, 1 minute on Indie, 30 seconds on Nano)
 4. **Select monitoring locations** (global coverage)
 5. **Click "Start Monitoring"**
 
@@ -242,6 +242,6 @@ Free website uptime monitoring is possible and professional-grade with Exit1.dev
 3. Configure alerts
 4. Monitor 24/7 from global locations
 
-[Start monitoring your websites for free](https://app.exit1.dev/) - setup takes under 2 minutes. Go unlimited with Nano.
+[Start monitoring your websites for free](https://app.exit1.dev/) - setup takes under 2 minutes. Step up to Nano for 250 monitors at 30-second checks.
 
 

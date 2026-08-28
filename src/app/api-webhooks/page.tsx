@@ -150,7 +150,7 @@ const APIWebhooks = () => {
     },
     {
       question: "What are the API rate limits?",
-      answer: "We provide generous rate limits to accommodate most use cases: 1000 requests/hour for general API calls, 2000 requests/hour for analytics data, and 500 requests/hour for alerting operations. These limits are designed to prevent abuse while allowing legitimate usage."
+      answer: "Reads are capped at 5 requests per minute and 500 per day per API key, with 2,000 per day across the account. Writes are tighter: 2 per minute and 100 per day per key. Agent sessions over MCP get a higher burst allowance because they are interactive. The limits exist to stop runaway scripts, not normal polling."
     },
     {
       question: "Do you provide API documentation?",
@@ -161,7 +161,7 @@ const APIWebhooks = () => {
   const technicalDetails = {
     architecture: "RESTful API built on Firebase Functions with automatic scaling. Webhook delivery system with retry logic and timeout handling. HMAC authentication ensures secure API access and webhook verification. All endpoints follow REST conventions.",
     performance: "API responses typically complete in under 200ms. Webhook delivery happens within 2 seconds with automatic retries for failed deliveries. System handles thousands of concurrent API requests and webhook deliveries efficiently.",
-    api: "RESTful API with HMAC authentication, comprehensive endpoints for all monitoring features. Rate limits: 1000-2000 requests/hour depending on endpoint. Full OpenAPI documentation available at docs.exit1.dev/api-reference. Webhook delivery includes detailed payloads with signature verification."
+    api: "RESTful API with HMAC authentication, comprehensive endpoints for all monitoring features. Rate limits: 5 requests/minute and 500/day per API key (2,000/day per account). Full OpenAPI documentation available at docs.exit1.dev/api-reference. Webhook delivery includes detailed payloads with signature verification."
   };
 
   const relatedFeatures = [
@@ -223,11 +223,6 @@ const APIWebhooks = () => {
           },
           category: "API Integration",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "65"
-          }
         }}
       />
       

@@ -117,7 +117,7 @@ const featuresMenu = {
       items: [
         { name: "Status Pages", href: "/status-pages", description: "Public status pages for customers" },
         { name: "Analytics & Reports", href: "/analytics", description: "Statistics dashboard and insights" },
-        { name: "Logs", href: "/logs", description: "Unlimited retention with search" },
+        { name: "Logs", href: "/logs", description: "60 days to 3 years, with search" },
         { name: "API & Webhooks", href: "/api-webhooks", description: "Integrations for automation" },
         { name: "MCP Integration", href: "/mcp", description: "Query monitors from AI assistants" },
         { name: "Status Badges", href: "/badges", description: "Embeddable status, uptime & response badges" },

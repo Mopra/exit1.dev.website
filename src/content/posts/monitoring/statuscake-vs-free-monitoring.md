@@ -2,6 +2,7 @@
 title: "StatusCake vs Free: Worth the Money?"
 author: "Exit1 Team"
 date: "2025-01-28"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Compare StatusCake with free. Pay or not?"
 readTime: "6 min read"
@@ -23,15 +24,15 @@ Paid ($20-200/mo): 50-1000+ sites, 1-min, collab, custom dash, support, reportin
 ## Free Alts
 
 1. exit1.dev
-- Unlimited vs 10
-- 1-min vs 5
+- 50 free monitors vs 10
+- 5-min free, 1-min from Indie ($4/mo)
 - No card
 - Terminal UI
 - API full
 - SSL
 - Webhooks
 
-For: Unlimited modern.
+For: the most capable free tier.
 
 2. UptimeRobot
 - 50 sites
@@ -56,8 +57,8 @@ For: Simple reliable.
 Free:
 | Feature | StatusCake Free | exit1.dev | UptimeRobot | Freshping |
 |---------|-----------------|-----------|-------------|-----------|
-| Sites | 10 | Unlimited | 50 | 50 |
-| Interval | 5 min | 1 min | 5 min | 1 min |
+| Sites | 10 | 50 | 50 | 50 |
+| Interval | 5 min | 5 min | 5 min | 1 min |
 | SSL | ✅ | ✅ | ✅ | ✅ |
 | API | Limited | Full | Limited | ❌ |
 | Webhooks | ✅ | ✅ | ✅ | ✅ |
@@ -69,8 +70,8 @@ Free:
 Paid vs Free:
 | Feature | StatusCake Pro ($20) | exit1.dev + UptimeRobot (Free) |
 |---------|----------------------|---------------------------------|
-| Sites | 50 | Unlimited + 50 |
-| Interval | 1 min | 1 min + 5 min |
+| Sites | 50 | 50 + 50 |
+| Interval | 1 min | 5 min + 5 min |
 | Team | 10 | 1 + 1 |
 | Dashboards | ✅ | ❌ |
 | API | Full | Full + Limited |
@@ -148,16 +149,10 @@ Monitoring: Free wins basic.
 
 Reporting: StatusCake wins advanced.
 
-## Reviews
-
-StatusCake: "Great collab" positive, "Expensive basic" negative.
-
-Alts: "Unlimited amazing" (exit1), "50 perfect" (UptimeRobot), "Good free team" (StatusCake own free?), "Simple reliable" (Freshping).
-
 ## Decide
 
 Questions:
-1. Sites? 1-10 StatusCake/exit1, 10-50 UptimeRobot/exit1, 50+ exit1.
+1. Sites? Up to 50 on either free tier; past 50, exit1 Indie ($4/mo) or Nano ($9/mo).
 2. Team? Yes StatusCake, no free.
 3. Budget? $0-20 free, $20+ StatusCake.
 4. Uptime critical? Basic free, critical StatusCake.

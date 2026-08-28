@@ -243,7 +243,7 @@ const LiveChecks = () => {
     {
       title: "Status Pages",
       description:
-        "The same probe stream feeds public status pages — including 90-day heartbeat calendars and custom domains.",
+        "The same probe stream feeds public status pages, including 90-day heartbeat calendars and your own branding from Indie upward.",
       href: "/status-pages",
       icon: <Activity className="w-6 h-6 text-foreground" />,
     },
@@ -270,11 +270,6 @@ const LiveChecks = () => {
           },
           category: "Website Monitoring",
           features: features.map((f) => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            reviewCount: "150",
-          },
         }}
       />
 

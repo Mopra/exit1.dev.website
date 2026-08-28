@@ -228,11 +228,6 @@ const Badges = () => {
           },
           category: "Status Badges",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "72"
-          }
         }}
       />
 

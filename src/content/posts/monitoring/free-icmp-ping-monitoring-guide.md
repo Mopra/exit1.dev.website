@@ -2,6 +2,7 @@
 title: "Free ICMP Ping Monitoring: The Complete Guide for 2026"
 author: "Exit1 Team"
 date: "2026-03-10"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Learn how to monitor servers, routers, and network devices with free ICMP ping checks. Covers setup, best practices, and why ping monitoring matters for infrastructure uptime."
 readTime: "7 min read"
@@ -44,7 +45,7 @@ Getting started takes less than a minute:
 1. Sign up at exit1.dev (no credit card required)
 2. Click "Add Check" and select **ICMP Ping** as the check type
 3. Enter the hostname or public IP address of your target
-4. Set your check frequency (5 minutes on Free, 1 minute on Nano)
+4. Set your check frequency (5 minutes on Free, 1 minute on Indie, 30 seconds on Nano)
 5. Configure your alert channels (email, webhooks, or SMS)
 
 That's it. Exit1.dev handles the rest — sending pings from multiple global regions, recording latency metrics, enriching results with geolocation data, and alerting you when something goes down.

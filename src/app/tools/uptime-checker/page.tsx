@@ -179,7 +179,7 @@ const faq = [
   {
     question: "Can I monitor my website's uptime continuously?",
     answer:
-      "Yes! exit1.dev offers continuous website and API monitoring with checks every 2 minutes from multiple regions worldwide. You'll get instant alerts via email, Slack, Discord, Microsoft Teams, or webhooks when your site goes down, responds slowly, or has SSL/domain issues. Start free at app.exit1.dev.",
+      "Yes! exit1.dev offers continuous website and API monitoring from multiple regions worldwide, at 5-minute intervals on the free plan and down to 15 seconds on Pro. You'll get instant alerts via email or webhooks when your site goes down, responds slowly, or has SSL/domain issues, with native Slack, Discord, and Microsoft Teams channels on Pro. Start free at app.exit1.dev.",
   },
 ];
 

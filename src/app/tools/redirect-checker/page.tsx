@@ -554,7 +554,7 @@ export default function RedirectCheckerPage() {
                 <p className="text-muted-foreground max-w-xl mx-auto mb-8">
                   Stop checking manually. exit1.dev monitors your URLs
                   automatically and alerts you when redirect chains change or
-                  break. 5 free monitors. Up to 1,000 on Pro.
+                  break. 50 free monitors. Up to 1,000 on Pro.
                 </p>
                 <Button
                   asChild

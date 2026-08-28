@@ -95,7 +95,7 @@ const sections = [
       {
         name: "Logs",
         href: "/logs",
-        description: "Unlimited log retention with full-text search and filtering.",
+        description: "60 days to 3 years of log retention with full-text search and filtering.",
         icon: <FileText className="w-6 h-6 text-foreground" />,
       },
       {

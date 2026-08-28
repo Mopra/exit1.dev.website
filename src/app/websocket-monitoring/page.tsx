@@ -157,7 +157,7 @@ const WebSocketMonitoring = () => {
   const technicalDetails = {
     architecture: "WebSocket monitoring runs on the same infrastructure as all exit1.dev checks. Each check performs a complete WebSocket handshake including the HTTP upgrade request and 101 Switching Protocols response. For WSS endpoints, the TLS negotiation is timed separately. Results include full connection phase breakdown and SSL certificate analysis.",
     performance: "WebSocket handshake checks execute quickly with minimal overhead. The connection is closed immediately after successful handshake verification. Strict URL validation ensures only valid WebSocket URLs are accepted. Process-level timeouts prevent hung connections from affecting other checks.",
-    api: "WebSocket checks are fully supported through the exit1.dev REST API. Create, update, delete, and query WebSocket monitors programmatically. Access check history, connection times, and SSL data via API endpoints. HMAC authentication with rate limits of 1000 requests/hour per key."
+    api: "WebSocket checks are fully supported through the exit1.dev REST API. Create, update, delete, and query WebSocket monitors programmatically. Access check history, connection times, and SSL data via API endpoints. HMAC authentication, with rate limits of 5 requests/minute and 500/day per key."
   };
 
   const relatedFeatures = [
@@ -219,11 +219,6 @@ const WebSocketMonitoring = () => {
           },
           category: "WebSocket Monitoring",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "85"
-          }
         }}
       />
 

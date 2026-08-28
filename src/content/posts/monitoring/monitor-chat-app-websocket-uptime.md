@@ -2,6 +2,7 @@
 title: "How to Monitor Chat App & Real-Time Service Uptime with WebSocket Checks"
 author: "Exit1 Team"
 date: "2026-03-10"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Chat apps and real-time services fail differently than websites. Learn how WebSocket monitoring catches the outages that HTTP checks miss, and how to set it up for free."
 readTime: "5 min read"
@@ -44,7 +45,7 @@ On exit1.dev, create a WebSocket check for each endpoint:
 
 1. Select **WebSocket** as the check type
 2. Enter the WSS URL
-3. Set check frequency (5 minutes on Free, 1 minute on Nano)
+3. Set check frequency (5 minutes on Free, 1 minute on Indie, 30 seconds on Nano)
 4. Configure alerts
 
 ### Step 3: Add HTTP checks for your API
@@ -101,6 +102,6 @@ Monitor the device communication WebSocket. Lost telemetry data creates gaps in 
 
 ## Getting Started
 
-Exit1.dev's WebSocket monitoring is free on both tiers. Add your first WSS check in under a minute. No credit card, no trial expiration. Same dashboard and alerts as your HTTP and ICMP checks.
+Exit1.dev's WebSocket monitoring is on every plan, Free included. Add your first WSS check in under a minute. No credit card, no trial expiration. Same dashboard and alerts as your HTTP and ICMP checks.
 
 Start monitoring at [exit1.dev](https://app.exit1.dev).

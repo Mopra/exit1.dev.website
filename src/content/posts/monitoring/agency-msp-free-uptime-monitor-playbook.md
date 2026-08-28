@@ -4,6 +4,7 @@ author: "Morten Pradsgaard"
 category: "monitoring"
 excerpt: "Run client uptime monitoring affordably. exit1.dev gives agencies and MSPs 50 free monitors with 5-minute checks, or 250 monitors with 30-second checks on the Nano plan ($9/month)."
 date: "2025-02-17"
+updated: "2026-08-28"
 metaDescription: "Agencies and MSPs can start monitoring client sites free with exit1.dev (50 monitors, 5-min checks) or scale to 250 monitors with Nano ($9/month). Organize monitors, report uptime, and automate alerts."
 ---
 
@@ -46,7 +47,7 @@ You’re providing 24/7 coverage. Bake it into your retainers. The tooling cost 
 ## Extra benefits
 
 - Privacy-first monitoring keeps you compliant with GDPR-heavy clients.
-- 90 days retention max makes audits and postmortems painless.
+- 60 days of retained history on Free, a full year on Nano, makes client audits and postmortems painless.
 - Global probes let you reassure international clients their sites load everywhere.
 
 ## FAQs

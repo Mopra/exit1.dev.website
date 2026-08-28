@@ -3,7 +3,7 @@ title: "Is UptimeRobot Free? Plan Limits & the Best Free Alternative (2026)"
 seoTitle: "UptimeRobot Free Plan 2026: What You Actually Get"
 author: "Morten Pradsgaard"
 date: "2025-02-01"
-updated: "2026-08-21"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "What UptimeRobot's free plan actually includes, 50 monitors and 5-minute checks, and where it falls short. Plus exit1.dev, which matches the 50 free monitors and drops to 1-minute checks on Indie ($4/month)."
 readTime: "5 min read"
@@ -90,17 +90,6 @@ UptimeRobot's free tier has real limitations:
 - **Same alert options** (email, webhooks)
 - **Status page functionality** included
 - **Global monitoring** with more locations
-
-## Real User Migration Stories
-
-### Developer with 75+ Sites
-*"Hit UptimeRobot's 50-site limit with microservices. Either pay $84/year or delete monitors. Switched to Exit1.dev's Pro plan at $24/month, now monitor 120+ sites with 15-second checks."*
-
-### Agency Owner
-*"Clients kept asking why alerts took 5+ minutes. UptimeRobot's paid plan was $25/month per client. Exit1.dev's Indie plan gives all clients 1-minute monitoring for just $4/month."*
-
-### Startup Team
-*"Bootstrapping costs. UptimeRobot wanted $84/year for unlimited. Exit1.dev's free tier got us started with 50 monitors, and Nano at $9/month covers everything we need."*
 
 ## Where exit1.dev Differs at a Glance
 

@@ -2,6 +2,7 @@
 title: "Free SLA Monitoring Tools: Compare The Stack That Keeps You Out Of Penalty Clauses"
 author: "Morten Pradsgaard"
 date: "2025-01-31"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Side-by-side comparison of free SLA monitoring tools with uptime checks, incident workflows, and reporting templates."
 readTime: "11 min read"
@@ -27,10 +28,10 @@ Any tool that misses one of these pillars leaves you exposed. Use this checklist
 
 | Feature | Exit1.dev | UptimeRobot | BetterStack | StatusCake |
 | --- | --- | --- | --- | --- |
-| **Check frequency** | 5 min free / 15 sec Indie ($4/mo) | 5 minutes | 30 seconds (limited monitors) | 5 minutes |
+| **Check frequency** | 5 min free / 1 min Indie ($4/mo) | 5 minutes | 30 seconds (limited monitors) | 5 minutes |
 | **Global locations** | 6 regions with failover | 5 regions | 3 regions | 4 regions |
 | **Synthetic flows** | Included via journeys | Paid | Paid | Paid |
-| **Status pages** | Unlimited, branded | 1 basic | 1 branded | 1 branded |
+| **Status pages** | 1 free, branded from Indie (5 on Nano, 50 on Pro) | 1 basic | 1 branded | 1 branded |
 | **Incident templates** | Included | Manual | Paid add-on | Manual |
 | **Alert channels** | Slack, email, Discord, webhooks | Email, webhook | Slack, Teams, PagerDuty | Email, SMS |
 | **SLA reports** | Automated exports, API | CSV exports | Paid | Paid |

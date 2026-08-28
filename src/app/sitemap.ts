@@ -1,7 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { MetadataRoute } from 'next';
-import { POSTS_PER_PAGE } from '@/lib/blogPagination';
 import { getAllPublicMonitors, isIndexEntryMature } from '@/lib/publicMonitors';
 import { getAllPosts } from '@/lib/markdownLoader';
 import blogData from '@/content/blog.json';
@@ -21,6 +20,55 @@ function isoDay(ms: number): string {
 }
 
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+
+/**
+ * Last substantive copy revision per static route, as an ISO day.
+ *
+ * Static pages carry no equivalent of a post's `updated` frontmatter, so they
+ * shipped with no lastmod at all. That is the right default (see the note on
+ * the return block: a fabricated "now" is worse than none), but it also means a
+ * real correction to a page's copy gives Google no signal to recrawl, and these
+ * pages are recrawled on a slow cadence precisely because they never change.
+ *
+ * So: an explicit, hand-maintained map. Add a route here only when its visible
+ * copy or structured data actually changed, and set the date to the day of that
+ * change. Routes absent from the map keep emitting no lastmod, unchanged.
+ *
+ * Dates are literals, never `Date.now()`, so sitemap output stays byte-stable
+ * across regenerations and Vercel keeps deduping the ISR write.
+ *
+ * 2026-08-28: site-wide pricing audit after Free moved to 50 monitors. Corrected
+ * stale tier numbers, removed unlimited-retention and invented API rate-limit
+ * claims, and stripped fabricated aggregateRating markup from 14 pages.
+ */
+const CONTENT_REVISIONS: Record<string, string> = {
+  '/': '2026-08-28',
+  '/alerting': '2026-08-28',
+  '/analytics': '2026-08-28',
+  '/api-webhooks': '2026-08-28',
+  '/badges': '2026-08-28',
+  '/compare': '2026-08-28',
+  '/domain-intelligence': '2026-08-28',
+  '/features': '2026-08-28',
+  '/free-uptime-monitor': '2026-08-28',
+  '/free-website-monitor': '2026-08-28',
+  '/getting-started': '2026-08-28',
+  '/global-monitoring': '2026-08-28',
+  '/icmp-monitoring': '2026-08-28',
+  '/live-checks': '2026-08-28',
+  '/logs': '2026-08-28',
+  '/maintenance-mode': '2026-08-28',
+  '/ssl-monitoring': '2026-08-28',
+  '/status-pages': '2026-08-28',
+  '/tools/redirect-checker': '2026-08-28',
+  '/tools/ssl-checker': '2026-08-28',
+  '/tools/uptime-checker': '2026-08-28',
+  '/websocket-monitoring': '2026-08-28',
+};
+
+/** All five head-to-head pages are generated from competitors.ts, whose exit1
+ *  columns were corrected in the same pass. */
+const COMPARE_PAGES_REVISED = '2026-08-28';
 
 /**
  * Routes that have a `page.tsx` but must never be advertised to crawlers.
@@ -52,8 +100,7 @@ const SITEMAP_EXCLUDED_ROUTES = new Set<string>([
   // own changeFrequency), so the filesystem scan would duplicate it.
   '/status',
 
-  // Internal-only routes. All three also carry `robots: { index: false }`.
-  '/new_home', // homepage redesign draft
+  // Internal-only routes. Both also carry `robots: { index: false }`.
   '/badge-lab', // component sandbox
   '/ai', // kickbacks.ai campaign landing page — /mcp is the indexed equivalent
 ]);
@@ -144,16 +191,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  const totalPages = Math.max(1, Math.ceil(blogPosts.length / POSTS_PER_PAGE));
-  const blogPaginationPages: MetadataRoute.Sitemap = [];
-  for (let page = 2; page <= totalPages; page++) {
-    const url = `${baseUrl}/blog/page/${page}`;
-    blogPaginationPages.push({
-      url,
-      changeFrequency: 'weekly',
-      priority: 0.7
-    });
-  }
+  // Blog pagination is deliberately NOT advertised.
+  //
+  // Measured 2026-08-25 via the URL Inspection sweep
+  // (scripts/seo/pull-index-coverage.mjs): all 8 of `/blog/page/2..9` were
+  // unindexed, and had been for as long as they existed. That is the normal and
+  // correct outcome for a paginated archive. The pages carry no content of their
+  // own, only an ordering of posts that changes whenever a post is published, so
+  // there is nothing stable for Google to rank.
+  //
+  // Advertising them anyway cost twice: it spent crawl budget re-fetching 8 URLs
+  // that will never be served, and it made the sitemap's own indexing rate look
+  // like a problem when it was not. They stay fully crawlable and linked from
+  // /blog, so the posts behind them keep their discovery path. /site-map lists
+  // every post as a flat index, and the 9 category hubs are all indexed, so no
+  // post depends on pagination alone to be found.
 
   // Head-to-head comparison pages (/compare/<competitor>). Dynamic segments are
   // skipped by the filesystem scan above, so add them explicitly.
@@ -161,6 +213,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/compare/${c.slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
+    lastModified: COMPARE_PAGES_REVISED,
   }));
 
   // Public status pages (curated uptime landing pages). Dynamic segments are
@@ -224,10 +277,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}${page.url}`,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
+      ...(CONTENT_REVISIONS[page.url] ? { lastModified: CONTENT_REVISIONS[page.url] } : {}),
     })),
     ...blogPosts,
     ...blogCategoryPages,
-    ...blogPaginationPages,
     ...comparePages,
     ...statusPages,
     ...movedPages

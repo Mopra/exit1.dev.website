@@ -85,7 +85,7 @@ const BEHAVIORS: { name: string; tag: string; body: string }[] = [
 
 const CHANNELS: { icon: typeof Mail; name: string; avail?: string; body: string }[] = [
   { icon: Mail, name: "Email", avail: "Every plan", body: "Down, up, SSL, and domain alerts straight to your inbox." },
-  { icon: MessageSquareText, name: "SMS", avail: "Paid plans", body: "Text-message alerts for the incidents you can’t miss." },
+  { icon: MessageSquareText, name: "SMS", avail: "Pro", body: "Text-message alerts for the incidents you can’t miss." },
   { icon: Webhook, name: "Webhooks", body: "POST events to your own endpoint, Slack, Discord, or Teams." },
   { icon: Bell, name: "Integrations", body: "Pushover, PagerDuty, and Opsgenie." },
 ];

@@ -4,6 +4,7 @@ author: "Morten Pradsgaard"
 category: "monitoring"
 excerpt: "Write faster postmortems using exit1.dev logs, analytics, and alert history. Free tooling, honest timelines."
 date: "2025-02-20"
+updated: "2026-08-28"
 metaDescription: "Build better incident postmortems with exit1.dev. Use free monitoring logs, alert history, and analytics to document downtime and remediation."
 ---
 
@@ -55,7 +56,7 @@ Yes. Use the API to pull incident data and populate a template automatically. Yo
 
 ### Do I need a paid plan for history?
 
-No. History is unlimited on the free tier.
+No. The free tier keeps 60 days of history, which covers the postmortem window for almost any incident. Paid plans go to 90 days, a year, or three years.
 
 ### Can I share postmortem data with clients?
 

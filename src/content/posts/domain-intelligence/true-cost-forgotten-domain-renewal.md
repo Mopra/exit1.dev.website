@@ -2,6 +2,7 @@
 title: "The True Cost of a Forgotten Domain Renewal"
 author: "Exit1 Team"
 date: "2026-01-06"
+updated: "2026-08-28"
 category: "domain-intelligence"
 excerpt: "A $15 renewal becomes a $15,000 problem. Here's the real math behind domain expiration disasters."
 readTime: "8 min read"
@@ -92,7 +93,7 @@ Every day of inaction makes recovery more expensive. The business owner in our c
 
 Now let's do the math that actually matters.
 
-Domain monitoring through Exit1 with Domain Intelligence costs $0-3 per month depending on your plan. That's about $36 per year. In the best case scenario where monitoring catches an expiration early, it prevents a $50-100 grace period cost. In a medium case where it prevents a redemption situation, it saves $200-500. In the worst case scenarios involving auctions and legal recovery, it prevents losses of $5,000 to $50,000 or more.
+Domain monitoring through Exit1 with Domain Intelligence starts on the Nano plan at $9 per month, or $7 per month billed annually. That's $84 per year. In the best case scenario where monitoring catches an expiration early, it prevents a $50-100 grace period cost. In a medium case where it prevents a redemption situation, it saves $200-500. In the worst case scenarios involving auctions and legal recovery, it prevents losses of $5,000 to $50,000 or more.
 
 Even using the most conservative numbers, monitoring delivers a 455% return on investment. Against catastrophic scenarios, the ROI approaches infinity. There's no other investment in your technical infrastructure with this kind of risk-adjusted return.
 

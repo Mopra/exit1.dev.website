@@ -2,6 +2,7 @@
 title: "Free WebSocket Monitoring: How to Monitor WS & WSS Endpoints in 2026"
 author: "Exit1 Team"
 date: "2026-03-10"
+updated: "2026-08-28"
 category: "monitoring"
 excerpt: "Learn how to monitor WebSocket endpoints for free. Covers WS vs WSS, handshake verification, latency tracking, and why standard HTTP checks miss WebSocket failures."
 readTime: "6 min read"
@@ -57,7 +58,7 @@ Getting started takes less than a minute:
 1. Sign up at exit1.dev (no credit card required)
 2. Click "Add Check" and select **WebSocket** as the check type
 3. Enter your WebSocket URL (e.g., `wss://api.example.com/ws`)
-4. Set your check frequency (5 minutes on Free, 1 minute on Nano)
+4. Set your check frequency (5 minutes on Free, 1 minute on Indie, 30 seconds on Nano)
 5. Configure alert channels (email, webhooks, or SMS)
 
 Exit1.dev will begin monitoring your WebSocket endpoint from multiple global regions, recording connection latency and alerting you when failures occur.

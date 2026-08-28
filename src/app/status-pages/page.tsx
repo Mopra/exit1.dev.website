@@ -232,11 +232,6 @@ const StatusPages = () => {
           },
           category: "Status Page Hosting",
           features: features.map(f => f.title),
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "85"
-          }
         }}
       />
       
