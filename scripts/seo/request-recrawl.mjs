@@ -37,17 +37,28 @@
 //                     (default: 7 days ago)
 // Flags:
 //   --dry-run   list the changed URLs, skip the sitemap submission
+//   --stalled   cross-check every content move against the URL Inspection API and
+//               report only the ones Google still has not recrawled, ranked by the
+//               impressions stranded on the old URL. This is the list to spend the
+//               manual Request-indexing quota on. Skips the sitemap submission.
 //
 // Permission note: submitting a sitemap needs the read-write `webmasters`
 // scope and an owner/full user on the property. `webmasters.readonly`, which
 // the other two scripts use, returns 403 here.
 
 import { GoogleAuth } from 'google-auth-library';
+import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+const require = createRequire(import.meta.url);
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const SITE = process.env.GSC_SITE_URL;
 const KEY = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 const SITEMAP_URL = process.env.SITEMAP_URL || 'https://exit1.dev/sitemap.xml';
 const DRY_RUN = process.argv.includes('--dry-run');
+const STALLED = process.argv.includes('--stalled');
 
 function fail(msg) {
   console.error(`\n[x] ${msg}\n`);
@@ -120,7 +131,117 @@ function rank(u) {
   return 4;
 }
 
+// ---------------------------- stalled moves ----------------------------
+
+// A 301 does nothing until Google recrawls the old URL, and consolidation removes
+// every path by which that normally happens: the post leaves the sitemap and every
+// internal link gets repointed at the destination. Re-advertising with a fresh
+// `lastmod` is the documented nudge, but it is only a hint. Measured on this
+// property, the 2026-08-02 batch was still unrecrawled 38 days later, with
+// /blog/free-nameserver-lookup holding position 10 on 3,811 impressions while its
+// destination sat at position 48 and the signals stayed split.
+//
+// So the useful question is not "what changed recently" — the default listing,
+// which buries three stalled URLs among fifty ordinary edits — but "which moves has
+// Google still not seen, and how much traffic is stranded on each". That is a short,
+// ranked worklist, which is what a quota of roughly a dozen clicks a day needs.
+async function reportStalledMoves() {
+  const { movesAwaitingRecrawl } = require(join(__dirname, '../../src/content/contentMoves.js'));
+  const today = new Date().toISOString().slice(0, 10);
+  const moves = movesAwaitingRecrawl(today);
+
+  console.log('');
+  console.log(`Checking ${moves.length} content move(s) still inside the recrawl window.`);
+  console.log('');
+
+  // Impressions stranded on each old URL. The `page` dimension keeps full click
+  // fidelity, so this is exact, and it is what ranks the list: a stalled move
+  // nobody searches for is not worth a click of the quota.
+  const stranded = new Map();
+  const gscRes = await fetch(
+    `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`,
+    {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${await token()}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        startDate: isoDaysAgo(30),
+        endDate: isoDaysAgo(2),
+        dimensions: ['page'],
+        rowLimit: 25000,
+      }),
+    },
+  );
+  if (gscRes.ok) {
+    for (const row of (await gscRes.json()).rows || []) {
+      stranded.set(new URL(row.keys[0]).pathname, {
+        impressions: row.impressions,
+        clicks: row.clicks,
+        position: row.position,
+      });
+    }
+  }
+
+  const stalled = [];
+  const applied = [];
+  for (const m of moves) {
+    const r = await fetch('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${await token()}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ inspectionUrl: `https://exit1.dev${m.from}`, siteUrl: SITE }),
+    });
+    if (r.status === 403)
+      fail('URL Inspection returned 403. The service account needs owner or full access on the property.');
+    if (!r.ok) {
+      console.log(`  ?  ${m.from} — inspection failed (${r.status})`);
+      continue;
+    }
+    const st = (await r.json()).inspectionResult?.indexStatusResult || {};
+    const lastCrawl = (st.lastCrawlTime || '').slice(0, 10);
+    const g = stranded.get(m.from) || { impressions: 0, clicks: 0, position: 0 };
+    const row = { ...m, lastCrawl, coverage: st.coverageState || '-', ...g };
+    // The move has landed once Google recrawled at or after the deploy date. Coverage
+    // then reads "Page with redirect", which is the intended end state, not an error.
+    if (lastCrawl && lastCrawl >= m.since) applied.push(row);
+    else stalled.push(row);
+  }
+
+  stalled.sort((a, b) => b.impressions - a.impressions);
+
+  console.log(`${applied.length} move(s) recrawled and applied. ${stalled.length} still stalled.`);
+  console.log('');
+
+  if (stalled.length) {
+    console.log('  STALLED — Google has not recrawled since the redirect deployed.');
+    console.log('  Ranked by impressions stranded on the old URL (last 28d).');
+    console.log('');
+    console.log('    impr  clicks    pos  crawled      deployed     URL');
+    for (const r of stalled) {
+      console.log(
+        `  ${String(r.impressions).padStart(6)}  ${String(r.clicks).padStart(6)}  ` +
+          `${r.position ? r.position.toFixed(1).padStart(5) : '    -'}  ` +
+          `${(r.lastCrawl || 'never').padEnd(11)}  ${r.since.padEnd(11)}  ${r.from}`,
+      );
+    }
+    console.log('');
+    console.log('  Spend the manual quota top-down:');
+    console.log('    Search Console -> URL Inspection -> paste the URL -> Request indexing');
+    console.log('  There is no API behind that button, and the Indexing API does not apply');
+    console.log('  to these URLs (it is scoped to JobPosting and BroadcastEvent only).');
+    console.log('');
+  }
+
+  if (applied.length) {
+    console.log('  APPLIED (no action needed):');
+    for (const r of applied) console.log(`    ${r.from}  crawled ${r.lastCrawl}  ${r.coverage}`);
+    console.log('');
+  }
+}
+
 // ------------------------------- run -------------------------------
+
+if (STALLED) {
+  await reportStalledMoves();
+} else {
 
 const entries = await fetchSitemapEntries(SITEMAP_URL);
 const changed = entries
@@ -167,4 +288,6 @@ if (DRY_RUN) {
   console.log('  Search Console -> URL Inspection -> paste URL -> Request indexing');
   console.log('  Quota is roughly a dozen URLs per property per day, so work down the list above.');
   console.log('\nRecrawl is a hint, not a guarantee. Expect days to weeks, not hours.\n');
+}
+
 }

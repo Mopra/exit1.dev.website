@@ -32,7 +32,9 @@ The report is built around *what to do*, not raw rows:
 
 ## Reading the numbers
 
-Two things will mislead you if you forget them. Both cost real decisions before they were understood.
+Four things will mislead you if you forget them. Each one cost a real decision before it was
+understood, and the script now handles all four. Traps 3 and 4 are why the report leads with
+`Totals excluding spike pages` and a bot scan rather than the raw headline.
 
 **1. Only some rows are exact.** Google withholds low-volume queries from any result
 set containing the `query` dimension, and the same filter hits `page` + `country`
@@ -71,6 +73,38 @@ were flat. Hence the click-weighted position column. Note that it deliberately d
 45.3 to 13.5 by excluding 99.8% of its impressions, including its actual target
 terms, which is survivorship rather than measurement.
 
+**3. One outage day can own a whole window.** The 2026-08-11 PageSpeed outage put 128 of
+`/status/pagespeed.web.dev`'s 177 clicks into a single day. Because that day fell inside one
+28-day window and outside the comparison window, it manufactured a **+35% site headline on top
+of ~+12% of real growth**, and two consecutive reviews read it as a trend before anyone checked
+the daily series.
+
+The report now prints `Totals excluding spike pages` directly beneath the raw total, lists the
+pages it removed, and adds a **section split** (`/tools/`, `/status/`, `/blog/`, other) plus a
+weekly series with those pages removed. A page is flagged when one day holds 35%+ of its clicks
+and at least 10 of them. Both windows lose the same pages, which is what keeps the comparison
+symmetric: dropping only the spike day would leave the page's post-outage residual on one side.
+
+**Read the adjusted line first.** The raw total is kept because it is the true number of clicks,
+not because it is the useful one.
+
+**4. GA4 counts scrapers as users, and it double-counts across dimensions.** Two separate traps
+in one tool:
+
+- *Bots.* A headless-Chrome scraper out of Singapore, plus a smaller one out of Brazil, tripled
+  Direct sessions and made a flat month read as a doubling (1,675 → 3,562 sessions) while
+  converting **zero** times. Engagement and bounce look merely mediocre, so the reliable tell is
+  sessions with **zero key events at country × channel granularity** — bots arrive as Direct, so
+  aggregating by country alone hides them among that country's real users. A burst profile (one
+  day many times the median) confirms it. The report's bot scan flags these; nothing is dropped
+  automatically, because a heuristic that silently deletes a real market is worse than a table
+  you have to read. Put confirmed bot geographies in `GA4_EXCLUDE_COUNTRIES`.
+- *Dimension inflation.* GA4 counts a session once per dimension value, so adding a dimension
+  inflates the total: on one window, unsegmented = 3,412 sessions while the `country` breakdown
+  summed to 4,330. **Never subtract one breakdown from another.** Subtracting a country × channel
+  figure from a channel figure produced a confidently wrong "real Direct" number. Re-query with
+  the same dimension set and a filter instead.
+
 ## One-time setup
 
 ### 1. Create a service account + key
@@ -103,6 +137,9 @@ SEO_DAYS=28
 SEO_COUNTRY=usa
 # override the tier-1 market set used by the geography and CTR sections
 SEO_TIER1=usa,gbr,can,aus,deu,nld,swe,dnk
+# GA4 country display names to subtract from the GA4 tables. See trap 3 below;
+# the report's bot scan tells you what belongs here.
+GA4_EXCLUDE_COUNTRIES=Singapore,Brazil
 ```
 
 > `GSC_SITE_URL` is `sc-domain:exit1.dev` for a Domain property, or the exact URL-prefix
@@ -185,6 +222,7 @@ The orphan table keeps both.
 ```bash
 npm run seo:recrawl -- --dry-run   # list the changed pages, submit nothing
 npm run seo:recrawl                # also resubmit the sitemap
+npm run seo:recrawl -- --stalled   # which redirects Google still has not seen
 ```
 
 Run it **after the deploy lands**, because it reads the live sitemap, not the
@@ -193,6 +231,23 @@ working tree.
 Two things make Google re-fetch a page it already has: a changed `<lastmod>` in
 the sitemap, and a manual Request-indexing in the URL Inspection tool. This
 script covers the first and hands you a ranked worklist for the second.
+
+### `--stalled`: which redirects have actually landed
+
+`lastmod` is a hint, and on this property it has failed for weeks at a time. `--stalled`
+cross-checks every entry in `src/content/contentMoves.js` against the URL Inspection API and
+splits them into two lists: moves Google has recrawled since the deploy date (coverage reads
+*Page with redirect*, the intended end state) and moves it has not. The stalled list is ranked
+by the impressions stranded on the old URL over the last 28 days, because that is what decides
+whether a URL is worth one of the dozen-or-so manual requests available per day.
+
+Measured 2026-09-09, 38 days after the 2026-08-02 batch: 13 applied, 32 stalled, and only the
+top five had any stranded impressions at all. `/blog/free-nameserver-lookup` held position 10.6
+on 6,746 impressions while its destination `/tools/nameserver-lookup` sat at position 48, with
+both URLs indexed and the signals split. Everything in the repo was correct — the 308 fires in
+production and the sitemap advertised all three with a fresh `lastmod` — so the only lever left
+was the manual button. Use this flag to find that handful rather than reading the full
+changed-pages listing, which buries them among fifty ordinary edits.
 
 ### Static pages need a date added by hand
 

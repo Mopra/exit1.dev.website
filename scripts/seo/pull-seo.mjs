@@ -15,6 +15,8 @@
 //   SEO_DAYS        lookback window in days (default 28)
 //   SEO_COUNTRY     ISO-3 filter for GSC, e.g. "usa" (default: all)
 //   SEO_TIER1       comma-separated ISO-3 list overriding the tier-1 market set
+//   GA4_EXCLUDE_COUNTRIES  GA4 country display names to subtract from the GA4
+//                   tables, e.g. "Singapore,Brazil". See the bot note below.
 //
 // A note on GSC data fidelity, because it changes how you read this report.
 // Google drops low-volume queries from any result set that includes the `query`
@@ -26,6 +28,20 @@
 //     here). Use it for ranking work, never as a site total.
 //   - `query`+`country` costs nothing extra over `query` alone, so the tier-1 split
 //     of the query tables is free and internally consistent.
+//
+// Two further traps this script now handles, both of which produced confidently
+// wrong reviews before it did.
+//
+//   1. One outage day can own a whole window. The 2026-08-11 PageSpeed outage put
+//      128 of one status page's 177 clicks into a single day, and because that day
+//      fell inside one 28d window and outside the comparison, it manufactured a
+//      +35% headline on top of ~+12% of real growth. Two consecutive pulls read it
+//      as a trend. The `Totals excluding spike pages` line and the section split
+//      are the fix; read them first.
+//   2. GA4 counts scrapers as users. On this property a headless-Chrome scraper
+//      tripled Direct sessions and made a flat month read as a doubling, while
+//      converting zero times. The bot scan flags country x channel pairs with real
+//      volume and no key events; GA4_EXCLUDE_COUNTRIES subtracts them.
 
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -39,6 +55,14 @@ const GA4 = process.env.GA4_PROPERTY_ID;
 const KEY = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 const DAYS = Number(process.env.SEO_DAYS || 28);
 const COUNTRY = process.env.SEO_COUNTRY?.toLowerCase();
+// Suspected-bot geographies to subtract from the GA4 tables. GA4 display names,
+// comma-separated, e.g. "Singapore,Brazil". The bot scan below tells you what to
+// put here; nothing is excluded automatically, because a heuristic that silently
+// deletes a real market is worse than a table you have to read.
+const GA4_EXCLUDE = (process.env.GA4_EXCLUDE_COUNTRIES || '')
+  .split(',')
+  .map((c) => c.trim())
+  .filter(Boolean);
 
 // Markets worth optimising for: high purchasing power, plausible buyers of a paid
 // monitoring plan. The split matters because ranking page-1 in a low-CPC market and
@@ -163,6 +187,84 @@ function rollup(rows) {
   };
 }
 
+// Section a URL belongs to, by first path segment. The section split is the
+// cheapest honest read on this site: it separates "the whole site grew" from
+// "one section grew and the rest is flat", which is the difference between a
+// strategy working and a single page having a good week.
+const urlPath = (u) => u.replace(/^https?:\/\/[^/]+/, '') || '/';
+function sectionOf(url) {
+  const seg = urlPath(url).split('/')[1] || '';
+  return ['status', 'tools', 'blog'].includes(seg) ? `/${seg}/` : 'other';
+}
+
+// One outage can dominate a 28-day window, and it does so twice over: it inflates
+// the window it lands in and deflates the comparison. Measured on this property,
+// the 2026-08-11 PageSpeed outage put 128 of /status/pagespeed.web.dev's 177
+// clicks into a single day and manufactured a +35% site headline on top of ~+11%
+// of real growth. Two consecutive pulls read that as a trend.
+//
+// So: find pages whose clicks are concentrated in one day, then subtract those
+// pages from BOTH windows. Subtracting from both is what keeps the comparison
+// honest — dropping the spike day alone would still leave the page's post-outage
+// residual on one side of the split.
+const SPIKE_MIN_CLICKS = 10; // ignore pages too small for one day to mean anything
+const SPIKE_SHARE = 0.35; // one day holding this much of a page's clicks is an event
+
+function spikeAnalysis(datePageRows, nowStart, prevStart) {
+  const pages = new Map();
+  for (const r of datePageRows) {
+    const [date, url] = r.keys;
+    const window = date >= nowStart ? 'now' : 'prev';
+    let p = pages.get(url);
+    if (!p) pages.set(url, (p = { url, now: 0, prev: 0, days: new Map() }));
+    p[window] += r.clicks;
+    if (window === 'now') p.days.set(date, (p.days.get(date) || 0) + r.clicks);
+  }
+  const spikes = [];
+  for (const p of pages.values()) {
+    if (p.now < SPIKE_MIN_CLICKS) continue;
+    let maxDay = 0;
+    let maxDate = '';
+    for (const [d, c] of p.days) if (c > maxDay) ((maxDay = c), (maxDate = d));
+    if (maxDay >= SPIKE_MIN_CLICKS && maxDay / p.now >= SPIKE_SHARE)
+      spikes.push({ ...p, maxDay, maxDate, share: maxDay / p.now });
+  }
+  spikes.sort((a, b) => b.maxDay - a.maxDay);
+
+  const spikeUrls = new Set(spikes.map((s) => s.url));
+  const sum = (w, filter) =>
+    [...pages.values()].filter(filter).reduce((acc, p) => acc + p[w], 0);
+  const adjusted = {
+    now: sum('now', (p) => !spikeUrls.has(p.url)),
+    prev: sum('prev', (p) => !spikeUrls.has(p.url)),
+  };
+
+  // Sections, spike pages removed, so a section trend cannot be one outage either.
+  const sections = new Map();
+  for (const p of pages.values()) {
+    if (spikeUrls.has(p.url)) continue;
+    const k = sectionOf(p.url);
+    const cur = sections.get(k) || { now: 0, prev: 0 };
+    cur.now += p.now;
+    cur.prev += p.prev;
+    sections.set(k, cur);
+  }
+
+  // Weekly series over the whole 2-window range, spike pages removed. Confirms
+  // whether an adjusted delta is a trend or still just noise.
+  const weeks = new Map();
+  for (const r of datePageRows) {
+    if (spikeUrls.has(r.keys[1])) continue;
+    const day = Math.floor((Date.parse(r.keys[0]) - Date.parse(prevStart)) / 86400000);
+    if (day < 0) continue;
+    const w = Math.floor(day / 7);
+    weeks.set(w, (weeks.get(w) || 0) + r.clicks);
+  }
+  const weekly = [...weeks.entries()].sort((a, b) => a[0] - b[0]).map(([, c]) => c);
+
+  return { spikes, adjusted, sections, weekly, pageDimTotal: sum('now', () => true) };
+}
+
 async function analyzeGsc() {
   const [
     totals,
@@ -175,6 +277,7 @@ async function analyzeGsc() {
     queryCountries,
     countries,
     prevCountries,
+    datePages,
   ] = await Promise.all([
     // Dimensionless: the only exact site total. Anything with `query` in it is a
     // subset, which is what made the old Totals line read ~3.4x low.
@@ -188,6 +291,11 @@ async function analyzeGsc() {
     gscQuery(['query', 'country'], { rowLimit: 25000 }),
     gscQuery(['country'], { rowLimit: 300 }),
     gscQuery(['country'], { start: PREV_START, end: PREV_END, rowLimit: 300 }),
+    // date+page across both windows in one request. No `query` dimension, so it
+    // keeps full click fidelity, and it is the only dataset that can tell a trend
+    // apart from a single spiking day. rowLimit is raised because 56 days x ~400
+    // earning URLs overruns the 25k default.
+    gscQuery(['date', 'page'], { start: PREV_START, end: END, rowLimit: 200000 }),
   ]);
 
   const prevByQuery = new Map(prevQueries.map((r) => [r.keys[0], r]));
@@ -373,7 +481,10 @@ async function analyzeGsc() {
   const lowCtr = lowCtrAll.filter((r) => !isStatusQuery(r.keys[0])).slice(0, 25).map(withPage);
   const lowCtrStatus = lowCtrAll.filter((r) => isStatusQuery(r.keys[0])).slice(0, 15).map(withPage);
 
+  const volatility = spikeAnalysis(datePages, START, PREV_START);
+
   return {
+    volatility,
     totals: totals[0] || { clicks: 0, impressions: 0, ctr: 0, position: 0 },
     prevTotals: prevTotals[0] || { clicks: 0, impressions: 0, ctr: 0, position: 0 },
     querySubset: rollup(queries),
@@ -414,12 +525,54 @@ function ga4Rows(report, metricNames) {
   });
 }
 
+// GA4 counts scrapers as users, and on this property that is not a rounding
+// error: measured 2026-09-09, one headless-Chrome scraper out of Singapore plus a
+// smaller one out of Brazil tripled Direct sessions and made a flat month read as
+// a doubling (1,675 -> 3,562 sessions). Neither converted a single time.
+//
+// The reliable tell is not engagement or bounce, which look merely mediocre. It is
+// **sessions with zero key events**, at country x channel granularity — bots land
+// as Direct, so aggregating countries alone mixes the scraper in with the real
+// users from the same country and hides it. A burst profile (one day many times
+// the median) confirms it.
+const BOT_MIN_SESSIONS = 100; // below this, zero conversions is unremarkable
+
+function botScan(rows, dailyByCountry) {
+  const burst = new Map();
+  for (const [country, days] of dailyByCountry) {
+    const vals = [...days.values()].sort((x, y) => x - y);
+    if (!vals.length) continue;
+    const median = vals[Math.floor(vals.length / 2)] || 1;
+    burst.set(country, { max: vals[vals.length - 1], ratio: vals[vals.length - 1] / median });
+  }
+  return rows
+    .filter((r) => r.sessions >= BOT_MIN_SESSIONS && r.keyEvents === 0)
+    .map((r) => ({
+      country: r.dim[0],
+      channel: r.dim[1],
+      sessions: r.sessions,
+      engagementRate: r.engagementRate,
+      burst: burst.get(r.dim[0]) || { max: 0, ratio: 0 },
+    }))
+    .sort((x, y) => y.sessions - x.sessions);
+}
+
 async function analyzeGa4() {
   const range = [{ startDate: START, endDate: END }];
+  // Applied to the headline tables when GA4_EXCLUDE_COUNTRIES is set. The bot scan
+  // itself is never filtered, or it could not report what it is excluding.
+  const notExcluded = GA4_EXCLUDE.length
+    ? {
+        notExpression: {
+          filter: { fieldName: 'country', inListFilter: { values: GA4_EXCLUDE } },
+        },
+      }
+    : undefined;
 
-  const [landing, channels] = await Promise.all([
+  const [landing, channels, rawChannels, countryChannel, countryDaily] = await Promise.all([
     ga4Report({
       dateRanges: range,
+      ...(notExcluded ? { dimensionFilter: notExcluded } : {}),
       dimensions: [{ name: 'landingPagePlusQueryString' }],
       metrics: [
         { name: 'sessions' },
@@ -432,16 +585,51 @@ async function analyzeGa4() {
     }),
     ga4Report({
       dateRanges: range,
+      ...(notExcluded ? { dimensionFilter: notExcluded } : {}),
       dimensions: [{ name: 'sessionDefaultChannelGroup' }],
       metrics: [{ name: 'sessions' }, { name: 'engagementRate' }, { name: 'keyEvents' }],
       orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
       limit: 15,
     }),
+    // Unfiltered, so the report can show what the exclusion actually removed.
+    ga4Report({
+      dateRanges: range,
+      dimensions: [{ name: 'sessionDefaultChannelGroup' }],
+      metrics: [{ name: 'sessions' }, { name: 'keyEvents' }],
+      orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+      limit: 15,
+    }),
+    ga4Report({
+      dateRanges: range,
+      dimensions: [{ name: 'country' }, { name: 'sessionDefaultChannelGroup' }],
+      metrics: [{ name: 'sessions' }, { name: 'engagementRate' }, { name: 'keyEvents' }],
+      orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+      limit: 60,
+    }),
+    ga4Report({
+      dateRanges: range,
+      dimensions: [{ name: 'date' }, { name: 'country' }],
+      metrics: [{ name: 'sessions' }],
+      limit: 5000,
+    }),
   ]);
+
+  const dailyByCountry = new Map();
+  for (const r of ga4Rows(countryDaily, ['sessions'])) {
+    const [date, country] = r.dim;
+    if (!dailyByCountry.has(country)) dailyByCountry.set(country, new Map());
+    dailyByCountry.get(country).set(date, r.sessions);
+  }
+  const countryChannelRows = ga4Rows(countryChannel, ['sessions', 'engagementRate', 'keyEvents']);
+  const raw = ga4Rows(rawChannels, ['sessions', 'keyEvents']);
 
   return {
     landing: ga4Rows(landing, ['sessions', 'engagementRate', 'avgDuration', 'keyEvents']),
     channels: ga4Rows(channels, ['sessions', 'engagementRate', 'keyEvents']),
+    excluded: GA4_EXCLUDE,
+    rawSessions: raw.reduce((a2, r) => a2 + r.sessions, 0),
+    rawKeyEvents: raw.reduce((a2, r) => a2 + r.keyEvents, 0),
+    suspects: botScan(countryChannelRows, dailyByCountry),
   };
 }
 
@@ -479,6 +667,63 @@ function buildReport(gsc, ga4) {
         `${num(gsc.totals.impressions)} impressions ${di} · ` +
         `${pct(gsc.totals.ctr)} CTR · avg pos ${pos(gsc.totals.position)}`,
     );
+    // The adjusted total goes directly under the raw one, because the raw one has
+    // now misled two consecutive reviews on its own.
+    const v = gsc.volatility;
+    if (v.spikes.length) {
+      const ad = delta(v.adjusted.now, v.adjusted.prev);
+      lines.push(
+        `**Totals excluding spike pages:** ${num(v.adjusted.now)} clicks ${ad} — ` +
+          `read this one. ${v.spikes.length} page(s) below had a single day carry ` +
+          `${pct(SPIKE_SHARE)}+ of their clicks, which inflates whichever window the ` +
+          `event landed in and deflates the other.`,
+      );
+      lines.push('');
+      lines.push(
+        table(
+          ['Spike page', 'Clicks', 'Biggest day', 'That day', 'Share of page'],
+          v.spikes
+            .slice(0, 8)
+            .map((sp) => [urlPath(sp.url), num(sp.now), num(sp.maxDay), sp.maxDate, pct(sp.share)]),
+        ),
+      );
+      lines.push('');
+    }
+    if (Math.abs(v.pageDimTotal - gsc.totals.clicks) > Math.max(5, gsc.totals.clicks * 0.02)) {
+      lines.push(
+        `> ⚠️ date+page clicks (${num(v.pageDimTotal)}) diverge from the exact total ` +
+          `(${num(gsc.totals.clicks)}). Treat the spike and section splits as approximate.`,
+      );
+      lines.push('');
+    }
+
+    lines.push('### 🧱 Section split (spike pages removed)');
+    lines.push(
+      'Which part of the site is actually moving. A site-wide delta can be one section growing while everything else is flat, and that distinction decides where the next round of work goes.',
+    );
+    lines.push('');
+    lines.push(
+      table(
+        ['Section', 'Clicks', 'Prev', 'Δ', 'Δ%'],
+        [...v.sections.entries()]
+          .sort((x, y) => y[1].now - x[1].now)
+          .map(([name, d]) => [
+            name,
+            num(d.now),
+            num(d.prev),
+            signed(d.now - d.prev),
+            d.prev ? `${d.now >= d.prev ? '+' : ''}${(((d.now - d.prev) / d.prev) * 100).toFixed(0)}%` : '',
+          ]),
+      ),
+    );
+    lines.push('');
+    if (v.weekly.length > 2) {
+      lines.push(
+        `**Weekly clicks, oldest to newest (spike pages removed):** ${v.weekly.join(', ')}`,
+      );
+      lines.push('');
+    }
+
     lines.push('');
     lines.push(
       `> Query-level tables below cover the **${pct(
@@ -683,6 +928,38 @@ function buildReport(gsc, ga4) {
   if (ga4) {
     lines.push('## GA4');
     lines.push('');
+    if (ga4.suspects.length) {
+      lines.push('### 🤖 Suspected bot traffic (100+ sessions, zero key events)');
+      lines.push(
+        'GA4 counts scrapers as users. These country/channel pairs drew real session volume and converted exactly zero times; a high burst ratio (one day far above the median) is the confirming tell. Nothing is excluded automatically — put the countries you accept as bots into `GA4_EXCLUDE_COUNTRIES` and the tables below will subtract them.',
+      );
+      lines.push('');
+      lines.push(
+        table(
+          ['Country', 'Channel', 'Sessions', 'Engagement', 'Key events', 'Peak day', 'Burst vs median'],
+          ga4.suspects
+            .slice(0, 12)
+            .map((r) => [
+              r.country,
+              r.channel,
+              num(r.sessions),
+              pct(r.engagementRate),
+              '0',
+              num(r.burst.max),
+              `${r.burst.ratio.toFixed(1)}x`,
+            ]),
+        ),
+      );
+      lines.push('');
+    }
+    if (ga4.excluded.length) {
+      lines.push(
+        `> Tables below **exclude ${ga4.excluded.join(', ')}**. ` +
+          `Unfiltered totals for the same window: ${num(ga4.rawSessions)} sessions, ` +
+          `${num(ga4.rawKeyEvents)} key events.`,
+      );
+      lines.push('');
+    }
     lines.push('### Channels');
     lines.push('');
     lines.push(
@@ -721,7 +998,13 @@ function buildReport(gsc, ga4) {
     console.log(`\n✔ Full report written to ${out}`);
     if (gsc)
       console.log(
-        `  ${gsc.striking.length} striking-distance · ${gsc.lowCtr.length} CTR opportunities · ${gsc.gaps.length} content gaps`,
+        `  ${gsc.striking.length} striking-distance · ${gsc.lowCtr.length} CTR opportunities · ${gsc.gaps.length} content gaps` +
+          (gsc.volatility.spikes.length ? ` · ${gsc.volatility.spikes.length} spike page(s) excluded` : ''),
+      );
+    if (ga4?.suspects.length)
+      console.log(
+        `  ⚠ ${ga4.suspects.length} suspected bot source(s): ` +
+          ga4.suspects.map((r) => `${r.country}/${r.channel} ${num(r.sessions)} sessions, 0 conversions`).join('; '),
       );
   } catch (err) {
     fail(err.message || String(err));
