@@ -2,6 +2,7 @@
 title: "The Case for Registrar Consolidation: Simplify Your Domain Portfolio"
 author: "Exit1 Team"
 date: "2026-01-14"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "You have domains at five different registrars. That's not organization - it's a security risk waiting to happen."
 readTime: "6 min read"
@@ -82,7 +83,7 @@ Cloudflare Registrar offers at-cost pricing with no markup over wholesale rates,
 
 ### Step 3: Plan the Migration
 
-For each domain, document its current registrar, current nameservers and whether they'll change, current expiration date, who owns the current registrar account, and any special considerations like registry locks or premium pricing.
+For each domain, document its current registrar, current nameservers and whether they'll change, current expiration date, who owns the current registrar account, and any special considerations like registry locks or premium pricing. The [free nameserver lookup](/tools/nameserver-lookup) handles the delegation column for you: NS records, the provider operating them, and whether they are all sitting in one network. For the rest of the zone, the [DNS lookup tool](/tools/dns-checker) returns every record type with a health grade.
 
 Time migrations carefully. Don't transfer domains that expire soon - add a year first at the current registrar to avoid complications. Avoid transfers during critical business periods when even brief issues would be costly. Plan for DNS propagation time if nameservers will change along with the registrar.
 

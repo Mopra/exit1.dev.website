@@ -2,6 +2,7 @@
 title: "The Most Common DNSSEC Misconfigurations (And How to Detect Them)"
 author: "Exit1 Team"
 date: "2026-01-21"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "DNSSEC is live but your site is unreachable. Here's what went wrong and how to find it."
 readTime: "9 min read"
@@ -445,3 +446,5 @@ DNSSEC done right is invisible. DNSSEC done wrong is an outage.
 - [DNSSEC Explained](/blog/dnssec-explained-what-it-is-why-you-need-it) - Basics
 - [How DNSSEC Works](/blog/how-dnssec-works-keys-signatures-chain-of-trust) - Technical details
 - [DNSSEC Rollover Failures](/blog/dnssec-rollover-failures-case-studies) - Learning from others
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Verify delegation and SOA agreement
+- [Free DNS Lookup Tool](/tools/dns-checker) - Check the zone's records and health grade

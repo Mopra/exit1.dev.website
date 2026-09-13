@@ -2,6 +2,7 @@
 title: "Monitoring DNSSEC: Why Set-and-Forget Doesn't Work"
 author: "Exit1 Team"
 date: "2026-01-26"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "You enabled DNSSEC six months ago. Is it still working? Here's why ongoing monitoring is essential."
 readTime: "7 min read"
@@ -410,3 +411,5 @@ Monitor your DNSSEC. It's the only way to know it's working.
 - [Common DNSSEC Misconfigurations](/blog/dnssec-misconfigurations-detection-guide) - What to watch for
 - [DNSSEC Rollover Failures](/blog/dnssec-rollover-failures-case-studies) - Learning from others
 - [Is DNSSEC Worth It?](/blog/dnssec-worth-the-complexity-analysis) - Risk/benefit analysis
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Record the delegation baseline you will be alerting on
+- [Free DNS Lookup Tool](/tools/dns-checker) - Spot-check records between automated runs

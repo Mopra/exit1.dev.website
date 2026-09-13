@@ -2,6 +2,7 @@
 title: "Is Your Domain Really Secure? The Hidden Risks of Transfer Lock Settings"
 author: "Exit1 Team"
 date: "2026-01-12"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "Your domain has transfer lock enabled. But is that enough? Here's what actually protects your domain and what doesn't."
 readTime: "7 min read"
@@ -35,6 +36,8 @@ Protecting this layer requires strong, unique passwords of at least 20 character
 Client-level locks are the status codes you control through your registrar account. They provide meaningful protection, but understanding their limitations is essential.
 
 The clientTransferProhibited code blocks transfer requests to other registrars. When another registrar attempts to initiate a transfer, they receive a "transfer prohibited" response. This prevents casual hijacking attempts and accidental transfers. However, it doesn't prevent nameserver changes, doesn't prevent contact information changes, and critically, doesn't stop someone with account access from simply removing the lock.
+
+That first gap is the one people underestimate. An attacker who never touches the registrar lock can still repoint your domain by editing NS records, and the transfer lock will report everything as normal. Check what your delegation looks like today with the [free nameserver lookup](/tools/nameserver-lookup), because a lock you trust is worth less than a baseline you can compare against.
 
 The clientUpdateProhibited code blocks changes to domain records entirely. Nameservers can't be modified and contact information can't be changed while this lock is active. This is more restrictive protection, but it comes with a significant trade-off: you must remove it to make any legitimate changes, and like all client locks, it doesn't survive account compromise.
 

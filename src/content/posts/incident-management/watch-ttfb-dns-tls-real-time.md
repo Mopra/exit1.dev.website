@@ -3,7 +3,7 @@ title: "How to Watch DNS, TCP, TLS and TTFB Change in Real Time While Debugging 
 author: "Morten Pradsgaard"
 category: "incident"
 date: "2026-05-22"
-updated: "2026-08-28"
+updated: "2026-09-13"
 excerpt: "When an API gets mysteriously slow, the answer is hiding in the phase breakdown. Here's how to actually see DNS, Connect, TLS, and TTFB shift live during an incident."
 readTime: "7 min read"
 metaDescription: "Diagnose intermittent latency by watching DNS resolution, TCP connect, TLS handshake, and TTFB change in real time. A walkthrough using a live response time chart with per-stage phases."
@@ -102,7 +102,7 @@ If it's TLS: check OCSP responders, check CPU on the server during the spike, lo
 
 If it's Connect: check load balancer connection pool, check the server's `accept` queue, check intermediate networks (traceroute from the probe region).
 
-If it's DNS: check your resolver setup, switch from a single resolver to a pool, lower TTLs on critical records, look for resolver-cache thrashing.
+If it's DNS: check your resolver setup, switch from a single resolver to a pool, lower TTLs on critical records, look for resolver-cache thrashing. Start by confirming the authoritative side is sane. The [DNS lookup tool](/tools/dns-checker) shows the records and TTLs a resolver is actually being handed, and the [nameserver lookup](/tools/nameserver-lookup) tells you whether every one of your nameservers sits in a single network that can go slow together.
 
 ## Try it during your next slow incident
 

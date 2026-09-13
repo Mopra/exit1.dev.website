@@ -2,6 +2,7 @@
 title: "From WHOIS to RDAP: How Modern Domain Monitoring Works"
 author: "Exit1 Team"
 date: "2026-01-05"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "WHOIS is dying. RDAP is the future. Here's what changed and why it matters for monitoring your domains."
 readTime: "7 min read"
@@ -247,4 +248,6 @@ If your domain monitoring feels flaky or inconsistent, check whether it's using 
 - [Why Domain Expiration is the Silent Killer](/blog/domain-expiration-silent-killer-websites) - The real cost of missed renewals
 - [Domain Intelligence Feature](/domain-intelligence) - How Exit1 monitors your domains
 - [Free Domain Expiration Checker](/tools/domain-expiration-checker) - See RDAP-powered domain lookups in action
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Resolve the `nameservers` field RDAP returns
+- [Free DNS Lookup Tool](/tools/dns-checker) - Every record type behind the delegation
 - [SSL Certificate Monitoring](/blog/free-ssl-certificate-monitoring) - The other expiration you need to track

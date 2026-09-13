@@ -2,6 +2,7 @@
 title: "DNSSEC and Your Domain Portfolio: A Practical Implementation Guide"
 author: "Exit1 Team"
 date: "2026-01-28"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "Ready to enable DNSSEC across multiple domains? Here's the step-by-step guide to doing it right."
 readTime: "10 min read"
@@ -469,3 +470,5 @@ Take your time. Verify each step. The security benefit is only realized if DNSSE
 - [DNSSEC Explained](/blog/dnssec-explained-what-it-is-why-you-need-it) - Foundation concepts
 - [Monitoring DNSSEC](/blog/monitoring-dnssec-set-and-forget-doesnt-work) - Ongoing operations
 - [Common Misconfigurations](/blog/dnssec-misconfigurations-detection-guide) - What to avoid
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Inventory the delegation for each domain before you sign it
+- [Free DNS Lookup Tool](/tools/dns-checker) - Baseline every record type across the portfolio

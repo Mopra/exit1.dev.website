@@ -2,6 +2,7 @@
 title: "DNSSEC Explained: What It Is and Why Your Domain Needs It"
 author: "Exit1 Team"
 date: "2026-01-19"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "DNS was designed when the internet was trusted. DNSSEC adds the security DNS never had. Here's what you need to know."
 readTime: "8 min read"
@@ -49,6 +50,8 @@ The primary threat DNSSEC addresses is DNS cache poisoning. When an attacker tri
 DNSSEC also protects against man-in-the-middle attacks where someone intercepts and modifies DNS responses in transit. Any modification breaks the signature, and validating resolvers detect the tampering.
 
 Domain hijacking scenarios get partial protection from DNSSEC. If an attacker manages to change your nameserver records at your registrar, the signatures in the parent zone become invalid because they were made for your old configuration. DNSSEC-aware resolvers will notice the mismatch. This isn't complete protection against hijacking, but it adds a detection layer that might not otherwise exist.
+
+That detection layer only helps if you know what your delegation is supposed to look like. Record the baseline with the [free nameserver lookup](/tools/nameserver-lookup) so you have something to compare against when a resolver starts complaining.
 
 ## What DNSSEC Doesn't Protect Against
 
@@ -117,3 +120,5 @@ If you do enable DNSSEC, monitor it carefully. A misconfiguration isn't just a s
 - [How DNSSEC Actually Works](/blog/how-dnssec-works-keys-signatures-chain-of-trust) - Technical deep dive
 - [Common DNSSEC Misconfigurations](/blog/dnssec-misconfigurations-detection-guide) - What goes wrong
 - [Is DNSSEC Worth It?](/blog/dnssec-worth-the-complexity-analysis) - Balanced analysis
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Check the NS delegation DNSSEC signs over
+- [Free DNS Lookup Tool](/tools/dns-checker) - Every record type, with a health grade

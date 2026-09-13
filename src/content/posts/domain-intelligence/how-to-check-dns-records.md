@@ -2,6 +2,7 @@
 title: "How to Check DNS Records for Any Domain (3 Free Methods)"
 author: "Morten Pradsgaard"
 date: "2026-03-17"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "Three free ways to look up DNS records for any domain."
 readTime: "8 min read"
@@ -90,6 +91,8 @@ dig +trace example.com A
 
 This follows the resolution chain from root servers → TLD servers → authoritative nameservers. Invaluable for debugging delegation issues.
 
+If you would rather not read a `+trace` dump, the [free nameserver lookup](/tools/nameserver-lookup) does the delegation half of this in one step: every NS record, the IPs each one resolves to, the operating provider, and whether your SOA agrees with the NS set.
+
 ### Using nslookup
 
 `nslookup` is simpler than `dig` and available on Windows, macOS, and Linux.
@@ -176,6 +179,7 @@ Start with a [free DNS check](/tools/dns-checker) to see where you stand today.
 ## Recommended Resources
 
 - [Free DNS Lookup Tool](/tools/dns-checker) — Check all records for any domain
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - NS records, glue, and delegation health
 - [DNS Record Types Explained](/blog/dns-record-types-explained) — What every record type means
 - [SPF, DKIM, and DMARC Guide](/blog/spf-dkim-dmarc-email-authentication-guide) — Set up email authentication
 - [DNS Propagation Guide](/blog/dns-propagation-how-long-do-changes-take) — How long changes take and how to check

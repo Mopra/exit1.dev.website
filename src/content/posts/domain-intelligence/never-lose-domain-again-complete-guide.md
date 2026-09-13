@@ -2,6 +2,7 @@
 title: "How to Never Lose a Domain Again: A Complete Guide"
 author: "Exit1 Team"
 date: "2026-01-03"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "The definitive guide to domain expiration protection. Set up monitoring, configure alerts, and build a system that guarantees you'll never lose a domain."
 readTime: "8 min read"
@@ -26,7 +27,7 @@ Before you can protect your domains, you need to know what you have. Start by ru
 
 **Registrar accounts**: The obvious place. Check GoDaddy, Namecheap, Google Domains, Cloudflare, Route53, and any other registrar you've ever used.
 
-**DNS providers**: Your DNS might be separate from your registrar. Cloudflare, Route53, DNSimple - check where your domains are actually pointing.
+**DNS providers**: Your DNS might be separate from your registrar. Cloudflare, Route53, DNSimple - check where your domains are actually pointing. The fastest way to answer that for a domain you have lost track of is the [free nameserver lookup](/tools/nameserver-lookup), which names the provider behind the NS records without you needing account access anywhere.
 
 **Finance records**: Search for "domain" in your company's expenses. You'll find registrars you forgot about.
 

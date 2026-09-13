@@ -2,6 +2,7 @@
 title: "DNSSEC vs. DoH vs. DoT: Understanding Modern DNS Security Options"
 author: "Exit1 Team"
 date: "2026-01-30"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "Three different DNS security technologies, three different threat models. Here's what each protects against and how they work together."
 readTime: "9 min read"
@@ -368,3 +369,5 @@ DNS security isn't either/or. It's all of the above.
 - [DNSSEC Explained](/blog/dnssec-explained-what-it-is-why-you-need-it) - Fundamentals
 - [Is DNSSEC Worth It?](/blog/dnssec-worth-the-complexity-analysis) - Decision guide
 - [Domain Health Checklist](/blog/domain-health-checklist-comprehensive-guide) - Complete security
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - See which provider actually answers for your domain
+- [Free DNS Lookup Tool](/tools/dns-checker) - Every record type, plus SPF, DMARC, and CAA

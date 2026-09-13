@@ -2,6 +2,7 @@
 title: "DNS Record Types Explained: A, AAAA, MX, CNAME, TXT, NS, SOA, CAA"
 author: "Morten Pradsgaard"
 date: "2026-03-12"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "Every DNS record type, what it does, and when you need it."
 readTime: "11 min read"
@@ -117,7 +118,9 @@ example.com.    86400    IN    NS    ns2.cloudflare.com.
 
 **When you need it:** Every domain has NS records. They're typically set at your registrar when you configure your nameservers (e.g., pointing to Cloudflare, Route53, or your hosting provider).
 
-**Always have at least two nameservers.** If your only nameserver goes down, your entire domain becomes unresolvable — website, email, APIs, everything. Major DNS providers give you 2-4 nameservers across geographically distributed data centers.
+**Always have at least two nameservers.** If your only nameserver goes down, your entire domain becomes unresolvable: website, email, APIs, everything. Major DNS providers give you 2-4 nameservers across geographically distributed data centers.
+
+Two nameservers on paper is not the same as two nameservers in practice. Run the domain through the [free nameserver lookup](/tools/nameserver-lookup): it resolves each NS record to its own IPs, names the provider operating them, and tells you whether the whole set sits behind one network.
 
 **NS records have long TTLs** (often 24-48 hours) because nameserver changes are rare and high-impact. When migrating DNS providers, plan for a 24-48 hour propagation window. See our [DNS propagation guide](/blog/dns-propagation-how-long-do-changes-take) for timing strategies.
 
@@ -200,6 +203,7 @@ For ongoing visibility, exit1.dev offers continuous DNS monitoring that alerts y
 ## Recommended Resources
 
 - [Free DNS Lookup Tool](/tools/dns-checker) — Check all DNS records for any domain
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Grade your NS delegation: redundancy, glue, and SOA consistency
 - [SPF, DKIM, and DMARC Guide](/blog/spf-dkim-dmarc-email-authentication-guide) — Set up email authentication
 - [DNS Propagation: Why Changes Take Time](/blog/dns-propagation-how-long-do-changes-take) — TTL, caching, and timing
 - [How to Check DNS Records](/blog/how-to-check-dns-records) — Three free methods

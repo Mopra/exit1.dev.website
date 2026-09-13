@@ -2,6 +2,7 @@
 title: "How DNSSEC Actually Works: Keys, Signatures, and the Chain of Trust"
 author: "Exit1 Team"
 date: "2026-01-20"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "Ready for the technical deep dive? Here's how DNSSEC cryptography works, from ZSK to DS records to the validation chain."
 readTime: "12 min read"
@@ -472,3 +473,5 @@ If you self-manage, automation is essential. Manual key rollover is a recipe for
 - [DNSSEC Explained](/blog/dnssec-explained-what-it-is-why-you-need-it) - Beginner introduction
 - [Common DNSSEC Misconfigurations](/blog/dnssec-misconfigurations-detection-guide) - What goes wrong
 - [DNSSEC Rollover Failures](/blog/dnssec-rollover-failures-case-studies) - Learning from disasters
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - See the NS and SOA records the chain of trust rests on
+- [Free DNS Lookup Tool](/tools/dns-checker) - Resolve every record type for a domain

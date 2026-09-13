@@ -2,6 +2,7 @@
 title: "DNS Propagation: Why Your Changes Take Time and How to Check"
 author: "Morten Pradsgaard"
 date: "2026-03-26"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "Why DNS changes aren't instant, and how to check propagation."
 readTime: "7 min read"
@@ -161,6 +162,8 @@ Normal during propagation. Different resolvers cached the record at different ti
 
 Nameserver changes propagate through the **registry** (the .com, .net, .org authority), not just your DNS provider. Registry NS TTLs are typically 48 hours. Check with your registrar that the nameserver change was actually submitted — registrar UIs sometimes require an extra confirmation step.
 
+Before you blame propagation, confirm the delegation actually moved. The [free nameserver lookup](/tools/nameserver-lookup) shows the NS set the registry is currently handing out and which provider operates it. If it still names your old provider, the change never landed and no amount of waiting will fix it.
+
 ### "My email stopped working after a DNS change"
 
 MX records might still be cached with old values. Check:
@@ -194,6 +197,7 @@ Start with a [free DNS check](/tools/dns-checker) to baseline your current recor
 ## Recommended Resources
 
 - [Free DNS Lookup Tool](/tools/dns-checker) — Check current DNS records for any domain
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Confirm which NS set the registry is serving
 - [DNS Record Types Explained](/blog/dns-record-types-explained) — What every record type means
 - [SPF, DKIM, and DMARC Guide](/blog/spf-dkim-dmarc-email-authentication-guide) — Email authentication setup
 - [How to Check DNS Records](/blog/how-to-check-dns-records) — Three free lookup methods

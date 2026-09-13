@@ -2,6 +2,7 @@
 title: "DNSSEC Rollover Gone Wrong: Lessons from High-Profile Failures"
 author: "Exit1 Team"
 date: "2026-01-23"
+updated: "2026-09-13"
 category: "domain-intelligence"
 excerpt: "When NASA, Slack, and major TLDs got DNSSEC wrong, everyone noticed. Here's what happened and what we can learn."
 readTime: "10 min read"
@@ -352,3 +353,5 @@ Learn from their failures. Your rollover doesn't have to be a disaster.
 - [DNSSEC Explained](/blog/dnssec-explained-what-it-is-why-you-need-it) - Basics
 - [Common DNSSEC Misconfigurations](/blog/dnssec-misconfigurations-detection-guide) - Detection
 - [Is DNSSEC Worth It?](/blog/dnssec-worth-the-complexity-analysis) - Risk/benefit analysis
+- [Free Nameserver Lookup](/tools/nameserver-lookup) - Check delegation and SOA consistency after a rollover
+- [Free DNS Lookup Tool](/tools/dns-checker) - Confirm the zone still answers for every record type
