@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import Clarity from '@microsoft/clarity';
 import { isAppSignupUrl, parseCtaParams, trackSignupClick } from '@/lib/analytics';
+import { isAutomatedClient } from '@/lib/isAutomatedClient';
 
 const GTM_ID = 'GTM-TPFBP3W4';
 const GA_ID = 'G-TW8WXE2TZP';
@@ -11,7 +12,7 @@ const CLARITY_PROJECT_ID = 'sn0wwajt10';
 
 // Tags load on the visitor's first interaction (scroll, tap, key) or after
 // this fallback so non-interacting visitors are still counted. Anything
-// earlier — including `lazyOnload`/idle callbacks — executes inside the
+// earlier (including `lazyOnload`/idle callbacks) executes inside the
 // Lighthouse TBT window on throttled mobile and tanks the score.
 const FALLBACK_DELAY_MS = 12_000;
 
@@ -32,6 +33,14 @@ let loaded = false;
 
 function loadThirdParties() {
   if (loaded) return;
+
+  // Headless browsers hit this site in bursts and sit on the page long enough
+  // to trip the fallback below, so without this gate each burst arrives in GA4
+  // as a few hundred zero-conversion sessions. `loaded` stays false: the check
+  // is deterministic per page, so re-running it on a later trigger is free and
+  // keeps the flag meaning what it says.
+  if (isAutomatedClient()) return;
+
   loaded = true;
 
   // Google Tag Manager
@@ -39,7 +48,7 @@ function loadThirdParties() {
     `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`
   );
 
-  // Google Analytics 4 — `linker.domains` enables cross-domain measurement so a
+  // Google Analytics 4. `linker.domains` enables cross-domain measurement so a
   // visitor who clicks through to app.exit1.dev stays in the same GA4 session
   // (gtag auto-decorates outbound links to these hosts with the _gl param).
   injectExternal(`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`);
@@ -68,7 +77,7 @@ export default function DeferredAnalytics() {
   useEffect(() => {
     // Conversion tracking: fire a GA4 sign_up_click whenever a visitor clicks a
     // CTA into the app. Kept for the component's lifetime so the click is caught
-    // whenever it happens — not torn down with the one-shot load triggers below.
+    // whenever it happens, not torn down with the one-shot load triggers below.
     const onSignupClick = (e: MouseEvent) => {
       const anchor = (e.target as HTMLElement | null)?.closest?.('a');
       const href = anchor?.getAttribute('href');

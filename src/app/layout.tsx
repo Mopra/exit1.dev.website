@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyCTABar from "@/components/StickyCTABar";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import FilteredSpeedInsights from "@/components/FilteredSpeedInsights";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
 
 const dmSans = DM_Sans({
@@ -137,8 +137,9 @@ export default function RootLayout({
         </main>
         <Footer />
         <StickyCTABar />
-        <SpeedInsights />
-        {/* GTM, GA4, Meta Pixel, and Clarity — loads on first interaction
+        {/* Core Web Vitals, with automated clients dropped at send time. */}
+        <FilteredSpeedInsights />
+        {/* GTM, GA4, Meta Pixel, and Clarity: loads on first interaction
             (or a 12s fallback) so third-party JS stays out of the
             Core Web Vitals measurement window. */}
         <DeferredAnalytics />
