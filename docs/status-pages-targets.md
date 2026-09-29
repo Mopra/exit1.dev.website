@@ -23,7 +23,50 @@ slug over the hostname default so `github` wins over `github.com`.
 
 ---
 
-## Tier 1 — Developer-aligned, high intent, converts best
+## What actually earns (read this first)
+
+90 days of Search Console data (2026-06-29 to 2026-09-27, 292 status pages, 605
+clicks) split the pages into two groups:
+
+- **Big brands get impressions, not clicks.** They sit at position 9 to 12 under
+  the vendor status page and Downdetector: ahrefs.com 14.7k impressions / 24
+  clicks, notion.so 14.3k / 46, figma.com 10.1k / 16.
+- **Niche dev infra earns.** Where the vendor has no strong status page, we rank
+  3 to 8, and an outage turns into real traffic: pagespeed.web.dev 275 clicks,
+  registry.npmjs.org 25, packagist.org 12 at position 3.6, plus homebrew.sh and
+  golang.org.
+
+So new pages go to package registries, CDNs and APIs that developers check
+mid-outage. Existing pages keep their hostname slugs: every live page uses one,
+and adding a `publicSlug` now would move a URL that already ranks.
+
+## Seeded 2026-09-29: dev infra
+
+Created directly in Firestore under the `connect@exit1.dev` account, cloned from
+the packagist.org check (GET, 5 min, vps-eu-1, folder `Infrastructure`). Name and
+slug are the hostname, like every other live page.
+
+| Group | Hosts |
+|---|---|
+| Package registries | crates.io, proxy.golang.org, pkg.go.dev, pub.dev, hex.pm, cocoapods.org, registry.yarnpkg.com, artifacthub.io, registry.terraform.io |
+| Container registries | hub.docker.com, ghcr.io, quay.io |
+| CDNs | cdn.jsdelivr.net, unpkg.com, cdnjs.cloudflare.com, fonts.googleapis.com |
+| APIs (`rest_endpoint`) | api.openai.com, api.anthropic.com, api.stripe.com |
+| CI and app platforms | circleci.com, dev.azure.com, expo.dev |
+
+Probe details that matter:
+
+- The three APIs hit an authenticated path (`/v1/models`, `/v1/charges`) that
+  returns 401 unauthenticated. The bare host returns 404 or 421.
+- crates.io needs `Accept: text/html` on the request, or it answers 403/404.
+- fonts.googleapis.com probes `/css2?family=Inter`; the root is a 404.
+- files.pythonhosted.org was skipped (root is a 404). pypi.org is already live.
+
+**The off-topic hosts in the live set (bain.com, 3cventures.com, sportbeach.com,
+deloittedigital.com and similar) are not noise.** They feed the Cannes event page
+via `src/lib/cannesEvents.ts`. Leave them public.
+
+## Tier 1: Developer-aligned, high intent, converts best
 
 These map directly to our buyer (a developer who, after checking "is GitHub down",
 might monitor their own stack). Highest priority.
@@ -86,10 +129,12 @@ might monitor their own stack). Highest priority.
 | Fastly | Fastly | `fastly` | https://www.fastly.com | website |
 | Render | Render | `render` | https://render.com | website |
 
-## Tier 3 — High-volume consumer (huge search demand, Downdetector-dominated)
+## Tier 3: High-volume consumer (deprioritized 2026-09-29)
 
-Big "is X down" volume but harder SERPs. Worth pages for reach + AI Overviews;
-lower conversion. Add after Tiers 1–2 are healthy.
+Big "is X down" volume, but the SERP belongs to the vendor's own status page and
+Downdetector. Our data says don't bother: notion.so drew 14.3k impressions and 46
+clicks in 90 days, figma.com 10.1k and 16. Only add these if the dev-infra
+section below runs out of candidates.
 
 | Brand | name | publicSlug | url | type |
 |---|---|---|---|---|
