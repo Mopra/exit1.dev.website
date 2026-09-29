@@ -10,7 +10,6 @@ import { FeatureGridItem } from "@/components/FeatureGridItem";
 import { PageHero } from "@/components/PageHero";
 import { PageContainer, PageSection, PageShell, SectionContent } from "@/components/PageLayout";
 import { RelatedFeatures, type RelatedFeature } from "@/components/RelatedFeatures";
-import { YouTubeVideo } from "@/components/YouTubeVideo";
 import { buildSignupUrl } from "@/lib/cta";
 
 interface Feature {
@@ -35,12 +34,6 @@ interface NanoUpgrade {
   description: string;
 }
 
-interface VideoSection {
-  videoId: string;
-  title: string;
-  description?: string;
-}
-
 interface ProductPageProps {
   title: string;
   subtitle: string;
@@ -60,7 +53,6 @@ interface ProductPageProps {
   };
   relatedFeatures?: RelatedFeature[];
   nanoUpgrade?: NanoUpgrade;
-  video?: VideoSection;
   heroExtra?: React.ReactNode;
 }
 
@@ -76,7 +68,6 @@ const ProductPage: React.FC<ProductPageProps> = ({
   technicalDetails,
   relatedFeatures,
   nanoUpgrade,
-  video,
   heroExtra,
 }) => {
   // Route a bare "go to the app" CTA through buildSignupUrl so every feature
@@ -132,27 +123,6 @@ const ProductPage: React.FC<ProductPageProps> = ({
 
           {heroExtra}
 
-          {video && (
-            <PageSection id="video" className="py-16 scroll-mt-20">
-              <SectionContent size="lg">
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
-                    {video.title}
-                  </h2>
-                  {video.description && (
-                    <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-                      {video.description}
-                    </p>
-                  )}
-                </div>
-                <YouTubeVideo
-                  videoId={video.videoId}
-                  title={video.title}
-                  className="shadow-2xl shadow-background/50"
-                />
-              </SectionContent>
-            </PageSection>
-          )}
 
           <PageSection id="key-features" className="!px-0 py-16 scroll-mt-20">
             <SectionContent size="xl">

@@ -257,11 +257,6 @@ relatedFeatures={relatedFeatures}
           title: "Want SMS alerts and team notifications?",
           description: "Get texted when your site goes down — not hours later via email. API + MCP access is on every plan including Free; Pro adds SMS alerts and Slack/Discord/Microsoft Teams channels for $24/month."
         }}
-        video={{
-          videoId: "lpGr0TkYXnA",
-          title: "See It in Action",
-          description: "Watch how to set up alerts in minutes"
-        }}
       />
     </>
   );

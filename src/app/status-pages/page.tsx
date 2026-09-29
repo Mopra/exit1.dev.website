@@ -266,11 +266,6 @@ const StatusPages = () => {
           title: "Need more status pages?",
           description: "Nano ($9/mo) unlocks the drag & drop builder and 5 pages. Pro gives you 50 — with custom branding across all paid plans."
         }}
-        video={{
-          videoId: "rBmL8lIschk",
-          title: "See It in Action",
-          description: "Watch how to create a status page in minutes"
-        }}
       />
     </>
   );
