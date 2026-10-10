@@ -3,7 +3,10 @@
 The daily run that grows organic visitors and signups for exit1.dev, from
 search engines and from LLMs. Horadric's "Marketing playbook" errand reads
 this file every morning, measures, picks today's play, and files the work as
-quests. Warriv runs the quests.
+quests. Warriv runs the quests. This file is the on-page half: the site
+itself. Backlinks, listings, mentions, social and communities are the
+off-page half, in [offpage-playbook.md](offpage-playbook.md), run by its own
+errand an hour later.
 
 The goal is not activity. The goal is more clicks from search, more
 mentions in AI answers, and more of those visitors signing up. A day where
@@ -43,7 +46,7 @@ nothing is worth doing files nothing.
 | Thursday | Internal links, cannibalization, indexing |
 | Friday | Conversion |
 | Saturday | Programmatic pages (/status, /compare) |
-| Sunday | Off-page and authority |
+| Sunday | Freshness |
 
 ### Monday: weekly read + title/meta CTR
 
@@ -112,13 +115,13 @@ Visitors who do not sign up are wasted rankings.
 - `/compare/*`: check competitor facts (prices, free tiers) against their
   pricing pages. Stale facts are a quest.
 
-### Sunday: off-page and authority
+### Sunday: freshness
 
-Backlinks are the ceiling for the tool pages. Find one real opportunity: a
-directory, an awesome-list, a "best tools" article that is missing us, a
-community thread asking for exactly what we have. File it as a **human
-quest** with the link and a draft. The playbook never posts, submits, signs
-up or pays anything itself. free-for-dev bans AI-written PRs.
+Take the 10 pages with the most impressions. Look for anything that has
+gone stale: a year in a title, old prices or limits, a competitor fact that
+changed, a screenshot of an old UI, a feature we have shipped since that
+the page does not mention. Real updates get a new `updated:` date, which
+feeds the sitemap. A date bump with no real change is not an update.
 
 ## Filing a quest
 
@@ -149,8 +152,8 @@ These come from things that went wrong before. Do not relitigate them.
   sat at pos 47 while the post it replaced held pos 10).
 - **Copy voice**: blunt developer voice. No "X, not Y" antithesis, no
   em dashes, no five-verb lists, no "seamless".
-- **Never pay, never post publicly, never submit to a third party** without
-  the human.
+- **This run never pays, posts or submits anything outside the repo.** The
+  off-page run has its own, narrower rules for that.
 - **Every UI change** keeps `cursor-pointer` on clickables and avoids
   hairline dividers.
 - **Do not chase** impressions from Bangladesh/Pakistan/India scrapers or a
@@ -158,12 +161,14 @@ These come from things that went wrong before. Do not relitigate them.
 
 ## The log
 
-`docs/marketing-log.md`, newest day on top. One block per run:
+`docs/marketing-log.md`, newest day on top. One block per day; the on-page
+run writes it, the off-page run adds its `Off-page:` line under it:
 
 ```
-## 2026-10-11 Sunday: off-page
+## 2026-10-11 Sunday: freshness
 Clicks 28d: 812 (ex-spike 705), tier-1 251, key events 38
 Alarms: none
 Measured: "Retitle /tools/ssl-checker" (landed 09-27): pos 42.6 -> 38.1, clicks 8 -> 11, flat
-Filed: Ask: submit exit1 to <list>
+Filed: "Update /tools/dns-checker: 2025 in title, missing CAA lookup"
+Off-page (competitor gap: UptimeRobot): 4 places queued, 1 PR opened (<url>), no Ask
 ```
