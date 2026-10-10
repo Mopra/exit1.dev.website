@@ -1,0 +1,17 @@
+{
+  "tasks": {
+    "mode": "auto"
+  },
+  "runewords": {
+    "Marketing playbook": {
+      "about": "Each morning runs the marketing playbook: measures search and signups, picks today's play, files the wins as quests for Warriv",
+      "every": "day 07:00",
+      "for": "1h",
+      "steps": [
+        {
+          "say": "Run today's marketing playbook. Read docs/marketing-playbook.md and follow its daily run exactly: pull the numbers with npm run seo, measure the playbook quests that landed 14+ days ago, check the alarms, then run today's play from the rotation (use today's local weekday). File at most two wins with `horadric quest add`, each with the notes format the playbook gives, including the line `From: playbook <date> <play> <page>`, and skip any page that already has an open quest or was changed in the last 28 days. Do not change site code yourself: the quests do that. Then add today's block at the top of docs/marketing-log.md, commit only that file with a short message, and push."
+        }
+      ]
+    }
+  }
+}
