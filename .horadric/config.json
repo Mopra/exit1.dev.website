@@ -1,27 +1,5 @@
 {
   "tasks": {
     "mode": "auto"
-  },
-  "runewords": {
-    "Marketing playbook": {
-      "about": "Each morning runs the marketing playbook: measures search and signups, picks today's play, files the wins as quests for Warriv",
-      "every": "day 07:00",
-      "for": "1h",
-      "steps": [
-        {
-          "say": "Run today's marketing playbook. Read docs/marketing-playbook.md and follow its daily run exactly: pull the numbers with npm run seo, measure the playbook quests that landed 14+ days ago, check the alarms, then run today's play from the rotation (use today's local weekday). File at most two wins with `horadric quest add`, each with the notes format the playbook gives, including the line `From: playbook <date> <play> <page>`, and skip any page that already has an open quest or was changed in the last 28 days. Do not change site code yourself: the quests do that. Then add today's block at the top of docs/marketing-log.md, commit only that file with a short message, and push."
-        }
-      ]
-    },
-    "Off-page playbook": {
-      "about": "Each morning after the on-page run, builds backlinks, listings, mentions and social drafts, and hands the human one bundled Ask quest",
-      "every": "day 08:15",
-      "for": "1h30m",
-      "steps": [
-        {
-          "say": "Run today's off-page playbook. Read docs/offpage-playbook.md and follow its daily run exactly, using today's local weekday for the play. Read docs/offpage-tracker.md first and never act on a place already in it. Stay inside the playbook's 'does it itself' list: at most three external actions (awesome-list PRs as Mopra, free directory submissions in the Horadric browser), never pay, never pass a captcha, never post to social or communities. Put everything the human must do today into at most one quest titled 'Ask: ...' via `horadric quest add`, with the drafts and links in its notes and a line `From: offpage <date> <play>`. Update docs/offpage-tracker.md (and docs/social-drafts.md on Fridays), add an `Off-page:` line under today's block in docs/marketing-log.md (start the block if the on-page run has not), commit only those files with a short message, and push."
-        }
-      ]
-    }
   }
 }
