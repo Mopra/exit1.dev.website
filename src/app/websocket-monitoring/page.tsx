@@ -239,7 +239,7 @@ const WebSocketMonitoring = () => {
       <ProductPage
         title="WebSocket Monitoring for Real-Time Services"
         subtitle="WS and WSS handshake verification, latency tracking, and instant alerts"
-        description="Monitor your WebSocket endpoints with full handshake checks. Track connection latency, catch upgrade failures, and get alerted when your real-time services go down. Free on both tiers."
+        description="Monitor your WebSocket endpoints with full handshake checks. Track connection latency, catch upgrade failures, and get alerted when your real-time services go down. Included on every plan, Free too."
         features={features}
         ctaText="Start WebSocket Monitoring"
         ctaHref="https://app.exit1.dev/"

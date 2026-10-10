@@ -58,7 +58,7 @@ If you claimed reliability on a homepage, monitor it. Minimum viable coverage:
 ### Match Monitor Frequency To Error Budgets
 
 - The Exit1.dev free tier runs 5-minute checks across 50 monitors with no credit card.
-- Indie ($4/month) unlocks 1-minute checks — use it when aggressive SLAs (99.95% and up) leave no room for a slow detection window. Nano ($9/month) trades that speed for 100 monitors.
+- Indie ($4/month) unlocks 1-minute checks. Use it when aggressive SLAs (99.95% and up) leave no room for a slow detection window. Nano ($9/month) goes further with 30-second checks across 250 monitors, and Pro ($24/month) drops to 15 seconds.
 - Always confirm downtime from a second region before paging humans, so a single bad probe doesn't trigger a false breach.
 
 ## Alerts Must Match Legal Timelines

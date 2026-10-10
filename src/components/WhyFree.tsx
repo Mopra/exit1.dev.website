@@ -99,12 +99,12 @@ export default function WhyFree() {
                 <tbody className="divide-y divide-primary/10">
                   <tr>
                     <td className="py-3 font-medium">Free monitors</td>
-                    <td className="py-3 text-success">5 free, up to 1,000 on paid</td>
+                    <td className="py-3 text-success">50 free, up to 1,000 on paid</td>
                     <td className="py-3">Capped or &ldquo;business&rdquo; plan only</td>
                   </tr>
                   <tr>
                     <td className="py-3 font-medium">Sub-minute checks</td>
-                    <td className="py-3 text-success">15-sec from $4/mo on Indie</td>
+                    <td className="py-3 text-success">30-sec on Nano ($9/mo), 15-sec on Pro ($24/mo)</td>
                     <td className="py-3">Paywall or throttled</td>
                   </tr>
                   <tr>

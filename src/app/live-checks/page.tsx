@@ -187,7 +187,7 @@ const LiveChecks = () => {
     },
     {
       question: "Does the Live page work on the Free tier?",
-      answer: "Free users see a blurred preview of the Live page with an upgrade overlay. Streaming is available from Nano upward. All paid tiers stream with no rate-limit on the WebSocket transport.",
+      answer: "Yes. The live probe stream is on every plan, including Free, with no rate limit on the WebSocket transport. What changes as you move up is how often probes arrive: every 5 minutes on Free, every minute on Indie, every 30 seconds on Nano and every 15 seconds on Pro.",
     },
     {
       question: "Will leaving the Live page open all day burn my data plan?",
@@ -301,9 +301,9 @@ const LiveChecks = () => {
         technicalDetails={technicalDetails}
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
-          title: "Live Checks streams from Nano upward",
+          title: "Want the stream to move faster?",
           description:
-            "The Live page is on every plan, Free included — real-time probe streaming is not something we put behind a paywall. What upgrading buys you is a faster probe cadence feeding it: 1-minute on Indie, 30-second on Nano, 15-second on Pro.",
+            "The Live page is on every plan, Free included. Real-time probe streaming is not something we put behind a paywall. What upgrading buys you is a faster probe cadence feeding it: 1-minute on Indie, 30-second on Nano, 15-second on Pro.",
         }}
       />
     </>

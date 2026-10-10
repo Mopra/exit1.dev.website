@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Check, Minus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -77,6 +77,41 @@ const featureGroups: FeatureGroup[] = [
     rows: [
       { label: "Team seats", values: { free: "—", indie: "—", nano: "—", pro: "10" }, comingSoon: true },
     ],
+  },
+];
+
+const billingFaq: { q: string; a: ReactNode }[] = [
+  {
+    q: "How do I upgrade?",
+    a: "Pick a plan above and pay by card. Your new limits switch on right away.",
+  },
+  {
+    q: "How do I change my card or get invoices?",
+    a: (
+      <>
+        In the app, open <strong className="text-foreground/90">Plans &amp; billing</strong> in the
+        sidebar. Your card and every invoice live there.
+      </>
+    ),
+  },
+  {
+    q: "How do I cancel?",
+    a: "Any time, from Plans & billing. You keep your plan until the period ends. Nothing is deleted.",
+  },
+  {
+    q: "Refunds or other questions?",
+    a: (
+      <>
+        Email{" "}
+        <a
+          href="mailto:connect@exit1.dev"
+          className="text-foreground underline decoration-dotted underline-offset-4 hover:text-primary transition-colors"
+        >
+          connect@exit1.dev
+        </a>
+        {" "}and we will sort it out.
+      </>
+    ),
   },
 ];
 
@@ -208,6 +243,17 @@ const PricingPage = () => {
                 being charged. Save ~20% on any paid plan with annual billing, and
                 change plans anytime.
               </p>
+              <dl className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto mb-8 text-left">
+                {billingFaq.map((item) => (
+                  <div
+                    key={item.q}
+                    className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-5"
+                  >
+                    <dt className="font-semibold mb-1.5">{item.q}</dt>
+                    <dd className="text-sm text-foreground/70 leading-relaxed">{item.a}</dd>
+                  </div>
+                ))}
+              </dl>
               <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <Button
                   asChild
@@ -224,7 +270,16 @@ const PricingPage = () => {
                   className="rounded-full px-6 py-3 border-foreground/20 hover:bg-foreground/5"
                 >
                   <a href="https://docs.exit1.dev/billing/faq" target="_blank" rel="noopener noreferrer">
-                    Read the Docs
+                    Billing FAQ
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-full px-6 py-3 border-foreground/20 hover:bg-foreground/5"
+                >
+                  <a href="https://docs.exit1.dev/billing/manage" target="_blank" rel="noopener noreferrer">
+                    Managing your plan
                   </a>
                 </Button>
                 <Button

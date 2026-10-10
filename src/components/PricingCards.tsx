@@ -11,7 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { buildSignupUrl } from "@/lib/cta";
+import { buildBillingUrl, buildSignupUrl } from "@/lib/cta";
 
 export type TierKey = "free" | "indie" | "nano" | "pro";
 type PaidTierKey = Exclude<TierKey, "free">;
@@ -226,7 +226,15 @@ export function PricingCards() {
                 ? undefined
                 : `${TRIAL_DAYS} days free, then $${monthlyPrice[t]}/mo`
             }
-            ctaHref={t === "free" ? buildSignupUrl({ campaign: "pricing_free", medium: "pricing" }) : "https://app.exit1.dev/billing"}
+            ctaHref={
+              t === "free"
+                ? buildSignupUrl({ campaign: "pricing_free", medium: "pricing" })
+                : buildBillingUrl({
+                    plan: t,
+                    period: isAnnual ? "annual" : "monthly",
+                    medium: "pricing",
+                  })
+            }
             highlighted={t === "pro"}
           />
         ))}

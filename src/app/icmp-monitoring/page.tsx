@@ -244,7 +244,7 @@ const ICMPMonitoring = () => {
       <ProductPage
         title="ICMP Ping Monitoring for Your Infrastructure"
         subtitle="Network reachability, latency tracking, and instant alerts"
-        description="Monitor any host on the internet with ICMP ping checks. Track round-trip latency, detect outages, and get alerted when servers, routers, or network devices go down. Free on both tiers."
+        description="Monitor any host on the internet with ICMP ping checks. Track round-trip latency, detect outages, and get alerted when servers, routers, or network devices go down. Included on every plan, Free too."
         features={features}
         ctaText="Start Ping Monitoring"
         ctaHref="https://app.exit1.dev/"

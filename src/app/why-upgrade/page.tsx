@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import { Reveal } from '@/components/home/Reveal';
 import { Eyebrow } from '@/components/home/Eyebrow';
+import { buildBillingUrl, buildSignupUrl, type PaidPlanKey } from '@/lib/cta';
 
 export const metadata: Metadata = {
   title: 'Which plan are you?',
@@ -22,6 +23,8 @@ type Solve = { pain: string; solvedBy: string };
 type Tier = {
   index: string;
   tier: string;
+  /** Plan key for the app's billing deep link. */
+  plan: PaidPlanKey;
   /** Cumulative note shown next to the tier name. */
   cumulative: string;
   /** Who recognises themselves here — the lead, most scannable line. */
@@ -52,6 +55,7 @@ const TIERS: Tier[] = [
   {
     index: '01',
     tier: 'Indie',
+    plan: 'indie',
     cumulative: 'Everything in Free, plus —',
     personaLabel:
       'Solo makers and indie hackers whose work is now something other people see',
@@ -99,6 +103,7 @@ const TIERS: Tier[] = [
   {
     index: '02',
     tier: 'Nano',
+    plan: 'nano',
     cumulative: 'Everything in Indie, plus —',
     personaLabel:
       'Small teams running production, and freelancers with a real roster of clients',
@@ -152,6 +157,7 @@ const TIERS: Tier[] = [
   {
     index: '03',
     tier: 'Pro',
+    plan: 'pro',
     cumulative: 'Everything in Nano, plus —',
     focal: true,
     personaLabel: 'Teams with paying users, someone on call, and a fleet to cover',
@@ -448,7 +454,7 @@ export default function WhyUpgradePage() {
                       </p>
                       <div className="mt-6">
                         <a
-                          href="https://app.exit1.dev/billing"
+                          href={buildBillingUrl({ plan: t.plan, medium: 'why_upgrade', campaign: `why_upgrade_${t.plan}` })}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="group inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-primary outline-none transition-colors duration-200 hover:text-primary/80 focus-visible:underline"
@@ -496,7 +502,7 @@ export default function WhyUpgradePage() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <a
-              href="https://app.exit1.dev/billing"
+              href={buildSignupUrl({ campaign: 'why_upgrade_free', medium: 'why_upgrade' })}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-[0_14px_40px_-12px] shadow-primary/50 outline-none transition-all duration-200 hover:scale-[1.03] hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"

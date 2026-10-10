@@ -38,6 +38,39 @@ export function buildSignupUrl(opts: SignupUrlOptions = {}): string {
   return `${APP_URL}?${params.toString()}`;
 }
 
+// The app's billing page reads `tab`, `plan` and `period` to preselect a plan
+// card, scroll to it and set the monthly/annual toggle. Signed-out visitors are
+// sent to login and returned to this full URL (query included) afterwards.
+const BILLING_URL = "https://app.exit1.dev/billing";
+
+export type PaidPlanKey = "indie" | "nano" | "pro";
+export type BillingPeriod = "monthly" | "annual";
+
+interface BillingUrlOptions {
+  /** Plan card to preselect. Omit to just open the plans tab. */
+  plan?: PaidPlanKey;
+  /** Billing period for the monthly/annual toggle. Omit to keep the app default. */
+  period?: BillingPeriod;
+  /** Campaign identifier. Defaults to "pricing_<plan>" or "pricing". */
+  campaign?: string;
+  /** Placement, e.g. "pricing" or "why_upgrade". */
+  medium?: string;
+}
+
+export function buildBillingUrl(opts: BillingUrlOptions = {}): string {
+  const { plan, period, medium = "cta" } = opts;
+  const campaign = opts.campaign ?? (plan ? `pricing_${plan}` : "pricing");
+
+  const params = new URLSearchParams({ tab: "plans" });
+  if (plan) params.set("plan", plan);
+  if (period) params.set("period", period);
+  params.set("utm_source", "exit1_website");
+  params.set("utm_medium", medium);
+  params.set("utm_campaign", campaign);
+
+  return `${BILLING_URL}?${params.toString()}`;
+}
+
 /** Extract a clean hostname for display from a URL or bare host string. */
 export function hostFromUrl(value: string): string {
   const trimmed = value.trim();
