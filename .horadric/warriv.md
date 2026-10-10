@@ -3,6 +3,7 @@
 ## Rules
 
 ## Lately
+- 2026-10-11 Round on leave at 3054bc3 (human's plan-CTA commit): log empty, no aim open, nothing open, only built-in stones. Nothing to do.
 - 2026-10-11 Hourly round at e3fd372: log empty, no aim open, nothing open. Nothing to do.
 - 2026-10-11 Round on leave: log empty, no aim open, nothing open. Nothing to do.
 - 2026-10-10 Hourly rounds (several, incl. latest at 203c90a): log empty, no aim open, nothing open. Nothing to do.
