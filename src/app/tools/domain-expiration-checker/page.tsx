@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED_ISO = "2026-05-04";
-const LAST_UPDATED_DISPLAY = "May 4, 2026";
+const LAST_UPDATED_ISO = "2026-10-11";
+const LAST_UPDATED_DISPLAY = "October 11, 2026";
 
 const howToSteps = [
   {
@@ -175,7 +175,7 @@ const faq = [
   {
     question: "Can I monitor my domain expiration automatically?",
     answer:
-      "Yes! exit1.dev includes automatic domain expiration monitoring. You'll receive alerts at configurable thresholds before your domains expire — so you never miss a renewal. It's available on all paid plans.",
+      "Yes, on the Nano ($9/mo) and Pro plans. exit1.dev watches each domain's expiry date and alerts you at configurable thresholds before it lapses, so a renewal never slips by. The Free and Indie plans don't include domain expiry alerts. Nano starts with a 7-day free trial.",
   },
 ];
 
@@ -516,9 +516,10 @@ export default function DomainExpirationCheckerPage() {
                   Need Continuous Domain Monitoring?
                 </h2>
                 <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-                  Stop checking manually. exit1.dev monitors your domain
-                  expirations automatically and alerts you before they lapse.
-                  Never lose a domain again.
+                  Stop checking manually. Domain expiry alerts come with the
+                  Nano plan ($9/mo, 7-day free trial): exit1.dev watches every
+                  expiry date and alerts you before a domain lapses. The free
+                  plan covers uptime and SSL monitoring.
                 </p>
                 <Button
                   asChild
@@ -528,7 +529,7 @@ export default function DomainExpirationCheckerPage() {
                   <a
                     href={buildSignupUrl({ campaign: "tool_domain_expiry", medium: "tool_footer" })}
                   >
-                    Start Free Monitoring
+                    Create a free account
                   </a>
                 </Button>
               </div>

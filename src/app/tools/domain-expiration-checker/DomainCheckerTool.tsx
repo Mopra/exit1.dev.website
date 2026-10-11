@@ -548,8 +548,8 @@ export default function DomainCheckerTool() {
                   target={domain}
                   tone="alert"
                   headline={`${domain} has expired`}
-                  subline="Expired domains can be lost for good. exit1 sends domain-expiry alerts well ahead of the deadline so it never happens again."
-                  ctaLabel="Get expiry alerts free"
+                  subline="Expired domains can be lost for good. exit1 Nano ($9/mo, 7-day free trial) sends domain expiry alerts well ahead of the deadline so it never happens again."
+                  ctaLabel="Start your free trial"
                 />
               );
             }
@@ -560,8 +560,8 @@ export default function DomainCheckerTool() {
                   target={domain}
                   tone="alert"
                   headline={`${domain} expires in ${result.daysUntilExpiry} days`}
-                  subline="Don't lose your domain to a missed renewal. exit1 tracks expiry and alerts you in advance — plus full uptime monitoring."
-                  ctaLabel="Get expiry alerts free"
+                  subline="Don't lose your domain to a missed renewal. exit1 Nano ($9/mo, 7-day free trial) tracks expiry and alerts you in advance, plus full uptime monitoring."
+                  ctaLabel="Start your free trial"
                 />
               );
             }
@@ -571,8 +571,8 @@ export default function DomainCheckerTool() {
                 target={domain}
                 tone="positive"
                 headline={`${domain} is registered and active`}
-                subline="Never lose it to a forgotten renewal. exit1 watches the expiry date and alerts you weeks ahead — free."
-                ctaLabel="Get expiry alerts free"
+                subline="Never lose it to a forgotten renewal. exit1 Nano ($9/mo, 7-day free trial) watches the expiry date and alerts you weeks ahead."
+                ctaLabel="Start your free trial"
               />
             );
           })()}
