@@ -15,6 +15,7 @@ import { IncidentHistory } from "@/components/status/IncidentHistory";
 import { StatusFaq } from "@/components/status/StatusFaq";
 import { RelatedStatusList } from "@/components/status/RelatedStatusList";
 import { BrandLogo } from "@/components/status/BrandLogo";
+import { FollowCTA } from "@/components/status/FollowCTA";
 import {
   buildFaqs,
   displayName,
@@ -210,6 +211,8 @@ export default async function MonitorStatusPage({
 
               <StatusAnswer monitor={monitor} />
 
+              <FollowCTA slug={monitor.slug} name={name} host={monitor.host} placement="hero" />
+
               <a
                 href={monitor.url}
                 target="_blank"
@@ -261,6 +264,7 @@ export default async function MonitorStatusPage({
                     Downtime detected by exit1.dev over the last 90 days.
                   </p>
                   <IncidentHistory monitor={monitor} />
+                  <FollowCTA slug={monitor.slug} name={name} host={monitor.host} placement="inline" />
                 </div>
 
                 {brandNote && (

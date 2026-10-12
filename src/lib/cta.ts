@@ -14,12 +14,14 @@ interface SignupUrlOptions {
   campaign?: string;
   /** Placement, e.g. "tool_result" or "sticky_bar". */
   medium?: string;
-  /** The URL/host the visitor just checked — passed through so the app can pre-fill it. */
+  /** The URL/host the visitor just checked, passed through so the app can pre-fill it. */
   target?: string;
+  /** A /status/<slug> the visitor wants alerts for. The app follows it right after sign-up. */
+  follow?: string;
 }
 
 export function buildSignupUrl(opts: SignupUrlOptions = {}): string {
-  const { campaign = "website", medium = "cta", target } = opts;
+  const { campaign = "website", medium = "cta", target, follow } = opts;
 
   const params = new URLSearchParams({
     utm_source: "exit1_website",
@@ -34,6 +36,9 @@ export function buildSignupUrl(opts: SignupUrlOptions = {}): string {
     // sync with that consumer — a mismatch silently drops the pre-fill.
     params.set("website", cleanedTarget);
   }
+
+  // Read by App.tsx in the app (PENDING_FOLLOW_STORAGE_KEY). Keep the name in sync.
+  if (follow) params.set("follow", follow);
 
   return `${APP_URL}?${params.toString()}`;
 }
