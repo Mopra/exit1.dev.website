@@ -198,7 +198,7 @@ const TIERS: Tier[] = [
       {
         pain: 'Running the whole fleet across a team',
         solvedBy:
-          '100 API keys to script per-client setup, 100 webhooks, per-log comments, and extra email recipients per check and per folder. Named team members and roles are on the roadmap, not shipped yet.',
+          '100 API keys to script per-client setup, 100 webhooks, per-log comments, and extra email recipients per check and per folder. Invite up to 10 teammates as editors or viewers, each with their own login.',
       },
     ],
     signatureValue:

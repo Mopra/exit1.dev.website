@@ -75,7 +75,7 @@ const featureGroups: FeatureGroup[] = [
   {
     title: "Team",
     rows: [
-      { label: "Team seats", values: { free: "—", indie: "—", nano: "—", pro: "10" }, comingSoon: true },
+      { label: "Team seats", values: { free: "—", indie: "—", nano: "—", pro: "10" } },
     ],
   },
 ];
