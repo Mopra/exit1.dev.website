@@ -1,15 +1,16 @@
 ---
-title: "Namecheap's $88.88 Redemption Fee: How to Avoid Paying It"
+title: "Namecheap Grace Period: 30 Days, Then a $88.48 Redemption Fee"
 author: "Morten Pradsgaard"
 date: "2026-02-09"
+updated: "2026-10-12"
 category: "domain-intelligence"
-excerpt: "Miss your Namecheap renewal window and you'll pay $88.88+ just to get your domain back. Here's how the timeline works and how to make sure it never happens."
-metaDescription: "Namecheap charges $88.88+ in redemption fees for expired domains. Learn how the expiration timeline works, what triggers the fee, and how to set up alerts so you never pay it."
+excerpt: "Namecheap gives you about 30 days to renew at the normal price, then a 30-day redemption period that costs $88.48 for a .com. Here's the timeline and how to make sure you never reach it."
+metaDescription: "Namecheap's grace period is about 30 days, then the redemption period costs $88.48 for a .com. See the full expiration timeline, what each phase costs, and how to avoid it."
 ---
 
-# Namecheap's $88.88 Redemption Fee: How to Avoid Paying It
+# Namecheap Grace Period: 30 Days, Then a $88.48 Redemption Fee
 
-Your Namecheap domain costs around $10-15 per year to renew. Miss the window, and Namecheap will charge you an additional $88.88 just to get it back. For some TLDs, that fee climbs even higher.
+Your Namecheap domain costs around $10-15 per year to renew. Miss the window, and Namecheap gives you about 30 days to renew at the normal price. After that, getting it back costs an extra $88.48 for a .com. For some TLDs, that fee climbs even higher.
 
 This isn't a scare tactic. It's Namecheap's published redemption pricing, and it catches thousands of domain owners off guard every year. The frustrating part is that it's completely avoidable - if you know how the timeline works and set up the right safeguards.
 
@@ -23,21 +24,21 @@ Your domain stops resolving. Your website goes down, email stops working, and an
 
 But here's the catch: Namecheap's own renewal reminder emails are easy to miss. They land in your inbox alongside dozens of other promotional emails from Namecheap, and many people have filters or separate email addresses that bury them. If you're on vacation, switching jobs, or simply busy, thirty days goes by fast.
 
-### Days 30-60: Redemption Period ($88.88+ Fee)
+### Days 30-60: Redemption Period ($88.48 Fee for .com)
 
 This is where it gets expensive. Once the grace period ends, your domain enters what's called the Redemption Grace Period (RGP). You can still recover your domain, but now you'll pay the redemption fee on top of the renewal cost.
 
-For most generic TLDs at Namecheap, that fee is **$88.88**. Add in the standard renewal price and ICANN's $0.20 fee, and you're looking at roughly $100+ to renew what should have been a $12 transaction.
+The redemption period lasts 30 days. For a .com, Namecheap's [redemption price table](https://www.namecheap.com/domains/redemption-pricing/) lists **$88.48**. Other TLDs differ: .net is $78.58, .org $78.98, .dev $90.98, .app $92.98, .io $135.98. Add the standard renewal price and ICANN's $0.20 fee, and you're looking at roughly $100 to renew what should have been a $12 transaction.
 
 For certain TLDs, the redemption fee is even steeper. Premium and country-code domains can carry redemption fees of $150 to $250+. Namecheap is transparent about this - they note the fee is set by the upstream registry and they cannot waive it.
 
-### Days 60-75: Pending Delete (No Recovery Possible)
+### Days 60-65: Pending Delete (No Recovery Possible)
 
 Your domain is now queued for deletion. Neither you nor Namecheap can recover it. You can only wait for it to drop back into the public pool - and hope no one else is watching.
 
-### After Day 75: Open Market
+### After About Day 70-80: Open Market
 
-The domain releases and becomes available for anyone to register. If it has any SEO value, backlinks, or a recognizable brand name, domain squatters and automated auction services will grab it within seconds. Getting it back now means buying it on the aftermarket, often for hundreds or thousands of dollars.
+Namecheap says domains are normally released 70 to 85 days after expiration, and occasionally later. The domain becomes available for anyone to register. If it has any SEO value, backlinks, or a recognizable brand name, domain squatters and automated auction services will grab it within seconds. Getting it back now means buying it on the aftermarket, often for hundreds or thousands of dollars.
 
 ## Why Auto-Renewal Isn't Enough
 
@@ -47,7 +48,7 @@ The obvious response is "just enable auto-renewal." And yes, you absolutely shou
 
 **Account issues** are another common trigger. Changed email addresses mean renewal notices go to an inbox you never check. Organizational changes mean the person who set up the domain has left the company. Shared accounts with unclear ownership mean nobody feels responsible for checking.
 
-**Intentional non-renewal that becomes accidental** is surprisingly common too. You think about whether to keep a domain, decide to think about it later, and "later" arrives as an $88.88 redemption fee.
+**Intentional non-renewal that becomes accidental** is surprisingly common too. You think about whether to keep a domain, decide to think about it later, and "later" arrives as an $88.48 redemption fee.
 
 ## The Real Cost Beyond the Fee
 
@@ -90,7 +91,7 @@ Don't rely on a single notification method. If your primary alert is email, add 
 
 ## What to Do If You're Already in the Redemption Period
 
-If you're reading this because your domain has already expired and you're staring at the $88.88 fee, here's the honest advice: **pay it immediately.**
+If you're reading this because your domain has already expired and you're staring at the redemption fee, here's the honest advice: **pay it immediately.**
 
 The redemption fee is painful, but it's a fraction of what the domain will cost you on the aftermarket. It's also a fraction of the revenue, SEO value, and brand equity you'll lose if you wait. Every day you delay, the situation gets worse and more expensive.
 
@@ -100,7 +101,7 @@ After you've recovered the domain:
 2. Update your payment method
 3. Set up independent monitoring so this never happens again
 
-The $88.88 lesson only needs to happen once.
+The redemption lesson only needs to happen once.
 
 ## The Math That Matters
 
@@ -113,7 +114,7 @@ The $88.88 lesson only needs to happen once.
 
 Domain monitoring costs roughly the same per year as a single domain renewal. It protects every domain in your portfolio simultaneously. Compared to even one redemption fee, it pays for itself immediately - and compared to losing a domain to the aftermarket, it's essentially free.
 
-## Don't Let a Missed Email Cost You $88.88
+## Don't Let a Missed Email Cost You $88.48
 
 Namecheap's redemption fee exists because registries charge it, and registrars pass it through. It's not going away, and it's not negotiable. The only variable is whether you pay it.
 
