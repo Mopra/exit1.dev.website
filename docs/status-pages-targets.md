@@ -62,6 +62,31 @@ Probe details that matter:
 - fonts.googleapis.com probes `/css2?family=Inter`; the root is a 404.
 - files.pythonhosted.org was skipped (root is a 404). pypi.org is already live.
 
+## Seeded 2026-10-12: 198 more dev infra
+
+Same method and template as 2026-09-29 (GET, 5 min, vps-eu-1, folder `Infrastructure`,
+hostname name and slug, one `check_edits` doc per check). Brings the live set to about 518.
+Every URL was probed first and only 2xx, 3xx, 401 or 403 responders went in. APIs hit an
+authenticated path so they answer 401 rather than 404.
+
+| Group | Hosts |
+|---|---|
+| Package registries and indexes (44) | anaconda.org, conda.anaconda.org, repo.anaconda.com, repo1.maven.org, central.sonatype.com, plugins.gradle.org, services.gradle.org, metacpan.org, cpan.org, cran.r-project.org, hackage.haskell.org, opam.ocaml.org, luarocks.org, jsr.io, esm.sh, registry.npmmirror.com, index.rubygems.org, repo.packagist.org, getcomposer.org, pecl.php.net, api.nuget.org, docs.rs, swiftpackageindex.com, package.elm-lang.org, galaxy.ansible.com, forge.puppet.com, supermarket.chef.io, open-vsx.org, marketplace.visualstudio.com, plugins.jetbrains.com, addons.mozilla.org, chromewebstore.google.com, packagecontrol.io, formulae.brew.sh, community.chocolatey.org, snapcraft.io, flathub.org, aur.archlinux.org, search.nixos.org, cache.nixos.org, conan.io, vcpkg.io, sdkman.io, pkgs.alpinelinux.org |
+| Container registries (9) | gcr.io, registry.k8s.io, public.ecr.aws, gallery.ecr.aws, mcr.microsoft.com, registry.gitlab.com, registry-1.docker.io, download.docker.com, get.docker.com |
+| Mirrors, downloads, source hosting (19) | deb.debian.org, archive.ubuntu.com, security.ubuntu.com, dl-cdn.alpinelinux.org, mirrors.fedoraproject.org, mirrors.kernel.org, launchpad.net, ppa.launchpadcontent.net, releases.hashicorp.com, apt.releases.hashicorp.com, static.rust-lang.org, sh.rustup.rs, go.dev, raw.githubusercontent.com, codeload.github.com, gist.github.com, pages.github.com, kernel.org, git.kernel.org |
+| CDNs (10) | ajax.googleapis.com, code.jquery.com, cdn.tailwindcss.com, ga.jspm.io, jspm.org, fonts.bunny.net, maxcdn.bootstrapcdn.com, img.shields.io, badgen.net, res.cloudinary.com |
+| APIs (rest_endpoint) (61) | api.cloudflare.com, api.vercel.com, api.netlify.com, api.digitalocean.com, api.linode.com, api.hetzner.cloud, api.heroku.com, api.sendgrid.com, api.notion.com, api.telegram.org, graph.microsoft.com, googleapis.com, generativelanguage.googleapis.com, api.mistral.ai, api.cohere.com, api.together.xyz, api.fireworks.ai, api.deepseek.com, openrouter.ai, api.x.ai, api.assemblyai.com, api.deepgram.com, api.pinecone.io, api.pagerduty.com, api.datadoghq.com, api.honeycomb.io, api.airtable.com, api.hubapi.com, api.intercom.io, api-m.paypal.com, connect.squareup.com, api.lemonsqueezy.com, api.paddle.com, api.mapbox.com, api.cloudinary.com, api.clerk.com, api.workos.com, api.coinbase.com, api.atlassian.com, api.zoom.us, api.figma.com, httpbin.org, postman-echo.com, api.pwnedpasswords.com, api.backblazeb2.com, s3.amazonaws.com, api.tailscale.com, api.supabase.com, console.neon.tech, api.turso.tech, api.upstash.com, api.pulumi.com, app.terraform.io, api.buildkite.com, api.npmjs.org, api.osv.dev, services.nvd.nist.gov, rdap.org, api.brevo.com, api.mailjet.com, api.sparkpost.com |
+| Docs and dev references (13) | docs.python.org, developer.mozilla.org, docs.docker.com, docs.npmjs.com, caniuse.com, regex101.com, readthedocs.org, docs.gitlab.com, docs.anthropic.com, docs.claude.com, code.visualstudio.com, vscode.dev, git-scm.com |
+| CI, testing, dev tools (20) | buildkite.com, app.travis-ci.com, codecov.io, coveralls.io, sonarcloud.io, snyk.io, app.pulumi.com, cloud.elastic.co, app.launchdarkly.com, us.posthog.com, eu.posthog.com, ui.honeycomb.io, dashboard.ngrok.com, login.tailscale.com, gitpod.io, codepen.io, jsfiddle.net, jwt.io, excalidraw.com, app.diagrams.net |
+| Cloud consoles and dashboards (11) | app.netlify.com, cloud.digitalocean.com, cloud.linode.com, console.hetzner.cloud, my.vultr.com, dashboard.heroku.com, dashboard.render.com, console.firebase.google.com, dash.deno.com, cloud.appwrite.io, cloud.temporal.io |
+| AI apps (11) | claude.ai, chatgpt.com, aistudio.google.com, v0.app, bolt.new, lovable.dev, chat.deepseek.com, grok.com, kaggle.com, colab.research.google.com, smith.langchain.com |
+
+Probed and left out: dl.google.com/go, objects.githubusercontent.com, use.fontawesome.com,
+gstatic.com, api.fly.io, graph.facebook.com, api.perplexity.ai, api.linear.app (400/404 at the
+probed path), crt.sh (502), gemini.google.com (header overflow), hashicorp.com (429).
+Frameworks, language homepages, Linux distros and big SaaS marketing sites were probed fine but
+held back for a later batch.
+
 **The off-topic hosts in the live set (bain.com, 3cventures.com, sportbeach.com,
 deloittedigital.com and similar) are not noise.** They feed the Cannes event page
 via `src/lib/cannesEvents.ts`. Leave them public.
