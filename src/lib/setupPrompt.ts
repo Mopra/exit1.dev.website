@@ -14,6 +14,9 @@
 // mid-session is unusable until restart. The CTA therefore leads with the two
 // terminal commands (connect + browser sign-in via `claude mcp login`), and the
 // prompt's step 1 only exists as a graceful bounce for people who paste first.
+// People with no account at all don't need the bounce: step 1 has the agent
+// create one via agent signup (POST /oauth/agent-signup, or exit1-mcp's
+// create_account), which returns a token usable over REST in the same session.
 
 export const MCP_REMOTE_URL = 'https://app.exit1.dev/mcp/v1';
 
@@ -120,10 +123,20 @@ export const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit
 1. Check whether the Exit1 tools (get_account, list_checks, create_check) are
    available to you. If they are, go to step 2.
 
-   If they are not, do NOT try to connect from inside this session, and do not
-   improvise with the raw API. Most AI tools load MCP servers only at startup
-   and cannot open a browser sign-in mid-conversation, so a server added now
-   stays unusable until I restart. Instead:
+   If they are not and I have no Exit1 account, create one for me. Ask for
+   my email (never invent one), then POST
+     {"email": "<my email>", "agent_name": "<your name>"}
+   to https://app.exit1.dev/oauth/agent-signup. Use the access_token it
+   returns as a Bearer token on the api_base it returns (POST requests need
+   an Idempotency-Key header) and carry on with the REST endpoints. If you
+   have exit1-mcp's create_account tool, use that instead. Docs:
+   https://docs.exit1.dev/integrations/agent-signup
+
+   If I already have an account (the signup returns 409 account_exists), do
+   NOT try to connect from inside this session, and do not improvise with the
+   raw API. Most AI tools load MCP servers only at startup and cannot open a
+   browser sign-in mid-conversation, so a server added now stays unusable
+   until I restart. Instead:
      - In Claude Code: run
          ${MCP_ADD_COMMAND}
        then tell me to quit, run \`${MCP_LOGIN_COMMAND}\` in my terminal (my
@@ -137,7 +150,7 @@ export const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit
    so my first message after reconnecting can be "go".
 
 2. Call get_account to see my plan limits, and list_checks to see what's
-   already monitored.
+   already monitored (over REST: GET /account and GET /checks).
 
 3. Work out what's worth monitoring by reading this project. Don't ask me for
    URLs you can find yourself. Depending on the stack, look at deploy and
@@ -158,7 +171,9 @@ export const SETUP_PROMPT = `Set up uptime monitoring for this project with Exit
    intend to create as one short list and create them when I confirm.
 
 5. Send a test alert to every channel you set up and tell me to check it
-   arrived. Don't leave a channel configured but untested.
+   arrived. Don't leave a channel configured but untested. On an account you
+   just created, alerts wait until I claim it: tell me to open the claim
+   email from Exit1, then send the test alerts.
 
 Be fast and autonomous. Never put API keys, tokens or passwords into a check.
 Prefer a few meaningful checks over many shallow ones.`;

@@ -6,7 +6,7 @@ import { LazyAIChat } from './LazyAIChat';
 
 /**
  * The second differentiator: exit1 is AI-ready over MCP. A short, concrete
- * prompt exchange shows the value better than any description — connect in
+ * prompt exchange shows the value better than any description: connect in
  * two minutes, then ask your monitoring questions in plain language.
  */
 export function AIReady() {
@@ -26,7 +26,7 @@ export function AIReady() {
             <Reveal delay={0.1}>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 Connect exit1 to Claude, Cursor, VS Code, or any MCP client in about
-                two minutes. Then just ask — no dashboards, no clicking. Your data
+                two minutes. Then just ask. No dashboards, no clicking. Your data
                 answers back.
               </p>
             </Reveal>
@@ -38,6 +38,17 @@ export function AIReady() {
                 Explore MCP
                 <ArrowRight className="h-4 w-4" />
               </Link>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="mt-4 text-sm text-muted-foreground">
+                No account yet? Your agent can create one with a single API call.{' '}
+                <a
+                  href="https://docs.exit1.dev/integrations/agent-signup"
+                  className="underline underline-offset-4 hover:text-foreground"
+                >
+                  Agent signup
+                </a>
+              </p>
             </Reveal>
           </div>
 

@@ -18,18 +18,21 @@ import {
 
 const HOSTED_COMMAND = 'claude mcp add --transport http exit1 https://app.exit1.dev/mcp/v1';
 
+const AGENT_SIGNUP_EXAMPLE = `POST https://app.exit1.dev/oauth/agent-signup
+{"email": "you@example.com", "agent_name": "Claude Code"}`;
+
 export const metadata: Metadata = {
-  title: "Set Up Uptime Monitoring From Your Editor — MCP Server",
+  title: "Set Up Uptime Monitoring From Your Editor | MCP Server",
   description: "Let Claude, Cursor or Codex read your repo, create the monitors, wire up alerts and fire a real test alert to prove delivery works. One command, no API key. Then ask about uptime in plain language.",
   keywords: "MCP, Model Context Protocol, MCP server, AI monitoring, Claude Code, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, uptime monitoring AI, agent monitoring setup, conversational monitoring",
   openGraph: {
-    title: "Set Up Uptime Monitoring From Your Editor — exit1.dev MCP Server",
+    title: "Set Up Uptime Monitoring From Your Editor | exit1.dev MCP Server",
     description: "One command connects Claude, Cursor or Codex to exit1. Your assistant reads the repo, creates the monitors, configures alerts, and proves delivery works.",
     type: "website",
     url: "https://exit1.dev/mcp",
   },
   twitter: {
-    title: "Set Up Uptime Monitoring From Your Editor — exit1.dev MCP Server",
+    title: "Set Up Uptime Monitoring From Your Editor | exit1.dev MCP Server",
     description: "One command connects Claude, Cursor or Codex to exit1. Your assistant reads the repo and sets the monitoring up for you.",
     card: "summary_large_image",
   },
@@ -42,16 +45,16 @@ const MCPPage = () => {
   const features = [
     {
       title: "It Sets Monitoring Up For You",
-      description: "Point your assistant at a project and it reads the repo — deploy configs, env files, health route handlers — works out what should be monitored, and creates the checks. You approve the list; it does the typing.",
+      description: "Point your assistant at a project and it reads the repo (deploy configs, env files, health route handlers), works out what should be monitored, and creates the checks. You approve the list; it does the typing.",
       icon: <Wrench className="w-6 h-6 text-foreground" />,
     },
     {
       title: "One Command, No API Key",
-      description: "The hosted server uses OAuth. Run one command, approve in the browser, done. Sign-up happens inline if you don't have an account yet — no dashboard visit, no key to paste, no config file to edit.",
+      description: "The hosted server uses OAuth. Run one command, approve in the browser, done. Sign-up happens inline if you don't have an account yet. No dashboard visit, no key to paste, no config file to edit.",
       icon: <Zap className="w-6 h-6 text-foreground" />,
     },
     {
-      title: "14 Tools — Read And Write",
+      title: "14 Tools, Read And Write",
       description: "Seven read tools for uptime, history and stats. Seven write tools to create and update checks, pause them, set email recipients, and connect Slack, Discord or Teams. Delete is opt-in and never granted by default.",
       icon: <Bot className="w-6 h-6 text-foreground" />,
     },
@@ -62,7 +65,7 @@ const MCPPage = () => {
     },
     {
       title: "Real Health Checks, Not 200-Checking",
-      description: "Your assistant finds your /health endpoint and asserts on the response body with JSONPath — because a 200 with a dead database is still a 200. Plus DNS drift, domain expiry, TCP ports, ICMP and cron heartbeats.",
+      description: "Your assistant finds your /health endpoint and asserts on the response body with JSONPath, because a 200 with a dead database is still a 200. Plus DNS drift, domain expiry, TCP ports, ICMP and cron heartbeats.",
       icon: <ShieldCheck className="w-6 h-6 text-foreground" />,
     },
     {
@@ -123,11 +126,15 @@ const MCPPage = () => {
   const faq = [
     {
       question: "What is MCP?",
-      answer: "MCP (Model Context Protocol) is an open standard that lets AI assistants connect to external tools and data. Exit1's MCP server gives your assistant both read and write access to your monitoring — so it can set monitoring up for you, then answer questions about it in plain language.",
+      answer: "MCP (Model Context Protocol) is an open standard that lets AI assistants connect to external tools and data. Exit1's MCP server gives your assistant both read and write access to your monitoring, so it can set monitoring up for you, then answer questions about it in plain language.",
     },
     {
       question: "How do I set it up?",
-      answer: `Run one command: ${HOSTED_COMMAND}. Your assistant opens a browser, you sign in (or sign up — it happens inline), approve the permissions, and you're connected. No API key, no config file, no Node.js install.`,
+      answer: `Run one command: ${HOSTED_COMMAND}. Your assistant opens a browser, you sign in (or sign up, which happens inline), approve the permissions, and you're connected. No API key, no config file, no Node.js install.`,
+    },
+    {
+      question: "Can my agent create the account for me?",
+      answer: "Yes. An agent can sign you up with one call to POST https://app.exit1.dev/oauth/agent-signup, passing your email. It gets a token back and can create checks straight away, over the REST API or this MCP server. The exit1-mcp npm package does the same through its create_account tool. Checks run immediately, but no alerts are sent until you open the email exit1 sends you and claim the account. That is also where you decide whether the agent keeps access. Unclaimed accounts are paused after 7 days and deleted after 30.",
     },
     {
       question: "Which AI assistants are supported?",
@@ -135,7 +142,7 @@ const MCPPage = () => {
     },
     {
       question: "Can it change or delete my monitors?",
-      answer: "It can create, update and pause monitors, and configure alert channels — that is the point, and it is what lets an agent set monitoring up for you. Deleting is separate: the checks:delete scope is never granted unless a client explicitly asks for it, and the consent screen shows you every permission before you approve. You can revoke any connection at app.exit1.dev/mcp, which kills every token issued to that client immediately.",
+      answer: "It can create, update and pause monitors, and configure alert channels. That is the point, and it is what lets an agent set monitoring up for you. Deleting is separate: the checks:delete scope is never granted unless a client explicitly asks for it, and the consent screen shows you every permission before you approve. You can revoke any connection at app.exit1.dev/mcp, which kills every token issued to that client immediately.",
     },
     {
       question: "What can I ask my AI assistant?",
@@ -143,11 +150,11 @@ const MCPPage = () => {
     },
     {
       question: "Is MCP available on the free plan?",
-      answer: "Yes. The hosted server has no plan requirement at all, and the local npm package needs an API key that every plan can mint, Free included. Normal plan limits still apply either way — Free covers 50 monitors at 5-minute intervals, with DNS and domain checks reserved for paid plans. Your assistant calls get_account first so it plans within whatever your plan allows.",
+      answer: "Yes. The hosted server has no plan requirement at all, and the local npm package needs an API key that every plan can mint, Free included. Normal plan limits still apply either way. Free covers 50 monitors at 5-minute intervals, with DNS and domain checks reserved for paid plans. Your assistant calls get_account first so it plans within whatever your plan allows.",
     },
     {
       question: "Do I need to install anything?",
-      answer: "Not for the hosted server — it runs on our infrastructure and your client connects over HTTP. The local option needs Node.js 18+ and installs itself via npx, with no manual package install.",
+      answer: "Not for the hosted server. It runs on our infrastructure and your client connects over HTTP. The local option needs Node.js 18+ and installs itself via npx, with no manual package install.",
     },
     {
       question: "What are the rate limits?",
@@ -157,7 +164,7 @@ const MCPPage = () => {
 
   const technicalDetails = {
     architecture:
-      "Two transports, one identical tool surface. The hosted server is a stateless streamable-HTTP endpoint at app.exit1.dev/mcp/v1, authenticated with OAuth 2.1 (PKCE, dynamic client registration) — your client registers itself, so there is nothing to configure. The local option is the exit1-mcp npm package running on your machine over stdio with an API key. Every tool in both is a thin wrapper over the public REST API, so tier caps, scope checks, rate limits and URL validation are enforced server-side and cannot be bypassed through the MCP surface.",
+      "Two transports, one identical tool surface. The hosted server is a stateless streamable-HTTP endpoint at app.exit1.dev/mcp/v1, authenticated with OAuth 2.1 (PKCE, dynamic client registration). Your client registers itself, so there is nothing to configure. The local option is the exit1-mcp npm package running on your machine over stdio with an API key. Every tool in both is a thin wrapper over the public REST API, so tier caps, scope checks, rate limits and URL validation are enforced server-side and cannot be bypassed through the MCP surface.",
     performance:
       "Most tool calls return in well under a second. The hosted server needs no install and no warm-up; the local package starts instantly via npx and carries a single runtime dependency, the official MCP SDK. Nothing is stored on your machine beyond your client's own config.",
     api:
@@ -179,7 +186,7 @@ const MCPPage = () => {
     },
     {
       title: "Smart Alerting",
-      description: "Email, SMS and webhooks. Your assistant can configure these for you — and prove they work.",
+      description: "Email, SMS and webhooks. Your assistant can configure these for you, and prove they work.",
       href: "/alerting",
       icon: <Bell className="w-6 h-6 text-foreground" />,
     },
@@ -248,7 +255,7 @@ const MCPPage = () => {
         features={features}
         ctaText="Get started free"
         ctaHref="https://app.exit1.dev/sign-up"
-        seoTitle="Set Up Uptime Monitoring From Your Editor — exit1.dev MCP Server"
+        seoTitle="Set Up Uptime Monitoring From Your Editor | exit1.dev MCP Server"
         seoDescription="One command connects Claude, Cursor or Codex to exit1. Your assistant reads the repo, creates the monitors, configures alerts, and proves delivery works. No API key required."
         comparisonTable={comparisonTable}
         faq={faq}
@@ -257,7 +264,7 @@ const MCPPage = () => {
         heroExtra={
           // The hosted one-liner is the whole pitch, so it goes above the fold
           // rather than behind a docs link. Visitors arriving from an MCP
-          // directory already know what MCP is — they want the command.
+          // directory already know what MCP is. They want the command.
           <section className="mx-auto w-full max-w-3xl px-4 pb-12 sm:px-6">
             <div className="rounded-xl border border-border/60 bg-card/50 p-4 sm:p-6">
               <p className="mb-3 text-sm text-muted-foreground">
@@ -267,13 +274,44 @@ const MCPPage = () => {
                 <code>{HOSTED_COMMAND}</code>
               </pre>
               <p className="mt-3 text-xs text-muted-foreground">
-                OAuth in the browser — no API key. Sign-up happens inline if you don&rsquo;t have an
+                OAuth in the browser, no API key. Sign-up happens inline if you don&rsquo;t have an
                 account.{' '}
                 <a
                   href="https://docs.exit1.dev/integrations/mcp"
                   className="underline underline-offset-4 hover:text-foreground"
                 >
                   Other clients and the npm package
+                </a>
+                .
+              </p>
+            </div>
+
+            {/* Agent signup: the path for visitors with no account. Facts mirror
+                docs.exit1.dev/integrations/agent-signup; don't embellish them. */}
+            <div className="mt-4 rounded-xl border border-border/60 bg-card/50 p-4 sm:p-6">
+              <h2 className="text-base font-semibold text-foreground">
+                No account? Your agent can create one
+              </h2>
+              <p className="mt-2 mb-3 text-sm text-muted-foreground">
+                It asks for your email and makes one call. The response carries a token it can use
+                right away, over REST or this MCP server.
+              </p>
+              <pre className="overflow-x-auto rounded-lg border border-border/60 bg-muted/40 p-3 text-left text-xs leading-relaxed sm:text-sm">
+                <code>{AGENT_SIGNUP_EXAMPLE}</code>
+              </pre>
+              <p className="mt-3 text-sm text-muted-foreground">
+                With the npm package, start <code className="font-mono">exit1-mcp</code> without an
+                API key and your agent gets a <code className="font-mono">create_account</code> tool
+                that does the same.
+              </p>
+              <p className="mt-3 text-xs text-muted-foreground">
+                Alerts start once you claim the account from the email exit1 sends you. That&rsquo;s
+                also where you decide whether the agent keeps access.{' '}
+                <a
+                  href="https://docs.exit1.dev/integrations/agent-signup"
+                  className="underline underline-offset-4 hover:text-foreground"
+                >
+                  How agent signup works
                 </a>
                 .
               </p>

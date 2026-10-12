@@ -51,7 +51,7 @@ const STEPS = [
   },
 ];
 
-// The demo panel already *shows* what the agent does — it names the files it read
+// The demo panel already *shows* what the agent does: it names the files it read
 // and prints the checks, the alert channels and the test alert. A feature grid
 // restating that in prose was pure repetition, so this replaces it with the one
 // question the panel raises and nothing else on the page answered: pasting that
@@ -71,6 +71,9 @@ const CANNOT = [
   "Act without your editor getting a chance to warn you. delete_check is flagged destructive.",
 ];
 
+const AGENT_SIGNUP_EXAMPLE = `POST https://app.exit1.dev/oauth/agent-signup
+{"email": "you@example.com", "agent_name": "Claude Code"}`;
+
 const FREE_INCLUDES = [
   "50 monitors",
   "5-minute checks",
@@ -84,7 +87,7 @@ export function AiLanding() {
   const [medium, setMedium] = useState(DEFAULT_MEDIUM);
 
   // Read the surface client-side rather than via searchParams so the route stays
-  // static. The CTA href is correct from first paint either way — this only
+  // static. The CTA href is correct from first paint either way. This only
   // refines which surface gets the credit.
   useEffect(() => {
     const s = new URLSearchParams(window.location.search).get("s");
@@ -95,11 +98,11 @@ export function AiLanding() {
 
   return (
     <>
-      {/* ---- Hero: the argument is a picture — paste this, get that ---- */}
+      {/* ---- Hero: the argument is a picture. Paste this, get that. ---- */}
       <section className="px-5 pt-20 sm:pt-28">
         <div className="mx-auto max-w-3xl text-center">
           {/* "Synthetic monitoring" is the term this audience already has a mental
-              model for — probes from outside on a schedule, as opposed to RUM.
+              model for: probes from outside on a schedule, as opposed to RUM.
               "Uptime monitoring" reads as ping-checking and undersells the
               assertions. Note the site only used the word in blog posts before. */}
           <Eyebrow dot>Synthetic monitoring · MCP</Eyebrow>
@@ -198,8 +201,60 @@ export function AiLanding() {
               mid-conversation. That&rsquo;s why you connect before you paste. Pasted first
               anyway? The prompt tells the agent to stop, hand you the connect commands, and
               have you resume with <code className="font-mono">claude --continue</code> rather
-              than guess.
+              than guess. No account at all? Then nothing breaks. See below.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---- Agent signup. The one case where pasting first is the fast path:
+              no account means no OAuth to restart for. Facts mirror
+              docs.exit1.dev/integrations/agent-signup; don't embellish them. ---- */}
+      <section className="px-5 pb-24 sm:pb-32">
+        <div className="mx-auto max-w-3xl">
+          <Reveal>
+            <h2 className="text-3xl font-medium leading-[1.1] tracking-tight sm:text-4xl">
+              No account? Your agent can create one
+            </h2>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              Paste the prompt before you sign up. The agent asks for your email and makes one
+              call. It gets a token back and starts creating checks in the same session.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <pre className="mt-10 overflow-x-auto rounded-2xl bg-white/[0.03] p-4 font-mono text-xs leading-relaxed text-foreground/65 sm:p-5">
+              <code>{AGENT_SIGNUP_EXAMPLE}</code>
+            </pre>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Running the npm package instead? Start{" "}
+              <code className="font-mono text-sm text-foreground/80">exit1-mcp</code> without an
+              API key and it offers a{" "}
+              <code className="font-mono text-sm text-foreground/80">create_account</code> tool
+              that does the same and connects on the spot.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <p className="mt-10 rounded-xl bg-white/[0.03] p-5 leading-relaxed text-muted-foreground">
+              <span className="font-semibold text-foreground">Alerts wait for you.</span> Checks
+              run and history builds right away, but no alert goes out until you open the claim
+              email from exit1 and claim the account. That&rsquo;s also where you decide whether
+              the agent keeps access. An agent can&rsquo;t point alerts at an address nobody has
+              proven they own. Unclaimed accounts pause after 7 days and are deleted after 30.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <a
+              href="https://docs.exit1.dev/integrations/agent-signup"
+              className="mt-6 inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+            >
+              How agent signup works
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </Reveal>
         </div>
       </section>
@@ -346,7 +401,7 @@ export function AiLanding() {
 
       {/* ---- Closing. The prompt again, plus the one-field on-ramp for anyone
               who isn't at their editor. Deliberately below the prompt, not
-              beside it — a URL field argues against the whole pitch. ---- */}
+              beside it. A URL field argues against the whole pitch. ---- */}
       <section className="px-5 pb-28">
         <div className="mx-auto max-w-3xl">
           <Reveal>

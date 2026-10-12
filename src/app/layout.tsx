@@ -106,6 +106,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* Points agents at the plain-markdown instructions (agent signup and the
+          recommended script). A raw tag rather than metadata.alternates because
+          pages that set their own canonical replace the root alternates
+          wholesale, which would drop the hint on most routes. */}
+      <head>
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href="/agents.md"
+          title="Instructions for AI agents"
+        />
+      </head>
       <body
         style={appDarkTheme}
         className={`${dmSans.variable} ${spaceMono.variable} antialiased bg-background text-foreground`}

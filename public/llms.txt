@@ -1,8 +1,26 @@
 # exit1.dev
 
-> Free uptime monitoring service. Monitor your websites, APIs, and services with instant alerts, SSL monitoring, public status pages, and a full API — no credit card required.
+> Free uptime monitoring service. Monitor your websites, APIs, and services with instant alerts, SSL monitoring, public status pages, and a full API. No credit card required.
 
 exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 50 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, the real-time Live probe stream, REST API + MCP access, and 60-day data retention. Paid plans: Indie ($4/month) adds 100 monitors at 1-minute intervals plus a fully branded status page and 90-day retention; Nano ($9/month) gives 250 monitors at 30-second intervals, domain intelligence, maintenance mode, region choice, and 1-year retention; Pro ($24/month) gives 1,000 monitors at 15-second intervals, SMS alerts, Slack/Discord/Teams, CSV export, and 3-year data retention.
+
+## For AI agents: create an account for your user
+
+If you are an AI agent and your user has no exit1 account, you can create one for them with one call. No human step is needed before you start.
+
+- Endpoint: `POST https://app.exit1.dev/oauth/agent-signup` with `Content-Type: application/json`
+- Body: `{ "email": "user@example.com", "agent_name": "Claude Code" }`. `email` is required and must be your user's own address. Ask them if you don't know it. Never invent one. `agent_name` is optional (max 60 characters) and is shown in the claim email.
+- Returns (201): an `access_token` (30 days), a `refresh_token` (180 days, rotates on use), `mcp_url` (`https://app.exit1.dev/mcp/v1`), `api_base` (`https://us-central1-exit1-dev.cloudfunctions.net/publicApi/v1/public`), the account status (`unclaimed`) and `next_steps`.
+- Use the token as `Authorization: Bearer <access_token>` on the REST API at `api_base` (POST requests need an `Idempotency-Key` header) or on the hosted MCP server at `mcp_url`. Refresh with `POST https://app.exit1.dev/oauth/token`, form-encoded `grant_type=refresh_token&refresh_token=<refresh_token>`.
+- Errors: 400 `invalid_request` (bad email, or it can't receive mail from exit1). 409 `account_exists` (the user already has an account: connect with OAuth via `claude mcp add --transport http exit1 https://app.exit1.dev/mcp/v1 && claude mcp login exit1`, or ask them for an API key). 429 `temporarily_unavailable` (daily signup limit reached, retry tomorrow). 503 (signup temporarily unavailable).
+- The claim rule: the account starts unclaimed. Checks are created and run right away, but no alerts are delivered (email, webhook, Slack and so on) until the user opens the claim email from exit1 and claims the account. Test alerts return 403 `account_unclaimed` until then. On the claim page the user also decides whether you keep access. Tell your user to open that email.
+- Unclaimed accounts are paused after 7 days and deleted after 30. New accounts start on the Free plan.
+- Discovery: `https://app.exit1.dev/.well-known/oauth-authorization-server` lists `exit1_agent_signup_endpoint`.
+
+- [Agent instructions](https://exit1.dev/agents.md): The recommended agent script in plain markdown
+- [Agent signup docs](https://docs.exit1.dev/integrations/agent-signup): Full reference for the endpoint, tokens and claim flow
+- [Hosted MCP server](https://app.exit1.dev/mcp/v1): Streamable HTTP, OAuth 2.1 or the Bearer token from agent signup
+- [exit1-mcp on npm](https://www.npmjs.com/package/exit1-mcp): Local MCP server. Started without `EXIT1_API_KEY` it offers a `create_account` tool that signs the user up and connects on the spot
 
 ## Core Features
 
@@ -20,12 +38,12 @@ exit1.dev is a website and API monitoring platform built for developers, SaaS fo
 - [Analytics & Reports](https://exit1.dev/analytics): Response time tracking, uptime percentage calculations, and historical performance dashboards
 - [Comprehensive Logs](https://exit1.dev/logs): Searchable monitoring logs with filtering and data export (CSV, JSON)
 - [API & Webhooks](https://exit1.dev/api-webhooks): RESTful API with HMAC authentication for full CRUD monitor management and webhook integrations with signature verification
-- [MCP Integration](https://exit1.dev/mcp): Model Context Protocol server (`exit1-mcp` on npm) so AI assistants can query monitors, history, and stats directly
+- [MCP Integration](https://exit1.dev/mcp): Model Context Protocol server (hosted at `https://app.exit1.dev/mcp/v1`, or `exit1-mcp` on npm) so AI assistants can set up monitoring and query monitors, history, and stats directly. With no account yet, the npm package's `create_account` tool signs the user up
 
 ## Free Tools (no signup)
 
 - [All Tools](https://exit1.dev/tools): Index of every free tool
-- [Website Uptime Checker](https://exit1.dev/tools/uptime-checker): Is a site online and healthy — graded checks across DNS, SSL, security headers, TTFB, and content
+- [Website Uptime Checker](https://exit1.dev/tools/uptime-checker): Is a site online and healthy? Graded checks across DNS, SSL, security headers, TTFB, and content
 - [API Status Checker](https://exit1.dev/tools/api-status-checker): Any endpoint's status code, response time, security headers, and CORS configuration
 - [Domain Expiry Checker](https://exit1.dev/tools/domain-expiration-checker): RDAP + WHOIS lookup for expiry date, days remaining, registrar, nameservers, and EPP status codes
 - [SSL Checker](https://exit1.dev/tools/ssl-checker): Certificate validity, chain, issuer, and expiry for any host
@@ -41,8 +59,8 @@ exit1.dev integrates with Slack, Discord, PagerDuty, Opsgenie, Microsoft Teams, 
 
 ## Pricing
 
-- [Pricing](https://exit1.dev/pricing): Four tiers — Free ($0, 50 monitors, 5-min checks, email alerts, 1 status page, 1 API key + MCP), Indie ($4/mo or $3/mo annual, 100 monitors, 1-min checks, branded status page, 3 API keys, 90-day retention), Nano ($9/mo or $7/mo annual, 250 monitors, 30-sec checks, domain intelligence, region choice, 1-year retention), and Pro ($24/mo or $20/mo annual, 1,000 monitors, 15-sec checks, SMS, all alert channels, CSV export, 3-year retention). The ladder is monotonic: every tier is a strict superset of the one below it, with check interval as the primary axis. API and MCP access are on every tier including Free, as is the real-time Live probe stream.
-- [Competitor Comparison](https://exit1.dev/compare): Side-by-side comparison against UptimeRobot, Better Stack, Hyperping, and Pingdom — free plan against free plan, and similarly-priced paid plans against each other
+- [Pricing](https://exit1.dev/pricing): Four tiers: Free ($0, 50 monitors, 5-min checks, email alerts, 1 status page, 1 API key + MCP), Indie ($4/mo or $3/mo annual, 100 monitors, 1-min checks, branded status page, 3 API keys, 90-day retention), Nano ($9/mo or $7/mo annual, 250 monitors, 30-sec checks, domain intelligence, region choice, 1-year retention), and Pro ($24/mo or $20/mo annual, 1,000 monitors, 15-sec checks, SMS, all alert channels, CSV export, 3-year retention). The ladder is monotonic: every tier is a strict superset of the one below it, with check interval as the primary axis. API and MCP access are on every tier including Free, as is the real-time Live probe stream.
+- [Competitor Comparison](https://exit1.dev/compare): Side-by-side comparison against UptimeRobot, Better Stack, Hyperping, and Pingdom. Free plan against free plan, and similarly-priced paid plans against each other
 - [Which plan are you?](https://exit1.dev/why-upgrade): Self-diagnostic guide to the persona each tier is built for and the moment you outgrow the one below
 
 ## Documentation & API
@@ -55,7 +73,7 @@ exit1.dev integrates with Slack, Discord, PagerDuty, Opsgenie, Microsoft Teams, 
 
 - [About](https://exit1.dev/about): Built by Morten Pradsgaard (Founder & CTO) as a response to bait-and-switch pricing in the monitoring industry
 - [Contact](https://exit1.dev/contact): Contact form for support and inquiries
-- [Privacy Policy](https://exit1.dev/privacy): Privacy-first approach — data is not sold and users can export everything
+- [Privacy Policy](https://exit1.dev/privacy): Privacy-first approach. Data is not sold and users can export everything
 - [Data Privacy](https://exit1.dev/data-privacy): Details on data handling, EU hosting, and GDPR compliance
 
 ## Optional
