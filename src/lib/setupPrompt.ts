@@ -6,7 +6,9 @@
 // too many.
 //
 // Keep SETUP_PROMPT in sync with app.exit1.dev/mcp (src/pages/Mcp.tsx in the
-// exit1.dev repo) and the README in the exit1.dev.mcp repo. The hosted
+// exit1.dev repo) and the README in the exit1.dev.mcp repo. One deliberate
+// difference: the app's copy has no agent-signup branch in step 1, because
+// only signed-in users see it. The hosted
 // `setup_monitoring` MCP prompt (functions/src/mcp-tools.ts) intentionally has
 // no connect step, since by definition the server is connected when it runs.
 //
