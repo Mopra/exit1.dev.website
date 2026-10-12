@@ -65,7 +65,8 @@ Probe details that matter:
 ## Seeded 2026-10-12: 198 more dev infra
 
 Same method and template as 2026-09-29 (GET, 5 min, vps-eu-1, folder `Infrastructure`,
-hostname name and slug, one `check_edits` doc per check). Brings the live set to about 518.
+hostname name and slug, one `check_edits` doc per check). The check doc also needs a
+`nextCheckAt`, or the VPS loads it and never schedules it. Brings the live set to about 518.
 Every URL was probed first and only 2xx, 3xx, 401 or 403 responders went in. APIs hit an
 authenticated path so they answer 401 rather than 404.
 
