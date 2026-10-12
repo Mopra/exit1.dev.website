@@ -22,24 +22,24 @@ import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
   title:
-    "Free DNS Lookup Tool — Check All DNS Records Instantly",
+    "MX Record Lookup & DNS Checker: All Records, Free",
   description:
-    "Free DNS lookup tool. Check A, AAAA, MX, NS, TXT, SOA, CAA, and CNAME records for any domain. Analyze email security (SPF & DMARC) and get a DNS health grade. No signup required.",
+    "MX record lookup for any domain, plus A, AAAA, NS, TXT, SOA, CAA and CNAME. A free DNS checker that also grades SPF, DMARC and overall DNS health. No signup.",
   keywords:
-    "free dns lookup, dns checker, check dns records, dns lookup tool, mx record checker, spf record checker, dmarc checker, dns health check, nslookup online, dns record lookup, caa record check, nameserver lookup",
+    "mx record lookup, check mx records, mx lookup, free dns lookup, dns checker, check dns records, dns lookup tool, mx record checker, spf record checker, dmarc checker, dns health check, nslookup online, dns record lookup, caa record check, nameserver lookup",
   openGraph: {
     title:
-      "Free DNS Lookup Tool — Check All DNS Records Instantly | exit1.dev",
+      "MX Record Lookup & DNS Checker: All Records, Free | exit1.dev",
     description:
-      "Free DNS lookup tool. Check A, AAAA, MX, NS, TXT, SOA, CAA, and CNAME records for any domain. Analyze email security and get a DNS health grade. No signup required.",
+      "MX record lookup for any domain, plus A, AAAA, NS, TXT, SOA, CAA and CNAME. A free DNS checker that also grades SPF, DMARC and overall DNS health. No signup.",
     type: "website",
     url: "https://exit1.dev/tools/dns-checker",
   },
   twitter: {
     title:
-      "Free DNS Lookup Tool — Check All DNS Records Instantly | exit1.dev",
+      "MX Record Lookup & DNS Checker: All Records, Free | exit1.dev",
     description:
-      "Free DNS lookup tool. Check A, AAAA, MX, NS, TXT, SOA, CAA, and CNAME records for any domain. Analyze email security and get a DNS health grade. No signup required.",
+      "MX record lookup for any domain, plus A, AAAA, NS, TXT, SOA, CAA and CNAME. A free DNS checker that also grades SPF, DMARC and overall DNS health. No signup.",
     card: "summary_large_image",
   },
   alternates: {

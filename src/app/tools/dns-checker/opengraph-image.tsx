@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "Free DNS Lookup Tool — exit1.dev";
+export const alt = "MX Record Lookup & DNS Checker by exit1.dev";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
