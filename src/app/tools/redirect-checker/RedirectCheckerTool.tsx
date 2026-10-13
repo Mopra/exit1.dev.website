@@ -469,7 +469,7 @@ export default function RedirectCheckerTool() {
             </div>
           </div>
 
-          {/* Conversion CTA — result-aware */}
+          {/* Conversion CTA, result-aware */}
           {(() => {
             const host = hostFromUrl(result.inputUrl);
             const target = result.finalUrl || result.inputUrl;
@@ -491,7 +491,7 @@ export default function RedirectCheckerTool() {
                 target={target}
                 tone="positive"
                 headline={`${host}'s redirects resolve cleanly`}
-                subline="Get alerted if a redirect ever breaks or your site goes down. exit1 watches the whole chain 24/7 — free."
+                subline="Get alerted if a redirect ever breaks or your site goes down. exit1 watches the whole chain 24/7, free."
               />
             );
           })()}
@@ -589,7 +589,7 @@ export default function RedirectCheckerTool() {
               {result.chain.map((hop, i) => (
                 <div key={i}>
                   <div className="text-xs font-medium text-muted-foreground mb-2">
-                    Step {i + 1} — {hop.statusCode} {hop.statusText}
+                    Step {i + 1}: {hop.statusCode} {hop.statusText}
                   </div>
                   <div className="bg-background/20 rounded-lg border border-foreground/5 p-3 overflow-x-auto max-h-48 overflow-y-auto">
                     <pre className="text-xs font-mono text-foreground/70 whitespace-pre-wrap break-all">

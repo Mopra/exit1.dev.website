@@ -21,22 +21,22 @@ import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
-  title: "301 Redirect Checker — Trace Any URL's Redirect Chain Free",
+  title: "301 Redirect Checker: Trace Any URL's Redirect Chain Free",
   description:
-    "Check 301, 302, 307 and 308 redirects for any URL. Trace the full redirect chain hop by hop — status codes, Location headers, and timing. Free, no signup.",
+    "Check 301, 302, 307 and 308 redirects for any URL. See every hop in the redirect chain with its status code, Location header and timing. Free, no signup.",
   keywords:
     "redirect checker, 301 redirect checker, 301 checker, check redirect, http redirect checker, redirect chain, 302 redirect, redirect trace, url redirect tester, redirect validator, free redirect tool",
   openGraph: {
-    title: "301 Redirect Checker — Trace Any URL's Redirect Chain Free",
+    title: "301 Redirect Checker: Trace Any URL's Redirect Chain Free",
     description:
-      "Check 301, 302, 307 and 308 redirects for any URL. Trace the full redirect chain hop by hop — status codes, Location headers, and timing. Free, no signup.",
+      "Check 301, 302, 307 and 308 redirects for any URL. See every hop in the redirect chain with its status code, Location header and timing. Free, no signup.",
     type: "website",
     url: "https://exit1.dev/tools/redirect-checker",
   },
   twitter: {
-    title: "301 Redirect Checker — Trace Any URL's Redirect Chain Free",
+    title: "301 Redirect Checker: Trace Any URL's Redirect Chain Free",
     description:
-      "Check 301, 302, 307 and 308 redirects for any URL. Trace the full redirect chain hop by hop — status codes, Location headers, and timing. Free, no signup.",
+      "Check 301, 302, 307 and 308 redirects for any URL. See every hop in the redirect chain with its status code, Location header and timing. Free, no signup.",
     card: "summary_large_image",
   },
   alternates: {
@@ -44,13 +44,13 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED_ISO = "2026-07-08";
-const LAST_UPDATED_DISPLAY = "July 8, 2026";
+const LAST_UPDATED_ISO = "2026-10-13";
+const LAST_UPDATED_DISPLAY = "October 13, 2026";
 
 const howToSteps = [
   {
     name: "Enter a URL",
-    text: "Type any URL — http or https, with or without www. The tool starts the trace from exactly the URL you give it.",
+    text: "Type any URL, http or https, with or without www. The tool starts the trace from exactly the URL you give it.",
   },
   {
     name: "Trace the chain",
@@ -66,7 +66,7 @@ const redirectErrors = [
   {
     code: "ERR_TOO_MANY_REDIRECTS",
     title: "Redirect loop detected",
-    body: "The server is redirecting in a circle — usually a misconfigured load balancer, a missing trailing slash rule, or a CDN-level redirect that conflicts with an origin redirect. Trace the chain above to see exactly where the loop closes.",
+    body: "The server is redirecting in a circle. Usually it's a misconfigured load balancer, a missing trailing slash rule, or a CDN-level redirect that conflicts with an origin redirect. Trace the chain above to see exactly where the loop closes.",
   },
   {
     code: "301 Moved Permanently",
@@ -76,7 +76,7 @@ const redirectErrors = [
   {
     code: "302 Found",
     title: "Temporary redirect (legacy)",
-    body: "The redirect is temporary — search engines keep the original URL indexed. Often misused where 301 was intended, which loses SEO equity. Some clients also change the request method on a 302; use 307 if you need to preserve POST.",
+    body: "The redirect is temporary, so search engines keep the original URL indexed. Often misused where 301 was intended, which loses SEO equity. Some clients also change the request method on a 302; use 307 if you need to preserve POST.",
   },
   {
     code: "307 Temporary Redirect",
@@ -91,7 +91,7 @@ const redirectErrors = [
   {
     code: "Mixed redirect chain",
     title: "HTTP and HTTPS hops together",
-    body: "If your chain bounces between HTTP and HTTPS along the way, you have a configuration problem. The redirect from HTTP should go directly to the final HTTPS URL — bouncing exposes a window for downgrade attacks and adds latency.",
+    body: "If your chain bounces between HTTP and HTTPS along the way, you have a configuration problem. The redirect from HTTP should go directly to the final HTTPS URL. Bouncing exposes a window for downgrade attacks and adds latency.",
   },
 ];
 
@@ -114,7 +114,7 @@ const glossary = [
   },
   {
     term: "Canonical URL",
-    body: "The single URL you want search engines to treat as authoritative. Redirects help enforce this — bare-domain → www, HTTP → HTTPS, /path/ → /path. The canonical URL should always be the final destination, not an intermediate hop.",
+    body: "The single URL you want search engines to treat as authoritative. Redirects enforce it: bare domain → www, HTTP → HTTPS, /path/ → /path. The canonical URL should always be the final destination, not an intermediate hop.",
   },
   {
     term: "Link equity (PageRank)",
@@ -146,7 +146,7 @@ const faq = [
   {
     question: "What is the difference between 301 and 302 redirects?",
     answer:
-      "A 301 redirect means the resource has moved permanently — search engines will transfer link equity to the new URL and update their index. A 302 redirect means the move is temporary — search engines keep the original URL in their index. Using the wrong type can hurt your SEO.",
+      "A 301 redirect means the resource has moved permanently, so search engines transfer link equity to the new URL and update their index. A 302 redirect means the move is temporary, so search engines keep the original URL in their index. Using the wrong type can hurt your SEO.",
   },
   {
     question: "Why do too many redirects cause problems?",
@@ -156,7 +156,7 @@ const faq = [
   {
     question: "How do redirects affect SEO?",
     answer:
-      "Redirects directly impact SEO. A 301 redirect passes most link equity to the destination URL, while 302 redirects may not. Redirect chains (multiple hops) dilute PageRank with each hop. For best SEO, keep redirect chains as short as possible — ideally a single hop from the old URL to the final destination.",
+      "Redirects directly impact SEO. A 301 redirect passes most link equity to the destination URL, while 302 redirects may not. Redirect chains (multiple hops) dilute PageRank with each hop. For best SEO, keep redirect chains as short as possible, ideally a single hop from the old URL to the final destination.",
   },
   {
     question: "Does this tool follow JavaScript or meta refresh redirects?",
@@ -166,7 +166,7 @@ const faq = [
   {
     question: "Can I monitor my redirects automatically?",
     answer:
-      "Yes! exit1.dev includes automatic uptime and redirect monitoring for every website you monitor. You'll get alerts if redirect chains change or break — no manual checking needed. It's included free with all plans.",
+      "Yes. Add a redirect monitor in exit1.dev with the URL and the target it should land on. We follow the chain on every check and alert you when it ends somewhere else, stops redirecting, or loops past the hop limit. Redirect monitors are available on every plan, including free.",
   },
 ];
 
@@ -242,8 +242,8 @@ export default function RedirectCheckerPage() {
           <ToolPageHero
             toolName="Redirect Checker"
             href="/tools/redirect-checker"
-            title="Redirect Checker"
-            description="Check 301, 302, 307, and 308 redirects for any URL. Trace the full chain hop by hop — status codes, Location headers, and response times. Free, no signup required."
+            title="301 & Redirect Chain Checker"
+            description="Enter a URL. We follow every redirect and show each hop's status code and Location header, down to the final page. A good chain is one 301 straight to a 200. Anything longer, a 302 where you meant 301, or a loop is a fix."
           />
 
           {/* Tools Navigation */}
@@ -262,7 +262,7 @@ export default function RedirectCheckerPage() {
             </SectionContent>
           </PageSection>
 
-          {/* Example Result — static, crawlable by Google */}
+          {/* Example Result: static, crawlable by Google */}
           <PageSection>
             <SectionContent size="md" className="py-16 sm:py-20">
               <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
@@ -285,7 +285,7 @@ export default function RedirectCheckerPage() {
                       Redirect Chain Complete
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      http://example.com — 2 redirects to final destination
+                      http://example.com: 2 redirects to final destination
                     </p>
                   </div>
                 </div>
@@ -367,7 +367,7 @@ export default function RedirectCheckerPage() {
                         https://www.example.com
                       </p>
                       <p className="text-xs text-muted-foreground mt-1">
-                        Final destination — Total time: 203ms
+                        Final destination. Total time: 203ms
                       </p>
                     </div>
                   </div>
@@ -397,7 +397,7 @@ export default function RedirectCheckerPage() {
                   after a domain move, HTTPS migration, or URL restructure. Enter
                   the old URL and confirm the very first hop returns a 301 (not a
                   302) and that the Location header points directly at the final
-                  destination — a single clean hop preserves the most link
+                  destination. A single clean hop preserves the most link
                   equity. If you see a 302 where you meant a 301, search engines
                   will keep the old URL indexed and your rankings won&apos;t
                   transfer.
@@ -458,7 +458,7 @@ export default function RedirectCheckerPage() {
                 HTTP Redirect Glossary
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
-                The terms that show up in any redirect chain — explained without the spec-speak.
+                The terms that show up in any redirect chain, without the spec-speak.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
                 {glossary.map((item) => (
@@ -539,7 +539,7 @@ export default function RedirectCheckerPage() {
                 <Link href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
                   exit1.dev
                 </Link>
-                {" "}— uptime, SSL, and domain monitoring with instant alerts.
+                {". "}Uptime, SSL, and domain monitoring with instant alerts.
               </p>
             </SectionContent>
           </PageSection>
@@ -553,8 +553,8 @@ export default function RedirectCheckerPage() {
                 </h2>
                 <p className="text-muted-foreground max-w-xl mx-auto mb-8">
                   Stop checking manually. exit1.dev monitors your URLs
-                  automatically and alerts you when redirect chains change or
-                  break. 50 free monitors. Up to 1,000 on Pro.
+                  automatically and alerts you when a redirect breaks or stops landing
+                  where it should. 50 free monitors. Up to 1,000 on Pro.
                 </p>
                 <Button
                   asChild

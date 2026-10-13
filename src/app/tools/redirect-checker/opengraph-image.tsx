@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "Free Redirect Checker — exit1.dev";
+export const alt = "Free 301 and Redirect Chain Checker by exit1.dev";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
