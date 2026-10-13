@@ -43,6 +43,10 @@ export type MonitorIndexEntry = {
 
 export type MonitorPage = MonitorIndexEntry & {
   checkId: string;
+  // "vendor_status": the site's bot firewall refuses every monitoring probe,
+  // so up/down comes from the vendor's official status API and there is no
+  // response time. Optional so an older backend payload still renders.
+  source?: "direct" | "vendor_status";
   stats: MonitorStats;
   heartbeat: HeartbeatDay[];
   updatedAt: number;

@@ -113,6 +113,7 @@ export default async function MonitorStatusPage({
   const brandNote = getStatusBrandNote(monitor.host);
   const faqs = buildFaqs(monitor, brandNote);
   // MonitorPage is a superset of MonitorIndexEntry, so it's a safe fallback.
+  const fromVendor = monitor.source === "vendor_status";
   const indexEntry = allMonitors.find((m) => m.slug === monitor.slug) ?? monitor;
 
   const structuredData = {
@@ -154,7 +155,9 @@ export default async function MonitorStatusPage({
     "@context": "https://schema.org",
     "@type": "Dataset",
     name: `${name} uptime & response time history`,
-    description: `Independently measured uptime percentage and response time for ${monitor.host}, recorded continuously by exit1.dev over a rolling 90-day window.`,
+    description: fromVendor
+      ? `Uptime percentage for ${monitor.host}, read continuously by exit1.dev from its official status page over a rolling 90-day window.`
+      : `Independently measured uptime percentage and response time for ${monitor.host}, recorded continuously by exit1.dev over a rolling 90-day window.`,
     url: `https://exit1.dev/status/${monitor.slug}`,
     isAccessibleForFree: true,
     // CC BY 4.0: data is free to reuse with attribution to exit1.dev. Required by
@@ -165,8 +168,8 @@ export default async function MonitorStatusPage({
       url: "https://creativecommons.org/licenses/by/4.0/",
     },
     creator: { "@type": "Organization", name: "exit1.dev", url: "https://exit1.dev" },
-    variableMeasured: ["Uptime percentage", "Average response time (ms)"],
-    measurementTechnique: "Automated HTTP uptime monitoring",
+    variableMeasured: fromVendor ? ["Uptime percentage"] : ["Uptime percentage", "Average response time (ms)"],
+    measurementTechnique: fromVendor ? "Automated polling of the official status page" : "Automated HTTP uptime monitoring",
     dateModified: new Date(monitor.updatedAt || monitor.lastChecked || Date.now()).toISOString(),
     ...(firstDay && lastDay
       ? {
@@ -238,6 +241,7 @@ export default async function MonitorStatusPage({
                   </InsetCard>
                 </div>
 
+                {!fromVendor && (
                 <div className="mt-10">
                   <h2 className="mb-1 text-lg font-semibold">Response time</h2>
                   <p className="mb-5 text-sm text-muted-foreground">
@@ -257,6 +261,7 @@ export default async function MonitorStatusPage({
                     <ResponseTimeChart days={monitor.heartbeat} />
                   </InsetCard>
                 </div>
+                )}
 
                 <div className="mt-10">
                   <h2 className="mb-1 text-lg font-semibold">Recent outages</h2>

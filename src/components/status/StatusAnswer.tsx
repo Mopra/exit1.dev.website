@@ -43,6 +43,9 @@ export function StatusAnswer({ monitor }: { monitor: MonitorPage }) {
           .
         </>
       )}
+      {monitor.source === "vendor_status" && (
+        <> Status comes from {monitor.host}&apos;s official status page.</>
+      )}
     </p>
   );
 }
