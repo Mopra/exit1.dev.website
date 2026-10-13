@@ -48,8 +48,8 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED_ISO = "2026-05-04";
-const LAST_UPDATED_DISPLAY = "May 4, 2026";
+const LAST_UPDATED_ISO = "2026-10-13";
+const LAST_UPDATED_DISPLAY = "October 13, 2026";
 
 const howToSteps = [
   {
@@ -109,11 +109,14 @@ const uptimeIssues = [
   },
 ];
 
+const uptimeTable = [
+  { target: "99%", downtime: "3.65 days" },
+  { target: "99.9%", downtime: "8.7 hours" },
+  { target: "99.99%", downtime: "52 minutes" },
+  { target: "99.999%", downtime: "5 minutes" },
+];
+
 const glossary = [
-  {
-    term: "Uptime",
-    body: "Percentage of time a service responds correctly. Three nines = 99.9% (≈ 8.7 hours of downtime per year). Four nines = 99.99% (≈ 52 minutes per year). The number sets your engineering budget — every additional nine costs roughly an order of magnitude more.",
-  },
   {
     term: "TTFB",
     body: "Time To First Byte. The wall-clock time from request sent to first response byte received. Includes DNS, TCP, TLS, and server processing. A core Web Vitals input — Google considers under 800 ms 'good' and over 1.8 s 'poor'.",
@@ -145,6 +148,16 @@ const faq = [
     question: "What does this uptime checker do?",
     answer:
       "This tool performs a comprehensive health check on any website. It tests DNS resolution, SSL certificate validity, redirect chains, HTTP response, performance metrics (TTFB, content size, compression), security headers (HSTS, CSP, X-Frame-Options, and more), and content health (title tag, meta description, favicon). Each category receives a grade from A+ to F, plus an overall health score.",
+  },
+  {
+    question: "How do I check if my website is up?",
+    answer:
+      "Paste the URL into the checker above. We request it from our server, follow redirects, and call it up if the final response is a 2xx or 3xx. Anything else (DNS failure, timeout, refused connection, 4xx, 5xx) means it's down for everyone, not just you.",
+  },
+  {
+    question: "What is website uptime?",
+    answer:
+      "Uptime is the share of time your site answers requests correctly, usually measured over a month or a year. 99.9% sounds high and still allows about 8.7 hours of downtime a year. 99.99% allows about 52 minutes. Each extra nine costs roughly ten times more to hit.",
   },
   {
     question: "Is this uptime checker free?",
@@ -179,7 +192,7 @@ const faq = [
   {
     question: "Can I monitor my website's uptime continuously?",
     answer:
-      "Yes! exit1.dev offers continuous website and API monitoring from multiple regions worldwide, at 5-minute intervals on the free plan and down to 15 seconds on Pro. You'll get instant alerts via email or webhooks when your site goes down, responds slowly, or has SSL/domain issues, with native Slack, Discord, and Microsoft Teams channels on Pro. Start free at app.exit1.dev.",
+      "Yes. exit1.dev monitors websites and APIs from multiple regions, every 5 minutes on the free plan, every minute on Indie, every 30 seconds on Nano and every 15 seconds on Pro. You get alerts via email or webhooks when your site goes down, responds slowly, or has SSL/domain issues, with native Slack, Discord, and Microsoft Teams channels on Pro. Start free at app.exit1.dev.",
   },
 ];
 
@@ -255,8 +268,8 @@ export default function UptimeCheckerPage() {
           <ToolPageHero
             toolName="Uptime Checker"
             href="/tools/uptime-checker"
-            title="Website Uptime Checker"
-            description="Check if any website is online and healthy. Get a full health report covering DNS, SSL, security headers, performance, and content - with grades for each category."
+            title="Is My Website Up?"
+            description="Paste a URL. We request it from our server, follow the redirects, and tell you if it's up (a 2xx or 3xx answer) or down. Then we grade DNS, SSL, response time, security headers and content so you see why."
           />
 
           {/* Tools Navigation */}
@@ -275,7 +288,39 @@ export default function UptimeCheckerPage() {
             </SectionContent>
           </PageSection>
 
-          {/* Example Result — static, crawlable by Google */}
+          {/* What is website uptime */}
+          <PageSection>
+            <SectionContent size="md" className="pb-16 sm:pb-20">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                  What is website uptime?
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Uptime is the share of time your site answers requests
+                  correctly. 99.9% sounds great and still means about{" "}
+                  <strong className="text-foreground">8.7 hours of downtime a year</strong>.
+                  Every extra nine costs roughly ten times more to hit. A one-off
+                  check tells you if the site is up right now. Measuring uptime
+                  means checking on a schedule and counting the misses.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {uptimeTable.map((row) => (
+                    <div
+                      key={row.target}
+                      className="rounded-xl bg-foreground/[0.02] p-4 text-center"
+                    >
+                      <div className="text-xl font-bold">{row.target}</div>
+                      <div className="text-xs text-muted-foreground mt-1">
+                        {row.downtime} down per year
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </SectionContent>
+          </PageSection>
+
+          {/* Example Result: static, crawlable by Google */}
           <PageSection>
             <SectionContent size="md" className="py-16 sm:py-20">
               <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
@@ -520,7 +565,7 @@ export default function UptimeCheckerPage() {
                 <Link href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
                   exit1.dev
                 </Link>
-                {" "}— uptime, SSL, and domain monitoring with instant alerts.
+                . Uptime, SSL and domain monitoring with instant alerts.
               </p>
             </SectionContent>
           </PageSection>
@@ -533,10 +578,10 @@ export default function UptimeCheckerPage() {
                   Need Continuous Uptime Monitoring?
                 </h2>
                 <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-                  Stop checking manually. exit1.dev monitors your websites 24/7
-                  with checks every 2 minutes from multiple regions. Get instant
-                  alerts via email, Slack, Discord, or webhooks when something goes
-                  wrong.
+                  Stop checking by hand. exit1.dev checks your site every 5
+                  minutes on the free plan, and down to every 15 seconds on paid
+                  plans, from multiple regions. You get an email, webhook, Slack
+                  or Discord alert when it breaks.
                 </p>
                 <Button
                   asChild

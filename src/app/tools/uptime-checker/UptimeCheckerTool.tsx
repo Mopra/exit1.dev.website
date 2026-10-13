@@ -654,7 +654,7 @@ export default function UptimeCheckerTool() {
                   target={result.url}
                   tone="alert"
                   headline={`${host} is down right now`}
-                  subline="Don't hear about it from your customers first. exit1 re-checks every 2 minutes and alerts you the second it drops — and when it's back."
+                  subline="Don't hear about it from your customers first. exit1 re-checks it on a schedule and alerts you when it drops, and again when it's back."
                 />
               );
             }
