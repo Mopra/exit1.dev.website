@@ -21,20 +21,20 @@ import { Button } from "@/components/ui/button";
 import { ToolsNav } from "@/components/ToolsNav";
 
 export const metadata: Metadata = {
-  title: "Free SSL Checker Tool — Check SSL Certificate Instantly",
+  title: "Free SSL Checker Tool: Check SSL Certificate Instantly",
   description:
     "Free SSL checker tool. Instantly check any website's SSL certificate status, expiration date, issuer, and security details. No signup required.",
   keywords:
     "free ssl checker, ssl checker tool, ssl certificate checker, check ssl certificate, ssl test, ssl certificate expiration, ssl validation, ssl security check",
   openGraph: {
-    title: "Free SSL Checker Tool — Check SSL Certificate Instantly | exit1.dev",
+    title: "Free SSL Checker Tool: Check SSL Certificate Instantly | exit1.dev",
     description:
       "Free SSL checker tool. Instantly check any website's SSL certificate status, expiration date, issuer, and security details. No signup required.",
     type: "website",
     url: "https://exit1.dev/tools/ssl-checker",
   },
   twitter: {
-    title: "Free SSL Checker Tool — Check SSL Certificate Instantly | exit1.dev",
+    title: "Free SSL Checker Tool: Check SSL Certificate Instantly | exit1.dev",
     description:
       "Free SSL checker tool. Instantly check any website's SSL certificate status, expiration date, issuer, and security details. No signup required.",
     card: "summary_large_image",
@@ -44,13 +44,13 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED_ISO = "2026-05-04";
-const LAST_UPDATED_DISPLAY = "May 4, 2026";
+const LAST_UPDATED_ISO = "2026-10-20";
+const LAST_UPDATED_DISPLAY = "October 20, 2026";
 
 const howToSteps = [
   {
     name: "Enter a domain",
-    text: "Type any domain or full URL into the input above. The tool extracts the hostname automatically — both example.com and https://example.com/path work.",
+    text: "Type any domain or full URL into the input above. The tool extracts the hostname automatically, so both example.com and https://example.com/path work.",
   },
   {
     name: "Run the check",
@@ -66,7 +66,7 @@ const sslErrors = [
   {
     code: "NET::ERR_CERT_DATE_INVALID",
     title: "Certificate expired or not yet valid",
-    body: "Either your certificate has passed its validTo date, or your machine's clock is wrong. Run the checker above to see the current expiration; if it is in the future, fix the system clock. If it has expired, renew immediately — browsers block the page.",
+    body: "Either your certificate has passed its validTo date, or your machine's clock is wrong. Run the checker above to see the current expiration; if it is in the future, fix the system clock. If it has expired, renew immediately, because browsers block the page.",
   },
   {
     code: "NET::ERR_CERT_AUTHORITY_INVALID",
@@ -76,12 +76,12 @@ const sslErrors = [
   {
     code: "NET::ERR_CERT_COMMON_NAME_INVALID",
     title: "Hostname does not match the certificate",
-    body: "The certificate was issued for a different domain than the one being visited. Check the Subject Alternative Names in the result above — your hostname must appear there (a wildcard like *.example.com only covers one level).",
+    body: "The certificate was issued for a different domain than the one being visited. Check the Subject Alternative Names in the result above. Your hostname must appear there (a wildcard like *.example.com only covers one level).",
   },
   {
     code: "ERR_SSL_PROTOCOL_ERROR",
     title: "TLS handshake failed",
-    body: "Usually a protocol or cipher mismatch — your server is offering only TLS 1.0/1.1 or weak ciphers the browser refuses. Upgrade to TLS 1.2 or 1.3 and disable legacy ciphers.",
+    body: "Usually a protocol or cipher mismatch: your server is offering only TLS 1.0/1.1 or weak ciphers the browser refuses. Upgrade to TLS 1.2 or 1.3 and disable legacy ciphers.",
   },
   {
     code: "SEC_ERROR_UNKNOWN_ISSUER",
@@ -96,7 +96,7 @@ const sslErrors = [
   {
     code: "ERR_SSL_VERSION_OR_CIPHER_MISMATCH",
     title: "No common protocol or cipher",
-    body: "Client and server cannot agree on a TLS version or cipher suite. Modern browsers no longer support TLS 1.0/1.1 or RC4, 3DES, and similar legacy ciphers — update your server's TLS configuration.",
+    body: "Client and server cannot agree on a TLS version or cipher suite. Modern browsers no longer support TLS 1.0/1.1 or RC4, 3DES, and similar legacy ciphers, so update your server's TLS configuration.",
   },
 ];
 
@@ -107,11 +107,11 @@ const glossary = [
   },
   {
     term: "DV, OV, EV",
-    body: "Domain Validated proves you control the domain (Let's Encrypt is DV). Organization Validated additionally verifies the legal entity. Extended Validation requires the strictest vetting and used to show a green address bar — modern browsers no longer differentiate visually.",
+    body: "Domain Validated proves you control the domain (Let's Encrypt is DV). Organization Validated additionally verifies the legal entity. Extended Validation requires the strictest vetting and used to show a green address bar, but modern browsers no longer differentiate visually.",
   },
   {
     term: "HSTS",
-    body: "HTTP Strict Transport Security tells browsers to refuse HTTP for your domain — even on the first visit if you are on the preload list. Eliminates downgrade attacks and the brief window before a redirect to HTTPS.",
+    body: "HTTP Strict Transport Security tells browsers to refuse HTTP for your domain, even on the first visit if you are on the preload list. It eliminates downgrade attacks and the brief window before a redirect to HTTPS.",
   },
   {
     term: "Certificate chain",
@@ -119,11 +119,11 @@ const glossary = [
   },
   {
     term: "Cipher suite",
-    body: "The combination of algorithms used for the connection — key exchange, authentication, bulk encryption, and MAC. TLS 1.3 simplified this to a small set of strong, modern suites; TLS 1.2 still has many legacy options to avoid.",
+    body: "The combination of algorithms used for the connection: key exchange, authentication, bulk encryption, and MAC. TLS 1.3 simplified this to a small set of strong, modern suites; TLS 1.2 still has many legacy options to avoid.",
   },
   {
     term: "Subject Alternative Name (SAN)",
-    body: "The list of hostnames a certificate is valid for. Modern browsers ignore the legacy Common Name field — only the SAN list matters. A wildcard SAN like *.example.com covers one level (api.example.com but not v1.api.example.com).",
+    body: "The list of hostnames a certificate is valid for. Modern browsers ignore the legacy Common Name field, so only the SAN list matters. A wildcard SAN like *.example.com covers one level (api.example.com but not v1.api.example.com).",
   },
 ];
 
@@ -131,7 +131,7 @@ const faq = [
   {
     question: "What does this SSL checker do?",
     answer:
-      "This tool connects to any website and retrieves its SSL/TLS certificate details. It shows you the certificate validity, issuer, expiration date, days until expiry, TLS protocol version, and fingerprint — all in real time.",
+      "This tool connects to any website and retrieves its SSL/TLS certificate details. It shows you the certificate validity, issuer, expiration date, days until expiry, TLS protocol version, and fingerprint, all in real time.",
   },
   {
     question: "Is this SSL checker free?",
@@ -146,12 +146,12 @@ const faq = [
   {
     question: "How often should I check my SSL certificate?",
     answer:
-      "You should check your SSL certificate at least monthly, or whenever you make changes to your server configuration. For continuous monitoring, exit1.dev offers automated SSL monitoring that checks your certificates with every uptime check and alerts you before they expire.",
+      "Public certificates now last at most 200 days, and that drops to 100 days in March 2027 and 47 days in March 2029. With that many renewals, an expired cert is usually a failed renewal job, so check after every renewal and whenever you change your server configuration. For continuous monitoring, exit1.dev offers automated SSL monitoring that checks your certificates with every uptime check and alerts you before they expire.",
   },
   {
     question: "What does 'days until expiry' mean?",
     answer:
-      "This shows how many days remain before your SSL certificate expires. Most certificates are valid for 90 days (Let's Encrypt) or 1 year. You should renew before expiration to avoid browser security warnings that will scare away your visitors.",
+      "This shows how many days remain before your SSL certificate expires. Let's Encrypt issues 90-day certificates. Since March 15, 2026, no public CA may issue a certificate valid for more than 200 days (CA/Browser Forum ballot SC-081), falling to 100 days in March 2027 and 47 days in March 2029. You should renew before expiration to avoid browser security warnings that will scare away your visitors.",
   },
   {
     question: "Why is my SSL certificate showing as invalid?",
@@ -166,7 +166,7 @@ const faq = [
   {
     question: "Can I monitor my SSL certificates automatically?",
     answer:
-      "Yes! exit1.dev includes automatic SSL monitoring with every website you monitor. You'll get alerts before certificates expire — no manual checking needed. It's included free with all plans.",
+      "Yes! exit1.dev includes automatic SSL monitoring with every website you monitor. You'll get alerts before certificates expire, so no manual checking is needed. It's included free with all plans.",
   },
 ];
 
@@ -262,7 +262,7 @@ export default function SSLCheckerPage() {
             </SectionContent>
           </PageSection>
 
-          {/* Example Result — static, crawlable by Google */}
+          {/* Example Result, static, crawlable by Google */}
           <PageSection>
             <SectionContent size="md" className="py-16 sm:py-20">
               <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
@@ -279,7 +279,7 @@ export default function SSLCheckerPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-success">SSL Certificate Valid</p>
-                    <p className="text-xs text-muted-foreground">example.com — Expires in 82 days</p>
+                    <p className="text-xs text-muted-foreground">example.com · Expires in 82 days</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
@@ -289,7 +289,7 @@ export default function SSLCheckerPage() {
                   </div>
                   <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Issuer</span>
-                    <span className="text-sm font-medium">Let&apos;s Encrypt R3</span>
+                    <span className="text-sm font-medium">Let&apos;s Encrypt R12</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">TLS Protocol</span>
@@ -301,11 +301,11 @@ export default function SSLCheckerPage() {
                   </div>
                   <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Valid From</span>
-                    <span className="text-sm font-medium">Jan 15, 2026</span>
+                    <span className="text-sm font-medium">Oct 2, 2026</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Valid Until</span>
-                    <span className="text-sm font-medium">Apr 15, 2026</span>
+                    <span className="text-sm font-medium">Dec 31, 2026</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Browser Trusted</span>
@@ -477,7 +477,7 @@ export default function SSLCheckerPage() {
                 </Link>
                 <Link href="/blog/ssl-certificate-errors-explained" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">SSL Certificate Errors Explained</h3>
-                  <p className="text-sm text-muted-foreground">Every SSL error your browser can throw — what causes it and how to fix it fast.</p>
+                  <p className="text-sm text-muted-foreground">Every SSL error your browser can throw, what causes it and how to fix it fast.</p>
                 </Link>
                 <Link href="/blog/free-ssl-certificate-monitoring" className="group block p-6 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors">
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Free SSL Certificate Monitoring</h3>
@@ -501,7 +501,7 @@ export default function SSLCheckerPage() {
                 <Link href="/" className="underline underline-offset-2 hover:text-foreground transition-colors">
                   exit1.dev
                 </Link>
-                {" "}— uptime, SSL, and domain monitoring with instant alerts.
+                {" "}· uptime, SSL, and domain monitoring with instant alerts.
               </p>
             </SectionContent>
           </PageSection>
