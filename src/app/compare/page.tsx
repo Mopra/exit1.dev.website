@@ -61,7 +61,7 @@ const paidColumns: Column[] = [
     note: '$20/mo annual',
     highlight: 'hero',
   },
-  { key: 'ur', product: 'UptimeRobot', plan: 'Team', price: '$34/mo', note: 'From $29 annual' },
+  { key: 'ur', product: 'UptimeRobot', plan: 'Team', price: '€35/mo', note: '€41 monthly' },
   { key: 'bs', product: 'Better Stack', plan: 'Responder', price: '$34/mo', note: '$29 annual' },
   { key: 'hp', product: 'Hyperping', plan: 'Essentials', price: '$24/mo', note: 'Annual only' },
 ];
@@ -289,8 +289,7 @@ export default function ComparePage() {
             <div className="mt-6 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-5 text-sm text-foreground/70">
               <strong className="text-foreground">A fair comparison note:</strong> Better Stack&apos;s
               Responder plan includes just 10 monitors at its base price — scaling to 50 adds
-              roughly $21–$25/month. UptimeRobot caps SMS via prepaid credits rather than a monthly
-              allowance. Hyperping doesn&apos;t publish SMS quotas. Exit1 Pro bundles 50 SMS, REST
+              roughly $21–$25/month. UptimeRobot Team includes 30 SMS a month. Hyperping doesn&apos;t publish SMS quotas. Exit1 Pro bundles 50 SMS, REST
               API, and MCP for AI assistants at the lowest sticker price in this row.
             </div>
           </SectionContent>

@@ -89,18 +89,18 @@ export const competitors: Competitor[] = [
   {
     slug: "uptimerobot",
     name: "UptimeRobot",
-    seoTitle: "UptimeRobot vs exit1.dev — Free & Paid Compared (2026)",
+    seoTitle: "UptimeRobot vs exit1.dev: Free & Paid Compared (2026)",
     seoDescription:
-      "UptimeRobot vs exit1.dev, tier for tier. 50 free monitors vs multi-protocol checks, bundled SMS, MCP, and 1,000 monitors on Pro at $24/mo. An honest head-to-head.",
+      "UptimeRobot vs exit1.dev, tier for tier. 50 free monitors vs multi-protocol checks, MCP, and 1,000 monitors on Pro at $24/mo against 100 on Team. An honest head-to-head.",
     keywords:
       "uptimerobot vs exit1, uptimerobot alternative, uptimerobot comparison, uptimerobot free plan, uptimerobot vs exit1.dev",
     heroSubtitle:
-      "The 50-monitor free plan vs multi-protocol checks, bundled SMS, and AI-native monitoring.",
+      "The 50-monitor free plan vs multi-protocol checks, 1,000 monitors on Pro, and AI-native monitoring.",
     intro:
-      "UptimeRobot is the default name in cheap uptime monitoring — its free plan hands you 50 HTTP monitors and everyone knows it. exit1.dev trades raw free-monitor count for depth: every protocol on the free tier, bundled SMS instead of prepaid credits, and MCP so you can query checks from Claude or Cursor. Here's the tier-by-tier reality.",
+      "UptimeRobot is the default name in cheap uptime monitoring. Its free plan hands you 50 HTTP monitors and everyone knows it. exit1.dev goes for depth: every protocol on the free tier, 10x the monitors on the paid tier, and MCP so you can query checks from Claude or Cursor. Here's the tier-by-tier reality.",
     bestKnownFor: "Best known for: 50 free HTTP monitors and a huge install base.",
     verdict:
-      "Both free tiers now give you 50 monitors, so the comparison comes down to depth. If you monitor TCP/UDP/ICMP/WebSocket endpoints, want SMS without metered credits, or run 100+ monitors, exit1.dev is cheaper and deeper — Pro gives you 1,000 monitors and 15-second checks at $24/mo versus UptimeRobot Team's 100 monitors at $34/mo.",
+      "Both free tiers now give you 50 monitors, so the comparison comes down to depth. If you monitor TCP/UDP/ICMP/WebSocket endpoints or run 100+ monitors, exit1.dev is cheaper and deeper. Pro gives you 1,000 monitors and 15-second checks at $24/mo, while UptimeRobot Team gives you 100 monitors with 30-second checks at €35/mo on annual billing (€41 monthly). UptimeRobot's free plan is also limited to hobby and non-profit use.",
     free: {
       exit1Plan: "exit1.dev Free",
       competitorPlan: "UptimeRobot Free",
@@ -117,21 +117,22 @@ export const competitors: Competitor[] = [
         { feature: "Webhooks", exit1: "1", competitor: false },
         { feature: "Slack / Discord / Teams", exit1: false, competitor: "Slack only" },
         { feature: "Public status page", exit1: "1", competitor: "1" },
-        { feature: "Log retention", exit1: "60 days", competitor: "90 days" },
+        { feature: "Log retention", exit1: "60 days", competitor: "3 months" },
+        { feature: "Intended use", exit1: "Any", competitor: "Hobby and non-profit" },
       ],
     },
     paid: {
       exit1Plan: "exit1.dev Pro — $24/mo",
-      competitorPlan: "UptimeRobot Team — $34/mo",
+      competitorPlan: "UptimeRobot Team: €35/mo",
       heading: "Paid tier",
-      subheading: "exit1.dev Pro ($24/mo, $20 annual) vs the cheapest real UptimeRobot paid plan.",
+      subheading: "exit1.dev Pro ($24/mo, $20 annual) vs UptimeRobot Team (€35/mo annual, €41 monthly).",
       rows: [
         { feature: "Monitors included", exit1: "1,000", competitor: "100" },
-        { feature: "Minimum check interval", exit1: "15 sec", competitor: "60 sec" },
+        { feature: "Minimum check interval", exit1: "15 sec", competitor: "30 sec" },
         { feature: "Multi-region checks", exit1: true, competitor: true },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP + keyword" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: true },
-        { feature: "SMS alerts", exit1: "50 / month included", competitor: "Prepaid credits, $0.03+ each" },
+        { feature: "SMS alerts", exit1: "50 / month included", competitor: "30 included" },
         { feature: "Slack / Discord / Teams", exit1: true, competitor: true },
         { feature: "Webhooks", exit1: "100", competitor: true },
         { feature: "REST API", exit1: true, competitor: true },
@@ -141,10 +142,10 @@ export const competitors: Competitor[] = [
       ],
     },
     exit1Wins: [
-      "TCP, UDP, ICMP, and WebSocket checks on the free tier — not just HTTP pings.",
-      "1,000 monitors on Pro ($24/mo) vs 100 on UptimeRobot Team ($34/mo).",
-      "50 SMS bundled every month instead of prepaid credits at $0.03+ each.",
-      "MCP access — query your checks straight from Claude, Cursor, or Windsurf. UptimeRobot has no equivalent.",
+      "TCP, UDP, ICMP, and WebSocket checks on the free tier, not just HTTP pings.",
+      "1,000 monitors on Pro ($24/mo) vs 100 on UptimeRobot Team (€35/mo).",
+      "15-second checks on Pro vs 30 seconds on Team.",
+      "MCP access: query your checks straight from Claude, Cursor, or Windsurf. UptimeRobot has no equivalent.",
     ],
     competitorWins: [
       "A far larger probe network and a decade more brand recognition behind the free plan.",
@@ -155,7 +156,7 @@ export const competitors: Competitor[] = [
       {
         question: "Is exit1.dev a good UptimeRobot alternative?",
         answer:
-          "Yes, especially if you monitor more than HTTP. Both free tiers give 50 monitors, but exit1.dev's covers TCP, UDP, ICMP, and WebSocket checks plus SSL, a status page and API access — and Pro gives you 1,000 monitors with 15-second checks at $24/mo.",
+          "Yes, especially if you monitor more than HTTP. Both free tiers give 50 monitors, but exit1.dev's covers TCP, UDP, ICMP, and WebSocket checks plus SSL, a status page and API access. Pro gives you 1,000 monitors with 15-second checks at $24/mo.",
       },
       {
         question: "How does UptimeRobot's free plan compare to exit1.dev's?",
@@ -165,7 +166,7 @@ export const competitors: Competitor[] = [
       {
         question: "Is exit1.dev cheaper than UptimeRobot?",
         answer:
-          "At the paid tier, yes. exit1.dev Pro is $24/mo ($20 annually) for 1,000 monitors and 15-second checks. UptimeRobot Team is $34/mo for 100 monitors at 60-second checks, with SMS billed as prepaid credits on top.",
+          "At the paid tier, yes. exit1.dev Pro is $24/mo ($20 annually) for 1,000 monitors and 15-second checks. UptimeRobot Team is €35/mo on annual billing (€41 monthly) for 100 monitors at 30-second checks, with 30 SMS included.",
       },
       {
         question: "Can I migrate from UptimeRobot to exit1.dev?",
@@ -178,7 +179,7 @@ export const competitors: Competitor[] = [
       title: "UptimeRobot Free Plan: Limits, Pricing & the Best Free Alternative",
     },
     pricingNote:
-      "UptimeRobot prices SMS as prepaid credits (roughly $0.03 per message) rather than a monthly allowance, so real-world costs run above the sticker price once you enable SMS alerts.",
+      "UptimeRobot Team is priced in euros: €35/mo on annual billing, €41 monthly. It includes 30 SMS a month, and its free plan is limited to hobby and non-profit use.",
   },
 
   // ─────────────────────────────────────────────────────────────────────
