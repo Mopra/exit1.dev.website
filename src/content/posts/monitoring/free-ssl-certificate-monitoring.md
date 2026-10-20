@@ -13,7 +13,7 @@ metaDescription: "Free SSL certificate monitoring: track expiry dates and get al
 
 An expired SSL certificate is one of the dumbest, most avoidable outages there is. The cert dies, browsers throw "Not Secure" screens, conversions tank, and trust evaporates overnight. The fix is boring and free: monitor every certificate's expiry date and get alerted with enough runway to renew.
 
-This guide covers why SSL monitoring matters, how to set it up with exit1.dev, the alert channels you can use, and the renewal discipline that keeps certificates fresh.
+This guide covers why [SSL certificate expiry monitoring](/ssl-monitoring) matters, how to set it up with exit1.dev, the alert channels you can use, and the renewal discipline that keeps certificates fresh.
 
 ## Why SSL Monitoring Matters
 

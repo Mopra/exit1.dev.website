@@ -143,7 +143,7 @@ API certificate failures are particularly dangerous because they cause silent fa
 
 Checking certificates manually is useful for diagnosis, but ongoing monitoring prevents problems before they occur. With exit1.dev, you get:
 
-- Automatic SSL certificate monitoring for every URL you track
+- Automatic [SSL certificate monitoring](/ssl-monitoring) for every URL you track
 - Expiration alerts at 30, 14, 7, and 1 day before expiry
 - Multi-channel notifications via email, Slack, Discord, or webhooks
 - 50 monitors on the free tier with 5-minute checks (Nano tier: 250 monitors, 30-second checks, $9/month)

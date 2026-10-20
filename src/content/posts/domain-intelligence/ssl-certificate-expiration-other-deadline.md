@@ -136,7 +136,7 @@ After recovery, document what happened, fix monitoring and alerting gaps that al
 
 SSL expiration is the silent sibling of domain expiration. Both cause outages. Both are preventable. Both get forgotten.
 
-If you're monitoring domain expiration, add SSL monitoring. Same philosophy, same urgency, same automation. The few minutes to set up monitoring saves hours of emergency response.
+If you're monitoring domain expiration, add [SSL certificate monitoring](/ssl-monitoring). Same philosophy, same urgency, same automation. The few minutes to set up monitoring saves hours of emergency response.
 
 Your certificate expires in ninety days. Do you know when? Find out in seconds with our [free SSL checker tool](/tools/ssl-checker).
 

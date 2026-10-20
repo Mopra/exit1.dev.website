@@ -163,7 +163,7 @@ Prevention requires automated expiration monitoring independent of registrar ema
 
 SSL certificate expiration causes outages almost as often as domain expiration, and the pattern is similar. Manual renewal processes get forgotten. Automated renewal systems fail silently. A certificate on a secondary endpoint gets overlooked because nobody remembers it exists.
 
-Prevention means automated certificate monitoring for every endpoint, Let's Encrypt or similar automated issuance where possible, and documented backup renewal procedures for when automation fails.
+Prevention means [automated certificate expiry monitoring](/ssl-monitoring) for every endpoint, Let's Encrypt or similar automated issuance where possible, and documented backup renewal procedures for when automation fails.
 
 ### DNS Misconfigurations
 

@@ -127,7 +127,7 @@ You don't need a complex setup to begin. A solid first day looks like this:
 
 1. **Add your homepage** as an HTTP check.
 2. **Add your critical endpoints** — a health-check API, the login page, checkout.
-3. **Turn on SSL expiry monitoring** so certificates never lapse silently.
+3. **Turn on [SSL expiry monitoring](/ssl-monitoring)** so certificates never lapse silently.
 4. **Connect an alert channel** — email, Slack, or Discord.
 5. **Test the alert** by intentionally triggering a failure, so you trust it when it counts.
 

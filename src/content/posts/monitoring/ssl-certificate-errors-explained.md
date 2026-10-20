@@ -36,7 +36,7 @@ Before troubleshooting blindly, run your domain through the [free SSL checker to
 3. Install the new certificate and reload your web server
 4. If the certificate is valid but the server clock is wrong, sync NTP: `sudo timedatectl set-ntp true`
 
-**Prevention**: Set up SSL monitoring with alerts at 30, 14, and 7 days before expiration.
+**Prevention**: Set up [SSL expiry monitoring](/ssl-monitoring) with alerts at 30, 14, and 7 days before expiration.
 
 ## ERR_CERT_COMMON_NAME_INVALID (Domain Mismatch)
 
