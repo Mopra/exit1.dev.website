@@ -57,9 +57,8 @@ const CookieBanner = ({ onCustomize }: CookieBannerProps) => {
                 href="/privacy"
                 className="underline decoration-white/20 underline-offset-2 hover:decoration-white/60 transition-colors"
               >
-                Learn more
+                Privacy policy
               </Link>
-              .
             </p>
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <Button

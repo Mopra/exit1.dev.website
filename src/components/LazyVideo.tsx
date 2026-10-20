@@ -40,6 +40,7 @@ export function LazyVideo({ src, className, rootMargin = "200px" }: LazyVideoPro
       loop
       playsInline
       preload="none"
+      aria-hidden="true"
     >
       <source src={src} type="video/mp4" />
     </video>

@@ -123,14 +123,6 @@ export default function RootLayout({
         className={`${dmSans.variable} ${spaceMono.variable} antialiased bg-background text-foreground`}
       >
         <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TPFBP3W4"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
-        <noscript>
           <img
             height="1"
             width="1"
@@ -151,7 +143,7 @@ export default function RootLayout({
         <StickyCTABar />
         {/* Core Web Vitals, with automated clients dropped at send time. */}
         <FilteredSpeedInsights />
-        {/* GTM, GA4, Meta Pixel, and Clarity: loads on first interaction
+        {/* GA4, Meta Pixel, and Clarity: loads on first interaction
             (or a 12s fallback) so third-party JS stays out of the
             Core Web Vitals measurement window. */}
         <DeferredAnalytics />

@@ -71,7 +71,7 @@ function Attribution({
         >
           <Image
             src={companyLogo}
-            alt={company}
+            alt=""
             width={18}
             height={18}
             className="rounded-sm"

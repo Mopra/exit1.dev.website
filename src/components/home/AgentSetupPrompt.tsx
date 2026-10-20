@@ -101,7 +101,7 @@ export function AgentSetupPrompt() {
     <div className="mx-auto mt-14 sm:mt-16 flex w-full max-w-xl flex-col items-center px-4">
       {/* Tool selector. Text-only pills so it reads as part of the terminal
           line above it, not as a component competing with the hero CTA. */}
-      <div className="flex w-full flex-wrap items-center gap-1 pl-2" role="tablist" aria-label="Choose your AI tool">
+      <div className="mb-1 flex w-full flex-wrap items-center gap-1 pl-2" role="tablist" aria-label="Choose your AI tool">
         {CONNECT_CLIENTS.map((c) => (
           <button
             key={c.id}
@@ -110,10 +110,10 @@ export function AgentSetupPrompt() {
             aria-selected={c.id === client.id}
             onClick={() => setClientId(c.id)}
             className={cn(
-              "cursor-pointer rounded-full px-2 py-0.5 font-mono text-[11px] transition-colors",
+              "cursor-pointer rounded-full px-2.5 py-1 font-mono text-[11px] transition-colors",
               c.id === client.id
                 ? "bg-foreground/10 text-foreground/80"
-                : "text-foreground/40 hover:text-foreground/70",
+                : "text-foreground/60 hover:text-foreground/80",
             )}
           >
             {c.label}
@@ -139,7 +139,7 @@ export function AgentSetupPrompt() {
         announce="Prompt copied to clipboard"
       />
 
-      <p className="mt-2 text-center text-xs text-foreground/40">
+      <p className="mt-2 text-center text-xs text-foreground/60">
         {client.hint} Then paste the prompt into {client.label}. It sets up monitoring from
         your repo.
       </p>

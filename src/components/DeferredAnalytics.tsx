@@ -5,7 +5,6 @@ import Clarity from '@microsoft/clarity';
 import { isAppSignupUrl, parseCtaParams, trackSignupClick } from '@/lib/analytics';
 import { isAutomatedClient } from '@/lib/isAutomatedClient';
 
-const GTM_ID = 'GTM-TPFBP3W4';
 const GA_ID = 'G-TW8WXE2TZP';
 const META_PIXEL_ID = '1282482619958596';
 const CLARITY_PROJECT_ID = 'sn0wwajt10';
@@ -43,10 +42,8 @@ function loadThirdParties() {
 
   loaded = true;
 
-  // Google Tag Manager
-  injectInline(
-    `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`
-  );
+  // No Google Tag Manager: the GTM-TPFBP3W4 container is empty (no tags), and
+  // loading it cost 330 KB of script for nothing. Re-add it only with tags.
 
   // Google Analytics 4. `linker.domains` enables cross-domain measurement so a
   // visitor who clicks through to app.exit1.dev stays in the same GA4 session
@@ -56,9 +53,13 @@ function loadThirdParties() {
     `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA_ID}',{linker:{domains:['exit1.dev','app.exit1.dev']}});`
   );
 
-  // Meta Pixel
+  // Meta Pixel. `autoConfig` off stops the pixel from pulling its automatic
+  // events config, a script that scans the DOM and hooks every button and form.
+  // That scan was a ~500 ms main-thread task on a throttled phone, landing
+  // right as visitors tapped "Check" on the tool pages, and was most of the
+  // field INP failure. We only send PageView, which needs none of it.
   injectInline(
-    `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`
+    `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('set','autoConfig',false,'${META_PIXEL_ID}');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`
   );
 
   // Microsoft Clarity
@@ -98,7 +99,10 @@ export default function DeferredAnalytics() {
       };
       const fire = () => {
         cleanup();
-        loadThirdParties();
+        // Out of the input event: running inside it adds the inline tags and
+        // Clarity's setup to that interaction's INP. A timeout after the next
+        // frame lets the browser paint the response to the tap first.
+        requestAnimationFrame(() => setTimeout(loadThirdParties, 0));
       };
       const timer = window.setTimeout(fire, FALLBACK_DELAY_MS);
       TRIGGER_EVENTS.forEach((e) =>

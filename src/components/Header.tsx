@@ -180,11 +180,11 @@ export default function Header() {
           <Link 
             href="/" 
             className="flex items-center text-white hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg interactive"
-            aria-label="Go to homepage"
+            aria-label="exit1.dev homepage"
           >
             <Image 
               src="/e_.svg" 
-              alt="Exit1.dev logo" 
+              alt="" 
               width={24}
               height={24}
               className="h-6 w-6 mr-2"

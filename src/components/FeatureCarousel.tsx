@@ -316,6 +316,7 @@ function VideoSlide({ src, webm, videoRef }: VideoSlideProps) {
         loop
         playsInline
         preload="none"
+        aria-hidden="true"
         onTimeUpdate={onTimeUpdate}
         onLoadedMetadata={onLoadedMetadata}
       >
