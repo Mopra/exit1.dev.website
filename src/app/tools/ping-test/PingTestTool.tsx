@@ -474,7 +474,7 @@ export default function PingTestTool() {
           <Button
             type="submit"
             disabled={loading || !host.trim()}
-            className="rounded-xl px-6 py-3 h-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
+            className="rounded-xl px-6 py-3 h-auto bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
           >
             {loading ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -572,7 +572,7 @@ export default function PingTestTool() {
           {/* Progress bar */}
           <div className="h-1 bg-foreground/10 rounded-full overflow-hidden">
             <div
-              className="h-full bg-primary rounded-full transition-all duration-500"
+              className="h-full bg-primary-fill rounded-full transition-all duration-500"
               style={{
                 width: `${((loadingStepIndex + 1) / LOADING_STEPS.length) * 100}%`,
               }}

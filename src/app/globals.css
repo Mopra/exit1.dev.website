@@ -21,6 +21,10 @@
   /* Brand & semantic palette */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  /* Solid fills behind primary-foreground text. Separate from --primary so
+     buttons can be dark enough for white text (4.5:1) without dimming the
+     green used for text and accents on the dark background. */
+  --color-primary-fill: var(--primary-fill);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -113,6 +117,7 @@
   --popover-foreground: oklch(0.2138 0.0019 286.2347);
 
   --primary: #277E61;
+  --primary-fill: var(--primary);
   --primary-foreground: #FFFCF0;
   --secondary: oklch(0.9565 0.0204 74.6609);
   --secondary-foreground: oklch(0.2138 0.0019 286.2347);
@@ -191,7 +196,7 @@
 
   /* Skip to main content link */
   .skip-link {
-    @apply absolute -top-10 left-6 bg-primary text-primary-foreground px-4 py-2 rounded-md z-50 transition-transform duration-200;
+    @apply absolute -top-10 left-6 bg-primary-fill text-primary-foreground px-4 py-2 rounded-md z-50 transition-transform duration-200;
   }
 
   .skip-link:focus {

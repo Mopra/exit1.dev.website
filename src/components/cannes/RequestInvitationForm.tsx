@@ -51,7 +51,7 @@ export function RequestInvitationForm() {
     return (
       <div className="mx-auto max-w-md">
         <div className="flex items-center justify-center gap-3 rounded-xl border border-primary/30 bg-primary/10 px-5 py-4 text-left backdrop-blur-md">
-          <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+          <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary-fill text-primary-foreground">
             <Check className="h-4 w-4" strokeWidth={3} />
           </span>
           <div>

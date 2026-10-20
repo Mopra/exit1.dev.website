@@ -505,7 +505,7 @@ export default function WhyUpgradePage() {
               href={buildSignupUrl({ campaign: 'why_upgrade_free', medium: 'why_upgrade' })}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-[0_14px_40px_-12px] shadow-primary/50 outline-none transition-all duration-200 hover:scale-[1.03] hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary-fill px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-[0_14px_40px_-12px] shadow-primary/50 outline-none transition-all duration-200 hover:scale-[1.03] hover:bg-primary-fill/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Start free
               <ArrowRight className="h-4 w-4" />

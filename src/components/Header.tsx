@@ -351,7 +351,7 @@ export default function Header() {
             </Button>
             <Button 
               size="sm" 
-              className="bg-primary text-primary-foreground border border-primary/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 interactive"
+              className="bg-primary-fill text-primary-foreground border border-primary/20 hover:bg-primary-fill/90 hover:scale-105 transition-all duration-200 interactive"
               asChild
             >
               <a href={buildSignupUrl({ campaign: "header", medium: "nav" })}>
@@ -402,7 +402,7 @@ export default function Header() {
                     </a>
                   </Button>
                   <Button 
-                    className="w-full justify-start bg-primary text-primary-foreground border border-primary/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 interactive" 
+                    className="w-full justify-start bg-primary-fill text-primary-foreground border border-primary/20 hover:bg-primary-fill/90 hover:scale-105 transition-all duration-200 interactive" 
                     asChild
                   >
                     <a href={buildSignupUrl({ campaign: "header", medium: "nav_mobile" })} onClick={closeMobileMenu}>

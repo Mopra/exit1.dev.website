@@ -211,7 +211,7 @@ export default function GettingStartedPage() {
                 href={APP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary-fill px-7 py-3.5 text-base font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               >
                 Open the app
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -614,7 +614,7 @@ export default function GettingStartedPage() {
                   "Each channel has its own hourly budget to keep storms in check.",
                 ].map((line) => (
                   <li key={line} className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary" />
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary-fill" />
                     <span className="leading-relaxed text-muted-foreground">{line}</span>
                   </li>
                 ))}
@@ -766,7 +766,7 @@ export default function GettingStartedPage() {
                 href={APP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-8 py-4 text-lg font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary-fill px-8 py-4 text-lg font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               >
                 Open the app
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />

@@ -32,26 +32,26 @@ export default function AccuracySection() {
           <div className="space-y-8">
             <div className="space-y-6">
               <div className="flex items-start gap-3 justify-center">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-1.5 h-1.5 bg-primary-fill rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-muted-foreground">Consecutive failure confirmation before we fire an alert (flap suppression requiring N consecutive failures).</p>
               </div>
               <div className="flex items-start gap-3 justify-center">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-1.5 h-1.5 bg-primary-fill rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-muted-foreground">Smart retry logic with exponential backoff for domain lookups (for RDAP requests) plus JSON body validation so APIs don&apos;t fake a 200.</p>
               </div>
               <div className="flex items-start gap-3 justify-center">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-1.5 h-1.5 bg-primary-fill rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-muted-foreground">Email and webhook throttling so you get the signal once, not 40 copies. Bring your own <a href="/alerting" className="text-foreground underline decoration-dotted underline-offset-4 hover:text-primary transition-colors">Alerting</a> workflow and keep your PagerDuty sanity intact.</p>
               </div>
               <div className="flex items-start gap-3 justify-center">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-1.5 h-1.5 bg-primary-fill rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-muted-foreground">Zero-config monitoring — no agents, tags, or complex setup required. Deploy it faster than you can explain another vendor&apos;s pricing bundle.</p>
               </div>
             </div>
 
             {/* Badge */}
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-primary-fill rounded-full animate-pulse"></div>
               <span className="text-sm font-medium text-primary dark:text-primary">Smart detection, not spam. Watch it live on the <a href="/live-checks" className="underline decoration-dotted underline-offset-4 hover:text-primary transition-colors">streamed-probe Live page</a>.</span>
             </div>
           </div>

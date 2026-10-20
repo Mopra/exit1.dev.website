@@ -64,7 +64,7 @@ const CookieBanner = ({ onCustomize }: CookieBannerProps) => {
               <Button
                 size="sm"
                 onClick={acceptAll}
-                className="h-8 px-3 bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
+                className="h-8 px-3 bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 cursor-pointer"
               >
                 Accept
               </Button>

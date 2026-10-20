@@ -90,8 +90,8 @@ export function AgentSetupDemo() {
       {/* Window header — same grammar as the homepage's MCP chat panel. */}
       <div className="flex items-center gap-2 pb-4">
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-60 motion-safe:animate-ping" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+          <span className="absolute inline-flex h-full w-full rounded-full bg-primary-fill opacity-60 motion-safe:animate-ping" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-fill" />
         </span>
         <span className="font-mono text-xs text-muted-foreground">exit1 · MCP</span>
         {/* Mid-sequence the lower half of the panel is still empty. Labelling that

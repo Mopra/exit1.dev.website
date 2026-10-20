@@ -146,7 +146,7 @@ const CookieSettings = ({ isOpen, onClose }: CookieSettingsProps) => {
         <DialogFooter className="flex flex-col sm:flex-row gap-3">
           <Button
             onClick={handleSave}
-            className="w-full sm:w-auto bg-primary text-primary-foreground border border-primary/20 hover:bg-primary/90 interactive"
+            className="w-full sm:w-auto bg-primary-fill text-primary-foreground border border-primary/20 hover:bg-primary-fill/90 interactive"
           >
             Save
           </Button>

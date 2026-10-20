@@ -75,8 +75,8 @@ export function HeroVideo({ src, poster, caption }: HeroVideoProps) {
         {/* Caption chip, lower-left — quiet wayfinding over the frame. */}
         <figcaption className="pointer-events-none absolute bottom-3 left-3 hidden items-center gap-2 rounded-full bg-black/55 px-3 py-1.5 font-mono text-[11px] text-white/80 backdrop-blur-sm sm:inline-flex">
           <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-70 motion-safe:animate-ping" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+            <span className="absolute inline-flex h-full w-full rounded-full bg-primary-fill opacity-70 motion-safe:animate-ping" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-fill" />
           </span>
           {caption}
         </figcaption>

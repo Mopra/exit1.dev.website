@@ -483,7 +483,7 @@ export default function UptimeCheckerTool() {
         <Button
           type="submit"
           disabled={loading || !url.trim()}
-          className="rounded-xl sm:rounded-l-none px-6 py-3 h-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
+          className="rounded-xl sm:rounded-l-none px-6 py-3 h-auto bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 font-semibold transition-all cursor-pointer disabled:opacity-50"
         >
           {loading ? (
             <Loader2 className="w-4 h-4 animate-spin" />

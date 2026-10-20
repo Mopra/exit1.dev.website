@@ -145,8 +145,8 @@ export function AIChat() {
       {/* Window header */}
       <div className="flex items-center gap-2 pb-3">
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-60 motion-safe:animate-ping" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+          <span className="absolute inline-flex h-full w-full rounded-full bg-primary-fill opacity-60 motion-safe:animate-ping" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-fill" />
         </span>
         <span className="font-mono text-xs text-muted-foreground">exit1 · MCP</span>
         <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground/55">
@@ -258,7 +258,7 @@ export function AIChat() {
           aria-hidden="true"
           className={cn(
             'flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors',
-            input ? 'bg-primary text-primary-foreground' : 'bg-white/[0.06] text-muted-foreground'
+            input ? 'bg-primary-fill text-primary-foreground' : 'bg-white/[0.06] text-muted-foreground'
           )}
         >
           <ArrowUp className="h-4 w-4" />

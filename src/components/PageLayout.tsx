@@ -82,7 +82,7 @@ export function FinalCta() {
             <Button
               asChild
               size="lg"
-              className="rounded-full w-full px-16 py-12 text-3xl sm:text-4xl font-semibold bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
+              className="rounded-full w-full px-16 py-12 text-3xl sm:text-4xl font-semibold bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 cursor-pointer"
             >
               <a
                 href={buildSignupUrl({ campaign: "final_cta", medium: "final_cta" })}

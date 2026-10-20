@@ -98,7 +98,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                 <Button
                   asChild
                   size="lg"
-                  className="rounded-full px-8 py-6 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
+                  className="rounded-full px-8 py-6 text-lg font-semibold bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 cursor-pointer"
                 >
                   <a href={primaryCtaHref}>
                     {ctaText}
@@ -308,7 +308,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                       <div className="flex flex-col sm:flex-row gap-3">
                         <Button
                           asChild
-                          className="rounded-full px-6 py-2 font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
+                          className="rounded-full px-6 py-2 font-semibold bg-primary-fill text-primary-foreground hover:bg-primary-fill/90"
                         >
                           <Link href="/pricing">
                             See Pricing

@@ -22,8 +22,8 @@ export function Eyebrow({ children, className, dot }: EyebrowProps) {
     >
       {dot && (
         <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-60 motion-safe:animate-ping" />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+          <span className="absolute inline-flex h-full w-full rounded-full bg-primary-fill opacity-60 motion-safe:animate-ping" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-fill" />
         </span>
       )}
       {children}

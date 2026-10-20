@@ -132,7 +132,7 @@ export default function Hero() {
                 type="submit"
                 size="lg"
                 disabled={isLoading || !isFormValid}
-                className="font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-12 px-6 bg-primary text-primary-foreground hover:bg-primary/90 border border-primary/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-12 px-6 bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 border border-primary/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isLoading ? 'Starting...' : 'Start Monitoring'}
               </Button>

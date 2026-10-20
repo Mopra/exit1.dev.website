@@ -80,7 +80,7 @@ export default function ContactPage() {
                         For direct questions, feature requests, or feedback. I read every email.
                       </p>
                       {email && (
-                        <Button asChild className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer">
+                        <Button asChild className="w-full rounded-full bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 cursor-pointer">
                           <a href={`mailto:${email.replace(/[at]/g, '@').replace(/[dot]/g, '.')}`}>
                             <Mail className="mr-2 w-4 h-4" />
                             {email}
@@ -101,7 +101,7 @@ export default function ContactPage() {
                       <p className="text-foreground/70 mb-6">
                         Join our Discord community for help, ideas, and calling out nonsense.
                       </p>
-                      <Button asChild className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer">
+                      <Button asChild className="w-full rounded-full bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 cursor-pointer">
                         <a href="https://discord.gg/uZvWbpwJZS" target="_blank" rel="noopener noreferrer">
                           <MessageCircle className="mr-2 w-4 h-4" />
                           Join Discord

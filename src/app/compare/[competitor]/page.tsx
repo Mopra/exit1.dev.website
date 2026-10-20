@@ -220,7 +220,7 @@ export default async function CompareCompetitorPage({ params }: Props) {
             <Button
               asChild
               size="lg"
-              className="rounded-full px-8 py-6 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
+              className="rounded-full px-8 py-6 text-lg font-semibold bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 cursor-pointer"
             >
               <a href={heroCtaHref}>
                 Start monitoring free
@@ -370,7 +370,7 @@ export default async function CompareCompetitorPage({ params }: Props) {
                 <Button
                   asChild
                   size="lg"
-                  className="rounded-full px-8 py-6 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
+                  className="rounded-full px-8 py-6 text-lg font-semibold bg-primary-fill text-primary-foreground hover:bg-primary-fill/90 cursor-pointer"
                 >
                   <a href={buildSignupUrl({ campaign: `compare_${c.slug}`, medium: 'compare_footer' })}>
                     Get started free

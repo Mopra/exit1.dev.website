@@ -65,7 +65,7 @@ export function Speed() {
               <div className="mt-8 max-w-xs space-y-3">
                 <div className="flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2.5 text-sm text-foreground">
-                    <span className="h-2 w-2 rounded-full bg-primary" />
+                    <span className="h-2 w-2 rounded-full bg-primary-fill" />
                     exit1.dev
                   </span>
                   <span className="font-mono text-sm text-foreground">15s</span>
