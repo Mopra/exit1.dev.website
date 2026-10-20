@@ -502,7 +502,7 @@ export const competitors: Competitor[] = [
   {
     slug: "hyperping",
     name: "Hyperping",
-    seoTitle: "Hyperping vs exit1.dev — Uptime Monitoring Compared (2026)",
+    seoTitle: "Hyperping vs exit1.dev: Uptime Monitoring Compared (2026)",
     seoDescription:
       "Hyperping vs exit1.dev, tier for tier. Status pages and custom domains vs all-protocol checks, MCP, and 1,000 monitors on Pro at $24/mo. Honest head-to-head.",
     keywords:
@@ -522,18 +522,18 @@ export const competitors: Competitor[] = [
       rows: [
         { feature: "Monitors", exit1: "50", competitor: "20" },
         { feature: "Check interval", exit1: "5 min", competitor: "5 min" },
-        { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP only" },
+        { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP, port, ping, keyword" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: false },
         { feature: "Response validation (JSON, headers, body)", exit1: true, competitor: false },
         { feature: "Webhooks", exit1: "1", competitor: true },
         { feature: "REST API", exit1: true, competitor: true },
         { feature: "Public status page", exit1: "1", competitor: "1" },
-        { feature: "Log retention", exit1: "60 days", competitor: "Limited" },
+        { feature: "Log retention", exit1: "60 days", competitor: "2 days" },
       ],
     },
     paid: {
-      exit1Plan: "exit1.dev Pro — $24/mo",
-      competitorPlan: "Hyperping Essentials — $24/mo",
+      exit1Plan: "exit1.dev Pro, $24/mo",
+      competitorPlan: "Hyperping Essentials, $24/mo",
       heading: "Paid tier",
       subheading: "exit1.dev Pro vs Hyperping Essentials at the same $24/mo price point.",
       rows: [
@@ -542,45 +542,45 @@ export const competitors: Competitor[] = [
         { feature: "Multi-region checks", exit1: true, competitor: true },
         { feature: "Protocols", exit1: EXIT1_FREE_PROTOCOLS, competitor: "HTTP + TCP + DNS" },
         { feature: "SSL certificate monitoring", exit1: true, competitor: true },
-        { feature: "SMS alerts", exit1: "50 / month included", competitor: "Unclear" },
+        { feature: "SMS alerts", exit1: "50 / month included", competitor: "20 / month" },
         { feature: "Status pages", exit1: "50", competitor: "1 + custom domain" },
         { feature: "MCP (Claude, Cursor, Windsurf)", exit1: true, competitor: false },
         { feature: "REST API", exit1: true, competitor: true },
         { feature: "CSV bulk export", exit1: true, competitor: false },
-        { feature: "Log retention", exit1: "3 years", competitor: "Unclear" },
+        { feature: "Log retention", exit1: "3 years", competitor: "7 days" },
       ],
     },
     exit1Wins: [
-      "1,000 monitors on Pro vs Hyperping's 50 — at the same $24/mo price.",
-      "Every protocol (TCP, UDP, ICMP, WebSocket) on the free tier; Hyperping free is HTTP only.",
+      "1,000 monitors on Pro vs Hyperping's 50 at the same $24/mo price.",
+      "Every protocol (TCP, UDP, ICMP, WebSocket) on the free tier, and 60-day log retention vs Hyperping's 2 days.",
       "SSL monitoring and JSON validation on the free plan.",
       "MCP access for AI assistants and CSV bulk export.",
     ],
     competitorWins: [
       "Status pages are a Hyperping strong point, with custom-domain support on the entry paid plan.",
-      "20 free monitors vs our 5, plus REST API access on the free tier.",
+      "Hyperping free has no monitor-count edge over us (20 vs our 50), but its free plan is simple and quick to set up.",
       "Simple, focused product that's quick to set up.",
     ],
     faq: [
       {
-        question: "Hyperping vs exit1.dev — which gives more at $24/mo?",
+        question: "Hyperping vs exit1.dev: which gives more at $24/mo?",
         answer:
-          "exit1.dev Pro includes 1,000 monitors at $24/mo; Hyperping Essentials includes 50 at the same price. exit1.dev also adds every protocol, MCP, and CSV export. Hyperping counters with a custom-domain status page on its entry plan.",
+          "exit1.dev Pro includes 1,000 monitors at $24/mo; Hyperping Essentials includes 50 monitors and 20 SMS a month at the same price. exit1.dev also adds every protocol, MCP, and CSV export. Hyperping counters with a custom-domain status page on its entry plan.",
       },
       {
         question: "Does Hyperping's free plan beat exit1.dev's?",
         answer:
-          "Hyperping free gives 20 monitors and REST API access; exit1.dev free gives 10 but adds SSL monitoring, JSON validation, and every protocol. It's depth vs count — pick based on what you monitor.",
+          "Hyperping free gives 20 monitors and REST API access; exit1.dev free gives 50 and adds SSL monitoring, JSON validation, and every protocol. exit1.dev free has more monitors, longer log retention (60 days vs 2), and more protocols.",
       },
       {
         question: "Is exit1.dev a good Hyperping alternative for status pages?",
         answer:
-          "exit1.dev includes status pages (25 on Pro) but Hyperping's are more of a headline feature with custom-domain support on entry. If the status page is your primary purchase, compare them directly; if monitoring breadth matters more, exit1.dev leads.",
+          "exit1.dev includes status pages (50 on Pro) but Hyperping's are more of a headline feature with custom-domain support on entry. If the status page is your primary purchase, compare them directly; if monitoring breadth matters more, exit1.dev leads.",
       },
     ],
     relatedPost: undefined,
     pricingNote:
-      "Hyperping's Essentials plan is billed annually and some limits (SMS, retention) aren't clearly published; figures reflect available information as of 2026.",
+      "Hyperping's Essentials plan is billed annually. Figures from hyperping.com/pricing, checked 2026-10-17.",
   },
 ];
 

@@ -41,7 +41,7 @@ const freeRows: Row[] = [
   { feature: 'Monitors', values: ['50', '50', '10', '20'] },
   { feature: 'Check interval', values: ['5 min', '5 min', '3 min', '5 min'] },
   { feature: 'Multi-region checks', values: [false, true, false, false] },
-  { feature: 'HTTP / TCP / UDP / ICMP / WebSocket', values: [true, 'HTTP only', 'HTTP only', 'HTTP only'] },
+  { feature: 'HTTP / TCP / UDP / ICMP / WebSocket', values: [true, 'HTTP only', 'HTTP only', 'HTTP, port, ping'] },
   { feature: 'SSL certificate monitoring', values: [true, true, false, false] },
   { feature: 'Domain expiry alerts', values: [false, true, false, false] },
   { feature: 'Public status page', values: ['1', '1', '1', '1'] },
@@ -49,7 +49,7 @@ const freeRows: Row[] = [
   { feature: 'Slack / Discord / Teams', values: [false, 'Slack only', 'Slack only', 'Basic'] },
   { feature: 'SMS alerts', values: [false, false, false, false] },
   { feature: 'REST API', values: [true, false, true, true] },
-  { feature: 'Log retention', values: ['60 days', '90 days', '3 days', 'Limited'] },
+  { feature: 'Log retention', values: ['60 days', '90 days', '3 days', '2 days'] },
 ];
 
 const paidColumns: Column[] = [
@@ -73,14 +73,14 @@ const paidRows: Row[] = [
   { feature: 'HTTP / TCP / UDP / ICMP / WebSocket', values: [true, 'HTTP + keyword', 'HTTP + TCP + DNS', 'HTTP + TCP + DNS'] },
   { feature: 'SSL certificate monitoring', values: [true, true, true, true] },
   { feature: 'Domain expiry alerts', values: [true, true, true, true] },
-  { feature: 'SMS alerts', values: ['50 / month', 'Credits — $0.03+ each', 'Unlimited', 'Unclear'] },
+  { feature: 'SMS alerts', values: ['50 / month', 'Credits — $0.03+ each', 'Unlimited', '20 / month'] },
   { feature: 'Slack / Discord / Teams', values: [true, true, true, true] },
   { feature: 'Webhooks', values: ['100', true, true, true] },
   { feature: 'REST API', values: [true, true, true, true] },
   { feature: 'MCP (Claude, Cursor, Windsurf)', values: [true, false, false, false] },
   { feature: 'Branded status pages', values: ['50', 'Unlimited', 'Multiple', '1 + custom domain'] },
   { feature: 'CSV bulk export', values: [true, false, false, false] },
-  { feature: 'Log retention', values: ['3 years', '24 months', 'Unlimited incidents', 'Unclear'] },
+  { feature: 'Log retention', values: ['3 years', '24 months', 'Unlimited incidents', '7 days'] },
 ];
 
 function CellValue({ value }: { value: Cell }) {
@@ -289,7 +289,7 @@ export default function ComparePage() {
             <div className="mt-6 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-5 text-sm text-foreground/70">
               <strong className="text-foreground">A fair comparison note:</strong> Better Stack&apos;s
               Responder plan includes just 10 monitors at its base price — scaling to 50 adds
-              roughly $21–$25/month. UptimeRobot Team includes 30 SMS a month. Hyperping doesn&apos;t publish SMS quotas. Exit1 Pro bundles 50 SMS, REST
+              roughly $21–$25/month. UptimeRobot Team includes 30 SMS a month. Hyperping Essentials includes 20. Exit1 Pro bundles 50 SMS, REST
               API, and MCP for AI assistants at the lowest sticker price in this row.
             </div>
           </SectionContent>
@@ -305,7 +305,7 @@ export default function ComparePage() {
                   <p className="text-foreground/70 text-sm">
                     Exit1 Pro is $24/month (or $20 billed annually) for 1,000 monitors,
                     15-second checks, and 3-year retention, and it starts with a 7-day
-                    free trial. For comparison: Hyperping Pro is $74/mo for 100 monitors,
+                    free trial. For comparison: Hyperping Pro is $74/mo for 250 monitors,
                     Checkly Team is $64/mo for 75 monitors.
                   </p>
                 </div>
