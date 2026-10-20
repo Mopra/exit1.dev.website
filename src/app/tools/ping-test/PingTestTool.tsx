@@ -715,7 +715,7 @@ export default function PingTestTool() {
                   target={host}
                   tone="alert"
                   headline={`${host} is unreachable`}
-                  subline="If it's down for you, it may be down for your users. exit1 probes it every 2 minutes and alerts you the second it drops."
+                  subline="If it's down for you, it may be down for your users. exit1 checks it every 5 minutes on Free, faster on paid plans, and alerts you when it drops."
                 />
               );
             }
