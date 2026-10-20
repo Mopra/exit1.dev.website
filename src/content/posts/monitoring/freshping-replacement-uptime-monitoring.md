@@ -1,18 +1,18 @@
 ---
 title: 'Freshping Replacement: Free Uptime Monitoring That Stays Simple'
-seoTitle: 'Freshping Replacement: Free Alternative (1-Min)'
+seoTitle: 'Freshping Shut Down: Free Alternative With 50 Monitors'
 author: 'Exit1 Team'
 date: '2026-01-15'
-updated: '2026-08-28'
+updated: '2026-10-20'
 category: 'monitoring'
-excerpt: 'Freshping is shutting down. Replace it with a free Freshping alternative: 50 monitors and 5-minute checks, SSL alerts, and webhooks—or go Nano ($9/mo) for 250 monitors and 30-second checks. Comparison, team setup, and migration steps inside.'
+excerpt: 'Freshping shut down in March 2026. Replace it with a free Freshping alternative: 50 monitors and 5-minute checks, SSL alerts, and webhooks, or go Nano ($9/mo) for 250 monitors and 30-second checks. Comparison, team setup, and migration steps inside.'
 readTime: '9 min read'
-metaDescription: 'Freshping replacement and free alternative: 50 monitors, SSL alerts, webhooks, no credit card. 250 monitors on Nano ($9/mo).'
+metaDescription: 'Freshping is gone. Switch to a free alternative with 50 monitors, 5-minute checks, SSL alerts and webhooks, no credit card. 250 monitors on Nano ($9/mo).'
 ---
 
 # Freshping Replacement: Free Uptime Monitoring That Stays Simple
 
-Freshping is shutting down. Uptime still matters. The replacement should be fast, free, and boring. Exit1.dev delivers the same core monitoring—uptime checks, SSL alerts, and webhooks—without the paywall games.
+Freshping shut down in March 2026. Uptime still matters. The replacement should be fast, free, and boring. Exit1.dev delivers the same core monitoring (uptime checks, SSL alerts, and webhooks) without the paywall games.
 
 The free tier gives you 50 monitors with 5-minute checks, SSL expiration alerts, email + webhook alerting, and no credit card. Need 30-second checks and 250 monitors? The Nano plan is $9/month.
 
@@ -34,7 +34,7 @@ A real replacement has to keep those strengths, not bury them under an observabi
 
 You are replacing a simple uptime monitor, not buying an APM suite. If a tool misses any of these, it is not a replacement:
 
-- 1-minute checks
+- Fast checks (1-minute on paid tiers, 5-minute on Free)
 - Generous monitor limits that scale on paid tiers
 - SSL expiration alerts
 - Email + webhook routing
