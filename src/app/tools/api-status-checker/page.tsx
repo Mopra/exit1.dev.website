@@ -313,7 +313,7 @@ export default function ApiStatusCheckerPage() {
                     <span className="text-sm font-medium">cloudflare</span>
                   </div>
                 </div>
-                <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Security Headers</h4>
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Security Headers</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                   <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">Strict-Transport-Security</span>

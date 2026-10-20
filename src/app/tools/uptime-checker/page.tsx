@@ -341,7 +341,7 @@ export default function UptimeCheckerPage() {
                     <p className="text-xs text-muted-foreground">https://example.com — 187ms response time</p>
                   </div>
                 </div>
-                <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-4">Category Grades</h4>
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-4">Category Grades</p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                   {[
                     { label: "DNS", grade: "A+", score: "98" },
@@ -361,7 +361,7 @@ export default function UptimeCheckerPage() {
                     </div>
                   ))}
                 </div>
-                <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Key Findings</h4>
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Key Findings</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                   <div className="flex justify-between py-2 border-b border-foreground/5">
                     <span className="text-xs text-muted-foreground">TTFB</span>

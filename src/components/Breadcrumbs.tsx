@@ -32,7 +32,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
                   <span className="text-muted-foreground/30 select-none">/</span>
                 )}
                 {isLast ? (
-                  <span className="text-muted-foreground/70" aria-current="page">
+                  <span className="text-muted-foreground" aria-current="page">
                     {item.name}
                   </span>
                 ) : (
