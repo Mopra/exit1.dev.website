@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "Free Nameserver Lookup — exit1.dev";
+export const alt = "Check Nameservers for Any Domain | exit1.dev";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -143,7 +143,7 @@ export default async function Image() {
               display: "flex",
             }}
           >
-            Every nameserver for any domain — with its IPs, its provider, and a
+            Every nameserver for any domain, with its IPs, its provider, and a
             delegation health grade.
           </div>
         </div>

@@ -24,20 +24,20 @@ import { ToolsNav } from "@/components/ToolsNav";
 // intercept the "nameserver lookup" / "check nameservers" cluster, which was
 // previously landing on a blog post at ~0.1% CTR.
 export const metadata: Metadata = {
-  title: "Nameserver Lookup — Check Any Domain's Nameservers Free",
+  title: "Check Nameservers for Any Domain: Free Nameserver Lookup",
   description:
     "Look up any domain's nameservers, the IPs behind each one, its DNS provider and a delegation health grade. Free, no signup.",
   keywords:
     "nameserver lookup, check nameservers, nameserver check, ns record lookup, check domain nameservers, find nameservers for domain, ns lookup, dns delegation check, who hosts my dns, soa record lookup",
   openGraph: {
-    title: "Nameserver Lookup — Check Any Domain's Nameservers Free",
+    title: "Check Nameservers for Any Domain: Free Nameserver Lookup",
     description:
       "Free nameserver lookup. Check NS records for any domain, see the IPs behind each nameserver, identify the DNS provider, and get a delegation health grade.",
     type: "website",
     url: "https://exit1.dev/tools/nameserver-lookup",
   },
   twitter: {
-    title: "Nameserver Lookup — Check Any Domain's Nameservers Free",
+    title: "Check Nameservers for Any Domain: Free Nameserver Lookup",
     description:
       "Free nameserver lookup. Check NS records for any domain, see the IPs behind each nameserver, identify the DNS provider, and get a delegation health grade.",
     card: "summary_large_image",
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED_ISO = "2026-07-29";
-const LAST_UPDATED_DISPLAY = "July 29, 2026";
+const LAST_UPDATED_ISO = "2026-10-20";
+const LAST_UPDATED_DISPLAY = "October 20, 2026";
 
 const howToSteps = [
   {
@@ -274,8 +274,8 @@ export default function NameserverLookupPage() {
           <ToolPageHero
             toolName="Nameserver Lookup"
             href="/tools/nameserver-lookup"
-            title="Nameserver Lookup"
-            description="Check the nameservers for any domain. See NS records, the IP addresses behind each nameserver, the DNS provider running them, and a delegation health grade. Free, no signup required."
+            title="Check Nameservers for Any Domain"
+            description="A nameserver lookup shows the NS records for a domain, the IP addresses behind each nameserver, the DNS provider running them, and whether the delegation is healthy. Enter a domain below. Free, no signup required."
           />
 
           {/* Tools Navigation */}
