@@ -650,7 +650,7 @@ export default function ApiStatusCheckerTool() {
                   target={result.url}
                   tone="alert"
                   headline={`${host} is not responding`}
-                  subline="A dead endpoint breaks everything downstream. exit1 checks your API every 2 minutes and alerts you the moment it fails."
+                  subline="A dead endpoint breaks everything downstream. exit1 checks your API every 5 minutes on the free plan and alerts you when it fails."
                   ctaLabel="Monitor this API free"
                 />
               );
@@ -661,7 +661,7 @@ export default function ApiStatusCheckerTool() {
                 target={result.url}
                 tone="positive"
                 headline={`${host} is responding`}
-                subline="Know the instant it stops. exit1 monitors your API 24/7 with status, latency and payload checks — and alerts on failure."
+                subline="Know when it stops. exit1 monitors your API 24/7 with status, latency and payload checks, and alerts you on failure."
                 ctaLabel="Monitor this API free"
               />
             );

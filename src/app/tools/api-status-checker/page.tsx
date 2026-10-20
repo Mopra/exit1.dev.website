@@ -179,7 +179,7 @@ const faq = [
   {
     question: "Can I monitor my API status continuously?",
     answer:
-      "Yes! exit1.dev offers continuous API and website monitoring with alerts via email, Slack, Discord, and webhooks. You'll get notified instantly when your endpoints go down, respond slowly, or have SSL/domain issues.",
+      "Yes! exit1.dev offers continuous API and website monitoring with alerts by email and webhook on every plan, with native Slack, Discord and Microsoft Teams alerts on Pro. You'll get notified instantly when your endpoints go down, respond slowly, or have SSL/domain issues.",
   },
 ];
 
@@ -533,7 +533,7 @@ export default function ApiStatusCheckerPage() {
                 <p className="text-muted-foreground max-w-xl mx-auto mb-8">
                   Stop checking manually. exit1.dev monitors your APIs and
                   websites 24/7 and alerts you instantly when something goes
-                  wrong. Get notified via email, Slack, Discord, or webhooks.
+                  wrong. Get alerts by email or webhook on every plan, plus Slack, Discord and Microsoft Teams on Pro.
                 </p>
                 <Button
                   asChild
