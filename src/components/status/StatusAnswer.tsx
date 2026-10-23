@@ -13,7 +13,9 @@ import {
  * "is X down" queries — Google's featured snippets and AI Overviews lift
  * *visible* text, so the current state, uptime %, and response time all live
  * here in a plain leading sentence (not just in JSON-LD). Times are absolute
- * UTC so the sentence stays true when an LLM quotes it later.
+ * UTC so the sentence stays true when an LLM quotes it later. No "last
+ * checked" time: the backend defers routine lastChecked writes, so that field
+ * can be hours behind even though the status itself is current.
  */
 export function StatusAnswer({ monitor }: { monitor: MonitorPage }) {
   const name = displayName(monitor);
@@ -38,7 +40,7 @@ export function StatusAnswer({ monitor }: { monitor: MonitorPage }) {
           {monitor.host} {phrase}
         </>
       )}
-      {monitor.lastChecked ? <>, last checked {formatUtc(monitor.lastChecked)}</> : null}.
+. exit1.dev checks it around the clock and updates this page the moment that changes.
       {hasUptime && (
         <>
           {" "}

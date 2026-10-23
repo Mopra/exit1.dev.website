@@ -24,6 +24,7 @@ import {
   getPublicMonitor,
   isMonitorPageMature,
   formatUtc,
+  statusSince,
   statusPhrase,
   statusPresentation,
   formatUptime,
@@ -203,7 +204,7 @@ export default async function MonitorStatusPage({
                 <span className={`inline-block h-2.5 w-2.5 rounded-full ${dotTone[tone]}`} />
                 <span className="text-sm font-medium text-foreground/80">{label}</span>
                 <span className="text-sm text-muted-foreground">
-                  · checked {monitor.lastChecked ? formatUtc(monitor.lastChecked) : "never"}
+                  {statusSince(monitor) ? <>· since {formatUtc(statusSince(monitor)!)}</> : "· monitored around the clock"}
                 </span>
               </div>
 

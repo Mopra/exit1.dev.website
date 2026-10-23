@@ -344,9 +344,7 @@ export function buildFaqs(m: MonitorPage, note?: StatusBrandNote): Faq[] {
   const faqs: Faq[] = [
     {
       question: `Is ${name} down right now?`,
-      answer: `${
-        m.lastChecked ? `As of ${formatUtc(m.lastChecked)}` : "As of the last check"
-      }, ${m.host} ${phrase}${
+      answer: `${m.host} ${phrase}${
         isDown && statusSince(m) ? ` (down since ${formatUtc(statusSince(m)!)})` : ""
       }. exit1.dev probes it continuously and updates this page the moment its status changes.`,
     },
