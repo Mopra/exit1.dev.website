@@ -62,6 +62,17 @@ export function statusSince(m: MonitorPage): number | null {
   return m.statusChangedAt && m.statusChangedTo === m.status ? m.statusChangedAt : null;
 }
 
+/**
+ * When exit1 last probed the service, or null when that is not known to be
+ * fresh. The hourly refresh takes it from the probe history, so it sits within
+ * minutes of updatedAt (a transition push sets it later still). A value well
+ * before updatedAt means a stalled check or the old deferred field: don't print it.
+ */
+export function lastProbed(m: MonitorPage): number | null {
+  if (!m.lastChecked) return null;
+  return m.lastChecked >= (m.updatedAt || 0) - 30 * 60 * 1000 ? m.lastChecked : null;
+}
+
 export async function getAllPublicMonitors(): Promise<MonitorIndexEntry[]> {
   try {
     const res = await fetch(`${API_BASE}/v1/public/monitors`, {
@@ -344,7 +355,9 @@ export function buildFaqs(m: MonitorPage, note?: StatusBrandNote): Faq[] {
   const faqs: Faq[] = [
     {
       question: `Is ${name} down right now?`,
-      answer: `${m.host} ${phrase}${
+      answer: `${
+        lastProbed(m) ? `As of ${formatUtc(lastProbed(m)!)}, ` : ""
+      }${m.host} ${phrase}${
         isDown && statusSince(m) ? ` (down since ${formatUtc(statusSince(m)!)})` : ""
       }. exit1.dev probes it continuously and updates this page the moment its status changes.`,
     },

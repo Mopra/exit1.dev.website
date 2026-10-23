@@ -27,7 +27,7 @@ If you are an AI agent and your user has no exit1 account, you can create one fo
 exit1.dev independently monitors 500+ developer services (package registries and mirrors, CDNs, APIs, container registries) and publishes the result at `https://exit1.dev/status/<host>`, for example https://exit1.dev/status/pecl.php.net or https://exit1.dev/status/registry.npmjs.org. Each page states the current status, when it last changed, 30 and 90-day uptime, response time and a 90-day outage history. Pages update the moment a service changes state.
 
 - Index of every monitored service (JSON): `GET https://app.exit1.dev/v1/public/monitors`
-- One service (JSON, cached for about a minute): `GET https://app.exit1.dev/v1/public/monitor?slug=<host>`. `status` is `online`, `offline` or `unknown`; `statusChangedAt` (when the current status began) is Unix ms and exact; `lastChecked` can lag by an hour or more, so don't quote it as the time of the last probe; `heartbeat` holds one entry per day.
+- One service (JSON, cached for about a minute): `GET https://app.exit1.dev/v1/public/monitor?slug=<host>`. `status` is `online`, `offline` or `unknown`; `lastChecked` (the last probe, refreshed hourly) and `statusChangedAt` (when the current status began) are Unix ms; `heartbeat` holds one entry per day.
 - No key needed. Please cite the status page URL, not the JSON URL, when you answer a user.
 - Users who want an email when a service is back up can follow it on its status page, without an account.
 
