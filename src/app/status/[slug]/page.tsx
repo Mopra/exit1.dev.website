@@ -23,7 +23,8 @@ import {
   getAllPublicMonitors,
   getPublicMonitor,
   isMonitorPageMature,
-  lastCheckedLabel,
+  formatUtc,
+  statusPhrase,
   statusPresentation,
   formatUptime,
 } from "@/lib/publicMonitors";
@@ -110,6 +111,7 @@ export default async function MonitorStatusPage({
 
   const name = displayName(monitor);
   const { label, tone } = statusPresentation(monitor.status);
+  const { isDown } = statusPhrase(monitor.status);
   const brandNote = getStatusBrandNote(monitor.host);
   const faqs = buildFaqs(monitor, brandNote);
   // MonitorPage is a superset of MonitorIndexEntry, so it's a safe fallback.
@@ -201,7 +203,7 @@ export default async function MonitorStatusPage({
                 <span className={`inline-block h-2.5 w-2.5 rounded-full ${dotTone[tone]}`} />
                 <span className="text-sm font-medium text-foreground/80">{label}</span>
                 <span className="text-sm text-muted-foreground">
-                  · checked {lastCheckedLabel(monitor.lastChecked)}
+                  · checked {monitor.lastChecked ? formatUtc(monitor.lastChecked) : "never"}
                 </span>
               </div>
 
@@ -214,7 +216,7 @@ export default async function MonitorStatusPage({
 
               <StatusAnswer monitor={monitor} />
 
-              <FollowCTA slug={monitor.slug} name={name} host={monitor.host} placement="hero" />
+              <FollowCTA slug={monitor.slug} name={name} host={monitor.host} placement="hero" isDown={isDown} />
 
               <a
                 href={monitor.url}
@@ -269,7 +271,7 @@ export default async function MonitorStatusPage({
                     Downtime detected by exit1.dev over the last 90 days.
                   </p>
                   <IncidentHistory monitor={monitor} />
-                  <FollowCTA slug={monitor.slug} name={name} host={monitor.host} placement="inline" />
+                  <FollowCTA slug={monitor.slug} name={name} host={monitor.host} placement="inline" isDown={isDown} />
                 </div>
 
                 {brandNote && (

@@ -92,6 +92,61 @@ held back for a later batch.
 deloittedigital.com and similar) are not noise.** They feed the Cannes event page
 via `src/lib/cannesEvents.ts`. Leave them public.
 
+## Seeded 2026-10-23: 100 build-path hosts after the PECL/Launchpad spike
+
+On 2026-10-21 pecl.php.net and ppa.launchpadcontent.net went down and their pages drew
+about 960 Google clicks in one day (a normal day for the whole site is about 25), at
+position 2 to 5 for "pecl status" and "launchpadcontent down". So this batch is hosts that a
+CI job, Dockerfile, package manager or install script fetches directly, where a failure
+breaks builds and there is no strong vendor status page.
+
+Same method as 2026-10-12: GET, 5 min, vps-eu-1 (every public check runs there), folder
+`Infrastructure`, hostname name and slug, `nextCheckAt` staggered over 4 minutes, one
+`check_edits` doc per check. Every URL was probed with `redirect: 'manual'` and only fast
+2xx, 3xx, 401 or 403 responders went in. Where the root is a 404 or a big listing, the check
+hits a small stable file instead (a GPG key, a checksum, `stable.txt`, a JSON index). Registry
+`/v2/` endpoints, ACME directories and other APIs are `rest_endpoint` (200/401/403 only).
+Brings the account to 702 checks.
+
+| Group | Hosts |
+|---|---|
+| OS package mirrors and repos (24) | security.debian.org, ftp.debian.org, snapshot.debian.org, ports.ubuntu.com, us.archive.ubuntu.com, releases.ubuntu.com, changelogs.ubuntu.com, api.launchpad.net, keyserver.ubuntu.com, dl.fedoraproject.org, download.fedoraproject.org, mirror.stream.centos.org, vault.centos.org, dl.rockylinux.org, repo.almalinux.org, geo.mirror.pkgbuild.com, archive.archlinux.org, download.opensuse.org, archive.raspberrypi.com, archive.raspberrypi.org, cdn.amazonlinux.com, pkg.freebsd.org, repo.msys2.org, yum.oracle.com |
+| Language registries, indexes, installers (29) | test.pypi.org, upload.pypi.org, bootstrap.pypa.io, install.python-poetry.org, astral.sh (`/uv/install.sh`), api.anaconda.org, cloud.r-project.org, bioconductor.org, packagemanager.posit.co, cpan.metacpan.org, downloads.haskell.org, get-ghcup.haskell.org, cdn.cocoapods.org, index.crates.io, static.crates.io, sum.golang.org, dot.net (`/v1/dotnet-install.sh`), repo.maven.apache.org, maven.google.com, jitpack.io, repo.spring.io, downloads.gradle.org, cache.ruby-lang.org, dl.yarnpkg.com, pear.php.net, downloads.php.net, get.pnpm.io, repo.hex.pm, ziglang.org |
+| Container registries (8) | auth.docker.io, index.docker.io, production.cloudflare.docker.com, nvcr.io, registry.redhat.io, registry.access.redhat.com, us-docker.pkg.dev, cgr.dev |
+| Vendor apt/yum repos and toolchain downloads (26) | get.helm.sh, dl.k8s.io, pkgs.k8s.io, packages.microsoft.com, dl.google.com, api.adoptium.net, get.sdkman.io, deb.nodesource.com, rpm.nodesource.com, keys.openpgp.org, packages.gitlab.com, packages.cloud.google.com, apt.grafana.com, repo.mongodb.org, apt.postgresql.org, repo.mysql.com, pkg.jenkins.io, updates.jenkins.io, apt.llvm.org, cli.github.com, developer.download.nvidia.com, download.pytorch.org, downloads.apache.org, ftp.gnu.org, get.k3s.io, packages.sury.org |
+| Cert, signing and CI identity (6) | acme-staging-v02.api.letsencrypt.org, dv.acme-v02.api.pki.goog, rekor.sigstore.dev, fulcio.sigstore.dev, token.actions.githubusercontent.com, timestamp.sectigo.com |
+| Source hosting and app stores (7) | git.sr.ht, gitlab.gnome.org, gitlab.freedesktop.org, chromium.googlesource.com, go.googlesource.com, api.snapcraft.io, dl.flathub.org |
+
+Probed and left out: mirrorlist.centos.org, cdn-lfs.huggingface.co, cdn.dl.k8s.io,
+install.k0sproject.io, repo.saltproject.io (no DNS); packages.ubuntu.com (timeout);
+ppa.launchpad.net (TLS name mismatch); api.cirrus-ci.com (connection reset); builds.sr.ht (418
+bot block); oss.sonatype.org, s01.oss.sonatype.org (404, sunset); timestamp.digicert.com,
+ocsp.pki.goog, lscr.io, repo.yarnpkg.com, repo.prefix.dev, registry.ollama.ai,
+release-assets.githubusercontent.com, pipelines.actions.githubusercontent.com,
+download.visualstudio.microsoft.com, api.buypass.com, apt.fury.io (404 at the probed path);
+builds.dotnet.microsoft.com, pkg-containers.githubusercontent.com (400); acme.zerossl.com
+(5.9 s on the final probe, 0.6 s earlier, too flaky). packages.debian.org and
+salsa.debian.org answer every request with a bot-challenge redirect, so a check there would
+always read up.
+
+Probed fine but held back for a later batch: old-releases.ubuntu.com, cloud-images.ubuntu.com,
+kojipkgs.fedoraproject.org, copr.fedorainfracloud.org, mirrors.rockylinux.org,
+mirrors.almalinux.org, build.opensuse.org, downloads.raspberrypi.com, distfiles.gentoo.org,
+download.freebsd.org, channels.nixos.org, http.kali.org, packages.termux.dev,
+mirrors.aliyun.com, mirrors.edge.kernel.org, goproxy.io, goproxy.cn, gopkg.in, index.golang.org,
+fastapi.metacpan.org, www.stackage.org, trunk.cocoapods.org, r-universe.dev, pkg.julialang.org,
+builds.hex.pm, dl.deno.land, classic.yarnpkg.com, download.swift.org, npm.pkg.github.com,
+maven.pkg.github.com, nuget.pkg.github.com, pkgs.dev.azure.com, repo.gradle.org, docker.elastic.co,
+cdn.quay.io, k8s.gcr.io, registry.suse.com, container-registry.oracle.com, packages.adoptium.net,
+api.sdkman.io, cdn.azul.com, rpm.grafana.com, pgp.mongodb.com, download.postgresql.org,
+packages.redis.io, get.jenkins.io, get.pulumi.com, sdk.cloud.google.com, packagecloud.io,
+nvidia.github.io, repo.radeon.com, dl.min.io, archive.apache.org, dlcdn.apache.org, sourceware.org,
+curl.se, get.rke2.io, apt.puppet.com, yum.puppet.com, deb.torproject.org, archive.mariadb.org,
+update.code.visualstudio.com, acme.ssl.com, tuf-repo-cdn.sigstore.dev, oauth2.sigstore.dev,
+timestamp.acs.microsoft.com, rfc3161timestamp.globalsign.com, ocsp.digicert.com, crt.sh (200 now,
+502 on 2026-10-12), x1.c.lencr.org, sr.ht, invent.kde.org, android.googlesource.com,
+opendev.org, review.opendev.org, savannah.gnu.org, sourceforge.net, ci.appveyor.com, app.bitrise.io.
+
 ## Tier 1: Developer-aligned, high intent, converts best
 
 These map directly to our buyer (a developer who, after checking "is GitHub down",

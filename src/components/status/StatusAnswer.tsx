@@ -2,8 +2,9 @@ import {
   displayName,
   formatResponse,
   formatUptime,
-  lastCheckedLabel,
+  formatUtc,
   statusPhrase,
+  statusSince,
   type MonitorPage,
 } from "@/lib/publicMonitors";
 
@@ -11,7 +12,8 @@ import {
  * The crawlable instant answer. This is the single most important block for
  * "is X down" queries — Google's featured snippets and AI Overviews lift
  * *visible* text, so the current state, uptime %, and response time all live
- * here in a plain leading sentence (not just in JSON-LD).
+ * here in a plain leading sentence (not just in JSON-LD). Times are absolute
+ * UTC so the sentence stays true when an LLM quotes it later.
  */
 export function StatusAnswer({ monitor }: { monitor: MonitorPage }) {
   const name = displayName(monitor);
@@ -19,13 +21,24 @@ export function StatusAnswer({ monitor }: { monitor: MonitorPage }) {
   const uptime = formatUptime(monitor.stats.uptime30d);
   const hasUptime = monitor.stats.uptime30d != null;
   const hasResponse = monitor.stats.avgResponseMs != null;
+  const since = isDown ? statusSince(monitor) : null;
 
   return (
     <p className="text-xl leading-relaxed text-foreground/80 sm:text-2xl">
       <strong className="font-semibold text-foreground">
         Is {name} down? {isDown ? "Yes" : "No"}
-      </strong>{" "}
-      — {monitor.host} {phrase}, checked {lastCheckedLabel(monitor.lastChecked)}.
+      </strong>
+      .{" "}
+      {since ? (
+        <>
+          {monitor.host} has been down since {formatUtc(since)}
+        </>
+      ) : (
+        <>
+          {monitor.host} {phrase}
+        </>
+      )}
+      {monitor.lastChecked ? <>, last checked {formatUtc(monitor.lastChecked)}</> : null}.
       {hasUptime && (
         <>
           {" "}

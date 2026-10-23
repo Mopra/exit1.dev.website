@@ -7,7 +7,7 @@
 
 import type { StatusBrandNote } from "@/content/statusBrandNotes";
 
-const API_BASE = process.env.NEXT_PUBLIC_EXIT1_API_BASE || "https://app.exit1.dev";
+export const API_BASE = process.env.NEXT_PUBLIC_EXIT1_API_BASE || "https://app.exit1.dev";
 const REVALIDATE_SECONDS = 3600;
 
 export type HeartbeatDay = {
@@ -50,7 +50,17 @@ export type MonitorPage = MonitorIndexEntry & {
   stats: MonitorStats;
   heartbeat: HeartbeatDay[];
   updatedAt: number;
+  // When the status last changed, and to what. Only written by the backend's
+  // transition push. Trust statusChangedAt only while statusChangedTo matches
+  // status: a missed push leaves an old timestamp behind (see statusSince).
+  statusChangedAt?: number;
+  statusChangedTo?: string;
 };
+
+/** When the current status began, or null when we can't say for sure. */
+export function statusSince(m: MonitorPage): number | null {
+  return m.statusChangedAt && m.statusChangedTo === m.status ? m.statusChangedAt : null;
+}
 
 export async function getAllPublicMonitors(): Promise<MonitorIndexEntry[]> {
   try {
@@ -65,11 +75,17 @@ export async function getAllPublicMonitors(): Promise<MonitorIndexEntry[]> {
   }
 }
 
+/** Cache tag for one monitor's data; /api/status-refresh expires it on a transition. */
+export const statusTag = (slug: string) => `status:${slug}`;
+
 export async function getPublicMonitor(slug: string): Promise<MonitorPage | null> {
   try {
+    // fresh=1 skips the backend's own caches. Next's data cache (and ISR) is
+    // the only cache this needs, and /api/status-refresh can expire that one;
+    // a CDN copy it can't reach would re-render a page from pre-outage data.
     const res = await fetch(
-      `${API_BASE}/v1/public/monitor?slug=${encodeURIComponent(slug)}`,
-      { next: { revalidate: REVALIDATE_SECONDS } },
+      `${API_BASE}/v1/public/monitor?slug=${encodeURIComponent(slug)}&fresh=1`,
+      { next: { revalidate: REVALIDATE_SECONDS, tags: [statusTag(slug)] } },
     );
     if (!res.ok) return null;
     const json = (await res.json()) as { monitor?: MonitorPage };
@@ -198,6 +214,20 @@ export function uptimeBarClass(pct: number | null): string {
  * regeneration, forcing a full write each time — and it overstates precision
  * anyway, since the underlying fetch cache refreshes hourly.
  */
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/**
+ * "06:10 UTC on 21 Oct 2026". Absolute on purpose: an LLM quoting the page, or
+ * a cached copy read hours later, must not turn "1 hour ago" into a lie. Fixed
+ * format (no toLocale*) so the ISR output stays byte-identical per snapshot.
+ */
+export function formatUtc(ms: number): string {
+  const d = new Date(ms);
+  const hh = String(d.getUTCHours()).padStart(2, "0");
+  const mm = String(d.getUTCMinutes()).padStart(2, "0");
+  return `${hh}:${mm} UTC on ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
 export function lastCheckedLabel(ms: number, now: number = Date.now()): string {
   if (!ms) return "—";
   const hrs = Math.floor((now - ms) / 3_600_000);
@@ -304,17 +334,21 @@ export type Faq = { question: string; answer: string };
  * Query-matched FAQ set, rendered both visibly (crawlable) and as FAQPage
  * JSON-LD. Covers the real search variants: is-it-down, uptime %, response
  * time, recent outages, and how it's measured (E-E-A-T / trust). Curated brand
- * notes add an official-status-page answer — the "X status" query in FAQ form.
+ * notes add an official-status-page answer: the "X status" query in FAQ form.
  */
 export function buildFaqs(m: MonitorPage, note?: StatusBrandNote): Faq[] {
   const name = displayName(m);
-  const { phrase } = statusPhrase(m.status);
+  const { isDown, phrase } = statusPhrase(m.status);
   const incidents = summarizeIncidents(m.heartbeat);
 
   const faqs: Faq[] = [
     {
       question: `Is ${name} down right now?`,
-      answer: `As of the last check (${lastCheckedLabel(m.lastChecked)}), ${m.host} ${phrase}. exit1.dev probes it continuously and updates this page automatically.`,
+      answer: `${
+        m.lastChecked ? `As of ${formatUtc(m.lastChecked)}` : "As of the last check"
+      }, ${m.host} ${phrase}${
+        isDown && statusSince(m) ? ` (down since ${formatUtc(statusSince(m)!)})` : ""
+      }. exit1.dev probes it continuously and updates this page the moment its status changes.`,
     },
     {
       question: `What is ${name}'s uptime?`,

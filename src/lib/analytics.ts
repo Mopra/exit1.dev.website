@@ -1,7 +1,7 @@
 // GA4 event helpers for the marketing site.
 //
 // The only conversion that matters here is "visitor clicked a CTA into the
-// app" — actual account creation completes on app.exit1.dev. We model that as
+// app". Actual account creation completes on app.exit1.dev. We model that as
 // a single GA4 event, `sign_up_click`, fired by a delegated listener in
 // DeferredAnalytics whenever any anchor to app.exit1.dev is clicked. Mark it as
 // a Key Event in the GA4 UI to turn it into a conversion.
@@ -94,5 +94,28 @@ export function trackEvent(
     // vs the prompt itself). Absent on single-target events.
     ...(target ? { cta_target: target } : {}),
     transport_type: "beacon",
+  });
+}
+
+/**
+ * Submitted the email-only follow form on a /status page. Its own event because
+ * this funnel never touches app.exit1.dev, so `sign_up_click` can't see it.
+ */
+export const FOLLOW_EMAIL_SUBMIT_EVENT = "follow_email_submit";
+
+export function trackFollowEmailSubmit({
+  service,
+  placement,
+  serviceDown,
+}: {
+  service: string;
+  placement: string;
+  serviceDown: boolean;
+}): void {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  window.gtag("event", FOLLOW_EMAIL_SUBMIT_EVENT, {
+    service,
+    placement,
+    service_down: serviceDown,
   });
 }
