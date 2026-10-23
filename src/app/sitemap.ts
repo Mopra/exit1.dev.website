@@ -218,8 +218,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Public status pages (curated uptime landing pages). Dynamic segments are
   // skipped by the filesystem scan above, so add them explicitly. Only mature
-  // pages (enough recorded history) are listed — thin pages are noindexed and
+  // pages (enough recorded history) are listed. Thin pages are noindexed and
   // excluded here so crawl budget isn't spent on near-empty templates.
+  //
+  // Outage day pages (/status/<slug>/outages/<day>) are deliberately absent.
+  // The index payload carries no incidents, so listing them would mean one
+  // monitor fetch per mature monitor (~600, with fresh=1 past the backend
+  // cache) on every hourly sitemap regeneration. Each outage day is linked from
+  // its status page's outage history, which is in this sitemap and recrawled
+  // daily, and outage pages chain to each other with previous/next links. If
+  // the backend ever adds outage day keys to the index entry, list them here,
+  // with the page's own rule: mature monitor and one outage that day of at
+  // least 10 minutes confirmed from two regions (see outageDay.ts).
   const monitors = await getAllPublicMonitors();
   const statusPages: MetadataRoute.Sitemap = [
     {

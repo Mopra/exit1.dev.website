@@ -41,6 +41,22 @@ export type MonitorIndexEntry = {
   daysWithData?: number;
 };
 
+/**
+ * One outage window, built by the backend from the probe history. Firewall
+ * blocks and single-probe blips are already filtered out.
+ */
+export type PublicIncident = {
+  id: string; // startedAt ms as a string, stable
+  startedAt: number; // ms, first failed probe
+  endedAt: number | null; // ms, first successful probe after; null while ongoing
+  durationMs: number; // for ongoing: up to the last probe when the snapshot was built
+  ongoing: boolean;
+  probes: number; // failed probes in the window
+  statusCode: number | null; // representative HTTP status of failed probes (0/null = no response)
+  error: string | null; // representative error text, <= 200 chars
+  confirmedFromTwoRegions: boolean;
+};
+
 export type MonitorPage = MonitorIndexEntry & {
   checkId: string;
   // "vendor_status": the site's bot firewall refuses every monitoring probe,
@@ -55,6 +71,9 @@ export type MonitorPage = MonitorIndexEntry & {
   // status: a missed push leaves an old timestamp behind (see statusSince).
   statusChangedAt?: number;
   statusChangedTo?: string;
+  // Newest first, last 90 days. Optional: the site may deploy before the
+  // backend, and a missing field renders exactly like no incidents.
+  incidents?: PublicIncident[];
 };
 
 /** When the current status began, or null when we can't say for sure. */
@@ -239,6 +258,124 @@ export function formatUtc(ms: number): string {
   return `${hh}:${mm} UTC on ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 }
 
+/** "21 Oct 2026" (UTC). Same fixed format as formatUtc, date only. */
+export function formatUtcDate(ms: number): string {
+  const d = new Date(ms);
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
+/** "06:10" (UTC, no suffix) for building ranges like "06:10 to 11:40 UTC". */
+export function formatUtcClock(ms: number): string {
+  const d = new Date(ms);
+  return `${String(d.getUTCHours()).padStart(2, "0")}:${String(d.getUTCMinutes()).padStart(2, "0")}`;
+}
+
+/**
+ * "5 h 30 m" in prose, "5h 30m" with compact (titles). Minute-granular and
+ * never below 1 m, so a short outage doesn't read as "0 m".
+ */
+export function formatDuration(ms: number, compact = false): string {
+  const mins = Math.max(1, Math.round(ms / 60_000));
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  const sep = compact ? "" : " ";
+  if (h === 0) return `${m}${sep}m`;
+  if (m === 0) return `${h}${sep}h`;
+  return `${h}${sep}h ${m}${sep}m`;
+}
+
+// ---------------------------------------------------------------------------
+// Per-day outage pages (/status/<slug>/outages/<YYYY-MM-DD>)
+// ---------------------------------------------------------------------------
+
+const DAY_MS = 86_400_000;
+
+/** "2026-10-21" for the UTC day containing ms. */
+export function utcDayKey(ms: number): string {
+  return new Date(ms).toISOString().slice(0, 10);
+}
+
+/** Start-of-day UTC ms for a "YYYY-MM-DD" key, or null when it isn't a real date. */
+export function parseUtcDayKey(key: string): number | null {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(key)) return null;
+  const ms = Date.parse(`${key}T00:00:00Z`);
+  if (Number.isNaN(ms) || utcDayKey(ms) !== key) return null; // rejects 2026-02-31
+  return ms;
+}
+
+/**
+ * The monitor's incidents as every page should read them. The status push
+ * updates monitor.status at once but incidents only hourly, so an incident is
+ * ongoing only while the monitor is down right now. Anything else gets a
+ * concrete end (startedAt + durationMs when the backend left endedAt null).
+ */
+export function liveIncidents(m: MonitorPage): PublicIncident[] {
+  const downNow = classifyStatus(m.status) === "down";
+  return (m.incidents ?? []).map((i) => {
+    const ongoing = i.ongoing && downNow;
+    return { ...i, ongoing, endedAt: ongoing ? null : (i.endedAt ?? i.startedAt + i.durationMs) };
+  });
+}
+
+/** When the incident stopped (or, while ongoing, the latest point the snapshot covers). */
+export function incidentEnd(i: PublicIncident): number {
+  return i.endedAt ?? i.startedAt + i.durationMs;
+}
+
+/** Incidents overlapping the UTC day starting at dayStart, oldest first. */
+export function incidentsOnDay(incidents: PublicIncident[] | undefined, dayStart: number): PublicIncident[] {
+  const dayEnd = dayStart + DAY_MS;
+  return (incidents ?? [])
+    .filter((i) => i.startedAt < dayEnd && Math.max(incidentEnd(i), i.startedAt + 1) > dayStart)
+    .sort((a, b) => a.startedAt - b.startedAt);
+}
+
+/** Downtime inside one UTC day, with incidents that cross midnight clipped to it. */
+export function downtimeOnDay(incidents: PublicIncident[], dayStart: number): number {
+  const dayEnd = dayStart + DAY_MS;
+  return incidents.reduce(
+    (sum, i) => sum + Math.max(0, Math.min(incidentEnd(i), dayEnd) - Math.max(i.startedAt, dayStart)),
+    0,
+  );
+}
+
+/** Every UTC day key with at least one incident, oldest first. */
+export function outageDayKeys(incidents: PublicIncident[] | undefined): string[] {
+  const keys = new Set<string>();
+  for (const i of incidents ?? []) {
+    const last = Math.max(incidentEnd(i) - 1, i.startedAt);
+    for (let d = parseUtcDayKey(utcDayKey(i.startedAt))!; d <= last; d += DAY_MS) {
+      keys.add(utcDayKey(d));
+    }
+  }
+  return [...keys].sort();
+}
+
+/** Below this much downtime in a day, the outage page is noindexed. */
+export const MIN_OUTAGE_MS_FOR_INDEX = 10 * 60_000;
+
+export const outagePath = (slug: string, dayKey: string) => `/status/${slug}/outages/${dayKey}`;
+
+/**
+ * "06:10 to 11:40 UTC" when the incident sits inside the day, a full timestamp
+ * on any side that crosses midnight, "since 18:05 UTC" while ongoing.
+ */
+export function incidentRange(i: PublicIncident, dayStart: number): string {
+  const sameDay = (ms: number) => ms >= dayStart && ms < dayStart + DAY_MS;
+  const start = sameDay(i.startedAt) ? `${formatUtcClock(i.startedAt)} UTC` : formatUtc(i.startedAt);
+  if (i.ongoing || i.endedAt == null) return `since ${start}`;
+  if (sameDay(i.startedAt) && sameDay(i.endedAt)) {
+    return `${formatUtcClock(i.startedAt)} to ${formatUtcClock(i.endedAt)} UTC`;
+  }
+  const end = sameDay(i.endedAt) ? `${formatUtcClock(i.endedAt)} UTC` : formatUtc(i.endedAt);
+  return `${start} to ${end}`;
+}
+
+/** "HTTP 503" or "no response". */
+export function incidentFailure(i: PublicIncident): string {
+  return i.statusCode ? `HTTP ${i.statusCode}` : "no response";
+}
+
 export function lastCheckedLabel(ms: number, now: number = Date.now()): string {
   if (!ms) return "—";
   const hrs = Math.floor((now - ms) / 3_600_000);
@@ -374,17 +511,29 @@ export function buildFaqs(m: MonitorPage, note?: StatusBrandNote): Faq[] {
     });
   }
 
+  // One source per render, matching IncidentHistory: exact incidents when the
+  // backend sent any, heartbeat outage days otherwise.
+  const live = liveIncidents(m).sort((a, b) => b.startedAt - a.startedAt);
+  const latest = live[0];
+  const outageDays = latest ? outageDayKeys(live).length : incidents.totalOutageDays;
+  const latestText = latest
+    ? latest.ongoing
+      ? ` It is down right now: the current outage started at ${formatUtc(latest.startedAt)} and has lasted ${formatDuration(latest.durationMs)} so far.`
+      : ` The most recent outage started at ${formatUtc(latest.startedAt)} and lasted ${formatDuration(latest.durationMs)}.`
+    : incidents.lastOutage
+      ? ` The most recent was ${formatDateUTC(incidents.lastOutage.day)}.`
+      : "";
   faqs.push({
     question: `Has ${name} had any outages recently?`,
-    answer: incidents.totalOutageDays
-      ? `exit1.dev detected downtime on ${incidents.totalOutageDays} ${incidents.totalOutageDays === 1 ? "day" : "days"} in the last 90 days${incidents.lastOutage ? `. The most recent was ${formatDateUTC(incidents.lastOutage.day)}` : ""}.`
+    answer: outageDays
+      ? `exit1.dev detected downtime on ${outageDays} ${outageDays === 1 ? "day" : "days"} in the last 90 days.${latestText}`
       : `No outages have been detected for ${m.host} in the last 90 days.`,
   });
 
   if (note?.officialStatus) {
     faqs.push({
       question: `Does ${name} have an official status page?`,
-      answer: `Yes — ${name} publishes its own status page at ${note.officialStatus.label}. This exit1.dev page complements it with independent measurements, which often catch issues before they are officially acknowledged.`,
+      answer: `Yes. ${name} publishes its own status page at ${note.officialStatus.label}. This exit1.dev page complements it with independent measurements, which often catch issues before they are officially acknowledged.`,
     });
   } else if (note?.noOfficialStatusNote) {
     faqs.push({
@@ -395,7 +544,7 @@ export function buildFaqs(m: MonitorPage, note?: StatusBrandNote): Faq[] {
 
   faqs.push({
     question: `How does exit1.dev measure ${name}'s status?`,
-    answer: `exit1.dev runs automated uptime checks against ${m.host} around the clock from multiple regions, recording status and response time on every probe. The figures here are independent, third-party measurements — not self-reported by ${name}.`,
+    answer: `exit1.dev runs automated uptime checks against ${m.host} around the clock from multiple regions, recording status and response time on every probe. The figures here are exit1.dev's own independent measurements. ${name} does not supply them.`,
   });
 
   return faqs;

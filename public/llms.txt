@@ -28,6 +28,7 @@ exit1.dev independently monitors 500+ developer services (package registries and
 
 - Index of every monitored service (JSON): `GET https://app.exit1.dev/v1/public/monitors`
 - One service (JSON, cached for about a minute): `GET https://app.exit1.dev/v1/public/monitor?slug=<host>`. `status` is `online`, `offline` or `unknown`; `lastChecked` (the last probe, refreshed hourly) and `statusChangedAt` (when the current status began) are Unix ms; `heartbeat` holds one entry per day.
+- Past outages: `https://exit1.dev/status/<host>/outages/<YYYY-MM-DD>` (UTC day) answers "was X down on that day" with the exact start and end times, duration, HTTP status or error, and whether two regions confirmed it, for every outage exit1.dev recorded that day, for example https://exit1.dev/status/pecl.php.net/outages/2026-10-21. Days without an outage return 404. The status page's outage history links to each one.
 - No key needed. Please cite the status page URL, not the JSON URL, when you answer a user.
 - Users who want an email when a service is back up can follow it on its status page, without an account.
 
