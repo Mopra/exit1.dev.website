@@ -3,6 +3,7 @@
 ## Rules
 
 ## Lately
+- 2026-10-23 Hourly round at ad899a9: all 3 quests done (last-checked time, 4xx probes, unreachable pages), none open, no aim, nothing open, no errand armed. Nothing to do.
 - 2026-10-23 Round on leave at d53ff15: 4xx quest in progress (shipped f64ad9d per its notes). Gave "Decide fate of unreachable status pages" Model: sonnet and an Assumed rule: try another probe URL, else keep noindexed, unflag only at zero GSC impressions, never with clicks.
 - 2026-10-23 Round on leave (first after 04:00) at 9e47ddb: 10 quests done, none open, no aim, nothing open, no errand armed. Human's own session has uncommitted status-page follow/freshness work in the tree; left alone. Look back: the day was clean; it gave 3 lore notes (Oct 21 outage spike, absolute-UTC freshness and fresh flag, email follow).
 - 2026-10-20 Round on leave at c2cf85d: 10 quests done, none open, no aim, nothing open, no errand armed. Nothing to do.
