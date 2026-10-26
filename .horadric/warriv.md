@@ -3,6 +3,7 @@
 ## Rules
 
 ## Lately
+- 2026-10-26 Round on leave (first after 04:00) at 0850291: 3 quests done, none open, no aim, nothing open, no errand armed. Nothing to do. Look back: the day was clean.
 - 2026-10-23 Hourly round at 630a400: 3 quests done, none open, no aim, nothing open, no errand armed. Nothing to do.
 - 2026-10-23 Hourly round at ad899a9: all 3 quests done (last-checked time, 4xx probes, unreachable pages), none open, no aim, nothing open, no errand armed. Nothing to do.
 - 2026-10-23 Round on leave at d53ff15: 4xx quest in progress (shipped f64ad9d per its notes). Gave "Decide fate of unreachable status pages" Model: sonnet and an Assumed rule: try another probe URL, else keep noindexed, unflag only at zero GSC impressions, never with clicks.
