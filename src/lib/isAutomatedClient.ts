@@ -11,7 +11,8 @@
  * page, so left alone they land in GA4 as sessions and in Speed Insights as
  * Core Web Vitals samples, which is what makes traffic look like it doubled.
  *
- * Deliberately narrow. Only explicit automation markers count. Heuristics like
+ * Deliberately narrow. Only explicit automation markers count, plus a short
+ * list of referrers we have confirmed are spoofed by scrapers. Heuristics like
  * "reports zero plugins" or "unusual language header" would drop real
  * visitors, and a silently under-counted funnel is worse than a slightly
  * polluted one. A bot that patches `navigator.webdriver` gets through, and
@@ -34,10 +35,24 @@ const AUTOMATION_GLOBALS = [
   "domAutomationController",
 ];
 
+// Referrer hosts that only ever arrive as a scraper's spoofed Referer. Each
+// entry is a site that does not link to us, sending sessions with zero
+// engagement. aocr.org: 103 sessions 2026-10-27 to 10-29, all Windows Chrome
+// from data-centre cities, 0s on page, patched past every check below.
+const SPOOFED_REFERRERS = ["aocr.org"];
+
+function hasSpoofedReferrer(): boolean {
+  if (!document.referrer) return false;
+  const host = new URL(document.referrer).hostname;
+  return SPOOFED_REFERRERS.some((d) => host === d || host.endsWith(`.${d}`));
+}
+
 export function isAutomatedClient(): boolean {
   if (typeof window === "undefined") return false;
 
   try {
+    if (hasSpoofedReferrer()) return true;
+
     // The standardised flag. Playwright, Puppeteer and Selenium all set it
     // unless the operator has gone out of their way to patch it out.
     if (navigator.webdriver === true) return true;
