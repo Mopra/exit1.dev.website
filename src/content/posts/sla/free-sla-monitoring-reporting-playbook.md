@@ -44,7 +44,7 @@ The single highest-leverage move for clean reports: tag monitors by client or in
 - That lets you slice analytics for just the monitors tied to one SLA.
 - It also keeps multi-client reporting from turning into a copy-paste nightmare.
 
-Do this once at setup and every export afterward stays scoped and honest.
+Do this once at setup and every export afterward stays scoped and honest. In Exit1.dev, folders do the tagging: put each client's monitors in their own folder, and an SLA report scoped to that folder picks up new monitors automatically.
 
 ## Step 4: Build Real-Time Dashboards For Operators And Execs
 
@@ -67,8 +67,8 @@ Exit1.dev keeps up to 90 days of retention and never throttles data access on th
 
 No one wants to copy-paste charts at month-end. Automate it:
 
-- Schedule CSV or PDF exports directly from Exit1.dev.
-- Use the Exit1.dev API on a cron job or serverless function to fetch uptime summaries and logs, then email them automatically. The API is part of the free tier, so automation costs nothing.
+- On Pro, create an [SLA report](https://docs.exit1.dev/analytics/sla-reports) per client or contract. Set the target, pick the monitors or folders and the client's time zone, and add up to 10 recipients. On the 1st of every month, each recipient gets a branded email with availability against target, error budget, breach status and the incident log. Maintenance windows are excluded automatically.
+- On the free tier, use the Exit1.dev API on a cron job or serverless function to fetch uptime summaries and logs, then email them yourself. The API is part of every plan, so this route costs nothing.
 - Pipe data into Sheets or Notion if leadership wants commentary alongside metrics, and combine it with your billing or ticketing system for one-click client packs.
 
 ## Step 7: Publish Incident Narratives Fast
@@ -89,7 +89,7 @@ Auditors want proof you followed the process, not marketing copy.
 
 ## Step 9: Close The Loop With Customers
 
-Reporting isn't finished when you send a PDF. Follow up:
+Reporting isn't finished when you send the report. Follow up:
 
 - Host quarterly reviews. Walk through wins, misses, and upcoming improvements.
 - Invite feedback on the report format. Adapt without sacrificing clarity.
@@ -117,13 +117,13 @@ You're already doing the work. Repurpose it:
 
 No. Export as much as you want. The free tier doesn't throttle data access, and retention runs up to 90 days.
 
-### Can I schedule SLA exports automatically?
+### Can I schedule SLA reports automatically?
 
-Yes. Use the Exit1.dev API on a cron job or serverless function to pull reports monthly and email them. The API is part of the free tier, so it costs nothing.
+Yes. On Pro, [SLA reports](https://docs.exit1.dev/analytics/sla-reports) email a branded monthly summary to up to 10 recipients on the 1st of each month, in the report's own time zone. On the free tier, use the Exit1.dev API on a cron job or serverless function to pull the numbers monthly and email them yourself. The API is part of every plan, so that route costs nothing.
 
 ### How do I report per client or per contract?
 
-Tag each monitor with its contract or service level, then filter analytics and exports by that tag. One setup step keeps multi-client reports clean.
+Group each client's monitors in a folder, then filter analytics and exports by that folder. On Pro, point an SLA report at the folder and it reports on exactly those monitors. One setup step keeps multi-client reports clean.
 
 ### How do I include incident notes in a report?
 

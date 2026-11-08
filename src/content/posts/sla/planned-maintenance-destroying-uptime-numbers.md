@@ -37,7 +37,7 @@ When you put a check into [maintenance mode](/maintenance-mode) before planned w
 
 **Logs are tagged, not deleted.** The check keeps running during maintenance. Response times and status codes are recorded and flagged as maintenance data. You get full visibility into what happened during the window without polluting your uptime metrics.
 
-**Reports are clean by default.** When you pull [SLA reports](/blog/free-sla-monitoring-reporting-playbook) or export to BigQuery, maintenance periods are already separated. No manual adjustments. No footnotes. No arguments about what counts.
+**Reports are clean by default.** [SLA reports](https://docs.exit1.dev/analytics/sla-reports) on Pro leave maintenance windows out of the availability number and list them as excluded time, so clients can see what was excluded and why. If you build reports yourself from the [free API](/blog/free-sla-monitoring-reporting-playbook), maintenance periods are already flagged. No manual adjustments. No footnotes. No arguments about what counts.
 
 ## Real-world impact on SLA tiers
 

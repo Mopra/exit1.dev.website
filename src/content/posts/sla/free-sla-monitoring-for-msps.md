@@ -37,7 +37,7 @@ The result? Every new client hits compliance in under a day, and the ops team is
 
 Clients don’t want raw logs. They want proof you met the SLA:
 
-- Send branded monthly summaries powered by the [SLA reporting toolkit](/blog/free-sla-monitoring-reporting-playbook).
+- Send branded monthly summaries. On Pro, [SLA reports](https://docs.exit1.dev/analytics/sla-reports) email each client their month on the 1st with your logo and colors: availability against target, error budget and the incident log. On the free tier, build them yourself with the [SLA reporting toolkit](/blog/free-sla-monitoring-reporting-playbook).
 - Attach incident timelines generated from the [postmortem templates](/blog/incident-postmortem-templates-with-exit1). Keep them plain language.
 - During QBRs, reference the flagship [Free SLA Monitoring Tools breakdown](/blog/free-sla-monitoring-tools) to show why your stack beats DIY setups.
 

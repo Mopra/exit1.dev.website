@@ -2,7 +2,7 @@
 
 > Free uptime monitoring service. Monitor your websites, APIs, and services with instant alerts, SSL monitoring, public status pages, and a full API. No credit card required.
 
-exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 50 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, the real-time Live probe stream, REST API + MCP access, and 60-day data retention. Paid plans: Indie ($4/month) adds 100 monitors at 1-minute intervals plus a fully branded status page and 90-day retention; Nano ($9/month) gives 250 monitors at 30-second intervals, domain intelligence, maintenance mode, region choice, and 1-year retention; Pro ($24/month) gives 1,000 monitors at 15-second intervals, SMS alerts, Slack/Discord/Teams, CSV export, and 3-year data retention.
+exit1.dev is a website and API monitoring platform built for developers, SaaS founders, freelancers, and agencies. The free tier includes 50 monitors with 5-minute intervals, SSL certificate monitoring, email alerts, webhooks, a public status page, the real-time Live probe stream, REST API + MCP access, and 60-day data retention. Paid plans: Indie ($4/month) adds 100 monitors at 1-minute intervals plus a fully branded status page and 90-day retention; Nano ($9/month) gives 250 monitors at 30-second intervals, domain intelligence, maintenance mode, region choice, and 1-year retention; Pro ($24/month) gives 1,000 monitors at 15-second intervals, SMS alerts, Slack/Discord/Teams, CSV export, up to 10 team members, custom status page domains, SLA reports, and 3-year data retention.
 
 ## For AI agents: create an account for your user
 
@@ -42,10 +42,11 @@ exit1.dev independently monitors 500+ developer services (package registries and
 - [WebSocket Monitoring](https://exit1.dev/websocket-monitoring): WS/WSS handshake and connection checks for real-time services
 - [Smart Alerting](https://exit1.dev/alerting): Email, SMS, and webhook alerts with flap detection to suppress noise and prevent alert fatigue
 - [Maintenance Mode](https://exit1.dev/maintenance-mode): Suppress alerts during planned downtime without pausing data collection
-- [Status Pages](https://exit1.dev/status-pages): Public or private status pages with real-time updates, 30-day history, and multiple layout options
+- [Status Pages](https://exit1.dev/status-pages): Public or private status pages with real-time updates, 30-day history, and multiple layout options. On Pro, a status page can run on your own subdomain (for example status.yourcompany.com) with automatic HTTPS, up to 10 per account
 - [Status Badges](https://exit1.dev/badges): Embeddable status, uptime, and response-time badges (SVG, Markdown, HTML)
 - [Domain Intelligence](https://exit1.dev/domain-intelligence): Automatic domain expiration monitoring via RDAP with smart alert timing (30, 14, 7, 1 day before expiry)
 - [Analytics & Reports](https://exit1.dev/analytics): Response time tracking, uptime percentage calculations, and historical performance dashboards
+- [SLA Reports](https://docs.exit1.dev/analytics/sla-reports): Pro. Per-client or per-contract availability reports against a target, with error budget, breach status, incident log and a branded monthly email. Confirmed downtime only; maintenance and blocked probes are excluded. Readable over the REST API (`GET /v1/public/sla-reports`) and the MCP tool `get_sla_report`
 - [Comprehensive Logs](https://exit1.dev/logs): Searchable monitoring logs with filtering and data export (CSV, JSON)
 - [API & Webhooks](https://exit1.dev/api-webhooks): RESTful API with HMAC authentication for full CRUD monitor management and webhook integrations with signature verification
 - [MCP Integration](https://exit1.dev/mcp): Model Context Protocol server (hosted at `https://app.exit1.dev/mcp/v1`, or `exit1-mcp` on npm) so AI assistants can set up monitoring and query monitors, history, and stats directly. With no account yet, the npm package's `create_account` tool signs the user up
@@ -69,7 +70,7 @@ exit1.dev integrates with Slack, Discord, PagerDuty, Opsgenie, Microsoft Teams, 
 
 ## Pricing
 
-- [Pricing](https://exit1.dev/pricing): Four tiers: Free ($0, 50 monitors, 5-min checks, email alerts, 1 status page, 1 API key + MCP), Indie ($4/mo or $3/mo annual, 100 monitors, 1-min checks, branded status page, 3 API keys, 90-day retention), Nano ($9/mo or $7/mo annual, 250 monitors, 30-sec checks, domain intelligence, region choice, 1-year retention), and Pro ($24/mo or $20/mo annual, 1,000 monitors, 15-sec checks, SMS, all alert channels, CSV export, 3-year retention). The ladder is monotonic: every tier is a strict superset of the one below it, with check interval as the primary axis. API and MCP access are on every tier including Free, as is the real-time Live probe stream.
+- [Pricing](https://exit1.dev/pricing): Four tiers: Free ($0, 50 monitors, 5-min checks, email alerts, 1 status page, 1 API key + MCP), Indie ($4/mo or $3/mo annual, 100 monitors, 1-min checks, branded status page, 3 API keys, 90-day retention), Nano ($9/mo or $7/mo annual, 250 monitors, 30-sec checks, domain intelligence, region choice, 1-year retention), and Pro ($24/mo or $20/mo annual, 1,000 monitors, 15-sec checks, SMS, all alert channels, CSV export, 10 team members, custom status page domains, SLA reports, 3-year retention). The ladder is monotonic: every tier is a strict superset of the one below it, with check interval as the primary axis. API and MCP access are on every tier including Free, as is the real-time Live probe stream.
 - [Competitor Comparison](https://exit1.dev/compare): Side-by-side comparison against UptimeRobot, Better Stack, Hyperping, and Pingdom. Free plan against free plan, and similarly-priced paid plans against each other
 - [Which plan are you?](https://exit1.dev/why-upgrade): Self-diagnostic guide to the persona each tier is built for and the moment you outgrow the one below
 

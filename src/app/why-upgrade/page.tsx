@@ -188,12 +188,12 @@ const TIERS: Tier[] = [
       {
         pain: 'Proof of uptime that expires before the contract',
         solvedBy:
-          '3-year log retention, plus CSV export for analysis outside the app.',
+          '3-year log retention, CSV export, and SLA reports that email each client their month on the 1st.',
       },
       {
         pain: 'One branded page per client, past five',
         solvedBy:
-          '50 custom-branded status pages — one per client, their look, no exit1 badge.',
+          '50 custom-branded status pages, one per client, their look, no exit1 badge. Up to 10 can run on your own domains.',
       },
       {
         pain: 'Running the whole fleet across a team',

@@ -24,6 +24,9 @@ export default function RoadmapPage() {
                 <li>• Real-time alerts via email, Slack, and Discord</li>
                 <li>• SSL certificate monitoring</li>
                 <li>• Global monitoring locations</li>
+                <li>• Team members with editor and viewer roles (Pro)</li>
+                <li>• Custom domains for status pages (Pro)</li>
+                <li>• SLA reports with a monthly client email (Pro)</li>
               </ul>
             </div>
             
@@ -40,7 +43,6 @@ export default function RoadmapPage() {
               <h2 className="text-2xl font-semibold mb-4">📋 Planned</h2>
               <ul className="space-y-2">
                 <li>• Advanced alerting rules and conditions</li>
-                <li>• Team collaboration features</li>
                 <li>• Custom monitoring intervals</li>
                 <li>• Integration with more third-party services</li>
                 <li>• White-label monitoring solutions</li>

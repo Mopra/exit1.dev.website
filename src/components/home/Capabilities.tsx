@@ -33,6 +33,12 @@ const CAPABILITIES: Capability[] = [
     body: 'Drag-and-drop builder, real-time updates, uptime history, and your own domain. Show customers you are up in a few minutes, not a sprint.',
     meta: ['Real-time', 'Custom domain', 'Uptime history'],
   },
+  {
+    n: '05',
+    title: 'SLA reports your clients can read.',
+    body: 'Set a target per client or contract and get availability, error budget and an incident log for every month. A branded report lands in their inbox on the 1st.',
+    meta: ['Error budget', 'Monthly email', 'Pro'],
+  },
 ];
 
 /**

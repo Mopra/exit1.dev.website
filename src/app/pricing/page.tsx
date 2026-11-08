@@ -45,7 +45,7 @@ const featureGroups: FeatureGroup[] = [
       { label: "Drag-and-drop builder", values: { free: false, indie: true, nano: true, pro: true } },
       { label: "Custom branding (logo, colors, favicon)", values: { free: false, indie: true, nano: true, pro: true } },
       { label: "Remove exit1.dev badge branding", values: { free: false, indie: true, nano: true, pro: true } },
-      { label: "Custom domain", values: { free: false, indie: false, nano: false, pro: true }, comingSoon: true },
+      { label: "Custom domain", values: { free: false, indie: false, nano: false, pro: true } },
     ],
   },
   {
@@ -69,7 +69,7 @@ const featureGroups: FeatureGroup[] = [
     rows: [
       { label: "Log retention", values: { free: "60 days", indie: "90 days", nano: "365 days (1 yr)", pro: "1,095 days (3 yr)" } },
       { label: "Analytics dashboards", values: { free: true, indie: true, nano: true, pro: true } },
-      { label: "SLA reporting", values: { free: false, indie: false, nano: false, pro: true }, comingSoon: true },
+      { label: "SLA reporting", values: { free: false, indie: false, nano: false, pro: true } },
     ],
   },
   {

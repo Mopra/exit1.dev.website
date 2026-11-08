@@ -78,7 +78,7 @@ const paidRows: Row[] = [
   { feature: 'Webhooks', values: ['100', true, true, true] },
   { feature: 'REST API', values: [true, true, true, true] },
   { feature: 'MCP (Claude, Cursor, Windsurf)', values: [true, false, false, false] },
-  { feature: 'Branded status pages', values: ['50', 'Unlimited', 'Multiple', '1 + custom domain'] },
+  { feature: 'Branded status pages', values: ['50 + custom domains', 'Unlimited', 'Multiple', '1 + custom domain'] },
   { feature: 'CSV bulk export', values: [true, false, false, false] },
   { feature: 'Log retention', values: ['3 years', '24 months', 'Unlimited incidents', '7 days'] },
 ];
@@ -393,8 +393,8 @@ export default function ComparePage() {
                   <Check className="w-5 h-5 text-foreground/70 mt-0.5 flex-shrink-0" />
                   <span>
                     <strong className="text-foreground">Where others win:</strong> Better Stack ships
-                    unlimited SMS at its paid tier and real on-call scheduling. Hyperping puts a
-                    custom domain on its status page today. We&apos;re being honest about that.
+                    unlimited SMS at its paid tier and real on-call scheduling. We&apos;re being
+                    honest about that.
                   </span>
                 </li>
               </ul>

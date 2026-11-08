@@ -40,7 +40,7 @@ On exit1.dev the free plan includes SSL certificate monitoring, JSON validation,
 
 - **Indie ($4/month):** 100 monitors, 1-minute checks, a fully branded status page, 90-day retention.
 - **Nano ($9/month):** 250 monitors, 30-second checks, region choice, 1-year retention.
-- **Pro ($24/month):** 1,000 monitors, 15-second checks, SMS, Slack, Discord and Teams alerts, CSV export, 3-year retention.
+- **Pro ($24/month):** 1,000 monitors, 15-second checks, SMS, Slack, Discord and Teams alerts, CSV export, SLA reports with a branded monthly email, 3-year retention.
 
 Details are on the [pricing page](/pricing).
 

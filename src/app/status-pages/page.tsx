@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import ProductPage from '@/components/ProductPage';
 import StructuredData from '@/components/StructuredData';
+import { PageSection, SectionContent } from '@/components/PageLayout';
 import {
   Globe,
   Calendar,
@@ -15,7 +16,8 @@ import {
   BarChart3,
   FileText,
   Shield,
-  Code
+  Code,
+  Link2
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -79,6 +81,26 @@ const StatusPages = () => {
       title: "Browser Tab Alerts",
       description: "When a service goes down, the page title changes and the favicon pulses with a red indicator. Notice issues even when the tab is in the background.",
       icon: <Bell className="w-6 h-6 text-foreground" />
+    },
+    {
+      title: "Your Own Domain",
+      description: "Put a status page on status.yourcompany.com. Add two DNS records and we issue the HTTPS certificate for you. Up to 10 custom domains on Pro.",
+      icon: <Link2 className="w-6 h-6 text-foreground" />
+    }
+  ];
+
+  const domainSteps = [
+    {
+      title: "Enter your subdomain",
+      description: "Open the status page in the editor and type the address you want, like status.acme.com."
+    },
+    {
+      title: "Add two DNS records",
+      description: "A TXT record proves you own the domain. A CNAME to domains.exit1.dev routes visitors to your page. Both are shown in the editor with copy buttons."
+    },
+    {
+      title: "HTTPS, done for you",
+      description: "Once the records resolve, the certificate is issued and renewed automatically. Using Cloudflare? Keep the record proxied."
     }
   ];
 
@@ -124,6 +146,11 @@ const StatusPages = () => {
       competitors: false
     },
     {
+      feature: "Custom domain with HTTPS",
+      exit1: "Pro, up to 10",
+      competitors: "Extra cost"
+    },
+    {
       feature: "SSL included",
       exit1: true,
       competitors: "Extra cost"
@@ -143,7 +170,15 @@ const StatusPages = () => {
   const faq = [
     {
       question: "How often does the status page update?",
-      answer: "The status page automatically refreshes every 60 seconds, showing the latest status from your monitors. No manual refresh needed - your customers always see current data."
+      answer: "The status page automatically refreshes every 60 seconds, showing the latest status from your monitors. No manual refresh needed: your customers always see current data."
+    },
+    {
+      question: "Can I use my own domain for the status page?",
+      answer: "Yes, on Pro. Each status page can have one custom subdomain, like status.yourcompany.com, with up to 10 per account. Add a TXT record to prove ownership and a CNAME to domains.exit1.dev, and we issue the HTTPS certificate automatically. Apex domains (yourcompany.com without a subdomain) are not supported."
+    },
+    {
+      question: "I use Cloudflare for DNS. Does a custom domain still work?",
+      answer: "Yes. You can keep the CNAME proxied (orange cloud). If your domain has CAA records, make sure they allow letsencrypt.org and pki.goog so the certificate can be issued."
     },
     {
       question: "Can I show different checks to different audiences?",
@@ -253,6 +288,46 @@ const StatusPages = () => {
         title="Keep Your Customers Informed"
         subtitle="Beautiful public status pages"
         description="Create real-time status pages that show your customers exactly what's up and what's down. Build trust through transparency with 30-day history and a drag & drop builder."
+        heroExtra={
+          <PageSection id="custom-domain" className="py-16 scroll-mt-20">
+            <SectionContent size="lg">
+              <div className="text-center mb-12">
+                <p className="text-sm text-foreground/50 uppercase tracking-wide font-medium mb-3">Pro</p>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
+                  Your status page, on your domain
+                </h2>
+                <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+                  Serve any status page from status.yourcompany.com. Your customers stay on your brand,
+                  and HTTPS is handled for you.
+                </p>
+              </div>
+              <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {domainSteps.map((step, index) => (
+                  <li key={step.title} className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6">
+                    <span className="text-sm font-mono text-foreground/50">Step {index + 1}</span>
+                    <h3 className="text-lg font-semibold mt-2 mb-2">{step.title}</h3>
+                    <p className="text-foreground/70 leading-relaxed">{step.description}</p>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-8 rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6 font-mono text-sm overflow-x-auto">
+                <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 min-w-max">
+                  <span className="text-foreground/50">TXT</span>
+                  <span>_exit1-verify.status.acme.com</span>
+                  <span className="text-foreground/50">CNAME</span>
+                  <span>status.acme.com &rarr; domains.exit1.dev</span>
+                </div>
+              </div>
+              <p className="mt-6 text-center text-foreground/60">
+                Full setup guide in the{' '}
+                <a href="https://docs.exit1.dev/status-pages/custom-domain" className="underline underline-offset-4 hover:text-foreground">
+                  docs
+                </a>
+                .
+              </p>
+            </SectionContent>
+          </PageSection>
+        }
         features={features}
         ctaText="Create Your Status Page"
         ctaHref="https://app.exit1.dev/"
@@ -264,7 +339,7 @@ const StatusPages = () => {
         relatedFeatures={relatedFeatures}
         nanoUpgrade={{
           title: "Need more status pages?",
-          description: "Nano ($9/mo) unlocks the drag & drop builder and 5 pages. Pro gives you 50 — with custom branding across all paid plans."
+          description: "Nano ($9/mo) unlocks the drag & drop builder and 5 pages. Pro gives you 50 pages and up to 10 custom domains, with custom branding across all paid plans."
         }}
       />
     </>
