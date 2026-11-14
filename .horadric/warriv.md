@@ -3,6 +3,7 @@
 ## Rules
 
 ## Lately
+- 2026-11-14 Off-page listicles quest stopped again, still waiting on agents; told it to keep waiting and close. If it stops a third time with no progress, check git log for its commits.
 - 2026-11-14 Off-page listicles quest stopped with agents still out; told it to wait, finish and close. Nothing for the human.
 - 2026-11-14 Overlap check: "Widen the nvoke search" vs "Review and start the two new nvoke campaigns": review is already done, so left apart; gave Model: sonnet and scoped it to the SaaS search only.
 - 2026-10-26 Hourly rounds at 3988e18, afb6f4d, 5a542cc and 35128ff: 3 quests done, none open, no aim, nothing open, no errand armed. Nothing to do.
