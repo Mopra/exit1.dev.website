@@ -22,14 +22,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free Uptime Monitor - 50 Free Monitors & Fast Intervals | exit1.dev',
     description:
-      '50 free monitors, fast intervals, webhook + email alerts, SSL, API access, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
+      '50 free monitors, 5-minute checks, webhook + email alerts, SSL, API access, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
     type: 'website',
     url: 'https://exit1.dev/free-uptime-monitor',
   },
   twitter: {
     title: 'Free Uptime Monitor - 50 Free Monitors & Fast Intervals | exit1.dev',
     description:
-      '50 free monitors, fast intervals, webhook + email alerts, SSL, API access, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
+      '50 free monitors, 5-minute checks, webhook + email alerts, SSL, API access, and analytics. Paid plans scale to 1,000 monitors and 15-second checks. The free uptime monitor built for people who actually ship.',
     card: 'summary_large_image',
   },
   alternates: {
