@@ -22,18 +22,18 @@ const AGENT_SIGNUP_EXAMPLE = `POST https://app.exit1.dev/oauth/agent-signup
 {"email": "you@example.com", "agent_name": "Claude Code"}`;
 
 export const metadata: Metadata = {
-  title: "Set Up Uptime Monitoring From Your Editor | MCP Server",
-  description: "Let Claude, Cursor or Codex read your repo, create the monitors, wire up alerts and fire a real test alert to prove delivery works. One command, no API key. Then ask about uptime in plain language.",
-  keywords: "MCP, Model Context Protocol, MCP server, AI monitoring, Claude Code, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, uptime monitoring AI, agent monitoring setup, conversational monitoring",
+  title: "Uptime Monitoring MCP Server for Claude, Cursor and Codex",
+  description: "exit1.dev is an uptime monitor with a hosted MCP server on every plan, Free included. Claude, Cursor or Codex creates the monitors, wires up alerts and fires a real test alert. One command, no API key.",
+  keywords: "uptime monitoring MCP server, uptime monitor with MCP, MCP uptime monitor, MCP, Model Context Protocol, MCP server, AI monitoring, Claude Code, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, uptime monitoring AI, agent monitoring setup, conversational monitoring",
   openGraph: {
-    title: "Set Up Uptime Monitoring From Your Editor | exit1.dev MCP Server",
-    description: "One command connects Claude, Cursor or Codex to exit1. Your assistant reads the repo, creates the monitors, configures alerts, and proves delivery works.",
+    title: "Uptime Monitoring MCP Server | exit1.dev",
+    description: "One command connects Claude, Cursor or Codex to exit1.dev. Your assistant reads the repo, creates the monitors, configures alerts, and proves delivery works. On every plan, Free included.",
     type: "website",
     url: "https://exit1.dev/mcp",
   },
   twitter: {
-    title: "Set Up Uptime Monitoring From Your Editor | exit1.dev MCP Server",
-    description: "One command connects Claude, Cursor or Codex to exit1. Your assistant reads the repo and sets the monitoring up for you.",
+    title: "Uptime Monitoring MCP Server | exit1.dev",
+    description: "One command connects Claude, Cursor or Codex to exit1.dev. Your assistant reads the repo and sets the monitoring up for you.",
     card: "summary_large_image",
   },
   alternates: {
@@ -75,55 +75,18 @@ const MCPPage = () => {
     },
   ];
 
-  const comparisonTable = [
-    {
-      feature: "Agent creates and configures monitors for you",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "Hosted MCP server with OAuth (no API key)",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "Ships a setup playbook as an MCP prompt",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "Natural language monitoring queries",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "Per-scope permissions, revocable per client",
-      exit1: true,
-      competitors: "N/A",
-    },
-    {
-      feature: "Listed on the official MCP registry",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "Historical data and multi-range stat comparison",
-      exit1: true,
-      competitors: false,
-    },
-    {
-      feature: "Available on the free plan",
-      exit1: true,
-      competitors: "Enterprise only",
-    },
-  ];
-
+  // Competitor facts below were checked against each vendor's own docs on
+  // 2026-11-14. Re-check before editing: this page used to claim nobody else
+  // had an MCP server, and that stopped being true.
   const faq = [
+    {
+      question: "Which uptime monitors have an MCP server?",
+      answer: "As of November 2026, exit1.dev, UptimeRobot, Better Stack, Hyperping and Checkly run hosted MCP servers. StatusCake ships a local, read-only one. Pingdom, Uptime Kuma and Gatus do not publish an official server. exit1.dev includes MCP on every plan, Free included. It also lets your agent create the account, and its setup playbook ends by firing a real test alert.",
+    },
+    {
+      question: "What does uptime monitoring with MCP cost on exit1.dev?",
+      answer: "MCP is included on every plan. Free is $0 for 50 monitors at 5-minute checks. Indie is $4/month for 100 monitors at 1-minute checks. Nano is $9/month for 250 monitors at 30-second checks. Pro is $24/month for 1,000 monitors at 15-second checks. Every plan also includes the REST API.",
+    },
     {
       question: "What is MCP?",
       answer: "MCP (Model Context Protocol) is an open standard that lets AI assistants connect to external tools and data. Exit1's MCP server gives your assistant both read and write access to your monitoring, so it can set monitoring up for you, then answer questions about it in plain language.",
@@ -251,13 +214,12 @@ const MCPPage = () => {
       <ProductPage
         title="Set up monitoring from your editor"
         subtitle="One command. Your AI assistant does the rest."
-        description="Connect exit1.dev to Claude, Cursor, Codex or any MCP client. Your assistant reads the repo, works out what should be monitored, creates the checks, configures alerts, and fires a real test alert to prove delivery works. Then you can just ask it about uptime."
+        description="exit1.dev is an uptime monitor with an MCP server on every plan, Free included. Connect it to Claude, Cursor, Codex or any MCP client. Your assistant reads the repo, works out what should be monitored, creates the checks, configures alerts, and fires a real test alert to prove delivery works. Then you can just ask it about uptime."
         features={features}
         ctaText="Get started free"
         ctaHref="https://app.exit1.dev/sign-up"
-        seoTitle="Set Up Uptime Monitoring From Your Editor | exit1.dev MCP Server"
+        seoTitle="Uptime Monitoring MCP Server | exit1.dev"
         seoDescription="One command connects Claude, Cursor or Codex to exit1. Your assistant reads the repo, creates the monitors, configures alerts, and proves delivery works. No API key required."
-        comparisonTable={comparisonTable}
         faq={faq}
         technicalDetails={technicalDetails}
         relatedFeatures={relatedFeatures}

@@ -55,7 +55,10 @@
         { "name": "vs Better Stack", "href": "/compare/better-stack" },
         { "name": "vs Freshping", "href": "/compare/freshping" },
         { "name": "vs StatusCake", "href": "/compare/statuscake" },
-        { "name": "vs Hyperping", "href": "/compare/hyperping" }
+        { "name": "vs Hyperping", "href": "/compare/hyperping" },
+        { "name": "vs Uptime Kuma", "href": "/compare/uptime-kuma" },
+        { "name": "vs Gatus", "href": "/compare/gatus" },
+        { "name": "vs Checkly", "href": "/compare/checkly" }
       ]
     },
     {

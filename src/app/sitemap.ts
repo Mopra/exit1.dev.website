@@ -47,7 +47,7 @@ const CONTENT_REVISIONS: Record<string, string> = {
   '/analytics': '2026-08-28',
   '/api-webhooks': '2026-08-28',
   '/badges': '2026-08-28',
-  '/compare': '2026-08-28',
+  '/compare': '2026-11-14',
   '/domain-intelligence': '2026-08-28',
   '/features': '2026-08-28',
   '/free-uptime-monitor': '2026-08-28',
@@ -56,6 +56,7 @@ const CONTENT_REVISIONS: Record<string, string> = {
   '/global-monitoring': '2026-08-28',
   '/icmp-monitoring': '2026-08-28',
   '/live-checks': '2026-08-28',
+  '/mcp': '2026-11-14',
   '/logs': '2026-08-28',
   '/maintenance-mode': '2026-08-28',
   '/ssl-monitoring': '2026-08-28',
@@ -66,9 +67,9 @@ const CONTENT_REVISIONS: Record<string, string> = {
   '/websocket-monitoring': '2026-08-28',
 };
 
-/** All five head-to-head pages are generated from competitors.ts, whose exit1
- *  columns were corrected in the same pass. */
-const COMPARE_PAGES_REVISED = '2026-08-28';
+/** Every head-to-head page is generated from competitors.ts, so they share one
+ *  revision date. */
+const COMPARE_PAGES_REVISED = '2026-11-14';
 
 /**
  * Routes that have a `page.tsx` but must never be advertised to crawlers.

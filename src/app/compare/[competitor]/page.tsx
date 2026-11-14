@@ -308,6 +308,14 @@ export default async function CompareCompetitorPage({ params }: Props) {
           </PageSection>
         )}
 
+        {!c.paid && c.pricingNote && (
+          <PageSection className="pt-0 pb-8">
+            <SectionContent size="lg">
+              <p className="text-xs text-foreground/40 leading-relaxed">{c.pricingNote}</p>
+            </SectionContent>
+          </PageSection>
+        )}
+
         {/* Honest wins/losses */}
         <PageSection className="pt-4 pb-12">
           <SectionContent size="lg">

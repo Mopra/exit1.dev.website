@@ -2,11 +2,11 @@
 title: "MCP Is Here: Query Your Monitors from Claude, Cursor, VS Code & More"
 author: "Morten Pradsgaard"
 date: "2026-03-31"
-updated: "2026-08-28"
+updated: "2026-11-14"
 category: "ai"
-excerpt: "Connect exit1.dev to your AI assistant via the Model Context Protocol. Ask about uptime, failures, and response times in plain English."
+excerpt: "Connect exit1.dev to your AI assistant via the Model Context Protocol. Let it create monitors and set up alerts, then ask about uptime, failures, and response times in plain English."
 readTime: "4 min read"
-metaDescription: "exit1.dev now supports MCP. Connect to Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more. Query your monitoring data in natural language."
+metaDescription: "exit1.dev supports MCP with 14 tools, read and write. Connect Claude, Cursor, VS Code, Windsurf, Codex, Gemini, and more with one command and no API key."
 ---
 
 # MCP Is Here: Query Your Monitors from AI
@@ -17,30 +17,47 @@ That's why we built an [MCP integration](/mcp) for exit1.dev.
 
 ## What Is MCP?
 
-MCP — Model Context Protocol — is an open standard that lets AI assistants talk to external tools. Think of it as a bridge between your AI assistant and your monitoring data. Once connected, tools like Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, and ChatGPT can pull live data from exit1.dev and answer questions about your checks, uptime, and incidents.
+MCP (Model Context Protocol) is an open standard that lets AI assistants talk to external tools. Think of it as a bridge between your AI assistant and your monitoring. Once connected, tools like Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, and ChatGPT can pull live data from exit1.dev, answer questions about your checks, uptime, and incidents, and set monitoring up for you.
 
 No dashboards. No API calls. Just ask.
 
 ## What You Can Do
 
-Once connected, your AI assistant has access to 5 read-only tools:
+Once connected, your AI assistant has 14 tools: 7 read and 7 write.
 
-- **List checks** — see all your monitors and their current status
-- **Get check details** — response time, SSL info, maintenance windows
-- **Pull history** — timestamps, status codes, and errors for any check
-- **Query stats** — uptime %, average/min/max response times across time ranges
-- **View status pages** — current snapshot of any public status page
+The read tools:
+
+- **`get_account`**: your plan and its limits, so the assistant plans within them
+- **`list_checks`**: all your monitors and their current status
+- **`get_check`**: details for one check
+- **`get_check_history`**: timestamps, status codes, and errors for any check
+- **`get_check_stats`**: uptime % and response times across time ranges
+- **`get_status_page`**: current snapshot of a status page
+- **`get_alert_settings`**: where your alerts go today
+
+The write tools are `create_check`, `update_check`, `toggle_check`, `delete_check`, `set_email_alerts`, `add_webhook_alert`, and `send_test_alert`. There is also a `setup_monitoring` prompt that carries the full setup playbook.
 
 Some real prompts you can try:
 
+- "Set up monitoring for this project"
 - "Are any of my monitors down right now?"
 - "What's the uptime for my API check over the last 30 days?"
 - "Show me the last 10 failures for production"
-- "Compare response times this week vs last week"
+- "Add a check on staging and send alerts to #ops in Slack"
 
 ## Setup in 2 Minutes
 
-1. **Create an API key** in your exit1.dev dashboard (Settings > API Keys) with `checks:read` scope
+The hosted server lives at `https://app.exit1.dev/mcp/v1` and uses OAuth 2.1. There is no API key. In Claude Code, run one command:
+
+```bash
+claude mcp add --transport http exit1 https://app.exit1.dev/mcp/v1
+```
+
+Your browser opens, you sign in or sign up, approve the permissions, and you're connected.
+
+If your client doesn't support the hosted server yet, run the `exit1-mcp` npm package locally with an API key. It exposes the same tools.
+
+1. **Create an API key** in your exit1.dev dashboard (Settings > API Keys)
 2. **Add the MCP config** to your AI assistant:
 
 ```json
@@ -57,23 +74,27 @@ Some real prompts you can try:
 }
 ```
 
-3. **Restart your AI assistant** — that's it
+3. **Restart your AI assistant**
+
+No account yet? Your agent can create one for you with your email. Checks run right away. Alerts start once you claim the account from the email exit1 sends you.
 
 We have setup instructions for [Claude, Cursor, VS Code, Windsurf, Codex, Gemini, Goose, ChatGPT, and more](https://docs.exit1.dev/integrations/mcp) in the docs.
 
-## Why Read-Only?
+## What the Write Tools Do
 
-The MCP server only reads data. It can't create, modify, or delete checks. Your API key only needs `checks:read` scope. This is intentional — your AI assistant should be able to answer questions, not accidentally delete your production monitors.
+Your assistant can create, update and pause checks. It can set email recipients, connect Slack, Discord or Teams, and fire a real test alert so you see delivery work. That is what lets an agent set monitoring up for you.
+
+Delete is opt-in. The `checks:delete` scope is never granted unless the client asks for it, and the consent screen shows every permission before you approve. You can revoke a connection at any time at [app.exit1.dev/mcp](https://app.exit1.dev/mcp).
 
 ## Who Gets It?
 
-MCP is available on **every plan, including Free** — MCP access follows API access, and every tier can mint an API key. Paid plans raise the key count and the check cadence: 1-minute on Indie, 30-second on Nano, 15-second on Pro.
+MCP is available on **every plan, including Free**. The hosted server has no plan requirement, and every plan can mint an API key for the local package. Normal plan limits still apply: Free covers 50 monitors with 5-minute checks. Paid plans raise the check cadence: 1-minute on Indie, 30-second on Nano, 15-second on Pro.
 
-If you're on the free plan, you already have it. [Mint an API key](https://app.exit1.dev/) and connect.
+If you're on the free plan, you already have it. Run the command above and connect.
 
 ## What's Next
 
-This is v1 — read-only access to your monitoring data. We're already thinking about what comes next: write operations, alert management, and deeper integrations with AI workflows. If you have ideas, [drop by our Discord](https://discord.com/invite/uZvWbpwJZS) and let us know.
+The first version was read-only. Write tools, alert setup and the hosted OAuth server have shipped since then. If you have ideas for what should come next, [drop by our Discord](https://discord.com/invite/uZvWbpwJZS) and let us know.
 
 Full setup guide: [docs.exit1.dev/integrations/mcp](https://docs.exit1.dev/integrations/mcp)
 

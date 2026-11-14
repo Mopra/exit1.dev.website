@@ -40,15 +40,15 @@ const freeColumns: Column[] = [
 const freeRows: Row[] = [
   { feature: 'Monitors', values: ['50', '50', '10', '20'] },
   { feature: 'Check interval', values: ['5 min', '5 min', '3 min', '5 min'] },
-  { feature: 'Multi-region checks', values: [false, true, false, false] },
-  { feature: 'HTTP / TCP / UDP / ICMP / WebSocket', values: [true, 'HTTP only', 'HTTP only', 'HTTP, port, ping'] },
-  { feature: 'SSL certificate monitoring', values: [true, true, false, false] },
-  { feature: 'Domain expiry alerts', values: [false, true, false, false] },
+  { feature: 'Multi-region checks', values: [false, false, false, false] },
+  { feature: 'HTTP / TCP / UDP / ICMP / WebSocket', values: [true, 'HTTP, port, ping', 'HTTP only', 'HTTP, port, ping'] },
+  { feature: 'SSL certificate monitoring', values: [true, false, false, false] },
+  { feature: 'Domain expiry alerts', values: [false, false, false, false] },
   { feature: 'Public status page', values: ['1', '1', '1', '1'] },
   { feature: 'Webhooks', values: ['1', false, false, true] },
-  { feature: 'Slack / Discord / Teams', values: [false, 'Slack only', 'Slack only', 'Basic'] },
+  { feature: 'Slack / Discord / Teams', values: [false, 'Discord only', 'Slack only', 'Basic'] },
   { feature: 'SMS alerts', values: [false, false, false, false] },
-  { feature: 'REST API', values: [true, false, true, true] },
+  { feature: 'REST API', values: [true, true, true, true] },
   { feature: 'Log retention', values: ['60 days', '90 days', '3 days', '2 days'] },
 ];
 
@@ -68,16 +68,16 @@ const paidColumns: Column[] = [
 
 const paidRows: Row[] = [
   { feature: 'Monitors included', values: ['1,000', '100', '10 (add-ons extra)', '50'] },
-  { feature: 'Minimum check interval', values: ['15 sec', '60 sec', '30 sec', '30 sec'] },
+  { feature: 'Minimum check interval', values: ['15 sec', '30 sec', '30 sec', '30 sec'] },
   { feature: 'Multi-region checks', values: [true, true, true, true] },
   { feature: 'HTTP / TCP / UDP / ICMP / WebSocket', values: [true, 'HTTP + keyword', 'HTTP + TCP + DNS', 'HTTP + TCP + DNS'] },
   { feature: 'SSL certificate monitoring', values: [true, true, true, true] },
   { feature: 'Domain expiry alerts', values: [true, true, true, true] },
-  { feature: 'SMS alerts', values: ['50 / month', 'Credits — $0.03+ each', 'Unlimited', '20 / month'] },
+  { feature: 'SMS alerts', values: ['50 / month', '30 credits / month', 'Unlimited', '20 / month'] },
   { feature: 'Slack / Discord / Teams', values: [true, true, true, true] },
   { feature: 'Webhooks', values: ['100', true, true, true] },
   { feature: 'REST API', values: [true, true, true, true] },
-  { feature: 'MCP (Claude, Cursor, Windsurf)', values: [true, false, false, false] },
+  { feature: 'Hosted MCP server', values: [true, true, true, true] },
   { feature: 'Branded status pages', values: ['50 + custom domains', 'Unlimited', 'Multiple', '1 + custom domain'] },
   { feature: 'CSV bulk export', values: [true, false, false, false] },
   { feature: 'Log retention', values: ['3 years', '24 months', 'Unlimited incidents', '7 days'] },
@@ -262,9 +262,8 @@ export default function ComparePage() {
             <ComparisonTable columns={freeColumns} rows={freeRows} />
 
             <p className="mt-4 text-xs text-foreground/40">
-              UptimeRobot matches the 50-monitor count, but its free tier is HTTP-shaped: no SSL
-              expiry tracking, no REST API, and keyword matching in place of real response
-              validation.
+              UptimeRobot matches the 50-monitor count, but its free tier has no SSL expiry
+              tracking, and keyword matching in place of real response validation.
             </p>
           </SectionContent>
         </PageSection>
@@ -288,9 +287,9 @@ export default function ComparePage() {
 
             <div className="mt-6 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-5 text-sm text-foreground/70">
               <strong className="text-foreground">A fair comparison note:</strong> Better Stack&apos;s
-              Responder plan includes just 10 monitors at its base price — scaling to 50 adds
-              roughly $21–$25/month. UptimeRobot Team includes 30 SMS a month. Hyperping Essentials includes 20. Exit1 Pro bundles 50 SMS, REST
-              API, and MCP for AI assistants at the lowest sticker price in this row.
+              Responder plan includes just 10 monitors at its base price. Scaling to 50 adds
+              roughly $21 to $25/month. UptimeRobot Team includes 30 SMS and voice credits a month. Hyperping Essentials includes 20 SMS. Exit1 Pro bundles 50 SMS
+              and 1,000 monitors at $24/mo. All four have a REST API and a hosted MCP server.
             </div>
           </SectionContent>
         </PageSection>
@@ -363,16 +362,16 @@ export default function ComparePage() {
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong className="text-foreground">Exit1 Free</strong> is the only free tier with
-                    TCP, UDP, WebSocket, and ICMP checks — not just HTTP pings.
+                    <strong className="text-foreground">Exit1 Free</strong> is the only free tier here with
+                    UDP and WebSocket checks, on top of HTTP, TCP and ICMP.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-warning mt-0.5 flex-shrink-0" />
                   <span>
                     <strong className="text-foreground">Exit1 Pro at $24/mo</strong> is the cheapest
-                    plan in this comparison that ships with 15-second checks, 50 SMS, REST API,
-                    and MCP — all bundled, no add-ons.
+                    plan in this comparison that ships with 15-second checks, 50 SMS, a REST API
+                    and an MCP server, all bundled with no add-ons.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -385,8 +384,9 @@ export default function ComparePage() {
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-warning mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong className="text-foreground">MCP access</strong> means you can query your
-                    checks directly from Claude, Cursor, or Windsurf — nobody else offers this.
+                    <strong className="text-foreground">MCP on every plan</strong>, Free included. Claude,
+                    Cursor or Windsurf can create your checks and alerts, then fire a test alert
+                    to prove delivery works.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
