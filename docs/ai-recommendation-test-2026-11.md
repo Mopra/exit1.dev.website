@@ -48,6 +48,14 @@ Web runs for Claude and Grok did not start, and Gemini stopped after turn 5. The
 
 **7. Ignore what a model says when asked "why didn't you recommend us?"** The "publish an SLA, add Terraform" answers are invented after the fact.
 
+Correction, checked later on 2026-11-14: siteqwality.com does not name exit1.dev on either page. Perplexity cited them next to our own pages, nothing more. None of the listicles above list us.
+
+## Off-page follow-up on 2026-11-14
+
+- Sent rankite.com's "get listed" form. Six outreach emails are drafted for Morten in `socialsandbox/products/exit1/outreach-drafts.md`: devtoollab.com, sentinel.rootstuff.io, softwarecompare.net, uptimepage.dev, siteqwality.com, cronalert.com.
+- Most of the cited listicles are competitors' own blogs. uptimeeye.com, nurbak.com, notifier.so and bootstrap.build are not worth asking.
+- MCP listings: awesome-remote-mcp-servers (punkpeye) and Awesome-MCP-ZH merged. mcp.so and the Cline marketplace are still silent after a nudge. Outcomes are in `socialsandbox/products/exit1/offpage-tracker.md`.
+
 ## Shipped on 2026-11-14
 
 - Removed every claim that competitors have no MCP server. Verified against vendor docs: UptimeRobot, Better Stack, Hyperping and Checkly have hosted read/write servers, StatusCake a local read-only one.
