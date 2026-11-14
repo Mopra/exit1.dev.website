@@ -24,12 +24,13 @@ Scripts are in `scripts/ai-recommendation-test/`. Run with `K=<openrouter key> n
 | Perplexity (original chat) | Web | No | Only after being asked by name. |
 | Perplexity Sonar | Web | Turn 4, dropped again at turn 5 | Cited exit1.dev/free-uptime-monitor, glama.ai, mcpbundles.com. |
 | GPT 6.1 Terra | Web | Turn 5 | Recommended Nano. Cited exit1.dev/pricing. |
+| Gemini 4 Hydrogen | Web | No (turns 1 to 5) | Turn 5 answer: HetrixTools and Pulsetic. Ran out of credit before turn 6. |
 | GPT 6.1 Terra | Memory | No | Turn 6: "I can't verify its pricing or MCP support." |
 | Gemini 4 Hydrogen | Memory | No | Turn 6: does not know the product. |
 | Claude Sonnet 5.5 | Memory | No | Turn 5 answer: Gatus on a cheap VPS. |
 | Grok 4.7 | Memory | No | Turn 6: read "exit1" as the shell exit code and wrote a bash script. |
 
-Web runs for Gemini, Claude and Grok did not finish. The OpenRouter account ran out of credit ($0.64 of the $2 key budget was spent). One run per model, so treat single results as anecdotes. Answers change between runs.
+Web runs for Claude and Grok did not start, and Gemini stopped after turn 5. The OpenRouter account ran out of credit ($0.64 of the $2 key budget was spent). One run per model, so treat single results as anecdotes. Answers change between runs.
 
 ## What it tells us
 
